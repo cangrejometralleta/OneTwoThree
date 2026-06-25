@@ -1,6 +1,8 @@
 # OneTwoThree
 > Version: 0.1.0
+>
 > Because we Hate making Documentation.
+>
 > Thanks De La Soul, Damon Albarn and Grandma COBOL
 > for Inspiring this Project.
 
