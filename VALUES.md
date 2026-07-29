@@ -7,6 +7,9 @@
   in the same Language nowadays.
 - Elegance Comes from Simplicity,  
   both Feel Natural to us Humans.
+- Minimalism here is not a Style.  
+  Autistic Burnout Taught the Limit,  
+  and Living it Came before Writing it.
 - One is the Minimum  
   Number of Items  
   to Hold in Mind at a Time.
@@ -15,9 +18,6 @@
   with maximum Relational Richness.
 - Three is the ideal maximum Number of Items  
   to Hold in Mind at the same Time.
-- This Limit was Lived before it was Written.  
-  Autistic Burnout Taught it,  
-  Minimalism only Named it.
 - When Expressing Yourself,  
   Use the least meaningful Words possible.
 - A Line should Not be very Long  
