@@ -9,8 +9,14 @@
 
 
 ## Rhythm
-- Count the Syllables in a Line  
-  and Land on an odd Number.
+- Contrast Carries the Line.  
+  A short Line after a long one  
+  Lands like a loud Chorus.
+- Never Write every Line the same Length.  
+  Uniform Text Hides what Matters.
+- Count the Syllables if it Helps,  
+  and an odd Number often Swings.  
+  The Count is a Signal, not a Law.
 - The Haiku Counts five, seven, five.  
   Every Line it Holds Lands odd.
 - A Name that Says an Action Counts too.  
@@ -20,8 +26,6 @@
 - Four is the Beat, three is the Phrase.  
   They Meet again every twelve,  
   so the Tension always Resolves.
-- An even Line Marches,  
-  an odd Line Swings.
 
 
 ## Emoji
