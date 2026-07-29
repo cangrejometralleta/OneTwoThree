@@ -78,6 +78,20 @@
   what they cannot Predict.
 
 
+## Three over Four
+- The Bar Counts four, the Phrase Counts three.
+- A three-Group over a four-Grid
+  Lands somewhere new each Time.
+- After twelve Beats they Meet again,
+  and the Phrase Closes.
+- Tension that Resolves is Groove.
+  Tension that never Resolves is Noise.
+- The Three does not Fight the Four,
+  it Travels across it and Comes back.
+- This is why the odd Line Swings
+  and the even Line Marches.
+
+
 ## Lineage
 - OneTwoThreeCase — the typographic Convention.
 - De La Soul RoTaTion — the structural Principle.

@@ -8,6 +8,20 @@
 - Connectors are in lowercase
 
 
+## Rhythm
+- Count the Syllables in a Line  
+  and Land on an odd Number.
+- The Haiku Counts five, seven, five.  
+  Every Line it Holds Lands odd.
+- A Name Counts too.  
+  SumItemPrices Runs five Syllables.
+- Four is the Beat, three is the Phrase.  
+  They Meet again every twelve,  
+  so the Tension always Resolves.
+- An even Line Marches,  
+  an odd Line Swings.
+
+
 ## Emoji
 - An Emoji Earns its Place  
   only when it Speeds up Reading.
@@ -99,13 +113,13 @@ func FormatItemLine(it Item) string {
 	return fmt.Sprintf("%-12s x%d %6d", it.Name, it.Qty, it.Price*it.Qty)
 }
 
-// ApplyMemberDiscount Lowers a Total by a Percentage.
-func ApplyMemberDiscount(total, percent int) int {
+// ApplyMemberRate Lowers a Total by a Percentage.
+func ApplyMemberRate(total, percent int) int {
 	return total - total*percent/100
 }
 
-// ReportOrderStatus Says how it Went, at a Glance.
-func ReportOrderStatus(id string, total int, err error) string {
+// ReportOrderState Says how it Went, at a Glance.
+func ReportOrderState(id string, total int, err error) string {
 	if err != nil {
 		return fmt.Sprintf("❌ Order %s Failed: %v", id, err)
 	}
@@ -115,14 +129,14 @@ func ReportOrderStatus(id string, total int, err error) string {
 // BuildOrderReceipt Reads as three Sections: Total, Lines, Result.
 func BuildOrderReceipt(id string, items []Item, percent int) string {
 	total := SumItemPrices(items)
-	total = ApplyMemberDiscount(total, percent)
+	total = ApplyMemberRate(total, percent)
 
 	lines := make([]string, 0, len(items))
 	for _, it := range items {
 		lines = append(lines, FormatItemLine(it))
 	}
 
-	lines = append(lines, ReportOrderStatus(id, total, nil))
+	lines = append(lines, ReportOrderState(id, total, nil))
 	return strings.Join(lines, "\n")
 }
 ```
@@ -133,3 +147,4 @@ func BuildOrderReceipt(id string, items []Item, percent int) string {
 - Comments Follow OneTwoThreeCase too.
 - BuildOrderReceipt Runs eight Lines  
   and still Reads as three.
+- Every Name here Counts five Syllables.
