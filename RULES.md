@@ -49,3 +49,48 @@
   Suggests a missing Action.
 - A Unit with no clear Return  
   Breaks the Rotation.
+
+
+## Code
+Go, because the Rules above Read better when they Run.
+
+```go
+// Item is one Line of an Order.
+type Item struct {
+	Name  string
+	Price int
+	Qty   int
+}
+
+// SumItemPrices Adds every Line into a Total.
+func SumItemPrices(items []Item) int {
+	total := 0
+	for _, it := range items {
+		total += it.Price * it.Qty
+	}
+	return total
+}
+
+// FormatItemLine Renders one Item for the Receipt.
+func FormatItemLine(it Item) string {
+	return fmt.Sprintf("%-12s x%d %6d", it.Name, it.Qty, it.Price*it.Qty)
+}
+
+// ApplyMemberDiscount Lowers a Total by a Percentage.
+func ApplyMemberDiscount(total, percent int) int {
+	return total - total*percent/100
+}
+
+// ReportOrderStatus Says how it Went, at a Glance.
+func ReportOrderStatus(id string, total int, err error) string {
+	if err != nil {
+		return fmt.Sprintf("❌ Order %s Failed: %v", id, err)
+	}
+	return fmt.Sprintf("✅ Order %s Closed at %d", id, total)
+}
+```
+
+- Every Name Follows **Verb + Noun + context**.
+- Every Function Owns one Concern and Returns it.
+- The Emoji Lives in Output, never in a Name.
+- Comments Follow OneTwoThreeCase too.
