@@ -78,6 +78,24 @@
   what they cannot Predict.
 
 
+## The Program is a Song
+- A Song does not Explain its Chords,
+  it just Plays them.
+- The Libretto Names what Happens,
+  never how the Pit Plays it.
+- A Reader Should Follow the Plot
+  before Opening a single Provider.
+- Every Layer Speaks one Language:
+  the Script Speaks Business,
+  the Provider Speaks Machine.
+- Mixing the two Languages in one Unit
+  is the Missing Abstraction, Heard.
+- Naur Called it the Theory of the Program.
+  A Script is that Theory, Written down.
+- Code that Reads as Narration
+  Outlives the Author who Wrote it.
+
+
 ## Three over Four
 - The Bar Counts four, the Phrase Counts three.
 - A three-Group over a four-Grid
