@@ -8,6 +8,9 @@
 >
 > Thanks De La Soul, Grandma COBOL and John Cage
 > for Inspiring this Project.
+>
+> And Damon Albarn, who Closed the Circle:
+> Feel Good Inc Carries De La Soul inside it.
 
 
 ## License
