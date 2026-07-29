@@ -10,6 +10,7 @@ import (
 )
 
 // StdlibServer Serves the Routes with net/http alone.
+// Reference: https://pkg.go.dev/net/http#ServeMux
 type StdlibServer struct{}
 
 // ServeRoutes Mounts every Route on a stdlib Mux.
@@ -38,6 +39,7 @@ func StdlibHandlerFor(route Route) http.HandlerFunc {
 }
 
 // ChiServer Serves the same Routes with chi.
+// Reference: https://pkg.go.dev/github.com/go-chi/chi/v5
 type ChiServer struct{}
 
 // ServeRoutes Mounts every Route on a chi Router.
@@ -67,6 +69,7 @@ func ChiHandlerFor(route Route) http.HandlerFunc {
 
 // GinServer Serves the same Routes with gin.
 // Gin Owns its own Context, so this Adapter Carries the most Work.
+// Reference: https://pkg.go.dev/github.com/gin-gonic/gin
 type GinServer struct{}
 
 // ServeRoutes Mounts every Route on a gin Engine.

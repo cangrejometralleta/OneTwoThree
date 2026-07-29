@@ -1,0 +1,19 @@
+{
+  "name": "school-ts",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "tsc",
+    "start": "node dist/main.js",
+    "test": "tsc && node --test dist/school.test.js"
+  },
+  "dependencies": {
+    "express": "^5.1.0",
+    "fastify": "^5.6.1"
+  },
+  "devDependencies": {
+    "@types/express": "^5.0.0",
+    "@types/node": "^22.0.0",
+    "typescript": "^5.6.0"
+  }
+}
