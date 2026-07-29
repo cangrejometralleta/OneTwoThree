@@ -10,17 +10,17 @@
 
 ## Rhythm
 - Contrast Carries the Line.  
-  A short Line after a long one  
-  Lands like a loud Chorus.
-- Never Write every Line the same Length.  
-  Uniform Text Hides what Matters.
-- Count the Syllables if it Helps,  
-  and an odd Number often Swings.  
-  The Count is a Signal, not a Law.
+  A short one after a long one Lands like a Chorus.
+- Uniform Text Hides what Matters.  
+  Never Write every Line the same Length,  
+  not in Prose and not in Code.
+- Count the Syllables if it Helps.  
+  Odd often Swings.  
+  But a Signal is not a Law, and the Count is only a Signal.
 - The Haiku Counts five, seven, five.  
-  Every Line it Holds Lands odd.
+  Every Line Lands odd.
 - A Name that Says an Action Counts too.  
-  SumItemPrices Runs five Syllables.
+  SumItemPrices Runs five.
 - A bare Noun Keeps its own Count.  
   Order is Order, whatever it Sounds like.
 - Four is the Beat, three is the Phrase.  
@@ -34,7 +34,7 @@
 ## Emoji
 - An Emoji Earns its Place  
   only when it Speeds up Reading.
-- Use it to Mark a State at a Glance:  
+- Use it to Mark a State:  
   ✅ Passed, ❌ Failed, ⚠️ Careful.
 - Keep it in Output, Comments and Docs,  
   never in an Identifier  
@@ -48,21 +48,20 @@
   Are the Ideal Size Target.
 - More Lines Signal a missing Abstraction Layer.
 - When the Body Earns more Lines,  
-  Group them into three Sections,  
-  one blank Line between each.
-- Three Sections Read like three Lines,  
-  so the Rhythm Survives the Length.
+  Group them into three,  
+  one blank Line between each Section.
+- Three Sections Read like three Lines.  
+  The Rhythm Survives.
 
 
 ## Script
 - The Program is a Story,  
   and the Handler is its Script.
-- Main Casts the Players,  
-  then Steps off the Stage.
+- Main Casts the Players, then Steps off the Stage.
 - A Handler Speaks Business only.  
   It Names no Driver, no Query, no Socket.
 - A Provider Holds the Mechanism,  
-  so the Script Stays a Story.
+  so the Script Stays a Story and nothing more.
 - Read a Handler out loud.  
   If it stops Sounding like a Sentence,  
   an Abstraction is Missing.
@@ -73,14 +72,12 @@
 ## Naming
 - Functions Follow  
   **Verb + Noun + context** rhythm
-- A Name longer than Three Words  
-  Suggests unclear Responsibility.
+- A Name longer than Three Words Suggests unclear Responsibility.
 - A Variable that Travels Holds three Words,  
-  joined by the Case its Language Uses.
+  joined by its Language.
 - A Variable that Lives in three Lines  
   Holds one Word, because the Scope Says the rest.
-- Three Words Fit in Memory,  
-  and they Survive a Rename.
+- Three Words Fit in Memory and Survive a Rename.
 
 ```text
 sumItemPrices      JavaScript, Go unexported
