@@ -61,6 +61,10 @@
   what the Author would not have Chosen.
 - Cage Tossed the I Ching
   and let the Coins Compose.
+- Ross Called them happy Accidents
+  and Painted the Tree the Slip Suggested.
+- Cage Invited the Chaos,
+  Ross Absorbed the one that Arrived.
 - A Machine Hallucinates the same way:
   it Rolls the Dice and Offers a Result.
 - Most of it is Noise,
@@ -81,6 +85,7 @@
 - Dev La Soul — the Author under this Roof.
 - Grandma COBOL — Readability as an Ancestor.
 - John Cage — Silence and Chance as Ancestors.
+- Bob Ross — the happy Accident as an Ancestor.
 
 
 ## Provenance
