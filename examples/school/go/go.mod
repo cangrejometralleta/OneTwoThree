@@ -1,4 +1,4 @@
-module github.com/cangrejometralleta/OneTwoThree/examples/roster
+module github.com/cangrejometralleta/OneTwoThree/examples/school/go
 
 go 1.25.0
 

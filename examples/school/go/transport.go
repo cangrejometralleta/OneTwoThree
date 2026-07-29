@@ -11,6 +11,7 @@ import (
 type Request struct {
 	Path  map[string]string
 	Query map[string]string
+	Token string
 	Body  []byte
 }
 
@@ -31,13 +32,14 @@ type Route struct {
 	Handle  Handler
 }
 
-// Server is the Contract every Adapter Fulfils.
+// Server is the Contract every HTTP Adapter Fulfils.
 // Swapping Frameworks Means Swapping the Value behind this Interface.
 type Server interface {
 	ServeRoutes(routes []Route, address string) error
 }
 
 // ReadRequestValues Copies an http Request into our own Shape.
+// Reference: https://pkg.go.dev/net/http#Request
 func ReadRequestValues(r *http.Request, path map[string]string) Request {
 	body, _ := io.ReadAll(r.Body)
 
@@ -46,7 +48,15 @@ func ReadRequestValues(r *http.Request, path map[string]string) Request {
 		query[key] = values[0]
 	}
 
-	return Request{Path: path, Query: query, Body: body}
+	return Request{Path: path, Query: query, Token: ReadBearerToken(r), Body: body}
+}
+
+// ReadBearerToken Pulls the Token out of the Authorization Header.
+// Reference: https://datatracker.ietf.org/doc/html/rfc6750#section-2.1
+func ReadBearerToken(r *http.Request) string {
+	header := r.Header.Get("Authorization")
+
+	return strings.TrimPrefix(header, "Bearer ")
 }
 
 // ListPatternParams Finds every {name} inside a Route Pattern.

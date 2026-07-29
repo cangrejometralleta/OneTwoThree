@@ -20,6 +20,8 @@
   to Hold in Mind at the same Time.
 - When Expressing Yourself,  
   Use the least meaningful Words possible.
+- What you Depend on  
+  Should stay a Choice you can Unmake.
 - A Line should Not be very Long  
   and still be Readable.
 - Reading a Line should  
