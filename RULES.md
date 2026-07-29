@@ -26,6 +26,9 @@
 - Four is the Beat, three is the Phrase.  
   They Meet again every twelve,  
   so the Tension always Resolves.
+- A List Stays parallel.  
+  A Paragraph Varies.  
+  Contrast is for Prose, never for an Index.
 
 
 ## Emoji
@@ -107,6 +110,10 @@ Sum Item Prices    Markdown, OneTwoThreeCase
 
 ## Code
 Go, because the Rules above Read better when they Run.
+
+A whole Service Lives in [examples/people](examples/people),
+with GORM, DTOs and five Endpoints.
+It Compiles, and it Runs.
 
 ```go
 import (
