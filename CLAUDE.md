@@ -57,10 +57,11 @@ Repo público bajo The Unlicense: github.com/cangrejometralleta/OneTwoThree
 
 ## Conceptos Acuñados
 
-- **OneTwoThreeCase**: convención tipográfica para Markdown. La primera letra
-  de una oración se capitaliza; Entidades, Acciones y Propiedades se capitalizan;
-  los conectores quedan en minúscula. Hace el texto auto-documentado
-  semánticamente. (Renombrado desde un "TriCase" anterior.)
+- **OneTwoThreeCase**: convención tipográfica para Markdown. Una palabra
+  capitalizada señala que es importante: Entidades, Acciones y Estados se
+  capitalizan, igual que la primera palabra de una oración; los conectores
+  quedan en minúscula. Hace el texto auto-documentado semánticamente.
+  (Renombrado desde un "TriCase" anterior.)
 - **De La Soul RoTaTion**: principio estructural — tres elementos, tres pares,
   ningún centro. La rotación reemplaza a la jerarquía.
 - **Dev La Soul**: pseudónimo / identidad creativa del proyecto. Reúne tres
@@ -72,13 +73,12 @@ Repo público bajo The Unlicense: github.com/cangrejometralleta/OneTwoThree
 
 ## Reglas Canónicas (resumen; la fuente es RULES.md)
 
-- Cada unidad tiene tres responsabilidades como máximo:
-  **Receive → Transform → Return**.
 - Funciones de tres líneas como tamaño ideal; más líneas señalan una capa de
   abstracción faltante.
+- Responsabilidad única: una función hace una sola cosa.
 - Nombres con ritmo **Verb + Noun + context**; más de tres palabras sugiere
   responsabilidad poco clara; un nombre sin verbo sugiere una acción faltante.
-- Más de tres dependencias sugieren un desbalance de rotación.
+- Más de tres responsabilidades sugieren una capa de abstracción faltante.
 - Una unidad sin retorno claro rompe la rotación.
 
 
