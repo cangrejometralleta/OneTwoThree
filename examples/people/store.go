@@ -56,7 +56,11 @@ func (g GormPeople) SelectPersonRow(id PersonID) (Person, error) {
 func (g GormPeople) UpdatePersonRow(p Person) (Person, error) {
 	row := EncodePersonRow(p)
 
-	result := g.DB.Model(&PersonRow{}).Where("id = ?", row.ID).Updates(row)
+	result := g.DB.
+		Model(&PersonRow{}).
+		Where("id = ?", row.ID).
+		Updates(row)
+
 	if result.RowsAffected == 0 {
 		return Person{}, ErrPersonUnknown
 	}
