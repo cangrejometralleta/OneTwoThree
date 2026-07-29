@@ -30,6 +30,27 @@
   and Debugging is Rapping.
 
 
+## Principles
+- Three is a Source, not a Count.  
+  You Derive from Three,  
+  you do not Reach it.
+- Two is a Line, Three is a Shape.  
+  Below Three there is no Rotation,  
+  above Three it turns to Noise.
+- Three Elements form Three Pairs,  
+  and no Center.  
+  Rotation replaces Hierarchy.
+- A Limit Generates Quality.  
+  Restriction Forces you to Choose,  
+  and Choosing is Design.
+- One Acts, Two Waits, Three Sees.  
+  Action, Pause and Perspective,  
+  the Rhythm the Name Keeps.
+- The same Three Works everywhere,  
+  in Music, in Prose, in Design,  
+  and in Code.
+
+
 ## Approaches
 - Take it easy, We Have one Life and Share one Planet.
 - Keep it simple, stupid (KISS).
