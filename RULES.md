@@ -58,7 +58,7 @@ func CheckOrderRecord(o Order) bool {
 ```
 
 Three Conditions, three Names, one Return.
-The Chain in [examples/people/store.go](examples/people/store.go)
+The Chain in [store_gorm.go](examples/school/go/store_gorm.go)
 Breaks at the Dot for the same Reason.
 
 
@@ -100,6 +100,26 @@ Breaks at the Dot for the same Reason.
   a Start, a Turn and an End.
 
 
+## Providers
+- A Provider is an Interface the Core Declares  
+  and something outside Fulfils.
+- The Core Depends on the Shape.  
+  Never on the Library behind it.
+- Name the Provider after the Business Need,  
+  never after the Vendor.  
+  StudentStore, not GormRepository.
+- One Struct May Fulfil several Providers.  
+  One Provider Must never Leak its Vendor.
+- Comment each Provider with the URL  
+  of the Contract it Wraps.  
+  A Reader Should not have to Search.
+- Count the Files that Import a Vendor.  
+  If the Count Grows past one, the Provider Failed.
+- The Word Collides with Angular, NestJS and Terraform,  
+  where a Provider is a registered Dependency.  
+  Here it is a Port.
+
+
 ## Naming
 - Functions Follow  
   **Verb + Noun + context** rhythm
@@ -138,10 +158,6 @@ Sum Item Prices    Markdown, OneTwoThreeCase
 
 ## Code
 Go, because the Rules above Read better when they Run.
-
-A whole Service Lives in [examples/people](examples/people),
-with GORM, DTOs and five Endpoints.
-It Compiles, and it Runs.
 
 ```go
 import (
@@ -206,93 +222,10 @@ func BuildOrderReceipt(id string, items []Item, percent int) string {
   and still Reads as three.
 - Every Name here Counts five Syllables.
 
-The same Package Continues. Main Casts, the Handler Narrates,
-the Provider Works.
+Two whole Services Live in [examples/school](examples/school),
+one in Go and one in TypeScript.
+Six Frameworks Serve them and Return identical Answers.
 
-```go
-import (
-	"fmt"
-	"net/http"
-)
-
-// Order is one Purchase a Member Made.
-type Order struct {
-	ID       string
-	MemberID string
-	Items    []Item
-}
-
-// OrderStore Finds Orders wherever they Live.
-type OrderStore interface {
-	LoadOrderRecord(id string) (Order, error)
-}
-
-// RateSource Knows what a Member Earns.
-type RateSource interface {
-	LoadMemberRating(id string) (int, error)
-}
-
-// App Holds the Cast the Story Needs.
-type App struct {
-	Orders OrderStore
-	Rates  RateSource
-}
-
-// ServeOrderTotal Tells the Story of one Order.
-func (a *App) ServeOrderTotal(w http.ResponseWriter, r *http.Request) {
-	order, err := a.Orders.LoadOrderRecord(r.PathValue("id"))
-	if err != nil {
-		http.Error(w, "❌ Order not Found", http.StatusNotFound)
-		return
-	}
-
-	rate, err := a.Rates.LoadMemberRating(order.MemberID)
-	if err != nil {
-		rate = 0
-	}
-
-	total := ApplyMemberRate(SumItemPrices(order.Items), rate)
-	fmt.Fprint(w, ReportOrderState(order.ID, total, nil))
-}
-
-// main Casts the Players, then Steps off the Stage.
-func main() {
-	app := &App{Orders: MemoryOrders{}, Rates: MemoryRates{}}
-
-	http.HandleFunc("GET /orders/{id}/total", app.ServeOrderTotal)
-
-	if err := http.ListenAndServe(":8080", nil); err != nil {
-		fmt.Println("❌ Server Stopped:", err)
-	}
-}
-```
-
-```go
-import "fmt"
-
-// MemoryOrders Serves Orders from a Map.
-type MemoryOrders map[string]Order
-
-// LoadOrderRecord Finds one Order or Says why not.
-func (m MemoryOrders) LoadOrderRecord(id string) (Order, error) {
-	order, found := m[id]
-	if !found {
-		return Order{}, fmt.Errorf("order %q not Found", id)
-	}
-	return order, nil
-}
-
-// MemoryRates Serves Ratings from a Map.
-type MemoryRates map[string]int
-
-// LoadMemberRating Reads a Rate, Zero when Absent.
-func (m MemoryRates) LoadMemberRating(id string) (int, error) {
-	return m[id], nil
-}
-```
-
-- ServeOrderTotal Names no Driver and no Query.
-- Read it out loud and it is still a Sentence.
-- Its three Sections are Load, Adjust and Answer.
-- The Provider Holds the Map,  
-  so the Script never Mentions one.
+- A Handler there Names no Driver and no Query.
+- Read one out loud and it is still a Sentence.
+- Two Files Hold every Vendor Import.
