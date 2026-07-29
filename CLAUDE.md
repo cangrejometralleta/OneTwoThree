@@ -1,7 +1,7 @@
 # CLAUDE.md — Contexto y Evidencia de OneTwoThree
 
 > Este archivo NO es la fuente de verdad del proyecto.
-> La canon vive en README / VALUES / RULES, que se explican solos.
+> La canon vive en README / VALUES / RULES / PATTERNS, que se explican solos.
 > Esto es un índice de rescate: consolida el contexto y la evidencia
 > anecdótica dispersa en las conversaciones del proyecto,
 > para no depender de la memoria de un chat.
@@ -13,13 +13,15 @@
 ## Qué es OneTwoThree
 
 Un manifiesto minimalista de diseño —para código y para prosa— estructurado
-en tres archivos Markdown que se leen con ritmo de "uno, dos, tres":
+en archivos Markdown que se leen con ritmo de "uno, dos, tres":
 
 - **README** — *Qué* es el proyecto (índice y presentación)
 - **VALUES** — *Por qué* existe (filosofía y creencias)
 - **RULES** — *Cómo* se aplica (convenciones y patrones)
+- **PATTERNS** — *De dónde viene* el porqué (raíces inter-dominio)
 
-Qué / Por qué / Cómo: la primera tríada del proyecto está en su propia estructura.
+El reparto canónico está en la sección Provenance de PATTERNS.md: README el Qué,
+VALUES el Porqué, RULES el Cómo, PATTERNS de dónde viene el Porqué.
 Está pensado para leerse como manifiesto humano y a la vez importarse como
 contexto para agentes (Continue.dev, Cursor, Claude Code).
 Repo público bajo The Unlicense: github.com/cangrejometralleta/OneTwoThree
