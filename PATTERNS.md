@@ -69,9 +69,8 @@
 - OneTwoThreeCase Works for this Reason:
   the lowercase Connector Makes
   the Capitalized Word Land.
-- Count the Syllables if it Helps,
-  but the Count is the Signal
-  and the Contrast is the Cause.
+- Count the Syllables if it Helps.
+  The Count is the Signal, the Contrast is the Cause.
 
 
 ## The Even Hand
@@ -118,32 +117,31 @@
 - A Song does not Explain its Chords,
   it just Plays them.
 - The Libretto Names what Happens,
-  never how the Pit Plays it.
-- A Reader Should Follow the Plot
-  before Opening a single Provider.
-- Every Layer Speaks one Language:
-  the Script Speaks Business,
-  the Provider Speaks Machine.
-- Mixing the two Languages in one Unit
+  never how.
+- A Reader Should Follow the whole Plot
+  before Opening one Provider.
+- Every Layer Speaks one Language.
+  The Script Speaks Business,
+  the Provider Speaks Machine and nothing else.
+- Mixing the two in one Unit
   is the Missing Abstraction, Heard.
 - Naur Called it the Theory of the Program.
-  A Script is that Theory, Written down.
+  A Script is that Theory.
 - Code that Reads as Narration
-  Outlives the Author who Wrote it.
+  Outlives its Author.
 
 
 ## Three over Four
 - The Bar Counts four, the Phrase Counts three.
 - A three-Group over a four-Grid
-  Lands somewhere new each Time.
+  Lands somewhere new.
 - After twelve Beats they Meet again,
   and the Phrase Closes.
 - Tension that Resolves is Groove.
-  Tension that never Resolves is Noise.
-- The Three does not Fight the Four,
-  it Travels across it and Comes back.
-- This is why the odd Line Swings
-  and the even Line Marches.
+  Tension that never Resolves is only Noise.
+- The Three does not Fight the Four.
+  It Crosses, and Returns.
+- This is why an odd Line often Swings.
 
 
 ## Lineage
