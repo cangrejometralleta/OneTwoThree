@@ -19,3 +19,4 @@ Do whatever you want with it.
 ## Documents
 - [Values](VALUES.md) — Philosophy and beliefs behind OneTwoThree
 - [Rules](RULES.md) — Patterns and conventions to apply
+- [Patterns](PATTERNS.md) — Where the Why Comes from
