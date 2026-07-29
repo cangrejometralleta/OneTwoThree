@@ -3,6 +3,9 @@
 >
 > Because we Hate making Documentation.
 >
+> The Limit behind all of this was Lived before it was Written.
+> Autistic Burnout Taught it, Minimalism only Named it.
+>
 > Thanks De La Soul, Damon Albarn and Grandma COBOL
 > for Inspiring this Project.
 
