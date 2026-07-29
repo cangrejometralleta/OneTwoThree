@@ -24,6 +24,11 @@
 - Three-line Functions  
   Are the Ideal Size Target.
 - More Lines Signal a missing Abstraction Layer.
+- When the Body Earns more Lines,  
+  Group them into three Sections,  
+  one blank Line between each.
+- Three Sections Read like three Lines,  
+  so the Rhythm Survives the Length.
 
 
 ## Naming
@@ -55,6 +60,11 @@
 Go, because the Rules above Read better when they Run.
 
 ```go
+import (
+	"fmt"
+	"strings"
+)
+
 // Item is one Line of an Order.
 type Item struct {
 	Name  string
@@ -88,9 +98,25 @@ func ReportOrderStatus(id string, total int, err error) string {
 	}
 	return fmt.Sprintf("✅ Order %s Closed at %d", id, total)
 }
+
+// BuildOrderReceipt Reads as three Sections: Total, Lines, Result.
+func BuildOrderReceipt(id string, items []Item, percent int) string {
+	total := SumItemPrices(items)
+	total = ApplyMemberDiscount(total, percent)
+
+	lines := make([]string, 0, len(items))
+	for _, it := range items {
+		lines = append(lines, FormatItemLine(it))
+	}
+
+	lines = append(lines, ReportOrderStatus(id, total, nil))
+	return strings.Join(lines, "\n")
+}
 ```
 
 - Every Name Follows **Verb + Noun + context**.
 - Every Function Owns one Concern and Returns it.
 - The Emoji Lives in Output, never in a Name.
 - Comments Follow OneTwoThreeCase too.
+- BuildOrderReceipt Runs eight Lines  
+  and still Reads as three.
