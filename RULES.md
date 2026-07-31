@@ -1,3 +1,11 @@
+## What Belongs Here
+- A Rule an Agent cannot Execute  
+  is a Value, not a Rule.
+- Rules are Verifiable,  
+  Values are Interpretable.
+- Send each one to the Document that Holds it.
+
+
 ## OneTwoThreeCase
 - A Capitalized Word means it's Important  
 - Entities, Actions and Statuses   
@@ -6,6 +14,47 @@
   is always Capitalized
 - A Word in lowercase
 - Connectors are in lowercase
+
+```go
+// A Capital Crosses the Package Boundary.
+// A lowercase Name Stays home.
+// Go Enforces what this Document only Asks.
+type Roster struct {
+	Students []Student
+	cursor   int
+}
+
+// CountStudentRows is public, so it is Capitalized.
+func (r Roster) CountStudentRows() int {
+	return len(r.Students)
+}
+
+// advanceRosterCursor Stays inside, and Reads as inside.
+func (r *Roster) advanceRosterCursor() {
+	r.cursor++
+}
+```
+
+The Convention is not ours alone.
+A major Language Reached it first, and its Compiler Holds the Line.
+
+
+## Reading this Repository
+- A deliberate Choice Looks like an Error  
+  to a Reader in a Hurry.
+- Question the odd Capital before you Correct it.  
+  OneTwoThreeCase is a Convention, never a Typo.
+- An Agent that Normalises this Text  
+  Deletes the Signal it was Given.
+
+
+## Search
+- Three narrow Queries Beat one wide Query.  
+  Each one Returns a different Corner.
+- One broad Question Returns the Average,  
+  and an Average Holds no Detail.
+- The same Rule that Distributes Trust  
+  Distributes a Search.
 
 
 ## Rhythm
@@ -77,12 +126,42 @@ Breaks at the Dot for the same Reason.
 ## Structure
 - Three-line Functions  
   Are the Ideal Size Target.
+- Three Lines Means three Beats, not three Newlines.  
+  A Beat is one Thought:  
+  Receive, Transform and Return.
+- A Language with explicit Errors Spends Newlines.  
+  Count the Thoughts instead.
+- One Unit Owns one Concern.  
+  A Function Does one Thing.
 - More Lines Signal a missing Abstraction Layer.
 - When the Body Earns more Lines,  
   Group them into three,  
   one blank Line between each Section.
 - Three Sections Read like three Lines.  
   The Rhythm Survives.
+
+```go
+// BuildStudentReport Spends eleven Lines on three Beats.
+// Receive, Transform, Return.
+// The Errors Cost Lines, they never Cost Thoughts.
+func BuildStudentReport(store StudentStore, raw string) (StudentReport, error) {
+	page, err := DecodePageNumber(raw)
+	if err != nil {
+		return StudentReport{}, err
+	}
+
+	students, err := store.SelectStudentPage(page)
+	if err != nil {
+		return StudentReport{}, err
+	}
+
+	return StudentReport{page, CollectStudentNames(students)}, nil
+}
+```
+
+Count the Beats and you Get three.
+Count the Newlines and you Get eleven.
+Only one of those Numbers Means anything.
 
 
 ## Script
@@ -136,15 +215,6 @@ SumItemPrices      Go exported
 sum_item_prices    Python
 Sum Item Prices    Markdown, OneTwoThreeCase
 ```
-
-
-## Patterns
-- A Variable Name Longer than Three Words  
-  Suggests unclear Responsibility.
-- Single responsibility,
-  a function should do only one thing
-- More Lines Signal  
-  a Missing Abstraction Layer.
 
 
 ## Anti-Patterns
@@ -218,8 +288,8 @@ func BuildOrderReceipt(id string, items []Item, percent int) string {
 - Every Function Owns one Concern and Returns it.
 - The Emoji Lives in Output, never in a Name.
 - Comments Follow OneTwoThreeCase too.
-- BuildOrderReceipt Runs eight Lines  
-  and still Reads as three.
+- BuildOrderReceipt Spends eight Lines  
+  on three Beats.
 - Every Name here Counts five Syllables.
 
 Two whole Services Live in [examples/school](examples/school),
@@ -229,3 +299,7 @@ Six Frameworks Serve them and Return identical Answers.
 - A Handler there Names no Driver and no Query.
 - Read one out loud and it is still a Sentence.
 - Two Files Hold every Vendor Import.
+- A Handler there Spends Lines on Errors  
+  and still Counts three Beats.
+- The Code Obeyed this Rule  
+  before the Rule was Written down.
