@@ -15,15 +15,39 @@
   Reduction is the Cause.
 
 
+
+## The Three Arrives Uninvited
+- A wide Screen Invites two Columns.
+  The Hand Reached for three.
+- Files, Code and Terminal.
+  Look, Work and Talk.
+- Nobody Derived that Layout from the Manifesto.
+  It Arrived before the Rule did.
+- The Instinct Runs ahead of the Document,
+  and the Document only Catches up.
+
+
 ## The Three across Domains
 - Music: De La Soul, the Harmonic Triad, Gorillaz.
-- Mathematics: three Elements form three Pairs, no Center.
 - Design: the Rule of Thirds.
 - Rhetoric: the Tricolon.
 - Game Design: a three-Character Rotation, as in Bug Fables.
 - Architecture: MVC, Input → Process → Output.
 - The same Three Works everywhere,
   so it is a Source, not a Coincidence.
+
+
+
+## A Language Already Agreed
+- Go Exports a Name by Capitalising it.
+- Capital Means public, lowercase Means private,
+  and the Compiler Enforces the Line.
+- We Wrote the same Rule for Prose
+  before we Noticed a Language had it.
+- A Convention two Domains Reach separately
+  is not a Preference.
+- This is why the Examples Run in Go.
+  The Rule Compiles there.
 
 
 ## De La Soul RoTaTion
@@ -47,13 +71,24 @@
 - Roots: Lehman, the Laws of Software Evolution.
 
 
+
+## The Node outside your Head
+- The Bias is invisible from inside,
+  which is what Makes it Bias.
+- So you Keep one Node outside your own Head
+  and Ask it what it Sees.
+- The Node is not there to Agree.
+  It Holds a Position you cannot Occupy.
+- A Voice that only Confirms
+  Adds no Node, it only Adds Volume.
+
+
 ## Honor the Silence
 - The Pocket Lives in the Notes you do not Play.
 - Do not Fill every Space.
 - Silence is never Empty,
   it Frames the Sound that was always There.
 - Stillness Sees what Pushing Misses.
-- One Acts, Two Waits, Three Sees.
 
 
 ## Loud needs Quiet
@@ -69,8 +104,37 @@
 - OneTwoThreeCase Works for this Reason:
   the lowercase Connector Makes
   the Capitalized Word Land.
-- Count the Syllables if it Helps.
-  The Count is the Signal, the Contrast is the Cause.
+- The Count is the Signal,
+  the Contrast is the Cause.
+
+
+
+## Every Project already Keeps a Secret
+- A Repository Holds .env and .env.example.
+  One never Leaves the Machine,
+  the other Ships with the Code.
+- Nobody Designed that as a Philosophy.
+  The Alternative was Publishing a Password.
+- CHAOS.md is the .env of a Manifesto.
+  The Stakes Have the same Shape.
+- The Example Keeps the Form and Drops the Value.
+  The Staging Drops the Form and Keeps the Meaning.
+
+
+## The Right you have to Invoke
+- Silence Protects nothing until you Declare it.
+  A File you simply never Committed
+  is one careless Add away from public.
+- .gitignore is the Declaration.
+  The Right Exists, and still you must Claim it aloud.
+- The Example Names the Secret it Withholds.
+  The Key is Written, the Value is not.
+- That is the honest Shape of Privacy:
+  Admit the Gap, Refuse the Content.
+- A hidden Omission Reads as an Absence.
+  A declared Omission Holds its Place.
+- You Own your Silence,
+  and your Word Owns you.
 
 
 ## The Even Hand
@@ -106,6 +170,21 @@
   and the Collision is Written down.
 - A Test Hands the Door a Fake and Learns
   in Milliseconds what a Database Takes Seconds to Say.
+
+
+
+## The Guest you can Evict
+- Running the Model on your own Machine
+  Turns a Value into a Test.
+- A Dependency you never Replaced
+  is a Choice you never Made.
+- One Key Fits one Door.
+  A Proxy that Speaks for many Vendors
+  is still one Vendor.
+- The cheapest Tool that Locks you in
+  Costs more than the one you can Leave.
+- The Door Proves itself the Day
+  a different Guest Walks through it.
 
 
 ## The Sentence Already Broke
@@ -182,10 +261,10 @@
 - Bob Ross — the happy Accident as an Ancestor.
 - The Pixies — loud and quiet as Ancestors.
 - Alistair Cockburn — Ports and Adapters as an Ancestor.
+- The .env Convention — the declared Boundary as an Ancestor.
 
 
 ## Provenance
-- README Holds the What.
 - VALUES Holds the Why.
 - RULES Holds the How.
 - PATTERNS Holds where the Why Comes from.

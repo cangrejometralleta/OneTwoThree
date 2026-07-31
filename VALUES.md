@@ -33,6 +33,12 @@
   Gives it a better Rhythm.
 - Now Development is Poetry,  
   and Debugging is Rapping.
+- Live it first, Name it later.  
+  A Concept named too early  
+  Freezes what you had not yet Felt.
+- Agreement Teaches nothing.  
+  Ask for the Objection,  
+  and Ask it to be specific.
 
 
 ## Principles
