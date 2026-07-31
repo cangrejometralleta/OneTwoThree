@@ -45,15 +45,39 @@ the Triad Lives in the Structure itself.
 
 
 ## How Context Becomes Canon
-CLAUDE.md is not Canon, it is a Staging Area.  
-It Holds raw Context rescued from Conversations,  
-waiting to Earn its Place.
+Three Stages Carry a Piece of Life into the Canon,
+and only the third one Stays.
 
-- Take one Piece of Context from CLAUDE.md.
-- Distill it into a Belief, or into a Root.
-- A Belief Goes to Values,  
-  a Root Goes to Patterns.
-- Delete it from CLAUDE.md once it Lands.
+- **CHAOS.md** Holds the raw Life.
+  Private, never Committed,
+  Names and Dates still in it.
+- **STAGING.md** Holds the same Piece
+  with the Person Removed.
+  Public, Staged, still not Canon.
+- **Values, Rules and Patterns** Hold what Survived.
 
-CLAUDE.md Shrinks as the Canon Grows.  
-An empty CLAUDE.md means the Work is Done.
+Between the first and the second you Strip the Person.
+Between the second and the third you Strip the Story.
+What is Left is the Belief, the Rule or the Root.
+
+- A Belief Goes to Values.
+- A Rule an Agent can Run Goes to Rules.
+- A Root Goes to Patterns.
+- Delete it from STAGING.md once it Lands.
+
+CHAOS.md never Empties, because a Source never Empties.
+STAGING.md Empties, because a Passage is meant to.
+Nine Entries Fill the Passage.
+Distill before you Promote a tenth.
+
+.gitignore Names CHAOS.md out loud.
+Patterns Explains why,
+under The Right you have to Invoke.
+
+An empty STAGING.md means the Canon is Current.
+
+The Name Comes from Patterns, under Chaos is a Source.
+
+CLAUDE.md is not this Passage.
+It is the short Pointer Claude Code Loads on its own —
+Canon first, STAGING.md named as Notes, nothing Undistilled Repeated there.
