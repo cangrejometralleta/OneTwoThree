@@ -1,4 +1,5 @@
-## Values
+# Values
+
 - This Document Can Be a Fun Read  
   while Listening to Hip-Hop,  
   Pop or R&B Music,  
@@ -40,8 +41,8 @@
   Ask for the Objection,  
   and Ask it to be specific.
 
-
 ## Principles
+
 - Three is a Source, not a Count.  
   You Derive from Three,  
   you do not Reach it.
@@ -61,7 +62,7 @@
   in Music, in Prose, in Design,  
   and in Code.
 
-
 ## Approaches
+
 - Take it easy, We Have one Life and Share one Planet.
 - Keep it simple, stupid (KISS).
