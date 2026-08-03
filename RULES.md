@@ -39,6 +39,13 @@ func (r *Roster) advanceRosterCursor() {
 The Convention is not ours alone.
 A major Language Reached it first, and its Compiler Holds the Line.
 
+- Read the Name as you would Count it.  
+  One. Two. Three. Case.
+- Four Words, four Beats, one per Breath.  
+  Rushed into one Word, the Cadence Dies.
+- Say it slow enough to Hear the Seams,  
+  and OneTwoThreeCase Teaches its own Rule.
+
 ## Reading this Repository
 
 - A deliberate Choice Looks like an Error  
