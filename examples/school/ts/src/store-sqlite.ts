@@ -1,7 +1,7 @@
 import { DatabaseSync } from "node:sqlite";
 
 import {
-  ErrCourseUnknown, ErrStudentUnknown,
+  ErrCourseUnknown, ErrRutTaken, ErrStudentUnknown,
   type Course, type CourseCode, type CourseID,
   type FullName, type RUT, type Student, type StudentID,
 } from "./domain.js";
@@ -46,7 +46,9 @@ export class SqliteSchool implements StudentStore, CourseStore {
       "INSERT INTO student (rut, name, age, course_id) VALUES (?, ?, ?, ?)",
     );
 
-    const result = insert.run(student.rut, student.name, student.age, student.course);
+    const result = attemptInsert(() =>
+      insert.run(student.rut, student.name, student.age, student.course),
+    );
 
     return { ...student, id: Number(result.lastInsertRowid) as StudentID };
   }
@@ -106,6 +108,19 @@ export class SqliteSchool implements StudentStore, CourseStore {
       .all(pageLimit(page), page.number * page.size) as CourseRow[];
 
     return rows.map(decodeCourseRow);
+  }
+}
+
+// attemptInsert Names the one Way a Write can Collide.
+// The Message Text is the only Signal SQLite Gives, in either Driver.
+function attemptInsert<T>(write: () => T): T {
+  try {
+    return write();
+  } catch (failure) {
+    if (failure instanceof Error && failure.message.includes("UNIQUE constraint failed")) {
+      throw ErrRutTaken;
+    }
+    throw failure;
   }
 }
 

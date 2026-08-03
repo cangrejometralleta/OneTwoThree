@@ -1,4 +1,5 @@
 # OneTwoThree
+>
 > Version: 0.1.0
 >
 > Because we Hate making Documentation.
@@ -12,14 +13,15 @@
 > And Damon Albarn, who Closed the Circle:
 > Feel Good Inc Carries De La Soul inside it.
 
-
 ## License
-This is free and unencumbered software 
-released into the public domain. 
+
+This is free and unencumbered software
+released into the public domain.
 Do whatever you want with it.
 [The Unlicense](https://unlicense.org)
 
 ## Documents
+
 Three Documents Hold the Manifesto.  
 This Page is the Door that Indexes them.
 
@@ -30,8 +32,8 @@ This Page is the Door that Indexes them.
 Why / How / Where:  
 the Triad Lives in the Structure itself.
 
-
 ## How to Read it
+
 - Read it as a Manifesto,  
   or Import it as Context for an Agent.
 - A Capitalized Word means it's Important,  
@@ -43,8 +45,8 @@ the Triad Lives in the Structure itself.
   You Derive from Three,  
   you do not Reach it.
 
-
 ## How Context Becomes Canon
+
 Three Stages Carry a Piece of Life into the Canon,
 and only the third one Stays.
 

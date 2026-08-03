@@ -213,5 +213,9 @@ func BuildFailureReply(err error) Response {
 		return Response{http.StatusNotFound, body}
 	}
 
+	if errors.Is(err, ErrRutTaken) {
+		return Response{http.StatusConflict, body}
+	}
+
 	return Response{http.StatusBadRequest, body}
 }

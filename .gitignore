@@ -3,3 +3,6 @@
 # STAGING.md is the Example that Ships, and it Carries no Value.
 # Patterns Explains the Boundary, under The Right you have to Invoke.
 CHAOS.md
+
+.obsidian/
+.obsidian/*

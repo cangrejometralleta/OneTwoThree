@@ -2,6 +2,7 @@ package main
 
 import (
 	"errors"
+	"strings"
 
 	"gorm.io/gorm"
 )
@@ -36,7 +37,7 @@ func (g GormSchool) InsertStudentRow(s Student) (Student, error) {
 	row := EncodeStudentRow(s)
 
 	if err := g.DB.Create(&row).Error; err != nil {
-		return Student{}, TranslateStoreError(err, ErrStudentUnknown)
+		return Student{}, TranslateInsertError(err)
 	}
 
 	return DecodeStudentRow(row), nil
@@ -140,6 +141,16 @@ func ApplyPageWindow(query *gorm.DB, page Page) *gorm.DB {
 func TranslateStoreError(err error, absent error) error {
 	if errors.Is(err, gorm.ErrRecordNotFound) {
 		return absent
+	}
+
+	return err
+}
+
+// TranslateInsertError Names the one Way a Write can Collide.
+// The Message Text is the only Signal SQLite Gives, in either Driver.
+func TranslateInsertError(err error) error {
+	if err != nil && strings.Contains(err.Error(), "UNIQUE constraint failed") {
+		return ErrRutTaken
 	}
 
 	return err

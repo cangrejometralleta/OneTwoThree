@@ -178,6 +178,24 @@ Only one of those Numbers Means anything.
 - Every Endpoint is one small Story:  
   a Start, a Turn and an End.
 
+```go
+// ShowStudentRecord Tells the Story of one Student.
+// Read it aloud: a Start, a Turn, an End. No Driver, no Query, no Socket.
+func (a SchoolAPI) ShowStudentRecord(req Request) Response {
+	id, err := ReadPathNumber(req)
+	if err != nil {
+		return BuildFailureReply(err)
+	}
+
+	student, err := a.Students.SelectStudentRow(StudentID(id))
+
+	return BuildStudentReply(http.StatusOK, student, err)
+}
+```
+
+Lifted whole from [handlers.go](examples/school/go/handlers.go),
+never Rewritten for the Page.
+
 
 ## Providers
 - A Provider is an Interface the Core Declares  
@@ -197,6 +215,35 @@ Only one of those Numbers Means anything.
 - The Word Collides with Angular, NestJS and Terraform,  
   where a Provider is a registered Dependency.  
   Here it is a Port.
+
+```go
+// StudentStore Keeps Students wherever Students Live.
+// Fulfilled by GormSchool in production.
+type StudentStore interface {
+	InsertStudentRow(s Student) (Student, error)
+	SelectStudentRow(id StudentID) (Student, error)
+}
+
+// FakeSchool Fulfils StudentStore with a Map, for Tests only.
+// A Test Hands the Door a Fake and Learns in Milliseconds
+// what a Database Takes Seconds to Say.
+type FakeSchool struct {
+	students map[StudentID]Student
+}
+
+func (f *FakeSchool) SelectStudentRow(id StudentID) (Student, error) {
+	student, found := f.students[id]
+	if !found {
+		return Student{}, ErrStudentUnknown
+	}
+	return student, nil
+}
+```
+
+The Shape is the Contract. GormSchool and FakeSchool
+Never Meet, and the Handler never Learns which one it Got.
+Full Versions live in [providers.go](examples/school/go/providers.go)
+and [handlers_test.go](examples/school/go/handlers_test.go).
 
 
 ## Naming

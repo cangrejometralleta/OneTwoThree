@@ -29,7 +29,7 @@ export type Course = {
 
 // BusinessError Carries a Name the Transport can Map.
 export class BusinessError extends Error {
-  constructor(readonly kind: "invalid" | "absent", message: string) {
+  constructor(readonly kind: "invalid" | "absent" | "taken", message: string) {
     super(message);
   }
 }
@@ -37,6 +37,7 @@ export class BusinessError extends Error {
 // The Business Fails in named Ways, never in Numbers.
 export const ErrNameIsEmpty = new BusinessError("invalid", "name is Empty");
 export const ErrRutIsInvalid = new BusinessError("invalid", "rut Fails its Check Digit");
+export const ErrRutTaken = new BusinessError("taken", "rut is already Registered");
 export const ErrAgeIsTooLow = new BusinessError("invalid", "age Must be eighteen or more");
 export const ErrStudentUnknown = new BusinessError("absent", "student not Found");
 export const ErrCourseUnknown = new BusinessError("absent", "course not Found");

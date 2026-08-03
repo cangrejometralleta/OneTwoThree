@@ -3,11 +3,12 @@ import test from "node:test";
 
 import { translateRoutePattern } from "./adapters.js";
 import {
-  ErrCourseUnknown, ErrStudentUnknown, checkStudentRecord, rutLooksValid,
+  ErrCourseUnknown, ErrRutTaken, ErrStudentUnknown, checkStudentRecord, rutLooksValid,
   type Course, type CourseID, type Student, type StudentID,
 } from "./domain.js";
 import { SchoolAPI } from "./handlers.js";
 import type { CourseStore, Page, StudentStore } from "./providers.js";
+import { SqliteSchool } from "./store-sqlite.js";
 import { HmacTokens } from "./token-hmac.js";
 import type { Request } from "./transport.js";
 
@@ -139,4 +140,15 @@ test("an Access Token refuses a tampered Claim", () => {
 
 test("translateRoutePattern feeds express and fastify", () => {
   assert.equal(translateRoutePattern("/students/{id}"), "/students/:id");
+});
+
+// The Comparison that a Fake cannot Pin: a real unique Index.
+test("insertStudentRow refuses a duplicate RUT", () => {
+  const school = SqliteSchool.shapeSchoolTables(":memory:");
+  const course = school.insertCourseRow({ code: "MAT-101", name: "Algebra" } as unknown as Course);
+  const student = { rut: "12345678-5", name: "Ada", age: 20, course: course.id } as unknown as Student;
+
+  school.insertStudentRow(student);
+
+  assert.throws(() => school.insertStudentRow(student), (err) => err === ErrRutTaken);
 });
