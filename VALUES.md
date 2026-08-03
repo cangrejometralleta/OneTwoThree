@@ -7,6 +7,9 @@
   in the same Language nowadays.
 - Elegance Comes from Simplicity,  
   both Feel Natural to us Humans.
+- Minimalism here is not a Style.  
+  Autistic Burnout Taught the Limit,  
+  and Living it Came before Writing it.
 - One is the Minimum  
   Number of Items  
   to Hold in Mind at a Time.
@@ -17,8 +20,10 @@
   to Hold in Mind at the same Time.
 - When Expressing Yourself,  
   Use the least meaningful Words possible.
-- A Line cannot Be very long  
-  and still Be Readable.
+- What you Depend on  
+  Should stay a Choice you can Unmake.
+- A Line should Not be very Long  
+  and still be Readable.
 - Reading a Line should  
   Take You a Heartbeat.
 - Groovy Music Follows  
@@ -28,6 +33,33 @@
   Gives it a better Rhythm.
 - Now Development is Poetry,  
   and Debugging is Rapping.
+- Live it first, Name it later.  
+  A Concept named too early  
+  Freezes what you had not yet Felt.
+- Agreement Teaches nothing.  
+  Ask for the Objection,  
+  and Ask it to be specific.
+
+
+## Principles
+- Three is a Source, not a Count.  
+  You Derive from Three,  
+  you do not Reach it.
+- Two is a Line, Three is a Shape.  
+  Below Three there is no Rotation,  
+  above Three it turns to Noise.
+- Three Elements form Three Pairs,  
+  and no Center.  
+  Rotation replaces Hierarchy.
+- A Limit Generates Quality.  
+  Restriction Forces you to Choose,  
+  and Choosing is Design.
+- One Acts, Two Waits, Three Sees.  
+  Action, Pause and Perspective,  
+  the Rhythm the Name Keeps.
+- The same Three Works everywhere,  
+  in Music, in Prose, in Design,  
+  and in Code.
 
 
 ## Approaches
