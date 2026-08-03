@@ -1,12 +1,13 @@
-## Patterns
+# Patterns
+>
 > Where the Three Comes from,
 > and why the Framework Holds.
 >
 > VALUES Says what We Believe.
 > This Says where the Belief Comes from.
 
-
 ## One Instinct, Three Planes
+
 - Minimalism in Code, in Prose and in Structure
   is the same Instinct.
 - It Reduces the Cost
@@ -14,9 +15,8 @@
 - Style is the Surface,
   Reduction is the Cause.
 
-
-
 ## The Three Arrives Uninvited
+
 - A wide Screen Invites two Columns.
   The Hand Reached for three.
 - Files, Code and Terminal.
@@ -26,8 +26,8 @@
 - The Instinct Runs ahead of the Document,
   and the Document only Catches up.
 
-
 ## The Three across Domains
+
 - Music: De La Soul, the Harmonic Triad, Gorillaz.
 - Design: the Rule of Thirds.
 - Rhetoric: the Tricolon.
@@ -36,9 +36,8 @@
 - The same Three Works everywhere,
   so it is a Source, not a Coincidence.
 
-
-
 ## A Language Already Agreed
+
 - Go Exports a Name by Capitalising it.
 - Capital Means public, lowercase Means private,
   and the Compiler Enforces the Line.
@@ -49,15 +48,15 @@
 - This is why the Examples Run in Go.
   The Rule Compiles there.
 
-
 ## De La Soul RoTaTion
+
 - Three Elements Generate exactly three Pairs.
 - No Pair Holds a fixed Center.
 - Rotation replaces Hierarchy.
 - Remove the Center and the Shape still Turns.
 
-
 ## OneTwoTree — Distributed Trust
+
 - No single Narrator is fully Reliable,
   not even about Itself.
 - So Trust is Distributed across many Nodes,
@@ -70,9 +69,8 @@
 - Roots: Naur, Programming as Theory Building.
 - Roots: Lehman, the Laws of Software Evolution.
 
-
-
 ## The Node outside your Head
+
 - The Bias is invisible from inside,
   which is what Makes it Bias.
 - So you Keep one Node outside your own Head
@@ -82,16 +80,16 @@
 - A Voice that only Confirms
   Adds no Node, it only Adds Volume.
 
-
 ## Honor the Silence
+
 - The Pocket Lives in the Notes you do not Play.
 - Do not Fill every Space.
 - Silence is never Empty,
   it Frames the Sound that was always There.
 - Stillness Sees what Pushing Misses.
 
-
 ## Loud needs Quiet
+
 - The Pixies Wrote the Formula:
   quiet Verse, loud Chorus, quiet again.
 - Constant Loud is not Loud,
@@ -107,9 +105,8 @@
 - The Count is the Signal,
   the Contrast is the Cause.
 
-
-
 ## Every Project already Keeps a Secret
+
 - A Repository Holds .env and .env.example.
   One never Leaves the Machine,
   the other Ships with the Code.
@@ -120,8 +117,8 @@
 - The Example Keeps the Form and Drops the Value.
   The Staging Drops the Form and Keeps the Meaning.
 
-
 ## The Right you have to Invoke
+
 - Silence Protects nothing until you Declare it.
   A File you simply never Committed
   is one careless Add away from public.
@@ -136,8 +133,8 @@
 - You Own your Silence,
   and your Word Owns you.
 
-
 ## The Even Hand
+
 - A Machine Reaches for Symmetry.
   It Looks finished.
 - A Human Writes to the Breath,
@@ -154,8 +151,8 @@
 - An Author Writes long, then short, then stops.
   A Generator Writes even.
 
-
 ## Every Vendor is a Guest
+
 - A Library Arrives Useful and Leaves Expensive.
 - Let it in through one Door,
   and the Door Keeps your Name on it,
@@ -171,9 +168,8 @@
 - A Test Hands the Door a Fake and Learns
   in Milliseconds what a Database Takes Seconds to Say.
 
-
-
 ## The Guest you can Evict
+
 - Running the Model on your own Machine
   Turns a Value into a Test.
 - A Dependency you never Replaced
@@ -186,8 +182,8 @@
 - The Door Proves itself the Day
   a different Guest Walks through it.
 
-
 ## The Sentence Already Broke
+
 - You do not Choose the Break.
   You Find it.
 - Grammar Built the Joints before you Arrived,
@@ -197,8 +193,8 @@
 - Prose Breaks a Line where Code Names a Variable.
   Both Cut at the same Place.
 
-
 ## Chaos is a Source
+
 - Chance and Serialism both Generate
   what the Author would not have Chosen.
 - Cage Tossed the I Ching
@@ -219,8 +215,8 @@
 - The best Systems Metabolize
   what they cannot Predict.
 
-
 ## The Program is a Song
+
 - A Song does not Explain its Chords,
   it just Plays them.
 - The Libretto Names what Happens,
@@ -237,8 +233,8 @@
 - Code that Reads as Narration
   Outlives its Author.
 
-
 ## Three over Four
+
 - The Bar Counts four, the Phrase Counts three.
 - A three-Group over a four-Grid
   Lands somewhere new.
@@ -250,8 +246,8 @@
   It Crosses, and Returns.
 - This is why an odd Line often Swings.
 
-
 ## Lineage
+
 - OneTwoThreeCase — the typographic Convention.
 - De La Soul RoTaTion — the structural Principle.
 - OneTwoTree — the epistemological Variant.
@@ -263,8 +259,8 @@
 - Alistair Cockburn — Ports and Adapters as an Ancestor.
 - The .env Convention — the declared Boundary as an Ancestor.
 
-
 ## Provenance
+
 - VALUES Holds the Why.
 - RULES Holds the How.
 - PATTERNS Holds where the Why Comes from.

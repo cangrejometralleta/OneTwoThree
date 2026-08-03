@@ -41,6 +41,7 @@ type Course struct {
 var (
 	ErrNameIsEmpty    = errors.New("name is Empty")
 	ErrRutIsInvalid   = errors.New("rut Fails its Check Digit")
+	ErrRutTaken       = errors.New("rut is already Registered")
 	ErrAgeIsTooLow    = errors.New("age Must be eighteen or more")
 	ErrStudentUnknown = errors.New("student not Found")
 	ErrCourseUnknown  = errors.New("course not Found")

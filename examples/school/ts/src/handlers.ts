@@ -135,10 +135,9 @@ function attempt(story: () => Response): Response {
 // buildFailureReply Maps a Business Failure onto an HTTP Code.
 export function buildFailureReply(failure: unknown): Response {
   if (failure instanceof BusinessError) {
-    return {
-      status: failure.kind === "absent" ? 404 : 400,
-      body: { error: failure.message },
-    };
+    const status = { invalid: 400, absent: 404, taken: 409 }[failure.kind];
+
+    return { status, body: { error: failure.message } };
   }
 
   return { status: 500, body: { error: "unexpected Failure" } };
