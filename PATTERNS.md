@@ -115,7 +115,7 @@
 - CHAOS.md is the .env of a Manifesto.
   The Stakes Have the same Shape.
 - The Example Keeps the Form and Drops the Value.
-  The Staging Drops the Form and Keeps the Meaning.
+  The Story Drops the Form and Keeps the Meaning.
 
 ## The Right you have to Invoke
 
