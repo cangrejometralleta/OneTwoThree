@@ -4,5 +4,5 @@
 # Patterns Explains the Boundary, under The Right you have to Invoke.
 CHAOS.md
 
-.claude/
+.claude/settings.local.json
 .obsidian/
