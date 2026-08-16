@@ -7,7 +7,8 @@ import (
 	"github.com/signintech/gopdf"
 )
 
-// The Page, in Millimeters. style.css Set the same Numbers in mm.
+// The Page, in Millimeters.
+// style.css Set the same Numbers in mm.
 const (
 	pageWidth     = 210.0
 	pageHeight    = 297.0
@@ -37,7 +38,12 @@ func RenderDocumentToPDF(doc Document, outPath string) (err error) {
 	}()
 
 	pdf := &gopdf.GoPdf{}
-	pdf.Start(gopdf.Config{Unit: gopdf.UnitMM, PageSize: gopdf.Rect{W: pageWidth, H: pageHeight}})
+	pdf.Start(gopdf.Config{
+		Unit: gopdf.UnitMM,
+		PageSize: gopdf.Rect{
+			W: pageWidth, H: pageHeight,
+		},
+	})
 	must(loadDocumentFonts(pdf))
 
 	drawCoverPage(pdf, doc.Cover)
@@ -83,9 +89,19 @@ func loadDocumentFonts(pdf *gopdf.GoPdf) error {
 // the Object exists regardless.
 func beginBodyPage(pdf *gopdf.GoPdf) {
 	pdf.AddPage()
-	pdf.SetMargins(marginLeft, marginTop, marginRight, marginBottom)
+	pdf.SetMargins(
+		marginLeft,
+		marginTop,
+		marginRight,
+		marginBottom,
+	)
 	pdf.SetXY(marginLeft, marginTop)
-	pdf.Line(marginLeft, marginTop, marginLeft, marginTop)
+	pdf.Line(
+		marginLeft,
+		marginTop,
+		marginLeft,
+		marginTop,
+	)
 }
 
 // ensureRoom Breaks to a new Page when the next Block would not Fit.
@@ -108,9 +124,9 @@ func drawCoverPage(pdf *gopdf.GoPdf, cover Cover) {
 
 	x, y := marginLeft, 60.0
 
-	y = drawCoverLine(pdf, x, y, fontSerif, "B", 64, ColorAccent, "1 2 3") + 10
-	y = drawCoverLine(pdf, x, y, fontSerif, "", 30, ColorCoverInk, cover.Title) + 3
-	y = drawCoverLine(pdf, x, y, fontSerif, "I", 12.5, ColorCoverSub, cover.Subtitle) + 22
+	y = drawCoverLine(pdf, x, y, textStyle{Family: fontSerif, Style: "B", Size: 64, Color: ColorAccent}, "1 2 3") + 10
+	y = drawCoverLine(pdf, x, y, textStyle{Family: fontSerif, Size: 30, Color: ColorCoverInk}, cover.Title) + 3
+	y = drawCoverLine(pdf, x, y, textStyle{Family: fontSerif, Style: "I", Size: 12.5, Color: ColorCoverSub}, cover.Subtitle) + 22
 
 	must(pdf.SetFont(fontSerif, "", 10.5))
 	setTextColor(pdf, ColorCoverQuote)
@@ -135,14 +151,25 @@ func drawCoverPage(pdf *gopdf.GoPdf, cover Cover) {
 	must(pdf.Cell(&gopdf.Rect{W: contentWidth, H: 6}, letterSpaced(strings.ToUpper(cover.Meta))))
 }
 
-// drawCoverLine Draws one Line of the Cover and Returns the Y it Leaves.
-func drawCoverLine(pdf *gopdf.GoPdf, x, y float64, family, style string, size float64, color ColorInk, text string) float64 {
-	must(pdf.SetFont(family, style, size))
-	setTextColor(pdf, color)
-	pdf.SetXY(x, y)
-	must(pdf.Cell(&gopdf.Rect{W: contentWidth, H: lineHeightMM(size)}, text))
+// textStyle Names the Font a Line Draws in.
+// Four Fields already Reads as a Collection; a Struct Names each one,
+// the way SetMargins Names left/top/right/bottom by Position alone —
+// a Font has no such well-known Order to Lean on, so this one Spells it out.
+type textStyle struct {
+	Family string
+	Style  string
+	Size   float64
+	Color  ColorInk
+}
 
-	return y + lineHeightMM(size)
+// drawCoverLine Draws one Line of the Cover and Returns the Y it Leaves.
+func drawCoverLine(pdf *gopdf.GoPdf, x, y float64, style textStyle, text string) float64 {
+	must(pdf.SetFont(style.Family, style.Style, style.Size))
+	setTextColor(pdf, style.Color)
+	pdf.SetXY(x, y)
+	must(pdf.Cell(&gopdf.Rect{W: contentWidth, H: lineHeightMM(style.Size)}, text))
+
+	return y + lineHeightMM(style.Size)
 }
 
 // drawSection Draws one Heading, then every Block it Owns.
@@ -161,9 +188,10 @@ func drawSectionHeading(pdf *gopdf.GoPdf, section Section) {
 
 	y := pdf.GetY()
 	if section.Index != "" {
-		y = drawCoverLine(pdf, marginLeft, y, fontSerif, "", 10, ColorAccent, letterSpaced(strings.ToUpper(section.Index))) + 1.5
+		index := letterSpaced(strings.ToUpper(section.Index))
+		y = drawCoverLine(pdf, marginLeft, y, textStyle{Family: fontSerif, Size: 10, Color: ColorAccent}, index) + 1.5
 	}
-	y = drawCoverLine(pdf, marginLeft, y, fontSerif, "", 15, ColorBody, section.Title) + 1.5
+	y = drawCoverLine(pdf, marginLeft, y, textStyle{Family: fontSerif, Size: 15, Color: ColorBody}, section.Title) + 1.5
 
 	setStrokeColor(pdf, ColorRule)
 	pdf.SetLineWidth(0.3)
@@ -374,22 +402,29 @@ func drawCodeBlock(pdf *gopdf.GoPdf, code CodeBlock) {
 func drawTableBlock(pdf *gopdf.GoPdf, table TableBlock) {
 	colWidth := contentWidth / float64(max(len(table.Headers), 1))
 
-	drawTableRow(pdf, table.Headers, colWidth, "B")
+	drawTableRow(pdf, table.Headers, tableRowStyle{ColWidth: colWidth, FontStyle: "B"})
 	for _, row := range table.Rows {
-		drawTableRow(pdf, row, colWidth, "")
+		drawTableRow(pdf, row, tableRowStyle{ColWidth: colWidth})
 	}
 	pdf.Br(2.5)
 }
 
+// tableRowStyle Carries the two Things every Row in a fallback Table
+// Shares: how wide a Column is, and whether the Row Reads Bold.
+type tableRowStyle struct {
+	ColWidth  float64
+	FontStyle string
+}
+
 // drawTableRow Draws one Row of the fallback Table.
-func drawTableRow(pdf *gopdf.GoPdf, cells []string, colWidth float64, style string) {
+func drawTableRow(pdf *gopdf.GoPdf, cells []string, style tableRowStyle) {
 	ensureRoom(pdf, 8)
-	must(pdf.SetFont(fontSerif, style, 9.5))
+	must(pdf.SetFont(fontSerif, style.FontStyle, 9.5))
 	setTextColor(pdf, ColorBody)
 
 	for i, cell := range cells {
-		pdf.SetXY(marginLeft+float64(i)*colWidth, pdf.GetY())
-		must(pdf.CellWithOption(&gopdf.Rect{W: colWidth, H: 6}, cell, gopdf.CellOption{Border: gopdf.AllBorders}))
+		pdf.SetXY(marginLeft+float64(i)*style.ColWidth, pdf.GetY())
+		must(pdf.CellWithOption(&gopdf.Rect{W: style.ColWidth, H: 6}, cell, gopdf.CellOption{Border: gopdf.AllBorders}))
 	}
 	pdf.SetX(marginLeft)
 	pdf.Br(6)

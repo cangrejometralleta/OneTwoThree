@@ -3,14 +3,14 @@
 Markdown in, a laid-out PDF out. No pandoc, no weasyprint —
 goldmark Reads the AST, gopdf Draws the Page, both pure Go.
 
-```
+```sh
 go run . "source.md"      # writes source.pdf beside it
 go test ./...
 ```
 
 ## The Shape
 
-```
+```text
 main            Casts the Player, then Steps off the Stage
 markdown.go     THE ONLY FILE THAT IMPORTS GOLDMARK
 document.go     the Domain: Document, Section, Block, and five Rules

@@ -22,7 +22,10 @@ func ParseManifestoDocument(path string) (Document, error) {
 	title, subtitle, epigraph, body := splitCoverNodes(root, source)
 	sections := groupIntoSections(body, source)
 
-	doc := Document{Cover: ExtractCoverBlock(title, subtitle, epigraph), Sections: sections}
+	doc := Document{
+		Cover:    ExtractCoverBlock(title, subtitle, epigraph),
+		Sections: sections,
+	}
 	MarkClosingParagraph(&doc)
 
 	return doc, nil
@@ -105,15 +108,22 @@ func groupIntoSections(nodes []ast.Node, source []byte) []Section {
 func buildBlock(n ast.Node, source []byte) Block {
 	switch v := n.(type) {
 	case *ast.Paragraph:
-		return &Paragraph{Text: extractText(v, source), Italic: hasEmphasis(v)}
+		return &Paragraph{
+			Text:   extractText(v, source),
+			Italic: hasEmphasis(v),
+		}
 	case *ast.List:
 		return buildListBlock(v, source)
 	case *ast.Blockquote:
 		return buildQuoteOrCallout(v, source)
 	case *ast.FencedCodeBlock:
-		return CodeBlock{Text: extractCodeText(v, source)}
+		return CodeBlock{
+			Text: extractCodeText(v, source),
+		}
 	case *ast.CodeBlock:
-		return CodeBlock{Text: extractCodeText(v, source)}
+		return CodeBlock{
+			Text: extractCodeText(v, source),
+		}
 	case *east.Table:
 		return buildTableOrTriad(v, source)
 	default:
@@ -125,10 +135,15 @@ func buildBlock(n ast.Node, source []byte) Block {
 func buildListBlock(l *ast.List, source []byte) Block {
 	var items []string
 	for c := l.FirstChild(); c != nil; c = c.NextSibling() {
-		items = append(items, strings.TrimSpace(extractText(c, source)))
+		items = append(items,
+			strings.TrimSpace(extractText(c, source)),
+		)
 	}
 
-	return ListBlock{Items: items, Ordered: l.IsOrdered()}
+	return ListBlock{
+		Items:   items,
+		Ordered: l.IsOrdered(),
+	}
 }
 
 // buildQuoteOrCallout Promotes a bold-led Quote into a Callout.
@@ -136,12 +151,16 @@ func buildListBlock(l *ast.List, source []byte) Block {
 func buildQuoteOrCallout(bq *ast.Blockquote, source []byte) Block {
 	first, ok := bq.FirstChild().(*ast.Paragraph)
 	if !ok {
-		return Quote{Paragraphs: extractParagraphs(bq, source)}
+		return Quote{
+			Paragraphs: extractParagraphs(bq, source),
+		}
 	}
 
 	label, isCallout := leadingStrongText(first, source)
 	if !isCallout {
-		return Quote{Paragraphs: extractParagraphs(bq, source)}
+		return Quote{
+			Paragraphs: extractParagraphs(bq, source),
+		}
 	}
 
 	var body []string
@@ -153,7 +172,9 @@ func buildQuoteOrCallout(bq *ast.Blockquote, source []byte) Block {
 		return callout
 	}
 
-	return Quote{Paragraphs: extractParagraphs(bq, source)}
+	return Quote{
+		Paragraphs: extractParagraphs(bq, source),
+	}
 }
 
 // buildTableOrTriad Tries a Triad first; a Table that does not Fit
@@ -189,7 +210,11 @@ func extractTableCells(t *east.Table, source []byte) (headers []string, rows [][
 func extractRowCells(row ast.Node, source []byte) []string {
 	var cells []string
 	for c := row.FirstChild(); c != nil; c = c.NextSibling() {
-		cells = append(cells, strings.TrimSpace(extractText(c, source)))
+		cells = append(cells,
+			strings.TrimSpace(
+				extractText(c, source)
+			),
+		)
 	}
 
 	return cells
