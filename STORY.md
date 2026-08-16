@@ -50,7 +50,7 @@ the quantity. A candidate root, if it finds something to pair with.
 
 ## Undistilled Context
 
-7 of 9 filled.
+8 of 9 filled.
 
 - **Lost work**: two project conversations edited the manifesto and
   their output never reached `develop`. One wrote the `Trust`,
@@ -92,6 +92,14 @@ the quantity. A candidate root, if it finds something to pair with.
 
 - **Modular cluster with LiteLLM**: long-term technical goal. Natural
   continuation of `The Guest you can Evict`. Wait until it exists.
+
+- **Expressive constants**: at a first job with no prior experience,
+  using constants was mandatory. A COBOL-era programmer named them by
+  index — v_VALUE_1, v_VALUE_2. The question "why not v_ENABLED?" was
+  the moment the name replaced the index: a value becomes expressive
+  when the name says what it means, not where it fell in the list.
+  Candidate root for **Grandma COBOL — Readability as an Ancestor**,
+  already cited in the PATTERNS.md Lineage without being developed.
 
 
 ## Provenance Map
