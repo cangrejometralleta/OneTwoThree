@@ -1,18 +1,19 @@
-## What Belongs Here
+# What Belongs Here
+
 - A Rule an Agent cannot Execute  
   is a Value, not a Rule.
 - Rules are Verifiable,  
   Values are Interpretable.
 - Send each one to the Document that Holds it.
 
-
 ## OneTwoThreeCase
+
 - A Capitalized Word means it's Important  
-- Entities, Actions and Statuses   
+- Entities, Actions and Statuses
   are Capitalized because they're Important
 - The First Word in a Sentence
   is always Capitalized
-- A Word in lowercase
+- A Word in lowercase is a Connector or a local Name
 - Connectors are in lowercase
 
 ```go
@@ -38,8 +39,15 @@ func (r *Roster) advanceRosterCursor() {
 The Convention is not ours alone.
 A major Language Reached it first, and its Compiler Holds the Line.
 
+- Read the Name as you would Count it.  
+  One. Two. Three. Case.
+- Four Words, four Beats, one per Breath.  
+  Rushed into one Word, the Cadence Dies.
+- Say it slow enough to Hear the Seams,  
+  and OneTwoThreeCase Teaches its own Rule.
 
 ## Reading this Repository
+
 - A deliberate Choice Looks like an Error  
   to a Reader in a Hurry.
 - Question the odd Capital before you Correct it.  
@@ -47,8 +55,8 @@ A major Language Reached it first, and its Compiler Holds the Line.
 - An Agent that Normalises this Text  
   Deletes the Signal it was Given.
 
-
 ## Search
+
 - Three narrow Queries Beat one wide Query.  
   Each one Returns a different Corner.
 - One broad Question Returns the Average,  
@@ -56,8 +64,8 @@ A major Language Reached it first, and its Compiler Holds the Line.
 - The same Rule that Distributes Trust  
   Distributes a Search.
 
-
 ## Rhythm
+
 - Contrast Carries the Line.  
   A short one after a long one Lands like a Chorus.
 - Uniform Text Hides what Matters.  
@@ -75,12 +83,14 @@ A major Language Reached it first, and its Compiler Holds the Line.
 - Four is the Beat, three is the Phrase.  
   They Meet again every twelve,  
   so the Tension always Resolves.
+- A Line should Take you a Bar, or a Measure.  
+  Read it out loud — you'll Feel where it Lands.
 - A List Stays parallel.  
   A Paragraph Varies.  
   Contrast is for Prose, never for an Index.
 
-
 ## Seams
+
 - Break where the Grammar Bends.  
   A Sentence Shows its own Joints: a Conjunction, a Comma, a Preposition.
 - Never Break inside a Unit that Reads as one.  
@@ -110,20 +120,21 @@ Three Conditions, three Names, one Return.
 The Chain in [store_gorm.go](examples/school/go/store_gorm.go)
 Breaks at the Dot for the same Reason.
 
-
 ## Emoji
+
 - An Emoji Earns its Place  
   only when it Speeds up Reading.
 - Use it to Mark a State:  
-  ✅ Passed, ❌ Failed, ⚠️ Careful.
+  ✅ could be Passed  
+  and ❌ could be Failed  
 - Keep it in Output, Comments and Docs,  
   never in an Identifier  
-  or a Key your Code Compares.
+  or a Key your Code Compares.  
 - One per Line at most.  
   Two Compete, three are Noise.
 
-
 ## Structure
+
 - Three-line Functions  
   Are the Ideal Size Target.
 - Three Lines Means three Beats, not three Newlines.  
@@ -141,21 +152,21 @@ Breaks at the Dot for the same Reason.
   The Rhythm Survives.
 
 ```go
-// BuildStudentReport Spends eleven Lines on three Beats.
+// ListStudentRecords Spends eleven Lines on three Beats.
 // Receive, Transform, Return.
 // The Errors Cost Lines, they never Cost Thoughts.
-func BuildStudentReport(store StudentStore, raw string) (StudentReport, error) {
-	page, err := DecodePageNumber(raw)
+func (a SchoolAPI) ListStudentRecords(req Request) Response {
+	page, err := ReadPageRequest(req)
 	if err != nil {
-		return StudentReport{}, err
+		return BuildFailureReply(err)
 	}
 
-	students, err := store.SelectStudentPage(page)
+	students, err := a.Students.SelectStudentPage(page)
 	if err != nil {
-		return StudentReport{}, err
+		return BuildFailureReply(err)
 	}
 
-	return StudentReport{page, CollectStudentNames(students)}, nil
+	return Response{http.StatusOK, RenderStudentViews(students)}
 }
 ```
 
@@ -163,8 +174,8 @@ Count the Beats and you Get three.
 Count the Newlines and you Get eleven.
 Only one of those Numbers Means anything.
 
-
 ## Script
+
 - The Program is a Story,  
   and the Handler is its Script.
 - Main Casts the Players, then Steps off the Stage.
@@ -178,26 +189,8 @@ Only one of those Numbers Means anything.
 - Every Endpoint is one small Story:  
   a Start, a Turn and an End.
 
-```go
-// ShowStudentRecord Tells the Story of one Student.
-// Read it aloud: a Start, a Turn, an End. No Driver, no Query, no Socket.
-func (a SchoolAPI) ShowStudentRecord(req Request) Response {
-	id, err := ReadPathNumber(req)
-	if err != nil {
-		return BuildFailureReply(err)
-	}
-
-	student, err := a.Students.SelectStudentRow(StudentID(id))
-
-	return BuildStudentReply(http.StatusOK, student, err)
-}
-```
-
-Lifted whole from [handlers.go](examples/school/go/handlers.go),
-never Rewritten for the Page.
-
-
 ## Providers
+
 - A Provider is an Interface the Core Declares  
   and something outside Fulfils.
 - The Core Depends on the Shape.  
@@ -216,37 +209,8 @@ never Rewritten for the Page.
   where a Provider is a registered Dependency.  
   Here it is a Port.
 
-```go
-// StudentStore Keeps Students wherever Students Live.
-// Fulfilled by GormSchool in production.
-type StudentStore interface {
-	InsertStudentRow(s Student) (Student, error)
-	SelectStudentRow(id StudentID) (Student, error)
-}
-
-// FakeSchool Fulfils StudentStore with a Map, for Tests only.
-// A Test Hands the Door a Fake and Learns in Milliseconds
-// what a Database Takes Seconds to Say.
-type FakeSchool struct {
-	students map[StudentID]Student
-}
-
-func (f *FakeSchool) SelectStudentRow(id StudentID) (Student, error) {
-	student, found := f.students[id]
-	if !found {
-		return Student{}, ErrStudentUnknown
-	}
-	return student, nil
-}
-```
-
-The Shape is the Contract. GormSchool and FakeSchool
-Never Meet, and the Handler never Learns which one it Got.
-Full Versions live in [providers.go](examples/school/go/providers.go)
-and [handlers_test.go](examples/school/go/handlers_test.go).
-
-
 ## Naming
+
 - Functions Follow  
   **Verb + Noun + context** rhythm
 - A Name longer than Three Words Suggests unclear Responsibility.
@@ -263,8 +227,8 @@ sum_item_prices    Python
 Sum Item Prices    Markdown, OneTwoThreeCase
 ```
 
-
 ## Anti-Patterns
+
 - More than three Responsibilities  
   Suggest a Missing Abstraction Layer.
 - A Name with no Verb  
@@ -272,8 +236,8 @@ Sum Item Prices    Markdown, OneTwoThreeCase
 - A Unit with no clear Return  
   Breaks the Rotation.
 
-
 ## Code
+
 Go, because the Rules above Read better when they Run.
 
 ```go
