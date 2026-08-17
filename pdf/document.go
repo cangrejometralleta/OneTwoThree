@@ -2,7 +2,7 @@ package main
 
 import "strings"
 
-// CoverMeta Names the Booklet, the way build.py's META Constant did.
+// CoverMeta Names the Booklet, the way build.py's META Constant Did.
 const CoverMeta = "Manifesto · Rhythm · Code"
 
 // Document is the whole Manifesto, Shaped for the Page.

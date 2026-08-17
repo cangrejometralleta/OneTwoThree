@@ -4,7 +4,7 @@ import _ "embed"
 
 // Liberation Serif Plays the Role Bitstream Charter Played in style.css.
 // DejaVu Sans Mono Keeps the Mono Face style.css already Chose.
-// Both Ship under free Licenses, see fonts/LIBERATION-LICENSE and
+// Both Ship under free Licenses, See fonts/LIBERATION-LICENSE and
 // fonts/DEJAVU-LICENSE.
 
 //go:embed fonts/LiberationSerif-Regular.ttf

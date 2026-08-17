@@ -1,4 +1,4 @@
-// Package main Converts a Manifesto written in Markdown into a
+// Package main Converts a Manifesto Written in Markdown into a
 // laid-out PDF. goldmark Reads the Source into an AST, gopdf Draws
 // the Page — no pandoc, no weasyprint, no Binary outside this one.
 //
@@ -31,7 +31,7 @@
 // Go Reads this one from the Toolchain itself: `go doc .` Prints
 // it, `gofmt` Refuses to Drop it, and a broken Reference inside it
 // would still Compile, since Go Checks the Code, never the Prose
-// describing it. The Guarantee Stops there — which is why the
+// Describing it. The Guarantee Stops there — which is why the
 // Sentence above Names markdown.go and render.go directly, so a
 // Rename Breaks a Grep before it Breaks a Reader's Trust.
 package main

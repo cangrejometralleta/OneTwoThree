@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"strings"
 
-	"github.com/signintech/gopdf"
+	"github.com/signintech/gopdf" // https://pkg.go.dev/github.com/signintech/gopdf
 )
 
 // The Page, in Millimeters.
@@ -83,10 +83,10 @@ func loadDocumentFonts(pdf *gopdf.GoPdf) error {
 // beginBodyPage Opens a Page Shaped like every Page but the Cover.
 //
 // gopdf Registers a Page's Content Object only on its first Draw Call.
-// A Page that Ends up Empty — the last one, when nothing follows it —
+// A Page that Ends up Empty — the last one, when nothing Follows it —
 // would otherwise Leave stampPageFooters unable to Find it through
 // SetPage. The zero-length Line below Draws nothing, and Guarantees
-// the Object exists regardless.
+// the Object Exists regardless.
 func beginBodyPage(pdf *gopdf.GoPdf) {
 	pdf.AddPage()
 	pdf.SetMargins(
@@ -154,7 +154,7 @@ func drawCoverPage(pdf *gopdf.GoPdf, cover Cover) {
 // textStyle Names the Font a Line Draws in.
 // Four Fields already Reads as a Collection; a Struct Names each one,
 // the way SetMargins Names left/top/right/bottom by Position alone —
-// a Font has no such well-known Order to Lean on, so this one Spells it out.
+// a Font Has no such well-known Order to Lean on, so this one Spells it out.
 type textStyle struct {
 	Family string
 	Style  string
@@ -221,7 +221,7 @@ func drawBlock(pdf *gopdf.GoPdf, block Block) {
 }
 
 // drawParagraph Justifies a Paragraph, Breaking to a new Page
-// when the current one has no Room left.
+// when the current one Has no Room left.
 func drawParagraph(pdf *gopdf.GoPdf, p Paragraph) {
 	style := ""
 	if p.Closing {
@@ -450,7 +450,7 @@ func lineHeightMM(sizePt float64) float64 {
 }
 
 // letterSpaced Loosens uppercase Text the way style.css's
-// letter-spacing did, one thin Space between each Letter.
+// letter-spacing Did, one thin Space between each Letter.
 func letterSpaced(s string) string {
 	return strings.Join(strings.Split(s, ""), " ")
 }
