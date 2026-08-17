@@ -212,7 +212,7 @@ func extractRowCells(row ast.Node, source []byte) []string {
 	for c := row.FirstChild(); c != nil; c = c.NextSibling() {
 		cells = append(cells,
 			strings.TrimSpace(
-				extractText(c, source)
+				extractText(c, source),
 			),
 		)
 	}
