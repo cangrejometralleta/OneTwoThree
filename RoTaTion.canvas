@@ -1,0 +1,148 @@
+{
+	"nodes": [
+		{
+			"id": "group-manifesto",
+			"type": "group",
+			"x": -830,
+			"y": -740,
+			"width": 1660,
+			"height": 1500,
+			"label": "The Manifesto — three Elements, three Pairs, no Center"
+		},
+		{
+			"id": "node-values",
+			"type": "file",
+			"file": "VALUES.md",
+			"x": -210,
+			"y": -620,
+			"width": 420,
+			"height": 380,
+			"color": "6"
+		},
+		{
+			"id": "node-rules",
+			"type": "file",
+			"file": "RULES.md",
+			"x": 310,
+			"y": 300,
+			"width": 420,
+			"height": 380,
+			"color": "5"
+		},
+		{
+			"id": "node-patterns",
+			"type": "file",
+			"file": "PATTERNS.md",
+			"x": -730,
+			"y": 300,
+			"width": 420,
+			"height": 380,
+			"color": "4"
+		},
+		{
+			"id": "node-readme",
+			"type": "file",
+			"file": "README.md",
+			"x": -1710,
+			"y": -190,
+			"width": 420,
+			"height": 380
+		},
+		{
+			"id": "node-claude",
+			"type": "file",
+			"file": "CLAUDE.md",
+			"x": 1290,
+			"y": -190,
+			"width": 420,
+			"height": 380
+		},
+		{
+			"id": "group-passage",
+			"type": "group",
+			"x": -1810,
+			"y": 920,
+			"width": 1500,
+			"height": 540,
+			"label": "The Passage — three Stages, and only the third one Stays"
+		},
+		{
+			"id": "node-chaos",
+			"type": "file",
+			"file": "CHAOS.md",
+			"x": -1710,
+			"y": 1000,
+			"width": 420,
+			"height": 380,
+			"color": "1"
+		},
+		{
+			"id": "node-story",
+			"type": "file",
+			"file": "STORY.md",
+			"x": -830,
+			"y": 1000,
+			"width": 420,
+			"height": 380,
+			"color": "2"
+		}
+	],
+	"edges": [
+		{
+			"id": "edge-why-how",
+			"fromNode": "node-values",
+			"fromSide": "right",
+			"toNode": "node-rules",
+			"toSide": "top",
+			"label": "Why becomes How"
+		},
+		{
+			"id": "edge-how-root",
+			"fromNode": "node-rules",
+			"fromSide": "left",
+			"toNode": "node-patterns",
+			"toSide": "right",
+			"label": "How Reveals its Root"
+		},
+		{
+			"id": "edge-root-why",
+			"fromNode": "node-patterns",
+			"fromSide": "top",
+			"toNode": "node-values",
+			"toSide": "left",
+			"label": "the Root Grounds the Why"
+		},
+		{
+			"id": "edge-human-door",
+			"fromNode": "node-readme",
+			"fromSide": "right",
+			"toNode": "group-manifesto",
+			"toSide": "left",
+			"label": "Indexes the Three"
+		},
+		{
+			"id": "edge-agent-door",
+			"fromNode": "node-claude",
+			"fromSide": "left",
+			"toNode": "group-manifesto",
+			"toSide": "right",
+			"label": "the short Pointer, Canon first"
+		},
+		{
+			"id": "edge-strip-person",
+			"fromNode": "node-chaos",
+			"fromSide": "right",
+			"toNode": "node-story",
+			"toSide": "left",
+			"label": "Strip the Person"
+		},
+		{
+			"id": "edge-strip-story",
+			"fromNode": "node-story",
+			"fromSide": "top",
+			"toNode": "group-manifesto",
+			"toSide": "bottom",
+			"label": "Strip the Story"
+		}
+	]
+}
