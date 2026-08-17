@@ -32,6 +32,16 @@ This Page is the Door that Indexes them.
 Why / How / Where:  
 the Triad Lives in the Structure itself.
 
+```mermaid
+flowchart LR
+    VALUES["VALUES<br/>the Why"] -- "Why becomes How" --> RULES["RULES<br/>the How"]
+    RULES -- "How Reveals its Root" --> PATTERNS["PATTERNS<br/>the Where"]
+    PATTERNS -- "the Root Grounds the Why" --> VALUES
+```
+
+Three Elements, three Pairs, no Center.
+Remove the Center and the Shape still Turns.
+
 ## How to Read it
 
 - Read it as a Manifesto,  
@@ -57,6 +67,14 @@ and only the third one Stays.
   with the Person Removed.
   Public, Staged, still not Canon.
 - **Values, Rules and Patterns** Hold what Survived.
+
+```mermaid
+flowchart LR
+    CHAOS["CHAOS.md<br/>the raw Life<br/>private, never Committed"]
+    STORY["STORY.md<br/>the Person Removed<br/>public, still not Canon"]
+    CANON["VALUES · RULES · PATTERNS<br/>what Survived<br/>the Canon"]
+    CHAOS -- "Strip the Person" --> STORY -- "Strip the Story" --> CANON
+```
 
 Between the first and the second you Strip the Person.
 Between the second and the third you Strip the Story.
