@@ -1,25 +1,25 @@
 {
 	"nodes":[
 		{"id":"group-manifesto","type":"group","x":-830,"y":-740,"width":1660,"height":1500,"label":"The Manifesto — three Elements, three Pairs, no Center"},
+		{"id":"group-boundary","type":"group","x":-260,"y":920,"width":1380,"height":690,"label":"Where CHAOS.md Lives — one Arrow still unverified, or none at all"},
 		{"id":"group-passage","type":"group","x":-1810,"y":920,"width":1500,"height":540,"label":"The Passage — three Stages, and only the third one Stays"},
-		{"id":"54360493934c82d6","x":-2124,"y":1360,"width":250,"height":60,"type":"text","text":""},
-		{"id":"node-values","type":"file","file":"VALUES.md","x":-210,"y":-620,"width":420,"height":380,"color":"6"},
+		{"id":"group-boundary-a","type":"group","x":-220,"y":980,"width":600,"height":380,"label":"Inside the Vault"},
+		{"id":"group-boundary-b","type":"group","x":500,"y":980,"width":540,"height":380,"label":"Sibling Folder, Outside the Vault"},
+		{"id":"node-chaos","type":"text","text":"CHAOS.md","x":-1710,"y":1000,"width":420,"height":380,"color":"1"},
+		{"id":"54360493934c82d6","type":"text","text":"","x":-2124,"y":1360,"width":250,"height":60},
+		{"id":"node-story","type":"file","file":"STORY.md","x":-830,"y":1000,"width":420,"height":380,"color":"2"},
+		{"id":"text-searchgraph-a","type":"text","text":"Search & Graph index\n— blocked, verified\n(Excluded Files)","x":-180,"y":1030,"width":300,"height":90},
+		{"id":"text-watchers-b","type":"text","text":"Search, Graph & File Recovery\n— none cross the boundary","x":540,"y":1030,"width":340,"height":110},
+		{"id":"text-git-boundary","type":"text","text":"Both keep CHAOS.md out of git — .gitignore already covers either location, so this part isn't in question.","x":140,"y":1420,"width":760,"height":60},
+		{"id":"text-verdict","type":"text","text":"Edit CHAOS.md inside Obsidian → Option A, File Recovery stays an open question.\nEdit it with a plain editor → Option B closes the question outright.","x":140,"y":1500,"width":760,"height":90},
 		{"id":"node-rules","type":"file","file":"RULES.md","x":310,"y":300,"width":420,"height":380,"color":"5"},
 		{"id":"node-patterns","type":"file","file":"PATTERNS.md","x":-730,"y":300,"width":420,"height":380,"color":"4"},
 		{"id":"node-readme","type":"file","file":"README.md","x":-1710,"y":-190,"width":420,"height":380},
 		{"id":"node-claude","type":"file","file":"CLAUDE.md","x":1290,"y":-190,"width":420,"height":380},
-		{"id":"node-chaos","type":"text","x":-1710,"y":1000,"width":420,"height":380,"color":"1","text":"CHAOS.md"},
-		{"id":"node-story","type":"file","file":"STORY.md","x":-830,"y":1000,"width":420,"height":380,"color":"2"},
-		{"id":"group-boundary","type":"group","x":-260,"y":920,"width":1600,"height":690,"label":"Where CHAOS.md Lives — one Arrow still unverified, or none at all"},
-		{"id":"group-boundary-a","type":"group","x":-220,"y":980,"width":600,"height":380,"label":"Inside the Vault"},
-		{"id":"group-boundary-b","type":"group","x":500,"y":980,"width":800,"height":380,"label":"Sibling Folder, Outside the Vault"},
-		{"id":"text-searchgraph-a","type":"text","x":-180,"y":1030,"width":300,"height":90,"text":"Search & Graph index\n— blocked, verified\n(Excluded Files)"},
-		{"id":"text-filerecovery-a","type":"text","x":-180,"y":1220,"width":300,"height":80,"text":"File Recovery\n— still reaches, unverified"},
-		{"id":"text-chaos-a","type":"text","x":180,"y":1220,"width":160,"height":70,"text":"CHAOS.md","color":"1"},
-		{"id":"text-watchers-b","type":"text","x":540,"y":1030,"width":340,"height":110,"text":"Search, Graph & File Recovery\n— none cross the boundary"},
-		{"id":"text-chaos-b","type":"text","x":1120,"y":1220,"width":160,"height":70,"text":"CHAOS.md","color":"4"},
-		{"id":"text-git-boundary","type":"text","x":140,"y":1420,"width":760,"height":60,"text":"Both keep CHAOS.md out of git — .gitignore already covers either location, so this part isn't in question."},
-		{"id":"text-verdict","type":"text","x":140,"y":1500,"width":760,"height":90,"text":"Edit CHAOS.md inside Obsidian → Option A, File Recovery stays an open question.\nEdit it with a plain editor → Option B closes the question outright."}
+		{"id":"node-values","type":"file","file":"VALUES.md","x":-210,"y":-620,"width":420,"height":380,"color":"6"},
+		{"id":"text-chaos-a","type":"text","text":"CHAOS.md","x":200,"y":1075,"width":160,"height":70,"color":"1"},
+		{"id":"text-filerecovery-a","type":"text","text":"File Recovery\n— still reaches, unverified","x":-180,"y":1240,"width":300,"height":80},
+		{"id":"text-chaos-b","type":"text","text":"CHAOS.md","x":650,"y":1210,"width":160,"height":70,"color":"4"}
 	],
 	"edges":[
 		{"id":"edge-why-how","fromNode":"node-values","fromSide":"right","toNode":"node-rules","toSide":"top","label":"Why becomes How"},
@@ -30,6 +30,6 @@
 		{"id":"edge-strip-person","fromNode":"node-chaos","fromSide":"right","toNode":"node-story","toSide":"left","label":"Strip the Person"},
 		{"id":"edge-strip-story","fromNode":"node-story","fromSide":"top","toNode":"group-manifesto","toSide":"bottom","label":"Strip the Story"},
 		{"id":"edge-chaos-boundary","fromNode":"node-chaos","fromSide":"right","toNode":"group-boundary-a","toSide":"left","label":"Where does it actually Live?"},
-		{"id":"edge-filerecovery-chaos-a","fromNode":"text-filerecovery-a","fromSide":"right","toNode":"text-chaos-a","toSide":"left","label":"reaches the File","color":"1"}
+		{"id":"edge-filerecovery-chaos-a","fromNode":"text-filerecovery-a","fromSide":"right","toNode":"text-chaos-a","toSide":"left","color":"1","label":"reaches the File"}
 	]
 }
