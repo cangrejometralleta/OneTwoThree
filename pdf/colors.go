@@ -2,11 +2,8 @@ package main
 
 // ColorInk Names a Hex the old style.css only Numbered.
 // Every Value here Traces back to style.css, one Name per Role.
-// A Color can be Described as Three 8-bit RGB values,
-// Where Each in Ranges
-// From 0 to 255,
-// Or 0x00 to 0xff in Hexadecimal.
-
+// A Color can be Described as Three 8-bit RGB Values, each Ranging
+// from 0 to 255, or 0x00 to 0xff in Hexadecimal.
 type ColorInk struct{ R, G, B int }
 
 var (
@@ -25,5 +22,4 @@ var (
 	ColorQuoteInk    = ColorInk{0x4a, 0x42, 0x3a} // blockquote { color }
 	ColorCloseInk    = ColorInk{0x6b, 0x61, 0x58} // .close { color }
 	ColorCodeRule    = ColorInk{0xe0, 0xd3, 0xc2} // pre { border-left }
-	ColorCodeBg      = ColorInk{0xf2, 0xed, 0xe5} // p code { background }
 )

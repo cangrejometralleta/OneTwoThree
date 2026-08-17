@@ -4,7 +4,7 @@ import (
 	"os"
 	"strings"
 
-	"github.com/yuin/goldmark"
+	"github.com/yuin/goldmark" // https://pkg.go.dev/github.com/yuin/goldmark
 	"github.com/yuin/goldmark/ast"
 	"github.com/yuin/goldmark/extension"
 	east "github.com/yuin/goldmark/extension/ast"
@@ -19,11 +19,11 @@ func ParseManifestoDocument(path string) (Document, error) {
 	}
 
 	root := parseMarkdownSource(source)
-	title, subtitle, epigraph, body := splitCoverNodes(root, source)
+	cover, body := splitCoverNodes(root, source)
 	sections := groupIntoSections(body, source)
 
 	doc := Document{
-		Cover:    ExtractCoverBlock(title, subtitle, epigraph),
+		Cover:    cover,
 		Sections: sections,
 	}
 	MarkClosingParagraph(&doc)
@@ -31,7 +31,7 @@ func ParseManifestoDocument(path string) (Document, error) {
 	return doc, nil
 }
 
-// parseMarkdownSource Runs goldmark, Tables included.
+// parseMarkdownSource Runs goldmark, Tables Included.
 func parseMarkdownSource(source []byte) ast.Node {
 	md := goldmark.New(goldmark.WithExtensions(extension.GFM))
 
@@ -39,44 +39,54 @@ func parseMarkdownSource(source []byte) ast.Node {
 }
 
 // splitCoverNodes Pulls the Title, the Subtitle and the Epigraph
-// off the top, and Returns everything else for the Sections to Claim.
-func splitCoverNodes(root ast.Node, source []byte) (title, subtitle string, epigraph []string, rest []ast.Node) {
+// from the Nodes before the first Section, and Returns everything
+// else for the Sections to Claim.
+func splitCoverNodes(root ast.Node, source []byte) (Cover, []ast.Node) {
 	var titleNode, subtitleNode, epigraphNode ast.Node
+	var rest []ast.Node
 
-	for n := root.FirstChild(); n != nil; n = n.NextSibling() {
-		switch {
-		case titleNode == nil:
-			if h, ok := n.(*ast.Heading); ok && h.Level == 1 {
+	n := root.FirstChild()
+	for ; n != nil; n = n.NextSibling() {
+		if h, ok := n.(*ast.Heading); ok && h.Level == 2 {
+			break // The Cover Ends where the first Section Starts.
+		}
+
+		switch v := n.(type) {
+		case *ast.Heading:
+			if v.Level == 1 && titleNode == nil {
 				titleNode = n
+				continue
 			}
-		case subtitleNode == nil:
-			if _, ok := n.(*ast.Paragraph); ok {
+		case *ast.Paragraph:
+			if subtitleNode == nil {
 				subtitleNode = n
+				continue
 			}
-		case epigraphNode == nil:
-			if _, ok := n.(*ast.Blockquote); ok {
+		case *ast.Blockquote:
+			if epigraphNode == nil {
 				epigraphNode = n
+				continue
 			}
 		}
+
+		rest = append(rest, n)
+	}
+	for ; n != nil; n = n.NextSibling() {
+		rest = append(rest, n)
 	}
 
+	cover := Cover{Meta: CoverMeta}
 	if titleNode != nil {
-		title = extractText(titleNode, source)
+		cover.Title = extractText(titleNode, source)
 	}
 	if subtitleNode != nil {
-		subtitle = extractText(subtitleNode, source)
+		cover.Subtitle = extractText(subtitleNode, source)
 	}
 	if epigraphNode != nil {
-		epigraph = extractParagraphs(epigraphNode, source)
+		cover.Epigraph = extractParagraphs(epigraphNode, source)
 	}
 
-	for n := root.FirstChild(); n != nil; n = n.NextSibling() {
-		if n != titleNode && n != subtitleNode && n != epigraphNode {
-			rest = append(rest, n)
-		}
-	}
-
-	return title, subtitle, epigraph, rest
+	return cover, rest
 }
 
 // groupIntoSections Starts a new Section on every H2,
@@ -221,7 +231,7 @@ func extractRowCells(row ast.Node, source []byte) []string {
 }
 
 // leadingStrongText Checks whether a Paragraph Opens on a bold Span,
-// and Returns that Span's Text when it does.
+// and Returns that Span's Text when it Does.
 func leadingStrongText(p *ast.Paragraph, source []byte) (label string, ok bool) {
 	em, isEmphasis := p.FirstChild().(*ast.Emphasis)
 	if !isEmphasis || em.Level != 2 {
