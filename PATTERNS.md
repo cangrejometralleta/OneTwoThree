@@ -69,6 +69,13 @@
 - Roots: Naur, Programming as Theory Building.
 - Roots: Lehman, the Laws of Software Evolution.
 
+## Axelrod — Cooperation, Engineered
+
+- Axelrod Ran a Tournament where Programs never Talked.
+- Tit-for-Tat Won: Cooperate first, Mirror the last Move, Forgive fast.
+- The simplest Entrant Beat every baroque Strategy against it.
+- Roots: Axelrod, The Evolution of Cooperation.
+
 ## The Node outside your Head
 
 - The Bias is invisible from inside,
@@ -253,6 +260,7 @@
 - OneTwoTree — the epistemological Variant.
 - Dev La Soul — the Author under this Roof.
 - Grandma COBOL — Readability as an Ancestor.
+- Robert Axelrod — Tit-for-Tat as an Ancestor.
 - John Cage — Silence and Chance as Ancestors.
 - Bob Ross — the happy Accident as an Ancestor.
 - The Pixies — loud and quiet as Ancestors.

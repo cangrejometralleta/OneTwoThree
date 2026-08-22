@@ -61,6 +61,28 @@
 - The same Three Works everywhere,  
   in Music, in Prose, in Design,  
   and in Code.
+- The Story a Flow,  
+  abstracted into technical Terms.
+- Your Canon is your Values plus your Patterns.  
+  Create Consensus through Three Nodes.
+- Your Canon Calibrates with your Peers,  
+  the way git Calibrates its Nodes.  
+  Your Canon is your Now.
+- Select Two Peers, and no other Node  
+  can Kidnap your Canon.
+- Any System with many Parts  
+  Reads as Groups of Three, Interacting.  
+  The Pattern Holds at every Scale.
+- You have the Right to Live your Canon.  
+  Respect the Canon of your Peers,  
+  for as long as it Sustains itself.
+- Peers Constantly Play Prisoner's Dilemma.  
+  Kidnap Defects, Respect Cooperates.
+- Be Nice, Retaliate, Forgive, stay Clear.  
+  The simplest Strategy Wins the Dilemma.
+- Canons Fight for Space through Stories,  
+  the Layer where nothing is settled yet.  
+  One Kidnaps another by Imposing its Story.
 
 ## Approaches
 
