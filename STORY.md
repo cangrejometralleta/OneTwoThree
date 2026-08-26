@@ -28,8 +28,8 @@
 > Each entry carries its status: UNDISTILLED, or SPECULATIVE when the
 > connection is still a hunch, not yet a root.
 >
-> It isn't called CLAUDE.md because Claude Code loads that name as a
-> project instruction. This file is not that: CLAUDE.md stays free for
+> It isn't called AGENTS.md because Agents load that name as a
+> project instruction. This file is not that: AGENTS.md stays free for
 > the short pointer to canon.
 
 ## Name History

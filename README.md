@@ -98,6 +98,6 @@ An empty STORY.md means the Canon is Current.
 
 The Name Comes from Patterns, under Chaos is a Source.
 
-CLAUDE.md is not this Passage.
-It is the short Pointer Claude Code Loads on its own —
+AGENTS.md is not this Passage.
+It is the short Pointer Agents Load on their own —
 Canon first, STORY.md named as Notes, nothing Undistilled Repeated there.
