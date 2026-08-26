@@ -1,6 +1,6 @@
 ---
 name: onetwothreerefactor
-description: Apply the OneTwoThree manifesto's code conventions when writing, reviewing, or refactoring code — three-beat function bodies, Verb+Noun+context naming, Provider ports named after the business need instead of the vendor, seam-based line breaks, and OneTwoThreeCase doc comments. Use whenever generating or reviewing code in a project that follows RULES.md from cangrejometralleta/OneTwoThree, or when the user asks for "OneTwoThreeCase style" or "the manifesto rules".
+description: Apply the OneTwoThree manifesto's code conventions when writing, reviewing, or refactoring code — three-beat function bodies, Verb+Noun+context naming, Provider ports named after the business need instead of the vendor, seam-based line breaks. Use whenever generating or reviewing code in a project that follows RULES.md from cangrejometralleta/OneTwoThree, or when the user asks for "the manifesto rules".
 ---
 
 # OneTwoThreeRefactor
@@ -16,12 +16,10 @@ skill is the checklist, not a replacement.
    checks don't count against the three. More beats signal a missing
    abstraction; extract a helper instead of padding one function.
 
-2. **Naming** — `Verb + Noun + context`, three words at most. Case by
-   language convention (`PascalCase` exported, `camelCase` unexported,
-   `snake_case` Python). A name past three words means the
-   responsibility is unclear, not that the name needs to be longer.
-   A variable that lives inside three lines can drop to one word — the
-   scope already says the rest.
+2. **Naming** — `Verb + Noun + context`, three words at most. A name
+   past three words means the responsibility is unclear, not that the
+   name needs to be longer. A variable that lives inside three lines
+   can drop to one word — the scope already says the rest.
 
 3. **Providers** — Any interface to something outside the core (a
    database, an API, a queue) is named after the business need it
@@ -44,12 +42,9 @@ skill is the checklist, not a replacement.
 6. **Anti-patterns to flag** — more than three responsibilities in one
    unit; a name with no verb; a function with no clear return.
 
-7. **Comments** — doc comments narrate in prose, capitalizing the
-   Words that carry meaning (Entities, Actions, Statuses) and leaving
-   connectors lowercase — the same signal Go already gives with
-   exported vs. unexported names, applied to English. At most one
-   emoji, only in output or comments, never in an identifier or a key
-   the code compares against.
+7. **Comments** — doc comments narrate in prose. At most one emoji,
+   only in output or comments, never in an identifier or a key the code
+   compares against.
 
 ## Example
 
