@@ -5,5 +5,6 @@
 CHAOS.md
 
 .claude/settings.local.json
+.agents/settings.local.json
 .obsidian/
 .vscode/

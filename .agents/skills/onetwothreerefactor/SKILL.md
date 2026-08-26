@@ -1,9 +1,9 @@
 ---
-name: onetwothreecase
+name: onetwothreerefactor
 description: Apply the OneTwoThree manifesto's code conventions when writing, reviewing, or refactoring code — three-beat function bodies, Verb+Noun+context naming, Provider ports named after the business need instead of the vendor, seam-based line breaks, and OneTwoThreeCase doc comments. Use whenever generating or reviewing code in a project that follows RULES.md from cangrejometralleta/OneTwoThree, or when the user asks for "OneTwoThreeCase style" or "the manifesto rules".
 ---
 
-# OneTwoThreeCase
+# OneTwoThreeRefactor
 
 A portable summary of [RULES.md](https://github.com/cangrejometralleta/OneTwoThree/blob/main/RULES.md).
 If a RULES.md file exists in the current repo, it is canonical — this
