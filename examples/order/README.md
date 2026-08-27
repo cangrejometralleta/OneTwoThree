@@ -1,9 +1,9 @@
 # Order Service
 
-RULES.md Cites `Item`, `SumItemPrices` and `BuildOrderReceipt`
+Rules Cites `Item`, `SumItemPrices` and `BuildOrderReceipt`
 as a loose Snippet, to Show what three Beats Look like.
 This Service is that Snippet, Wired to a Store and an HTTP Port.
-The Text in RULES.md and the Test in `domain_test.go`
+The Text in Rules and the Test in `domain_test.go`
 Assert the same Receipt.
 
 | | Go | TypeScript |
@@ -34,7 +34,7 @@ handlers        the Script. Framework-free
 providers       the one Interface the Core Declares
 store           THE ONLY FILE THAT IMPORTS A VENDOR
 dto             the Wire Shapes
-domain          the Business Truth, and the RULES.md Snippet Compiled
+domain          the Business Truth, and the Rules Snippet Compiled
 ```
 
 ## An Identity Born before the Row
@@ -56,5 +56,5 @@ Protects an Identity, not a Value Object.
 
 `OrderAPI` Depends on one Interface, never on a Library.
 `domain_test.go` / `order.test.ts` Pin the exact Receipt Text
-RULES.md already Shows, so the Page and the Program
+Rules already Shows, so the Page and the Program
 cannot Drift apart unnoticed.

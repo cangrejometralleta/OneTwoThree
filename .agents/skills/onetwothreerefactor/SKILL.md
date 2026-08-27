@@ -1,12 +1,13 @@
 ---
 name: onetwothreerefactor
-description: Apply the OneTwoThree manifesto's code conventions when writing, reviewing, or refactoring code — three-beat function bodies, Verb+Noun+context naming, Provider ports named after the business need instead of the vendor, seam-based line breaks. Use whenever generating or reviewing code in a project that follows RULES.md from cangrejometralleta/OneTwoThree, or when the user asks for "the manifesto rules".
+description: Apply the OneTwoThree manifesto's code conventions when writing, reviewing, or refactoring code — three-beat function bodies, Verb+Noun+context naming, Provider ports named after the business need instead of the vendor, seam-based line breaks. Use whenever generating or reviewing code in a project that follows Rules from cangrejometralleta/OneTwoThree, or when the user asks for "the manifesto rules".
 ---
 
 # OneTwoThreeRefactor
 
-A portable summary of [RULES.md](https://github.com/cangrejometralleta/OneTwoThree/blob/main/RULES.md).
-If a RULES.md file exists in the current repo, it is canonical — this
+A portable summary of [Rules](../../../RULES.md).
+The canon lives in [rules/](../../../rules/) — each Section its own File.
+If a Rules file exists in the current repo, it is canonical — this
 skill is the checklist, not a replacement.
 
 ## Before returning code, check
@@ -67,3 +68,13 @@ func BuildOrderReceipt(id string, items []Item, percent int) string {
 Three names, three beats, one return — `SumItemPrices` and
 `ApplyMemberRate` are Providers of a calculation, `ReportOrderState`
 is the Script's own narration.
+
+## Sources
+
+1. [Structure](../../../rules/structure.md)
+2. [Naming](../../../rules/naming.md)
+3. [Providers](../../../rules/providers.md)
+4. [Script](../../../rules/script.md)
+5. [Seams](../../../rules/seams.md)
+6. [Anti-Patterns](../../../rules/anti-patterns.md)
+7. [Emoji](../../../rules/emoji.md)

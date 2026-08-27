@@ -1,7 +1,7 @@
 import type { Order, OrderID } from "./domain.js";
 
 // A Provider is an Interface the Core Declares
-// and something outside Fulfils. See RULES.md, Providers.
+// and something outside Fulfils. See Rules, Providers.
 
 // Page Carries Pagination without Naming a Database.
 export type Page = { number: number; size: number };

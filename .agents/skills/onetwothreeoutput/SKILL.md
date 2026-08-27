@@ -1,6 +1,6 @@
 ---
 name: onetwothreeoutput
-description: Format terminal output for readability — OneTwoThreeCase prose, one emoji to mark the state (✅/❌/⚠️), short heartbeat lines, a short line after a long one for contrast, breaks at grammatical seams, the least words that carry the meaning, narrate what happened not how. Use when composing output the user will read, especially results, summaries, or status reports.
+description: Format terminal output for readability — OneTwoThreeCase prose, one emoji to mark the state (✅/❌/⚠️), short heartbeat lines, a short line after a long one for contrast, breaks at grammatical seams, the least words that carry the meaning, narrate what happened not how. Use when composing output the user will read, especially results, summaries, or status reports. This should also save tokens by reducing the number of words in the output, which is especially important for LLMs with token limits.
 ---
 
 # OneTwoThreeOutput
@@ -12,6 +12,11 @@ and This Shapes what the Terminal Says.
 The Terminal is one of three Planes —
 Files, Code and Terminal. Look, Work and Talk.
 This Skill Owns the Talk.
+
+The canon lives in [Rhythm](../../../rules/rhythm.md),
+[Seams](../../../rules/seams.md),
+[Emoji](../../../rules/emoji.md)
+and [Structure](../../../rules/structure.md).
 
 ## Before printing output, apply
 

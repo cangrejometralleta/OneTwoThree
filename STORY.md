@@ -1,156 +1,66 @@
 # STORY.md — The Passage between Chaos and Canon
 
 > This file is NOT the project's source of truth.
-> Canon lives in VALUES / RULES / PATTERNS, which explain themselves;
+> Canon lives in Values / Rules / Patterns, which explain themselves;
 > README is the door that indexes them.
->
-> It is the second of three stages:
->
->     CHAOS.md    →    STORY.md    →    VALUES / RULES / PATTERNS
->     private          public          canon
->     the experience   the pattern     the belief
->
-> CHAOS.md lives outside the repository and holds the whole experience,
-> names and dates included. What arrives here is the same piece with
-> the person removed: what remains is the pattern, never the episode.
-> Nothing enters this file without that pruning, and that is the whole
-> guarantee that a public repo never ends up telling a private life.
->
-> From here each piece gets distilled and deleted: a belief goes to
-> VALUES, a rule an agent can execute goes to RULES, a root goes to
-> PATTERNS. The full process is in the README, under
-> "How Context Becomes Canon".
->
-> Cap: nine entries. Once nine are full, distill before promoting a
-> tenth. A limit generates quality here too.
-> This file shrinks; the canon grows.
->
-> Each entry carries its status: UNDISTILLED, or SPECULATIVE when the
-> connection is still a hunch, not yet a root.
->
-> It isn't called AGENTS.md because Agents load that name as a
-> project instruction. This file is not that: AGENTS.md stays free for
-> the short pointer to canon.
 
-## Name History
+It is the second of three stages:
 
-The one thing from the origin section that never landed anywhere.
+```mermaid
+flowchart LR
+    Chaos["chaos/<br/>raw Life<br/>private"]
+    Stories["stories/<br/>Person Removed<br/>cap: 9"]
+    Values["Values<br/>a Belief"]
+    Rules["Rules<br/>a Rule"]
+    Patterns["Patterns<br/>a Root"]
+    Chaos -->|"Strip the Person"| Stories
+    Stories -->|"a Belief"| Values
+    Stories -->|"a Rule"| Rules
+    Stories -->|"a Root"| Patterns
+```
 
-- The project started out called **"Three"**. It became **OneTwoThree**
-  to capture the movement: not a number, but "a count, a rhythm,
-  an anticipation."
-- **OneTwoThreeCase** used to be called **TriCase**. The rename followed
-  the project's own — the old name counted the three instead of walking
-  through it.
+- chaos/ holds the whole experience,
+  names and dates still in it,
+  never committed to the repository.
+- What arrives here is the same piece
+  with the person removed:
+  what remains is the pattern, never the episode.
+- Nothing enters this file without that pruning,
+  and that is the whole guarantee
+  that a public repo never ends up telling a private life.
 
-Both are the same decision applied twice: naming the movement, not
-the quantity. A candidate root, if it finds something to pair with.
+From here each piece gets distilled and deleted:
+a belief goes to Values,
+a rule an agent can execute goes to Rules,
+a root goes to Patterns.
+The full process is in the README,
+under "How Context Becomes Canon".
+
+- Cap: nine entries. Once nine are full,
+  distill before promoting a tenth.
+  A limit generates quality here too.
+- This file shrinks; the canon grows.
+- Each entry carries its status:
+  UNDISTILLED, or SPECULATIVE
+  when the connection is still a hunch, not yet a root.
+
+It isn't called AGENTS.md
+because Agents load that name as a project instruction.
+This file is not that:
+AGENTS.md stays free for the short pointer to canon.
 
 ## Undistilled Context
 
-9 of 9 filled. Distill before promoting a tenth.
+7 of 9 filled. Distill before promoting a tenth.
 
-- **Lost work**: two project conversations edited the manifesto and
-  their output never reached `develop`. One wrote the `Trust`,
-  `Documents`, `Maintenance` and `Languages` sections into RULES, the
-  `Breath`, `Rhyme` and `Trust` sections into VALUES, and an `examples/`
-  folder in Go, JS, Rust and Python solving *rating a change's
-  trustworthiness by its commits*. The other reframed `Structure` as a
-  narrative lens and pulled out a dependency rule. Recover before
-  rewriting those areas, or the work gets duplicated.
-
-- **Own linter**: the rules are already almost all mechanical — count
-  beats, count the words in a name, measure nesting. A Go binary that
-  reads RULES.md as its own config would close the loop: the markdown
-  is already a three-layer AST, and the project would validate itself
-  against its own document. It's roadmap, not belief. It doesn't go up
-  to canon until it exists.
-
-- **examples/before-after**: the current examples show the ideal.
-  Missing: the same problem written badly — a long name, four
-  responsibilities, deep nesting — and then fixed.
-  *Debugging is Rapping: show the verse that didn't rhyme.*
-  Lands in `examples/`, not in canon.
-
-- **In-person over written**: for emotionally significant exchanges,
-  an in-person conversation is chosen over a message. Possible root
-  about channel bandwidth — text loses exactly what those exchanges
-  need. Missing the bridge to code.
-
-- **Magic Commander / singleton** (SPECULATIVE): the format allows only
-  one copy of each card. The limit removes reliable draw and forces the
-  deck to improvise. Could be a root for "A Limit Generates Quality",
-  or could just be a hobby with no conceptual weight. Don't promote
-  without confirming.
-
-- **Another three showing up on its own** (SPECULATIVE): spotify-player
-  is configured with three files — app, theme and keymap. Noted in case
-  it repeats. The sample is small and confirmation bias here is huge:
-  counting threes you were already looking for isn't evidence.
-
-- **Modular cluster with LiteLLM**: long-term technical goal. Natural
-  continuation of `The Guest you can Evict`. Wait until it exists.
-
-- **Expressive constants**: at a first job with no prior experience,
-  using constants was mandatory. A COBOL-era programmer named them by
-  index — v_VALUE_1, v_VALUE_2. The question "why not v_ENABLED?" was
-  the moment the name replaced the index: a value becomes expressive
-  when the name says what it means, not where it fell in the list.
-  Candidate root for **Grandma COBOL — Readability as an Ancestor**,
-  already cited in the PATTERNS.md Lineage without being developed.
-
-- **Color by semantic association**: grouping related topics under the
-  same color (or underline) makes the color itself an index, not
-  decoration — a note-taking trick learned early, applied here as a
-  question: could Entities, Actions and Statuses, already distinguished
-  by OneTwoThreeCase capitalization, also carry distinct colors when
-  rendered? Unlike **In-person over written**, this one already has a
-  bridge to code — `pdf/colors.go` renders body text in one flat
-  `ColorBody`, nothing splits it by grammatical role yet.
-  First instinct was red/green/yellow, primary colors chosen for being
-  intuitively combinable — the same intuition behind quark color charge
-  having exactly three (though the real physics term is red, green and
-  blue, not yellow — worth getting right if this ever becomes a named
-  ancestor). Objection: RULES.md's own Emoji section already assigned
-  that trio a meaning — ✅ green Passed, ❌ red Failed, ⚠️ yellow Careful
-  — so reusing it for grammatical role would collide with a meaning the
-  reader already learned in the same document, and would clash against
-  `pdf/colors.go`'s warm, desaturated palette. Primary hues may still be
-  worth rescuing later for something that isn't already spoken for.
-  Could also seed a lint rule alongside **Own linter**, but tagging a
-  capitalized Word in prose as Entity vs. Action vs. Status needs
-  judgment no mechanical rule has yet — the same wall the linter idea
-  hits everywhere it touches prose.
-  A humbler, tractable version: apply it only to the Go code inside the
-  fenced examples, not to prose. A type or struct is unambiguously an
-  Entity, a function or method call is unambiguously an Action, and Go's
-  own AST already answers the question — no judgment call, just a
-  parse, the same move **Own linter** already makes on RULES.md. Nobody
-  else seems to color example code by domain role instead of by syntax
-  token (keyword, string, comment) — narrow niche, but a real one, and
-  `pdf/colors.go` + `drawCodeBlock` already render every code block in
-  one flat color, so there's nothing to unlearn.
-  How to apply any of this is still open.
-  Not yet a confirmed root: one lived instance.
+- [Lost work](stories/lost-work.md)
+- [Own linter](stories/own-linter.md)
+- [examples/before-after](stories/examples-before-after.md)
+- [Another three showing up on its own](stories/another-three-showing-up.md) (SPECULATIVE)
+- [Modular cluster with LiteLLM](stories/modular-cluster-litellm.md)
+- [Ritual as belonging, not belief](stories/ritual-as-belonging-not-belief.md)
+- [Color by semantic association](stories/color-by-semantic-association.md)
 
 ## Provenance Map
 
-Which project conversation each thing came from (to trace origin):
-
-- **Elegance in code and music** — the project's birth, the three
-  files, OneTwoThreeCase, Dev La Soul, the rename to OneTwoThree,
-  De La Soul, Gorillaz, Grace Hopper, camelCase, Bug Fables.
-- **The number 3 as a philosophical pattern** — the inventory of 3
-  across domains.
-- **Unreliable narrators of ourselves** — OneTwoTree, distributed
-  meaning, git SHA as trust points, Naur, Lehman, the bass.
-- **Cognitive load and minimalism in OneTwoThree** — the link between
-  cognitive load and the rule of three; minimalism as instinct, not
-  style.
-- **Committing team changes** — a personal local project, git flow.
-- **Rules and resolution strategies** — the Rules/Values criterion,
-  beats vs. newlines, Go validating OneTwoThreeCase, the linter idea.
-- **Narrative structure in code** — three as a lens rather than a
-  limit, Receive → Transform → Return, code as a declarative sentence.
-- **Mammouth.ai OpenCode compatibility** — the three-column desktop,
-  and the lived evidence of vendor lock-in.
+- [Provenance Map](stories/provenance-map.md) — which conversation each thing came from.
