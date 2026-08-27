@@ -10,8 +10,6 @@
 > Thanks De La Soul, Grandma COBOL and John Cage
 > for Inspiring this Project.
 >
-> And Damon Albarn, who Closed the Circle:
-> Feel Good Inc Carries De La Soul inside it.
 
 ## License
 
@@ -63,7 +61,7 @@ and only the third one Stays.
 - **CHAOS.md** Holds the raw Life.
   Private, never Committed,
   Names and Dates still in it.
-- **STORY.md** Holds the same Piece
+- **Stories** Holds the same Piece
   with the Person Removed.
   Public, Staged, still not Canon.
 - **Values, Rules and Patterns** Hold what Survived.
@@ -83,10 +81,10 @@ What is Left is the Belief, the Rule or the Root.
 - A Belief Goes to Values.
 - A Rule an Agent can Run Goes to Rules.
 - A Root Goes to Patterns.
-- Delete it from STORY.md once it Lands.
+- Delete it from Stories once it Lands.
 
 CHAOS.md never Empties, because a Source never Empties.
-STORY.md Empties, because a Passage is meant to.
+Stories Empties, because a Passage is meant to.
 Nine Entries Fill the Passage.
 Distill before you Promote a tenth.
 
@@ -94,10 +92,10 @@ Distill before you Promote a tenth.
 Patterns Explains why,
 under The Right you have to Invoke.
 
-An empty STORY.md means the Canon is Current.
+An empty Stories means the Canon is Current.
 
 The Name Comes from Patterns, under Chaos is a Source.
 
 AGENTS.md is not this Passage.
 It is the short Pointer Agents Load on their own —
-Canon first, STORY.md named as Notes, nothing Undistilled Repeated there.
+Canon first, Stories named as Notes, nothing Undistilled Repeated there.

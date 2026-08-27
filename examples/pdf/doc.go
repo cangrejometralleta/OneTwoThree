@@ -17,7 +17,7 @@
 // # The Shape
 //
 // main.go Casts the Player, then Steps off the Stage — the Script
-// RULES.md Names under its own Script Section, Running here for
+// Rules Names under its own Script Section, Running here for
 // real instead of Quoted as an Example. markdown.go is the only
 // File that Imports goldmark. render.go is the only File that
 // Imports gopdf. document.go Holds neither Vendor: it is the

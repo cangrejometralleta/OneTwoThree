@@ -59,7 +59,7 @@ test("checkOrderRecord guards each Condition", () => {
   assert.equal(checkOrderRecord({ ...good, items: [] }), false);
 });
 
-// The Text that Ties this Domain to the Snippet RULES.md already Cites.
+// The Text that Ties this Domain to the Snippet Rules already Cites.
 test("buildOrderReceipt renders three Sections", () => {
   const items = [{ name: "Widget", price: 100, qty: 2 }];
   const receipt = buildOrderReceipt("ab12", items, 10);

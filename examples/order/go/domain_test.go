@@ -39,7 +39,7 @@ func TestCheckOrderRecordGuardsEachCondition(t *testing.T) {
 	}
 }
 
-// The Text that Ties this Domain to the Snippet RULES.md already Cites.
+// The Text that Ties this Domain to the Snippet Rules already Cites.
 func TestBuildOrderReceiptRendersThreeSections(t *testing.T) {
 	items := []Item{{Name: "Widget", Price: 100, Qty: 2}}
 

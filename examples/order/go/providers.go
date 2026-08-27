@@ -1,7 +1,7 @@
 package main
 
 // A Provider is an Interface the Core Declares
-// and something outside Fulfils. See RULES.md, Providers.
+// and something outside Fulfils. See Rules, Providers.
 
 // OrderStore Keeps Orders wherever Orders Live.
 // Fulfilled by GormOrders.

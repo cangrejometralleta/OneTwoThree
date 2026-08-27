@@ -11,6 +11,8 @@ and returns one Suggestion, plus one Line saying why.
 The Checklist is [onetwothreerefactor](../onetwothreerefactor/SKILL.md).
 Use that to review a whole Unit. Use this to rename one.
 
+The canon lives in [OneTwoThreeCase](../../../rules/onetwothreecase.md).
+
 ## How to Convert
 
 1. Classify the Input — Prose or Code?
