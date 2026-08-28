@@ -41,7 +41,17 @@ are still five Shouting, now in three Tongues.
    A single Entity has no Pair to Rotate with,
    and there no Color Goes.
 
-5. **Never the Emoji Trio** — Green, Red and Yellow are Spoken for.
+5. **Background Takes no Hue** — a Token on every Line Groups nothing.
+   It Marks the Page, not a Part of it. Color what Gathers some Lines,
+   never what Covers them all. One Line alone has no Background,
+   so a Token Repeating inside it still Counts.
+
+6. **One Line Set, one Hue** — Tokens that Touch exactly the same Lines
+   are one Fact Wearing several Names. `.agents/skills/onetwothreeoutput/`
+   is one Home, not three Groups. They Share a Hue, and the Hues they
+   stopped Eating Stay free for what really Differs.
+
+7. **Never the Emoji Trio** — Green, Red and Yellow are Spoken for.
    ✅ Passed, ❌ Failed, ⚠️ Careful. A Group that Borrows them
    Collides with a Meaning the Reader already Learned.
 
@@ -56,7 +66,7 @@ are still five Shouting, now in three Tongues.
 256-Color, never Truecolor — it Renders everywhere,
 and it Survives a light Terminal as well as a dark one.
 
-Rule five Takes the whole warm End off the Table,
+Rule seven Takes the whole warm End off the Table,
 so the three Hues Come from the cool Half. That is a
 Constraint, not a Taste. The Bonus: no Pair among them
 Fails Red-Green Deficiency, because the Reserve
@@ -70,6 +80,45 @@ Pick your Collision.
 The Paper Palette in `examples/pdf/colors.go` Runs warm
 and Shares nothing with these. That is Fine.
 Paper Knows its Background; the Terminal does not.
+
+## The Markdown Plane
+
+ANSI never Reaches a Rendered Document, and HTML Gets Stripped.
+Markdown Carries three Marks instead of three Hues:
+
+```
+**bold**   *italic*   `code`
+```
+
+`code` is the best of them, not a Fallback — the Tokens being
+Grouped are Identifiers, so the Mark Means what it always Meant.
+
+One Rule Comes with it. An Identifier outside a Group Stays plain.
+Backtick every Path out of Habit and the third Mark Stops
+Meaning Group. The Mark is Spent on Grouping or on nothing.
+
+### Why the Lines do not Move
+
+Markdown can do what a Terminal cannot: Gather Lines. A Blockquote
+Groups before any Mark Does, and it Spends no Mark to do it.
+It was Built, Tested, and Cut. The Reason is worth Keeping.
+
+Moving a Line **is** its Mark, so the Tokens that Earned the Group
+Carry nothing. The Indent Says *these Belong* and never Says
+*by what*. The Reader Sees a Block and Asks why — the exact
+Question the Proof Warns about.
+
+And a Blockquote already Means Quotation or Aside. Borrowing it
+Rebuilds the Trap that Barred Bold and the Emoji Trio.
+
+The deeper Reason: Color Adds a Channel. Indentation Spends one
+Markdown already Uses. The Terminal has a free Dimension;
+a rendered Document does not.
+
+If a Surface ever Appears with a spare structural Channel —
+Columns, a Gutter, a Margin — the Idea Returns. The Test it Needs
+is mechanical and Written down: Groups that Move must Miss each
+other and Run without a Gap. The Rest Stay put and take a Mark.
 
 ## The Script Does the Work
 

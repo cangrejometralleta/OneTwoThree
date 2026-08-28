@@ -18,9 +18,12 @@ import re
 import sys
 
 # Blue, Magenta, Cyan. Green, Red and Yellow stay Reserved
-# for the Emoji Trio — see color.md, Rule five.
+# for the Emoji Trio — see color.md, Rule seven.
 HUES = ("\033[38;5;39m", "\033[38;5;170m", "\033[38;5;80m")
 RESET = "\033[0m"
+
+# Markdown Carries three Marks where the Terminal Carries three Hues.
+MARKS = (("**", "**"), ("*", "*"), ("`", "`"))
 
 HUE_CEILING = 3
 GROUP_FLOOR = 2
@@ -51,23 +54,75 @@ def bind_to_path(text, match):
 
 
 def find_repeated_tokens(text):
-    """Collect the Referents that Appear twice or more, in first-seen Order."""
+    """Collect the Referents that Appear twice or more, in first-seen Order.
+
+    A Token on every Line Groups nothing — it is Background, not a Group,
+    so it Falls out even when it Repeats. Color Marks what Gathers some
+    Lines, never what Covers them all.
+    """
     counts = {}
+    lines_seen = {}
     order = []
-    for match in TOKEN_PATTERN.finditer(text):
-        token = match.group(0)
-        if not name_referent(token, bind_to_path(text, match)):
-            continue
-        if token not in counts:
-            order.append(token)
-        counts[token] = counts.get(token, 0) + 1
+    lines = [line for line in text.splitlines() if line.strip()]
 
-    return [token for token in order if counts[token] >= GROUP_FLOOR]
+    for index, line in enumerate(lines):
+        for match in TOKEN_PATTERN.finditer(line):
+            token = match.group(0)
+            if not name_referent(token, bind_to_path(line, match)):
+                continue
+            if token not in counts:
+                order.append(token)
+                lines_seen[token] = set()
+            counts[token] = counts.get(token, 0) + 1
+            lines_seen[token].add(index)
+
+    kept = [
+        token
+        for token in order
+        if counts[token] >= GROUP_FLOOR
+        and not covers_every_line(lines_seen[token], len(lines))
+    ]
+    return kept, lines_seen
 
 
-def assign_hues(tokens):
-    """Hand the first three Tokens a Hue each. The rest Stay bare."""
-    return dict(zip(tokens[:HUE_CEILING], HUES))
+def covers_every_line(seen, total):
+    """Background Spreads across every Line. One Line alone has no Background."""
+    return total > 1 and len(seen) == total
+
+
+def assign_hues(tokens, lines_seen):
+    """Hand the first three Groups a Hue each. The rest Stay bare.
+
+    Tokens that Touch exactly the same Lines are one Group, not three.
+    A shared Prefix Reads as one Fact, so it takes one Hue — and the
+    Hues it did not Eat Stay free for the Tokens that really Differ.
+    """
+    return dict(wrap_by_signature(tokens, lines_seen, HUES))
+
+
+def group_by_signature(tokens, lines_seen):
+    """Gather the Tokens that Touch exactly the same Lines, in first-seen Order."""
+    signatures = []
+    members = {}
+    for token in tokens:
+        signature = frozenset(lines_seen.get(token, ()))
+        if signature not in members:
+            signatures.append(signature)
+            members[signature] = []
+        members[signature].append(token)
+
+    return [(signature, members[signature]) for signature in signatures]
+
+
+def wrap_by_signature(tokens, lines_seen, wrappers):
+    """Hand each Group the next Wrapper. Past the Ceiling, none."""
+    paired = []
+    for index, (_, members) in enumerate(group_by_signature(tokens, lines_seen)):
+        if index >= len(wrappers):
+            break
+        paired.extend((token, wrappers[index]) for token in members)
+
+    return paired
 
 
 def paint_text(text, hues):
@@ -81,6 +136,29 @@ def paint_text(text, hues):
     return pattern.sub(lambda m: hues[m.group(1)] + m.group(1) + RESET, text)
 
 
+def paint_marks(text, marks):
+    """Wrap every whole-Token Occurrence in its Markdown Mark."""
+    if not marks:
+        return text
+
+    pattern = re.compile(
+        r"(?<![A-Za-z0-9_])(" + "|".join(re.escape(t) for t in marks) + r")(?![A-Za-z0-9_])"
+    )
+    return pattern.sub(lambda m: marks[m.group(1)][0] + m.group(1) + marks[m.group(1)][1], text)
+
+
+def render_markdown(text):
+    """Mark the Groups for a Rendered Document, where no Escape Survives.
+
+    Receives the raw Text, Wraps each Group in a Markdown Mark,
+    and Returns the Document. Nothing Moves — see color.md,
+    Why the Lines do not Move.
+    """
+    found, lines_seen = find_repeated_tokens(text)
+    marks = dict(wrap_by_signature(found, lines_seen, MARKS))
+
+    return paint_marks(text, marks)
+
 def write_legend(hues, stream):
     """Name which Token took which Hue, so the Key is never Guessed."""
     for token, hue in hues.items():
@@ -89,16 +167,25 @@ def write_legend(hues, stream):
 
 def main():
     wants_legend = "--legend" in sys.argv[1:]
+    wants_markdown = "--md" in sys.argv[1:]
     forces_color = "--force" in sys.argv[1:]
     chosen = [a for a in sys.argv[1:] if not a.startswith("-")]
     text = sys.stdin.read()
+
+    if wants_markdown:
+        sys.stdout.write(render_markdown(text))
+        return 0
 
     if os.environ.get("NO_COLOR") or not (forces_color or sys.stdout.isatty()):
         sys.stdout.write(text)
         return 0
 
-    tokens = chosen or find_repeated_tokens(text)
-    hues = assign_hues(tokens)
+    if chosen:
+        # A Human Naming the Tokens Needs no Inference: one Hue each.
+        hues = dict(zip(chosen[:HUE_CEILING], HUES))
+    else:
+        found, lines_seen = find_repeated_tokens(text)
+        hues = assign_hues(found, lines_seen)
     sys.stdout.write(paint_text(text, hues))
 
     if wants_legend:
