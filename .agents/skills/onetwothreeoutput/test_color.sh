@@ -33,9 +33,15 @@ check_markdown() {
 
     out=$(printf '%s\n' "$input" | $COLOR --md)
     lines=$(printf '%s\n' "$out" | grep -c '^> ')
-    printf '%s' "$out" | grep -q '\*\*' && found=$((found + 1))
-    printf '%s' "$out" | grep -qE '(^|[^*])\*[^*]' && found=$((found + 1))
-    printf '%s' "$out" | grep -q '`' && found=$((found + 1))
+
+    # Count only the Marks the Script Added. A Mark the Page already
+    # Spends Appears in both, so it Proves nothing about Grouping.
+    for pattern in '\*\*' '(^|[^*])\*[^*]' '`'; do
+        local before after
+        before=$(printf '%s\n' "$input" | grep -oE "$pattern" | wc -l)
+        after=$(printf '%s\n' "$out" | grep -oE "$pattern" | wc -l)
+        [ "$after" -gt "$before" ] && found=$((found + 1))
+    done
 
     if [ "$lines" -eq "$quoted" ] && [ "$found" -eq "$kinds" ]; then
         echo "✅ $name — $lines Quoted, $found Marks"
@@ -61,6 +67,13 @@ gamma.go gamma.go
 delta.go delta.go'
 
 check_case "Background on every Line takes none" 0 \
+'run-1 on host-a
+run-2 on host-a
+run-3 on host-a
+run-4 on host-a
+run-5 on host-a'
+
+check_case "A short Block Keeps its shared Token" 1 \
 'run-1 on host-a
 run-2 on host-a
 run-3 on host-a'
@@ -105,6 +118,19 @@ worker-pool Drained on eu-west-1
 worker-pool Drained on us-east-1
 billing-db Migrated
 eu-west-1 Lagged behind us-east-1'
+
+check_markdown "A Page that Bolds Groups with two" 0 2 \
+'**Report**
+a.go and x
+b.go and y
+c.go and z
+a.go b.go c.go'
+
+check_markdown "A Page that Spends all three Groups with none" 0 0 \
+'**Report** on `main` with *stress*
+a.go and x
+b.go and y
+a.go b.go'
 
 check_markdown "No Group, no Mark and no Move" 0 0 \
 'alpha.go Passed

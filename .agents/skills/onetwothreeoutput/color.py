@@ -7,7 +7,9 @@ Stays bare, because the Ceiling makes Color a Limiter.
 
 Reads stdin, Writes stdout. Passes Through untouched when stdout is
 not a Terminal or NO_COLOR is Set, so a Pipe never Eats an Escape.
---force Paints into a Pipe; --legend Names the Key on stderr. Bare
+--md Marks for a rendered Document, using only the Marks the Page has
+not Spent; --marks=N Caps that further. --force Paints into a Pipe;
+--legend Names the Key on stderr. Bare
 Arguments Choose the Tokens by Hand, when the Human Sees a Group the
 Count missed. NO_COLOR Beats --force: the Reader's standing Preference
 Outranks the Writer's Flag.
@@ -31,6 +33,7 @@ GROUP_FLOOR = 2
 # so shape_test.go:41 and v0.1.0-rc.3 Survive whole while a Path Splits.
 TOKEN_PATTERN = re.compile(r"[A-Za-z_][A-Za-z0-9_.:-]*[A-Za-z0-9_]|[A-Za-z_]")
 PATH_MARKS = "/."
+BLANK_LINE = re.compile(r"\n[ \t]*\n")
 
 
 def name_referent(token, is_path_bound):
@@ -86,8 +89,13 @@ def find_repeated_tokens(text):
 
 
 def covers_every_line(seen, total):
-    """Background Spreads across every Line. One Line alone has no Background."""
-    return total > 1 and len(seen) == total
+    """Background Needs a Page to Spread across.
+
+    In a Block no taller than the Ceiling, a Token on every Line is not
+    Background — it is the Co-occurrence itself. Only when the Block
+    Outgrows the Ceiling does Total Coverage Stop Telling anything.
+    """
+    return total > HUE_CEILING and len(seen) == total
 
 
 def assign_hues(tokens, lines_seen):
@@ -147,17 +155,70 @@ def paint_marks(text, marks):
     return pattern.sub(lambda m: marks[m.group(1)][0] + m.group(1) + marks[m.group(1)][1], text)
 
 
-def render_markdown(text):
+def split_paragraphs(text):
+    """A blank Line Ends a Group. The Eye Relates within a Paragraph, not across.
+
+    Each Block Counts its own Repetitions and Spends its own Budget,
+    so a Header Paragraph Spending Bold Leaves Bold free below it.
+    """
+    return BLANK_LINE.split(text)
+
+
+def render_paragraphs(text, render_one):
+    """Run one Renderer over each Paragraph and Join them back."""
+    return "\n\n".join(render_one(block) for block in split_paragraphs(text))
+
+
+def find_free_marks(text, cap):
+    """Return the Marks the Document has not Spent, up to the Cap.
+
+    A Mark already Carrying Emphasis cannot also Mean Group. The
+    Ceiling is what the Surface has Left, never what it Has — so a
+    Page that Bolds its Labels Groups with one Mark fewer.
+    """
+    spent = {
+        "**": "**" in text,
+        "*": bool(re.search(r"(?<![*\\])\*(?!\*)", text)),
+        "`": "`" in text,
+    }
+    free = [pair for pair in MARKS if not spent[pair[0]]]
+
+    return free[:cap] if cap else free
+
+
+def render_markdown(text, cap=0):
+    """Mark each Paragraph on its own Budget, then Join them back."""
+    return render_paragraphs(text, lambda block: mark_paragraph(block, cap))
+
+
+def mark_paragraph(text, cap=0):
     """Mark the Groups for a Rendered Document, where no Escape Survives.
 
-    Receives the raw Text, Wraps each Group in a Markdown Mark,
-    and Returns the Document. Nothing Moves — see color.md,
+    Receives the raw Text, Wraps each Group in a Mark the Page has not
+    Spent, and Returns the Document. Nothing Moves — see color.md,
     Why the Lines do not Move.
     """
     found, lines_seen = find_repeated_tokens(text)
-    marks = dict(wrap_by_signature(found, lines_seen, MARKS))
+    marks = dict(wrap_by_signature(found, lines_seen, find_free_marks(text, cap)))
 
     return paint_marks(text, marks)
+
+def collect_hues(text):
+    """Gather every Paragraph's Key into one, for the Legend."""
+    hues = {}
+    for block in split_paragraphs(text):
+        found, lines_seen = find_repeated_tokens(block)
+        hues.update(assign_hues(found, lines_seen))
+
+    return hues
+
+
+def paint_paragraph(text):
+    """Hue one Paragraph on its own Count."""
+    found, lines_seen = find_repeated_tokens(text)
+
+    return paint_text(text, assign_hues(found, lines_seen))
+
 
 def write_legend(hues, stream):
     """Name which Token took which Hue, so the Key is never Guessed."""
@@ -168,12 +229,13 @@ def write_legend(hues, stream):
 def main():
     wants_legend = "--legend" in sys.argv[1:]
     wants_markdown = "--md" in sys.argv[1:]
+    cap = next((int(a.split("=")[1]) for a in sys.argv[1:] if a.startswith("--marks=")), 0)
     forces_color = "--force" in sys.argv[1:]
     chosen = [a for a in sys.argv[1:] if not a.startswith("-")]
     text = sys.stdin.read()
 
     if wants_markdown:
-        sys.stdout.write(render_markdown(text))
+        sys.stdout.write(render_markdown(text, cap))
         return 0
 
     if os.environ.get("NO_COLOR") or not (forces_color or sys.stdout.isatty()):
