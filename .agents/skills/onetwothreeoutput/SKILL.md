@@ -88,6 +88,12 @@ The Path and the Line Survived the Cut; only the Connectors Fell.
 7. **Narrate** — Name what Happened, never how.
    The Libretto Names the Plot; the Provider Holds the how.
 
+## Color
+
+Off by Default, and Off means Absent.
+If the User Asks for Color, Read [color.md](color.md);
+otherwise the Output Stays Plain and this Line is the whole Rule.
+
 ## Where the Load Goes
 
 Fewer Words do not Delete the Load. They Move it.
