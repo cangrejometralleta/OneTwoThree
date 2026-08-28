@@ -97,6 +97,25 @@ One Rule Comes with it. An Identifier outside a Group Stays plain.
 Backtick every Path out of Habit and the third Mark Stops
 Meaning Group. The Mark is Spent on Grouping or on nothing.
 
+### The Ceiling is what the Surface has Left
+
+Three is the Terminal's Number, because a Terminal Starts Empty.
+A Document does not. It Spends Bold on a Label and Backticks on
+a Path before Grouping ever Arrives, so the Budget is three minus
+what the Page already Owes.
+
+A Mark Carrying Emphasis cannot also Mean Group. Lay one on the
+other and both Collapse — the Reader Meets a Bold Word and cannot
+Tell whether it Matters or merely Belongs.
+
+So Count what the Page Spends, then Group with the Rest.
+A Page that Bolds its Labels Groups with two. One that Bolds and
+Backticks Groups with one. A Page that Spends all three Groups
+with none, and that is the correct Answer, not a Failure.
+
+The Script Reads the Text and Counts for you. `--marks=N` Caps it
+lower when you Know the Page will Spend more than it Shows.
+
 ### Why the Lines do not Move
 
 Markdown can do what a Terminal cannot: Gather Lines. A Blockquote
