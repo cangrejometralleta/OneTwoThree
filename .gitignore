@@ -7,3 +7,5 @@ CHAOS.md
 .agents/settings.local.json
 .obsidian/
 .vscode/
+__pycache__/
+*.pyc
