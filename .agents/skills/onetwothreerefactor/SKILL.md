@@ -1,6 +1,6 @@
 ---
 name: onetwothreerefactor
-description: Apply the OneTwoThree manifesto's code conventions when writing, reviewing, or refactoring code — three-beat function bodies, Verb+Noun+context naming, Provider ports named after the business need instead of the vendor, seam-based line breaks. Use whenever generating or reviewing code in a project that follows Rules from cangrejometralleta/OneTwoThree, or when the user asks for "the manifesto rules".
+description: Apply the OneTwoThree manifesto's code conventions when writing, reviewing, or refactoring code — three-beat function bodies, Verb+Noun+context naming, Provider ports named after the business need instead of the vendor, seam-based line breaks. Use whenever generating or refactoring code in a project that follows Rules from cangrejometralleta/OneTwoThree, or when the user asks for "the manifesto rules". To judge code already written, send the onetwothreereview agent instead — it reads the diff in its own context and returns the findings.
 ---
 
 # OneTwoThreeRefactor
@@ -9,6 +9,11 @@ A portable summary of [Rules](../../../RULES.md).
 The canon lives in [rules/](../../../rules/) — each Section its own File.
 If a Rules file exists in the current repo, it is canonical — this
 skill is the checklist, not a replacement.
+
+This Skill Rides along while you Write.
+To Judge Code already Written, Send the
+[onetwothreereview](../../agents/onetwothreereview.md) Agent —
+it Reads the Diff in its own Context and Returns the Findings.
 
 ## Before returning code, check
 
