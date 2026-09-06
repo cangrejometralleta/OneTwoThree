@@ -75,7 +75,10 @@ func SumItemPrices(items []Item) int {
 
 // FormatItemLine Renders one Item for the Receipt.
 func FormatItemLine(it Item) string {
-	return fmt.Sprintf("%-12s x%d %6d", it.Name, it.Qty, it.Price*it.Qty)
+	layout := ReadOrderConstants()
+
+	return fmt.Sprintf("%-*s x%d %*d", layout.ItemNameWidth, it.Name,
+		it.Qty, layout.ItemTotalWidth, it.Price*it.Qty)
 }
 
 // ApplyMemberRate Lowers a Total by a Percentage.

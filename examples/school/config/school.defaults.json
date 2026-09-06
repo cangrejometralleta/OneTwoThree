@@ -1,0 +1,5 @@
+{
+  "port": 8080,
+  "tokenLifeSeconds": 600,
+  "serverAdapter": "stdlib"
+}

@@ -1,3 +1,4 @@
+import { loadSchoolConfig, type SchoolConfig } from "./config.js";
 import { selectServerAdapter } from "./adapters.js";
 import { SchoolAPI } from "./handlers.js";
 import { SqliteSchool } from "./store-sqlite.js";
@@ -5,27 +6,19 @@ import { HmacTokens } from "./token-hmac.js";
 
 // main Casts the Players, then Steps off the Stage.
 async function main(): Promise<void> {
-  const school = SqliteSchool.shapeSchoolTables("school.db");
-  const api = new SchoolAPI(school, school, buildTokenIssuer());
+  const config = loadSchoolConfig({ ...process.env });
 
-  const choice = process.env["SERVER"] ?? "node";
-  const server = selectServerAdapter(choice);
+  const school = SqliteSchool.shapeSchoolTables(config.databasePath);
+  const api = new SchoolAPI(school, school, buildTokenIssuer(config));
+  const server = selectServerAdapter(config.serverAdapter);
 
-  await server.serveRoutes(api.declareSchoolRoutes(), 8080);
-  console.log(`✅ School Listening on :8080 through "${choice}"`);
+  await server.serveRoutes(api.declareSchoolRoutes(), config.port);
+  console.log(`✅ School Listening on :${config.port} through "${config.serverAdapter}"`);
 }
 
-// buildTokenIssuer Refuses to Start without a Secret.
-// A silent Default Secret is a public Key with extra Steps.
-function buildTokenIssuer(): HmacTokens {
-  const secret = process.env["TOKEN_SECRET"];
-
-  if (!secret) {
-    console.error("❌ TOKEN_SECRET is Missing");
-    process.exit(1);
-  }
-
-  return new HmacTokens(secret, 10 * 60 * 1000);
+// buildTokenIssuer Uses the Secret and Lifetime Validated at Startup.
+function buildTokenIssuer(config: SchoolConfig): HmacTokens {
+  return new HmacTokens(config.tokenSecret, config.tokenLifeSeconds * 1000);
 }
 
 main().catch((failure) => {

@@ -89,8 +89,10 @@ test("checkStudentRecord guards each Rule", () => {
   const good = { rut: "12345678-5", name: "Ada", age: 20, course: 1 } as unknown as Student;
   assert.equal(checkStudentRecord(good), null);
 
+  assert.equal(checkStudentRecord({ ...good, age: 18 }), null);
+
   const young = { ...good, age: 17 };
-  assert.equal(checkStudentRecord(young)?.message, "age Must be eighteen or more");
+  assert.equal(checkStudentRecord(young)?.message, "age Must be 18 or more");
 });
 
 test("addStudentRecord enrols someone", () => {

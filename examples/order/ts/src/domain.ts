@@ -1,3 +1,5 @@
+import { OrderValues } from "./constants.js";
+
 // Brand Gives TypeScript what Go Gets from a named Type:
 // a String that Refuses to Stand in for another String.
 declare const brand: unique symbol;
@@ -62,7 +64,7 @@ export function sumItemPrices(items: Item[]): number {
 
 // formatItemLine Renders one Item for the Receipt.
 export function formatItemLine(it: Item): string {
-  return `${it.name.padEnd(12)} x${it.qty} ${String(it.price * it.qty).padStart(6)}`;
+  return `${it.name.padEnd(OrderValues.itemNameWidth)} x${it.qty} ${String(it.price * it.qty).padStart(OrderValues.itemTotalWidth)}`;
 }
 
 // applyMemberRate Lowers a Total by a Percentage.

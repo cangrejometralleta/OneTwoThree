@@ -49,7 +49,7 @@ func TestBuildOrderReceiptRendersThreeSections(t *testing.T) {
 	if len(lines) != 2 {
 		t.Fatalf("wanted 2 Lines, got %d: %q", len(lines), receipt)
 	}
-	if lines[0] != FormatItemLine(items[0]) {
+	if lines[0] != "Widget       x2    200" {
 		t.Errorf("wanted the Item Line, got %q", lines[0])
 	}
 	if want := ReportOrderState("ab12", 180, nil); lines[1] != want {

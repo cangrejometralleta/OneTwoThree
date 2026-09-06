@@ -2,6 +2,7 @@ package main
 
 import (
 	"errors"
+	"fmt"
 	"regexp"
 	"strconv"
 	"strings"
@@ -42,7 +43,7 @@ var (
 	ErrNameIsEmpty    = errors.New("name is Empty")
 	ErrRutIsInvalid   = errors.New("rut Fails its Check Digit")
 	ErrRutTaken       = errors.New("rut is already Registered")
-	ErrAgeIsTooLow    = errors.New("age Must be eighteen or more")
+	ErrAgeIsTooLow    = fmt.Errorf("age Must be %d or more", ReadSchoolConstants().MinimumAgeYears)
 	ErrStudentUnknown = errors.New("student not Found")
 	ErrCourseUnknown  = errors.New("course not Found")
 	ErrPageIsInvalid  = errors.New("page Numbers Must not be negative")
@@ -67,7 +68,7 @@ func (s Student) CheckStudentRecord() error {
 
 // CheckStudentAge Holds the one Rule the School will not Bend.
 func (s Student) CheckStudentAge() error {
-	if s.Age < 18 {
+	if s.Age < ReadSchoolConstants().MinimumAgeYears {
 		return ErrAgeIsTooLow
 	}
 

@@ -66,7 +66,7 @@ test("buildOrderReceipt renders three Sections", () => {
   const lines = receipt.split("\n");
 
   assert.equal(lines.length, 2);
-  assert.equal(lines[0], formatItemLine(items[0]!));
+  assert.equal(lines[0], "Widget       x2    200");
   assert.equal(lines[1], reportOrderState("ab12", 180, null));
 });
 

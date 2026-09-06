@@ -5,7 +5,7 @@
   "scripts": {
     "build": "tsc",
     "start": "node dist/main.js",
-    "test": "tsc && node --test dist/school.test.js"
+    "test": "tsc && node --test dist/*.test.js"
   },
   "dependencies": {
     "express": "^5.1.0",
