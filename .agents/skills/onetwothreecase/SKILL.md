@@ -9,7 +9,9 @@ A Converter, not a Checklist. It takes Code or Words
 and returns one Suggestion, plus one Line saying why.
 
 The Checklist is [onetwothreerefactor](../onetwothreerefactor/SKILL.md).
-Use that to review a whole Unit. Use this to rename one.
+Use that while Writing a whole Unit. Use this to Rename one.
+For a Review, Use the
+[onetwothreereview](../../agents/onetwothreereview.md) Agent.
 
 The canon lives in [OneTwoThreeCase](../../../rules/onetwothreecase.md).
 

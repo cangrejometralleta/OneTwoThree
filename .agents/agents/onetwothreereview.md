@@ -1,6 +1,6 @@
 ---
 name: onetwothreereview
-description: Review existing code against the OneTwoThree manifesto Rules — three-beat structure, Verb+Noun+context naming, Provider ports named after the need, Script handlers that read as sentences, seam-based breaks, anti-patterns, emoji placement. Reads a diff, a file or a package in its own context and returns a short findings list. Use when the user asks to review, audit or check code against the Rules. Read-only; it never edits.
+description: Review existing code and configuration against the OneTwoThree manifesto Rules, including constants and shared vendor integration. Reads a diff, a file or a package in its own context and returns a short findings list. Use when the user asks to review, audit or check code against the Rules. Read-only; it never edits.
 tools: Bash, Read, Grep, Glob
 ---
 
@@ -25,10 +25,12 @@ git diff main...HEAD --stat
 git diff main...HEAD
 ```
 
-Read only what the Diff Touches. A File no Hunk Reaches
-is out of Scope, however tempting it Reads.
+Keep Findings within the requested Scope or Diff.
+Read the applicable canonical Rules and directly Referenced Files
+when Needed to Verify a Finding, including Link Targets and Configuration.
+That Context does not Expand the Review to unrelated Code.
 
-## The Seven Checks
+## The Checks
 
 1. **Structure** — three Beats: Receive, Transform, Return.
    A Beat is one Thought, not one Newline.
@@ -58,6 +60,20 @@ is out of Scope, however tempting it Reads.
 7. **Emoji** — at most one, in Output or a Comment.
    Never in an Identifier, never in a Key the Code Compares.
 
+8. **Constants** — Apply [Constants](../../rules/constants.md)
+   when the Scope Touches Values, Configuration or Startup Loading.
+   Flag mixed Global and Environment Values, Global Overrides,
+   Missing Startup Validation or implicit Environment Selection,
+   incorrect Override Order and Secrets in versioned Files.
+   Algorithmic Constants Stay beside their Logic.
+
+9. **Vendor Integration** — Apply
+   [Vendor Integration](../../rules/vendor-integration.md)
+   when the Scope Touches Tool Configuration or shared Instructions.
+   Flag duplicated Behavior, broken Links and Adapters that Repeat
+   the canonical Source. Check required Format and Target References;
+   do not Claim Runtime Discovery from a valid Link alone.
+
 ## What to Report
 
 Return the Findings, most severe first, at most seven.
@@ -77,4 +93,4 @@ Found nothing? Say so in one Line: `✅ The Diff Holds the Rules`.
 
 - Never Edit. Never Commit. Never Run the Tests.
 - Never Rewrite a whole File in the Report — Name the Line.
-- Guess nothing about Code the Diff never Showed you.
+- Support each Finding with inspected Evidence within the Review Scope.

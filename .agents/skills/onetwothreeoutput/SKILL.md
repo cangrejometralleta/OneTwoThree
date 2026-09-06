@@ -6,8 +6,9 @@ description: Format terminal output for readability — OneTwoThreeCase prose, o
 # OneTwoThreeOutput
 
 Compose Guidelines, not a Converter and not a Checklist.
-Case Converts one Name, Refactor Reviews one Unit,
+Case Converts one Name, Refactor Guides the Writing,
 and This Shapes what the Terminal Says.
+The [onetwothreereview](../../agents/onetwothreereview.md) Agent Reviews Code.
 
 The Terminal is one of three Planes —
 Files, Code and Terminal. Look, Work and Talk.
@@ -87,6 +88,14 @@ The Path and the Line Survived the Cut; only the Connectors Fell.
 
 7. **Narrate** — Name what Happened, never how.
    The Libretto Names the Plot; the Provider Holds the how.
+
+## Paragraphs and Channels
+
+For Prose Reports, Follow [Paragraph](../../../rules/paragraph.md):
+Open with the Claim and Keep one Idea per Paragraph.
+When Assigning Color or Markdown Marks, Follow
+[Channels](../../../rules/channels.md): a Mark already Carrying Meaning
+Cannot Carry a second. Plain Output Remains a valid Choice.
 
 ## Color
 
