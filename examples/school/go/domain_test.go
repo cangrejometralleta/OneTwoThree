@@ -30,10 +30,11 @@ func TestCheckStudentRecordGuardsEachRule(t *testing.T) {
 		student Student
 		want    error
 	}{
-		"valid":     {good, nil},
-		"no name":   {Student{Rut: "12345678-5", Age: 20}, ErrNameIsEmpty},
-		"bad rut":   {Student{Rut: "12345678-9", Name: "Ada", Age: 20}, ErrRutIsInvalid},
-		"too young": {Student{Rut: "12345678-5", Name: "Ada", Age: 17}, ErrAgeIsTooLow},
+		"valid":       {good, nil},
+		"minimum age": {Student{Rut: "12345678-5", Name: "Ada", Age: 18}, nil},
+		"no name":     {Student{Rut: "12345678-5", Age: 20}, ErrNameIsEmpty},
+		"bad rut":     {Student{Rut: "12345678-9", Name: "Ada", Age: 20}, ErrRutIsInvalid},
+		"too young":   {Student{Rut: "12345678-5", Name: "Ada", Age: 17}, ErrAgeIsTooLow},
 	}
 
 	for name, test := range cases {

@@ -20,5 +20,6 @@
 - [Script](rules/script.md) — the Handler is its Script.
 - [Providers](rules/providers.md) — a Port, never a Vendor.
 - [Naming](rules/naming.md) — Verb + Noun + context.
+- [Constants](rules/constants.md) — descriptive Files, explicit Environments.
 - [Anti-Patterns](rules/anti-patterns.md) — more than three Responsibilities.
 - [Code](rules/code.md) — Go, because the Rules Read better when they Run.

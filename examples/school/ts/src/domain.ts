@@ -1,3 +1,5 @@
+import { SchoolValues } from "./constants.js";
+
 // Brand Gives TypeScript what Go Gets from a named Type:
 // a String that Refuses to Stand in for another String.
 declare const brand: unique symbol;
@@ -38,7 +40,7 @@ export class BusinessError extends Error {
 export const ErrNameIsEmpty = new BusinessError("invalid", "name is Empty");
 export const ErrRutIsInvalid = new BusinessError("invalid", "rut Fails its Check Digit");
 export const ErrRutTaken = new BusinessError("taken", "rut is already Registered");
-export const ErrAgeIsTooLow = new BusinessError("invalid", "age Must be eighteen or more");
+export const ErrAgeIsTooLow = new BusinessError("invalid", `age Must be ${SchoolValues.minimumAgeYears} or more`);
 export const ErrStudentUnknown = new BusinessError("absent", "student not Found");
 export const ErrCourseUnknown = new BusinessError("absent", "course not Found");
 export const ErrPageIsInvalid = new BusinessError("invalid", "page Numbers Must not be negative");
@@ -85,7 +87,7 @@ export function rutLooksValid(rut: string): boolean {
 export function checkStudentRecord(student: Student): BusinessError | null {
   if (student.name.length === 0) return ErrNameIsEmpty;
   if (!rutLooksValid(student.rut)) return ErrRutIsInvalid;
-  if (student.age < 18) return ErrAgeIsTooLow;
+  if (student.age < SchoolValues.minimumAgeYears) return ErrAgeIsTooLow;
 
   return null;
 }
