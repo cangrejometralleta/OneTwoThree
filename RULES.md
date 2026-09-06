@@ -19,6 +19,7 @@
 - [Structure](rules/structure.md) — three Beats, not three Newlines.
 - [Script](rules/script.md) — the Handler is its Script.
 - [Providers](rules/providers.md) — a Port, never a Vendor.
+- [Vendor Integration](rules/vendor-integration.md) — one Source, Links and small Adapters.
 - [Naming](rules/naming.md) — Verb + Noun + context.
 - [Constants](rules/constants.md) — descriptive Files, explicit Environments.
 - [Anti-Patterns](rules/anti-patterns.md) — more than three Responsibilities.

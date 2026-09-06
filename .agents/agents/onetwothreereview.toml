@@ -1,0 +1,8 @@
+name = "onetwothreereview"
+description = "Review existing code against the OneTwoThree manifesto Rules — three-beat structure, Verb+Noun+context naming, Provider ports named after the need, Script handlers that read as sentences, seam-based breaks, anti-patterns, emoji placement. Reads a diff, a file or a package in its own context and returns a short findings list. Use when the user asks to review, audit or check code against the Rules. Read-only; it never edits."
+developer_instructions = """
+Before Reviewing, Read `.agents/agents/onetwothreereview.md`
+from the Repository Root and Follow its Instructions.
+That Markdown is the shared Source for this Role.
+If the File Cannot be Read, Report the Block and Stop the Review.
+"""
