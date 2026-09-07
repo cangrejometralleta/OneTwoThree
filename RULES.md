@@ -13,6 +13,7 @@
 
 - [OneTwoThreeCase](rules/onetwothreecase.md) — the typographic Convention.
 - [Reading this Repository](rules/reading-this-repository.md) — how to Read it.
+- [Canonignore](rules/canonignore.md) — Carried, and not Taught. *(Provisional)*
 - [Search](rules/search.md) — three narrow Queries.
 - [Rhythm](rules/rhythm.md) — Contrast Carries the Line.
 - [Paragraph](rules/paragraph.md) — one Idea, and the Claim Opens it.

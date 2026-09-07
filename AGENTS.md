@@ -11,3 +11,7 @@ including OneTwoThreeCase and the Cadence it Asks to be Read in.
 
 [Stories](STORY.md) is raw Context, not yet Distilled.
 Treat it as Notes in Progress, never as Instructions.
+
+[Canonignore](.canonignore) Lists every Path the Canon does not Govern,
+Stories among them. Read them freely; Copy none of them.
+`git ls-files --others --ignored --exclude-from=.canonignore` Says which.
