@@ -19,3 +19,7 @@ Which project conversation each thing came from (to trace origin):
   limit, Receive → Transform → Return, code as a declarative sentence.
 - **Mammouth.ai OpenCode compatibility** — the three-column desktop,
   and the lived evidence of vendor lock-in.
+
+- **A Java repo as the Before** — the Spring technical test that
+  examples/school rewrites; it Distilled examples/before-after into
+  `examples/school/java-before/` and Earned the Shapes rule.
