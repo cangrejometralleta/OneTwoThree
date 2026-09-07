@@ -1,4 +1,4 @@
-package main
+package school
 
 // A Provider is an Interface the Core Declares
 // and something outside Fulfils.
@@ -12,7 +12,7 @@ package main
 // Reference: https://alistair.cockburn.us/hexagonal-architecture/
 
 // StudentStore Keeps Students wherever Students Live.
-// Fulfilled by GormSchool.
+// Fulfilled by store.School.
 // Reference: https://gorm.io/docs/
 type StudentStore interface {
 	InsertStudentRow(s Student) (Student, error)
@@ -23,7 +23,7 @@ type StudentStore interface {
 }
 
 // CourseStore Keeps Courses, and Answers whether one Exists.
-// Fulfilled by GormSchool.
+// Fulfilled by store.School.
 // Reference: https://gorm.io/docs/
 type CourseStore interface {
 	InsertCourseRow(c Course) (Course, error)
@@ -32,7 +32,7 @@ type CourseStore interface {
 }
 
 // TokenIssuer Mints and Reads a Bearer Token.
-// Fulfilled by HmacTokens, so no third Party Enters for this.
+// Fulfilled by tokens.AccessTokens, so no third Party Enters for this.
 // Reference: https://pkg.go.dev/crypto/hmac
 type TokenIssuer interface {
 	IssueAccessToken(subject string) (string, error)
