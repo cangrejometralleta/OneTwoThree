@@ -14,6 +14,7 @@
 - [Rhythm](rules/rhythm.md) — Contrast Carries the Line.
 - [Paragraph](rules/paragraph.md) — one Idea, and the Claim Opens it.
 - [Seams](rules/seams.md) — Break where the Grammar Bends.
+- [Comments](rules/comments.md) — Stop at the Claim.
 - [Channels](rules/channels.md) — the Surface Sells a fixed Number.
 - [Emoji](rules/emoji.md) — one per Line at most.
 - [Structure](rules/structure.md) — three Beats, not three Newlines.
