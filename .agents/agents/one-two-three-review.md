@@ -1,5 +1,5 @@
 ---
-name: onetwothreereview
+name: one-two-three-review
 description: Review existing code and configuration against the OneTwoThree manifesto Rules, including comments, named values, Layer and Provider boundaries, Shapes, controlled Failures, tests, build scripts, constants and shared vendor integration. Reads a diff, a file or a package in its own context and returns a short findings list. Use when the user asks to review, audit or check code against the Rules. Read-only; it never edits.
 tools: Bash, Read, Grep, Glob
 ---

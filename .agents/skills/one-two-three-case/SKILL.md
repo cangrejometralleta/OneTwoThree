@@ -11,7 +11,7 @@ and returns one Suggestion, plus one Line saying why.
 The Checklist is [one-two-three-refactor](../one-two-three-refactor/SKILL.md).
 Use that while Writing a whole Unit. Use this to Rename one.
 For a Review, Use the
-[onetwothreereview](../../agents/onetwothreereview.md) Agent.
+[one-two-three-review](../../agents/one-two-three-review.md) Agent.
 
 The canon lives in [OneTwoThreeCase](../../../rules/onetwothreecase.md).
 
