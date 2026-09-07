@@ -25,8 +25,8 @@ and Instructs it to Read that Markdown before Reviewing.
 flowchart TD
     Claude["Claude · .claude/agents"] -->|Symbolic Link| Shared[".agents/agents"]
     Codex["Codex · .codex/agents"] -->|Symbolic Link| Shared
-    Shared --> Markdown["onetwothreereview.md<br/>Shared Instructions"]
-    Shared --> Adapter["onetwothreereview.toml<br/>Codex Adapter"]
+    Shared --> Markdown["one-two-three-review.md<br/>Shared Instructions"]
+    Shared --> Adapter["one-two-three-review.toml<br/>Codex Adapter"]
     Adapter -->|Instructs the Agent to Read| Markdown
 ```
 
