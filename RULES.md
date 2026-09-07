@@ -22,6 +22,7 @@
 - [Providers](rules/providers.md) — a Port, never a Vendor.
 - [Vendor Integration](rules/vendor-integration.md) — one Source, Links and small Adapters.
 - [Naming](rules/naming.md) — Verb + Noun + context.
+- [Shapes](rules/shapes.md) — the Entity is never the DTO.
 - [Constants](rules/constants.md) — descriptive Files, explicit Environments.
 - [Anti-Patterns](rules/anti-patterns.md) — more than three Responsibilities.
 - [Code](rules/code.md) — Go, because the Rules Read better when they Run.

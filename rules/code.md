@@ -69,6 +69,9 @@ Two whole Services Live in [examples/school](../examples/school),
 one in Go and one in TypeScript.
 Six Frameworks Serve them and Return identical Answers.
 
+The Original Lives beside them, in [java-before](../examples/school/java-before).
+Every Rule there is Broken, and the Table Says which Rule Names each Break.
+
 - A Handler there Names no Driver and no Query.
 - Read one out loud and it is still a Sentence.
 - Two Files Hold every Vendor Import.
