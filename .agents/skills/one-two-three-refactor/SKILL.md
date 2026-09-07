@@ -1,5 +1,5 @@
 ---
-name: onetwothreerefactor
+name: one-two-three-refactor
 description: Apply the OneTwoThree manifesto's code conventions when writing or refactoring code and its configuration — structure, naming, seams, comments, named values, Provider and Layer boundaries, wire/business/storage Shapes, controlled Failures, constants, tests, build scripts, and shared vendor integration. Use whenever generating or refactoring code in a project that follows Rules from cangrejometralleta/OneTwoThree, or when the user asks for "the manifesto rules". To judge code already written, send the onetwothreereview agent instead — it reads the diff in its own context and returns the findings.
 ---
 
