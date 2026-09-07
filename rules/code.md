@@ -79,3 +79,9 @@ Every Rule there is Broken, and each Break Names the Rule it Earned.
   and still Counts three Beats.
 - The Code Obeyed this Rule  
   before the Rule was Written down.
+
+*Talk is cheap. Show me the code.*
+Torvalds Answered a Proposal that Shipped no Patch.
+A Manifesto Runs the same Risk, and this is the Answer to it:
+every Rule that Governs Code Runs in [examples](../examples).
+[Show me the Code](../patterns/show-me-the-code.md) Says why that Matters.
