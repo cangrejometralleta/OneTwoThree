@@ -21,6 +21,8 @@ cd -- "$(dirname -- "$0")"
   Format, then Types, then Tests, then the Artefact.
 - Run Refuses to Start what will Fail at Startup.  
   A missing Secret Costs one Line here and a Stack Trace there.
+- Run Reads `.env` when Present and Says nothing when Absent.  
+  An exported Variable Wins; see [Constants](constants.md).
 - A Refusal Names what it Wanted and Shows the Line that Works.  
   ❌ Says what Broke; the next Line Says what to Type.
 - The Gate Belongs to the Script, never to the Reader's Memory.

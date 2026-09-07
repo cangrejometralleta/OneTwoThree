@@ -2,3 +2,4 @@ node_modules
 dist
 school.db
 *.db
+.env

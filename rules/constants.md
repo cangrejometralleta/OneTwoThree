@@ -151,6 +151,74 @@ The Loader Implements Selection, Overrides and Validation.
 YAML, JSON and TOML only Describe Data;  
 they do not Expand Environment Variables on their own.
 
+## The Declared Surface
+
+> Proposed. Drawn from one Project, cangrejometralleta/muchi-api,
+> and not yet Weathered by a second.
+
+- A Variable nobody Declared is a Variable nobody Finds.  
+  `.env.example` is the Contract, and it is Committed.
+- Required Variables Live uncommented, with a Placeholder Value.  
+  A Reader Copies the File and Sees at once what Startup Wants.
+- Optional Overrides Live commented, Showing the Default they Replace.  
+  The Comment Documents; it never Loads.
+- `.env` is Local and Ignored by git.  
+  The Loader Reads it when Present and Says nothing when Absent.
+- An exported Variable Wins. The File Fills the Gaps it Left.  
+  A Shell that Sets a Value Meant it; a File Only Suggested one.
+
+```sh
+# Required. No Default Exists, and Startup Stops without them.
+APP_ENV=development
+TOKEN_SECRET=replace-with-a-random-32-byte-secret
+
+# Optional Overrides; the Defaults shown below Apply when unset.
+# SCHOOL_PORT=8080
+# SERVER=stdlib
+```
+
+Three Sources, and the Order never Changes:
+the Argument, then the Environment, then the Default.
+Each one is More explicit than the one behind it.
+
+## Six Kinds, in three Pairs
+
+> Proposed. Four are Canon above. Domain Data and Deployment Topology
+> Come from one Project and Await a second.
+
+A Value Belongs to exactly one Kind. Asking which one Answers
+where it Lives, who may Change it, and what Breaks if it Moves.
+
+**What the Code Means.** Changes when the Code Changes.
+
+| Kind | Lives in |
+| --- | --- |
+| Global Constant | `constants/`, a descriptive File |
+| Algorithmic Constant | beside its Logic |
+
+**What the Deployment Chooses.** Changes when the Deployment Changes.
+
+| Kind | Lives in |
+| --- | --- |
+| Environment Configuration | `config/school.production.json` |
+| Deployment Topology | `config/deploy.env` |
+
+**What Comes from outside.** Changes when the World Changes.
+
+| Kind | Lives in |
+| --- | --- |
+| Domain Data | `config/`, its own File |
+| Secret | Injection only, never a File |
+
+- **Domain Data Changes without a Code Change and without an Environment.**  
+  A per-Store Scraping Rule, a Tax Table, a Holiday Calendar.  
+  It Reads like Configuration and Deploys like Content.
+- **Deployment Topology never Reaches the running Program.**  
+  Region, Memory, Instance Count, Service Account.  
+  The Deploy Script Reads it; the Application never Opens the File.
+- Six Kinds do not Fit in a Head. Three Pairs do.  
+  Ask which Pair first, then which of the two.
+
 ## Constants Stay with their Meaning
 
 A Unit Conversion Belongs beside the Calculation:
