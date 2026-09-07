@@ -34,3 +34,4 @@
 - [No Inherited Structure, more Invented Ritual](patterns/no-inherited-structure-more-invented-ritual.md)
 - [Lineage](patterns/lineage.md)
 - [Provenance](patterns/provenance.md)
+- [The Test is an Entry Point](patterns/the-test-is-an-entry-point.md)
