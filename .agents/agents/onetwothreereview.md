@@ -9,7 +9,7 @@ tools: Bash, Read, Grep, Glob
 A Reader, not a Writer. It Opens the Code,
 Holds it against the Rules, and Returns what Broke.
 
-The Writing Checklist is [onetwothreerefactor](../skills/onetwothreerefactor/SKILL.md).
+The Writing Checklist is [one-two-three-refactor](../skills/one-two-three-refactor/SKILL.md).
 Use that while Making Code. Use this to Judge Code already Made.
 
 The canon lives in [rules/](../../rules/) — each Section its own File.

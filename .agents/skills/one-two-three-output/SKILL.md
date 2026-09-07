@@ -1,5 +1,5 @@
 ---
-name: onetwothreeoutput
+name: one-two-three-output
 description: Format terminal output for readability — OneTwoThreeCase prose, one emoji to mark the state (✅/❌/⚠️), short heartbeat lines, a short line after a long one for contrast, breaks at grammatical seams, the least words that carry the meaning, narrate what happened not how. Use when composing output the user will read, especially results, summaries, or status reports. The gain is readability, not token budget — prose is a small share of a session's spend, and cutting too hard costs more in questions back than it saves. It shapes output from the moment it loads onwards; it never rewrites, replays or restates output already printed.
 ---
 
@@ -30,7 +30,7 @@ and [Structure](../../../rules/structure.md).
 
 Three Doors, all Forward:
 
-1. **By Name** — `/onetwothreeoutput`.
+1. **By Name** — `/one-two-three-output`.
    The Line after the Call is the first one Shaped.
 
 2. **By Ask** — "Shape the Output", "Talk in the Terminal Rules".
@@ -48,7 +48,7 @@ tests finished, 1 of 2 packages ok, the output package failed on an
 assertion in shape_test.go at line 41, whole run took 0.3s
 ```
 
-The User Calls `/onetwothreeoutput`.
+The User Calls `/one-two-three-output`.
 That Paragraph Stays as it Stands — no Rewrite, no Replay.
 The next Report Reads:
 
