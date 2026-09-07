@@ -185,6 +185,14 @@ class SchoolAPITest {
         api -> api.listStudentRecords(requestWith("", Map.of(), Map.of("page", "-1"))),
         Errors.PAGE_IS_INVALID, HTTP_BAD_REQUEST);
 
+    checkFault("someone Asks for a Page Numbered with a Word",
+        api -> api.listStudentRecords(requestWith("", Map.of(), Map.of("page", "abc"))),
+        Errors.PAGE_IS_INVALID, HTTP_BAD_REQUEST);
+
+    checkFault("someone Asks for a Size Measured in Words",
+        api -> api.listCourseRecords(requestWith("", Map.of(), Map.of("size", "many"))),
+        Errors.PAGE_IS_INVALID, HTTP_BAD_REQUEST);
+
     checkFault("someone Drops a Student who already Left",
         api -> api.dropStudentRecord(requestWith("", Map.of("id", "7"), Map.of())),
         Errors.STUDENT_UNKNOWN, HTTP_NOT_FOUND);

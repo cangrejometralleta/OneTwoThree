@@ -73,6 +73,29 @@ function askSchool(body: unknown, path: Record<string, string> = {}): Request {
   return { path, query: {}, token: "", body: JSON.stringify(body) };
 }
 
+function askSchoolPage(query: Record<string, string>): Request {
+  return { path: {}, query, token: "", body: "" };
+}
+
+// Number("abc") is NaN, and NaN Passes every Comparison it is Given.
+test("someone Asks for a Page Numbered with a Word", () => {
+  const reply = buildTestingSchool().listStudentRecords(askSchoolPage({ page: "abc" }));
+
+  assert.equal(reply.status, 400);
+});
+
+test("someone Asks for a Size Measured in Words", () => {
+  const reply = buildTestingSchool().listCourseRecords(askSchoolPage({ size: "many" }));
+
+  assert.equal(reply.status, 400);
+});
+
+test("someone Omits Pagination and Gets the whole Set", () => {
+  const reply = buildTestingSchool().listStudentRecords(askSchoolPage({}));
+
+  assert.equal(reply.status, 200);
+});
+
 test("rutLooksValid accepts real Numbers", () => {
   for (const rut of ["12345678-5", "11111111-1", "8459162-9", "6-k", "1-9"]) {
     assert.equal(rutLooksValid(rut), true, `${rut} Should be valid`);
