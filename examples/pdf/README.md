@@ -4,21 +4,27 @@ Markdown in, a laid-out PDF out. No pandoc, no weasyprint —
 goldmark Reads the AST, gopdf Draws the Page, both pure Go.
 
 ```sh
-go run . "source.md"      # writes source.pdf beside it
-go test ./...
+./build.sh                    # the Gates, then the Binary
+./run.sh testdata/sample.md   # writes sample.pdf beside it
 ```
 
 ## The Shape
 
 ```text
-main            Casts the Player, then Steps off the Stage
-markdown.go     THE ONLY FILE THAT IMPORTS GOLDMARK
-document.go     the Domain: Document, Section, Block, and five Rules
-colors.go       the old style.css Values, Named instead of Numbered
-fonts.go        THE ONLY FILE WITH EMBEDDED FONT DATA
-render.go       THE ONLY FILE THAT IMPORTS GOPDF
-fonts/*.ttf     Liberation Serif + DejaVu Sans Mono, vendored
+main.go         Casts the Players, then Steps off the Stage
+document/       the Domain: Document, Section, Block, and five Rules
+style/          the Page, the Type Scale, the Colors; Imports nothing
+markdown/       THE ONLY PACKAGE THAT IMPORTS GOLDMARK
+render/         THE ONLY PACKAGE THAT IMPORTS GOPDF, and the Fonts
+render/fonts/   Liberation Serif + DejaVu Sans Mono, vendored
 ```
+
+`go list -deps ./document ./style` Names no Vendor.
+The Core Cannot Import goldmark or gopdf, because it never Sees them.
+
+Every Number the Page Depends on Carries a Name in `style/`.
+Read `10.5` alone and it Says nothing; read `SizeEpigraph`
+and it Says where the Number Lands.
 
 ## Five Rules Turn a Document into a Booklet
 

@@ -5,9 +5,12 @@ import (
 	"os"
 	"path/filepath"
 	"strings"
+
+	"github.com/cangrejometralleta/OneTwoThree/pdf/markdown"
+	"github.com/cangrejometralleta/OneTwoThree/pdf/render"
 )
 
-// main Casts the Player, then Steps off the Stage.
+// main Casts the Players, then Steps off the Stage.
 func main() {
 	if len(os.Args) < 2 {
 		fmt.Fprintln(os.Stderr, "❌ Usage: go run . <source.md>")
@@ -25,14 +28,14 @@ func main() {
 
 // buildPDF Reads the Markdown, Shapes it, then Renders it beside the Source.
 func buildPDF(source string) (string, error) {
-	doc, err := ParseManifestoDocument(source)
+	doc, err := markdown.ParseManifestoDocument(source)
 	if err != nil {
 		return "", err
 	}
 
 	out := outputPathFor(source)
 
-	return out, RenderDocumentToPDF(doc, out)
+	return out, render.RenderDocumentToPDF(doc, out)
 }
 
 // outputPathFor Swaps the Extension, so the PDF Lands beside its Source.

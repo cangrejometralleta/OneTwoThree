@@ -1,6 +1,8 @@
-package main
+package markdown
 
 import (
+	"github.com/cangrejometralleta/OneTwoThree/pdf/document"
+
 	"os"
 	"strings"
 
@@ -12,21 +14,21 @@ import (
 )
 
 // ParseManifestoDocument Reads the Source, Parses it, then Shapes it.
-func ParseManifestoDocument(path string) (Document, error) {
+func ParseManifestoDocument(path string) (document.Document, error) {
 	source, err := os.ReadFile(path)
 	if err != nil {
-		return Document{}, err
+		return document.Document{}, err
 	}
 
 	root := parseMarkdownSource(source)
 	cover, body := splitCoverNodes(root, source)
 	sections := groupIntoSections(body, source)
 
-	doc := Document{
+	doc := document.Document{
 		Cover:    cover,
 		Sections: sections,
 	}
-	MarkClosingParagraph(&doc)
+	document.MarkClosingParagraph(&doc)
 
 	return doc, nil
 }
@@ -41,14 +43,14 @@ func parseMarkdownSource(source []byte) ast.Node {
 // splitCoverNodes Pulls the Title, the Subtitle and the Epigraph
 // from the Nodes before the first Section, and Returns everything
 // else for the Sections to Claim.
-func splitCoverNodes(root ast.Node, source []byte) (Cover, []ast.Node) {
+func splitCoverNodes(root ast.Node, source []byte) (document.Cover, []ast.Node) {
 	var titleNode, subtitleNode, epigraphNode ast.Node
 	var rest []ast.Node
 
 	n := root.FirstChild()
 	for ; n != nil; n = n.NextSibling() {
 		if h, ok := n.(*ast.Heading); ok && h.Level == 2 {
-			break // The Cover Ends where the first Section Starts.
+			break // The document.Cover Ends where the first document.Section Starts.
 		}
 
 		switch v := n.(type) {
@@ -75,7 +77,7 @@ func splitCoverNodes(root ast.Node, source []byte) (Cover, []ast.Node) {
 		rest = append(rest, n)
 	}
 
-	cover := Cover{Meta: CoverMeta}
+	cover := document.Cover{Meta: document.CoverMeta}
 	if titleNode != nil {
 		cover.Title = extractText(titleNode, source)
 	}
@@ -91,18 +93,18 @@ func splitCoverNodes(root ast.Node, source []byte) (Cover, []ast.Node) {
 
 // groupIntoSections Starts a new Section on every H2,
 // and Files everything after it into that Section's Blocks.
-func groupIntoSections(nodes []ast.Node, source []byte) []Section {
-	var sections []Section
+func groupIntoSections(nodes []ast.Node, source []byte) []document.Section {
+	var sections []document.Section
 
 	for _, n := range nodes {
 		if h, ok := n.(*ast.Heading); ok && h.Level == 2 {
-			index, title := SplitTitleIndex(extractText(h, source))
-			sections = append(sections, Section{Index: index, Title: title})
+			index, title := document.SplitTitleIndex(extractText(h, source))
+			sections = append(sections, document.Section{Index: index, Title: title})
 			continue
 		}
 
 		if len(sections) == 0 {
-			continue // Content before the first Heading Joins no Section.
+			continue // Content before the first Heading Joins no document.Section.
 		}
 
 		if block := buildBlock(n, source); block != nil {
@@ -115,10 +117,10 @@ func groupIntoSections(nodes []ast.Node, source []byte) []Section {
 }
 
 // buildBlock Dispatches one top-level Node to the Shape it Becomes.
-func buildBlock(n ast.Node, source []byte) Block {
+func buildBlock(n ast.Node, source []byte) document.Block {
 	switch v := n.(type) {
 	case *ast.Paragraph:
-		return &Paragraph{
+		return &document.Paragraph{
 			Text:   extractText(v, source),
 			Italic: hasEmphasis(v),
 		}
@@ -127,11 +129,11 @@ func buildBlock(n ast.Node, source []byte) Block {
 	case *ast.Blockquote:
 		return buildQuoteOrCallout(v, source)
 	case *ast.FencedCodeBlock:
-		return CodeBlock{
+		return document.CodeBlock{
 			Text: extractCodeText(v, source),
 		}
 	case *ast.CodeBlock:
-		return CodeBlock{
+		return document.CodeBlock{
 			Text: extractCodeText(v, source),
 		}
 	case *east.Table:
@@ -142,7 +144,7 @@ func buildBlock(n ast.Node, source []byte) Block {
 }
 
 // buildListBlock Reads every Item, Ordered or not.
-func buildListBlock(l *ast.List, source []byte) Block {
+func buildListBlock(l *ast.List, source []byte) document.Block {
 	var items []string
 	for c := l.FirstChild(); c != nil; c = c.NextSibling() {
 		items = append(items,
@@ -150,7 +152,7 @@ func buildListBlock(l *ast.List, source []byte) Block {
 		)
 	}
 
-	return ListBlock{
+	return document.ListBlock{
 		Items:   items,
 		Ordered: l.IsOrdered(),
 	}
@@ -158,17 +160,17 @@ func buildListBlock(l *ast.List, source []byte) Block {
 
 // buildQuoteOrCallout Promotes a bold-led Quote into a Callout.
 // Anything else Stays a plain Quote.
-func buildQuoteOrCallout(bq *ast.Blockquote, source []byte) Block {
+func buildQuoteOrCallout(bq *ast.Blockquote, source []byte) document.Block {
 	first, ok := bq.FirstChild().(*ast.Paragraph)
 	if !ok {
-		return Quote{
+		return document.Quote{
 			Paragraphs: extractParagraphs(bq, source),
 		}
 	}
 
 	label, isCallout := leadingStrongText(first, source)
 	if !isCallout {
-		return Quote{
+		return document.Quote{
 			Paragraphs: extractParagraphs(bq, source),
 		}
 	}
@@ -178,27 +180,27 @@ func buildQuoteOrCallout(bq *ast.Blockquote, source []byte) Block {
 		body = append(body, extractText(c, source))
 	}
 
-	if callout, ok := BuildCalloutBlock(label, body); ok {
+	if callout, ok := document.BuildCalloutBlock(label, body); ok {
 		return callout
 	}
 
-	return Quote{
+	return document.Quote{
 		Paragraphs: extractParagraphs(bq, source),
 	}
 }
 
 // buildTableOrTriad Tries a Triad first; a Table that does not Fit
 // Falls back whole.
-func buildTableOrTriad(t *east.Table, source []byte) Block {
+func buildTableOrTriad(t *east.Table, source []byte) document.Block {
 	headers, rows := extractTableCells(t, source)
 
 	if len(rows) == 1 {
-		if triad, ok := BuildTriadBlock(headers, rows[0]); ok {
+		if triad, ok := document.BuildTriadBlock(headers, rows[0]); ok {
 			return triad
 		}
 	}
 
-	return TableBlock{Headers: headers, Rows: rows}
+	return document.TableBlock{Headers: headers, Rows: rows}
 }
 
 // extractTableCells Splits a Table into its Header Row and its Body Rows.

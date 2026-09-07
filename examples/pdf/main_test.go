@@ -3,6 +3,7 @@ package main
 import (
 	"os"
 	"path/filepath"
+	"strings"
 	"testing"
 )
 
@@ -47,5 +48,22 @@ func TestBuildPDFWritesBesideTheSource(t *testing.T) {
 func TestBuildPDFRefusesAMissingSource(t *testing.T) {
 	if _, err := buildPDF(filepath.Join(t.TempDir(), "missing.md")); err == nil {
 		t.Fatal("a missing Source Must Refuse to Build")
+	}
+}
+
+// assertIsPDF Checks the Bytes a real PDF Reader would Refuse without.
+func assertIsPDF(t *testing.T, path string) {
+	t.Helper()
+
+	data, err := os.ReadFile(path)
+	if err != nil {
+		t.Fatalf("the Output Must Exist: %v", err)
+	}
+
+	if !strings.HasPrefix(string(data), "%PDF-") {
+		t.Fatal("the Output Must Open with a PDF Header")
+	}
+	if !strings.Contains(string(data), "%%EOF") {
+		t.Fatal("the Output Must Close with a PDF Trailer")
 	}
 }
