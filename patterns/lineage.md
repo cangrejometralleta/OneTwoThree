@@ -10,6 +10,7 @@
 - Bob Ross — the happy Accident as an Ancestor.
 - The Pixies — loud and quiet as Ancestors.
 - Alistair Cockburn — Ports and Adapters as an Ancestor.
+- Linus Torvalds — Show me the Code as an Ancestor.
 - The .env Convention — the declared Boundary as an Ancestor.
 - Damian Milton — Double Empathy as an Ancestor.
 - Crompton 2020 — the Empathy Bridge as an Ancestor.

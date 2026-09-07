@@ -26,6 +26,7 @@
 - [The Sentence Already Broke](patterns/the-sentence-already-broke.md)
 - [Chaos is a Source](patterns/chaos-is-a-source.md)
 - [The Program is a Song](patterns/the-program-is-a-song.md)
+- [Show me the Code](patterns/show-me-the-code.md)
 - [Three over Four](patterns/three-over-four.md)
 - [V_VALUE_1](patterns/v_value_1.md)
 - [Ritual as Belonging, not Belief](patterns/ritual-as-belonging-not-belief.md)
