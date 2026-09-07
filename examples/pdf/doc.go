@@ -16,14 +16,21 @@
 //
 // # The Shape
 //
-// main.go Casts the Player, then Steps off the Stage — the Script
+// main.go Casts the Players, then Steps off the Stage — the Script
 // Rules Names under its own Script Section, Running here for
-// real instead of Quoted as an Example. markdown.go is the only
-// File that Imports goldmark. render.go is the only File that
-// Imports gopdf. document.go Holds neither Vendor: it is the
-// Business Truth in between, five small Functions Named after the
-// Shape each One Produces — ExtractCoverBlock, SplitTitleIndex,
+// real instead of Quoted as an Example.
+//
+// Four Packages Divide the Work, and the Compiler Holds the Line.
+// markdown/ is the only Package that Imports goldmark. render/ is
+// the only one that Imports gopdf. document/ Holds neither: it is
+// the Business Truth in between, five small Functions Named after
+// the Shape each One Produces — ExtractCoverBlock, SplitTitleIndex,
 // BuildTriadBlock, BuildCalloutBlock, MarkClosingParagraph.
+// style/ Holds the Page, the Type Scale and the Colors, and Imports
+// nothing at all.
+//
+// `go list -deps ./document ./style` Names no Vendor. The Boundary
+// is no longer a Promise a File Keeps; it is one the Build Enforces.
 //
 // # Why the old build.py Needed a Docstring and this Package Does not
 //
@@ -32,6 +39,6 @@
 // it, `gofmt` Refuses to Drop it, and a broken Reference inside it
 // would still Compile, since Go Checks the Code, never the Prose
 // Describing it. The Guarantee Stops there — which is why the
-// Sentence above Names markdown.go and render.go directly, so a
+// Sentence above Names markdown/ and render/ directly, so a
 // Rename Breaks a Grep before it Breaks a Reader's Trust.
 package main

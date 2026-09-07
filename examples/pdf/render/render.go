@@ -1,23 +1,13 @@
-package main
+package render
 
 import (
+	"github.com/cangrejometralleta/OneTwoThree/pdf/document"
+	"github.com/cangrejometralleta/OneTwoThree/pdf/style"
+
 	"fmt"
 	"strings"
 
 	"github.com/signintech/gopdf" // https://pkg.go.dev/github.com/signintech/gopdf
-)
-
-// The Page, in Millimeters.
-// style.css Set the same Numbers in mm.
-const (
-	pageWidth     = 210.0
-	pageHeight    = 297.0
-	marginLeft    = 24.0
-	marginRight   = 24.0
-	marginTop     = 22.0
-	marginBottom  = 20.0
-	contentWidth  = pageWidth - marginLeft - marginRight
-	contentBottom = pageHeight - marginBottom
 )
 
 const (
@@ -30,7 +20,7 @@ const (
 //
 // Every Draw Call below can Fail; must Panics on the rare Failure,
 // and this Recover Turns it back into the Error a Caller Expects.
-func RenderDocumentToPDF(doc Document, outPath string) (err error) {
+func RenderDocumentToPDF(doc document.Document, outPath string) (err error) {
 	defer func() {
 		if r := recover(); r != nil {
 			err = fmt.Errorf("render Failed: %v", r)
@@ -41,7 +31,7 @@ func RenderDocumentToPDF(doc Document, outPath string) (err error) {
 	pdf.Start(gopdf.Config{
 		Unit: gopdf.UnitMM,
 		PageSize: gopdf.Rect{
-			W: pageWidth, H: pageHeight,
+			W: style.PageWidth, H: style.PageHeight,
 		},
 	})
 	must(loadDocumentFonts(pdf))
@@ -90,65 +80,65 @@ func loadDocumentFonts(pdf *gopdf.GoPdf) error {
 func beginBodyPage(pdf *gopdf.GoPdf) {
 	pdf.AddPage()
 	pdf.SetMargins(
-		marginLeft,
-		marginTop,
-		marginRight,
-		marginBottom,
+		style.MarginLeft,
+		style.MarginTop,
+		style.MarginRight,
+		style.MarginBottom,
 	)
-	pdf.SetXY(marginLeft, marginTop)
+	pdf.SetXY(style.MarginLeft, style.MarginTop)
 	pdf.Line(
-		marginLeft,
-		marginTop,
-		marginLeft,
-		marginTop,
+		style.MarginLeft,
+		style.MarginTop,
+		style.MarginLeft,
+		style.MarginTop,
 	)
 }
 
 // ensureRoom Breaks to a new Page when the next Block would not Fit.
 func ensureRoom(pdf *gopdf.GoPdf, height float64) {
-	if pdf.GetY()+height > contentBottom {
+	if pdf.GetY()+height > style.ContentBottom {
 		beginBodyPage(pdf)
 	}
 }
 
 // drawCoverPage Paints the dark first Page: Number, Title, Subtitle,
 // Epigraph, Meta. Page one Carries no Margin and no Footer.
-func drawCoverPage(pdf *gopdf.GoPdf, cover Cover) {
+func drawCoverPage(pdf *gopdf.GoPdf, cover document.Cover) {
 	pdf.AddPage()
 
-	setFillColor(pdf, ColorCoverBg)
+	setFillColor(pdf, style.ColorCoverBg)
 	must(pdf.RectFromUpperLeftWithOpts(gopdf.DrawableRectOptions{
-		X: 0, Y: 0, Rect: gopdf.Rect{W: pageWidth, H: pageHeight},
+		X: 0, Y: 0, Rect: gopdf.Rect{W: style.PageWidth, H: style.PageHeight},
 		PaintStyle: gopdf.FillPaintStyle,
 	}))
 
-	x, y := marginLeft, 60.0
+	x, y := style.MarginLeft, style.CoverTop
 
-	y = drawCoverLine(pdf, x, y, textStyle{Family: fontSerif, Style: "B", Size: 64, Color: ColorAccent}, "1 2 3") + 10
-	y = drawCoverLine(pdf, x, y, textStyle{Family: fontSerif, Size: 30, Color: ColorCoverInk}, cover.Title) + 3
-	y = drawCoverLine(pdf, x, y, textStyle{Family: fontSerif, Style: "I", Size: 12.5, Color: ColorCoverSub}, cover.Subtitle) + 22
+	y = drawCoverLine(pdf, x, y, textStyle{Family: fontSerif, Style: "B", Size: style.SizeCoverNumber, Color: style.ColorAccent}, "1 2 3") + style.CoverNumberGap
+	y = drawCoverLine(pdf, x, y, textStyle{Family: fontSerif, Size: style.SizeCoverTitle, Color: style.ColorCoverInk}, cover.Title) + style.CoverTitleGap
+	y = drawCoverLine(pdf, x, y, textStyle{Family: fontSerif, Style: "I", Size: style.SizeCoverSubtitle, Color: style.ColorCoverSub}, cover.Subtitle) + style.CoverEpigraphGap
 
-	must(pdf.SetFont(fontSerif, "", 10.5))
-	setTextColor(pdf, ColorCoverQuote)
+	must(pdf.SetFont(fontSerif, "", style.SizeEpigraph))
+	setTextColor(pdf, style.ColorCoverQuote)
 	for _, line := range cover.Epigraph {
-		setStrokeColor(pdf, ColorAccent)
-		pdf.SetLineWidth(0.6)
+		setStrokeColor(pdf, style.ColorAccent)
+		pdf.SetLineWidth(style.RuleThin)
 
-		rect := &gopdf.Rect{W: contentWidth - 6, H: contentBottom - y}
+		rect := &gopdf.Rect{W: style.ContentWidth - style.IndentQuote, H: style.ContentBottom - y}
 		_, height, err := pdf.IsFitMultiCellWithNewline(rect, line)
 		must(err)
 		rect.H = height
 
 		pdf.Line(x, y, x, y+height)
-		pdf.SetXY(x+6, y)
+		pdf.SetXY(x+style.IndentQuote, y)
 		must(pdf.MultiCellWithOption(rect, line, gopdf.CellOption{Align: gopdf.Left}))
-		y += height + 3
+		y += height + style.CoverLineGap
 	}
 
-	must(pdf.SetFont(fontSerif, "", 9))
-	setTextColor(pdf, ColorCoverMeta)
-	pdf.SetXY(x, pageHeight-24)
-	must(pdf.Cell(&gopdf.Rect{W: contentWidth, H: 6}, letterSpaced(strings.ToUpper(cover.Meta))))
+	must(pdf.SetFont(fontSerif, "", style.SizeCoverMeta))
+	setTextColor(pdf, style.ColorCoverMeta)
+	pdf.SetXY(x, style.PageHeight-style.CoverMetaBottom)
+	must(pdf.Cell(&gopdf.Rect{W: style.ContentWidth, H: style.HeightRow}, letterSpaced(strings.ToUpper(cover.Meta))))
 }
 
 // textStyle Names the Font a Line Draws in.
@@ -159,21 +149,21 @@ type textStyle struct {
 	Family string
 	Style  string
 	Size   float64
-	Color  ColorInk
+	Color  style.ColorInk
 }
 
 // drawCoverLine Draws one Line of the Cover and Returns the Y it Leaves.
-func drawCoverLine(pdf *gopdf.GoPdf, x, y float64, style textStyle, text string) float64 {
-	must(pdf.SetFont(style.Family, style.Style, style.Size))
-	setTextColor(pdf, style.Color)
+func drawCoverLine(pdf *gopdf.GoPdf, x, y float64, face textStyle, text string) float64 {
+	must(pdf.SetFont(face.Family, face.Style, face.Size))
+	setTextColor(pdf, face.Color)
 	pdf.SetXY(x, y)
-	must(pdf.Cell(&gopdf.Rect{W: contentWidth, H: lineHeightMM(style.Size)}, text))
+	must(pdf.Cell(&gopdf.Rect{W: style.ContentWidth, H: lineHeightMM(face.Size)}, text))
 
-	return y + lineHeightMM(style.Size)
+	return y + lineHeightMM(face.Size)
 }
 
 // drawSection Draws one Heading, then every Block it Owns.
-func drawSection(pdf *gopdf.GoPdf, section Section) {
+func drawSection(pdf *gopdf.GoPdf, section document.Section) {
 	drawSectionHeading(pdf, section)
 
 	for _, block := range section.Blocks {
@@ -182,55 +172,55 @@ func drawSection(pdf *gopdf.GoPdf, section Section) {
 }
 
 // drawSectionHeading Draws the Index, the Title, and the Rule under it.
-func drawSectionHeading(pdf *gopdf.GoPdf, section Section) {
-	ensureRoom(pdf, 22)
-	pdf.SetX(marginLeft)
+func drawSectionHeading(pdf *gopdf.GoPdf, section document.Section) {
+	ensureRoom(pdf, style.RoomHeading)
+	pdf.SetX(style.MarginLeft)
 
 	y := pdf.GetY()
 	if section.Index != "" {
 		index := letterSpaced(strings.ToUpper(section.Index))
-		y = drawCoverLine(pdf, marginLeft, y, textStyle{Family: fontSerif, Size: 10, Color: ColorAccent}, index) + 1.5
+		y = drawCoverLine(pdf, style.MarginLeft, y, textStyle{Family: fontSerif, Size: style.SizeSectionIndex, Color: style.ColorAccent}, index) + style.GapIndex
 	}
-	y = drawCoverLine(pdf, marginLeft, y, textStyle{Family: fontSerif, Size: 15, Color: ColorBody}, section.Title) + 1.5
+	y = drawCoverLine(pdf, style.MarginLeft, y, textStyle{Family: fontSerif, Size: style.SizeSectionTitle, Color: style.ColorBody}, section.Title) + style.GapIndex
 
-	setStrokeColor(pdf, ColorRule)
-	pdf.SetLineWidth(0.3)
-	pdf.Line(marginLeft, y, marginLeft+contentWidth, y)
+	setStrokeColor(pdf, style.ColorRule)
+	pdf.SetLineWidth(style.RuleHairline)
+	pdf.Line(style.MarginLeft, y, style.MarginLeft+style.ContentWidth, y)
 
-	pdf.SetXY(marginLeft, y+4)
+	pdf.SetXY(style.MarginLeft, y+style.GapHeading)
 }
 
 // drawBlock Dispatches one Block to the Shape it Draws as.
-func drawBlock(pdf *gopdf.GoPdf, block Block) {
+func drawBlock(pdf *gopdf.GoPdf, block document.Block) {
 	switch v := block.(type) {
-	case *Paragraph:
+	case *document.Paragraph:
 		drawParagraph(pdf, *v)
-	case ListBlock:
+	case document.ListBlock:
 		drawListBlock(pdf, v)
-	case Triad:
+	case document.Triad:
 		drawTriad(pdf, v)
-	case Callout:
+	case document.Callout:
 		drawCallout(pdf, v)
-	case Quote:
+	case document.Quote:
 		drawQuote(pdf, v)
-	case CodeBlock:
+	case document.CodeBlock:
 		drawCodeBlock(pdf, v)
-	case TableBlock:
+	case document.TableBlock:
 		drawTableBlock(pdf, v)
 	}
 }
 
 // drawParagraph Justifies a Paragraph, Breaking to a new Page
 // when the current one Has no Room left.
-func drawParagraph(pdf *gopdf.GoPdf, p Paragraph) {
-	style := ""
+func drawParagraph(pdf *gopdf.GoPdf, p document.Paragraph) {
+	weight := ""
 	if p.Closing {
-		style = "I"
+		weight = "I"
 	}
-	must(pdf.SetFont(fontSerif, style, 11))
-	setTextColor(pdf, ColorBody)
+	must(pdf.SetFont(fontSerif, weight, style.SizeBody))
+	setTextColor(pdf, style.ColorBody)
 	if p.Closing {
-		setTextColor(pdf, ColorCloseInk)
+		setTextColor(pdf, style.ColorCloseInk)
 	}
 
 	align := gopdf.Justify
@@ -238,11 +228,11 @@ func drawParagraph(pdf *gopdf.GoPdf, p Paragraph) {
 		align = gopdf.Center
 	}
 
-	pdf.SetX(marginLeft)
-	height := layoutWrappedText(pdf, p.Text, contentWidth)
-	must(pdf.MultiCellWithOption(&gopdf.Rect{W: contentWidth, H: height}, p.Text, gopdf.CellOption{Align: align}))
-	pdf.SetX(marginLeft)
-	pdf.Br(3.2)
+	pdf.SetX(style.MarginLeft)
+	height := layoutWrappedText(pdf, p.Text, style.ContentWidth)
+	must(pdf.MultiCellWithOption(&gopdf.Rect{W: style.ContentWidth, H: height}, p.Text, gopdf.CellOption{Align: align}))
+	pdf.SetX(style.MarginLeft)
+	pdf.Br(style.GapParagraph)
 }
 
 // layoutWrappedText Measures a Block, Breaking to a new Page first
@@ -250,13 +240,13 @@ func drawParagraph(pdf *gopdf.GoPdf, p Paragraph) {
 // WithNewline Matters here: a literal "\n" Must Count as its own Line,
 // the same way MultiCellWithOption already Draws it.
 func layoutWrappedText(pdf *gopdf.GoPdf, text string, width float64) float64 {
-	remaining := contentBottom - pdf.GetY()
+	remaining := style.ContentBottom - pdf.GetY()
 	fits, height, err := pdf.IsFitMultiCellWithNewline(&gopdf.Rect{W: width, H: remaining}, text)
 	must(err)
 
 	if !fits {
 		beginBodyPage(pdf)
-		_, height, err = pdf.IsFitMultiCellWithNewline(&gopdf.Rect{W: width, H: contentBottom - pdf.GetY()}, text)
+		_, height, err = pdf.IsFitMultiCellWithNewline(&gopdf.Rect{W: width, H: style.ContentBottom - pdf.GetY()}, text)
 		must(err)
 	}
 
@@ -264,149 +254,149 @@ func layoutWrappedText(pdf *gopdf.GoPdf, text string, width float64) float64 {
 }
 
 // drawListBlock Draws every Item, Numbered in Orange or Bulleted plain.
-func drawListBlock(pdf *gopdf.GoPdf, list ListBlock) {
-	must(pdf.SetFont(fontSerif, "", 11))
+func drawListBlock(pdf *gopdf.GoPdf, list document.ListBlock) {
+	must(pdf.SetFont(fontSerif, "", style.SizeBody))
 
 	for i, item := range list.Items {
-		ensureRoom(pdf, 8)
+		ensureRoom(pdf, style.RoomLine)
 
 		marker := "•"
 		if list.Ordered {
 			marker = fmt.Sprintf("%d", i+1)
 		}
 
-		setTextColor(pdf, ColorAccent)
-		pdf.SetXY(marginLeft, pdf.GetY())
-		must(pdf.Cell(&gopdf.Rect{W: 8, H: 6}, marker))
+		setTextColor(pdf, style.ColorAccent)
+		pdf.SetXY(style.MarginLeft, pdf.GetY())
+		must(pdf.Cell(&gopdf.Rect{W: style.WidthMarker, H: style.HeightRow}, marker))
 
-		setTextColor(pdf, ColorBody)
-		pdf.SetX(marginLeft + 10)
-		height := layoutWrappedText(pdf, item, contentWidth-10)
-		must(pdf.MultiCellWithOption(&gopdf.Rect{W: contentWidth - 10, H: height}, item, gopdf.CellOption{Align: gopdf.Left}))
-		pdf.SetX(marginLeft)
-		pdf.Br(1)
+		setTextColor(pdf, style.ColorBody)
+		pdf.SetX(style.MarginLeft + style.IndentList)
+		height := layoutWrappedText(pdf, item, style.ContentWidth-style.IndentList)
+		must(pdf.MultiCellWithOption(&gopdf.Rect{W: style.ContentWidth - style.IndentList, H: height}, item, gopdf.CellOption{Align: gopdf.Left}))
+		pdf.SetX(style.MarginLeft)
+		pdf.Br(style.GapListItem)
 	}
 
-	pdf.Br(2.5)
+	pdf.Br(style.GapList)
 }
 
 // drawTriad Lays three Columns side by side, each Topped with a Rule.
-func drawTriad(pdf *gopdf.GoPdf, triad Triad) {
-	ensureRoom(pdf, 24)
+func drawTriad(pdf *gopdf.GoPdf, triad document.Triad) {
+	ensureRoom(pdf, style.RoomTriad)
 
-	colWidth := (contentWidth - 5*float64(len(triad.Columns)-1)) / float64(len(triad.Columns))
+	colWidth := (style.ContentWidth - style.GapBlock*float64(len(triad.Columns)-1)) / float64(len(triad.Columns))
 	top := pdf.GetY()
 	maxHeight := 0.0
 
 	for i, col := range triad.Columns {
-		x := marginLeft + float64(i)*(colWidth+5)
+		x := style.MarginLeft + float64(i)*(colWidth+style.GapBlock)
 
-		setStrokeColor(pdf, ColorAccent)
-		pdf.SetLineWidth(0.6)
+		setStrokeColor(pdf, style.ColorAccent)
+		pdf.SetLineWidth(style.RuleThin)
 		pdf.Line(x, top, x+colWidth, top)
 
-		must(pdf.SetFont(fontSerif, "B", 9.5))
-		setTextColor(pdf, ColorBody)
-		pdf.SetXY(x, top+2.5)
-		must(pdf.Cell(&gopdf.Rect{W: colWidth, H: 5}, col.Title))
+		must(pdf.SetFont(fontSerif, "B", style.SizeColumn))
+		setTextColor(pdf, style.ColorBody)
+		pdf.SetXY(x, top+style.OffsetColumnTitle)
+		must(pdf.Cell(&gopdf.Rect{W: colWidth, H: style.HeightColumn}, col.Title))
 
-		must(pdf.SetFont(fontSerif, "", 9.5))
-		pdf.SetXY(x, top+7)
-		rect := &gopdf.Rect{W: colWidth, H: contentBottom - top - 7}
+		must(pdf.SetFont(fontSerif, "", style.SizeColumn))
+		pdf.SetXY(x, top+style.OffsetColumnText)
+		rect := &gopdf.Rect{W: colWidth, H: style.ContentBottom - top - style.OffsetColumnText}
 		_, height, err := pdf.IsFitMultiCellWithNewline(rect, col.Text)
 		must(err)
 		rect.H = height
 		must(pdf.MultiCellWithOption(rect, col.Text, gopdf.CellOption{Align: gopdf.Left}))
 
-		if used := height + 7; used > maxHeight {
+		if used := height + style.OffsetColumnText; used > maxHeight {
 			maxHeight = used
 		}
 	}
 
-	pdf.SetXY(marginLeft, top+maxHeight+5)
+	pdf.SetXY(style.MarginLeft, top+maxHeight+style.GapBlock)
 }
 
 // drawCallout Draws a filled Box with a Label, for a bold-led Quote.
-func drawCallout(pdf *gopdf.GoPdf, callout Callout) {
+func drawCallout(pdf *gopdf.GoPdf, callout document.Callout) {
 	text := strings.Join(callout.Paragraphs, "\n\n")
 
-	must(pdf.SetFont(fontSerif, "", 10.5))
-	height := layoutWrappedText(pdf, text, contentWidth-12)
-	boxHeight := height + 14
+	must(pdf.SetFont(fontSerif, "", style.SizeCallout))
+	height := layoutWrappedText(pdf, text, style.ContentWidth-style.PadCalloutSide)
+	boxHeight := height + style.PadCalloutBox
 
 	top := pdf.GetY()
-	setFillColor(pdf, ColorCalloutBg)
-	setStrokeColor(pdf, ColorAccent)
-	pdf.SetLineWidth(1.1)
+	setFillColor(pdf, style.ColorCalloutBg)
+	setStrokeColor(pdf, style.ColorAccent)
+	pdf.SetLineWidth(style.RuleThick)
 	must(pdf.RectFromUpperLeftWithOpts(gopdf.DrawableRectOptions{
-		X: marginLeft, Y: top, Rect: gopdf.Rect{W: contentWidth, H: boxHeight},
+		X: style.MarginLeft, Y: top, Rect: gopdf.Rect{W: style.ContentWidth, H: boxHeight},
 		PaintStyle: gopdf.DrawFillPaintStyle,
 	}))
 
-	must(pdf.SetFont(fontSerif, "B", 8.5))
-	setTextColor(pdf, ColorCalloutRule)
-	pdf.SetXY(marginLeft+6, top+4)
-	must(pdf.Cell(&gopdf.Rect{W: contentWidth - 12, H: 5}, letterSpaced(strings.ToUpper(callout.Label))))
+	must(pdf.SetFont(fontSerif, "B", style.SizeCalloutLabel))
+	setTextColor(pdf, style.ColorCalloutRule)
+	pdf.SetXY(style.MarginLeft+style.IndentCallout, top+style.GapHeading)
+	must(pdf.Cell(&gopdf.Rect{W: style.ContentWidth - style.PadCalloutSide, H: style.HeightColumn}, letterSpaced(strings.ToUpper(callout.Label))))
 
-	must(pdf.SetFont(fontSerif, "", 10.5))
-	setTextColor(pdf, ColorBody)
-	pdf.SetXY(marginLeft+6, top+10)
-	must(pdf.MultiCellWithOption(&gopdf.Rect{W: contentWidth - 12, H: height}, text, gopdf.CellOption{Align: gopdf.Left}))
+	must(pdf.SetFont(fontSerif, "", style.SizeCallout))
+	setTextColor(pdf, style.ColorBody)
+	pdf.SetXY(style.MarginLeft+style.IndentCallout, top+style.OffsetCalloutText)
+	must(pdf.MultiCellWithOption(&gopdf.Rect{W: style.ContentWidth - style.PadCalloutSide, H: height}, text, gopdf.CellOption{Align: gopdf.Left}))
 
-	pdf.SetXY(marginLeft, top+boxHeight+5)
+	pdf.SetXY(style.MarginLeft, top+boxHeight+style.GapBlock)
 }
 
 // drawQuote Draws a plain italic Blockquote, bordered on its left.
-func drawQuote(pdf *gopdf.GoPdf, quote Quote) {
+func drawQuote(pdf *gopdf.GoPdf, quote document.Quote) {
 	text := strings.Join(quote.Paragraphs, "\n\n")
 
-	must(pdf.SetFont(fontSerif, "I", 11))
-	setTextColor(pdf, ColorQuoteInk)
-	height := layoutWrappedText(pdf, text, contentWidth-6)
+	must(pdf.SetFont(fontSerif, "I", style.SizeBody))
+	setTextColor(pdf, style.ColorQuoteInk)
+	height := layoutWrappedText(pdf, text, style.ContentWidth-style.IndentQuote)
 
 	top := pdf.GetY()
-	setStrokeColor(pdf, ColorRule)
-	pdf.SetLineWidth(0.6)
-	pdf.Line(marginLeft, top, marginLeft, top+height)
+	setStrokeColor(pdf, style.ColorRule)
+	pdf.SetLineWidth(style.RuleThin)
+	pdf.Line(style.MarginLeft, top, style.MarginLeft, top+height)
 
-	pdf.SetXY(marginLeft+6, top)
-	must(pdf.MultiCellWithOption(&gopdf.Rect{W: contentWidth - 6, H: height}, text, gopdf.CellOption{Align: gopdf.Left}))
-	pdf.SetX(marginLeft)
-	pdf.Br(2)
+	pdf.SetXY(style.MarginLeft+style.IndentQuote, top)
+	must(pdf.MultiCellWithOption(&gopdf.Rect{W: style.ContentWidth - style.IndentQuote, H: height}, text, gopdf.CellOption{Align: gopdf.Left}))
+	pdf.SetX(style.MarginLeft)
+	pdf.Br(style.GapQuote)
 }
 
 // drawCodeBlock Draws preformatted Text in the Mono Face, on a tinted Box.
-func drawCodeBlock(pdf *gopdf.GoPdf, code CodeBlock) {
-	must(pdf.SetFont(fontMono, "", 8.5))
-	height := layoutWrappedText(pdf, code.Text, contentWidth-12)
-	boxHeight := height + 7
+func drawCodeBlock(pdf *gopdf.GoPdf, code document.CodeBlock) {
+	must(pdf.SetFont(fontMono, "", style.SizeCode))
+	height := layoutWrappedText(pdf, code.Text, style.ContentWidth-style.PadCalloutSide)
+	boxHeight := height + style.PadCodeBox
 
 	top := pdf.GetY()
-	setFillColor(pdf, ColorCalloutBg)
-	setStrokeColor(pdf, ColorCodeRule)
-	pdf.SetLineWidth(1.1)
+	setFillColor(pdf, style.ColorCalloutBg)
+	setStrokeColor(pdf, style.ColorCodeRule)
+	pdf.SetLineWidth(style.RuleThick)
 	must(pdf.RectFromUpperLeftWithOpts(gopdf.DrawableRectOptions{
-		X: marginLeft, Y: top, Rect: gopdf.Rect{W: contentWidth, H: boxHeight},
+		X: style.MarginLeft, Y: top, Rect: gopdf.Rect{W: style.ContentWidth, H: boxHeight},
 		PaintStyle: gopdf.DrawFillPaintStyle,
 	}))
 
-	setTextColor(pdf, ColorBody)
-	pdf.SetXY(marginLeft+6, top+3.5)
-	must(pdf.MultiCellWithOption(&gopdf.Rect{W: contentWidth - 12, H: height}, code.Text, gopdf.CellOption{Align: gopdf.Left}))
+	setTextColor(pdf, style.ColorBody)
+	pdf.SetXY(style.MarginLeft+style.IndentCallout, top+style.OffsetCodeText)
+	must(pdf.MultiCellWithOption(&gopdf.Rect{W: style.ContentWidth - style.PadCalloutSide, H: height}, code.Text, gopdf.CellOption{Align: gopdf.Left}))
 
-	pdf.SetXY(marginLeft, top+boxHeight+4)
+	pdf.SetXY(style.MarginLeft, top+boxHeight+style.GapCode)
 }
 
 // drawTableBlock is the Fallback for a Table a Triad could not Fit:
 // plain Rows, Header Bold, Body Regular.
-func drawTableBlock(pdf *gopdf.GoPdf, table TableBlock) {
-	colWidth := contentWidth / float64(max(len(table.Headers), 1))
+func drawTableBlock(pdf *gopdf.GoPdf, table document.TableBlock) {
+	colWidth := style.ContentWidth / float64(max(len(table.Headers), 1))
 
 	drawTableRow(pdf, table.Headers, tableRowStyle{ColWidth: colWidth, FontStyle: "B"})
 	for _, row := range table.Rows {
 		drawTableRow(pdf, row, tableRowStyle{ColWidth: colWidth})
 	}
-	pdf.Br(2.5)
+	pdf.Br(style.GapList)
 }
 
 // tableRowStyle Carries the two Things every Row in a fallback Table
@@ -417,17 +407,17 @@ type tableRowStyle struct {
 }
 
 // drawTableRow Draws one Row of the fallback Table.
-func drawTableRow(pdf *gopdf.GoPdf, cells []string, style tableRowStyle) {
-	ensureRoom(pdf, 8)
-	must(pdf.SetFont(fontSerif, style.FontStyle, 9.5))
-	setTextColor(pdf, ColorBody)
+func drawTableRow(pdf *gopdf.GoPdf, cells []string, row tableRowStyle) {
+	ensureRoom(pdf, style.RoomLine)
+	must(pdf.SetFont(fontSerif, row.FontStyle, style.SizeColumn))
+	setTextColor(pdf, style.ColorBody)
 
 	for i, cell := range cells {
-		pdf.SetXY(marginLeft+float64(i)*style.ColWidth, pdf.GetY())
-		must(pdf.CellWithOption(&gopdf.Rect{W: style.ColWidth, H: 6}, cell, gopdf.CellOption{Border: gopdf.AllBorders}))
+		pdf.SetXY(style.MarginLeft+float64(i)*row.ColWidth, pdf.GetY())
+		must(pdf.CellWithOption(&gopdf.Rect{W: row.ColWidth, H: style.HeightRow}, cell, gopdf.CellOption{Border: gopdf.AllBorders}))
 	}
-	pdf.SetX(marginLeft)
-	pdf.Br(6)
+	pdf.SetX(style.MarginLeft)
+	pdf.Br(style.HeightRow)
 }
 
 // stampPageFooters Numbers every Page but the Cover, once the final
@@ -438,9 +428,9 @@ func stampPageFooters(pdf *gopdf.GoPdf) {
 	for page := 2; page <= total; page++ {
 		must(pdf.SetPage(page))
 		must(pdf.SetFont(fontSerif, "", 8.5))
-		setTextColor(pdf, ColorPageNumber)
-		pdf.SetXY(marginLeft, pageHeight-marginBottom+8)
-		must(pdf.CellWithOption(&gopdf.Rect{W: contentWidth, H: 6}, fmt.Sprintf("%d", page-1), gopdf.CellOption{Align: gopdf.Center}))
+		setTextColor(pdf, style.ColorPageNumber)
+		pdf.SetXY(style.MarginLeft, style.PageHeight-style.MarginBottom+8)
+		must(pdf.CellWithOption(&gopdf.Rect{W: style.ContentWidth, H: 6}, fmt.Sprintf("%d", page-1), gopdf.CellOption{Align: gopdf.Center}))
 	}
 }
 
@@ -455,9 +445,13 @@ func letterSpaced(s string) string {
 	return strings.Join(strings.Split(s, ""), " ")
 }
 
-func setFillColor(pdf *gopdf.GoPdf, c ColorInk) { pdf.SetFillColor(uint8(c.R), uint8(c.G), uint8(c.B)) }
-func setTextColor(pdf *gopdf.GoPdf, c ColorInk) { pdf.SetTextColor(uint8(c.R), uint8(c.G), uint8(c.B)) }
-func setStrokeColor(pdf *gopdf.GoPdf, c ColorInk) {
+func setFillColor(pdf *gopdf.GoPdf, c style.ColorInk) {
+	pdf.SetFillColor(uint8(c.R), uint8(c.G), uint8(c.B))
+}
+func setTextColor(pdf *gopdf.GoPdf, c style.ColorInk) {
+	pdf.SetTextColor(uint8(c.R), uint8(c.G), uint8(c.B))
+}
+func setStrokeColor(pdf *gopdf.GoPdf, c style.ColorInk) {
 	pdf.SetStrokeColor(uint8(c.R), uint8(c.G), uint8(c.B))
 }
 

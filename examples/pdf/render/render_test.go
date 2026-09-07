@@ -1,10 +1,13 @@
-package main
+package render
 
 import (
 	"os"
 	"path/filepath"
 	"strings"
 	"testing"
+
+	"github.com/cangrejometralleta/OneTwoThree/pdf/document"
+	"github.com/cangrejometralleta/OneTwoThree/pdf/markdown"
 )
 
 func TestRenderDocumentToPDFWritesAValidFile(t *testing.T) {
@@ -18,7 +21,7 @@ func TestRenderDocumentToPDFWritesAValidFile(t *testing.T) {
 }
 
 func TestRenderDocumentToPDFHandlesACoverOnlyDocument(t *testing.T) {
-	doc := Document{Cover: ExtractCoverBlock("Title", "Sub", []string{"Epigraph"})}
+	doc := document.Document{Cover: document.ExtractCoverBlock("Title", "Sub", []string{"Epigraph"})}
 	out := filepath.Join(t.TempDir(), "empty.pdf")
 
 	if err := RenderDocumentToPDF(doc, out); err != nil {
@@ -28,10 +31,10 @@ func TestRenderDocumentToPDFHandlesACoverOnlyDocument(t *testing.T) {
 	assertIsPDF(t, out)
 }
 
-// The Regression this Test Pins: a multi-line CodeBlock once Mismeasured
+// The Regression this Test Pins: a multi-line document.CodeBlock once Mismeasured
 // its own Height, because IsFitMultiCell Ignored a literal Newline.
 func TestRenderDocumentToPDFRendersTheParsedSample(t *testing.T) {
-	doc, err := ParseManifestoDocument("testdata/sample.md")
+	doc, err := markdown.ParseManifestoDocument("../testdata/sample.md")
 	if err != nil {
 		t.Fatalf("the Sample Must Parse: %v", err)
 	}
@@ -45,12 +48,12 @@ func TestRenderDocumentToPDFRendersTheParsedSample(t *testing.T) {
 }
 
 func TestRenderDocumentToPDFRendersAFallbackTable(t *testing.T) {
-	doc := Document{
-		Cover: ExtractCoverBlock("Title", "Sub", nil),
-		Sections: []Section{{
+	doc := document.Document{
+		Cover: document.ExtractCoverBlock("Title", "Sub", nil),
+		Sections: []document.Section{{
 			Index: "One", Title: "Section",
-			Blocks: []Block{
-				TableBlock{
+			Blocks: []document.Block{
+				document.TableBlock{
 					Headers: []string{"A", "B"},
 					Rows:    [][]string{{"1", "2"}, {"3", "4"}},
 				},
@@ -73,20 +76,20 @@ func TestRenderDocumentToPDFBreaksAcrossPages(t *testing.T) {
 	line := "A Paragraph Repeated only to Fill the Page and Force a Break, " +
 		"long enough that a handful of Copies Overflow one A4 Sheet."
 
-	var blocks []Block
+	var blocks []document.Block
 	for range 40 {
-		blocks = append(blocks, &Paragraph{Text: line})
+		blocks = append(blocks, &document.Paragraph{Text: line})
 	}
 
 	var items []string
 	for range 40 {
 		items = append(items, line)
 	}
-	blocks = append(blocks, ListBlock{Items: items, Ordered: true})
+	blocks = append(blocks, document.ListBlock{Items: items, Ordered: true})
 
-	doc := Document{
-		Cover:    ExtractCoverBlock("Title", "Sub", nil),
-		Sections: []Section{{Index: "One", Title: "Section", Blocks: blocks}},
+	doc := document.Document{
+		Cover:    document.ExtractCoverBlock("Title", "Sub", nil),
+		Sections: []document.Section{{Index: "One", Title: "Section", Blocks: blocks}},
 	}
 
 	out := filepath.Join(t.TempDir(), "long.pdf")
@@ -98,7 +101,7 @@ func TestRenderDocumentToPDFBreaksAcrossPages(t *testing.T) {
 }
 
 func TestRenderDocumentToPDFRefusesAnUnwritablePath(t *testing.T) {
-	doc := Document{Cover: ExtractCoverBlock("Title", "Sub", nil)}
+	doc := document.Document{Cover: document.ExtractCoverBlock("Title", "Sub", nil)}
 
 	if err := RenderDocumentToPDF(doc, filepath.Join("no-such-directory", "out.pdf")); err == nil {
 		t.Fatal("an unwritable Path Must Refuse, not Panic Silently")
@@ -107,24 +110,24 @@ func TestRenderDocumentToPDFRefusesAnUnwritablePath(t *testing.T) {
 
 // sampleDocumentForRender Builds one Document that Exercises every Block Kind
 // drawBlock Knows, so a Panic in any of them Fails this Test.
-func sampleDocumentForRender() Document {
-	return Document{
-		Cover: ExtractCoverBlock("Sample Title", "Sample Subtitle", []string{"An Epigraph Line, long enough to Wrap."}),
-		Sections: []Section{{
+func sampleDocumentForRender() document.Document {
+	return document.Document{
+		Cover: document.ExtractCoverBlock("Sample Title", "Sample Subtitle", []string{"An Epigraph Line, long enough to Wrap."}),
+		Sections: []document.Section{{
 			Index: "One",
 			Title: "First Section",
-			Blocks: []Block{
-				&Paragraph{Text: "A plain Paragraph, long enough to Wrap across more than one Line inside the Content Width the Page Allows."},
-				ListBlock{Items: []string{"First Item", "Second Item"}, Ordered: true},
-				ListBlock{Items: []string{"Bulleted Item"}, Ordered: false},
-				Triad{Columns: []TriadColumn{
+			Blocks: []document.Block{
+				&document.Paragraph{Text: "A plain Paragraph, long enough to Wrap across more than one Line inside the Content Width the Page Allows."},
+				document.ListBlock{Items: []string{"First Item", "Second Item"}, Ordered: true},
+				document.ListBlock{Items: []string{"Bulleted Item"}, Ordered: false},
+				document.Triad{Columns: []document.TriadColumn{
 					{Title: "Receive", Text: "Read the Input"},
 					{Title: "Return", Text: "Hand it Back"},
 				}},
-				Callout{Label: "Note", Paragraphs: []string{"A labeled Box.", "A second Paragraph inside it."}},
-				Quote{Paragraphs: []string{"A plain Quote."}},
-				CodeBlock{Text: "func F() {\n\treturn\n}"},
-				&Paragraph{Text: "The Closing Line.", Italic: true, Closing: true},
+				document.Callout{Label: "Note", Paragraphs: []string{"A labeled Box.", "A second Paragraph inside it."}},
+				document.Quote{Paragraphs: []string{"A plain Quote."}},
+				document.CodeBlock{Text: "func F() {\n\treturn\n}"},
+				&document.Paragraph{Text: "The Closing Line.", Italic: true, Closing: true},
 			},
 		}},
 	}

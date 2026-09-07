@@ -1,4 +1,4 @@
-package main
+package style
 
 // ColorInk Names a Hex the old style.css only Numbered.
 // Every Value here Traces back to style.css, one Name per Role.
