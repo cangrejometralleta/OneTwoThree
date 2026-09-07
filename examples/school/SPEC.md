@@ -94,7 +94,7 @@ It Dies once its Deadline Passes, and never before.
 
 The Comparison Reads forward. A Token is Dead when `now` is after the Deadline.
 Reading it backwards Validates only Expired Tokens, which is the Bug
-[java-before](java-before) Shipped and both Rewrites Pin.
+[the Before](BEFORE.md) Shipped and all three Rewrites Pin.
 
 ## What a Rewrite Must Keep
 

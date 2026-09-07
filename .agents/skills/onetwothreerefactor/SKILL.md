@@ -183,5 +183,5 @@ Came from one Practice and has not yet Survived a second.
 [Canonignore](../../../rules/canonignore.md) *(Provisional)*
 
 A worked Example Lives in [examples/school](../../../examples/school),
-the same Service in Go, TypeScript and Java, with the
-[Counter-Example](../../../examples/school/java-before) beside it.
+the same Service in Go, TypeScript and Java, with
+[the Before](../../../examples/school/BEFORE.md) Reading the Original.

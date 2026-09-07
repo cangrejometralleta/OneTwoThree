@@ -8,11 +8,6 @@
 # This Says what the Repository Carries but does not Teach.
 # An Agent may Read every Path here. It must never Copy one.
 
-# The Counter-Example. Every Rule here is Broken on Purpose,
-# and its README Names which Rule each Break Earned.
-examples/school/java-before/**
-!examples/school/java-before/README.md
-
 # Hand-Written Humour, each one in the Language it was Born in.
 # Read it to Hear the Voice; never Quote it, never Translate it,
 # and never Add to it. A Model Learning Humour from a Model
