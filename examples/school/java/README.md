@@ -1,7 +1,7 @@
 # School — Java
 
 The same [Specification](../SPEC.md) as Go and TypeScript,
-in the Language the [Before](../java-before) was Written in.
+in the Language [the Before](../BEFORE.md) was Written in.
 
 ```bash
 ./build.sh                       # Toolchain and Tests, then the Jar
@@ -9,7 +9,7 @@ TOKEN_SECRET=s ./run.sh          # the Service
 ```
 
 Spring Boot 3, JPA over H2, HMAC from the standard Library.
-Read [java-before](../java-before) first, then this. Same Author, same Domain,
+Read [the Before](../BEFORE.md) first, then this. Same Author, same Domain,
 and every Difference Earned a Rule.
 
 ## The Shape

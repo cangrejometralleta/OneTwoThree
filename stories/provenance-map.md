@@ -22,4 +22,4 @@ Which project conversation each thing came from (to trace origin):
 
 - **A Java repo as the Before** — the Spring technical test that
   examples/school rewrites; it Distilled examples/before-after into
-  `examples/school/java-before/` and Earned the Shapes rule.
+  `examples/school/BEFORE.md` and Earned the Shapes rule.

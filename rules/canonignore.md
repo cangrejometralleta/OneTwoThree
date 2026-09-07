@@ -17,12 +17,13 @@
 - Same Syntax, so no one Learns a second one.  
   Globs, `#` for a Comment, `!` to Take one back.
 - Three Kinds Belong here, and a fourth Belongs nowhere.  
-  The Counter-Example, the undistilled Note, the generated Artefact.  
+  The Material Read but never Copied, the undistilled Note,
+  the generated Artefact.  
   Canon that Embarrasses you does not go here; it goes away.
 - Name the Reason above the Pattern.  
   A Path with no Reason Rots into a Path no one Dares Delete.
 - Take back the File that Explains the Rest.  
-  A Counter-Example Ignores its Code and Keeps its README.
+  `jokes/**` Ignores every Joke and Keeps the README that Frames them.
 - The Entry Earns its Place by being Read wrongly once.  
   Add a Path the Day an Agent Copies from it.
 

@@ -4,9 +4,9 @@ The Technical Test, Rewritten three times.
 Students, Courses, a Chilean RUT and a Token,
 served by seven Frameworks that never Touch the Business.
 
-The Test itself is here too, unedited, in [java-before](java-before),
-beside [java](java), which is the same Language under the Rules.
-Read that first if you Want the Argument instead of the Conclusion.
+[The Before](BEFORE.md) Reads the original Test and Names the Rule
+each Seam Earned. Read that first if you Want the Argument
+instead of the Conclusion.
 
 Every Directory Answers the same two Scripts.
 Learn them once and every Runtime Opens the same Way.

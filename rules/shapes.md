@@ -36,4 +36,5 @@ student := school.BuildStudentRecord(body, 0)
 ```
 
 The Annotation Saved four Lines and Spent the Boundary.
-Both Versions Live in [examples/school](../examples/school).
+Both Versions Live in [examples/school](../examples/school),
+the Before Read in [BEFORE.md](../examples/school/BEFORE.md).
