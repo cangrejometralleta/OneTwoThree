@@ -13,7 +13,7 @@ Use that while Writing a whole Unit. Use this to Rename one.
 For a Review, Use the
 [one-two-three-review](../../agents/one-two-three-review.md) Agent.
 
-The canon lives in [OneTwoThreeCase](../../../rules/onetwothreecase.md).
+The canon lives in [OneTwoThreeCase](../../../rules/one-two-three-case.md).
 
 ## How to Convert
 

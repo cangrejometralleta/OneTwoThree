@@ -11,7 +11,7 @@
 
 ## The Rules
 
-- [OneTwoThreeCase](rules/onetwothreecase.md) — the typographic Convention.
+- [OneTwoThreeCase](rules/one-two-three-case.md) — the typographic Convention.
 - [Reading this Repository](rules/reading-this-repository.md) — how to Read it.
 - [Canonignore](rules/canonignore.md) — Carried, and not Taught. *(Provisional)*
 - [Search](rules/search.md) — three narrow Queries.
