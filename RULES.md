@@ -5,6 +5,9 @@
 - Rules are Verifiable,  
   Values are Interpretable.
 - Send each one to the Document that Holds it.
+- A Rule Marked *Provisional* Came from one Practice  
+  and has not yet Survived a second.  
+  Follow it, and Delete it if the next Project Disagrees.
 
 ## The Rules
 
@@ -25,4 +28,5 @@
 - [Shapes](rules/shapes.md) — the Entity is never the DTO.
 - [Constants](rules/constants.md) — descriptive Files, explicit Environments.
 - [Anti-Patterns](rules/anti-patterns.md) — more than three Responsibilities.
+- [Scripts](rules/scripts.md) — build.sh and run.sh, everywhere. *(Provisional)*
 - [Code](rules/code.md) — Go, because the Rules Read better when they Run.

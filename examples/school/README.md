@@ -1,19 +1,37 @@
 # School Service
 
-The Technical Test, Rewritten twice.
+The Technical Test, Rewritten three times.
 Students, Courses, a Chilean RUT and a Token,
-served by six Frameworks that never Touch the Business.
+served by seven Frameworks that never Touch the Business.
 
-| | Go | TypeScript |
-|---|---|---|
-| Run | `APP_ENV=development go run .` | `APP_ENV=development npm start` |
-| Test | `go test ./...` | `npm test` |
-| Store | GORM over SQLite | `node:sqlite` |
-| Frameworks | net/http, chi, gin | node:http, express, fastify |
+The Test itself is here too, unedited, in [java-before](java-before),
+beside [java](java), which is the same Language under the Rules.
+Read that first if you Want the Argument instead of the Conclusion.
 
+Every Directory Answers the same two Scripts.
+Learn them once and every Runtime Opens the same Way.
+
+```bash
+./build.sh                          # the Gates, then the Artefact
+TOKEN_SECRET=s ./run.sh [adapter]   # the Service
 ```
-APP_ENV=development SERVER=gin TOKEN_SECRET=s go run .       # Go
-APP_ENV=development SERVER=fastify TOKEN_SECRET=s npm start   # TypeScript
+
+| | Go | TypeScript | Java |
+|---|---|---|---|
+| Gates | gofmt, vet, test | install, tsc, test | toolchain, test |
+| Store | GORM over SQLite | `node:sqlite` | JPA over H2 |
+| Adapters | stdlib, chi, gin | stdlib, node, express, fastify | stdlib |
+
+`build.sh` Refuses to Build what does not Pass.
+`run.sh` Refuses to Start without a Secret.
+Both Say which Adapter they Know, and Name the one you Asked for.
+
+The [Specification](SPEC.md) Says what all three Answer.
+
+```bash
+TOKEN_SECRET=s go/run.sh gin        # Go
+TOKEN_SECRET=s ts/run.sh fastify    # TypeScript
+TOKEN_SECRET=s java/run.sh          # Java
 ```
 
 ## Constants and Environments
@@ -52,8 +70,9 @@ including Attempts to Override Global Constants.
 `TOKEN_SECRET` is Supplied by the Deployment, never Committed to JSON.
 The Secret in the Run Example is for local Demonstration only.
 
-Run Go from `go/` and TypeScript from `ts/`; Build TypeScript with
-`npm run build` first. Go Reads Data from `../constants/` and `../config/`;
+Each Script Enters its own Directory first, so it Runs from anywhere.
+Go and Java Walk up until they Find `constants/` and `config/`,
+so a Package Test Reads the same Data;
 TypeScript Resolves those Directories relative to its Module.
 Keep both Directories beside the Language Directories when Packaging.
 Relative Database Paths Resolve from the Working Directory.
@@ -77,10 +96,102 @@ domain          the Business Truth
 Two Files Hold every Vendor.
 Swapping one Edits one of them, and nothing else.
 
+In Go those Files are Grouped into Packages,
+so the Compiler Guards the Boundary the Rule Describes.
+TypeScript Keeps the flat Shape above.
+
+```text
+main.go         Casts the Players; the only File that Knows every Package
+transport/      Request, Response, Handler, Route; Imports nothing
+wire/           the Contract: every Shape a Client Sends or Receives
+faults/         the controlled Failures, each Carrying its Answer
+school/         the Core: domain, providers, constants. No HTTP at all
+app/            the Application Layer: the Crossing, Validation and Context
+api/            the Script: Handlers that Answer or Fail
+settings/       the strict JSON Loader and the validated SchoolConfig
+store/          THE ONLY PACKAGE THAT IMPORTS AN ORM
+serving/        THE ONLY PACKAGE THAT IMPORTS A FRAMEWORK
+tokens/         the Token Adapter, standard Library only
+```
+
+`go list -deps ./school` Names no Vendor and no Socket.
+The Core Cannot Import gorm, chi, gin or net/http, because it never Sees them.
+
+## The Contract, on its own
+
+`wire/` Holds the Shapes a Client Sends and Receives, and nothing else.
+It Imports nothing, so Reading it Costs no Context.
+Open one File and you Know the whole API.
+
+The Crossing Lives with the Business Types instead, in `school/wire.go`.
+A Shape Stays a Shape; the Core Owns the Promotion.
+
+## Controlled Failures
+
+A Business Error Declares its Answer beside its Reason,
+so no Handler ever Chooses a Number.
+
+```go
+var ErrRutTaken = faults.ReportTakenValue("rut is already Registered")
+```
+
+A Handler never Builds a Reply. It Answers with a Value, or it Fails:
+
+```go
+func (a SchoolAPI) ShowStudentRecord(req transport.Request) (any, error) {
+	id, err := app.ReadPathNumber(req)
+	if err != nil {
+		return nil, err
+	}
+
+	student, err := a.Students.SelectStudentRow(school.StudentID(id))
+	if err != nil {
+		return nil, err
+	}
+
+	return school.RenderStudentView(student), nil
+}
+```
+
+One Function Turns that into a Reply, and it is the only one in the Program:
+
+```go
+func AnswerWith(status int, tell Telling) transport.Handler
+```
+
+A Failure that Carries no Fault was never Controlled.
+It Answers five hundred, because it is Ours and not the Caller's.
+A Driver Error Reaches the Edge as a five hundred, never as a four hundred.
+
+No Package and no Type Carries a Vendor Name.
+`store` Says the Responsibility, `store_gorm.go` Says who Fulfils it.
+A Filename can Name a Guest; a Construct Names the Business.
+
+## The Application Layer
+
+Three Things Live between the Transport and the Business,
+and none of them is a Business Rule.
+
+- **The Crossing.** `AnswerWith` Turns a Telling into a Handler.
+  The Route Declares the happy Status; a Fault Declares its own.
+- **Validation.** `ReadPathNumber`, `ReadJSONBody` and `ReadPageRequest`
+  Check the Form of a Request, never its Meaning.
+- **Context.** `RequireProvenCaller` Names the Caller before the Story Starts.
+  A Handler behind it Reads `req.Caller` and Trusts it.
+
+The Libretto Says all of it at a Glance:
+
+```go
+{Method: "GET", Pattern: "/students/{id}", Handle: a.Guarded(http.StatusOK, a.ShowStudentRecord)},
+```
+
+Every Route but `POST /token` Names its Caller.
+An Unnamed Caller Gets four hundred and one and Learns nothing else.
+
 ## Providers
 
 A Provider is an Interface the Core Declares.
-`StudentStore` Names a Need. `GormSchool` Fills it.
+`StudentStore` Names a Need. `store.School` Fills it.
 The Handlers never Learn which.
 
 Each Provider Carries the URL of the Contract it Wraps,
