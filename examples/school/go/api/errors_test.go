@@ -94,6 +94,22 @@ func TestEachFaultReachesTheEdgeWhole(t *testing.T) {
 			status: http.StatusBadRequest,
 		},
 		{
+			story: "someone Asks for a Page Numbered with a Word",
+			arrive: func(api SchoolAPI) error {
+				return TellingFailure(api.ListStudentRecords, transport.Request{Query: map[string]string{"page": "abc"}})
+			},
+			want:   school.ErrPageIsInvalid,
+			status: http.StatusBadRequest,
+		},
+		{
+			story: "someone Asks for a Size Measured in Words",
+			arrive: func(api SchoolAPI) error {
+				return TellingFailure(api.ListCourseRecords, transport.Request{Query: map[string]string{"size": "many"}})
+			},
+			want:   school.ErrPageIsInvalid,
+			status: http.StatusBadRequest,
+		},
+		{
 			story: "someone Drops a Student who already Left",
 			arrive: func(api SchoolAPI) error {
 				return TellingFailure(api.DropStudentRecord, transport.Request{Path: map[string]string{"id": "7"}})

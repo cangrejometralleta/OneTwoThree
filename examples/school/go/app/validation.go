@@ -40,10 +40,26 @@ func ReadJSONBody[T any](req transport.Request) (T, error) {
 
 // ReadPageRequest Reads Pagination, Defaulting to the whole Set.
 func ReadPageRequest(req transport.Request) (school.Page, error) {
-	number, _ := strconv.Atoi(req.Query["page"])
-	size, _ := strconv.Atoi(req.Query["size"])
-
-	page := school.Page{Number: number, Size: size}
+	page := school.Page{
+		Number: ReadWholeOrRefuse(req.Query["page"]),
+		Size:   ReadWholeOrRefuse(req.Query["size"]),
+	}
 
 	return page, page.CheckPageBounds()
+}
+
+// ReadWholeOrRefuse Reads a whole Number, or Returns one the Bounds Refuse.
+// An absent Value Means the whole Set; a Word Means the Caller Mistyped.
+// Swallowing the Parse Error would Answer two hundred to Nonsense.
+func ReadWholeOrRefuse(value string) int {
+	if value == "" {
+		return 0
+	}
+
+	number, err := strconv.Atoi(value)
+	if err != nil {
+		return -1
+	}
+
+	return number
 }

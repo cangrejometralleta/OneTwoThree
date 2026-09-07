@@ -163,9 +163,19 @@ function readPathNumber(request: Request): number {
 
 // readPageRequest Reads Pagination, Defaulting to the whole Set.
 function readPageRequest(request: Request): Page {
-  const page = { number: Number(request.query["page"] ?? 0), size: Number(request.query["size"] ?? 0) };
+  const page = { number: readWholeOrRefuse(request.query["page"]), size: readWholeOrRefuse(request.query["size"]) };
 
   if (page.number < 0 || page.size < 0) throw ErrPageIsInvalid;
 
   return page;
+}
+
+// readWholeOrRefuse Reads a whole Number, or Returns one the Bounds Refuse.
+// Number("abc") is NaN, and NaN Passes every Comparison it is Given.
+function readWholeOrRefuse(value: string | undefined): number {
+  if (value === undefined || value === "") return 0;
+
+  const number = Number(value);
+
+  return Number.isInteger(number) ? number : -1;
 }
