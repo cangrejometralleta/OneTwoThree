@@ -12,9 +12,15 @@ Every Directory Answers the same two Scripts.
 Learn them once and every Runtime Opens the same Way.
 
 ```bash
+cp ../.env.example .env             # once, beside the Program you Run
 ./build.sh                          # the Gates, then the Artefact
-TOKEN_SECRET=s ./run.sh [adapter]   # the Service
+./run.sh [adapter]                  # the Service
 ```
+
+[.env.example](.env.example) is the Contract: Required Variables live,
+optional ones commented beside the Default they Replace.
+`run.sh` Reads `.env` when Present, and an exported Variable Wins.
+The Argument Wins over both.
 
 | | Go | TypeScript | Java |
 |---|---|---|---|

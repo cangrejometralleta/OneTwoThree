@@ -2,3 +2,4 @@ school.db
 *.db
 go
 bin/
+.env

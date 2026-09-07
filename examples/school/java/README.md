@@ -4,8 +4,9 @@ The same [Specification](../SPEC.md) as Go and TypeScript,
 in the Language [the Before](../BEFORE.md) was Written in.
 
 ```bash
+cp ../.env.example .env          # once
 ./build.sh                       # Toolchain and Tests, then the Jar
-TOKEN_SECRET=s ./run.sh          # the Service
+./run.sh                         # the Service
 ```
 
 Spring Boot 3, JPA over H2, HMAC from the standard Library.
