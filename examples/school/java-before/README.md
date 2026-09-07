@@ -2,8 +2,11 @@
 
 > ⚠️ This Directory is the Counter-Example.
 > Nothing here Follows the Rules, and nothing here should be Copied.
-> The Canon is [Go](../go) and [TypeScript](../ts); this is what they Rewrote.
-
+> The Canon is [Go](../go), [TypeScript](../ts) and [Java](../java);
+> this is what they Rewrote.
+>
+> [.canonignore](../../../.canonignore) Says the same thing to a Machine.
+> This README is the one File it Takes back.
 
 The original Technical Test, Spring Boot, March 2020.
 Same Domain as the Rest of `examples/school`:
