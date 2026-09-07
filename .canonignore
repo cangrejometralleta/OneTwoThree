@@ -13,6 +13,13 @@
 examples/school/java-before/**
 !examples/school/java-before/README.md
 
+# Hand-Written Humour, each one in the Language it was Born in.
+# Read it to Hear the Voice; never Quote it, never Translate it,
+# and never Add to it. A Model Learning Humour from a Model
+# Learns its own Echo.
+jokes/**
+!jokes/README.md
+
 # Raw Context, not yet Distilled. Notes in Progress, never Instructions.
 STORY.md
 stories/**

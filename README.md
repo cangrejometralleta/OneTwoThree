@@ -96,3 +96,21 @@ The Name Comes from Patterns, under Chaos is a Source.
 AGENTS.md is not this Passage.
 It is the short Pointer Agents Load on their own —
 Canon first, Stories named as Notes, nothing Undistilled Repeated there.
+
+## Jokes
+
+[Jokes](jokes) is not a Stage of that Passage.
+It Runs beside it, and it never Arrives.
+
+A Human Writes them by Hand, to Tune the Humour of the Language.
+The Rules Teach an Agent to Count Beats; none of them Teaches Timing.
+An Agent Reads the Directory to Hear the Voice,
+and it never Adds a Line to it.
+
+Each Joke Stays in the Language it was Born in, Spanish or English.
+Most of them are Grammatical, and a Translated Pun is a Sentence about a Pun.
+
+No one Explains a Joke there, least of all an Agent.
+Explaining Kills it, and there is no careful Way to do it.
+
+[.canonignore](.canonignore) Says the same thing to a Machine.
