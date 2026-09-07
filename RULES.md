@@ -23,9 +23,13 @@
 - [Structure](rules/structure.md) — three Beats, not three Newlines.
 - [Script](rules/script.md) — the Handler is its Script.
 - [Providers](rules/providers.md) — a Port, never a Vendor.
+- [Layers](rules/layers.md) — the Compiler Holds the Boundary. *(Provisional)*
+- [Failures](rules/failures.md) — the Failure Carries its Answer. *(Provisional)*
+- [Tests](rules/tests.md) — Spell the Expectation, then Mutate. *(Provisional)*
 - [Vendor Integration](rules/vendor-integration.md) — one Source, Links and small Adapters.
 - [Naming](rules/naming.md) — Verb + Noun + context.
 - [Shapes](rules/shapes.md) — the Entity is never the DTO.
+- [Values](rules/values.md) — the Index Counts, the Name Explains. *(Provisional)*
 - [Constants](rules/constants.md) — descriptive Files, explicit Environments.
 - [Anti-Patterns](rules/anti-patterns.md) — more than three Responsibilities.
 - [Scripts](rules/scripts.md) — build.sh and run.sh, everywhere. *(Provisional)*
