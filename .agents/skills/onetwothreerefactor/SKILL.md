@@ -81,25 +81,34 @@ Three Groups. The Line, the Boundary, the Project.
 
 ### The Project
 
-11. **Constants** — Keep shared declarative Values in `constants/`
-    and Environment Configuration in `config/`, using YAML, JSON or TOML.
-    Global Constants never Enter the Override Chain; Algorithmic Constants
-    Stay beside their Logic. Validate at Startup, Select the Environment
-    Explicitly, Apply Defaults → Environment File → declared Variables,
-    and Inject Secrets separately.
+11. **Constants** — Sort the Value before you Place it. Six Kinds in
+    three Pairs: what the Code Means (Global and Algorithmic Constants),
+    what the Deployment Chooses (Environment Configuration and Deployment
+    Topology), what Comes from outside (Domain Data and Secrets).
+    Global Constants Live in `constants/` and never Enter the Override
+    Chain; Algorithmic Constants Stay beside their Logic. Validate at
+    Startup, Select the Environment Explicitly, Apply Defaults →
+    Environment File → declared Variables, and Inject Secrets separately.
 
-12. **Tests** — Spell the expectation; never read it from the code
+12. **The Declared Surface** — `.env.example` is the Contract and it is
+    Committed: Required Variables live, optional ones commented beside
+    the Default they Replace. `.env` is local and Ignored. Precedence
+    Runs one Way — the Argument, then the Environment, then the Default —
+    so an exported Variable Wins over a File.
+
+13. **Tests** — Spell the expectation; never read it from the code
     under test. A test that computes what it checks agrees with itself
     and proves nothing. Prove it by mutation: break the declaration
     and watch the test fail. A test name is a use case, not a method
     name. Arrive the way a caller arrives.
 
-13. **Scripts** — Every program answers `build.sh` and `run.sh`. Build
+14. **Scripts** — Every program answers `build.sh` and `run.sh`. Build
     refuses to build what does not pass; run refuses to start what
-    will fail at startup. One function per step, named by what it
-    checks, with the calls at the bottom one per line.
+    will fail at startup; run reads `.env` when present. One function
+    per step, named by what it checks, with the calls at the bottom
+    one per line.
 
-14. **Vendor Integration** — Keep shared Instructions in one Source.
+15. **Vendor Integration** — Keep shared Instructions in one Source.
     Use relative Links for supported Vendor Entrances and small Adapters
     for required Formats. Generate unsupported Copies from that Source;
     never Maintain them by Hand.
