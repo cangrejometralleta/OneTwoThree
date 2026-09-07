@@ -1,9 +1,17 @@
-package main
+package settings
 
 import (
 	"encoding/json"
 	"fmt"
 	"strings"
+)
+
+// The Bounds a Deployment Value Must Fall inside.
+// Read alone, 65535 Says nothing and HighestPort Says the Rule.
+const (
+	LowestPort    = 1
+	HighestPort   = 65535
+	SecondsInADay = 60 * 60 * 24
 )
 
 // SchoolConfig Holds Deployment Values; Secrets Have no File Key.
@@ -17,10 +25,10 @@ type SchoolConfig struct {
 
 // LoadSchoolConfig Resolves Startup Inputs before any Store or Listener Opens.
 func LoadSchoolConfig(root string, environment map[string]string) (SchoolConfig, error) {
-	rules := map[string]valueRule{
-		"port":             checkIntegerRange(1, 65535),
-		"databasePath":     checkTextValue,
-		"tokenLifeSeconds": checkIntegerRange(1, 86400),
+	rules := map[string]ValueRule{
+		"port":             CheckIntegerRange(LowestPort, HighestPort),
+		"databasePath":     CheckTextValue,
+		"tokenLifeSeconds": CheckIntegerRange(1, SecondsInADay),
 		"serverAdapter":    checkServerAdapter,
 	}
 	names := map[string]string{

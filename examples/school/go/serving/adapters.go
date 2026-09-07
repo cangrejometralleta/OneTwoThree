@@ -1,4 +1,4 @@
-package main
+package serving
 
 import (
 	"encoding/json"
@@ -7,6 +7,8 @@ import (
 
 	"github.com/gin-gonic/gin"
 	"github.com/go-chi/chi/v5"
+
+	"github.com/cangrejometralleta/OneTwoThree/examples/school/go/transport"
 )
 
 // StdlibServer Serves the Routes with net/http alone.
@@ -14,7 +16,7 @@ import (
 type StdlibServer struct{}
 
 // ServeRoutes Mounts every Route on a stdlib Mux.
-func (StdlibServer) ServeRoutes(routes []Route, address string) error {
+func (StdlibServer) ServeRoutes(routes []transport.Route, address string) error {
 	mux := http.NewServeMux()
 
 	for _, route := range routes {
@@ -25,7 +27,7 @@ func (StdlibServer) ServeRoutes(routes []Route, address string) error {
 }
 
 // StdlibHandlerFor Wraps one Route into a stdlib HandlerFunc.
-func StdlibHandlerFor(route Route) http.HandlerFunc {
+func StdlibHandlerFor(route transport.Route) http.HandlerFunc {
 	names := ListPatternParams(route.Pattern)
 
 	return func(w http.ResponseWriter, r *http.Request) {
@@ -43,7 +45,7 @@ func StdlibHandlerFor(route Route) http.HandlerFunc {
 type ChiServer struct{}
 
 // ServeRoutes Mounts every Route on a chi Router.
-func (ChiServer) ServeRoutes(routes []Route, address string) error {
+func (ChiServer) ServeRoutes(routes []transport.Route, address string) error {
 	router := chi.NewRouter()
 
 	for _, route := range routes {
@@ -54,7 +56,7 @@ func (ChiServer) ServeRoutes(routes []Route, address string) error {
 }
 
 // ChiHandlerFor Wraps one Route, Reading Params the chi Way.
-func ChiHandlerFor(route Route) http.HandlerFunc {
+func ChiHandlerFor(route transport.Route) http.HandlerFunc {
 	names := ListPatternParams(route.Pattern)
 
 	return func(w http.ResponseWriter, r *http.Request) {
@@ -73,7 +75,7 @@ func ChiHandlerFor(route Route) http.HandlerFunc {
 type GinServer struct{}
 
 // ServeRoutes Mounts every Route on a gin Engine.
-func (GinServer) ServeRoutes(routes []Route, address string) error {
+func (GinServer) ServeRoutes(routes []transport.Route, address string) error {
 	gin.SetMode(gin.ReleaseMode)
 	engine := gin.New()
 
@@ -85,7 +87,7 @@ func (GinServer) ServeRoutes(routes []Route, address string) error {
 }
 
 // GinHandlerFor Wraps one Route, Reading Params the gin Way.
-func GinHandlerFor(route Route) gin.HandlerFunc {
+func GinHandlerFor(route transport.Route) gin.HandlerFunc {
 	names := ListPatternParams(route.Pattern)
 
 	return func(c *gin.Context) {
@@ -112,7 +114,7 @@ func TranslateRoutePattern(pattern string) string {
 }
 
 // WriteReplyAsJSON is the one Place that Touches a ResponseWriter.
-func WriteReplyAsJSON(w http.ResponseWriter, reply Response) {
+func WriteReplyAsJSON(w http.ResponseWriter, reply transport.Response) {
 	w.Header().Set("Content-Type", "application/json")
 	w.WriteHeader(reply.Status)
 
@@ -122,7 +124,7 @@ func WriteReplyAsJSON(w http.ResponseWriter, reply Response) {
 }
 
 // SelectServerAdapter Picks the Framework at Startup, never at Compile Time.
-func SelectServerAdapter(name string) Server {
+func SelectServerAdapter(name string) transport.Server {
 	switch name {
 	case "gin":
 		return GinServer{}

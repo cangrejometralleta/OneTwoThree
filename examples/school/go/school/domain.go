@@ -1,8 +1,6 @@
-package main
+package school
 
 import (
-	"errors"
-	"fmt"
 	"regexp"
 	"strconv"
 	"strings"
@@ -37,19 +35,6 @@ type Course struct {
 	Code CourseCode
 	Name FullName
 }
-
-// The Business Fails in named Ways, never in Numbers.
-var (
-	ErrNameIsEmpty    = errors.New("name is Empty")
-	ErrRutIsInvalid   = errors.New("rut Fails its Check Digit")
-	ErrRutTaken       = errors.New("rut is already Registered")
-	ErrAgeIsTooLow    = fmt.Errorf("age Must be %d or more", ReadSchoolConstants().MinimumAgeYears)
-	ErrStudentUnknown = errors.New("student not Found")
-	ErrCourseUnknown  = errors.New("course not Found")
-	ErrPageIsInvalid  = errors.New("page Numbers Must not be negative")
-	ErrBodyIsBroken   = errors.New("body is not valid JSON")
-	ErrPathIsBroken   = errors.New("path Holds no valid Identity")
-)
 
 var rutShape = regexp.MustCompile(`^[0-9]+-[0-9kK]$`)
 
