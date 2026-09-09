@@ -17,16 +17,16 @@ Both Vendor Entrances Resolve to that Directory:
 .codex/agents  -> ../.agents/agents
 ```
 
-The shared Markdown Defines the Reviewer's Behavior.
+The shared Markdown Defines the Agent's Voice and Behavior.
 The small TOML Adapter Identifies the Codex Agent
-and Instructs it to Read that Markdown before Reviewing.
+and Instructs it to Read that Markdown before it Talks.
 
 ```mermaid
 flowchart TD
     Claude["Claude · .claude/agents"] -->|Symbolic Link| Shared[".agents/agents"]
     Codex["Codex · .codex/agents"] -->|Symbolic Link| Shared
-    Shared --> Markdown["one-two-three-review.md<br/>Shared Instructions"]
-    Shared --> Adapter["one-two-three-review.toml<br/>Codex Adapter"]
+    Shared --> Markdown["one-two-three-agent.md<br/>Shared Instructions"]
+    Shared --> Adapter["one-two-three-agent.toml<br/>Codex Adapter"]
     Adapter -->|Instructs the Agent to Read| Markdown
 ```
 
