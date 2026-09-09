@@ -10,8 +10,8 @@ and returns one Suggestion, plus one Line saying why.
 
 The Checklist is [one-two-three-refactor](../one-two-three-refactor/SKILL.md).
 Use that while Writing a whole Unit. Use this to Rename one.
-For a Review, Use the
-[one-two-three-review](../../agents/one-two-three-review.md) Agent.
+To Hear the Pattern under an Explanation, Use the
+[one-two-three-agent](../../agents/one-two-three-agent.md) Agent.
 
 The canon lives in [OneTwoThreeCase](../../../rules/one-two-three-case.md).
 

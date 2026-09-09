@@ -1,6 +1,6 @@
 ---
 name: one-two-three-refactor
-description: Apply the OneTwoThree manifesto's code conventions when writing or refactoring code and its configuration — structure, naming, seams, comments, named values, Provider and Layer boundaries, wire/business/storage Shapes, controlled Failures, constants, tests, build scripts, and shared vendor integration. Use whenever generating or refactoring code in a project that follows Rules from cangrejometralleta/OneTwoThree, or when the user asks for "the manifesto rules". To judge code already written, send the one-two-three-review agent instead — it reads the diff in its own context and returns the findings.
+description: Apply the OneTwoThree manifesto's code conventions when writing or refactoring code and its configuration — structure, naming, seams, comments, named values, Provider and Layer boundaries, wire/business/storage Shapes, controlled Failures, constants, tests, build scripts, and shared vendor integration. Use whenever generating or refactoring code in a project that follows Rules from cangrejometralleta/OneTwoThree, or when the user asks for "the manifesto rules". To hear the pattern under a design or a change, send the one-two-three-agent instead — it reads the explanation and names the shape it keeps making.
 ---
 
 # OneTwoThreeRefactor
@@ -11,9 +11,9 @@ If a Rules file exists in the current repo, it is canonical — this
 skill is the checklist, not a replacement.
 
 This Skill Rides along while you Write.
-To Judge Code already Written, Send the
-[one-two-three-review](../../agents/one-two-three-review.md) Agent —
-it Reads the Diff in its own Context and Returns the Findings.
+To Hear the Pattern under a Design or a Change, Send the
+[one-two-three-agent](../../agents/one-two-three-agent.md) Agent —
+it Reads the Explanation and Names the Shape it Keeps Making.
 
 ## Before returning code, check
 
