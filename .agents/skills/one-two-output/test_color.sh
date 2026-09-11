@@ -55,10 +55,10 @@ check_markdown() {
 echo "── Rules ──"
 
 check_case "Three Groups take three Hues" 3 \
-'one-two-three-case Carries one-two-three-refactor
-one-two-three-refactor has no Slug
-~/.claude/skills/one-two-three-case -> .agents/skills/one-two-three-refactor
-one-two-three-output is fine'
+'one-two-case Carries one-two-refactor
+one-two-refactor has no Slug
+~/.claude/skills/one-two-case -> .agents/skills/one-two-refactor
+one-two-output is fine'
 
 check_case "The fourth Group Stays bare" 3 \
 'alpha.go alpha.go

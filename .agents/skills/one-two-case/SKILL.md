@@ -1,14 +1,14 @@
 ---
-name: one-two-three-case
+name: one-two-case
 description: Convert any code identifier or prose into a OneTwoThreeCase suggestion — capitalize Entities, Actions and Statuses, lowercase connectors, first word of each sentence capitalized; for identifiers, apply the language's case convention plus Verb+Noun+context (≤3 words). Use when the user asks to "OneTwoThreeCase" a name, sentence, or identifier, or to rewrite something in the manifesto's convention.
 ---
 
-# OneTwoThreeCase
+# OneTwoCase
 
 A Converter, not a Checklist. It takes Code or Words
 and returns one Suggestion, plus one Line saying why.
 
-The Checklist is [one-two-three-refactor](../one-two-three-refactor/SKILL.md).
+The Checklist is [one-two-refactor](../one-two-refactor/SKILL.md).
 Use that while Writing a whole Unit. Use this to Rename one.
 To Hear the Pattern under an Explanation, Use the
 [one-two-three-agent](../../agents/one-two-three-agent.md) Agent.

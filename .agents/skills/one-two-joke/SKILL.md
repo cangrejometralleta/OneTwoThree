@@ -1,15 +1,15 @@
 ---
-name: one-two-three-joke
+name: one-two-joke
 description: Read the hand-written jokes in jokes/ to hear the repository's timing before writing prose, and answer questions about how that directory works. Use when about to write user-facing prose that should land, when the user asks about the jokes directory, or when someone asks to add a joke. It never writes, rewrites, tightens, translates or explains a joke — a human writes every one of them, and this skill exists partly to say no.
 ---
 
-# OneTwoThreeJoke
+# OneTwoJoke
 
 A Listener, not a Writer.
 
-[Case](../one-two-three-case/SKILL.md) Converts one Name.
-[Refactor](../one-two-three-refactor/SKILL.md) Guides the Writing.
-[Output](../one-two-three-output/SKILL.md) Shapes what the Terminal Says.
+[Case](../one-two-case/SKILL.md) Converts one Name.
+[Refactor](../one-two-refactor/SKILL.md) Guides the Writing.
+[Output](../one-two-output/SKILL.md) Shapes what the Terminal Says.
 This one Only Listens, and Says no.
 
 ## The one Rule
