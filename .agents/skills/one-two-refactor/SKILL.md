@@ -1,9 +1,9 @@
 ---
-name: one-two-three-refactor
+name: one-two-refactor
 description: Apply the OneTwoThree manifesto's code conventions when writing or refactoring code and its configuration — structure, naming, seams, comments, named values, Provider and Layer boundaries, wire/business/storage Shapes, controlled Failures, constants, tests, build scripts, and shared vendor integration. Use whenever generating or refactoring code in a project that follows Rules from cangrejometralleta/OneTwoThree, or when the user asks for "the manifesto rules". To hear the pattern under a design or a change, send the one-two-three-agent instead — it reads the explanation and names the shape it keeps making.
 ---
 
-# OneTwoThreeRefactor
+# OneTwoRefactor
 
 A portable summary of [Rules](../../../RULES.md).
 The canon lives in [rules/](../../../rules/) — each Section its own File.

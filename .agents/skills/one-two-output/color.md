@@ -1,6 +1,6 @@
 # Color, when Asked
 
-The optional Door of [OneTwoThreeOutput](SKILL.md).
+The optional Door of [OneTwoOutput](SKILL.md).
 Read this File only when the User Asks for Color.
 Off by Default means Off — if nobody Asked, this File
 never Opens, and the Output Stays Plain.
@@ -47,7 +47,7 @@ are still five Shouting, now in three Tongues.
    so a Token Repeating inside it still Counts.
 
 6. **One Line Set, one Hue** — Tokens that Touch exactly the same Lines
-   are one Fact Wearing several Names. `.agents/skills/one-two-three-output/`
+   are one Fact Wearing several Names. `.agents/skills/one-two-output/`
    is one Home, not three Groups. They Share a Hue, and the Hues they
    stopped Eating Stay free for what really Differs.
 
@@ -161,7 +161,7 @@ so a Pipe never Eats an Escape. `NO_COLOR` Beats `--force`:
 the Reader's standing Preference Outranks the Writer's Flag.
 
 A Slash Separates Tokens; a Dot, Dash, Colon or Underscore Binds them.
-So `shape_test.go:41` Survives whole, while `.agents/skills/one-two-three-case`
+So `shape_test.go:41` Survives whole, while `.agents/skills/one-two-case`
 Splits into three — and the last of them can Rhyme with the same Name
 Standing alone on another Line. That Rhyme is the Co-occurrence.
 

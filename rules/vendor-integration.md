@@ -7,24 +7,30 @@
 - Add only the Metadata and Format Adapter each Vendor Requires.
   The Adapter Points to the Instructions; it never Repeats them.
 
-## One Source, two Entrances
+## One Source, three Entrances
 
 This Repository Keeps Agent Instructions in `.agents/agents/`.
-Both Vendor Entrances Resolve to that Directory:
+All three Vendor Entrances Resolve to that Directory:
 
 ```text
 .claude/agents -> ../.agents/agents
 .codex/agents  -> ../.agents/agents
+.github/agents -> ../.agents/agents
 ```
 
 The shared Markdown Defines the Agent's Voice and Behavior.
 The small TOML Adapter Identifies the Codex Agent
 and Instructs it to Read that Markdown before it Talks.
 
+Skills Use the shorter `one-two-` Prefix.
+The earlier three-part Names just Happened;
+the third Word Carried no separate Stage or Meaning.
+
 ```mermaid
 flowchart TD
     Claude["Claude · .claude/agents"] -->|Symbolic Link| Shared[".agents/agents"]
     Codex["Codex · .codex/agents"] -->|Symbolic Link| Shared
+    Copilot["Copilot · .github/agents"] -->|Symbolic Link| Shared
     Shared --> Markdown["one-two-three-agent.md<br/>Shared Instructions"]
     Shared --> Adapter["one-two-three-agent.toml<br/>Codex Adapter"]
     Adapter -->|Instructs the Agent to Read| Markdown
