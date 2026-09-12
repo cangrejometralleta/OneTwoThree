@@ -62,6 +62,9 @@ The Client Owns Discovery; this Skill Owns the local Connection to it.
   manual Action: start a new Chat, reload the Window or restart the Client.
 - A Skill cannot reload the Turn already Reading it. Verify the next discovery
   cycle and Say when that Boundary Applies.
+- After any Skill, Agent, Entrance or Tool Change, Remind the User to reload or
+  restart the Client and begin a new Chat. The current Turn may keep the old
+  Customizations and Tool Grants even when the Filesystem is already Correct.
 
 ## Integration Rules
 
@@ -111,6 +114,9 @@ Keep the Report short and Separate Proven States:
 - Removed: 3 stale References
 
 ⚠️ Codex entrance Validated; Client restart Required.
+
+Reload the Client and begin a new Chat before Using the changed Customizations.
 ```
 
 Never Say every Client Loaded when only one Client was available to Verify.
+Never Finish a Reload after Changes without the Client Reload Reminder.
