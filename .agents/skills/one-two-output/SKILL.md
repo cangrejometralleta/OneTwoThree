@@ -8,7 +8,7 @@ description: Format terminal output for readability — OneTwoThreeCase prose, o
 Compose Guidelines, not a Converter and not a Checklist.
 Case Converts one Name, Refactor Guides the Writing,
 and This Shapes what the Terminal Says.
-The [one-two-three-agent](../../agents/one-two-three-agent.md) Agent Reads Explanations.
+The [one-two-agent](../../agents/one-two-agent.md) Agent Reads Explanations.
 
 The Terminal is one of three Planes —
 Files, Code and Terminal. Look, Work and Talk.
