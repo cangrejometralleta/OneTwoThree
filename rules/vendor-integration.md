@@ -31,8 +31,8 @@ flowchart TD
     Claude["Claude · .claude/agents"] -->|Symbolic Link| Shared[".agents/agents"]
     Codex["Codex · .codex/agents"] -->|Symbolic Link| Shared
     Copilot["Copilot · .github/agents"] -->|Symbolic Link| Shared
-    Shared --> Markdown["one-two-agent.md<br/>Shared Instructions"]
-    Shared --> Adapter["one-two-agent.toml<br/>Codex Adapter"]
+    Shared --> Markdown["dove.md<br/>Shared Instructions"]
+    Shared --> Adapter["dove.toml<br/>Codex Adapter"]
     Adapter -->|Instructs the Agent to Read| Markdown
 ```
 

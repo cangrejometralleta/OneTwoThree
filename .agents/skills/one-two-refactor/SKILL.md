@@ -1,6 +1,6 @@
 ---
 name: one-two-refactor
-description: Apply the OneTwoThree manifesto's code conventions when writing or refactoring code and its configuration — structure, naming, seams, comments, named values, Provider and Layer boundaries, wire/business/storage Shapes, controlled Failures, constants, tests, build scripts, and shared vendor integration. Use whenever generating or refactoring code in a project that follows Rules from cangrejometralleta/OneTwoThree, or when the user asks for "the manifesto rules". To hear the pattern under a design or a change, send the one-two-agent instead — it reads the explanation and names the shape it keeps making.
+description: Apply the OneTwoThree manifesto's code conventions when writing or refactoring code and its configuration — structure, naming, seams, comments, named values, Provider and Layer boundaries, wire/business/storage Shapes, controlled Failures, constants, tests, build scripts, and shared vendor integration. Use whenever generating or refactoring code in a project that follows Rules from cangrejometralleta/OneTwoThree, or when the user asks for "the manifesto rules". To hear the pattern under a design or a change, send Dove instead — it reads the explanation and names the shape it keeps making.
 ---
 
 # OneTwoRefactor
@@ -12,7 +12,7 @@ skill is the checklist, not a replacement.
 
 This Skill Rides along while you Write.
 To Hear the Pattern under a Design or a Change, Send the
-[one-two-agent](../../agents/one-two-agent.md) Agent —
+[Dove](../../agents/dove.md) Agent —
 it Reads the Explanation and Names the Shape it Keeps Making.
 
 ## Before returning code, check
