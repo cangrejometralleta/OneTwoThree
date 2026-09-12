@@ -11,7 +11,7 @@ and returns one Suggestion, plus one Line saying why.
 The Checklist is [one-two-refactor](../one-two-refactor/SKILL.md).
 Use that while Writing a whole Unit. Use this to Rename one.
 To Hear the Pattern under an Explanation, Use the
-[one-two-three-agent](../../agents/one-two-three-agent.md) Agent.
+[one-two-agent](../../agents/one-two-agent.md) Agent.
 
 The canon lives in [OneTwoThreeCase](../../../rules/one-two-three-case.md).
 
