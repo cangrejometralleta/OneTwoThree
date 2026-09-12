@@ -12,6 +12,22 @@ and Leaves one Part ready to Continue.
 
 The canon lives in [Change Growth](../../../rules/change-growth.md).
 
+```mermaid
+flowchart TD
+    START["yo dove"] --> UPSTREAM{"Upstream Exists?"}
+    UPSTREAM -- Yes --> PULL["Pull · Rebase · Autostash"]
+    UPSTREAM -- No --> LOCAL["Continue from local State"]
+    PULL --> SYNC{"Synchronization Succeeded?"}
+    SYNC -- No --> STOP["Report unresolved Git State · Stop"]
+    SYNC -- Yes --> EVIDENCE["Read Handoff · History · Changes · Canon"]
+    LOCAL --> EVIDENCE
+    EVIDENCE --> RECONSTRUCT["Reconstruct Intent · Done · Open · State"]
+    RECONSTRUCT --> GROWTH{"Growth"}
+    GROWTH -- Together --> NEXT["Name one next Step"]
+    GROWTH -- Split --> NOW["Select one Now Part · Defer the Rest"]
+    GROWTH -- Unclear --> CHECK["Name one focused Check"]
+```
+
 ## When it Runs
 
 Use at the Beginning of a new Session when recent Work may Matter.

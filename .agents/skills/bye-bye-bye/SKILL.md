@@ -11,6 +11,20 @@ It Leaves the next Session one durable Thread to Pick up.
 The Opening lives in [YoYoYo](../yo-yo-yo/SKILL.md).
 The canon lives in [Change Growth](../../../rules/change-growth.md).
 
+```mermaid
+flowchart TD
+	START["bye dove"] --> EVIDENCE["Read Intent · Changes · Decisions · Validation"]
+	EVIDENCE --> GROWTH{"Growth"}
+	GROWTH -- Together --> NOW["Keep one Now Part"]
+	GROWTH -- Split --> SPLIT["Keep every Part · Mark one Now"]
+	GROWTH -- Unclear --> CHECK["Make Next the focused Check"]
+	NOW --> WRITE["Replace .handoff.md"]
+	SPLIT --> WRITE
+	CHECK --> WRITE
+	WRITE --> REPORT["Report where the Handoff Lives"]
+	REPORT --> STOP["Stop · Do not Continue Work"]
+```
+
 ## When it Runs
 
 Invoke when the User Says `bye dove`, Asks to Stop,
