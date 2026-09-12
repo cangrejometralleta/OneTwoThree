@@ -21,6 +21,26 @@ or whether the Work has become too large.
 Do not Invoke for a clean, self-contained Ask
 that does not Depend on earlier Work.
 
+## Synchronize
+
+Before Reading the Handoff or Reconstructing State,
+identify the current Branch and its configured Upstream.
+When an Upstream Exists, run:
+
+```
+git pull --rebase --autostash
+```
+
+This Pulls remote Commits, Rebases local Commits when Needed,
+and Preserves staged and unstaged Changes across the Rebase.
+Then Read Git State again; the reconstructed Session Starts there.
+
+When no Upstream Exists, Name the Branch and Continue without Pulling.
+Never Create an Upstream during Session Opening.
+If Fetch, Rebase or autostash Restoration Fails,
+Stop and Report the exact Git State and unresolved Operation.
+Do not Continue from stale or conflicted Evidence.
+
 ## Evidence
 
 Read the smallest recent Window that Explains the current State:
@@ -132,6 +152,8 @@ The new Ask can Begin from a clean Intent.
 ## Bounds
 
 - Never Present inference as recorded History.
+- Never Force Pull, Force Push or Discard local Changes.
+- Never Continue past an unresolved Rebase or autostash Conflict.
 - Never absorb unrelated dirty Paths into the active Work.
 - Never call Growth a Code Review.
 - Never Continue two Parts in one Thread.
