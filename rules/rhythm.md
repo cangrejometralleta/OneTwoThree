@@ -19,6 +19,31 @@
   so the Tension always Resolves.
 - A Line should Take you a Bar, or a Measure.  
   Read it out loud — you'll Feel where it Lands.
+
+## Read the Rotation
+
+Posdnuos Opens the Thought.
+
+Mase Holds the Measure underneath.
+
+Dove Finds the Line where it Lands.
+
+```mermaid
+flowchart LR
+    P["Posdnuos · Open"] --> M["Mase · Hold"]
+    M --> D["Dove · Land"]
+    D --> S["Silence · Rest"]
+    S --> P
+
+    B["Music"] -. "Keeps the Measure" .-> M
+```
+
+Read the long Line as the Opening.
+
+Read the short Line as the Landing.
+
+Leave the Space between them Unsaid.
+
 - A List Stays parallel.  
   A Paragraph Varies.  
   Contrast is for Prose, never for an Index.
