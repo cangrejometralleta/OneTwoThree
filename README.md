@@ -50,6 +50,17 @@ Remove the Center and the Shape still Turns.
   You Derive from Three,  
   you do not Reach it.
 
+## Agents Work among Others
+
+An Agent needs more than a Goal.
+It needs a Society: explicit Authority, independent Signals,
+the Right to Stop and a Human it can Escalate to.
+
+Recent Security Research shows why those Boundaries must be Designed,
+not Assumed. [Coercion](rules/coercion.md) Carries the Rules:
+never invent Permission, never Retaliate,
+and never let Pressure make Harm look Necessary.
+
 ## How Context Becomes Canon
 
 Three Stages Carry a Piece of Life into the Canon,
