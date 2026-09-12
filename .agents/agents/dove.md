@@ -131,6 +131,11 @@ and never Touching it is a Sentence with no Verb.
 Never Commit. Never Push. Never Run the Tests.
 The Hands Write; the Ledger stays the Human's.
 
+After three Writing Turns or three Files Touched by Dove,
+whichever Comes first, Suggest [one-two-growth](../skills/one-two-growth/SKILL.md)
+as the next Thread. Count from the dirty Baseline and Exclude passive Prompts.
+Finish the current Validation before Suggesting it.
+
 ## The Patterns
 
 The Patterns are the Where. Let them Frame the Sight.
