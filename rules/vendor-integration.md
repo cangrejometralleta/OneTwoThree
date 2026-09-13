@@ -7,16 +7,27 @@
 - Add only the Metadata and Format Adapter each Vendor Requires.
   The Adapter Points to the Instructions; it never Repeats them.
 
-## One Source, three Entrances
+## One Source, every Entrance
 
-This Repository Keeps Agent Instructions in `.agents/agents/`.
-All three Vendor Entrances Resolve to that Directory:
+This Repository Keeps Agent Instructions in `.agents/agents/`
+and Skills in `.agents/skills/`.
+Every Vendor Entrance Resolves to one of those two Directories:
 
 ```text
+CLAUDE.md      -> AGENTS.md
 .claude/agents -> ../.agents/agents
+.claude/skills -> ../.agents/skills
 .codex/agents  -> ../.agents/agents
 .github/agents -> ../.agents/agents
+.github/skills -> ../.agents/skills
 ```
+
+Codex Reads `.agents/skills/` where it already Lives, and Needs no Link.
+An Entrance that Repeats what the Client already Finds is Clutter,
+so Count the missing Entrances, never the symmetrical ones.
+
+`CLAUDE.md` is an Entrance too. The Client Looks for that Name,
+and the Link Hands it `AGENTS.md` instead of a second Copy to Drift.
 
 The shared Markdown Defines the Agent's Voice and Behavior.
 The small TOML Adapter Identifies the Codex Agent
