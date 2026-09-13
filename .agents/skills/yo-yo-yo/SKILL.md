@@ -10,7 +10,9 @@ It Reconstructs where the Work Stopped,
 Checks whether the Change stayed one Change,
 and Leaves one Part ready to Continue.
 
+The next Turn lives in [NextNextNext](../next-next-next/SKILL.md).
 The canon lives in [Change Growth](../../../rules/change-growth.md).
+The Shape lives in [The Lever and the Tape](../../../patterns/the-lever-and-the-tape.md).
 
 ```mermaid
 flowchart TD

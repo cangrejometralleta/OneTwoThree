@@ -8,8 +8,9 @@ description: "Close a work session by writing a concise repository handoff file 
 A Session Closing, not a Summary for Display.
 It Leaves the next Session one durable Thread to Pick up.
 
-The Opening lives in [YoYoYo](../yo-yo-yo/SKILL.md).
+The next Turn lives in [YoYoYo](../yo-yo-yo/SKILL.md).
 The canon lives in [Change Growth](../../../rules/change-growth.md).
+The Shape lives in [The Lever and the Tape](../../../patterns/the-lever-and-the-tape.md).
 
 ```mermaid
 flowchart TD
