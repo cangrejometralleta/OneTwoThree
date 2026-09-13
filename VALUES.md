@@ -37,6 +37,9 @@
 - Live it first, Name it later.  
   A Concept named too early  
   Freezes what you had not yet Felt.
+- Saying it out loud is how a Story gets Built.  
+  Spoken, a Divergence is your Narrative;  
+  Silent, it is someone else's Bug.
 - Agreement Teaches nothing.  
   Ask for the Objection,  
   and Ask it to be specific.
