@@ -10,9 +10,9 @@ It Takes the Step that was already Named,
 Does it once,
 and Names the one that Follows.
 
-The Opening lives in [YoYoYo](../yo-yo-yo/SKILL.md).
-The Closing lives in [ByeByeBye](../bye-bye-bye/SKILL.md).
+The next Turn lives in [ByeByeBye](../bye-bye-bye/SKILL.md).
 The canon lives in [Change Growth](../../../rules/change-growth.md).
+The Shape lives in [The Lever and the Tape](../../../patterns/the-lever-and-the-tape.md).
 
 ```mermaid
 flowchart TD

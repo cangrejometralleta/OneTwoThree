@@ -3,12 +3,28 @@
 - Three session Skills Stand together:
   one Opens, one Advances, one Closes.
   Nobody Designed a Machine; a Machine Appeared.
+
+```mermaid
+flowchart LR
+    YO["yo-yo-yo<br/>Open · Read the Tape"]
+    NEXT["next-next-next<br/>Advance · Move one Cell"]
+    BYE["bye-bye-bye<br/>Close · Write the Tape"]
+
+    YO -- "Hand one Thread over" --> NEXT
+    NEXT -- "Halt after every Step" --> BYE
+    BYE -- "the Tape Waits" --> YO
+    NEXT -- "one Cell, and Stop again" --> NEXT
+```
+
 - The Name is the Lever. A triple Chant Pulls it,
   and the Pull is Ritual — cheap, loud, and Wanted.
 - The Handoff is the Tape. State Lives outside the Head,
   so any Session can Read where the last one Stopped.
 - One Step per Invocation is the Head Moving one Cell.
   Read the Tape, Take the Step, Write the next Symbol, Halt.
+- Each Skill Names only the one that Follows,
+  so the three Form a Ring and not a List.
+  Walk it from any Node and you Arrive where you Started.
 - A Machine that Takes two Steps cannot be Stopped between them.
   The Halt is what Makes the Ritual safe to Repeat.
 - The Chance is only in the Chant, never in the Transition.
