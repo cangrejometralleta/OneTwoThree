@@ -18,3 +18,6 @@
   that already had one, and the second Answer Aged.
 - The invented Ritual Survived and the inherited one did not.
   Cheap, loud and Wanted Beats Correct and Borrowed.
+- The Practice Closed with one last Tag, `1.0.0`, the UNTAG.
+  A Lesson Deleted Leaves the same Room it Occupied,
+  so the last Tag Stays to Say there are no more.
