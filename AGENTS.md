@@ -2,6 +2,10 @@
 
 This Repository is a Manifesto and a Codebase.
 
+The Canon is the Head of `main`, and nothing else —
+[The Head is the Canon](rules/the-head-is-the-canon.md) Says why.
+A Rule Read from an older Commit is a Fork, not a Version.
+
 [Rules](RULES.md) Holds the How — Read it first.
 It Governs how an Agent should Read and Write here,
 including OneTwoThreeCase and the Cadence it Asks to be Read in.
