@@ -35,3 +35,4 @@
 - [Lineage](patterns/lineage.md)
 - [Provenance](patterns/provenance.md)
 - [The Test is an Entry Point](patterns/the-test-is-an-entry-point.md)
+- [The Lever and the Tape](patterns/the-lever-and-the-tape.md)
