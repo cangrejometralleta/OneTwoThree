@@ -23,8 +23,10 @@ The small TOML Adapter Identifies the Codex Agent
 and Instructs it to Read that Markdown before it Talks.
 
 Skills Use the shorter `one-two-` Prefix.
-The earlier three-part Names just Happened;
-the third Word Carried no separate Stage or Meaning.
+The three-part Names are Reserved for the three commonest Operations —
+Open, Advance, Close — so they Stand out from the rest.
+The third Word Carries no Stage; the triple Chant is the Lever,
+and [The Lever and the Tape](../patterns/the-lever-and-the-tape.md) Draws it.
 
 ```mermaid
 flowchart TD
