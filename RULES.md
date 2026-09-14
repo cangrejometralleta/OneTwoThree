@@ -37,4 +37,5 @@
 - [Constants](rules/constants.md) — descriptive Files, explicit Environments.
 - [Anti-Patterns](rules/anti-patterns.md) — more than three Responsibilities.
 - [Scripts](rules/scripts.md) — build.sh and run.sh, everywhere. *(Provisional)*
+- [Entrypoints](rules/entrypoints.md) — Declared Doors, one Logic, thin Shims. *(Provisional)*
 - [Code](rules/code.md) — Go, because the Rules Read better when they Run.
