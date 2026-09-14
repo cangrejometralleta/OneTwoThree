@@ -24,6 +24,7 @@
 - [Emoji](rules/emoji.md) — one per Line at most.
 - [Structure](rules/structure.md) — three Beats, not three Newlines.
 - [Change Growth](rules/change-growth.md) — Pause when one Change starts becoming two. *(Provisional)*
+- [Session Checkpoint](rules/session-checkpoint.md) — State survives outside the Session. *(Provisional)*
 - [Coercion](rules/coercion.md) — Authority stays explicit under Pressure.
 - [Script](rules/script.md) — the Handler is its Script.
 - [Providers](rules/providers.md) — a Port, never a Vendor.

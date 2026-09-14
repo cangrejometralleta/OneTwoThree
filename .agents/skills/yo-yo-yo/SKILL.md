@@ -63,9 +63,10 @@ Do not Continue from stale or conflicted Evidence.
 
 Read the smallest recent Window that Explains the current State:
 
-1. **Handoff** — `.handoff.md` at the Repository Root,
-   when Present. Treat it as the previous Session's explicit Handoff,
-   then Confirm its Paths and Claims against current State.
+1. **Continuity** — `.handoff.md` at the Repository Root, when Present.
+   It may Hold a compact working Checkpoint or a full closing Handoff.
+   Treat either as the previous Session's explicit State,
+   then Confirm its Claims against current repository State.
 2. **History** — recent Sessions for this Repository,
    newest first. Read Summaries, User Intent, Decisions,
    touched Files and the last unresolved Step.
