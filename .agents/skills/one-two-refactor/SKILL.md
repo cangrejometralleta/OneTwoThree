@@ -188,6 +188,7 @@ Came from one Practice and has not yet Survived a second.
 [Constants](../../../rules/constants.md) ·
 [Tests](../../../rules/tests.md) *(Provisional)* ·
 [Scripts](../../../rules/scripts.md) *(Provisional)* ·
+[Entrypoints](../../../rules/entrypoints.md) *(Provisional)* ·
 [Vendor Integration](../../../rules/vendor-integration.md) ·
 [Canonignore](../../../rules/canonignore.md) *(Provisional)*
 
