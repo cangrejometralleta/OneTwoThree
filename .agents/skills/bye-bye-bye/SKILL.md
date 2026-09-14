@@ -1,6 +1,6 @@
 ---
 name: bye-bye-bye
-description: "Close a work session by writing a concise repository handoff file that a later session can use to recover context. Use when the user says bye dove, asks to stop, requests a handoff, or wants the next session to resume safely."
+description: "Close a work session by writing a concise, self-contained repository handoff that records affected files and lets a later session recover context even without direct file access. Use when the user says bye dove, asks to stop, requests a handoff, or wants the next session to resume safely."
 ---
 
 # ByeByeBye
@@ -36,7 +36,8 @@ or Requests a Handoff for the next Session.
 Read only the current Thread and current Repository State:
 
 1. **Intent** — the Ask that still Explains the Work.
-2. **Changes** — staged, unstaged and untracked Paths.
+2. **Changes** — staged, unstaged and untracked Paths,
+   plus the relevant Change in each affected File.
 3. **Decisions** — Choices that the next Session must Preserve.
 4. **Validation** — Checks already Run and their Result.
 5. **Growth** — whether the Work is `Together`, `Split` or `Unclear`.
@@ -67,13 +68,21 @@ Use this Shape:
 
 **Later** — deferred Parts, or None.
 
-**Paths**
-- path — why it Matters.
+**Files**
+- `path` — Added, Modified, Deleted or Renamed.
+  What Changed, why it Matters, and the pending Detail needed to Continue.
 
 **Validation** — Command and Result, or Not Run.
 
 **Next** — one concrete Action.
 ```
+
+The Files Section makes the Handoff Usable without Repository Access.
+List every File affected by the active Work, including already Committed Files
+that the next Session must Understand. For each one, Name its State and
+summarize the relevant Change. Include a small exact Snippet when Names,
+Values, Signatures or unfinished Text cannot be recovered reliably from prose.
+Do not Copy a whole File or a large Diff.
 
 Keep Claims factual and Paths repository-relative.
 Mark uncertain Claims as `Inferred`.
@@ -100,4 +109,5 @@ Next Session Starts with: one concrete Action.
 - Never Continue Implementation after Writing it.
 - Never Hide Failed or missing Validation.
 - Never Include unrelated dirty Paths.
+- Never Assume the next Session can Open an affected File.
 - Never Leave two Parts marked `Now`.
