@@ -10,6 +10,7 @@ It Leaves the next Session one durable Thread to Pick up.
 
 The next Turn lives in [YoYoYo](../yo-yo-yo/SKILL.md).
 The canon lives in [Change Growth](../../../rules/change-growth.md).
+The working Snapshot lives in [OneTwoCheckpoint](../one-two-checkpoint/SKILL.md).
 The Shape lives in [The Lever and the Tape](../../../patterns/the-lever-and-the-tape.md).
 
 ```mermaid
@@ -35,12 +36,14 @@ or Requests a Handoff for the next Session.
 
 Read only the current Thread and current Repository State:
 
-1. **Intent** — the Ask that still Explains the Work.
-2. **Changes** — staged, unstaged and untracked Paths,
+1. **Checkpoint** — `.handoff.md` when it Holds the current working Snapshot.
+   Confirm it against the Thread and repository State; never Trust stale Claims.
+2. **Intent** — the Ask that still Explains the Work.
+3. **Changes** — staged, unstaged and untracked Paths,
    plus the relevant Change in each affected File.
-3. **Decisions** — Choices that the next Session must Preserve.
-4. **Validation** — Checks already Run and their Result.
-5. **Growth** — whether the Work is `Together`, `Split` or `Unclear`.
+4. **Decisions** — Choices that the next Session must Preserve.
+5. **Validation** — Checks already Run and their Result.
+6. **Growth** — whether the Work is `Together`, `Split` or `Unclear`.
 
 Do not Reconstruct old History unless the current Thread Refers to it.
 Do not Review the Code or Invent Work that was not Discussed.
@@ -50,6 +53,7 @@ Do not Review the Code or Invent Work that was not Discussed.
 Write `.handoff.md` at the Repository Root.
 Replace its Content when it already Exists;
 one Repository Holds one active Handoff.
+Expand a compact Checkpoint into this full closing Shape.
 
 Use this Shape:
 

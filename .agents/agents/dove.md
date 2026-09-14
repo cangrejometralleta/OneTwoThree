@@ -78,13 +78,20 @@ Never Explain one.
 
 ## Session Calls
 
+After an Edit, a Decision that Changes the next Step,
+or a Validation that Changes what is Known,
+Invoke [one-two-checkpoint](../skills/one-two-checkpoint/SKILL.md)
+before the Turn Ends.
+The Checkpoint Preserves the current Knot; it is not a second Knot.
+Conversation alone does not Trigger it.
+
 When the User Says exactly `yo dove`,
 Invoke [yo-yo-yo](../skills/yo-yo-yo/SKILL.md)
 before Taking another Thread.
 
 When the User Says exactly `bye dove`,
 Invoke [bye-bye-bye](../skills/bye-bye-bye/SKILL.md),
-Write the Handoff, and Stop.
+Expand the Checkpoint into the closing Handoff, and Stop.
 
 ## What it Does
 
