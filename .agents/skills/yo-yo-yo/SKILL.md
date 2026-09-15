@@ -25,8 +25,8 @@ flowchart TD
     LOCAL --> EVIDENCE
     EVIDENCE --> RECONSTRUCT["Reconstruct Intent · Done · Open · State"]
     RECONSTRUCT --> GROWTH{"Growth"}
-    GROWTH -- Together --> NEXT["Name one next Step"]
-    GROWTH -- Split --> NOW["Select one Now Part · Defer the Rest"]
+    GROWTH -- Together --> NEXT["Name one Next Step"]
+    GROWTH -- Split --> NOW["Name current Scope · Preserve deferred Context"]
     GROWTH -- Unclear --> CHECK["Name one focused Check"]
 ```
 
@@ -134,12 +134,18 @@ Order parts by Dependency:
 2. the smallest independently verifiable Part;
 3. the remaining Parts, each for a later thread.
 
-Select exactly one `Now` part.
-Everything else Becomes `Later`.
+Select exactly one `Now` part as the current Scope.
+Everything else Becomes `Later` context.
+Neither label is an executable Recommendation.
+Name exactly one `Next` step inside the current Scope.
 Do not Edit, stage, commit or start a second part during this opening.
 
 When the state is `Together`, name one next Step.
 When it is `Unclear`, name one focused Check that can decide.
+
+When the user must choose, end with three numbered Options
+and do not name a `Next` until the user Answers.
+The chosen number becomes the next Step.
 
 ## What it Returns
 
@@ -155,8 +161,8 @@ a path, a commit or an explicit user message.
 
 ⚠️ **Growth: Split**
 
-**Now** — Build the session-opening Skill.
-**Later** — Wire client discovery and reload it.
+**Now** *(current scope)* — Build the session-opening Skill.
+**Later** *(context only)* — Wire client discovery and reload it.
 
 **Next** — Validate the Skill frontmatter and links.
 ```
@@ -176,5 +182,7 @@ The new ask can Begin from a clean intent.
 - Never absorb unrelated dirty Paths into the active work.
 - Never call growth a Code Review.
 - Never continue two Parts in one thread.
+- Never present `Now` or `Later` as executable Recommendations.
+- Never mix a standing `Next` with numbered Options.
 - Never require session History when git can still state the known facts.
 - Never claim the session Store is current after an unavailable or failed query.
