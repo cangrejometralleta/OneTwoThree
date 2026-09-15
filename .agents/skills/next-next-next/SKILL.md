@@ -1,6 +1,6 @@
 ---
 name: next-next-next
-description: "Advance to the next recommended course of action and take exactly one Step. Use when the user says next, sigue, continue, go on, or asks what to do now and wants it done rather than listed. It finds the standing recommendation, confirms it still holds, takes one Step, and names the Step after it."
+description: "Advance to the next recommended course of action and take exactly one Step. Use when the user says next, sigue, continue, go on, selects a numbered option, or asks what to do now and wants it done rather than listed. It finds the standing recommendation or selected choice, confirms it still holds, takes one Step, and names the Step after it."
 ---
 
 # NextNextNext
@@ -16,7 +16,7 @@ The shape Lives in [The Lever and the Tape](../../../patterns/the-lever-and-the-
 
 ```mermaid
 flowchart TD
-    START["sigue"] --> FIND{"Recommendation Found?"}
+    START["next · sigue · 1/2/3"] --> FIND{"Recommendation Found?"}
     FIND -- No --> OPEN["Defer to YoYoYo · Stop"]
     FIND -- Yes --> HOLDS{"Still Holds?"}
     HOLDS -- No --> RENAME["Name what Changed · Restate one Step"]
@@ -32,6 +32,7 @@ flowchart TD
 ## When it Runs
 
 Invoke when the user says `next`, `sigue`, `continue` or `go on`,
+replies with the number of a presented choice,
 or asks what to do now and wants it Done, not listed.
 
 Do not invoke to open a Session; YoYoYo reconstructs state.
@@ -42,12 +43,16 @@ Do not invoke for a new Ask that carries its own intent.
 
 Read the smallest Source that already names a next step:
 
-1. **This Thread** — the last `Next`, `Now` or `Later` line Stated here.
-2. **Handoff** — `.handoff.md` at the repository Root, when present.
-3. **Plan** — an approved Plan or a checklist the work follows.
-4. **State** — branch, staged, unstaged and untracked Paths.
+1. **Selected Choice** — the user's latest number,
+   resolved against the numbered choices immediately before it.
+2. **This Thread** — the last explicit `Next` line Stated here.
+3. **Handoff** — the explicit `Next` in `.handoff.md`, when present.
+4. **Plan** — the next unchecked Step in an approved Plan.
 
+The selected choice Wins over a standing `Next`.
 The thread Wins over the handoff when both speak.
+`Now` names the current Scope. `Later` preserves context.
+Neither is a Recommendation.
 When no source names a step, do not Invent one.
 Say so, and defer to YoYoYo.
 
@@ -96,7 +101,7 @@ A failed step is the next Step.
 
 **Verified** — the path Resolves; the frontmatter parses.
 **Next** — Reload the skills in the local client.
-**Later** — Translate the rotation labels.
+**Later** *(context only)* — Translate the rotation labels.
 ```
 
 When nothing Holds:
@@ -109,6 +114,8 @@ Open the Session with YoYoYo, or name the step.
 ## Bounds
 
 - Never take a Step no source named.
+- Never execute `Now` or `Later` as the standing Recommendation.
+- Never infer a numbered choice from anything but the user's reply.
 - Never take two Steps in one invocation.
 - Never replace a session Opening or a session closing.
 - Never Write, rewrite or delete `.handoff.md` here.
