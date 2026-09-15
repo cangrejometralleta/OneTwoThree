@@ -10,3 +10,5 @@ CHAOS.md
 .vscode/
 __pycache__/
 *.pyc
+opencode.json
+.opencode/
