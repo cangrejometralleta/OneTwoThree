@@ -5,44 +5,44 @@ description: "Find an exact sensitive value across files, Git history and local 
 
 # OneTwoPurge
 
-A Remover of sensitive History, not a Promise that Exposure never Happened.
-It Detects without Echoing, Names the affected Surfaces,
-Confirms the destructive Boundary, then Purges and Verifies.
+A Remover of sensitive history, not a promise that exposure never happened.
+It Detects without echoing, Names the affected surfaces,
+Confirms the destructive boundary, then Purges and Verifies.
 
-The first Action after a Credential Exposure is Revocation or Rotation.
-History Rewriting Reduces Distribution; it does not make a leaked Secret Safe.
+The first action after a credential exposure is Revocation or Rotation.
+History rewriting Reduces distribution; it does not make a leaked secret safe.
 
 ## The Value
 
-Never Ask the User to paste a sensitive Value into Chat.
+Never ask the user to paste a sensitive Value into chat.
 Never place it in a command Argument, generated Script, Log or Report.
 
-Ask the User to enter it directly into an interactive Terminal with Echo
+Ask the user to enter it directly into an interactive terminal with Echo
 disabled and keep it in a temporary environment Variable such as
-`PURGE_VALUE`. The Agent Uses only the Variable Name.
+`PURGE_VALUE`. The agent Uses only the variable name.
 
 - Never print, expand, inspect or persist the Variable.
-- Never enable shell Tracing while it Exists.
-- Reject an empty Value before every Search or Mutation.
-- Clear it from the Environment when Verification Finishes.
-- If the Client cannot accept secret Terminal Input without exposing it to the
-  Model, Stop and give the User a local Command to run themselves.
+- Never enable shell Tracing while it exists.
+- Reject an empty Value before every search or mutation.
+- Clear it from the Environment when verification finishes.
+- If the client cannot accept secret terminal Input without exposing it to the
+  model, stop and give the user a local Command to run themselves.
 
 ## Detect
 
 Read three Surfaces. Detection Changes nothing.
 
-1. **Files** — tracked, untracked, hidden and ignored Files in Scope.
+1. **Files** — tracked, untracked, hidden and ignored Files in scope.
 2. **Git** — reachable Commits, Branches, Tags and local Reflogs.
-3. **Shell** — known local History Files for Bash, Zsh, Fish and the active
-   Shell, plus project-local Session Logs explicitly named by the User.
+3. **Shell** — known local history Files for Bash, Zsh, Fish and the active
+   shell, plus project-local session Logs explicitly named by the user.
 
-Use fixed-string matching by Default. Treat the Value as Data, never a Regular
-Expression. Exclude binary payload output and report only redacted Paths,
+Use fixed-string matching by Default. Treat the Value as data, never a regular
+expression. Exclude binary payload output and report only redacted Paths,
 Commit IDs, Ref Names and Counts.
 
-Do not search unrelated home Directories merely because they are Accessible.
-Name every Path outside the current Repository and Ask before Reading it.
+Do not search unrelated home Directories merely because they are accessible.
+Name every Path outside the current repository and ask before reading it.
 
 Report Detection separately:
 
@@ -52,59 +52,59 @@ Git: 4 Commits across 1 Branch and 1 Tag
 Shell: 3 Entries in Fish History
 ```
 
-Never include matching Lines or the sensitive Value.
+Never include matching lines or the sensitive Value.
 
 ## Confirm
 
-Detection does not Authorize Mutation.
+Detection does not Authorize mutation.
 
-Before Purging, Explain:
+Before purging, Explain:
 
-- the exact Files, Refs and History Stores that will Change;
-- whether Git Commit IDs will Change;
-- whether Tags or Branches require Replacement;
+- the exact Files, Refs and History Stores that will change;
+- whether Git commit IDs will Change;
+- whether Tags or Branches require replacement;
 - whether a remote Force Push will be needed;
-- that existing Clones, Forks, Caches and Logs may retain the old Value;
-- which Backups will be Created and when they will be Removed.
+- that existing Clones, Forks, Caches and Logs may retain the old value;
+- which Backups will be created and when they will be removed.
 
-Require explicit Confirmation for each destructive Boundary:
+Require explicit Confirmation for each destructive boundary:
 
 1. Rewrite repository History.
-2. Rewrite each shell History File.
-3. Expire Reflogs and prune unreachable Git Objects.
+2. Rewrite each shell history File.
+3. Expire Reflogs and prune unreachable Git objects.
 4. Force Push rewritten Branches or Tags.
 
-Never combine those Approvals. Never Infer Consent from the original Request.
+Never combine those Approvals. Never infer Consent from the original request.
 
 ## Purge
 
-Purge only the Surfaces the User Confirmed.
+Purge only the Surfaces the user confirmed.
 
 ### Files
 
-Replace or remove the Value from the current working Tree first.
-Preserve File Structure and unrelated Content.
-Do not Commit unless the User separately Requests a Commit.
+Replace or remove the Value from the current working tree first.
+Preserve file Structure and unrelated content.
+Do not commit unless the user separately Requests a commit.
 
 ### Git
 
 Prefer `git-filter-repo` when installed and supported by the Repository.
-Read its installed Help before constructing the Rewrite.
-Use a replacement File or Callback that Reads the Value without placing it in
+Read its installed Help before constructing the rewrite.
+Use a replacement File or Callback that reads the value without placing it in
 the command Line, process List or persistent project Files.
 
 Before rewriting:
 
 - require a clean or fully understood working Tree;
-- record the current Branches, Tags, Remotes and `HEAD` without Secrets;
-- create a local recovery Bundle outside the Repository with restrictive
+- record the current Branches, Tags, Remotes and `HEAD` without secrets;
+- create a local recovery Bundle outside the repository with restrictive
   Permissions;
-- name the Bundle Path to the User;
+- name the Bundle path to the user;
 - refuse to overwrite an existing Bundle.
 
 Do not use `filter-branch` when `git-filter-repo` is available.
 Do not delete original Refs, expire Reflogs or run Garbage Collection until the
-rewritten History passes Verification and the User confirms final Pruning.
+rewritten history passes Verification and the user confirms final pruning.
 
 Never Force Push automatically. Show the affected remote Refs and ask for a
 separate Approval. Use `--force-with-lease`, never unconditional `--force`,
@@ -112,39 +112,39 @@ when the remote State permits it.
 
 ### Shell
 
-Stop or account for active Shells that may rewrite History on Exit.
-Create a permission-restricted Backup beside neither the Repository nor its
-tracked Files. Parse the native History Format; do not treat structured Fish or
-multiline History as plain independent Lines when that would corrupt Entries.
+Stop or account for active Shells that may rewrite history on exit.
+Create a permission-restricted Backup beside neither the repository nor its
+tracked Files. Parse the native history Format; do not treat structured Fish or
+multiline history as plain independent lines when that would corrupt entries.
 
 Write a replacement File atomically, preserve Permissions and Ownership,
-then ask the User to restart or reload affected Shell Sessions.
-Never clear an entire History when exact Entry removal is possible.
+then ask the user to restart or reload affected shell Sessions.
+Never clear an entire History when exact entry removal is possible.
 
 ## Verify
 
-Repeat the same fixed-string Detection against every purged Surface.
+Repeat the same fixed-string Detection against every purged surface.
 
-1. Current Files contain zero Matches.
-2. Rewritten reachable Git History contains zero Matches.
-3. Confirmed shell History Stores contain zero Matches.
-4. Refs and Repository integrity checks pass.
+1. Current Files contain zero matches.
+2. Rewritten reachable Git History contains zero matches.
+3. Confirmed shell history Stores contain zero matches.
+4. Refs and repository integrity checks pass.
 5. The sensitive Variable is cleared.
 
-A zero Match in rewritten Git does not prove remote Caches or existing Clones
+A zero Match in rewritten Git does not prove remote caches or existing clones
 forgot the Value. Say so.
 
-Only after Verification may the User separately Approve deleting recovery
+Only after Verification may the user separately approve deleting recovery
 Refs, expiring Reflogs, pruning Objects and removing Backups.
 
 ## Boundaries
 
-- Never reveal a sensitive Value back to the User.
+- Never reveal a sensitive Value back to the user.
 - Never send it to a network Service or external Scanner.
-- Never mutate global credential Stores without an explicit Request.
+- Never mutate global credential Stores without an explicit request.
 - Never rewrite signed Commits or Tags without naming that signatures Break.
-- Never rewrite a shared Branch without naming the Coordination required.
-- Never remove Audit Evidence required by Law, Policy or an active Incident.
+- Never rewrite a shared Branch without naming the coordination required.
+- Never remove audit evidence required by Law, Policy or an active Incident.
 - Stop when repository ownership, remote authority or History format is unclear.
 
 ## What it Returns
@@ -161,4 +161,4 @@ Report States, Counts and remaining Actions only:
 - Recovery Bundle: Retained until final Approval
 ```
 
-The Report Never Contains the Value or a recoverable Fragment of it.
+The report never Contains the value or a recoverable fragment of it.
