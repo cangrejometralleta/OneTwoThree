@@ -1,13 +1,13 @@
 # Count me In
 
-- No Band Starts on the Downbeat.
-  Someone Counts first.
-- One, Two, Three Is not Decoration.
-  It Tells everyone where the Entrance Is.
-- An Agent that Offers Options Owes the same Count.
-  Bullets Ask the Reader to Choose a Shape;
-  a Number Asks them to Choose a Number.
-- The Count Travels. Uno, Dos, Tres Lands the same Beat.
-- Three Options Fit a Phrase. A fourth Asks for a second Bar.
-- The Answer Comes back as one Word,
-  because the Question Arrived already Counted.
+- No band Starts on the downbeat.
+  Someone counts first.
+- One, Two, Three is not Decoration.
+  It tells everyone where the entrance is.
+- An agent that offers options Owes the same count.
+  Bullets ask the reader to choose a shape;
+  a number Asks for a number.
+- The count Travels. Uno, Dos, Tres lands the same beat.
+- Three options Fit a phrase. A fourth asks for a second bar.
+- The answer Comes back as one word,
+  because the question arrived already counted.
