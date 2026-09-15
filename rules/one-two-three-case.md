@@ -11,6 +11,10 @@ Every sentence Spends one more, and only one.
 
 - Active voice Spends on the Action.  
   The doing is the claim.
+- A verb whose object is a clause Passes the spend inside it.  
+  *Says what we believe* Reports; the claim is in the clause.
+- The verb Keeps it when the clause cannot take it.  
+  *Says which* Offers no word to land on.
 - Passive voice Spends on the Entity.  
   The actor is gone, and the thing is all that stands there.
 - A copula Spends on the predicate.  
@@ -43,6 +47,13 @@ Copular, so the predicate Takes it:
 Imperative, so the verb Opens for free and the Entity Takes it:
 
 > Leave its State outside the head before the turn ends.
+
+A light verb, so the spend Passes into the clause:
+
+> Values says what We believe.  
+> This says where the Belief comes from.
+
+Spending twice on *Says* Said nothing twice.
 
 The same four sentences Carried seventeen capitals before:
 
