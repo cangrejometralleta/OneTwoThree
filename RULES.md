@@ -1,42 +1,42 @@
 # What Belongs Here
 
-- A Rule an Agent cannot Execute  
-  is a Value, not a Rule.
+- A rule an agent cannot execute  
+  is a Value, not a rule.
 - Rules are Verifiable,  
-  Values are Interpretable.
-- Send each one to the Document that Holds it.
-- A Rule Marked *Provisional* Came from one Practice  
-  and has not yet Survived a second.  
-  Follow it, and Delete it if the next Project Disagrees.
+  values are interpretable.
+- Send each one to the Document that holds it.
+- A rule marked *Provisional* came from one Practice  
+  and has not yet survived a second.  
+  Follow it, and Delete it if the next project disagrees.
 
 ## The Rules
 
-- [The Head is the Canon](rules/the-head-is-the-canon.md) — no Tag, no Release, no Fork.
+- [The Head is the Canon](rules/the-head-is-the-canon.md) — no tag, no release, no Fork.
 - [OneTwoThreeCase](rules/one-two-three-case.md) — the typographic Convention.
 - [Reading this Repository](rules/reading-this-repository.md) — how to Read it.
-- [Canonignore](rules/canonignore.md) — Carried, and not Taught. *(Provisional)*
+- [Canonignore](rules/canonignore.md) — carried, and not Taught. *(Provisional)*
 - [Search](rules/search.md) — three narrow Queries.
-- [Rhythm](rules/rhythm.md) — Contrast Carries the Line.
-- [Paragraph](rules/paragraph.md) — one Idea, and the Claim Opens it.
-- [Seams](rules/seams.md) — Break where the Grammar Bends.
-- [Comments](rules/comments.md) — Stop at the Claim.
-- [Channels](rules/channels.md) — the Surface Sells a fixed Number.
+- [Rhythm](rules/rhythm.md) — contrast Carries the line.
+- [Paragraph](rules/paragraph.md) — one idea, and the claim Opens it.
+- [Seams](rules/seams.md) — break where the Grammar bends.
+- [Comments](rules/comments.md) — stop at the Claim.
+- [Channels](rules/channels.md) — the surface Sells a fixed number.
 - [Emoji](rules/emoji.md) — one per Line at most.
-- [Structure](rules/structure.md) — three Beats, not three Newlines.
-- [Change Growth](rules/change-growth.md) — Pause when one Change starts becoming two. *(Provisional)*
-- [Session Checkpoint](rules/session-checkpoint.md) — State survives outside the Session. *(Provisional)*
-- [Coercion](rules/coercion.md) — Authority stays explicit under Pressure.
-- [Script](rules/script.md) — the Handler is its Script.
-- [Providers](rules/providers.md) — a Port, never a Vendor.
-- [Layers](rules/layers.md) — the Compiler Holds the Boundary. *(Provisional)*
-- [Failures](rules/failures.md) — the Failure Carries its Answer. *(Provisional)*
-- [Tests](rules/tests.md) — Spell the Expectation, then Mutate. *(Provisional)*
-- [Vendor Integration](rules/vendor-integration.md) — one Source, Links and small Adapters.
+- [Structure](rules/structure.md) — three Beats, not three newlines.
+- [Change Growth](rules/change-growth.md) — pause when one change starts Becoming two. *(Provisional)*
+- [Session Checkpoint](rules/session-checkpoint.md) — state Survives outside the session. *(Provisional)*
+- [Coercion](rules/coercion.md) — authority Stays explicit under pressure.
+- [Script](rules/script.md) — the handler is its Script.
+- [Providers](rules/providers.md) — a Port, never a vendor.
+- [Layers](rules/layers.md) — the compiler Holds the boundary. *(Provisional)*
+- [Failures](rules/failures.md) — the failure Carries its answer. *(Provisional)*
+- [Tests](rules/tests.md) — spell the Expectation, then mutate. *(Provisional)*
+- [Vendor Integration](rules/vendor-integration.md) — one source, links and small Adapters.
 - [Naming](rules/naming.md) — Verb + Noun + context.
-- [Shapes](rules/shapes.md) — the Entity is never the DTO.
-- [Values](rules/values.md) — the Index Counts, the Name Explains. *(Provisional)*
-- [Constants](rules/constants.md) — descriptive Files, explicit Environments.
+- [Shapes](rules/shapes.md) — the entity is never the DTO.
+- [Values](rules/values.md) — the index counts, the name Explains. *(Provisional)*
+- [Constants](rules/constants.md) — descriptive files, explicit Environments.
 - [Anti-Patterns](rules/anti-patterns.md) — more than three Responsibilities.
-- [Scripts](rules/scripts.md) — build.sh and run.sh, everywhere. *(Provisional)*
-- [Entrypoints](rules/entrypoints.md) — Declared Doors, one Logic, thin Shims. *(Provisional)*
-- [Code](rules/code.md) — Go, because the Rules Read better when they Run.
+- [Scripts](rules/scripts.md) — build.sh and run.sh, Everywhere. *(Provisional)*
+- [Entrypoints](rules/entrypoints.md) — declared doors, one logic, thin Shims. *(Provisional)*
+- [Code](rules/code.md) — Go, because the rules Read better when they run.

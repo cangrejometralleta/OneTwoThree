@@ -1,28 +1,28 @@
 # Comments
 
-- The Comment Stops at the Claim.  
-  Say what the Unit Does, then Stop.
-- A second Clause Must Add a Constraint,  
-  never Repeat the first in other Words.
+- The comment Stops at the claim.  
+  Say what the Unit does, then stop.
+- A second clause must Add a constraint,  
+  never repeat the first in other words.
 - *Hands out a Token* Says it.  
-  *and Guards nothing else* only Agrees.
+  *and Guards nothing else* only agrees.
 - Test by Deletion.  
-  Cut the second Clause and Read the first alone.  
+  Cut the second Clause and read the first alone.  
   If nothing was Lost, it was never there.
-- Keep the Clause a Reader cannot Derive.  
-  *the only Type that Knows GORM Exists* Warns.  
-  A Warning is not a Repetition.
-- Name the Surprise, never the Signature.  
-  The Types already Say what Enters and Leaves.
-- A Comment that Needs three Lines  
-  Describes a Function that Needs two.
-- The Reference Line is not a Clause.  
-  A URL Earns its own Line.
+- Keep the Clause a reader cannot derive.  
+  *the only type that knows GORM exists* Warns.  
+  A warning is not a Repetition.
+- Name the Surprise, never the signature.  
+  The types already Say what enters and leaves.
+- A comment that needs three lines  
+  Describes a function that needs two.
+- The reference line is not a Clause.  
+  A URL Earns its own line.
 
 ```go
 // MintAccessToken Hands out a Token, and Guards nothing else.
 // MintAccessToken Hands out a Token.
 ```
 
-The second Line Survives the Deletion of the first.
+The second line Survives the deletion of the first.  
 That is the whole Test.

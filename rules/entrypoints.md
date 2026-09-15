@@ -1,69 +1,69 @@
 # Entrypoints
 
-> Provisional. Written from Practice, not yet Weathered.
+> Provisional. Written from practice, not yet Weathered.
 
-- A Program Declares its Entry Points, or it has none a Reader can Trust.  
-  What you Enter through must be Evident before you Ask.
-- Evident Means Named in the Root, at the Top, in one List.  
-  A Newcomer Reads that List and Runs the Program.
-- An Entry Point nobody Listed is a Door someone Remembers.  
+- A program Declares its entry points, or it has none a reader can trust.  
+  What you enter through must be Evident before you ask.
+- Evident Means named in the root, at the top, in one list.  
+  A newcomer reads that list and Runs the program.
+- An entry point nobody listed is a Door someone remembers.  
   Memory is not a Door.
-- See [Scripts](scripts.md) for what the two Doors Do.  
-  This Rule Says how the Doors are Declared and Multiplied.
+- See [Scripts](scripts.md) for what the two Doors do.  
+  This rule Says how the doors are declared and multiplied.
 
 ## One Logic, one Shim per Platform
 
-- A Shim is the thin File a Platform Knows how to Open,  
-  and it does nothing but Call the Logic that Lives elsewhere.
-- It Exists because the Platform Demands a `.cmd`, not a `.sh`.  
-  The Demand is about the Extension, never about the Work.
-- Name, Call, Exit Code. A fourth Line is the Shim starting to Think,  
-  and a Shim that Thinks is a Wrapper, which is a second Program.
-- The Logic Lives once, in the Language it Thinks best in.  
-  Every other Platform Calls it. None of them Translates it.
-- A Script Translated is a second Script, and the second one Lies.  
-  Both Start Identical and Part at the first Fix only one Received.
-- A Shim cannot Diverge, because a Shim Decides nothing.
-- One Helper Finds the Interpreter, for every Shim.  
-  Five Copies of that Search go stale on the first new Path.
-- The Pattern Asks for an Interpreter already Installed over there.  
-  Where you cannot Assume one, Rewrite, and Test for the Divergence.
+- A shim is the thin File a platform knows how to open,  
+  and it does nothing but Call the logic that lives elsewhere.
+- It Exists because the platform demands a `.cmd`, not a `.sh`.  
+  The demand is about the Extension, never about the work.
+- Name, call, exit code. A fourth line is the shim starting to Think,  
+  and a shim that thinks is a Wrapper, which is a second program.
+- The logic Lives once, in the language it thinks best in.  
+  Every other platform Calls it. None of them translates it.
+- A script translated is a second Script, and the second one lies.  
+  Both start identical and Part at the first fix only one received.
+- A shim cannot Diverge, because a shim decides nothing.
+- One helper Finds the interpreter, for every shim.  
+  Five copies of that search go Stale on the first new path.
+- The pattern Asks for an interpreter already installed over there.  
+  Where you cannot assume one, rewrite, and test for the Divergence.
 
 ```cmd
 @echo off
-rem Deploys the Project. The Logic lives in the .sh.
+rem Deploys the Project. The logic lives in the .sh.
 call "%~dp0run-bash.cmd" deploy.sh %*
 exit /b %errorlevel%
 ```
 
 ## The Order of the Search
 
-- What you Choose is not an Interpreter. It is a Toolbox.  
-  Prefer the Interpreter that Sees the Tools the Script Names.
-- First the one that Shares the System PATH.
-- Then one from the PATH, Launchers Discarded.
-- Then the foreign Environment, Path Translated and Said out loud.
-- Then Nothing: an Address to Install from, and a non-zero Code.
-- An Interpreter that Runs but cannot Find its Tools is worse than none.  
+- What you choose is not an interpreter. It is a Toolbox.  
+  Prefer the Interpreter that sees the tools the script names.
+- First the one that Shares the system PATH.
+- Then one from the PATH, launchers Discarded.
+- Then the foreign environment, path translated and Said out loud.
+- Then nothing: an Address to install from, and a non-zero code.
+- An interpreter that runs but cannot find its tools is Worse than none.  
   It Fails further in.
 
 ## The Invariants
 
-- The Shim Propagates the Exit Code.  
-  Without it, a Windows CI Passes always.
-- The Shim Resolves against itself with `%~dp0`, never the current Directory.
-- The Line Endings Live in `.gitattributes`, not in each Machine's Editor.
+- The shim Propagates the exit code.  
+  Without it, a Windows CI passes Always.
+- The shim Resolves against itself with `%~dp0`, never the current directory.
+- The line endings Live in `.gitattributes`, not in each machine's editor.
 
   ```
   *.cmd text eol=crlf
   *.sh  text eol=lf
   ```
 
-- The `.cmd` stays ASCII. Another Codepage Dirties the Accents.
-- A Shim is Read from here and Proven only over there.  
-  Until someone Runs it on the Platform, Say it is Unverified.
+- The `.cmd` stays ASCII. Another codepage Dirties the accents.
+- A shim is read from here and Proven only over there.  
+  Until someone runs it on the platform, say it is Unverified.
 
-The Check Costs two Commands.
-`rg -n 'build\.sh|run\.sh' README.md` Names the Doors in the Root.
-`wc -l *.cmd` Says no Shim Passed three Lines plus `@echo off`.
-Every `.sh` with a Shim Beside it Holds the Logic alone.
+The check Costs two commands.  
+`rg -n 'build\.sh|run\.sh' README.md` Names the doors in the root.  
+`wc -l *.cmd` Says no shim passed three lines plus `@echo off`.  
+Every `.sh` with a shim beside it Holds the logic alone.

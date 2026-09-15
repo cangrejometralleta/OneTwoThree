@@ -1,17 +1,17 @@
 # Vendor Integration
 
-- Keep shared Instructions in one canonical Source.
-  Vendor Directories Must not Hold independent Copies.
-- Expose that Source through relative Symbolic Links
-  where the Tool Supports them.
-- Add only the Metadata and Format Adapter each Vendor Requires.
-  The Adapter Points to the Instructions; it never Repeats them.
+- Keep shared Instructions in one canonical source.
+  Vendor directories must not Hold independent copies.
+- Expose that Source through relative symbolic links
+  where the tool supports them.
+- Add only the Metadata and format adapter each vendor requires.
+  The adapter Points to the instructions; it never repeats them.
 
 ## One Source, every Entrance
 
-This Repository Keeps Agent Instructions in `.agents/agents/`
-and Skills in `.agents/skills/`.
-Every Vendor Entrance Resolves to one of those two Directories:
+This repository Keeps agent instructions in `.agents/agents/`
+and skills in `.agents/skills/`.
+Every vendor entrance Resolves to one of those two directories:
 
 ```text
 CLAUDE.md      -> AGENTS.md
@@ -22,21 +22,21 @@ CLAUDE.md      -> AGENTS.md
 .github/skills -> ../.agents/skills
 ```
 
-Codex Reads `.agents/skills/` where it already Lives, and Needs no Link.
-An Entrance that Repeats what the Client already Finds is Clutter,
-so Count the missing Entrances, never the symmetrical ones.
+Codex Reads `.agents/skills/` where it already lives, and needs no link.
+An entrance that repeats what the client already finds is Clutter,
+so count the missing Entrances, never the symmetrical ones.
 
-`CLAUDE.md` is an Entrance too. The Client Looks for that Name,
-and the Link Hands it `AGENTS.md` instead of a second Copy to Drift.
+`CLAUDE.md` is an Entrance too. The client Looks for that name,
+and the link Hands it `AGENTS.md` instead of a second copy to drift.
 
-The shared Markdown Defines the Agent's Voice and Behavior.
-The small TOML Adapter Identifies the Codex Agent
-and Instructs it to Read that Markdown before it Talks.
+The shared markdown Defines the agent's voice and behavior.
+The small TOML adapter Identifies the Codex agent
+and instructs it to read that markdown before it talks.
 
-Skills Use the shorter `one-two-` Prefix.
-The three-part Names are Reserved for the three commonest Operations —
-Open, Advance, Close — so they Stand out from the rest.
-The third Word Carries no Stage; the triple Chant is the Lever,
+Skills use the shorter `one-two-` Prefix.
+The three-part names are Reserved for the three commonest operations —
+open, advance, close — so they stand out from the rest.
+The third word Carries no stage; the triple chant is the lever,
 and [The Lever and the Tape](../patterns/the-lever-and-the-tape.md) Draws it.
 
 ```mermaid
@@ -49,23 +49,23 @@ flowchart TD
     Adapter -->|Instructs the Agent to Read| Markdown
 ```
 
-A Link Shares Files; it does not Convert Formats.
-The TOML Reference is an Instruction to the Agent,
-not an automatic Markdown Import.
+A link Shares files; it does not convert formats.
+The TOML reference is an Instruction to the agent,
+not an automatic markdown import.
 
 ## Keep the Boundary small
 
-- Edit shared Behavior in the canonical Source only.
-  Vendor Adapters Hold Discovery Metadata and Loading Instructions.
+- Edit shared Behavior in the canonical source only.
+  Vendor adapters Hold discovery metadata and loading instructions.
 - Link only the shared Subdirectory.
-  Keep Vendor Settings and local Secrets outside it.
-- Validate Link Targets and Adapter Syntax after a Change.
-  Verify Discovery in the Target Tool before Claiming Runtime Support.
+  Keep vendor settings and local Secrets outside it.
+- Validate link Targets and adapter syntax after a change.
+  Verify Discovery in the target tool before claiming runtime support.
 
-When a Tool Cannot Follow a Link or Read the shared Source,
-Generate its required File from that Source.
-Mark the Output as Generated; never Maintain a second Copy by Hand.
+When a tool cannot follow a link or read the shared source,
+Generate its required file from that source.
+Mark the output as Generated; never maintain a second copy by hand.
 
-The File Integration Follows the same Boundary as
-[Providers](providers.md): the shared Contract Owns the Meaning,
-and the Vendor Addition only Adapts the Entrance.
+The file Integration follows the same boundary as
+[Providers](providers.md): the shared contract Owns the meaning,
+and the vendor addition only adapts the entrance.

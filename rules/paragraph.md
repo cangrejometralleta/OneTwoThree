@@ -1,27 +1,27 @@
 # Paragraph
 
-- One Paragraph, one Idea.  
+- One paragraph, one Idea.  
   Reach for *and also* and you have Started the next one.
-- The Claim Opens the Paragraph, never Closes it.  
-  A Reader who Skips the rest should Leave with the Point.
-- The Heading States the Claim, not the Topic.  
+- The claim Opens the paragraph, never closes it.  
+  A reader who skips the rest should Leave with the point.
+- The heading States the claim, not the topic.  
   *Color Organizes, it never Prunes* Beats *About Color*.  
-  One Teaches; the other only Files.
-- Read only the first Line of every Paragraph.  
-  If the Text still Holds, the Shape is Right.  
-  If it Reads as a Table of Contents, the Claims are Missing.
-- Cut the Paragraph that Survives its own Deletion.  
-  When the first Line Says it and the rest only Agrees,  
-  the rest is Padding wearing a Sentence.
-- Three to five Sentences Carries one Idea.  
-  Under two is a Fragment, over six Hid a second Idea.  
-  A Signal is not a Law — see [Rhythm](rhythm.md).
-- A long Text Needs Navigation, not Emphasis.  
-  Marking Relates, and only Structure Locates.  
-  Send Marking to a Report; Keep Structure for the Document.
-- Emphasis Spends a Channel the Grouping wanted.  
-  Bold on a Label cannot also Mean Group.  
-  The Ceiling is what the Surface has Left.
-- The Machine Counts, the Human Cuts.  
-  Repetition is Mechanical and a Script Finds it.  
-  Which Idea Earns a Paragraph is not, and never will be.
+  One teaches; the other only Files.
+- Read only the first Line of every paragraph.  
+  If the text still holds, the shape is Right.  
+  If it reads as a table of contents, the claims are Missing.
+- Cut the Paragraph that survives its own deletion.  
+  When the first line says it and the rest only agrees,  
+  the rest is Padding wearing a sentence.
+- Three to five sentences Carries one idea.  
+  Under two is a Fragment, over six hid a second idea.  
+  A signal is not a Law — see [Rhythm](rhythm.md).
+- A long text Needs navigation, not emphasis.  
+  Marking Relates, and only structure locates.  
+  Send marking to a Report; keep structure for the document.
+- Emphasis Spends a channel the grouping wanted.  
+  Bold on a label cannot also Mean group.  
+  The ceiling is what the surface has Left.
+- The machine counts, the human Cuts.  
+  Repetition is Mechanical, and a script finds it.  
+  Which idea Earns a paragraph is not, and never will be.

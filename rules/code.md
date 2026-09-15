@@ -1,6 +1,6 @@
 # Code
 
-Go, because the Rules above Read better when they Run.
+Go, because the rules above Read better when they run.
 
 ```go
 import (
@@ -8,14 +8,14 @@ import (
 	"strings"
 )
 
-// Item is one Line of an Order.
+// Item is one Line of an order.
 type Item struct {
 	Name  string
 	Price int
 	Qty   int
 }
 
-// SumItemPrices Adds every Line into a Total.
+// SumItemPrices Adds every line into a total.
 func SumItemPrices(items []Item) int {
 	total := 0
 	for _, it := range items {
@@ -24,17 +24,17 @@ func SumItemPrices(items []Item) int {
 	return total
 }
 
-// FormatItemLine Renders one Item for the Receipt.
+// FormatItemLine Renders one item for the receipt.
 func FormatItemLine(it Item) string {
 	return fmt.Sprintf("%-12s x%d %6d", it.Name, it.Qty, it.Price*it.Qty)
 }
 
-// ApplyMemberRate Lowers a Total by a Percentage.
+// ApplyMemberRate Lowers a total by a percentage.
 func ApplyMemberRate(total, percent int) int {
 	return total - total*percent/100
 }
 
-// ReportOrderState Says how it Went, at a Glance.
+// ReportOrderState Says how it went, at a glance.
 func ReportOrderState(id string, total int, err error) string {
 	if err != nil {
 		return fmt.Sprintf("❌ Order %s Failed: %v", id, err)
@@ -42,7 +42,7 @@ func ReportOrderState(id string, total int, err error) string {
 	return fmt.Sprintf("✅ Order %s Closed at %d", id, total)
 }
 
-// BuildOrderReceipt Reads as three Sections: Total, Lines, Result.
+// BuildOrderReceipt Reads as three sections: total, lines, result.
 func BuildOrderReceipt(id string, items []Item, percent int) string {
 	total := SumItemPrices(items)
 	total = ApplyMemberRate(total, percent)
@@ -57,31 +57,31 @@ func BuildOrderReceipt(id string, items []Item, percent int) string {
 }
 ```
 
-- Every Name Follows **Verb + Noun + context**.
-- Every Function Owns one Concern and Returns it.
-- The Emoji Lives in Output, never in a Name.
+- Every name Follows **Verb + Noun + context**.
+- Every function Owns one concern and returns it.
+- The emoji Lives in output, never in a name.
 - Comments Follow OneTwoThreeCase too.
-- BuildOrderReceipt Spends eight Lines  
-  on three Beats.
-- Every Name here Counts five Syllables.
+- BuildOrderReceipt Spends eight lines  
+  on three beats.
+- Every name here Counts five syllables.
 
-Two whole Services Live in [examples/school](../examples/school),
+Two whole services Live in [examples/school](../examples/school),
 one in Go and one in TypeScript.
-Six Frameworks Serve them and Return identical Answers.
+Six frameworks Serve them and return identical answers.
 
-[The Before](../examples/school/BEFORE.md) Reads the Original beside them.
-Every Rule there is Broken, and each Break Names the Rule it Earned.
+[The Before](../examples/school/BEFORE.md) Reads the original beside them.
+Every rule there was Broken, and each break names the rule it earned.
 
-- A Handler there Names no Driver and no Query.
+- A handler there Names no driver and no query.
 - Read one out loud and it is still a Sentence.
-- Two Files Hold every Vendor Import.
-- A Handler there Spends Lines on Errors  
-  and still Counts three Beats.
-- The Code Obeyed this Rule  
-  before the Rule was Written down.
+- Two files Hold every vendor import.
+- A handler there Spends lines on errors  
+  and still counts three beats.
+- The code Obeyed this rule  
+  before the rule was written down.
 
 *Talk is cheap. Show me the code.*
-Torvalds Answered a Proposal that Shipped no Patch.
-A Manifesto Runs the same Risk, and this is the Answer to it:
-every Rule that Governs Code Runs in [examples](../examples).
-[Show me the Code](../patterns/show-me-the-code.md) Says why that Matters.
+Torvalds Answered a proposal that shipped no patch.
+A manifesto Runs the same risk, and this is the answer to it:
+every rule that governs code Runs in [examples](../examples).
+[Show me the Code](../patterns/show-me-the-code.md) Says why that matters.
