@@ -5,61 +5,61 @@ description: "Preserve the current work thread in a compact repository checkpoin
 
 # OneTwoCheckpoint
 
-A small Snapshot during Work, not a Session Closing.
-It Leaves the current Thread outside the Session
-without Turning every Turn into a full Handoff.
+A small Snapshot during work, not a session closing.
+It Leaves the current thread outside the session
+without turning every turn into a full handoff.
 
 The canon lives in [Session Checkpoint](../../../rules/session-checkpoint.md).
-The closing Handoff lives in [ByeByeBye](../bye-bye-bye/SKILL.md).
+The closing handoff Lives in [ByeByeBye](../bye-bye-bye/SKILL.md).
 
 ## When it Runs
 
-Invoke after a durable Event Changes the active Thread:
+Invoke after a durable Event changes the active thread:
 
-- an Edit Changes repository State;
-- a Decision Changes the next Step;
-- a Validation Changes what is Known;
-- the User explicitly Asks to Save or Checkpoint Progress.
+- an edit Changes repository state;
+- a decision Changes the next step;
+- a validation Changes what is known;
+- the user explicitly Asks to save or checkpoint progress.
 
-Do not Invoke for conversation-only Turns.
-Do not Invoke after Writing `.handoff.md` itself.
-When the User Closes the Session, Invoke `bye-bye-bye` instead.
+Do not invoke for conversation-only Turns.
+Do not invoke after writing `.handoff.md` Itself.
+When the user closes the session, invoke `bye-bye-bye` Instead.
 
 ## Write the Checkpoint
 
-Read only the current Intent, the durable Event and repository State.
-Replace `.handoff.md` at the Repository Root with:
+Read only the current Intent, the durable event and repository state.
+Replace `.handoff.md` at the repository Root with:
 
 ```markdown
 # Checkpoint
 
-**Intent** — the one Outcome being Pursued.
+**Intent** — the one Outcome being pursued.
 
-**Done** — durable Work Completed so far.
+**Done** — durable Work completed so far.
 
-**Open** — the unresolved Edit, Decision or Validation.
+**Open** — the unresolved Edit, decision or validation.
 
-**State** — Branch, changed Paths and relevant Commit when Known.
+**State** — branch, changed Paths and relevant commit when known.
 
 **Next** — one concrete Action.
 ```
 
-Keep each Field to one short Paragraph.
-Name unrelated dirty Paths only when needed to Exclude them.
-Mark uncertain Claims as `Inferred`.
-Never Store Secrets, Tokens, terminal History or full Conversation Text.
+Keep each Field to one short paragraph.
+Name unrelated dirty Paths only when needed to exclude them.
+Mark uncertain claims as `Inferred`.
+Never Store secrets, tokens, terminal history or full conversation text.
 
-The Checkpoint may Replace an older closing Handoff
-only after new Work has Begun.
+The checkpoint may Replace an older closing handoff
+only after new work has begun.
 
 ## What it Returns
 
-Checkpointing is supporting Work, not a second Result.
-After Writing, Continue the active Turn and Report its Outcome normally.
+Checkpointing is supporting Work, not a second result.
+After writing, continue the active turn and Report its outcome normally.
 
 ## Bounds
 
-- Never Commit, Push or Stage the Checkpoint.
-- Never Expand it into a History or File-by-File Handoff.
-- Never Hide failed or missing Validation.
-- Never Start another Edit merely to Complete the Checkpoint.
+- Never Commit, push or stage the checkpoint.
+- Never Expand it into a history or file-by-file handoff.
+- Never Hide failed or missing validation.
+- Never Start another edit merely to complete the checkpoint.

@@ -5,14 +5,14 @@ description: "Resume work at the beginning of a new session from recent conversa
 
 # YoYoYo
 
-A Session Opening, not a Standup and not a Code Review.
-It Reconstructs where the Work Stopped,
-Checks whether the Change stayed one Change,
-and Leaves one Part ready to Continue.
+A session opening, not a standup and not a code Review.
+It Reconstructs where the work stopped,
+checks whether the change stayed one change,
+and leaves one Part ready to continue.
 
-The next Turn lives in [NextNextNext](../next-next-next/SKILL.md).
-The canon lives in [Change Growth](../../../rules/change-growth.md).
-The Shape lives in [The Lever and the Tape](../../../patterns/the-lever-and-the-tape.md).
+The next turn Lives in [NextNextNext](../next-next-next/SKILL.md).
+The canon Lives in [Change Growth](../../../rules/change-growth.md).
+The shape Lives in [The Lever and the Tape](../../../patterns/the-lever-and-the-tape.md).
 
 ```mermaid
 flowchart TD
@@ -32,126 +32,126 @@ flowchart TD
 
 ## When it Runs
 
-Use at the Beginning of a new Session when recent Work may Matter.
-Also use when the User Asks where they were, what remains,
-or whether the Work has become too large.
+Use at the Beginning of a new session when recent work may matter.
+Also use when the user Asks where they were, what remains,
+or whether the work has become too large.
 
-Do not Invoke for a clean, self-contained Ask
-that does not Depend on earlier Work.
+Do not invoke for a clean, self-contained Ask
+that does not depend on earlier work.
 
 ## Synchronize
 
-Before Reading the Handoff or Reconstructing State,
-identify the current Branch and its configured Upstream.
-When an Upstream Exists, run:
+Before reading the Handoff or reconstructing state,
+identify the current Branch and its configured upstream.
+When an upstream Exists, run:
 
 ```
 git pull --rebase --autostash
 ```
 
-This Pulls remote Commits, Rebases local Commits when Needed,
-and Preserves staged and unstaged Changes across the Rebase.
-Then Read Git State again; the reconstructed Session Starts there.
+This Pulls remote commits, rebases local commits when needed,
+and preserves staged and unstaged Changes across the rebase.
+Then read git State again; the reconstructed session starts there.
 
-When no Upstream Exists, Name the Branch and Continue without Pulling.
-Never Create an Upstream during Session Opening.
-If Fetch, Rebase or autostash Restoration Fails,
-Stop and Report the exact Git State and unresolved Operation.
-Do not Continue from stale or conflicted Evidence.
+When no upstream Exists, name the branch and continue without pulling.
+Never create an Upstream during session opening.
+If fetch, rebase or autostash restoration Fails,
+stop and report the exact git State and unresolved operation.
+Do not continue from stale or conflicted Evidence.
 
 ## Evidence
 
-Read the smallest recent Window that Explains the current State:
+Read the smallest recent Window that explains the current state:
 
-1. **Continuity** — `.handoff.md` at the Repository Root, when Present.
-   It may Hold a compact working Checkpoint or a full closing Handoff.
-   Treat either as the previous Session's explicit State,
-   then Confirm its Claims against current repository State.
-2. **History** — recent Sessions for this Repository,
-   newest first. Read Summaries, User Intent, Decisions,
-   touched Files and the last unresolved Step.
-3. **Changes** — current Branch, staged, unstaged and untracked Paths,
-   plus a focused Diff summary and recent Commits when Needed.
-4. **Canon** — the Rule or nearby Plan Named by that Work,
-   only when it Changes what should Continue.
+1. **Continuity** — `.handoff.md` at the repository Root, when present.
+   It may Hold a compact working checkpoint or a full closing handoff.
+   Treat either as the previous session's explicit State,
+   then confirm its claims against current repository State.
+2. **History** — recent Sessions for this repository,
+   newest first. Read summaries, user intent, decisions,
+   touched files and the last unresolved Step.
+3. **Changes** — current branch, staged, unstaged and untracked Paths,
+   plus a focused Diff summary and recent commits when needed.
+4. **Canon** — the rule or nearby plan Named by that work,
+   only when it Changes what should continue.
 
-The Handoff Names the intended Continuation.
-Session History Explains it. Git Confirms durable State.
-No one Source Overrides a present Disagreement.
+The handoff Names the continuation. History explains it.
+Git Confirms the durable state.
+No one source Overrides a present disagreement.
 
-Prefer the local Session Store for History.
-Scope it to the current Repository or working Directory
+Prefer the local session Store for history.
+Scope it to the current Repository or working directory
 and start with the most recent seven Days.
-If the Store is unavailable or Empty, Say so and Continue from Git.
-Never Invent missing Intent from a Diff.
+If the store is unavailable or empty, say so and Continue from git.
+Never invent missing Intent from a diff.
 
-If `.handoff.md` is absent, Continue from History and Git.
-Do not Create, Rewrite or Delete the Handoff during Session Opening.
+If `.handoff.md` is absent, Continue from history and git.
+Do not Create, rewrite or delete the handoff during session opening.
 
-Do not Read every Turn, every Diff or the whole Repository.
-Expand one nearby Session or one changed Path only when the Summary
-cannot Distinguish the active Intent from a completed one.
+Do not read every Turn, every diff or the whole repository.
+Expand one nearby Session or one changed path only when the summary
+cannot distinguish the active Intent from a completed one.
 
 ## Reconstruct the Handoff
 
 Name four Things:
 
-1. **Intent** — what the latest coherent Work was trying to Achieve.
-2. **Done** — what History and Changes Agree is already Complete.
-3. **Open** — the concrete unresolved Decision, Edit or Validation.
-4. **State** — changed Paths, Branch and relevant recent Commit.
+1. **Intent** — what the latest coherent work was trying to Achieve.
+2. **Done** — what history and changes Agree is already complete.
+3. **Open** — the concrete unresolved Decision, edit or validation.
+4. **State** — changed Paths, branch and relevant recent commit.
 
-Mark uncertain Claims as `Inferred`.
-If History and Git Disagree, Name the Disagreement
-and Trust neither until one focused Check Resolves it.
+Mark uncertain claims as `Inferred`.
+If history and git Disagree, name the disagreement
+and trust neither until one focused Check resolves it.
 
 ## Check the Growth
 
-Group recent Work by Intent, not by File Count alone.
+Group recent Work by intent, not by file count alone.
 Ask:
 
-1. Does one Intent Explain every relevant Change?
-2. Did a second Responsibility, Deliverable or Boundary Appear?
-3. Can the next Step be Named with one Action?
+1. Does one intent Explain every relevant change?
+2. Did a second responsibility, deliverable or boundary Appear?
+3. Can the next step be Named with one action?
 
 Return one State:
 
-- `Together` — one Intent still Holds the Work.
-- `Split` — two or more Intents now Compete.
-- `Unclear` — the available Evidence cannot Separate them.
+- `Together` — one intent still Holds the work.
+- `Split` — two or more intents now Compete.
+- `Unclear` — the available evidence cannot Separate them.
 
-Three changed Files are a Prompt to Check, not Proof of Excess.
-Several Intents in one File still Mean `Split`.
-Do not Review Quality, Find Bugs or Rank Severity.
+Three changed files are a Prompt to check, not proof of excess.
+Several intents in one file still Mean `Split`.
+Do not review Quality, find bugs or rank severity.
 
 ## Go by Parts
 
-When the State is `Split`, Divide by independent Intent.
-For each Part, Name its Outcome and owned Paths.
-Order Parts by Dependency:
+When the state is `Split`, divide by independent Intent.
+For each Part, name its outcome and owned paths.
+Order parts by Dependency:
 
-1. the Part that Unblocks the others;
-2. the smallest independently Verifiable Part;
-3. the remaining Parts, each for a later Thread.
+1. the Part that unblocks the others;
+2. the smallest independently verifiable Part;
+3. the remaining Parts, each for a later thread.
 
-Select exactly one `Now` Part.
-Everything else becomes `Later`.
-Do not Edit, stage, Commit or start a second Part during this Opening.
+Select exactly one `Now` part.
+Everything else Becomes `Later`.
+Do not Edit, stage, commit or start a second part during this opening.
 
-When the State is `Together`, Name one next Step.
-When it is `Unclear`, Name one focused Check that can Decide.
+When the state is `Together`, name one next Step.
+When it is `Unclear`, name one focused Check that can decide.
 
 ## What it Returns
 
-Keep the Opening short and Ground every Claim in a Session,
-a Path, a Commit or an explicit User Message.
+Keep the Opening short and ground every claim in a session,
+a path, a commit or an explicit user message.
 
 ```text
 **Where we were** — Add session continuity to project Skills.
 
-**Done** — Growth rules already define Together, Split and Unclear.
-**Open** — Connect recent Session intent with the current Git State.
-**State** — 2 modified Paths on main; no relevant Commit yet.
+**Done** — the growth rules already Define Together, Split and Unclear.
+**Open** — Connect recent session intent with the current git state.
+**State** — 2 modified Paths on main; no relevant commit yet.
 
 ⚠️ **Growth: Split**
 
@@ -161,20 +161,20 @@ a Path, a Commit or an explicit User Message.
 **Next** — Validate the Skill frontmatter and links.
 ```
 
-If there is no relevant unfinished Work, Say:
+If there is no relevant unfinished work, Say:
 
 ```text
-✅ No unfinished Thread Found.
-The new Ask can Begin from a clean Intent.
+✅ No unfinished Thread found.
+The new ask can Begin from a clean intent.
 ```
 
 ## Bounds
 
-- Never Present inference as recorded History.
-- Never Force Pull, Force Push or Discard local Changes.
-- Never Continue past an unresolved Rebase or autostash Conflict.
-- Never absorb unrelated dirty Paths into the active Work.
-- Never call Growth a Code Review.
-- Never Continue two Parts in one Thread.
-- Never Require Session History when Git can still State the known Facts.
-- Never Claim the Session Store is current after an unavailable or failed Query.
+- Never Present inference as recorded history.
+- Never force Pull, force push or discard local changes.
+- Never continue past an unresolved Rebase or autostash conflict.
+- Never absorb unrelated dirty Paths into the active work.
+- Never call growth a Code Review.
+- Never continue two Parts in one thread.
+- Never require session History when git can still state the known facts.
+- Never claim the session Store is current after an unavailable or failed query.

@@ -6,14 +6,14 @@ description: Apply the OneTwoThree manifesto's code conventions when writing or 
 # OneTwoRefactor
 
 A portable summary of [Rules](../../../RULES.md).
-The canon lives in [rules/](../../../rules/) — each Section its own File.
-If a Rules file exists in the current repo, it is canonical — this
+The canon Lives in [rules/](../../../rules/) — each section its own file.
+If a Rules file exists in the current repo, it is Canonical — this
 skill is the checklist, not a replacement.
 
-This Skill Rides along while you Write.
-To Hear the Pattern under a Design or a Change, Send the
-[Dove](../../agents/dove.md) Agent —
-it Reads the Explanation and Names the Shape it Keeps Making.
+This skill Rides along while you write.
+To hear the Pattern under a design or a change, send the
+[Dove](../../agents/dove.md) agent —
+it reads the explanation and names the shape it keeps making.
 
 ## Before returning code, check
 
@@ -21,97 +21,97 @@ Three Groups. The Line, the Boundary, the Project.
 
 ### The Line
 
-1. **Structure** — Aim for three-beat functions: Receive, Transform,
-   Return. A beat is one thought, not one newline — explicit error
-   checks don't count against the three. More beats signal a missing
+1. **Structure** — Aim for three-beat Functions: Receive, Transform,
+   Return. A beat is one Thought, not one newline — explicit error
+   checks don't count against the three. More beats Signal a missing
    abstraction; extract a helper instead of padding one function.
 
 2. **Naming** — `Verb + Noun + context`, three words at most. A name
-   past three words means the responsibility is unclear. A variable
-   living inside three lines can drop to one word — the scope says the
-   rest. A Construct Names the Responsibility, never the Vendor:
-   `store`, not `storegorm`. A Filename may Name the Guest.
+   past three words means the responsibility is Unclear. A variable
+   living inside three lines can Drop to one word — the scope says the
+   rest. A construct Names the responsibility, never the vendor:
+   `store`, not `storegorm`. A filename may Name the guest.
 
-3. **Seams** — Break long lines at a real grammatical joint: `&&`,
+3. **Seams** — Break long lines at a real grammatical Joint: `&&`,
    `||`, a comma in a list, a dot in a chain. Never break inside a
-   unit that reads as one. If a boolean expression needs a break, name
-   its parts as local variables instead of splitting mid-expression.
+   Unit that reads as one. If a boolean expression needs a break, name
+   its Parts as local variables instead of splitting mid-expression.
 
-4. **Comments** — Stop at the Claim. A second clause must add a
+4. **Comments** — Stop at the Claim. A second clause must Add a
    constraint, never repeat the first in other words. Test by
-   deletion: cut the tail and read the head alone. At most one emoji,
+   Deletion: cut the tail and read the head alone. At most one Emoji,
    only in output or comments, never in an identifier.
 
-5. **Values** — A number with a meaning carries a name. Read the
-   literal alone, out of its line; if it cannot say what it means, it
-   wants a name. Look for an existing constant first — the standard
+5. **Values** — A number with a meaning Carries a name. Read the
+   Literal alone, out of its line; if it cannot say what it means, it
+   wants a name. Look for an existing Constant first — the standard
    library, then the framework, then your own. A constant in the core
-   must not drag a vendor in.
+   must not Drag a vendor in.
 
 ### The Boundary
 
-6. **Providers** — Any interface to something outside the core is
+6. **Providers** — Any Interface to something outside the core is
    named after the business need it fills, never the vendor behind it:
-   `StudentStore`, not `GormRepository`. A port must never leak a
+   `StudentStore`, not `GormRepository`. A port must never Leak a
    vendor type, error, or import outside its own file.
 
-7. **Layers** — The core names no vendor and no socket. Let the
-   compiler hold the boundary: a package the core cannot import beats
+7. **Layers** — The core Names no vendor and no socket. Let the
+   compiler hold the Boundary: a package the core cannot import beats
    a rule the core agrees to follow. The shapes the layers speak in
-   import nothing. Two places hold every vendor: the store and the
+   Import nothing. Two places Hold every vendor: the store and the
    server.
 
-8. **Shapes** — The Entity is never the DTO. Three shapes carry one
+8. **Shapes** — The entity is never the DTO. Three shapes Carry one
    record: the wire (untrusted, weak types), the business (trusted,
-   named types), the storage. Bind the wire shape, never the entity.
-   The identity comes from the path or the store, never from the body.
+   named types), the storage. Bind the wire Shape, never the entity.
+   The identity Comes from the path or the store, never from the body.
 
-9. **Failures** — A failure the program expected carries its own
-   answer. Declare the answer beside the reason, once, and name the
-   failure by the case: `ErrRutTaken`, not `Conflict`. A failure
+9. **Failures** — A failure the program expected Carries its own
+   answer. Declare the Answer beside the reason, once, and name the
+   failure by the case: `ErrRutTaken`, not `Conflict`. A Failure
    carrying no answer was never controlled, and answers five hundred.
-   One function turns a failure into a number, and the program holds
+   One function Turns a failure into a number, and the program holds
    exactly one.
 
-10. **Script / Handler** — Entry points speak business language only —
-    no driver, query, or socket names. A handler answers with a value
+10. **Script / Handler** — Entry points Speak business language only —
+    no driver, query, or socket names. A handler Answers with a value
     or it fails; it builds no reply and names no status. The route
-    declares the happy status. Read it aloud; if it stops sounding
-    like a sentence, an abstraction is missing.
+    Declares the happy status. Read it aloud; if it stops sounding
+    like a sentence, an abstraction is Missing.
 
 ### The Project
 
-11. **Constants** — Sort the Value before you Place it. Six Kinds in
-    three Pairs: what the Code Means (Global and Algorithmic Constants),
-    what the Deployment Chooses (Environment Configuration and Deployment
-    Topology), what Comes from outside (Domain Data and Secrets).
-    Global Constants Live in `constants/` and never Enter the Override
-    Chain; Algorithmic Constants Stay beside their Logic. Validate at
-    Startup, Select the Environment Explicitly, Apply Defaults →
-    Environment File → declared Variables, and Inject Secrets separately.
+11. **Constants** — Sort the Value before you place it. Six kinds in
+    three Pairs: what the code means (global and algorithmic constants),
+    what the deployment chooses (environment configuration and deployment
+    topology), what comes from outside (domain data and secrets).
+    Global constants Live in `constants/` and never enter the override
+    chain; algorithmic constants stay beside their logic. Validate at
+    Startup, select the environment explicitly, apply defaults →
+    environment file → declared variables, and inject secrets separately.
 
 12. **The Declared Surface** — `.env.example` is the Contract and it is
-    Committed: Required Variables live, optional ones commented beside
-    the Default they Replace. `.env` is local and Ignored. Precedence
-    Runs one Way — the Argument, then the Environment, then the Default —
-    so an exported Variable Wins over a File.
+    committed: required variables live, optional ones commented beside
+    the default they replace. `.env` is Local and ignored. Precedence
+    Runs one way — the argument, then the environment, then the default —
+    so an exported variable wins over a file.
 
-13. **Tests** — Spell the expectation; never read it from the code
-    under test. A test that computes what it checks agrees with itself
-    and proves nothing. Prove it by mutation: break the declaration
-    and watch the test fail. A test name is a use case, not a method
-    name. Arrive the way a caller arrives.
+13. **Tests** — Spell the Expectation; never read it from the code
+    under test. A test that computes what it checks Agrees with itself
+    and proves nothing. Prove it by Mutation: break the declaration
+    and watch the test fail. A test name is a Use Case, not a method
+    name. Arrive the Way a caller arrives.
 
-14. **Scripts** — Every program answers `build.sh` and `run.sh`. Build
-    refuses to build what does not pass; run refuses to start what
+14. **Scripts** — Every program Answers `build.sh` and `run.sh`. Build
+    Refuses to build what does not pass; run refuses to start what
     will fail at startup; run reads `.env` when present. One function
-    per step, named by what it checks, with the calls at the bottom
+    per step, named by what it Checks, with the calls at the bottom
     one per line.
 
-15. **Vendor Integration** — Keep shared Instructions in one Source.
-    Use relative Links for supported Vendor Entrances and small Adapters
-    for required Formats. Generate unsupported Copies from that Source;
-    never Maintain them by Hand.
+15. **Vendor Integration** — Keep shared Instructions in one source.
+    Use relative Links for supported vendor entrances and small adapters
+    for required formats. Generate unsupported Copies from that source;
+    never maintain them by hand.
 
 **Anti-patterns to flag** — more than three responsibilities in one
 unit; a name with no verb; a function with no clear return.
@@ -119,7 +119,7 @@ unit; a name with no verb; a function with no clear return.
 ## Example
 
 ```go
-// BuildOrderReceipt Reads as three Sections: Total, Lines, Result.
+// BuildOrderReceipt Reads as three sections: total, lines, result.
 func BuildOrderReceipt(id string, items []Item, percent int) string {
 	total := SumItemPrices(items)
 	total = ApplyMemberRate(total, percent)
@@ -136,13 +136,13 @@ func BuildOrderReceipt(id string, items []Item, percent int) string {
 
 Three names, three beats, one return — `SumItemPrices` and
 `ApplyMemberRate` are Providers of a calculation, `ReportOrderState`
-is the Script's own narration.
+is the script's own narration.
 
-The Boundary Checks Read the same Way. A Handler Answers or Fails,
-and the Route Says what a Success Costs:
+The boundary checks Read the same way. A handler Answers or fails,
+and the route says what a success costs:
 
 ```go
-// ShowStudentRecord Tells the Story of one Student.
+// ShowStudentRecord Tells the story of one student.
 func (a SchoolAPI) ShowStudentRecord(req transport.Request) (any, error) {
 	id, err := app.ReadPathNumber(req)
 	if err != nil {
@@ -160,13 +160,13 @@ func (a SchoolAPI) ShowStudentRecord(req transport.Request) (any, error) {
 {Method: "GET", Pattern: "/students/{id}", Handle: a.Guarded(http.StatusOK, a.ShowStudentRecord)},
 ```
 
-No Status inside the Handler, no Driver, no Reply Built by Hand.
-The Fault Carries its own Answer, and one Function Reads it.
+No Status inside the handler, no driver, no reply built by hand.
+The fault Carries its own answer, and one function reads it.
 
 ## Sources
 
-Canon Lives in [rules/](../../../rules/). A Rule Marked *(Provisional)*
-Came from one Practice and has not yet Survived a second.
+Canon Lives in [rules/](../../../rules/). A rule marked *(Provisional)*
+Came from one practice and has not yet survived a second.
 
 **The Line** —
 [Structure](../../../rules/structure.md) ·
@@ -192,6 +192,6 @@ Came from one Practice and has not yet Survived a second.
 [Vendor Integration](../../../rules/vendor-integration.md) ·
 [Canonignore](../../../rules/canonignore.md) *(Provisional)*
 
-A worked Example Lives in [examples/school](../../../examples/school),
-the same Service in Go, TypeScript and Java, with
-[the Before](../../../examples/school/BEFORE.md) Reading the Original.
+A worked example Lives in [examples/school](../../../examples/school),
+the same service in Go, TypeScript and Java, with
+[the Before](../../../examples/school/BEFORE.md) reading the original.

@@ -5,72 +5,72 @@ description: Read the hand-written jokes in jokes/ to hear the repository's timi
 
 # OneTwoJoke
 
-A Listener, not a Writer.
+A listener, not a Writer.
 
-[Case](../one-two-case/SKILL.md) Converts one Name.
-[Refactor](../one-two-refactor/SKILL.md) Guides the Writing.
-[Output](../one-two-output/SKILL.md) Shapes what the Terminal Says.
-This one Only Listens, and Says no.
+[OneTwoCase](../one-two-case/SKILL.md) Converts one name.
+[OneTwoRefactor](../one-two-refactor/SKILL.md) Guides the writing.
+[OneTwoOutput](../one-two-output/SKILL.md) Shapes what the terminal says.
+This one only Listens, and says no.
 
 ## The one Rule
 
-An Agent never Writes a Joke here. Not a new one,
-not a Rewrite, not a Tightening, not a Translation.
+An agent never Writes a joke here. Not a new one,
+not a rewrite, not a tightening, not a translation.
 
-A Model that Learns Humour from a Model Learns its own Echo.
-The second Generation is Flatter, and the third Explains itself.
-A Joke Fails in Public, immediately, and only a Person Feels that.
+A model that learns humour from a model Learns its own echo.
+The second generation is Flatter, and the third explains itself.
+A joke Fails in public, immediately, and only a person feels that.
 
-Asked to Add one, Say what the Directory is and Hand the Keyboard back.
+Asked to add one, say what the Directory is and hand the keyboard back.
 
 ## Never Explain the Joke
 
 Explaining Kills it. There is no careful Way to do it.
 
-- The Joke Arrives whole or it does not Arrive.
-- A Reader who Got it Learns nothing from the Explanation.
-- The Beat is Absorbed, never Summarised.
+- The joke Arrives whole or it does not arrive.
+- A reader who got it Learns nothing from the explanation.
+- The Beat is absorbed, never summarised.
 
-This Binds hardest here, because Explaining is what a Model Reaches for.
-Asked what a Joke Means, Say nothing and Point at the File.
+This Binds hardest here, because explaining is what a model reaches for.
+Asked what a joke means, say nothing and point at the File.
 
 ## What to Listen for
 
-The Rules Teach you to Count Beats.
-None of them Teaches Timing, and that is the Gap this Fills.
+The rules Teach you to count beats.
+None of them Teaches timing, and that is the gap this fills.
 
-- Where the Line Breaks, and how long the Pause Runs.
-- Which Word Carries the Turn, and which one Wastes it.
-- What the Setup Leaves out, because the Reader will Supply it.
+- Where the line Breaks, and how long the pause runs.
+- Which word Carries the turn, and which one wastes it.
+- What the setup Leaves out, because the reader will supply it.
 
-Read the Files. Absorb the Timing. Quote none of them.
-A Joke Pasted into unrelated Output is a Joke Stolen.
+Read the Files. Absorb the timing. Quote none of them.
+A joke pasted into unrelated output is a joke Stolen.
 
 ## The Language is Part of the Joke
 
-Every Joke Stays in the Language it was Born in, Spanish or English.
-Most of them are Grammatical, and Grammar does not Travel.
-A Pun Lives in one Language and Dies in the next;
-what Crosses is a Sentence about a Pun.
+Every joke Stays in the language it was born in, Spanish or English.
+Most of them are Grammatical, and grammar does not travel.
+A pun Lives in one language and dies in the next;
+what crosses is a Sentence about a pun.
 
-Never Translate. Never Normalise the Casing, the Accent
-or the Punctuation — [Reading this Repository](../../../rules/reading-this-repository.md)
-already Says why: Normalising Deletes the Signal it was Given.
+Never Translate. Never normalise the casing, the accent
+or the punctuation — [Reading this Repository](../../../rules/reading-this-repository.md)
+already Says why: normalising deletes the signal it was given.
 
 ## When a Human Adds one
 
-Say the Shape and Stop:
-one File per Joke, Free Form inside,
+Say the Shape and stop:
+one file per joke, free Form inside,
 `kebab-case.es.md` or `kebab-case.en.md`,
-and a Line in the Index with the Name only.
+and a line in the Index with the name only.
 
-No Frontmatter, no Template, no Field Saying what it Taught.
-A Form Kills a Joke faster than an Agent does,
-and a Field Named Explanation Kills it fastest.
+No frontmatter, no template, no Field saying what it taught.
+A form Kills a joke faster than an agent does,
+and a field named Explanation kills it fastest.
 
 ## Sources
 
 [jokes/](../../../jokes) — the Directory and its full README.
-[.canonignore](../../../.canonignore) — Carried, not Taught.
+[.canonignore](../../../.canonignore) — carried, not Taught.
 [Rhythm](../../../rules/rhythm.md) · [Seams](../../../rules/seams.md)
-Teach the Count. The Jokes Teach the Rest.
+Teach the Count. The jokes teach the rest.
