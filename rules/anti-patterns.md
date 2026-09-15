@@ -1,12 +1,12 @@
 # Anti-Patterns
 
-- More than three Responsibilities  
-  Suggest a Missing Abstraction Layer.
-- A Name with no Verb  
+- More than three responsibilities  
+  Suggest a missing abstraction layer.
+- A name with no verb  
   Suggests a missing Action.
-- A Unit with no clear Return  
-  Breaks the Rotation.
+- A unit with no clear return  
+  Breaks the rotation.
 
-Read the Name alone, without the Body.
-A Name with a Verb Says one Responsibility.
-A Name with none Says however many it Grew.
+Read the Name alone, without the body.  
+A name with a verb Says one responsibility.  
+A name with none Says however many it grew.

@@ -2,20 +2,20 @@
 
 - Functions Follow  
   **Verb + Noun + context** rhythm
-- A Name longer than Three Words Suggests unclear Responsibility.
-- A Variable that Travels Holds three Words,  
-  joined by its Language.
-- A Variable that Lives in three Lines  
-  Holds one Word, because the Scope Says the rest.
-- Three Words Fit in Memory and Survive a Rename.
-- A Construct Names the Responsibility, never the Vendor.  
-  *(Provisional)* `store` Says what it Does;  
-  `storegorm` Says who it Called.
-- A Filename may Name the Guest.  
-  `store_gorm.go` Tells a Reader where the ORM Lives,  
-  and no Caller ever Types it.
-- A Language with one Type per File Loses that Seam.  
-  There the Vendor Lives in the Comment, and nowhere else.
+- A name longer than three words Suggests unclear responsibility.
+- A variable that travels Holds three words,  
+  joined by its language.
+- A variable that lives in three lines  
+  Holds one word, because the scope says the rest.
+- Three words Fit in memory and survive a rename.
+- A construct Names the responsibility, never the vendor.  
+  *(Provisional)* `store` Says what it does;  
+  `storegorm` Says who it called.
+- A filename may Name the guest.  
+  `store_gorm.go` Tells a reader where the ORM lives,  
+  and no caller ever types it.
+- A language with one type per file Loses that seam.  
+  There the vendor Lives in the comment, and nowhere else.
 
 ```text
 sumItemPrices      JavaScript, Go unexported

@@ -1,19 +1,19 @@
 # Change Growth
 
-- A Change Begins with one Intent.
-- After three Writing Turns or three Files Touched,
-  whichever Comes first, Pause and Name what it Became.
-- Count only Work attributable to the current Agent
-  since the last Growth Check.
-- Record the dirty Baseline before the first Edit.
-  Pre-existing Changes do not Count until the Agent Touches them.
-- Prompts without Writing do not Count.
-- A Growth Check Asks whether the Change is still one Change.
-  It does not Review Code, Find Bugs or Judge Quality.
-- If one Intent still Explains every Path, Continue and Reset the Count.
-- If two Intents now Compete, Name the Split before another Edit.
-- Suggest the Check as the next Thread.
-  Never Interrupt an unfinished Validation to Perform it.
+- A change Begins with one intent.
+- After three writing turns or three files touched,
+  whichever comes first, pause and name what it Became.
+- Count only the Work attributable to the current agent
+  since the last growth check.
+- Record the dirty Baseline before the first edit.
+  Pre-existing changes do not Count until the agent touches them.
+- Prompts without writing do not Count.
+- A growth check Asks whether the change is still one change.
+  It does not review code, find bugs or judge quality.
+- If one intent still explains every path, Continue and reset the count.
+- If two intents now compete, Name the split before another edit.
+- Suggest the Check as the next thread.
+  Never interrupt an unfinished Validation to perform it.
 
-This Rule is *Provisional*.
-It Came from one Practice and has not yet Survived a second.
+This rule is *Provisional*.  
+It came from one practice and has not yet Survived a second.

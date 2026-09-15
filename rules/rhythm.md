@@ -1,32 +1,32 @@
 # Rhythm
 
-- Contrast Carries the Line.  
-  A short one after a long one Lands like a Chorus.
-- Uniform Text Hides what Matters.  
-  Never Write every Line the same Length,  
-  not in Prose and not in Code.
-- Count the Syllables if it Helps.  
+- Contrast Carries the line.  
+  A short one after a long one Lands like a chorus.
+- Uniform text Hides what matters.  
+  Never Write every line the same length,  
+  not in prose and not in code.
+- Count the Syllables if it helps.  
   Odd often Swings.  
-  But a Signal is not a Law, and the Count is only a Signal.
-- The Haiku Counts five, seven, five.  
-  Every Line Lands odd.
-- A Name that Says an Action Counts too.  
+  But a signal is not a Law, and the count is only a signal.
+- The haiku Counts five, seven, five.  
+  Every line Lands odd.
+- A name that says an action Counts too.  
   SumItemPrices Runs five.
-- A bare Noun Keeps its own Count.  
-  Order is Order, whatever it Sounds like.
-- Four is the Beat, three is the Phrase.  
-  They Meet again every twelve,  
-  so the Tension always Resolves.
-- A Line should Take you a Bar, or a Measure.  
-  Read it out loud — you'll Feel where it Lands.
+- A bare noun Keeps its own count.  
+  Order is Order, whatever it sounds like.
+- Four is the Beat, three is the phrase.  
+  They meet again every twelve,  
+  so the tension always Resolves.
+- A line should Take you a bar, or a measure.  
+  Read it out loud — you'll Feel where it lands.
 
 ## Read the Rotation
 
-Posdnuos Opens the Thought.
+Posdnuos Opens the thought.
 
-Mase Holds the Measure underneath.
+Mase Holds the measure underneath.
 
-Dove Finds the Line where it Lands.
+Dove Finds the line where it lands.
 
 ```mermaid
 flowchart LR
@@ -38,12 +38,12 @@ flowchart LR
     B["Music"] -. "Keeps the Measure" .-> M
 ```
 
-Read the long Line as the Opening.
+Read the long line as the Opening.
 
-Read the short Line as the Landing.
+Read the short line as the Landing.
 
-Leave the Space between them Unsaid.
+Leave the Space between them unsaid.
 
-- A List Stays parallel.  
-  A Paragraph Varies.  
-  Contrast is for Prose, never for an Index.
+- A list Stays parallel.  
+  A paragraph Varies.  
+  Contrast is for Prose, never for an index.

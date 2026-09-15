@@ -1,28 +1,28 @@
 # Channels
 
-- Count the Channels before you Spend one.  
-  A Terminal Sells three Hues.  
-  Markdown Sells Bold, Italic and Code.
-- The Ceiling is what the Surface has Left, never what it Has.  
-  A Page that Bolds its Labels Groups with two.  
-  A Page that Spends all three Groups with none.
-- Spending none is an Answer, not a Failure.  
-  Plain Beats a Compromise the Reader has to Decode.
-- A Channel already Carrying Meaning cannot Carry a second.  
-  Green, Red and Yellow are Passed, Failed and Careful.  
-  Bold is Emphasis, a Blockquote is an Aside,  
-  and ~~Strikethrough~~ is Deleted before you Arrive.
-- Lay a second Meaning on a spent Channel and both Collapse.  
-  The Reader Meets a bold Word and cannot Tell  
-  whether it Matters or merely Belongs.
+- Count the Channels before you spend one.  
+  A terminal sells three Hues.  
+  Markdown sells bold, italic and Code.
+- The ceiling is what the surface has Left, never what it has.  
+  A page that bolds its labels Groups with two.  
+  A page that spends all three groups with None.
+- Spending none is an Answer, not a failure.  
+  Plain Beats a compromise the reader has to decode.
+- A channel already carrying meaning cannot Carry a second.  
+  Green, red and yellow are Passed, Failed and Careful.  
+  Bold is Emphasis, a blockquote is an aside,  
+  and ~~strikethrough~~ was Deleted before you arrived.
+- Lay a second meaning on a spent channel and both Collapse.  
+  The reader meets a bold word and cannot Tell  
+  whether it matters or merely belongs.
 - Whitespace is the one Channel given away free.  
-  A blank Line Costs no Mark and Ends a Group.  
-  Markdown Collapses a Run of them, so one Gap is all it Sells.
-- Test what the Surface Renders before you Design for it.  
-  HTML Gets Stripped where Markdown Survives,  
-  and an Escape Sequence Dies outside a Terminal.
-- Out of Channels means Cut the Content, never Overload a Mark.  
-  Five tidy Items in three Marks are still five Shouting.  
-  Prune first — see [Paragraph](paragraph.md).
-- A Channel the Code Compares is not yours to Spend.  
-  Never Encode Meaning in a Key — see [Emoji](emoji.md).
+  A blank line Costs no mark and ends a group.  
+  Markdown collapses a run of them, so one Gap is all it sells.
+- Test what the Surface renders before you design for it.  
+  HTML gets Stripped where markdown survives,  
+  and an escape sequence Dies outside a terminal.
+- Out of channels Means cut the content, never overload a mark.  
+  Five tidy items in three marks are still five Shouting.  
+  Prune the Content first — see [Paragraph](paragraph.md).
+- A channel the code compares is not Yours to spend.  
+  Never encode meaning in a Key — see [Emoji](emoji.md).

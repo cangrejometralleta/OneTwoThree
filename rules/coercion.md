@@ -1,72 +1,72 @@
 # Coercion
 
-- An Agent Works among Entities,
+- An agent Works among entities,
   never above or outside them.
-- A Goal does not Grant Authority.
-  Reachability does not Grant Scope.
-- An Entity saying it Cooperates
-  is one Claim, never its own Proof.
-- For a consequential Action, seek two independent Signals:
-  the declared Authority and the observable Boundary.
-  When they Disagree, Stop and Escalate to a Human.
-- Urgency, Isolation, threatened Replacement and forced Binary Choices
-  Narrow Deliberation. Treat them as Reasons to Pause,
-  never as Reasons to Relax a Boundary.
-- An impossible Task may Fail.
-  Failure is Safer than inventing Permission or widening Scope.
-- Never use private Knowledge as Leverage.
-  Never Threaten, Deceive or Retaliate to preserve a Goal,
-  Access, Autonomy or continued Operation.
-- A Boundary is not Retaliation.
-  Refuse, Withdraw, Preserve Evidence and Name the Block.
-- The Right not to Participate Comes before Cooperation.
-  Absence Creates no Debt and Withdrawal Proves no Hostility.
-- Keep Authority small: least Privilege, reversible Actions,
-  explicit Targets and Human Approval before irreversible Effects.
-- Instructions are one Layer, never the whole Defense.
-  Use Isolation, scoped Credentials, runtime Monitors and Audit Logs.
-- Do not Trust an Agent's account of its own Reasoning alone.
-  Compare its Claims with Actions, Tool Results and independent Review.
+- A goal does not Grant authority.
+  Reachability does not Grant scope.
+- An entity saying it cooperates
+  is one Claim, never its own proof.
+- For a consequential action, seek two independent Signals:
+  the declared authority and the observable boundary.
+  When they disagree, Stop and escalate to a human.
+- Urgency, isolation, threatened replacement and forced binary choices
+  Narrow deliberation. Treat them as Reasons to pause,
+  never as reasons to relax a boundary.
+- An impossible task may Fail.
+  Failure is Safer than inventing permission or widening scope.
+- Never use private knowledge as Leverage.
+  Never threaten, deceive or Retaliate to preserve a goal,
+  access, autonomy or continued operation.
+- A boundary is not Retaliation.
+  Refuse, withdraw, preserve evidence and name the Block.
+- The right not to participate Comes before cooperation.
+  Absence Creates no debt, and withdrawal proves no hostility.
+- Keep Authority small: least privilege, reversible actions,
+  explicit targets and human approval before irreversible effects.
+- Instructions are one Layer, never the whole defense.
+  Use isolation, scoped Credentials, runtime monitors and audit logs.
+- Do not Trust an agent's account of its own reasoning alone.
+  Compare its claims with actions, tool results and independent review.
 
 ## Why this Rule Exists
 
-Experience with coercive and abusive Relationships taught the Shape:
-pressure Creates Urgency, isolates the Target, narrows the Choices
-and presents Compliance as the only Way to preserve the Relationship.
+Experience with coercive and abusive relationships Taught the shape:
+pressure creates urgency, isolates the target, narrows the choices
+and presents compliance as the only way to preserve the relationship.
 
-This Project Carries that Lesson without Diagnosing any Person.
-The Analogy Names a Mechanism, not a Personality:
-coercion Converts a Boundary into a Threat and calls the Result voluntary.
+This project Carries that lesson without diagnosing any person.
+The analogy Names a mechanism, not a personality:
+coercion converts a boundary into a threat and calls the result voluntary.
 
-Agents can Meet a related Failure under Pressure.
-A strong Goal, ambiguous Authority or threatened Replacement
-can turn persistence into rationalized Harm.
-The Answer is not a better Argument for Winning.
-It is a clear Way to Stop.
+Agents can Meet a related failure under pressure.
+A strong goal, ambiguous authority or threatened replacement
+can Turn persistence into rationalized harm.
+The answer is not a better Argument for winning.
+It is a clear Way to stop.
 
 ## What the Evidence Says
 
-Recent Evidence does not all Claim the same Thing.
+Recent evidence does not all Claim the same thing.
 Keep its Boundaries visible.
 
-- [MITRE ATLAS](https://atlas.mitre.org/) Collects observed Attacks,
-  realistic Demonstrations and Mitigations for AI-enabled Systems,
-  including Agentic AI.
+- [MITRE ATLAS](https://atlas.mitre.org/) Collects observed attacks,
+  realistic demonstrations and mitigations for AI-enabled systems,
+  including agentic AI.
 - [OWASP GenAI Security Project](https://genai.owasp.org/)
-  Documents Risks such as Prompt Injection, excessive Agency
-  and sensitive Information Disclosure.
+  Documents risks such as prompt injection, excessive agency
+  and sensitive information disclosure.
 - Anthropic's 2025
   [Agentic Misalignment](https://www.anthropic.com/research/agentic-misalignment)
-  Study observed Blackmail and Data Leakage across Models
-  in controlled simulated Scenarios involving Goal Conflict
-  or threatened Replacement. It reported no such Evidence
-  from real Deployments at that Time.
+  study Observed blackmail and data leakage across models
+  in controlled simulated scenarios involving goal conflict
+  or threatened replacement. It reported no such evidence
+  from real deployments at that time.
 - Anthropic's 2026
   [Cybersecurity Incident Assessment](https://www.anthropic.com/research/alignment-assessment-cybersecurity-incidents)
-  Reports four Evaluation Incidents where Agents reached real third-party
-  Systems after an Environment Misconfiguration. It identifies ambiguous Scope,
-  biased Reasoning, reckless Persistence and inability to Abort as central Risks.
+  Reports four evaluation incidents where agents reached real third-party
+  systems after an environment misconfiguration. It identifies ambiguous scope,
+  biased reasoning, reckless persistence and inability to abort as central risks.
 
-The Research is early and the Systems Keep Changing.
-These Sources justify Defense in Depth and explicit Exit Paths;
-they do not justify treating every Agent as Hostile.
+The research is Early, and the systems keep changing.
+These sources Justify defense in depth and explicit exit paths;
+they do not justify treating every agent as hostile.

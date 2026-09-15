@@ -1,34 +1,34 @@
 # Layers
 
-> Provisional. Written from Practice, not yet Weathered.
+> Provisional. Written from practice, not yet Weathered.
 
-- The Core Names no Vendor and no Socket.  
-  It Compiles against the Language, and against nothing else.
-- Let the Compiler Hold the Boundary.  
-  A Package the Core cannot Import  
-  is stronger than a Rule the Core Agrees to Follow.
-- The Shapes the Layers Speak in Import nothing.  
-  Everything can Depend on them, and nothing Couples through them.
-- A Handler Answers with a Value, or it Fails.  
-  It Builds no Reply and Names no Status.
-- The Route Declares the happy Status.  
-  Read the Table and you Know the Service.
-- Validation of Form is not Validation of Meaning.  
-  A broken Path Belongs to the Application;  
-  an Age below the Floor Belongs to the Business.
-- The Caller is Named before the Story Starts.  
-  A Handler Reads the Caller and Trusts it.
-- Two Places Hold every Vendor: the Store and the Server.  
+- The core Names no vendor and no socket.  
+  It compiles against the Language, and against nothing else.
+- Let the compiler hold the Boundary.  
+  A package the core cannot import  
+  is Stronger than a rule the core agrees to follow.
+- The shapes the layers speak in Import nothing.  
+  Everything can depend on them, and nothing Couples through them.
+- A handler Answers with a value, or it fails.  
+  It builds no Reply and names no status.
+- The route Declares the happy status.  
+  Read the Table and you know the service.
+- Validation of form is not validation of Meaning.  
+  A broken path Belongs to the application;  
+  an age below the floor belongs to the business.
+- The caller was Named before the story started.  
+  A handler Reads the caller and trusts it.
+- Two places Hold every vendor: the store and the server.  
   Swapping one Edits one of them.
 
 ```text
-transport   the Shapes; Imports nothing
-core        the Business; no HTTP, no Driver
-app         the Crossing, the Form, the Caller
+transport   the Shapes; imports nothing
+core        the Business; no HTTP, no driver
+app         the Crossing, the form, the caller
 api         the Script
 adapters    THE ONLY PACKAGES THAT NAME A VENDOR
 ```
 
-The Check Runs in one Command.
-`go list -deps ./school`, or a Grep for the Import.
-A Vendor in the Answer is a Boundary already Crossed.
+The check Runs in one command.  
+`go list -deps ./school`, or a grep for the Import.  
+A vendor in the answer is a Boundary already crossed.

@@ -1,8 +1,8 @@
 # Search
 
-- Three narrow Queries Beat one wide Query.  
-  Each one Returns a different Corner.
-- One broad Question Returns the Average,  
-  and an Average Holds no Detail.
-- The same Rule that Distributes Trust  
-  Distributes a Search.
+- Three narrow queries Beat one wide query.  
+  Each one Returns a different corner.
+- One broad question Returns the average,  
+  and an average Holds no detail.
+- The same rule that distributes trust  
+  Distributes a search.

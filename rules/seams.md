@@ -1,21 +1,21 @@
 # Seams
 
-- Break where the Grammar Bends.  
-  A Sentence Shows its own Joints: a Conjunction, a Comma, a Preposition.
-- Never Break inside a Unit that Reads as one.  
-  An Article Holds its Noun.
+- Break where the Grammar bends.  
+  A sentence Shows its own joints: a conjunction, a comma, a preposition.
+- Never break inside a Unit that reads as one.  
+  An article Holds its noun.
 - Symmetry is not the Cause.  
-  A Joint near the Middle just Happens to Land there.
-- Among the legal Joints, Choose by Meaning.  
-  A short Line Emphasises.
-- Go Has the same Joints:  
-  && and ||, the Comma in a List, the Dot in a Chain.
-- Better than Breaking a long Expression, Name its Parts.  
-  A named Condition Documents while it Breaks.
+  A joint near the middle just Happens to land there.
+- Among the legal joints, choose by Meaning.  
+  A short line Emphasises.
+- Go has the same Joints:  
+  && and ||, the comma in a list, the dot in a chain.
+- Better than breaking a long expression, name its Parts.  
+  A named condition Documents while it breaks.
 
 ```go
-// CheckOrderRecord Names each Condition, then Reads them together.
-// The Break is not in the Expression, it is in the Vocabulary.
+// CheckOrderRecord Names each Condition, then reads them together.
+// The break is not in the expression, it is in the Vocabulary.
 func CheckOrderRecord(o Order) bool {
 	identified := o.ID != ""
 	assigned := o.MemberID != ""
@@ -25,6 +25,6 @@ func CheckOrderRecord(o Order) bool {
 }
 ```
 
-Three Conditions, three Names, one Return.
-The Chain in [store_gorm.go](../examples/school/go/store/store_gorm.go)
-Breaks at the Dot for the same Reason.
+Three conditions, three names, one Return.  
+The chain in [store_gorm.go](../examples/school/go/store/store_gorm.go)  
+Breaks at the dot for the same reason.
