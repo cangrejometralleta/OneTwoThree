@@ -1,6 +1,6 @@
 # Axelrod — Cooperation, Engineered
 
-- Axelrod Ran a Tournament where Programs never Talked.
+- Axelrod Ran a tournament where programs never talked.
 - Tit-for-Tat Won: Cooperate first, Mirror the last Move, Forgive fast.
-- The simplest Entrant Beat every baroque Strategy against it.
+- The simplest entrant Beat every baroque strategy against it.
 - Roots: Axelrod, The Evolution of Cooperation.

@@ -2,7 +2,7 @@
 
 - Minimalism in Code, in Prose and in Structure
   is the same Instinct.
-- It Reduces the Cost
-  of Holding each Element in Mind.
+- It Reduces the cost
+  of holding each element in mind.
 - Style is the Surface,
-  Reduction is the Cause.
+  reduction is the Cause.

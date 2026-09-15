@@ -1,10 +1,10 @@
 # The Sentence Already Broke
 
-- You do not Choose the Break.
+- You do not Choose the break.
   You Find it.
-- Grammar Built the Joints before you Arrived,
-  and a Reader Feels them unnamed.
-- Breaking elsewhere Costs the Reader a Rewind.
-- Code Carries the same Joints, spelled && and || and the Dot.
-- Prose Breaks a Line where Code Names a Variable.
-  Both Cut at the same Place.
+- Grammar Built the joints before you arrived,
+  and a reader Feels them unnamed.
+- Breaking elsewhere Costs the reader a rewind.
+- Code Carries the same joints, spelled && and || and the dot.
+- Prose Breaks a line where code names a variable.
+  Both Cut at the same place.

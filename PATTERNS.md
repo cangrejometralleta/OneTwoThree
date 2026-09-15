@@ -1,10 +1,9 @@
 # Patterns
 >
 > Where the Three Comes from,
-> and why the Framework Holds.
+> and why the framework holds.
 >
-> Values Says what We Believe.
-> This Says where the Belief Comes from.
+> Values Believes. This Remembers.
 
 ## The Where, Divided
 

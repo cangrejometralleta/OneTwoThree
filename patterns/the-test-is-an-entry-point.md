@@ -1,17 +1,17 @@
 # The Test is an Entry Point
 
-- A Test Runs from the Outside and Casts its own Players.
-  So does Main. So does a Script.
-- Two Entry Points Facing each other Cast the same Play twice.
-- Ask an Agent to Test a Script,
-  and it Writes a second Script to Hold the first one up:
-  a fake Vendor, a fake Runtime, a fake Network.
-- The Simulation Grows until it Owns more Lines than the Thing it Watches,
-  and then it is the Thing that needs a Test.
-- The Fake Passes because the Fake was Written to Pass.
-  The Machine was Flattered after all.
-- An Entry Point is not Proven. It is Read, and it is Run.
-- What Deserves a Test is the Decision the Script Makes,
-  and a Decision Worth Testing Wants to Leave the Script anyway.
-- Move it Inward, Name it, and Test it from the Outside once.
-  The Script Stays a Story, and the Test Stays the only Outside.
+- A test Runs from the outside and casts its own players.
+  So does main. So does a script.
+- Two entry points facing each other Cast the same play twice.
+- Ask an Agent to test a script,
+  and it Writes a second script to hold the first one up:
+  a fake vendor, a fake runtime, a fake network.
+- The simulation Grows until it owns more lines than the thing it watches,
+  and then it is the Thing that needs a test.
+- The fake Passes because the fake was written to pass.
+  The machine was Flattered after all.
+- An entry point is not Proven. It is Read, and it is Run.
+- What Deserves a test is the decision the script makes,
+  and a decision worth testing Wants to leave the script anyway.
+- Move it Inward, name it, and test it from the outside once.
+  The script Stays a story, and the test stays the only outside.
