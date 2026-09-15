@@ -5,91 +5,91 @@ description: "Assess whether an accumulating change still serves one intent or h
 
 # OneTwoGrowth
 
-A Reader of Scope, not a Reviewer of Code.
-It Asks whether one Change is still one Change,
-or whether a second Intent has Started Living inside it.
+A reader of scope, not a reviewer of Code.
+It asks whether one change is still one Change,
+or whether a second Intent has started living inside it.
 
 The canon lives in [Change Growth](../../../rules/change-growth.md).
 
 ## What it is not
 
-This Skill does not Find Bugs, Rank Findings or Judge Code Quality.
-It does not Replace Tests, static Analysis or a Code Review.
-It Reads the Growth of the Change: Intent, Turns and touched Paths.
+This skill does not find Bugs, rank findings or judge code quality.
+It does not Replace tests, static analysis or a code review.
+It Reads the growth of the change: intent, turns and touched paths.
 
 ## The Baseline
 
-Before the first Edit in a Thread, Record:
+Before the first edit in a thread, Record:
 
-1. **Intent** — the one Change the User Asked for.
-2. **State** — staged, unstaged and untracked Paths already Present.
-3. **Count** — zero Writing Turns and zero Paths touched by the Agent.
+1. **Intent** — the one change the user Asked for.
+2. **State** — staged, unstaged and untracked Paths already present.
+3. **Count** — zero writing turns and zero Paths touched by the agent.
 
-Existing dirty Paths Belong to the User until the Agent Edits them.
-Once Touched, they Count as attributable Paths,
-but their earlier Changes remain outside the Growth Check.
+Existing dirty Paths belong to the user until the agent edits them.
+Once touched, they Count as attributable paths,
+but their earlier changes remain outside the growth check.
 
 ## When it Triggers
 
-Suggest this Skill when either Threshold is Reached:
+Suggest this Skill when either threshold is reached:
 
-- three Turns that wrote or deleted Files;
-- three distinct Files touched by the Agent.
+- three turns that wrote or deleted Files;
+- three distinct Files touched by the agent.
 
 Use whichever Happens first.
-Do not Count Reads, Questions, Planning, Commands with no Mutation
-or Validation-only Turns.
+Do not count reads, questions, planning, Commands with no mutation
+or validation-only turns.
 
-Finish the current focused Validation before Suggesting the Check.
-The Suggestion Opens the next Thread; it never Interrupts this one.
+Finish the current focused Validation before suggesting the check.
+The suggestion Opens the next thread; it never interrupts this one.
 
 ## What it Reads
 
-Read only the Evidence needed to Reconstruct Growth:
+Read only the Evidence needed to reconstruct growth:
 
-1. The original Intent and Decisions made since it.
-2. The dirty Baseline captured before Editing.
-3. The Agent-attributable Paths and Writing Turns.
-4. The current Diff for those Paths.
+1. The original Intent and decisions made since it.
+2. The dirty Baseline captured before editing.
+3. The agent-attributable Paths and writing turns.
+4. The current Diff for those paths.
 
-Do not absorb unrelated dirty Work into the Change.
+Do not absorb unrelated dirty Work into the change.
 Do not broaden into a repository-wide Code Review.
 
 ## What it Asks
 
 Three Questions:
 
-1. Does one Intent still Explain every attributable Edit?
-2. Did a second Responsibility, Deliverable or Boundary Appear?
-3. Can the next Step be Named without joining two Actions?
+1. Does one intent still Explain every attributable edit?
+2. Did a second responsibility, deliverable or boundary Appear?
+3. Can the next step be Named without joining two actions?
 
-If all Edits still Serve one Intent, the Change is `Together`.
-If two Intents Compete, the Change is `Split`.
-If the Evidence cannot Separate them, the Change is `Unclear`.
+If all edits still serve one intent, the change is `Together`.
+If two intents compete, the change is `Split`.
+If the evidence cannot separate them, the change is `Unclear`.
 
 ## What it Does
 
 ### Together
 
-Name the Intent that still Holds the Change.
-Reset both Threshold Counts and Continue from a new Baseline.
+Name the Intent that still holds the change.
+Reset both threshold Counts and continue from a new baseline.
 
 ### Split
 
-Name each Intent and its attributable Paths.
-Recommend which one remains the current Thread
-and which one Waits or Becomes a separate Commit.
-Do not move Hunks, stage Files or Commit unless separately Asked.
+Name each Intent and its attributable paths.
+Recommend which one Remains the current thread
+and which one waits or becomes a separate commit.
+Do not move Hunks, stage files or commit unless separately asked.
 
 ### Unclear
 
-Name the one Boundary that prevents Separation.
-Ask one Question or inspect one nearby Diff that can Resolve it.
-Do not Continue Writing while the Change remains Unclear.
+Name the one Boundary that prevents separation.
+Ask one Question or inspect one nearby diff that can resolve it.
+Do not continue writing while the change remains Unclear.
 
 ## What it Returns
 
-Keep the Result about Growth, never Quality:
+Keep the Result about growth, never quality:
 
 ```text
 ⚠️ Change Growth: Split
@@ -103,5 +103,5 @@ Intent 2 — Preserve Session continuity
 Continue Intent 1. Leave Intent 2 for its own Thread.
 ```
 
-Never Report Findings, Severities or Code Defects.
-Never Call this a Code Review.
+Never report Findings, severities or code defects.
+Never call this a Code Review.

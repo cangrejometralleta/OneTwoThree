@@ -5,42 +5,42 @@ description: "Load or refresh a local project's skills and custom agents in the 
 
 # OneTwoReload
 
-A Loader of local Customizations, not an Installer of global State.
-It Finds the canonical Skills and Agents in the current Project,
-Connects the active Client to them, Removes obsolete Entrances and References,
-Reloads what the Client can Reload, and Verifies what it can Discover.
+A loader of local customizations, not an installer of global State.
+It Finds the canonical skills and agents in the current project,
+connects the active client to them, removes obsolete entrances and references,
+reloads what the client can reload, and verifies what it can discover.
 
-The canon lives in [Vendor Integration](../../../rules/vendor-integration.md).
+The canon Lives in [Vendor Integration](../../../rules/vendor-integration.md).
 
 ## What it Reads
 
-Start at the Repository Root. Read only the Surfaces needed to Identify:
+Start at the repository Root. Read only the surfaces needed to identify:
 
 1. **Source** — canonical project Customizations under `.agents/`.
-2. **Entrances** — existing client Directories, Links and Adapters.
-3. **History** — renamed Files, stale Identifiers and duplicate Entrances.
-4. **Client** — the current Host and the Reload Actions it actually Exposes.
+2. **Entrances** — existing client Directories, links and adapters.
+3. **History** — renamed Files, stale identifiers and duplicate entrances.
+4. **Client** — the current Host and the reload actions it actually exposes.
 
-Inspect `AGENTS.md`, client configuration and local Documentation when they
-Name a different canonical Source. Never Assume that every Client Supports
-the same File Format, Directory or Reload Command.
+Inspect `AGENTS.md`, client configuration and local documentation when they
+Name a different canonical source. Never assume that every client Supports
+the same file format, directory or reload command.
 
 ## What it Does
 
-1. Locate every canonical `SKILL.md` and custom Agent in the Project.
-2. Identify the current Client from the available Tools and Environment.
-3. Find that Client's documented project-level discovery Directories.
-4. Reuse an existing relative symbolic Link when the Client Supports it.
-5. Create the smallest required Adapter when the Client needs another Format.
-6. Search the whole Project for superseded Names, Paths and Adapters.
-7. Confirm every stale Reference has a valid canonical Replacement.
-8. Remove obsolete Files and Links; update references to the Replacement.
-9. Validate Links, frontmatter, Names and Adapter Syntax before Reloading.
-10. Invoke the Client's available reload, rescan or window-refresh Action.
-11. Verify Discovery through the Client when an inspection Tool Exists.
-12. Report what Loaded, Removed, stayed Unavailable or needs a manual Restart.
+1. Locate every canonical `SKILL.md` and custom Agent in the project.
+2. Identify the current Client from the available tools and environment.
+3. Find that client's documented project-level discovery Directories.
+4. Reuse an existing relative symbolic Link when the client supports it.
+5. Create the smallest required Adapter when the client needs another format.
+6. Search the whole Project for superseded names, paths and adapters.
+7. Confirm every stale Reference has a valid canonical replacement.
+8. Remove obsolete Files and links; update references to the replacement.
+9. Validate Links, frontmatter, names and adapter syntax before reloading.
+10. Invoke the client's available reload, rescan or window-refresh Action.
+11. Verify Discovery through the client when an inspection tool exists.
+12. Report what Loaded, removed, stayed unavailable or needs a manual restart.
 
-Treat these as common Entrances, not timeless Guarantees:
+Treat these as common Entrances, not timeless guarantees:
 
 | Client | Skills | Agents |
 | --- | --- | --- |
@@ -49,62 +49,62 @@ Treat these as common Entrances, not timeless Guarantees:
 | Codex | `.agents/skills/` | `.agents/agents/` or a local Adapter |
 | OpenCode | Discover from its local configuration or Documentation | Discover from its local configuration or Documentation |
 
-If the installed Client Documents another Path, Follow the installed Client.
-The Client Owns Discovery; this Skill Owns the local Connection to it.
+If the installed client documents another Path, follow the installed client.
+The client Owns discovery; this skill owns the local connection to it.
 
 ## Reload Rules
 
-- Prefer a client API or editor Command that Explicitly Reloads Customizations.
-- Reload the editor Window only when no narrower supported Action Exists.
-- Never Kill an active Client Process or delete its Cache without Permission.
-- Never Claim a Reload from filesystem Changes alone.
-- When no reload Action is exposed, validate the Files and Ask for the smallest
-  manual Action: start a new Chat, reload the Window or restart the Client.
-- A Skill cannot reload the Turn already Reading it. Verify the next discovery
-  cycle and Say when that Boundary Applies.
-- After any Skill, Agent, Entrance or Tool Change, Remind the User to reload or
-  restart the Client and begin a new Chat. The current Turn may keep the old
-  Customizations and Tool Grants even when the Filesystem is already Correct.
+- Prefer a client API or editor Command that explicitly reloads customizations.
+- Reload the editor Window only when no narrower supported action exists.
+- Never kill an active client Process or delete its cache without permission.
+- Never claim a Reload from filesystem changes alone.
+- When no reload action is exposed, validate the Files and ask for the smallest
+  manual action: start a new chat, reload the window or restart the client.
+- A skill cannot Reload the turn already reading it. Verify the next discovery
+  cycle and say when that Boundary applies.
+- After any skill, agent, entrance or tool change, Remind the user to reload or
+  restart the client and begin a new chat. The current turn may keep the old
+  Customizations and tool grants even when the filesystem is already correct.
 
 ## Integration Rules
 
-- Keep one canonical Source. Do not Maintain independent vendor Copies.
-- Use relative Links where supported so Renames and Edits travel together.
-- Remove old Names, broken Links and superseded Adapters after their canonical
-  Replacements Resolve. Search hidden and ignored project Paths too.
-- Delete a duplicate Entrance only when the active Client discovers the same
-  logical Source through another supported Entrance.
-- Never remove a compatibility Entrance used by another Client merely because
-  the current Client also discovers it. Report cross-client duplicates instead.
-- Preserve existing user Changes and unrelated client Configuration.
-- Do not write outside the current Project unless the User explicitly Asks.
-- Do not install Extensions, Plugins or global Packages without Permission.
-- Do not invent an Adapter Schema. Read a nearby working Adapter or the
-  installed Client's Documentation first.
-- If a Client cannot consume the canonical Format, report the incompatibility
+- Keep one canonical Source. Do not maintain independent vendor copies.
+- Use relative Links where supported so renames and edits travel together.
+- Remove old Names, broken links and superseded adapters after their canonical
+  replacements resolve. Search hidden and ignored project Paths too.
+- Delete a duplicate Entrance only when the active client discovers the same
+  logical source through another supported entrance.
+- Never remove a compatibility Entrance used by another client merely because
+  the current client also discovers it. Report cross-client duplicates instead.
+- Preserve existing user Changes and unrelated client configuration.
+- Do not write outside the current Project unless the user explicitly asks.
+- Do not install Extensions, plugins or global packages without permission.
+- Do not invent an adapter Schema. Read a nearby working Adapter or the
+  installed client's documentation first.
+- If a client cannot consume the canonical Format, report the incompatibility
   before generating anything.
 
 ## Verification
 
-The Filesystem Check Proves the Entrance:
+The filesystem check Proves the entrance:
 
-1. Every Link Resolves inside the Project.
-2. Every Skill Folder Name Matches its frontmatter `name`.
-3. Every Agent Name and Adapter Reference Resolves.
-4. No stale Reference points to a renamed Skill or Agent.
-5. No removed Name remains in hidden, ignored or generated project Paths.
+1. Every link Resolves inside the project.
+2. Every skill folder name Matches its frontmatter `name`.
+3. Every agent name and adapter reference Resolves.
+4. No stale reference Points to a renamed skill or agent.
+5. No removed name Remains in hidden, ignored or generated project paths.
 
-The Client Check Proves the Load:
+The client check Proves the load:
 
-1. Query the Client's customization listing when available.
-2. Confirm the expected Names appear exactly once per logical Source.
-3. Start no destructive or stateful Workflow merely to test Discovery.
+1. Query the client's customization Listing when available.
+2. Confirm the expected Names appear exactly once per logical source.
+3. Start no destructive or stateful Workflow merely to test discovery.
 
-Filesystem Success without a Client Check is `Validated`, not `Loaded`.
+Filesystem success without a client check is `Validated`, not `Loaded`.
 
 ## What it Returns
 
-Keep the Report short and Separate Proven States:
+Keep the Report short and separate proven states:
 
 ```text
 ✅ Loaded in GitHub Copilot
@@ -113,10 +113,10 @@ Keep the Report short and Separate Proven States:
 - Entrance: .github/skills -> ../.agents/skills
 - Removed: 3 stale References
 
-⚠️ Codex entrance Validated; Client restart Required.
+⚠️ Codex entrance Validated; client restart Required.
 
-Reload the Client and begin a new Chat before Using the changed Customizations.
+Reload the Client and begin a new chat before using the changed customizations.
 ```
 
-Never Say every Client Loaded when only one Client was available to Verify.
-Never Finish a Reload after Changes without the Client Reload Reminder.
+Never say every client Loaded when only one client was available to verify.
+Never finish a Reload after changes without the client reload reminder.

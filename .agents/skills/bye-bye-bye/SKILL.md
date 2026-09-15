@@ -5,13 +5,13 @@ description: "Close a work session by writing a concise, self-contained reposito
 
 # ByeByeBye
 
-A Session Closing, not a Summary for Display.
-It Leaves the next Session one durable Thread to Pick up.
+A session closing, not a summary for Display.
+It Leaves the next session one durable thread to pick up.
 
-The next Turn lives in [YoYoYo](../yo-yo-yo/SKILL.md).
-The canon lives in [Change Growth](../../../rules/change-growth.md).
-The working Snapshot lives in [OneTwoCheckpoint](../one-two-checkpoint/SKILL.md).
-The Shape lives in [The Lever and the Tape](../../../patterns/the-lever-and-the-tape.md).
+The next turn Lives in [YoYoYo](../yo-yo-yo/SKILL.md).
+The canon Lives in [Change Growth](../../../rules/change-growth.md).
+The working snapshot Lives in [OneTwoCheckpoint](../one-two-checkpoint/SKILL.md).
+The shape Lives in [The Lever and the Tape](../../../patterns/the-lever-and-the-tape.md).
 
 ```mermaid
 flowchart TD
@@ -29,89 +29,89 @@ flowchart TD
 
 ## When it Runs
 
-Invoke when the User Says `bye dove`, Asks to Stop,
-or Requests a Handoff for the next Session.
+Invoke when the user says `bye dove`, asks to stop,
+or Requests a handoff for the next session.
 
 ## Evidence
 
-Read only the current Thread and current Repository State:
+Read only the current Thread and current repository state:
 
-1. **Checkpoint** — `.handoff.md` when it Holds the current working Snapshot.
-   Confirm it against the Thread and repository State; never Trust stale Claims.
-2. **Intent** — the Ask that still Explains the Work.
+1. **Checkpoint** — `.handoff.md` when it Holds the current working snapshot.
+   Confirm it against the thread and repository state; never trust stale Claims.
+2. **Intent** — the ask that still Explains the work.
 3. **Changes** — staged, unstaged and untracked Paths,
-   plus the relevant Change in each affected File.
-4. **Decisions** — Choices that the next Session must Preserve.
-5. **Validation** — Checks already Run and their Result.
+   plus the relevant Change in each affected file.
+4. **Decisions** — choices the next session must Preserve.
+5. **Validation** — checks already Run and their result.
 6. **Growth** — whether the Work is `Together`, `Split` or `Unclear`.
 
-Do not Reconstruct old History unless the current Thread Refers to it.
-Do not Review the Code or Invent Work that was not Discussed.
+Do not reconstruct old History unless the current thread refers to it.
+Do not review the Code or invent work that was not discussed.
 
 ## Write the Handoff
 
-Write `.handoff.md` at the Repository Root.
-Replace its Content when it already Exists;
-one Repository Holds one active Handoff.
-Expand a compact Checkpoint into this full closing Shape.
+Write `.handoff.md` at the repository Root.
+Replace its content when it already Exists;
+one repository Holds one active handoff.
+Expand a compact Checkpoint into this full closing shape.
 
 Use this Shape:
 
 ```markdown
 # Handoff
 
-**Intent** — the one Outcome being Pursued.
+**Intent** — the one Outcome being pursued.
 
-**Done** — durable Work already Completed.
+**Done** — durable Work already completed.
 
-**Open** — the unresolved Decision, Edit or Validation.
+**Open** — the unresolved Decision, edit or validation.
 
 **Growth** — Together, Split or Unclear.
 
-**Now** — the one Part to Resume first.
+**Now** — the one Part to resume first.
 
-**Later** — deferred Parts, or None.
+**Later** — deferred Parts, or none.
 
 **Files**
 - `path` — Added, Modified, Deleted or Renamed.
-  What Changed, why it Matters, and the pending Detail needed to Continue.
+  What changed, why it matters, and the pending Detail needed to continue.
 
-**Validation** — Command and Result, or Not Run.
+**Validation** — the Command and its result, or Not Run.
 
 **Next** — one concrete Action.
 ```
 
-The Files Section makes the Handoff Usable without Repository Access.
-List every File affected by the active Work, including already Committed Files
-that the next Session must Understand. For each one, Name its State and
-summarize the relevant Change. Include a small exact Snippet when Names,
-Values, Signatures or unfinished Text cannot be recovered reliably from prose.
-Do not Copy a whole File or a large Diff.
+The files section Makes the handoff usable without repository access.
+List every File affected by the active work, including already committed files
+the next session must understand. For each one, name its State and
+summarize the relevant change. Include a small exact Snippet when names,
+values, signatures or unfinished text cannot be recovered reliably from prose.
+Do not copy a whole File or a large diff.
 
-Keep Claims factual and Paths repository-relative.
-Mark uncertain Claims as `Inferred`.
-Never Store Secrets, Tokens, terminal History or full Conversation Text.
+Keep claims Factual and paths repository-relative.
+Mark uncertain claims as `Inferred`.
+Never Store secrets, tokens, terminal history or full conversation text.
 
-When Growth is `Split`, Preserve every Part
-but Mark exactly one as `Now`.
-When Growth is `Unclear`, make `Next` the focused Check
-that can Separate the Intents.
+When growth is `Split`, preserve every Part
+but mark exactly one as `Now`.
+When growth is `Unclear`, make `Next` the focused Check
+that can separate the intents.
 
 ## What it Returns
 
-After Writing, Say only what was Left and where:
+After writing, say only what was Left and where:
 
 ```text
 ✅ Handoff Written to .handoff.md
-Next Session Starts with: one concrete Action.
+The next session Starts with: one concrete action.
 ```
 
 ## Bounds
 
-- Never Commit or Push the Handoff.
-- Never Stage Files.
-- Never Continue Implementation after Writing it.
-- Never Hide Failed or missing Validation.
-- Never Include unrelated dirty Paths.
-- Never Assume the next Session can Open an affected File.
-- Never Leave two Parts marked `Now`.
+- Never Commit or push the handoff.
+- Never stage Files.
+- Never continue Implementation after writing it.
+- Never Hide failed or missing validation.
+- Never Include unrelated dirty paths.
+- Never Assume the next session can open an affected file.
+- Never Leave two parts marked `Now`.

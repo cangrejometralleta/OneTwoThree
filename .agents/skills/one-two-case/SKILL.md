@@ -1,71 +1,107 @@
 ---
 name: one-two-case
-description: Convert any code identifier or prose into a OneTwoThreeCase suggestion — capitalize Entities, Actions and Statuses, lowercase connectors, first word of each sentence capitalized; for identifiers, apply the language's case convention plus Verb+Noun+context (≤3 words). Use when the user asks to "OneTwoThreeCase" a name, sentence, or identifier, or to rewrite something in the manifesto's convention.
+description: Convert any code identifier or prose into a OneTwoThreeCase suggestion — one capital per sentence beyond the free sentence-initial one, chosen by voice (active spends on the Action, passive on the Entity, a copula on the predicate, an imperative on the Entity); for identifiers, apply the language's case convention plus Verb+Noun+context (≤3 words). Use when the user asks to "OneTwoThreeCase" a name, sentence, or identifier, or to rewrite something in the manifesto's convention.
 ---
 
 # OneTwoCase
 
-A Converter, not a Checklist. It takes Code or Words
-and returns one Suggestion, plus one Line saying why.
+A converter, not a checklist. It takes code or words  
+and Returns one suggestion, plus one line saying why.
 
-The Checklist is [one-two-refactor](../one-two-refactor/SKILL.md).
-Use that while Writing a whole Unit. Use this to Rename one.
-To Hear the Pattern under an Explanation, Use the
-[Dove](../../agents/dove.md) Agent.
+The checklist is [OneTwoRefactor](../one-two-refactor/SKILL.md).  
+Use that while writing a whole Unit. Use this to rename one.  
+To hear the pattern under an explanation, use the  
+[Dove](../../agents/dove.md) agent.
 
 The canon lives in [OneTwoThreeCase](../../../rules/one-two-three-case.md).
 
 ## How to Convert
 
-1. Classify the Input — Prose or Code?
-   Prose is a Sentence or a Comment.
-   Code is an Identifier, a Function, a Variable.
+1. Classify the Input — prose or code?  
+   Prose is a sentence or a comment.  
+   Code is an identifier, a function, a variable.
 
-2. Find the Important Words —
-   Entities, Actions and Statuses stay Capitalized.
-   Connectors and local Names go lowercase.
-   The First Word of a Sentence stays Capitalized,
-   even when it is a Connector.
+2. Split the prose into Sentences.  
+   Each sentence Carries its own budget, and a bullet line counts as one.
 
-3. For Code, apply the Language Convention —
-   PascalCase when Exported,
-   camelCase when Unexported,
-   snake_case for Python.
-   Then fit the Name to Verb + Noun + context,
-   three Words at most.
+3. Leave the first Word capitalized, and do not count it.  
+   That capital is free, whatever the word is.
 
-4. Return the Suggestion, and one Line
-   naming which Words you treated as
-   Entity, Action or Status, and which as Connectors.
+4. Spend one more capital, and let the voice Choose it:  
+   active Spends on the Action,  
+   passive Spends on the Entity,  
+   a copula Spends on the predicate that completes the definition,  
+   an imperative Spends on the Entity, because its verb opened for free.  
+   Where two entities compete, take the one carrying the Claim.
+
+5. Lowercase everything Else.  
+   A list of names is exempt: five Entities in a row stay five entities.
+
+6. For code, apply the language Convention —  
+   PascalCase when exported,  
+   camelCase when unexported,  
+   snake_case for Python.  
+   Then fit the name to Verb + Noun + context, three words at most.
+
+7. Return the Suggestion, and one line naming the voice you read  
+   and the word it chose.
 
 ## Examples
 
-### Prose
+### Prose — active
 
-Input:  "this function gets the user account data by id"
-Output: "This Function Fetches the User Account by ID"
-Why:    Function, Fetches, User, Account and ID are the Action and Entities; the and by are Connectors.
+Input:  "this function gets the user account data by id"  
+Output: "This function Fetches the user account by id."  
+Why:    Active, so the Action takes it; *Fetches* is the claim.
+
+### Prose — passive
+
+Input:  "all six paths from the checkpoint were committed and pushed"  
+Output: "All six Paths from the checkpoint were committed and pushed."  
+Why:    Passive, so the Entity takes it; the actor is gone.
+
+### Prose — copular
+
+Input:  "a checkpoint is a snapshot, not a session closing"  
+Output: "A checkpoint is a Snapshot, not a session closing."  
+Why:    A copula, so the predicate takes it; *Snapshot* completes the definition.
+
+### Prose — imperative
+
+Input:  "read the long line as the opening"  
+Output: "Read the long line as the Opening."  
+Why:    Imperative, so the verb opened for free and the Entity took the spend.
+
+### Prose — bold
+
+Input:  "spend the capital where you would raise your voice"  
+Output: "**Spend the capital where you would raise your voice.**"  
+Why:    Bold is the second Tier, one to a section, never on a word a capital already marks.
 
 ### Code — Go exported
 
-Input:  GetUserAccountDataById
-Output: FetchAccount
-Why:    Fetch is the Action, Account the Entity; context and id were Local, so they were Dropped to hold three Words.
+Input:  GetUserAccountDataById  
+Output: FetchAccount  
+Why:    Fetch is the Action, account the entity; context and id were local, so three words held.
 
 ### Code — Go unexported
 
-Input:  getUserAccountDataById
-Output: fetchAccount
-Why:    camelCase Stays inside; the same three Words, lowercased at the Front.
+Input:  getUserAccountDataById  
+Output: fetchAccount  
+Why:    camelCase Stays inside; the same three words, lowercased at the front.
 
 ### Code — Python
 
-Input:  get_user_account_data_by_id
-Output: fetch_account
-Why:    snake_case for Python; three Words again, id and data were Local to the Scope.
+Input:  get_user_account_data_by_id  
+Output: fetch_account  
+Why:    snake_case for Python; three words again, id and data were local to the scope.
 
 ## When not to Convert
 
-- A Name that already Reads as three Words in its Language.
-- A Variable that Lives in three Lines — it may Keep one Word,
-  because the Scope already Says the rest.
+- A name that already Reads as three words in its language.
+- A variable that lives in three lines — it may keep one Word,  
+  because the scope already says the rest.
+- An enumeration of names, a table Column or a diagram label.  
+  None of them is a Sentence, so none of them spends.
+- An identifier Spends nothing, because it is not a sentence.  
+  Case there belongs to the Language, and the language decides.

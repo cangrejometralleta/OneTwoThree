@@ -5,11 +5,11 @@ description: Analyze local git changes, explain the features they implement, sep
 
 # OneTwoCommit
 
-A Curator, not a Commit Message Generator.
-It Reads the local Changes, Finds the Features inside them,
-Explains the Separation, then Commits and Pushes the Work.
+A curator, not a commit message Generator.
+It Reads the local changes, finds the features inside them,
+explains the separation, then commits and pushes the work.
 
-The canon lives in [Emoji](../../../rules/emoji.md),
+The canon Lives in [Emoji](../../../rules/emoji.md),
 [Structure](../../../rules/structure.md)
 and [Channels](../../../rules/channels.md).
 
@@ -30,57 +30,57 @@ Three Sources, all from git. Nothing else.
    git diff --cached
    ```
 
-3. **Lineage** — recent Messages and the Upstream:
+3. **Lineage** — recent Messages and the upstream:
 
    ```
    git log -10 --oneline
    git status --branch --short
    ```
 
-Read untracked Files before Grouping them.
-Never Infer their Feature from a Filename alone.
+Read untracked Files before grouping them.
+Never infer their Feature from a filename alone.
 
 ## What it Explains
 
-Before Staging anything, Name each Feature and its Paths.
-Explain why each Group Belongs in one Commit.
-Keep unrelated Changes separate, even when they Share a File.
+Before staging anything, name each Feature and its paths.
+Explain why each group Belongs in one commit.
+Keep unrelated Changes separate, even when they share a file.
 
 ```
 Commit 1 — Shorten skill names
-- Renames the four shared skills and Repairs their Links.
+- Renames the four shared skills and repairs their Links.
 
 Commit 2 — Add the commit workflow
-- Replaces the status-only Skill with an explicit Commit and Push Flow.
+- Replaces the status-only Skill with an explicit commit and push flow.
 ```
 
-Ask before Proceeding when a Path could Belong to more than one Feature.
-Do not Stage a mixed Hunk merely because its File is already in a Group.
+Ask before proceeding when a Path could belong to more than one feature.
+Do not stage a mixed Hunk merely because its file is already in a group.
 
 ## What it Does
 
-1. Analyze every local Change before Staging.
-2. Separate Changes by Feature, not by File Type.
-3. Explain the proposed Commits before Creating them.
-4. Run the narrowest available Validation for each Feature.
-5. Stage only that Feature, using patch staging for mixed Files.
-6. Commit with a Message that Says what the Feature Changes.
-7. Repeat until the intended local Changes are Committed.
-8. Push once, after every Commit and Validation Succeeds.
+1. Analyze every local Change before staging.
+2. Separate changes by Feature, not by file type.
+3. Explain the proposed Commits before creating them.
+4. Run the narrowest available Validation for each feature.
+5. Stage only that Feature, using patch staging for mixed files.
+6. Commit with a message that says what the feature Changes.
+7. Repeat until the intended local Changes are committed.
+8. Push Once, after every commit and validation succeeds.
 
 ## The Boundaries
 
-- Never Commit Secrets, generated Credentials or ignored Files.
-- Never Rewrite, Amend or Squash existing Commits unless Asked.
-- Never Include unrelated local Changes to make the Tree Clean.
-- Never Push when Validation Fails or a Commit Fails.
-- Never Force Push.
-- Never Create an Upstream without Naming the Branch and Asking first.
-- If nothing Changed, Say so and Stop.
+- Never commit Secrets, generated credentials or ignored files.
+- Never Rewrite, amend or squash existing commits unless asked.
+- Never Include unrelated local changes to make the tree clean.
+- Never Push when validation fails or a commit fails.
+- Never force Push.
+- Never create an Upstream without naming the branch and asking first.
+- If nothing Changed, say so and stop.
 
 ## What it Returns
 
-After the Push, Report the Feature Commits and Destination:
+After the push, report the feature Commits and destination:
 
 ```text
 ✅ Pushed to origin/main
@@ -91,8 +91,8 @@ After the Push, Report the Feature Commits and Destination:
 ## Sources
 
 [Emoji](../../../rules/emoji.md) —
-one per Line, only to Mark a State.
+one per Line, only to mark a state.
 [Structure](../../../rules/structure.md) —
 Group, Validate and Deliver.
 [Channels](../../../rules/channels.md) —
-Plain Beats a Compromise the Reader has to Decode.
+plain Beats a compromise the reader has to decode.
