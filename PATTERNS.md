@@ -27,6 +27,7 @@
 - [The Program is a Song](patterns/the-program-is-a-song.md)
 - [Show me the Code](patterns/show-me-the-code.md)
 - [Three over Four](patterns/three-over-four.md)
+- [Count me In](patterns/count-me-in.md)
 - [V_VALUE_1](patterns/v_value_1.md)
 - [Ritual as Belonging, not Belief](patterns/ritual-as-belonging-not-belief.md)
 - [The Mismatch is a Protocol Clash](patterns/the-mismatch-is-a-protocol-clash.md)
