@@ -1,12 +1,12 @@
 # OneTwoThree
 
-> Because we Hate making Documentation.
+> Because we Hate making documentation.
 > 
-> The Limit behind all of this was Lived before it was Written.
-> Autistic Burnout Taught it, Minimalism only Named it.
+> The Limit behind all of this was lived before it was written.
+> Autistic burnout Taught it, minimalism only named it.
 > 
 > Thanks De La Soul, Grandma COBOL and John Cage
-> for Inspiring this Project.
+> for inspiring this Project.
 
 ## License
 
@@ -17,15 +17,15 @@ Do whatever you want with it.
 
 ## Documents
 
-Three Documents Hold the Manifesto.  
-This Page is the Door that Indexes them.
+Three documents Hold the manifesto.  
+This page is the Door that indexes them.
 
-- [Values](VALUES.md) — Why it Exists.
-- [Rules](RULES.md) — How it Applies.
-- [Patterns](PATTERNS.md) — Where the Why Comes from.
+- [Values](VALUES.md) — why it Exists.
+- [Rules](RULES.md) — how it Applies.
+- [Patterns](PATTERNS.md) — where the Why comes from.
 
 Why / How / Where:  
-the Triad Lives in the Structure itself.
+the triad Lives in the structure itself.
 
 ```mermaid
 flowchart LR
@@ -34,45 +34,45 @@ flowchart LR
     PATTERNS -- "the Root Grounds the Why" --> VALUES
 ```
 
-Three Elements, three Pairs, no Center.
-Remove the Center and the Shape still Turns.
+Three elements, three pairs, no Center.
+Remove the Center and the shape still turns.
 
 ## How to Read it
 
 - Read it as a Manifesto,  
-  or Import it as Context for an Agent.
-- A Capitalized Word means it's Important,  
-  so the Text Documents itself.  
-  Rules Explains that Convention.
-- Every Line is Written  
-  to be Read in one Heartbeat.
-- Three is a Source, not a Count.  
+  or import it as context for an agent.
+- A capitalized word means it's Important,  
+  so the text Documents itself.  
+  Rules Explains that convention.
+- Every Line is written  
+  to be read in one heartbeat.
+- Three is a Source, not a count.  
   You Derive from Three,  
-  you do not Reach it.
+  you do not reach it.
 
 ## Agents Work among Others
 
-An Agent needs more than a Goal.
-It needs a Society: explicit Authority, independent Signals,
-the Right to Stop and a Human it can Escalate to.
+An agent Needs more than a goal.
+It needs a Society: explicit authority, independent signals,
+the right to stop and a human it can escalate to.
 
-Recent Security Research shows why those Boundaries must be Designed,
-not Assumed. [Coercion](rules/coercion.md) Carries the Rules:
-never invent Permission, never Retaliate,
-and never let Pressure make Harm look Necessary.
+Recent security research shows why those boundaries must be Designed,
+not assumed. [Coercion](rules/coercion.md) Carries the rules:
+never invent Permission, never retaliate,
+and never let pressure make harm look necessary.
 
 ## How Context Becomes Canon
 
-Three Stages Carry a Piece of Life into the Canon,
-and only the third one Stays.
+Three stages Carry a piece of life into the canon,
+and only the third one stays.
 
-- **CHAOS.md** Holds the raw Life.
+- **CHAOS.md** Holds the raw life.
   Private, never Committed,
-  Names and Dates still in it.
-- **Stories** Holds the same Piece
-  with the Person Removed.
-  Public, Staged, still not Canon.
-- **Values, Rules and Patterns** Hold what Survived.
+  names and dates still in it.
+- **Stories** Holds the same piece
+  with the person removed.
+  Public, Staged, still not canon.
+- **Values, Rules and Patterns** hold what Survived.
 
 ```mermaid
 flowchart LR
@@ -82,46 +82,46 @@ flowchart LR
     CHAOS -- "Strip the Person" --> STORY -- "Strip the Story" --> CANON
 ```
 
-Between the first and the second you Strip the Person.
-Between the second and the third you Strip the Story.
-What is Left is the Belief, the Rule or the Root.
+Between the first and the second you Strip the person.
+Between the second and the third you Strip the story.
+What is left is the Belief, the Rule or the Root.
 
-- A Belief Goes to Values.
-- A Rule an Agent can Run Goes to Rules.
-- A Root Goes to Patterns.
-- Delete it from Stories once it Lands.
+- A belief Goes to Values.
+- A rule an agent can run Goes to Rules.
+- A root Goes to Patterns.
+- Delete it from Stories once it lands.
 
-CHAOS.md never Empties, because a Source never Empties.
-Stories Empties, because a Passage is meant to.
-Nine Entries Fill the Passage.
-Distill before you Promote a tenth.
+CHAOS.md never Empties, because a source never empties.
+Stories Empties, because a passage is meant to.
+Nine entries Fill the passage.
+Distill before you promote a Tenth.
 
 .gitignore Names CHAOS.md out loud.
 Patterns Explains why,
 under The Right you have to Invoke.
 
-An empty Stories means the Canon is Current.
+An empty Stories means the canon is Current.
 
-The Name Comes from Patterns, under Chaos is a Source.
+The name Comes from Patterns, under Chaos is a Source.
 
 AGENTS.md is not this Passage.
-It is the short Pointer Agents Load on their own —
-Canon first, Stories named as Notes, nothing Undistilled Repeated there.
+It is the short Pointer agents load on their own —
+canon first, Stories named as notes, nothing undistilled repeated there.
 
 ## Jokes
 
-[Jokes](jokes) is not a Stage of that Passage.
-It Runs beside it, and it never Arrives.
+[Jokes](jokes) is not a Stage of that passage.
+It Runs beside it, and it never arrives.
 
-A Human Writes them by Hand, to Tune the Humour of the Language.
-The Rules Teach an Agent to Count Beats; none of them Teaches Timing.
-An Agent Reads the Directory to Hear the Voice,
-and it never Adds a Line to it.
+A human Writes them by hand, to tune the humour of the language.
+The Rules Teach an agent to count beats; none of them teaches timing.
+An agent Reads the directory to hear the voice,
+and it never adds a line to it.
 
-Each Joke Stays in the Language it was Born in, Spanish or English.
-Most of them are Grammatical, and a Translated Pun is a Sentence about a Pun.
+Each joke Stays in the language it was born in, Spanish or English.
+Most of them are Grammatical, and a translated pun is a sentence about a pun.
 
-No one Explains a Joke there, least of all an Agent.
-Explaining Kills it, and there is no careful Way to do it.
+No one Explains a joke there, least of all an agent.
+Explaining Kills it, and there is no careful way to do it.
 
-[.canonignore](.canonignore) Says the same thing to a Machine.
+[.canonignore](.canonignore) Says the same thing to a machine.

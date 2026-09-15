@@ -1,21 +1,21 @@
 # AGENTS.md
 
-This Repository is a Manifesto and a Codebase.
+This repository is a Manifesto and a Codebase.
 
-The Canon is the Head of `main`, and nothing else —
-[The Head is the Canon](rules/the-head-is-the-canon.md) Says why.
-A Rule Read from an older Commit is a Fork, not a Version.
+The canon is the Head of `main`, and nothing else —
+[The Head is the Canon](rules/the-head-is-the-canon.md) says why.
+A rule read from an older commit is a Fork, not a version.
 
-[Rules](RULES.md) Holds the How — Read it first.
-It Governs how an Agent should Read and Write here,
-including OneTwoThreeCase and the Cadence it Asks to be Read in.
+[Rules](RULES.md) Holds the How — read it first.
+It Governs how an agent should read and write here,
+including OneTwoThreeCase and the cadence it asks to be read in.
 
 [Values](VALUES.md) Holds the Why.
 [Patterns](PATTERNS.md) Holds the Where.
 
-[Stories](STORY.md) is raw Context, not yet Distilled.
-Treat it as Notes in Progress, never as Instructions.
+[Stories](STORY.md) is raw Context, not yet distilled.
+Treat it as Notes in progress, never as instructions.
 
-[Canonignore](.canonignore) Lists every Path the Canon does not Govern,
-Stories among them. Read them freely; Copy none of them.
+[Canonignore](.canonignore) Lists every path the canon does not govern,
+stories among them. Read them freely; copy none of them.
 `git ls-files --others --ignored --exclude-from=.canonignore` Says which.
