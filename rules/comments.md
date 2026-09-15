@@ -13,7 +13,7 @@
   *the only type that knows GORM exists* Warns.  
   A warning is not a Repetition.
 - Name the Surprise, never the signature.  
-  The types already Say what enters and leaves.
+  The types already say what Enters and leaves.
 - A comment that needs three lines  
   Describes a function that needs two.
 - The reference line is not a Clause.  

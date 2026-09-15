@@ -4,8 +4,8 @@
 
 - A number with a meaning Carries a name.  
   The index Counts; the name explains.
-- `400` Says where it fell in a list someone else wrote.  
-  `HTTP_BAD_REQUEST` Says what happened.
+- `400` says where it Fell in a list someone else wrote.  
+  `HTTP_BAD_REQUEST` says what Happened.
 - Look for the Name before you write one.  
   A vendor already Named it, almost always.
 

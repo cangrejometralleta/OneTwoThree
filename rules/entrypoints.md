@@ -9,7 +9,7 @@
 - An entry point nobody listed is a Door someone remembers.  
   Memory is not a Door.
 - See [Scripts](scripts.md) for what the two Doors do.  
-  This rule Says how the doors are declared and multiplied.
+  This rule says how the Doors are declared and multiplied.
 
 ## One Logic, one Shim per Platform
 

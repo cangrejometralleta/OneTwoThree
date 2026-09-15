@@ -8,7 +8,7 @@
 - Record the dirty Baseline before the first edit.
   Pre-existing changes do not Count until the agent touches them.
 - Prompts without writing do not Count.
-- A growth check Asks whether the change is still one change.
+- A growth check asks whether the change is still one Change.
   It does not review code, find bugs or judge quality.
 - If one intent still explains every path, Continue and reset the count.
 - If two intents now compete, Name the split before another edit.
