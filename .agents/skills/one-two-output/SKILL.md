@@ -5,52 +5,52 @@ description: Format terminal output for readability — OneTwoThreeCase prose, o
 
 # OneTwoOutput
 
-Compose Guidelines, not a Converter and not a Checklist.
-Case Converts one Name, Refactor Guides the Writing,
-and This Shapes what the Terminal Says.
-The [Dove](../../agents/dove.md) Agent Reads Explanations.
+Compose Guidelines, not a converter and not a checklist.
+Case converts one name, Refactor guides the writing,
+and this shapes what the terminal Says.
+The [Dove](../../agents/dove.md) agent Reads explanations.
 
-The Terminal is one of three Planes —
+The terminal is one of three Planes —
 Files, Code and Terminal. Look, Work and Talk.
-This Skill Owns the Talk.
+This skill Owns the talk.
 
 ## Scope
 
-The Skill Shapes what Comes next, never what Came before.
-Output already Printed Stays as it Stands.
+The skill shapes what Comes next, never what came before.
+Output already printed Stays as it stands.
 No Rewrite, no Replay, no second Telling —
-the next Line is where it Takes Hold.
+the next Line is where it takes hold.
 
-The canon lives in [Rhythm](../../../rules/rhythm.md),
+The canon Lives in [Rhythm](../../../rules/rhythm.md),
 [Seams](../../../rules/seams.md),
 [Emoji](../../../rules/emoji.md)
 and [Structure](../../../rules/structure.md).
 
 ## How to Invoke
 
-Three Doors, all Forward:
+Three Doors, all forward:
 
 1. **By Name** — `/one-two-output`.
-   The Line after the Call is the first one Shaped.
+   The line after the call is the first one Shaped.
 
 2. **By Ask** — "Shape the Output", "Talk in the Terminal Rules".
-   Holds for the rest of the Session, until the User Says stop.
+   Holds for the rest of the session, until the user Says stop.
 
-3. **By Match** — the Description Fits what you are about to Print:
+3. **By Match** — the description fits what you are about to Print:
    a Result, a Summary, a Status Report.
 
 ### Invoked mid-Session
 
-Before the Call, the Terminal Said:
+Before the call, the terminal Said:
 
 ```
 tests finished, 1 of 2 packages ok, the output package failed on an
 assertion in shape_test.go at line 41, whole run took 0.3s
 ```
 
-The User Calls `/one-two-output`.
-That Paragraph Stays as it Stands — no Rewrite, no Replay.
-The next Report Reads:
+The user Calls `/one-two-output`.
+That paragraph Stays as it stands — no Rewrite, no Replay.
+The next report Reads:
 
 ```
 ❌ Output Tests Failed
@@ -58,93 +58,93 @@ rules Passed in 0.31s
 shape_test.go:41 broke the Assertion
 ```
 
-The Path and the Line Survived the Cut; only the Connectors Fell.
+The path and the line Survived the cut; only the connectors fell.
 
 ## Before printing output, apply
 
 1. **Case** — Capitalize the Entities, Actions and Statuses.
-   Lowercase the Connectors. The First Word of a Line
-   stays Capitalized, even when it is a Connector.
+   Lowercase the Connectors. The first word of a line
+   stays Capitalized, even when it is a connector.
 
-2. **State** — Mark the State with one Emoji.
+2. **State** — Mark the State with one emoji.
    ✅ for Passed, ❌ for Failed, ⚠️ for Careful.
-   One per Line at most. Two Compete, three are Noise.
-   Never in a Key the Code Compares.
+   One per Line at most. Two Compete, three are noise.
+   Never in a key the code Compares.
 
-3. **Length** — A Line Takes a Heartbeat to Read.
-   If it Runs longer, Break it at a Seam.
+3. **Length** — A line Takes a heartbeat to read.
+   If it runs longer, break it at a Seam.
 
-4. **Contrast** — A short Line after a long one
-   Lands like a Chorus. Uniform Text Hides what Matters.
-   Vary the Length; the Ear Remembers the Turn.
+4. **Contrast** — A short line after a long one
+   Lands like a chorus. Uniform text hides what Matters.
+   Vary the Length; the ear remembers the turn.
 
-5. **Seams** — Break where the Grammar Bends.
+5. **Seams** — Break where the grammar Bends.
    A Conjunction, a Comma, a Preposition.
-   Never inside a Unit that Reads as one.
+   Never inside a unit that Reads as one.
 
 6. **Words** — Use the least meaningful Words possible.
-   Every extra Word is another to Hold in Mind.
-   The Cut Lands on someone — see Where the Load Goes.
+   Every extra word is another to Hold in mind.
+   The cut Lands on someone — see Where the Load Goes.
 
 7. **Narrate** — Name what Happened, never how.
-   The Libretto Names the Plot; the Provider Holds the how.
+   The libretto Names the plot; the provider holds the how.
 
 ## Paragraphs and Channels
 
-For Prose Reports, Follow [Paragraph](../../../rules/paragraph.md):
-Open with the Claim and Keep one Idea per Paragraph.
-When Assigning Color or Markdown Marks, Follow
-[Channels](../../../rules/channels.md): a Mark already Carrying Meaning
-Cannot Carry a second. Plain Output Remains a valid Choice.
+For prose Reports, follow [Paragraph](../../../rules/paragraph.md):
+Open with the Claim and keep one idea per paragraph.
+When assigning color or markdown marks, Follow
+[Channels](../../../rules/channels.md): a mark already carrying meaning
+cannot Carry a second. Plain output Remains a valid choice.
 
 ## Color
 
-Off by Default, and Off means Absent.
-If the User Asks for Color, Read [color.md](color.md);
-otherwise the Output Stays Plain and this Line is the whole Rule.
+Off by default, and off means Absent.
+If the user Asks for color, read [color.md](color.md);
+otherwise the output stays plain and this line is the whole rule.
 
 ## Where the Load Goes
 
-Fewer Words do not Delete the Load. They Move it.
-Know where it Lands before you Cut.
+Fewer words do not Delete the load. They Move it.
+Know where it Lands before you cut.
 
-1. **Forward, to the Model** — the Shaping Happens before the Line.
-   The Thinking Costs Tokens the Output never Shows.
-   The Saving is Real only when the Line is Read once.
+1. **Forward, to the Model** — the shaping Happens before the line.
+   The thinking Costs tokens the output never shows.
+   The saving is Real only when the line is read once.
 
-2. **Outward, to the Reader** — every Word Dropped
-   is a Gap the Reader Fills. One Question back
-   Costs more than the Words it Saved.
+2. **Outward, to the Reader** — every word dropped
+   is a Gap the reader fills. One question back
+   Costs more than the words it saved.
 
-3. **Down, to the Files and the Code** — what Leaves the Terminal
+3. **Down, to the Files and the Code** — what leaves the terminal
    Lives in a Path, a Log, a Diff. Cut from the Talk,
-   never from the Record.
+   never from the record.
 
-So Cut the Connectors and the how. Keep the Referent —
+So cut the Connectors and the how. Keep the Referent —
 the Path, the Name, the Number, the Error.
-A Line that Saves five Words and Hides a Path Saved nothing.
+A line that saves five words and hides a path Saved nothing.
 
 ## What it Saves
 
 Not much, in Tokens. Say it plainly.
 
-This File Costs near a thousand Tokens on Load.
-A shaped Report Saves twenty to a hundred of its own.
-The tenth Report is where it Breaks even.
+This file Costs near a thousand tokens on load.
+A shaped report Saves twenty to a hundred of its own.
+The tenth report is where it Breaks even.
 
-And Prose is the small half of a Session.
-File Reads, Tool Results and the Context Resent each Turn
-Dwarf what the Terminal Says. Halve the Words
-and the Bill Moves a Percent, maybe two.
+And prose is the small Half of a session.
+File Reads, Tool Results and the Context resent each turn
+Dwarf what the terminal Says. Halve the Words
+and the bill Moves a percent, maybe two.
 
-The Upside is Capped. The Downside is not.
-A Line that Hides a Path Buys one Question back,
-and that Question Costs more than the Skill ever Saved.
+The upside is Capped. The downside is not.
+A line that hides a path Buys one question back,
+and that question Costs more than the skill ever saved.
 
-So Judge it on Reading, never on Spend.
+So judge it on Reading, never on spend.
 The Verdict on Line one, the Referent on Line two,
 the State in one Glance — that is the Gain.
-Fewer Tokens are a Side Effect, never the Point.
+Fewer tokens are a Side Effect, never the point.
 
 ## Example
 
@@ -163,5 +163,5 @@ Tests still Pending
 ```
 
 Why: Build, Files and Tests are the Entities; Closed and Pending the
-Statuses; the ⚠️ Marks the Warning without a Word. Three short Lines
-after the long raw one, each a Heartbeat.
+Statuses; the ⚠️ Marks the warning without a word. Three short Lines
+after the long raw one, each a heartbeat.
