@@ -1,59 +1,59 @@
 # Color, when Asked
 
 The optional Door of [OneTwoOutput](SKILL.md).
-Read this File only when the User Asks for Color.
-Off by Default means Off — if nobody Asked, this File
-never Opens, and the Output Stays Plain.
+Read this File only when the user asks for color.
+Off by default means Off — if nobody asked, this file
+never Opens, and the output stays plain.
 
-Sleeps again where the Terminal Carries no Color.
-Markdown Rendered as Prose Carries none; a Program
-Printing to a TTY does. Know which Plane you are on.
+Sleeps again where the terminal Carries no color.
+Markdown rendered as prose Carries none; a program
+printing to a TTY Does. Know which Plane you are on.
 
-The canon is [Values](../../../VALUES.md) — Color is an Index,
-not Decoration. A Hue Groups what it Marks.
+The canon is [Values](../../../VALUES.md) — color is an Index,
+not decoration. A hue groups what it Marks.
 
 ## Prune first
 
 Prune before you Color, never after. Color Organizes;
-it never Prunes. Color first and it Hides the Excess
-instead of Showing it — five tidy Items in three Hues
-are still five Shouting, now in three Tongues.
+it never Prunes. Color first and it Hides the excess
+instead of showing it — five tidy items in three hues
+are still five Shouting, now in three tongues.
 
 ## The Rules
 
 1. **Group by Co-occurrence** — same Token, same Hue.
-   Two Entities that Share a Line, or Share an Identifier,
-   the Reader already Related before the Color Arrived.
-   The Color Confirms what the Eye did alone.
+   Two Entities that share a line, or share an identifier,
+   the reader already Related before the color arrived.
+   The color confirms what the Eye did alone.
 
 2. **Assign by Order of Appearance** — never by Meaning.
-   A Taxonomy Needs a fixed List of Themes, and the Theme
-   Changes with every Output. A Key that Fails half the Time
-   Costs more than no Color: the Reader learns to Distrust it.
-   Co-occurrence Asks for no Judgment, only for what Repeats.
+   A taxonomy Needs a fixed list of themes, and the theme
+   changes with every output. A key that fails half the time
+   Costs more than no color: the reader learns to Distrust it.
+   Co-occurrence Asks for no judgment, only for what repeats.
 
-3. **Three Hues, never a fourth** — the fourth Group Stays bare.
-   The Ceiling makes Color a Limiter, never an Ornament.
-   Three Marked and the rest Plain is the Sign
-   that the Output is Inflated.
+3. **Three Hues, never a fourth** — the fourth group Stays bare.
+   The ceiling makes color a Limiter, never an ornament.
+   Three marked and the rest plain is the Sign
+   that the output is inflated.
 
 4. **Two Members make a Group** — one does not.
-   A single Entity has no Pair to Rotate with,
-   and there no Color Goes.
+   A single entity has no Pair to rotate with,
+   and there no color Goes.
 
-5. **Background Takes no Hue** — a Token on every Line Groups nothing.
-   It Marks the Page, not a Part of it. Color what Gathers some Lines,
-   never what Covers them all. One Line alone has no Background,
-   so a Token Repeating inside it still Counts.
+5. **Background Takes no Hue** — a token on every line Groups nothing.
+   It Marks the page, not a part of it. Color what Gathers some lines,
+   never what covers them all. One line alone has no Background,
+   so a token repeating inside it still Counts.
 
-6. **One Line Set, one Hue** — Tokens that Touch exactly the same Lines
-   are one Fact Wearing several Names. `.agents/skills/one-two-output/`
-   is one Home, not three Groups. They Share a Hue, and the Hues they
-   stopped Eating Stay free for what really Differs.
+6. **One Line Set, one Hue** — Tokens that touch exactly the same lines
+   are one Fact wearing several names. `.agents/skills/one-two-output/`
+   is one Home, not three groups. They Share a hue, and the hues they
+   stopped eating stay free for what really Differs.
 
-7. **Never the Emoji Trio** — Green, Red and Yellow are Spoken for.
-   ✅ Passed, ❌ Failed, ⚠️ Careful. A Group that Borrows them
-   Collides with a Meaning the Reader already Learned.
+7. **Never the Emoji Trio** — Green, Red and Yellow are spoken for.
+   ✅ Passed, ❌ Failed, ⚠️ Careful. A group that borrows them
+   Collides with a meaning the reader already learned.
 
 ## The Palette
 
@@ -63,111 +63,111 @@ are still five Shouting, now in three Tongues.
 38;5;80   Cyan      #5fd7d7
 ```
 
-256-Color, never Truecolor — it Renders everywhere,
-and it Survives a light Terminal as well as a dark one.
+256-Color, never truecolor — it Renders everywhere,
+and it Survives a light terminal as well as a dark one.
 
-Rule seven Takes the whole warm End off the Table,
-so the three Hues Come from the cool Half. That is a
-Constraint, not a Taste. The Bonus: no Pair among them
-Fails Red-Green Deficiency, because the Reserve
-already Removed the Colliding Pair.
+Rule seven Takes the whole warm end off the table,
+so the three hues Come from the cool half. That is a
+Constraint, not a taste. The Bonus: no pair among them
+fails Red-Green Deficiency, because the reserve
+already Removed the colliding pair.
 
-Blue and Cyan Sit close, and a washed-out Terminal
+Blue and Cyan Sit close, and a washed-out terminal
 can Blur them into one. Swap Cyan for `38;5;208` Orange
-if it Happens — but Orange Neighbors the ⚠️ Yellow.
+if it happens — but Orange Neighbors the ⚠️ Yellow.
 Pick your Collision.
 
-The Paper Palette in `examples/pdf/colors.go` Runs warm
-and Shares nothing with these. That is Fine.
-Paper Knows its Background; the Terminal does not.
+The paper palette in `examples/pdf/colors.go` Runs warm
+and shares nothing with these. That is Fine.
+Paper Knows its background; the terminal does not.
 
 ## The Markdown Plane
 
-ANSI never Reaches a Rendered Document, and HTML Gets Stripped.
-Markdown Carries three Marks instead of three Hues:
+ANSI never Reaches a rendered document, and HTML gets stripped.
+Markdown Carries three marks instead of three hues:
 
 ```
 **bold**   *italic*   `code`
 ```
 
-`code` is the best of them, not a Fallback — the Tokens being
-Grouped are Identifiers, so the Mark Means what it always Meant.
+`code` is the best of them, not a Fallback — the tokens being
+grouped are Identifiers, so the mark means what it always meant.
 
-One Rule Comes with it. An Identifier outside a Group Stays plain.
-Backtick every Path out of Habit and the third Mark Stops
-Meaning Group. The Mark is Spent on Grouping or on nothing.
+One rule Comes with it. An identifier outside a group Stays plain.
+Backtick every Path out of habit and the third mark stops
+meaning Group. The mark is Spent on grouping or on nothing.
 
 ### The Ceiling is what the Surface has Left
 
-Three is the Terminal's Number, because a Terminal Starts Empty.
-A Document does not. It Spends Bold on a Label and Backticks on
-a Path before Grouping ever Arrives, so the Budget is three minus
-what the Page already Owes.
+Three is the terminal's Number, because a terminal starts empty.
+A document does not. It Spends bold on a label and backticks on
+a path before grouping ever arrives, so the budget is three minus
+what the page already Owes.
 
-A Mark Carrying Emphasis cannot also Mean Group. Lay one on the
-other and both Collapse — the Reader Meets a Bold Word and cannot
-Tell whether it Matters or merely Belongs.
+A mark carrying emphasis cannot also mean Group. Lay one on the
+other and both Collapse — the reader meets a bold word and cannot
+tell whether it Matters or merely belongs.
 
-So Count what the Page Spends, then Group with the Rest.
-A Page that Bolds its Labels Groups with two. One that Bolds and
-Backticks Groups with one. A Page that Spends all three Groups
-with none, and that is the correct Answer, not a Failure.
+So count what the page Spends, then group with the rest.
+A page that bolds its labels Groups with two. One that bolds and
+backticks Groups with one. A page that spends all three Groups
+with none, and that is the correct Answer, not a failure.
 
-The Script Reads the Text and Counts for you. `--marks=N` Caps it
-lower when you Know the Page will Spend more than it Shows.
+The script Reads the text and counts for you. `--marks=N` Caps it
+lower when you know the page will spend more than it Shows.
 
 ### Why the Lines do not Move
 
-Markdown can do what a Terminal cannot: Gather Lines. A Blockquote
-Groups before any Mark Does, and it Spends no Mark to do it.
-It was Built, Tested, and Cut. The Reason is worth Keeping.
+Markdown can do what a terminal cannot: gather Lines. A blockquote
+Groups before any mark does, and it spends no mark to do it.
+It was Built, Tested, and Cut. The reason is worth Keeping.
 
-Moving a Line **is** its Mark, so the Tokens that Earned the Group
-Carry nothing. The Indent Says *these Belong* and never Says
-*by what*. The Reader Sees a Block and Asks why — the exact
-Question the Proof Warns about.
+Moving a line **is** its Mark, so the tokens that earned the group
+carry nothing. The indent says *these Belong* and never says
+*by what*. The reader Sees a block and asks why — the exact
+question the proof Warns about.
 
-And a Blockquote already Means Quotation or Aside. Borrowing it
-Rebuilds the Trap that Barred Bold and the Emoji Trio.
+And a blockquote already Means quotation or aside. Borrowing it
+Rebuilds the trap that barred bold and the Emoji Trio.
 
-The deeper Reason: Color Adds a Channel. Indentation Spends one
-Markdown already Uses. The Terminal has a free Dimension;
-a rendered Document does not.
+The deeper reason: color Adds a channel. Indentation Spends one
+Markdown already uses. The terminal has a free Dimension;
+a rendered document does not.
 
-If a Surface ever Appears with a spare structural Channel —
-Columns, a Gutter, a Margin — the Idea Returns. The Test it Needs
-is mechanical and Written down: Groups that Move must Miss each
-other and Run without a Gap. The Rest Stay put and take a Mark.
+If a surface ever Appears with a spare structural channel —
+Columns, a Gutter, a Margin — the idea Returns. The test it needs
+is mechanical and Written down: groups that move must Miss each
+other and run without a gap. The rest Stay put and take a mark.
 
 ## The Script Does the Work
 
-The Rules above are mechanical, so a Program Holds them
-better than a Model does. Do not Color by Hand — Pipe it:
+The rules above are mechanical, so a program Holds them
+better than a model does. Do not color by Hand — pipe it:
 
 ```
 your-command | python3 color.py
 ```
 
-It Reads stdin, Finds the Tokens that Repeat, Hands the first
-three a Hue, and Writes stdout. Python 3, no Dependencies.
+It Reads stdin, Finds the tokens that repeat, Hands the first
+three a hue, and Writes stdout. Python 3, no Dependencies.
 
-- `--legend` — Name the Key on stderr, so nobody Guesses it.
-- `--force` — Paint into a Pipe, for `less -R` or a Test.
-- Bare Arguments Choose the Tokens by Hand, when the Human
-  Sees a Group the Count missed. That is the Selects Half.
+- `--legend` — Name the Key on stderr, so nobody guesses it.
+- `--force` — Paint into a Pipe, for `less -R` or a test.
+- Bare arguments Choose the tokens by hand, when the human
+  sees a group the count missed. That is the Selects Half.
 
-It Passes Through untouched when stdout is not a Terminal,
-so a Pipe never Eats an Escape. `NO_COLOR` Beats `--force`:
-the Reader's standing Preference Outranks the Writer's Flag.
+It Passes through untouched when stdout is not a terminal,
+so a pipe never Eats an escape. `NO_COLOR` Beats `--force`:
+the reader's standing preference Outranks the writer's flag.
 
-A Slash Separates Tokens; a Dot, Dash, Colon or Underscore Binds them.
+A slash Separates tokens; a Dot, Dash, Colon or Underscore binds them.
 So `shape_test.go:41` Survives whole, while `.agents/skills/one-two-case`
-Splits into three — and the last of them can Rhyme with the same Name
-Standing alone on another Line. That Rhyme is the Co-occurrence.
+splits into three — and the last of them can Rhyme with the same name
+standing alone on another line. That rhyme is the Co-occurrence.
 
 ## The Proof is a Day
 
-Color one real Output by Hand, then Look at it Tomorrow.
-Found the Line faster — it Stays.
-Caught yourself Asking why this one is Blue —
-the Color Costs more than it Pays.
+Color one real Output by hand, then look at it tomorrow.
+Found the line faster — it Stays.
+Caught yourself asking why this one is Blue —
+the color Costs more than it pays.
