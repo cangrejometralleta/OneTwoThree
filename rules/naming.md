@@ -9,8 +9,8 @@
   Holds one word, because the scope says the rest.
 - Three words Fit in memory and survive a rename.
 - A construct Names the responsibility, never the vendor.  
-  *(Provisional)* `store` Says what it does;  
-  `storegorm` Says who it called.
+  *(Provisional)* `store` says what it Does;  
+  `storegorm` says who it Called.
 - A filename may Name the guest.  
   `store_gorm.go` Tells a reader where the ORM lives,  
   and no caller ever types it.

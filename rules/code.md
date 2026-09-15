@@ -34,7 +34,7 @@ func ApplyMemberRate(total, percent int) int {
 	return total - total*percent/100
 }
 
-// ReportOrderState Says how it went, at a glance.
+// ReportOrderState says how it Went, at a glance.
 func ReportOrderState(id string, total int, err error) string {
 	if err != nil {
 		return fmt.Sprintf("❌ Order %s Failed: %v", id, err)

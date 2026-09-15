@@ -4,8 +4,8 @@
 
 - A repository Carries more than it teaches.  
   `.canonignore` Says which is which.
-- `.gitignore` Says what the repository does not carry.  
-  `.canonignore` Says what it carries and does not teach.
+- `.gitignore` says what the repository does not Carry.  
+  `.canonignore` says what it Carries and does not teach.
 - Read every Path in it. Copy none.  
   Ignoring is not hiding; it is withholding Authority.
 
