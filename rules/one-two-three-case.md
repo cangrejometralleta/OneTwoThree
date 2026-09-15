@@ -23,6 +23,10 @@ Every sentence Spends one more, and only one.
 - An imperative Spends on the Entity.  
   Its verb Opens the sentence and is already free.
 
+A sentence Ends at a period, a hard break or a bullet.  
+A semicolon Joins one thought, so the budget joins with it.  
+Two clauses that wanted two capitals wanted a period.
+
 Spend fewer when fewer Carry the line.  
 One is the ceiling, never a quota.
 
