@@ -1,8 +1,8 @@
 # The Lever and the Tape
 
-- Three session Skills Stand together:
+- Three session skills Stand together:
   one Opens, one Advances, one Closes.
-  Nobody Designed a Machine; a Machine Appeared.
+  Nobody Designed a machine; a machine appeared.
 
 ```mermaid
 flowchart LR
@@ -16,17 +16,17 @@ flowchart LR
     NEXT -- "one Cell, and Stop again" --> NEXT
 ```
 
-- The Name is the Lever. A triple Chant Pulls it,
-  and the Pull is Ritual — cheap, loud, and Wanted.
-- The Handoff is the Tape. State Lives outside the Head,
-  so any Session can Read where the last one Stopped.
-- One Step per Invocation is the Head Moving one Cell.
+- The name is the Lever. A triple chant Pulls it,
+  and the pull is Ritual — cheap, loud, and wanted.
+- The handoff is the Tape. State Lives outside the head,
+  so any session can read where the last one stopped.
+- One step per invocation is the head Moving one cell.
   Read the Tape, Take the Step, Write the next Symbol, Halt.
-- Each Skill Names only the one that Follows,
-  so the three Form a Ring and not a List.
-  Walk it from any Node and you Arrive where you Started.
-- A Machine that Takes two Steps cannot be Stopped between them.
-  The Halt is what Makes the Ritual safe to Repeat.
-- The Chance is only in the Chant, never in the Transition.
-  A Lever that Surprises is a Slot Machine.
-  A Lever that Resolves is a Groove.
+- Each skill Names only the one that follows,
+  so the three form a Ring and not a list.
+  Walk it from any Node and you arrive where you started.
+- A machine that takes two steps cannot be Stopped between them.
+  The halt is what Makes the ritual safe to repeat.
+- The chance is only in the Chant, never in the transition.
+  A lever that surprises is a Slot Machine.
+  A lever that resolves is a Groove.

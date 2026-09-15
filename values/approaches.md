@@ -1,4 +1,4 @@
 # Approaches
 
-- Take it easy, We Have one Life and Share one Planet.
+- Take it Easy, we have one life and share one planet.
 - Keep it simple, stupid (KISS).

@@ -1,23 +1,23 @@
 # The Release that never Shipped
 
-- Three Release Candidates Exist in this Repository.
-  The Release they were Candidates for does not.
-- `rc.2` and `rc.3` Stand eighteen Hours apart.
-  A Candidate Refuted faster than it could Ship
-  was never a Candidate; it was a Draft with Ceremony on it.
-- The Tags now Sit fifty-five Commits behind `main`.
-  The Canon Walked off without them and nobody Noticed,
+- Three release candidates Exist in this repository.
+  The release they were candidates for does not.
+- `rc.2` and `rc.3` Stand eighteen hours apart.
+  A candidate refuted faster than it could ship
+  was never a candidate; it was a Draft with ceremony on it.
+- The tags now Sit fifty-five commits behind `main`.
+  The canon Walked off without them and nobody noticed,
   which is the whole Finding.
-- The Ritual was Inherited, and it Came with Company:
-  a `develop` Branch, a Pull Request, stale backup Refs.
-  None of it was Chosen; all of it Arrived with the Convention.
-- git already Held the Mechanism.
-  The Head is the Release, the Push is the Announcement,
-  and the Revert is the Recall.
-- The Ceremony Added a second Answer to a Question
-  that already had one, and the second Answer Aged.
-- The invented Ritual Survived and the inherited one did not.
-  Cheap, loud and Wanted Beats Correct and Borrowed.
-- The Practice Closed with one last Tag, `1.0.0`, the UNTAG.
-  A Lesson Deleted Leaves the same Room it Occupied,
-  so the last Tag Stays to Say there are no more.
+- The ritual was Inherited, and it came with company:
+  a `develop` branch, a pull request, stale backup refs.
+  None of it was chosen; all of it Arrived with the convention.
+- git already Held the mechanism.
+  The head is the Release, the push is the announcement,
+  and the revert is the Recall.
+- The ceremony Added a second answer to a question
+  that already had one, and the second answer aged.
+- The invented ritual Survived and the inherited one did not.
+  Cheap, loud and Wanted Beats correct and borrowed.
+- The practice Closed with one last tag, `1.0.0`, the UNTAG.
+  A lesson deleted Leaves the same room it occupied,
+  so the last tag Stays to say there are no more.

@@ -1,17 +1,17 @@
 # The Program is a Song
 
-- A Song does not Explain its Chords,
-  it just Plays them.
-- The Libretto Names what Happens,
+- A song does not Explain its chords,
+  it just plays them.
+- The libretto Names what happens,
   never how.
-- A Reader Should Follow the whole Plot
-  before Opening one Provider.
-- Every Layer Speaks one Language.
-  The Script Speaks Business,
-  the Provider Speaks Machine and nothing else.
-- Mixing the two in one Unit
-  is the Missing Abstraction, Heard.
-- Naur Called it the Theory of the Program.
-  A Script is that Theory.
-- Code that Reads as Narration
-  Outlives its Author.
+- A reader should Follow the whole plot
+  before opening one provider.
+- Every layer Speaks one language.
+  The script Speaks business,
+  the provider Speaks machine and nothing else.
+- Mixing the two in one unit
+  is the missing Abstraction, heard.
+- Naur Called it the theory of the program.
+  A script is that Theory.
+- Code that reads as narration
+  Outlives its author.

@@ -1,7 +1,7 @@
 # Honor the Silence
 
-- The Pocket Lives in the Notes you do not Play.
-- Do not Fill every Space.
+- The pocket Lives in the notes you do not play.
+- Do not fill every Space.
 - Silence is never Empty,
-  it Frames the Sound that was always There.
-- Stillness Sees what Pushing Misses.
+  it Frames the sound that was always there.
+- Stillness Sees what pushing misses.

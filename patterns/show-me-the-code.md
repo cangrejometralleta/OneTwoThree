@@ -3,13 +3,13 @@
 - *Talk is cheap. Show me the code.*  
   Linus Torvalds, linux-kernel, 25 August 2000.
 - It was not a Slogan. It was an Answer.  
-  Someone Proposed a Change to the Kernel and Shipped no Patch.
-- A Manifesto Runs the same Risk, and Runs it Louder.  
-  A Rule about Elegance is a Proposal until something Compiles.
-- Two Things Can be Wrong: the Prose or the Practice.  
-  Only Running Code Says which.
-- The Rule Written and never Run is a Preference wearing a Uniform.
-- Prose Persuades a Reader. Code Persuades a Machine,  
-  and the Machine Cannot be Flattered.
-- Ship the Verse and the Proof in one Repository.  
-  A Reader who Doubts a Line can Run it.
+  Someone Proposed a change to the kernel and shipped no patch.
+- A manifesto Runs the same risk, and runs it louder.  
+  A rule about elegance is a Proposal until something compiles.
+- Two things can be Wrong: the prose or the practice.  
+  Only running code Says which.
+- The rule written and never run is a Preference wearing a uniform.
+- Prose Persuades a reader. Code Persuades a machine,  
+  and the machine cannot be flattered.
+- Ship the Verse and the proof in one repository.  
+  A reader who doubts a line can Run it.

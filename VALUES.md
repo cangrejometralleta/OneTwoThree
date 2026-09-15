@@ -1,59 +1,59 @@
 # Values
 
-- This Document Can Be a Fun Read  
-  while Listening to Hip-Hop,  
-  Pop or R&B Music,  
+- This document can be a fun Read  
+  while listening to hip-hop,  
+  pop or R&B music,  
   Remember that.
-- AI and Humans Can Interact  
-  in the same Language nowadays.
-- Elegance Comes from Simplicity,  
-  both Feel Natural to us Humans.
+- AI and humans can Interact  
+  in the same language nowadays.
+- Elegance Comes from simplicity,  
+  both feel natural to us humans.
 - Minimalism here is not a Style.  
-  Autistic Burnout Taught the Limit,  
-  and Living it Came before Writing it.
+  Autistic burnout Taught the limit,  
+  and living it Came before writing it.
 - One is the Minimum  
-  Number of Items  
-  to Hold in Mind at a Time.
+  number of items  
+  to hold in mind at a time.
 - Three is the Unit  
-  of minimum Complexity,  
-  with maximum Relational Richness.
-- Three is the ideal maximum Number of Items  
-  to Hold in Mind at the same Time.
-- When Expressing Yourself,  
+  of minimum complexity,  
+  with maximum relational richness.
+- Three is the ideal maximum Number of items  
+  to hold in mind at the same time.
+- When expressing yourself,  
   Use the least meaningful Words possible.
 - What you Depend on  
-  Should stay a Choice you can Unmake.
-- A Line should Not be very Long  
-  and still be Readable.
-- Reading a Line should  
-  Take You a Heartbeat.
-- Groovy Music Follows  
-  the Heartbeat Rhythm.
-- Reading and Writing  
-  your Code under this Principle  
-  Gives it a better Rhythm.
-- Now Development is Poetry,  
-  and Debugging is Rapping.
+  should stay a Choice you can unmake.
+- A line should not be very Long  
+  and still be readable.
+- Reading a line should  
+  take you a Heartbeat.
+- Groovy music Follows  
+  the heartbeat rhythm.
+- Reading and writing  
+  your code under this principle  
+  Gives it a better rhythm.
+- Now development is Poetry,  
+  and debugging is Rapping.
 - Live it first, Name it later.  
-  A Concept named too early  
-  Freezes what you had not yet Felt.
-- Saying it out loud is how a Story gets Built.  
-  Spoken, a Divergence is your Narrative;  
+  A concept named too early  
+  Freezes what you had not yet felt.
+- Saying it out loud is how a Story gets built.  
+  Spoken, a divergence is your Narrative;  
   Silent, it is someone else's Bug.
 - Agreement Teaches nothing.  
   Ask for the Objection,  
-  and Ask it to be specific.
+  and ask it to be specific.
 - For emotionally significant Exchanges,  
   choose in-person over written.  
-  Text loses what those Exchanges need.
-- Color is an Index, not Decoration.  
-  A Hue Groups what it Marks,  
-  and the Grouping itself carries Meaning.
-- Name the Movement, not the Quantity.  
-  OneTwoThree Walks the Count,  
+  Text Loses what those exchanges need.
+- Color is an Index, not decoration.  
+  A hue Groups what it marks,  
+  and the grouping itself Carries meaning.
+- Name the Movement, not the quantity.  
+  OneTwoThree Walks the count,  
   Three only Holds it still.
 
 ## The Why, Divided
 
-- [Principles](values/principles.md) — the Beliefs that Derive from Three.
+- [Principles](values/principles.md) — the beliefs that Derive from Three.
 - [Approaches](values/approaches.md) — how to Hold it, lightly.
