@@ -84,6 +84,70 @@ The client Owns discovery; this skill owns the local connection to it.
 - If a client cannot consume the canonical Format, report the incompatibility
   before generating anything.
 
+## Installation Rules
+
+An Install Writes more than links. These Considerations Come from installs
+that Looked correct and still Broke something quiet.
+
+### A Link is not a Directory
+
+`/.agents/` Matches a real directory and never a symbolic Link.
+The Trailing slash is the whole Bug: the day `.agents` Becomes a link,
+that Pattern Stops matching and the cache Starts being carried.
+
+Drop the Slash for every Entrance that is a link, and Check every
+ignore File the project has, not only `.gitignore`:
+
+```text
+.gitignore       the Repository does not Carry the cache
+.dockerignore    the Image does not Need it
+.gcloudignore    the Deploy does not Upload it
+```
+
+A missed Line in a deploy ignore Ships the canon and its `.git`
+in every Build. Verify with `git check-ignore`, never by Reading the file.
+
+### The Copy Forgets where it Came from
+
+A sparse Clone Knows its head; a flat Copy Knows nothing.
+When an install Removes the clone, `AGENTS.md` Must record the Address
+and the exact Commit the copy was Taken from, because nothing else can:
+
+```text
+https://github.com/cangrejometralleta/OneTwoThree.git   branch: main
+5f3e6ec7e20723449f4a03e079ba240af2f1af76                2026-09-16
+```
+
+Say in the same Note that the copy is a Fork until the clone Returns —
+[The Head is the Canon](../../../rules/the-head-is-the-canon.md)
+Asks for the head and Accepts no older commit.
+
+### Restore before you Reshape
+
+An install that Rewrites the root may Delete the two files the repository
+actually Carries, `AGENTS.md` and its `CLAUDE.md` link.
+Read `git status` before Writing anything. A `D` on either one is Loss,
+and the Commit is the only Copy left.
+Restore first, Reshape second, and never in one Step.
+
+### The Minimal Copy Starves the Agent
+
+Trimming the canon to what the Skills Reference is Measurable:
+walk every `SKILL.md` and agent File, collect each `rules/`, `values/`
+and `patterns/` Link, then Close the set over what those files Link to.
+
+The Count is the warning. The Rules barely Shrink, because the skills
+Cite almost all of them. The Patterns Collapse to one, and the Values
+to none — and that is Wrong, not efficient.
+
+An agent whose Job is to name the Pattern Needs the patterns present
+even when no Link points at them. Reference counting Sees the skill's
+citations and Misses the agent's reading. Trim the Rules if the count
+Earns it; Keep `values/` and `patterns/` whole.
+
+The three Indexes Link to every body. A pruned Body leaves a broken
+index Link, so a trim that Skips the indexes is not a trim but a Break.
+
 ## Verification
 
 The filesystem check Proves the entrance:
