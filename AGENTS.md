@@ -8,7 +8,7 @@ A rule read from an older commit is a Fork, not a version.
 
 [Rules](RULES.md) Holds the How — read it first.
 It Governs how an agent should read and write here,
-including OneTwoThreeCase and the cadence it asks to be read in.
+including OneTwoCase and the cadence it asks to be read in.
 
 [Values](VALUES.md) Holds the Why.
 [Patterns](PATTERNS.md) Holds the Where.

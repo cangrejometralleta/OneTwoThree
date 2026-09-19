@@ -12,7 +12,7 @@
 ## The Rules
 
 - [The Head is the Canon](rules/the-head-is-the-canon.md) — no tag, no release, no Fork.
-- [OneTwoThreeCase](rules/one-two-three-case.md) — the typographic Convention.
+- [OneTwoCase](rules/one-two-case.md) — the typographic Convention.
 - [Reading this Repository](rules/reading-this-repository.md) — how to Read it.
 - [Canonignore](rules/canonignore.md) — carried, and not Taught. *(Provisional)*
 - [Search](rules/search.md) — three narrow Queries.

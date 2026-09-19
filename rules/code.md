@@ -60,7 +60,7 @@ func BuildOrderReceipt(id string, items []Item, percent int) string {
 - Every name Follows **Verb + Noun + context**.
 - Every function Owns one concern and returns it.
 - The emoji Lives in output, never in a name.
-- Comments Follow OneTwoThreeCase too.
+- Comments Follow OneTwoCase too.
 - BuildOrderReceipt Spends eight lines  
   on three beats.
 - Every name here Counts five syllables.

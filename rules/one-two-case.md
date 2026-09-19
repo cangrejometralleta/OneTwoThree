@@ -1,4 +1,4 @@
-# OneTwoThreeCase
+# OneTwoCase
 
 A capital Marks where you would raise your voice.  
 One to a sentence, and the sentence Says which one.
@@ -120,8 +120,8 @@ Case there Belongs to the language, and the language Decides.
 ## Count the Name
 
 - Read the name as you would Count it.  
-  One. Two. Three. Case.
-- Four words, four beats, one per Breath.  
+  One. Two. Case.
+- Three words, three beats, one per Breath.\
   Rushed into one word, the cadence Dies.
 - Say it slow enough to hear the Seams,  
-  and OneTwoThreeCase Teaches its own rule.
+  and OneTwoCase Teaches its own rule.

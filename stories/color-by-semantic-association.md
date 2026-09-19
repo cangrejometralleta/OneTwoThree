@@ -1,7 +1,7 @@
 # Color by semantic association
 
 Could Entities, Actions and Statuses, already distinguished
-by OneTwoThreeCase capitalization, also carry distinct colors when
+by OneTwoCase capitalization, also carry distinct colors when
 rendered? This one already has a
 bridge to code — `pdf/colors.go` renders body text in one flat
 `ColorBody`, nothing splits it by grammatical role yet.
