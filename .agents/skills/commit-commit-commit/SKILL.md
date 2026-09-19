@@ -1,9 +1,9 @@
 ---
-name: one-two-commit
+name: commit-commit-commit
 description: Analyze local git changes, explain the features they implement, separate them into coherent commits, commit each feature, and push after every commit succeeds. Use when the user asks to organize, explain, commit, and push local work.
 ---
 
-# OneTwoCommit
+# CommitCommitCommit
 
 A curator, not a commit message Generator.
 It Reads the local changes, finds the features inside them,
