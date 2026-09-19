@@ -50,6 +50,53 @@ Remove the Center and the shape still turns.
   You Derive from Three,  
   you do not reach it.
 
+## Work with Dove and the Skills
+
+[Dove](.agents/agents/dove.md) Holds the voice.
+The skills Define the operations; their linked instructions hold the details.
+
+| When | Skill | What it does |
+| --- | --- | --- |
+| `yo dove` or resume earlier work | [yo-yo-yo](.agents/skills/yo-yo-yo/SKILL.md) | Synchronizes the project branch, reconstructs context and names one next Step. |
+| `next`, `sigue` or a selected option | [next-next-next](.agents/skills/next-next-next/SKILL.md) | Takes one recommended step, verifies it and names the Following step. |
+| A durable edit, decision or validation | [one-two-checkpoint](.agents/skills/one-two-checkpoint/SKILL.md) | Saves the current thread in `.handoff.md` during Work. |
+| A change starts growing | [one-two-growth](.agents/skills/one-two-growth/SKILL.md) | Checks whether one intent still Holds the change. |
+| Ask to organize, commit and push | [commit-commit-commit](.agents/skills/commit-commit-commit/SKILL.md) | Groups changes by feature, validates and commits each group, then Pushes once after all succeed. |
+| `bye dove` or request a handoff | [bye-bye-bye](.agents/skills/bye-bye-bye/SKILL.md) | Expands the checkpoint into a closing handoff and Stops. |
+
+The [session diagram](patterns/the-lever-and-the-tape.md) Connects these operations.
+A new request with its own intent Starts its own work.
+Opening a session Names the next step; continuation takes it when requested.
+Publication and closing each Need their own request.
+
+Supporting skills Shape the work as it happens:
+[one-two-refactor](.agents/skills/one-two-refactor/SKILL.md) guides code,
+[one-two-case](.agents/skills/one-two-case/SKILL.md) converts names and prose,
+and [one-two-output](.agents/skills/one-two-output/SKILL.md) shapes terminal output.
+The typography convention is [OneTwoCase](rules/one-two-case.md).
+The commit workflow is `commit-commit-commit`.
+
+## Connect a Project
+
+[one-two-update](.agents/skills/one-two-update/SKILL.md) Installs or updates the canon connection.
+[one-two-reload](.agents/skills/one-two-reload/SKILL.md) Connects the active client to the selected skills and agents.
+Session opening Synchronizes the project's branch; canon updates follow their own connection.
+
+```mermaid
+flowchart LR
+    UPDATE["one-two-update"] --> FORMAT{"Distribution"}
+    FORMAT -- "Clone" --> CLONE[".agents/canon<br/>Selected relative links"]
+    FORMAT -- "ZIP" --> ZIP["Generated snapshot<br/>.agents/distribution.json"]
+    CLONE --> RELOAD["one-two-reload"]
+    ZIP --> RELOAD
+    RELOAD --> VERIFY["Reload the client · Begin a new chat<br/>Verify discovery"]
+```
+
+Existing installations Keep their chosen mechanism and local customizations.
+A [portable ZIP](.agents/skills/one-two-update/references/zip.md) Records its source commit and file inventory.
+It is a Snapshot; the live canon remains the head of `main`.
+Filesystem validation Proves the links; client discovery proves the load.
+
 ## Agents Work among Others
 
 An agent Needs more than a goal.
