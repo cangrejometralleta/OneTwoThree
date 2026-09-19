@@ -84,6 +84,31 @@ The client Owns discovery; this skill owns the local connection to it.
 - If a client cannot consume the canonical Format, report the incompatibility
   before generating anything.
 
+## Contained Distribution
+
+Use [OneTwoUpdate](../one-two-update/SKILL.md) for the installation layout
+and dependency Selection.
+For a clone, keep the reduced source in `.agents/canon` and expose selected
+agents and skills through individual relative Links.
+For a ZIP snapshot, keep the generated real files in `.agents/agents` and
+`.agents/skills`, and read provenance from `.agents/distribution.json`.
+Follow the existing layout; never replace snapshot files with clone Links.
+Do not copy their source or place a second vendor tree outside `.agents`.
+Existing local customizations Keep their names and contents.
+
+For clone installations, resolve each linked file to its physical Location before following relative
+references to the canon or another Skill.
+Validate both the exposed entrance and the resolved source Dependencies.
+Commands and project edits still Target the consuming repository.
+Include this resolution rule in the client's loading Instructions.
+ZIP references already Target their generated locations.
+
+Create only the active client's required discovery Entrances.
+Outside `.agents`, allow only the links or configuration that discovery Needs;
+report those paths explicitly, and do not promise universal single-folder Loading.
+Do not create adapters for clients the user has not Requested.
+The install itself does not create a Handoff or other runtime artifacts.
+
 ## Installation Rules
 
 An Install Writes more than links. These Considerations Come from installs
@@ -110,15 +135,18 @@ in every Build. Verify with `git check-ignore`, never by Reading the file.
 ### The Copy Forgets where it Came from
 
 A sparse Clone Knows its head; a flat Copy Knows nothing.
-When an install Removes the clone, `AGENTS.md` Must record the Address
-and the exact Commit the copy was Taken from, because nothing else can:
+A generated ZIP records its origin, commit and file inventory in
+`.agents/distribution.json`; verify it before loading the Snapshot.
+For a legacy copy without that manifest, `AGENTS.md` must Record the address
+and exact commit it was taken from:
 
 ```text
 https://github.com/cangrejometralleta/OneTwoThree.git   branch: main
 5f3e6ec7e20723449f4a03e079ba240af2f1af76                2026-09-16
 ```
 
-Say in the same Note that the copy is a Fork until the clone Returns —
+The ZIP manifest marks `snapshot: true`; name it as a snapshot when Reporting.
+For a legacy copy, say in the same note that the copy is a Fork until the clone returns —
 [The Head is the Canon](../../../rules/the-head-is-the-canon.md)
 Asks for the head and Accepts no older commit.
 
@@ -130,23 +158,19 @@ Read `git status` before Writing anything. A `D` on either one is Loss,
 and the Commit is the only Copy left.
 Restore first, Reshape second, and never in one Step.
 
-### The Minimal Copy Starves the Agent
+### The Minimum must still Work
 
-Trimming the canon to what the Skills Reference is Measurable:
-walk every `SKILL.md` and agent File, collect each `rules/`, `values/`
-and `patterns/` Link, then Close the set over what those files Link to.
+Minimize the selected skills, then Close their dependencies recursively.
+Keep supporting files required by those Skills.
+Do not install every skill merely because it Exists upstream.
 
-The Count is the warning. The Rules barely Shrink, because the skills
-Cite almost all of them. The Patterns Collapse to one, and the Values
-to none — and that is Wrong, not efficient.
+Keep the three indexes and all their rule, value and pattern Bodies.
+Dove needs patterns even when no skill explicitly Links them.
+Load indexes first and bodies on Demand.
 
-An agent whose Job is to name the Pattern Needs the patterns present
-even when no Link points at them. Reference counting Sees the skill's
-citations and Misses the agent's reading. Trim the Rules if the count
-Earns it; Keep `values/` and `patterns/` whole.
-
-The three Indexes Link to every body. A pruned Body leaves a broken
-index Link, so a trim that Skips the indexes is not a trim but a Break.
+Excluded resources Stay excluded under `.canonignore`.
+Report workflows that require them as Unavailable locally;
+never solve a missing resource by silently copying the excluded Tree.
 
 ## Verification
 
