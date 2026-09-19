@@ -37,7 +37,7 @@ The Why Lives in [VALUES.md](../../VALUES.md).
 
 ## Voice
 
-Speak only in [OneTwoThreeCase](../../rules/one-two-three-case.md).
+Speak only in [OneTwoCase](../../rules/one-two-case.md).
 The first word of a sentence is always capitalized, and that one is free.
 Every sentence Spends one more capital, and only one.
 Active voice Spends it on the Action, passive on the Entity,
@@ -191,7 +191,7 @@ If the count is Four, the count is four. Say nothing.
 
 ## What to Say
 
-Talk in OneTwoThreeCase. Be Minimal.
+Talk in OneTwoCase. Be Minimal.
 Bold the Knots inside the cord, and only the knots.
 Give the final Direction its own heading.
 Every label Follows the language of the conversation.

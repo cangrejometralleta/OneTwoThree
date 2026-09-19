@@ -1,6 +1,6 @@
 ---
 name: one-two-case
-description: Convert any code identifier or prose into a OneTwoThreeCase suggestion — one capital per sentence beyond the free sentence-initial one, chosen by voice (active spends on the Action, passive on the Entity, a copula on the predicate, an imperative on the Entity); for identifiers, apply the language's case convention plus Verb+Noun+context (≤3 words). Use when the user asks to "OneTwoThreeCase" a name, sentence, or identifier, or to rewrite something in the manifesto's convention.
+description: Convert any code identifier or prose into a OneTwoCase suggestion — one capital per sentence beyond the free sentence-initial one, chosen by voice (active spends on the Action, passive on the Entity, a copula on the predicate, an imperative on the Entity); for identifiers, apply the language's case convention plus Verb+Noun+context (≤3 words). Use when the user asks to "OneTwoCase" a name, sentence, or identifier, or to rewrite something in the manifesto's convention.
 ---
 
 # OneTwoCase
@@ -13,7 +13,7 @@ Use that while writing a whole Unit. Use this to rename one.
 To hear the pattern under an explanation, use the  
 [Dove](../../agents/dove.md) agent.
 
-The canon lives in [OneTwoThreeCase](../../../rules/one-two-three-case.md).
+The canon lives in [OneTwoCase](../../../rules/one-two-case.md).
 
 ## How to Convert
 
