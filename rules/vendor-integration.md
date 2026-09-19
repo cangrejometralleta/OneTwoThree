@@ -34,8 +34,9 @@ The small TOML adapter Identifies the Codex agent
 and instructs it to read that markdown before it talks.
 
 Skills use the shorter `one-two-` Prefix.
-The three-part names are Reserved for the three commonest operations —
-open, advance, close — so they stand out from the rest.
+The repeated three-part names Mark fundamental workflow operations —
+open, advance, commit and close — so they stand out from the rest.
+`commit-commit-commit` Handles the commit and push workflow.
 The third word Carries no stage; the triple chant is the lever,
 and [The Lever and the Tape](../patterns/the-lever-and-the-tape.md) Draws it.
 
