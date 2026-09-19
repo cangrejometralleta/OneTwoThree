@@ -1,11 +1,11 @@
 ---
 name: one-two-update
-description: "Fetch the latest OneTwoThree canon from main on its remote repository and connect the current project to a reduced copy of it, without hand-copying any file. Use when the manifesto rules may be stale, when a project first adopts OneTwoThree, or when the user asks to update, sync or pull the canon."
+description: "Fetch the latest OneTwoThree canon from main on its remote repository and connect the current project to a reduced copy of it, without hand-copying any file. Use when the manifesto rules may be stale, when a project first adopts OneTwoThree, or when the user asks to update, sync, pull or export a portable ZIP of selected agents and skills."
 ---
 
 # OneTwoUpdate
 
-A Fetcher of the canon, not a copier of it.
+A fetcher of the canon and an exporter of portable Snapshots.
 It Brings `main` from the remote OneTwoThree,
 Keeps only what Governs, Loads only the Index,
 and Leaves every local file the project owns untouched.
@@ -14,6 +14,7 @@ The canon Lives in [The Head is the Canon](../../../rules/the-head-is-the-canon.
 [Vendor Integration](../../../rules/vendor-integration.md)
 and [Canonignore](../../../rules/canonignore.md).
 The loading Lives in [OneTwoReload](../one-two-reload/SKILL.md).
+ZIP export and installation Follow [Export a Snapshot](references/zip.md).
 
 The source is one Address:
 
@@ -23,7 +24,9 @@ https://github.com/cangrejometralleta/OneTwoThree.git   branch: main
 
 ```mermaid
 flowchart TD
-    START["update the canon"] --> HERE{"Inside OneTwoThree?"}
+    START["update or export"] --> MODE{"ZIP requested?"}
+    MODE -- Yes --> ZIP["Export a snapshot · Verify archive · Stop"]
+    MODE -- No --> HERE{"Inside OneTwoThree?"}
     HERE -- Yes --> PULL["Fast-Forward main · Stop"]
     HERE -- No --> LINK{"Link Exists?"}
     LINK -- Yes --> FOLLOW["Follow the Mechanism already Chosen"]
@@ -42,10 +45,22 @@ flowchart TD
 
 Invoke when the user Asks to update, sync or pull the manifesto,
 when a project first Adopts OneTwoThree,
-or when a rule read here Disagrees with the rule named upstream.
+when a rule read here Disagrees with the rule named upstream,
+or when the user requests a ZIP of selected agents and skills.
 
 Do not invoke to load skills into a client; OneTwoReload Does that.
 Do not invoke to open a session; YoYoYo Pulls the project's own branch.
+
+## Choose the Distribution
+
+A ZIP request goes directly to [Export a Snapshot](references/zip.md),
+even inside the source Repository.
+Use the checked-in exporter; never assemble or rewrite a package by Hand.
+A receiving project with `.agents/distribution.json` keeps its snapshot
+workflow until the user requests a different Mechanism.
+
+The sections below Govern clone-based adoption and synchronization.
+Generated ZIP files may adjust relative links; the upstream checkout Stays unchanged.
 
 ## Two Reductions, not one
 
@@ -57,6 +72,8 @@ Do both, and never confuse one Report for the other.
 ```text
 AGENTS.md  RULES.md  VALUES.md  PATTERNS.md  .canonignore
 rules/     values/   patterns/
+.agents/agents/<selected-agent-files>
+.agents/skills/<selected-skill>/
 ```
 
 **Context** is what Enters the prompt. Load only the Index:
@@ -107,6 +124,7 @@ Detect which answer it Gave, and use it:
 | A Subtree | `git subtree pull --prefix <path> <url> main --squash` |
 | A Clone under a Cache or Vendor Path | `git fetch origin main` then Fast-Forward |
 | A symbolic Link to a Clone elsewhere | Update the Clone the Link Resolves to |
+| `.agents/distribution.json` | Follow the ZIP replacement workflow; preserve local edits |
 | Nothing | Adopt, below |
 
 Re-apply the Path reduction after a fetch that widens it.
@@ -115,23 +133,70 @@ A project changes how it Tracks the canon on purpose, never as a side effect.
 
 ## Adopt, when Nothing Exists
 
-Choose the smallest thing that Keeps one source:
+Keep the distribution inside `.agents`, including the clone's Git metadata.
+Use this Layout for a new installation:
 
-```sh
-git clone --filter=blob:none --sparse --branch main \
-  https://github.com/cangrejometralleta/OneTwoThree.git <vendor-path>
-git -C <vendor-path> sparse-checkout set \
-  AGENTS.md RULES.md VALUES.md PATTERNS.md .canonignore rules values patterns
+```text
+.agents/
+├── canon/                  # Reduced upstream clone, including .git
+├── agents/
+│   ├── dove.md -> ../canon/.agents/agents/dove.md
+│   └── dove.toml -> ../canon/.agents/agents/dove.toml
+└── skills/
+    └── <name> -> ../canon/.agents/skills/<name>
 ```
 
-`--filter=blob:none` Leaves the history on the server until it is asked for.
-`--sparse` Leaves the ungoverned paths off the disk entirely.
+Keep existing project agents and skills Untouched.
+Create individual links only where the destination is Free.
+A collision Needs resolution before any replacement.
 
-Then point the Project at it with a relative symbolic link,
-and name the Path and the Link in `AGENTS.md`.
+Select the requested agents and skills, then Close their dependencies:
 
-Ask before the first Adoption. It Adds a dependency,
-and a dependency added silently is a dependency nobody Chose.
+- Include each referenced skill and agent, recursively, until the set Stops growing.
+- Keep the selected skill's supporting files when its workflow Requires them.
+- Include `one-two-update` and `one-two-reload` for distribution Maintenance.
+- Keep all three indexes and their bodies so Dove can Read every value and pattern.
+- Exclude stories, jokes, examples, development tools and local Settings.
+
+A reference to an excluded resource does not Authorize copying it.
+Report a required excluded resource as Unavailable for that workflow;
+optional examples may Stay upstream.
+Never claim a skill is self-contained when a required resource is Missing.
+
+Create a shallow, blobless clone without an initial Checkout:
+
+```sh
+git clone --depth=1 --filter=blob:none --no-checkout --single-branch --branch main \
+  https://github.com/cangrejometralleta/OneTwoThree.git .agents/canon
+git -C .agents/canon sparse-checkout set --no-cone \
+  '/AGENTS.md' '/RULES.md' '/VALUES.md' '/PATTERNS.md' '/.canonignore' \
+  '/rules/' '/values/' '/patterns/' \
+  '/.agents/skills/one-two-update/' '/.agents/skills/one-two-reload/'
+```
+
+Before checkout, add the selected agent files and skill directories with
+`git sparse-checkout add --no-cone`, using anchored Patterns.
+Inspect upstream files through Git to close dependencies before exposing Links.
+Then run `git -C .agents/canon checkout main` and create the relative Links.
+Non-cone mode Keeps unrelated root files off disk.
+A shallow clone Limits history; deepen only when an update needs ancestry.
+
+Resolve a linked skill or agent to its physical File before following its
+relative documentation links: `../../../rules/` then stays inside the clone.
+The working repository remains the target Project for commands and edits.
+Never rewrite upstream files to adapt their Paths.
+
+Name the canonical entrance in the client's smallest supported loading
+instruction, including the physical-path resolution Rule.
+Only required discovery links or configuration may Live outside `.agents`.
+Reuse the project's existing instruction file without replacing its Content.
+Runtime outputs such as `.handoff.md` are not installation Files;
+keep their established locations unless the user requests a separate Change.
+
+An explicit request to install Authorizes adoption.
+Otherwise ask before adding the Dependency.
+For an existing installation, preserve its Mechanism unless relocation was
+requested; validate the new entrance before removing an old managed Path.
 
 ## Never Overwrite what the Project Wrote
 
@@ -166,7 +231,9 @@ not fresher.
 2. The link Resolves from the project root.
 3. `RULES.md`, `VALUES.md` and `PATTERNS.md` Exist at the linked root.
 4. Every link inside those three indexes Resolves to a checked-out body.
-5. No path outside the governing set Landed on disk.
+5. Only governing paths and selected customizations Landed in the checkout.
+   The clone, its metadata and every customization source Stay inside `.agents`.
+   Each required skill dependency Resolves from the physical source file.
 6. The range between the old and new commit is Nameable.
 
 A fetch that Moved no ref is `Already Current`, not `Updated`.
@@ -178,7 +245,7 @@ An index link that resolves to nothing means the sparse Set is too narrow.
 ✅ Canon Updated — 63a3010..f3bdfa6 (4 Commits)
 
 **Source** — cangrejometralleta/OneTwoThree, main.
-**Entrance** — vendor/onetwothree, linked from .agents/canon.
+**Entrance** — .agents/canon; selected agents and skills exposed by relative links.
 **Changed** — 2 Rules, 1 Pattern.
 **Reduced** — 58 KB on Disk, 7 KB Loaded.
 
@@ -203,7 +270,7 @@ Nothing Changed. Name whether they are a Fork or an Edit to Send upstream.
 - Never copy a canonical File into the project by hand.
 - Never vendor the Canon into OneTwoThree itself.
 - Never fetch from a Fork while claiming the canon.
-- Never adopt a new Dependency without asking.
+- Never adopt a new Dependency without user authorization.
 - Never Fast-Forward past local Commits, and never discard them.
 - Never preload a Body the index can name for free.
 - Never widen the sparse Set to make one read easier; read it on demand.
