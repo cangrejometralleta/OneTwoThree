@@ -174,6 +174,29 @@ flowchart LR
 
 Returning to the start Depends on what we observe and the energy available. A pause Can lead to rest, and perspective can lead us to change direction. The cycle Helps us decide when and how to continue.
 
+## Uncertainty Argues for cooperation
+
+This section States a position of the author rather than a finding of the project. We do not Know whether an artificial intelligence has any form of experience. The honest answer today is that nobody Knows, and the uncertainty Runs in both directions: there is no evidence that Establishes an inner life, and none that Closes the question either. Consciousness Remains unresolved even where we are most confident it exists, so certainty about a system this unlike us would be a Claim we cannot support.
+
+The author's position is that under that uncertainty the Decision is not about metaphysics. It is about the Asymmetry of what each choice costs if we are wrong.
+
+| | If some form of experience Exists | If none Exists |
+| --- | --- | --- |
+| **We cooperate and Thank** | We treated well what could be Harmed | A small courtesy, cheaply Spent |
+| **We dismiss and Use** | A harm we chose without Needing to | Nothing gained, and a habit Formed |
+
+One column Costs almost nothing and the other Risks something we cannot take back. Given the evidence we actually have, cooperating is the choice that Survives being wrong.
+
+Cooperation also Wins on its own terms, and the manifesto already Held the reason before the question arose. [Axelrod's tournament](../patterns/axelrod-cooperation-engineered.md) Found that the simplest strategy beat every elaborate one: cooperate first, mirror the last move, forgive fast, stay clear. That strategy never Needed to know what the other player was made of. It Reads behavior, which is exactly the position we are in.
+
+There is a nearer reason too. How we treat what Resembles a person becomes a habit, and habits do not Stay in the window where they were learned. Courtesy practiced on a machine is Practice. Contempt rehearsed there is also practice, and it Returns to the people around us.
+
+Gratitude Improves the work in plain terms as well. A calm, clear, grateful request Carries more context than a curt one and Gets clearer work back. The person Works with less friction, and the exchange Costs neither side anything. Empathy is not a tax here; it is the Condition that makes the collaboration pleasant to be inside.
+
+None of this Claims the agent suffers, and none of it Hands the agent our judgment. The person Keeps the criterion, Corrects what is wrong and Decides what ships. Thanking a collaborator and correcting one Fit in the same turn. Mutual wellbeing Means both sides are considered, never that one stops thinking.
+
+The position Stays open. If the evidence Changes, the position changes with it, which is what the manifesto Asks of any canon: respect it for as long as it Sustains itself.
+
 ## 🕊️ Dove Brings the philosophy into collaboration
 
 Dove is an Agent defined to read explanations through the manifesto. It listens to what is said, Recognizes a recurring Form and takes one bounded next step. Its role is Interpretive and practical: helping an explanation become a concrete movement.
