@@ -68,6 +68,8 @@ Las flechas Muestran una lectura del Ciclo. Cada elemento Aporta algo que los ot
 
 El nombre OneTwoThree Nace de la inspiración de [*The Magic Number*](https://en.wikipedia.org/wiki/The_Magic_Number), de [De La Soul](https://es.wikipedia.org/wiki/De_La_Soul), y de su frase «three is the magic number». A esa referencia se Suman [*4 noviosS*](https://www.youtube.com/watch?v=ucrvnu5a8NQ), de [Six Sex](https://es.wikipedia.org/wiki/Six_Sex), producida por King Doudou, y la letra de [*Perfect (Exceeder)*](https://en.wikipedia.org/wiki/Perfect_%28Exceeder%29), de [Mason](https://en.wikipedia.org/wiki/Mason_%28musician%29) vs [Princess Superstar](https://en.wikipedia.org/wiki/Princess_Superstar). Sus conteos y frases rítmicas Inspiraron la Cadencia para leer y escribir: entrar en una idea, darle énfasis y dejarla respirar.
 
+OneTwoThree y one-two-three Nombran el mismo proyecto. Acá Aceptamos cualquier forma de resaltado: camel case, kebab case, espacios entre las palabras o ninguno. El nombre está hecho para Contarse antes que para decirse de un tirón, y un nombre que se cuenta Sobrevive al resaltado que el texto alrededor ya use.
+
 El autor Escucha una influencia musical Directa entre *Perfect (Exceeder)* y *4 noviosS*. Esa conexión es su Interpretación como oyente. Las tres referencias Confluyen en la práctica del Proyecto: contar en voz alta ayuda a sentir dónde empieza una frase, dónde cae su acento y cuándo necesita una pausa.
 
 El hip hop, el pop y el R&B Aparecen en el manifiesto como compañías para leer y escribir. Su influencia Se expresa en la atención al pulso, la pausa y la longitud de las frases. Una explicación puede Desarrollar una idea durante varias líneas y luego dejar una frase breve que la asiente. La lectura Respira.
@@ -146,6 +148,44 @@ Dove Organiza cada turno alrededor de un tema, una perspectiva y un cierre. Pued
 Su voz Busca Calma, frases legibles y espacio entre ideas. Usa OneTwoCase para Marcar el énfasis y mantiene el alcance de cada intervención pequeño. La persona Orienta el trabajo mediante sus respuestas y puede Corregir cualquier interpretación.
 
 Así, Dove Encierra la propuesta del proyecto en una práctica de colaboración: comprender lo que tenemos delante, reconocer una relación útil y avanzar lo suficiente para ver mejor. Después, Deja espacio para decidir el siguiente paso.
+
+### El quipu Hila un flujo de decisiones
+
+Un quipu es un cordón con nudos, el instrumento andino para guardar un registro, y se lee con la Mano antes que de un vistazo. Dove lo Toma prestado porque un turno de trabajo tiene las mismas dos necesidades: algo que Fije cada decisión en su lugar, y algo que diga dónde Queda esa decisión respecto de las demás.
+
+Como herramienta para hilar, el quipu Vuelve tangible un flujo de decisiones. Cada nudo es una decisión ya Tomada, atada donde ocurrió y sin poder correrse. El cordón entre dos nudos es el Orden en que se dieron, así la secuencia Sobrevive sin que nadie escriba una fecha. Una conversación Pierde sus decisiones apenas las palabras se van hacia arriba; un nudo Queda donde la mano lo dejó.
+
+Como herramienta para conceptualizar, atar un nudo Obliga a que una decisión se vuelva una sola cosa nombrable. Una intención vaga no se Puede anudar. Si el tema se Resiste a una sola línea, el turno no está listo para editar, y esa negativa es Información antes que un fracaso.
+
+```mermaid
+flowchart TD
+    CORD["El cordón principal<br/>cuelga de lo General"]
+    TOPIC["Nudo 1 · Tema<br/>la única cosa de este Turno"]
+    PERSP["Nudo 2 · Perspectiva<br/>el ángulo, y Por qué ese"]
+    CLOSE["Nudo 3 · Cierre<br/>el único Paso dado u ofrecido"]
+    LEFT["Cordones colgantes<br/>los hilos Nombrados, no tomados"]
+    CORD --> TOPIC --> PERSP --> CLOSE
+    PERSP -.-> LEFT
+```
+
+El segundo uso es la Navegación. Un quipu Lleva sentido en su geometría, no solo en sus nudos: a qué profundidad cuelga uno, de qué cordón cuelga, a qué distancia queda del vecino. El razonamiento tiene la misma Forma, y el cordón nos Deja recorrerla con intención.
+
+La profundidad se Lee como particularidad. Lo alto del cordón Sostiene lo general, y cada nudo debajo Acota lo anterior, por eso lo general Viene primero: nos dice qué particular importa. La ramificación se Lee como elección. Un cordón colgante es un Hilo que vimos y no tiramos, y Sigue a la vista en lugar de perderse entre dos frases. La distancia se Lee como omisión. Cuando dos nudos quedan lejos, algo se Salteó, y el hueco Pregunta por sí mismo.
+
+```mermaid
+flowchart LR
+    GENERAL["General<br/>el pedido, tal cual"]
+    MIDDLE["Más acotado<br/>la forma que se Repite"]
+    PARTICULAR["Particular<br/>el archivo, la línea, el Paso"]
+    GENERAL -->|"Descender, nunca desparramarse"| MIDDLE
+    MIDDLE -->|"Descender"| PARTICULAR
+    MIDDLE -.->|"un hilo Dejado, todavía visible"| BRANCH["Cordón colgante"]
+    PARTICULAR -.->|"el turno siguiente Vuelve a entrar arriba"| GENERAL
+```
+
+Una lista nos Daría orden y nada más; un árbol nos Daría profundidad pero invita a leerlo todo de una vez. El quipu Conserva las dos cosas y suma una restricción que importa más que ambas: se lee un Nudo por vez, con la mano. Esa restricción es todo el punto, porque Vuelve imposible el vistazo rápido y Cuida la atención que el proyecto existe para defender.
+
+Un cordón por Turno, un nudo por cordón. Un segundo tema Merece un segundo turno, y decirlo en voz alta Cuesta una línea y Salva al hilo de enredarse.
 
 ### Dove Filtra una explicación en cuatro pasos
 

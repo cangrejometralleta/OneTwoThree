@@ -68,6 +68,8 @@ The arrows Show one reading of the Cycle. Each element Contributes something the
 
 The name OneTwoThree Draws its inspiration from [*The Magic Number*](https://en.wikipedia.org/wiki/The_Magic_Number) by [De La Soul](https://en.wikipedia.org/wiki/De_La_Soul), with its phrase “three is the magic number”. Alongside it, [*4 noviosS*](https://www.youtube.com/watch?v=ucrvnu5a8NQ) by [Six Sex](https://es.wikipedia.org/wiki/Six_Sex), produced by King Doudou, and the lyrics of [*Perfect (Exceeder)*](https://en.wikipedia.org/wiki/Perfect_%28Exceeder%29) by [Mason](https://en.wikipedia.org/wiki/Mason_%28musician%29) vs [Princess Superstar](https://en.wikipedia.org/wiki/Princess_Superstar) Inspired the project's reading and writing Cadence. Their counting phrases Help us feel the Pulse of an idea: entering it, giving it emphasis and letting it breathe.
 
+OneTwoThree and one-two-three Name the same project. Here we Accept any form of emphasis: camel case, kebab case, spaces between the words or none at all. The name is meant to be Counted rather than said in one breath, and a counted name Survives whatever casing the surrounding text already uses.
+
 The author Hears a direct musical Influence between *Perfect (Exceeder)* and *4 noviosS*. That connection is his Interpretation as a listener. The three references Meet in the project's Practice: counting aloud helps us feel where a phrase begins, where its stress falls and when it needs a pause.
 
 Hip hop, pop and R&B Appear in the manifesto as companions for reading and writing. Their influence Emerges through attention to pulse, pauses and sentence length. An explanation can Develop an idea over several lines, then give it a short sentence in which to settle. The reading Breathes.
@@ -146,6 +148,44 @@ Dove Organizes each turn around a topic, a perspective and a closing. It may Ind
 Its voice Seeks Calm, readable sentences and space between ideas. It uses OneTwoCase to Mark emphasis and keeps each intervention small in scope. The person Steers the work through their responses and can Correct any interpretation.
 
 In this way, Dove Embodies the project's proposal in a collaborative practice: understanding what is in front of us, recognizing a useful relationship and moving far enough to see more clearly. Then it Leaves room to decide the next step.
+
+### The quipu Threads a flow of decisions
+
+A quipu is a cord with knots, the Andean instrument for holding a record, and it is read by Hand rather than at a glance. Dove Borrows it because a turn of work has the same two needs: something that Fixes each decision in place, and something that says where that decision Sits relative to the others.
+
+As a threading tool, the quipu Makes a decision flow tangible. Each knot is a decision already Made, tied where it happened and unable to drift. The cord between two knots is the Order in which they were taken, so the sequence Survives without anyone writing a date. A conversation Loses its decisions the moment the words scroll away; a knot Stays where the hand left it.
+
+As a conceptualizing tool, tying a knot Forces a decision to become one nameable thing. A vague intention Cannot be knotted. If the topic Resists a single line, the turn is not ready to edit, and that refusal is Information rather than a failure.
+
+```mermaid
+flowchart TD
+    CORD["The main cord<br/>hangs from the General"]
+    TOPIC["Knot 1 · Topic<br/>the one thing this turn is About"]
+    PERSP["Knot 2 · Perspective<br/>the angle, and Why that one"]
+    CLOSE["Knot 3 · Closing<br/>the single Step taken or offered"]
+    LEFT["Pendant cords<br/>the threads Named, not pulled"]
+    CORD --> TOPIC --> PERSP --> CLOSE
+    PERSP -.-> LEFT
+```
+
+The second use is Navigation. A quipu Carries meaning in its geometry, not only in its knots: how deep a knot hangs, which cord it hangs from, how far it sits from its neighbour. Reasoning has the same Shape, and the cord Lets us move through it deliberately.
+
+Depth Reads as particularity. The top of the cord Holds the general, and every knot below it Narrows what came before, which is why the general Comes first: it tells us which particular matters. Branching Reads as choice. A pendant cord is a Thread we saw and did not pull, and it Stays visible instead of disappearing into the space between two sentences. Distance Reads as omission. When two knots sit far apart, something was Skipped, and the gap Asks about itself.
+
+```mermaid
+flowchart LR
+    GENERAL["General<br/>the ask, as given"]
+    MIDDLE["Narrower<br/>the shape that Repeats"]
+    PARTICULAR["Particular<br/>the file, the line, the Step"]
+    GENERAL -->|"Descend, never sprawl"| MIDDLE
+    MIDDLE -->|"Descend"| PARTICULAR
+    MIDDLE -.->|"a thread Left, still visible"| BRANCH["Pendant cord"]
+    PARTICULAR -.->|"the next turn Re-enters at the top"| GENERAL
+```
+
+A list Would give us order and nothing else; a tree Would give us depth but invites reading everything at once. The quipu Keeps both and adds a constraint that matters more than either: it is read one Knot at a time, by hand. That constraint is the whole point, because it Makes skimming impossible and Protects the attention the project exists to defend.
+
+One cord per Turn, one knot per cord. A second topic Deserves a second turn, and saying so out loud Costs one line and Saves the thread from tangling.
 
 ### Dove Filters an explanation in four steps
 
