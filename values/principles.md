@@ -12,7 +12,7 @@
 - A limit Generates quality.  
   Restriction Forces you to choose,  
   and choosing is Design.
-- One Acts, Two Waits, Three Sees.  
+- One Acts. Two Waits. Three Sees.
   Action, Pause and Perspective,  
   the rhythm the name keeps.
 - The same Three Works everywhere,  
@@ -34,8 +34,8 @@
   Respect the Canon of your peers,  
   for as long as it Sustains itself.
 - Peers constantly Play Prisoner's Dilemma.  
-  Kidnap Defects, Respect Cooperates.
-- Be Nice, Retaliate, Forgive, stay Clear.  
+  Kidnap Defects, respect Cooperates.
+- Be Nice. Retaliate, Forgive, stay Clear.
   The simplest strategy Wins the dilemma.
 - Canons Fight for space through stories,  
   the layer where nothing is Settled yet.  

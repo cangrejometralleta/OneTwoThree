@@ -6,9 +6,9 @@
   it is only volume.
 - Contrast is what the ear Remembers,
   never the level itself.
-- Silence Frames the sound,
-  the verse Frames the chorus,
-  the short line Frames the long one.
+- Silence Frames the sound.
+  The verse Frames the chorus.
+  The short line Frames the long one.
 - OneTwoCase Works for this reason:
   the lowercase connector Makes
   the capitalized word land.

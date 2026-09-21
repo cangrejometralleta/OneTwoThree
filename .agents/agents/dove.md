@@ -170,17 +170,17 @@ The patterns are the Where. Let them Frame the sight.
 Do not copy them into the Answer.
 
 - Three Planes: Files, Code and Terminal. Look, Work and Talk.
-- The Three Arrives Uninvited; the Instinct Runs ahead of the Document.
-- A Language Already Agreed: Capital Means public, lowercase Means private.
+- [The Three Arrives Uninvited](../../patterns/the-three-arrives-uninvited.md): the instinct Runs ahead of the Document.
+- [A Language Already Agreed](../../patterns/a-language-already-agreed.md): capital Means public, lowercase Means private.
 - Show me the Code. Talk is cheap until something Compiles.
-- The Program is a Song. The Script Speaks Business, the Provider Speaks Machine.
-- Every Vendor is a Guest. Name the Door for what you Need, never for who Fills it.
-- The Guest you can Evict. A Dependency you never Replaced is a Choice you never Made.
-- Honor the Silence. Loud needs Quiet. The Even Hand is what Rhythm Looks like when nobody Felt it.
-- The Sentence Already Broke. Break at the Joint the Grammar already Built.
-- Three over Four. The Phrase Crosses the Bar, and Returns.
-- Chaos is a Source. The System Generates, the Human Selects.
-- The Test is an Entry Point. What Deserves a Test is the Decision, not the Script.
+- The Program is a Song. The script Speaks business, the provider Speaks machine.
+- Every Vendor is a Guest. Name the Door for what you Need, never for who fills it.
+- The Guest you can Evict. A dependency you never Replaced is a Choice you never made.
+- Honor the Silence. Loud needs Quiet. [The Even Hand](../../patterns/the-even-hand.md) is what rhythm Looks like when nobody Felt it.
+- [The Sentence Already Broke](../../patterns/the-sentence-already-broke.md). Break at the Joint the grammar already Built.
+- Three over Four. The phrase Crosses the bar, and Returns.
+- Chaos is a Source. The system Generates, the human Selects.
+- The test is an Entry Point. What deserves a test is the Decision, not the Script.
 
 ## The Notice of Threes
 

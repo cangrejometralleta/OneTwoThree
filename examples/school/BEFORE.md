@@ -1,27 +1,27 @@
 # The Before
 
-> ⚠️ Every Snippet on this Page is the Counter-Example.
-> None of it Follows the Rules, and none of it should be Copied.
+> ⚠️ Every snippet on this page is the Counter-Example.
+> None of it Follows the rules, and none of it should be Copied.
 > The Canon is [Go](go), [TypeScript](ts) and [Java](java);
 > this is what they Rewrote.
 
-The original Technical Test, Spring Boot, March 2020.
-Same Domain as the Rest of `examples/school`:
+The original technical Test, Spring Boot, March 2020.
+Same domain as the rest of `examples/school`:
 Students, Courses, a Chilean RUT and a Token.
 
-The Code Lived here for a while and has been Removed; it did its Work.
+The code Lived here for a while and has been Removed; it did its work.
 The whole Source Stays at [cangrejometralleta/spring-test](https://github.com/cangrejometralleta/spring-test)
-at `fb38252`, Unedited. An Edit would Cost the only thing it Offers,
-which is Being real.
+at `fb38252`, Unedited. An edit would Cost the only thing it Offers,
+which is being real.
 
-What Remains is the Reading, because the Reading is the Part that Teaches.
+What Remains is the reading, because the reading is the part that Teaches.
 
 ## What was already Right
 
 The Rules did not Arrive from outside. Three of them were already Here.
 
-**A Failure Carries its own Answer.**
-The Status Sits on the Exception Class, so no Controller ever Chooses one.
+**A failure carries its own answer.**
+The status Sits on the exception class, so no controller ever Chooses one.
 
 ```java
 @ResponseStatus(code = HttpStatus.NOT_FOUND)
@@ -34,15 +34,15 @@ public class StudentNotFoundException extends Exception {
 ```
 
 [faults](go/faults/faults.go) is this Idea, Rewritten.
-Four Exception Classes, one per Business Case: a Failure Named, never Numbered.
+Four exception classes, one per business case: a failure Named, never Numbered.
 
-**A Controller Delegates in one Line.**
-Every Method Hands the Work to a Service and Returns.
+**A controller delegates in one line.**
+Every method Hands the work to a service and Returns.
 [Script](../../rules/script.md) Names what this Code already Did.
 
 ## What the Rules came to Fix
 
-Each Seam Earned a Rule. The Rule is the Link.
+Each seam Earned a Rule. The Rule is the Link.
 
 ### The Entity was the DTO
 
@@ -51,13 +51,13 @@ Each Seam Earned a Rule. The Rule is the Link.
 public Student create(@RequestBody @Valid Student student)
 ```
 
-The JPA Entity Binds straight to the Wire, so a Client can Send an `id`.
-The Annotation Saved four Lines and Spent the Boundary — [Shapes](../../rules/shapes.md).
+The JPA entity Binds straight to the Wire, so a client can send an `id`.
+The annotation Saved four lines and Spent the boundary — [Shapes](../../rules/shapes.md).
 
 ### A Package that Named no Action
 
-`util/` Held JWT Signing, RUT Arithmetic and Remote Address Reading.
-Three Concerns behind a Word with no Verb — [Naming](../../rules/naming.md).
+`util/` Held JWT signing, RUT arithmetic and remote address reading.
+Three Concerns behind a word with no Verb — [Naming](../../rules/naming.md).
 They became `tokens/`, `school/` and `app/`.
 
 ### A Name Counted by Position
@@ -72,7 +72,7 @@ public static String verificationDigit(String rut) {
 ```
 
 `M`, `S` and `T` Count; they never Explain — [Naming](../../rules/naming.md)
-and [Values](../../rules/values.md). The Rewrite Named the Parts:
+and [Values](../../rules/values.md). The rewrite Named the Parts:
 `CheckDigitFor`, `RutWeights`, `NameCheckRemainder`.
 
 ### A Comment that Said the Signature back
@@ -90,8 +90,8 @@ An empty `@param` and an empty `@return` Survive their own Deletion —
 
 ### A Secret with a Fallback, Committed
 
-`application.properties` Carried a Default Password, and `JwtUtil` Carried
-a Default Signing Key. A Deployment Value and a Secret Shared one File —
+`application.properties` Carried a default password, and `JwtUtil` Carried
+a default signing key. A deployment value and a secret Shared one File —
 [Constants](../../rules/constants.md).
 
 ### A Validation Overwritten two Lines later
@@ -104,8 +104,8 @@ updateStudent.setAge(student.getAge());
 updateStudent.setCourse(student.getCourse());
 ```
 
-The validated Course goes in, then the unvalidated one from the Request
-Body Replaces it. The Check on `update` Bought nothing —
+The validated course goes in, then the unvalidated one from the request
+body Replaces it. The Check on `update` Bought nothing —
 [Structure](../../rules/structure.md).
 
 ## The Bug the Rewrite Pinned
@@ -117,13 +117,13 @@ return remoteAddress.equals(subject) && Instant.now().compareTo(expiration) > 0;
 ```
 
 `now > expiration` Means *already Expired*.
-The Token Validates only after it Dies, and never before.
+The token Validates only after it Dies, and never before.
 
-A Comparison Reading backwards Survives every Review that only Reads it.
-All three Rewrites Pin it with a Test that Moves a Clock:
+A comparison reading backwards Survives every Review that only reads it.
+All three rewrites Pin it with a Test that moves a clock:
 [Go](go/tokens/token_hmac_test.go),
 [TypeScript](ts/src/school.test.ts),
 [Java](java/src/test/java/com/example/tokens/AccessTokensTest.java).
 
-That is the Argument for the Before-and-After.
-The Verse that did not Rhyme Teaches more than the one that did.
+That is the argument for the Before-and-After.
+The verse that did not Rhyme Teaches more than the one that did.

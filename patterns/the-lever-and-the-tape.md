@@ -1,7 +1,7 @@
 # The Lever and the Tape
 
-- Three session skills Stand together:
-  one Opens, one Advances, one Closes.
+- Three session skills Stand together.
+  One Opens, one Advances, one closes.
   Nobody Designed a machine; a machine appeared.
 
 ```mermaid
@@ -30,7 +30,7 @@ flowchart TD
 - The handoff is the Tape. State Lives outside the head,
   so any session can read where the last one stopped.
 - One step per invocation is the head Moving one cell.
-  Read the Tape, Take the Step, Write the next Symbol, Halt.
+  Read the Tape, take the Step, write the next symbol, halt.
 - Opening, advancing and closing form a Ring across sessions.
   The next request Chooses the transition.
   A halt after one step Leaves the session open.

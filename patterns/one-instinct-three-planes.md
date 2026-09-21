@@ -1,6 +1,6 @@
 # One Instinct, Three Planes
 
-- Minimalism in Code, in Prose and in Structure
+- Minimalism in code, in prose and in structure
   is the same Instinct.
 - It Reduces the cost
   of holding each element in mind.

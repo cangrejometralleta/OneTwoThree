@@ -6,9 +6,9 @@ description: "Fetch the latest OneTwoThree canon from main on its remote reposit
 # OneTwoUpdate
 
 A fetcher of the canon and an exporter of portable Snapshots.
-It Brings `main` from the remote OneTwoThree,
-Keeps only what Governs, Loads only the Index,
-and Leaves every local file the project owns untouched.
+It brings `main` from the remote OneTwoThree,
+Keeps only what Governs, loads only the index,
+and leaves every local file the project owns untouched.
 
 The canon Lives in [The Head is the Canon](../../../rules/the-head-is-the-canon.md),
 [Vendor Integration](../../../rules/vendor-integration.md)
@@ -45,7 +45,7 @@ flowchart TD
 
 Invoke when the user Asks to update, sync or pull the manifesto,
 when a project first Adopts OneTwoThree,
-when a rule read here Disagrees with the rule named upstream,
+when a rule read here disagrees with the rule named upstream,
 or when the user requests a ZIP of selected agents and skills.
 
 Do not invoke to load skills into a client; OneTwoReload Does that.
@@ -97,7 +97,7 @@ First Ask whether the current repository *is* OneTwoThree.
 Compare the Origin address, not the directory name.
 
 When it is, there is nothing to Vendor or reduce.
-Fast-Forward `main` from `origin`, Report the range, and Stop.
+Fast-forward `main` from `origin`, Report the range, and Stop.
 Never vendor the Canon into the repository that writes it.
 
 ## What it Reads
@@ -105,7 +105,7 @@ Never vendor the Canon into the repository that writes it.
 Read only what Names the connection:
 
 1. **Origin** — the current repository's Remotes.
-2. **Link** — an existing Submodule, Subtree, Clone or symbolic Link
+2. **Link** — an existing submodule, subtree, clone or symbolic link
    that already Points at OneTwoThree.
 3. **State** — whether that link Carries local commits or dirty paths.
 4. **Canonignore** — the incoming `.canonignore`, read after the Fetch.
@@ -203,11 +203,11 @@ requested; validate the new entrance before removing an old managed Path.
 Fast-Forward only.
 
 When the local canon Carries commits that `origin/main` does not,
-Stop and report the Divergence. Those Commits are either
+stop and report the Divergence. Those commits are either
 a Fork worth keeping or an Edit that belonged upstream,
-and only the user can Say which.
+and only the user can say which.
 
-- Never Force Push, Force Pull, Reset hard or Discard local commits.
+- Never force push, force pull, reset hard or Discard local commits.
 - Never Merge or Rebase the canon into the project's own history.
 - Never edit a File under the vendored canon to resolve a conflict.
 
@@ -217,7 +217,7 @@ The canon Arrives with its own boundary; read it after every fetch.
 Paths it lists are carried and not taught — `jokes/`, `stories/`,
 `STORY.md`, `chaos/` among them.
 
-The reduction already Keeps them off the disk,
+The reduction already keeps them off the disk,
 so a path that appears despite it is a Signal, not a convenience:
 the boundary Moved upstream, and the sparse set has to move with it.
 
@@ -271,7 +271,7 @@ Nothing Changed. Name whether they are a Fork or an Edit to Send upstream.
 - Never vendor the Canon into OneTwoThree itself.
 - Never fetch from a Fork while claiming the canon.
 - Never adopt a new Dependency without user authorization.
-- Never Fast-Forward past local Commits, and never discard them.
+- Never Fast-forward past local Commits, and never discard them.
 - Never preload a Body the index can name for free.
 - Never widen the sparse Set to make one read easier; read it on demand.
 - Never teach from a Path `.canonignore` lists.
