@@ -51,7 +51,7 @@ Remove the Center and the shape still turns.
   You Derive from Three,  
   you do not reach it.
 
-## Work with Dove and the Skills
+## 🕊️ Work with Dove and the Skills
 
 [Dove](.agents/agents/dove.md) Holds the voice.
 The skills Define the operations; their linked instructions hold the details.
