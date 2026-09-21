@@ -22,6 +22,8 @@ The author Hears a direct musical Influence between *Perfect (Exceeder)* and *4 
 That connection is his Interpretation as a listener.
 Together, these references Gave the project a Rhythm to read and write by.
 
+OneTwoThree and one-two-three Name the same project. Any form of emphasis is Accepted here: camel case, kebab case, spaces or none. The name is made to be Counted, never said in one breath.
+
 ## License
 
 This is free and unencumbered software
