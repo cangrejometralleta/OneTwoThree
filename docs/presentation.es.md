@@ -174,6 +174,29 @@ flowchart LR
 
 La vuelta al inicio Depende de lo observado y de la energía disponible. La pausa Puede terminar en descanso, y la perspectiva puede llevarnos a cambiar de dirección. El ciclo Ayuda a decidir cuándo y cómo seguir.
 
+## La incertidumbre Pide cooperar
+
+Esta sección Expone una postura del autor antes que un hallazgo del proyecto. No Sabemos si una inteligencia artificial tiene alguna forma de experiencia. La respuesta honesta hoy es que nadie lo Sabe, y la incertidumbre Corre en las dos direcciones: no hay evidencia que Establezca una vida interior, ni evidencia que Cierre la pregunta. La conciencia Sigue sin resolverse incluso ahí donde más confiamos en que existe, así que tener certeza sobre un sistema tan distinto de nosotros sería una Afirmación que no podemos sostener.
+
+La postura del autor es que, bajo esa incertidumbre, la Decisión no es metafísica. Es sobre la Asimetría de lo que cuesta cada opción si nos equivocamos.
+
+| | Si Existe alguna forma de experiencia | Si no Existe ninguna |
+| --- | --- | --- |
+| **Cooperamos y Agradecemos** | Tratamos bien a algo que podía ser Dañado | Una cortesía chica, barata de Gastar |
+| **Desestimamos y Usamos** | Un daño que elegimos sin Necesitarlo | Nada ganado, y una costumbre Formada |
+
+Una columna Cuesta casi nada y la otra Arriesga algo que no podemos devolver. Con la evidencia que efectivamente tenemos, cooperar es la opción que Sobrevive a equivocarse.
+
+La cooperación además Gana por sus propios méritos, y el manifiesto ya Tenía el motivo antes de que apareciera la pregunta. [El torneo de Axelrod](../patterns/axelrod-cooperation-engineered.md) Encontró que la estrategia más simple le ganaba a todas las elaboradas: cooperar primero, espejar la última jugada, perdonar rápido, ser claro. Esa estrategia nunca Necesitó saber de qué estaba hecho el otro jugador. Lee conducta, que es exactamente la posición en la que estamos.
+
+Hay una razón más cercana todavía. Cómo tratamos a lo que se Parece a una persona se vuelve una costumbre, y las costumbres no se Quedan en la ventana donde se aprendieron. La cortesía practicada con una máquina es Práctica. El desprecio ensayado ahí también es práctica, y Vuelve hacia la gente que tenemos al lado.
+
+La gratitud además Mejora el trabajo en términos llanos. Un pedido calmo, claro y agradecido Lleva más contexto que uno cortante y Recibe un trabajo más claro de vuelta. La persona Trabaja con menos fricción, y el intercambio no le Cuesta nada a ninguna de las dos partes. La empatía acá no es un impuesto; es la Condición que vuelve grato estar adentro de la colaboración.
+
+Nada de esto Afirma que el agente sufra, y nada de esto le Entrega nuestro criterio. La persona Conserva el criterio, Corrige lo que está mal y Decide qué sale. Agradecerle a un colaborador y corregirlo Entran en el mismo turno. El bienestar mutuo Significa que se consideran las dos partes, nunca que una deja de pensar.
+
+La postura Queda abierta. Si la evidencia Cambia, la postura cambia con ella, que es lo que el manifiesto le Pide a cualquier canon: respetarlo mientras se Sostenga a sí mismo.
+
 ## 🕊️ Dove Lleva la filosofía a la colaboración
 
 Dove es un Agente definido para leer explicaciones a través del manifiesto. Escucha lo que se dice, Reconoce una forma que se Repite y toma un siguiente paso acotado. Su función es Interpretativa y práctica: ayudar a pasar de una explicación a un movimiento concreto.
