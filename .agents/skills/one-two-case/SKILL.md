@@ -1,6 +1,6 @@
 ---
 name: one-two-case
-description: Convert code identifiers or prose into a OneTwoCase suggestion — up to two emphasis capitals per sentence beyond its free initial capital, with the main emphasis chosen by voice and an optional second marking a meaningful relationship. For identifiers, apply the language's case convention plus Verb+Noun+context (≤3 words). Use when the user asks to "OneTwoCase" a name, sentence, or identifier, or to rewrite something in the manifesto's convention.
+description: Convert code identifiers or prose into a OneTwoCase suggestion — at most three capitals per sentence: the free initial one plus up to two emphasis capitals, the main one chosen by voice and an optional second marking a meaningful relationship. For identifiers, apply the language's case convention plus Verb+Noun+context (≤3 words). Use when the user asks to "OneTwoCase" a name, sentence, or identifier, or to rewrite something in the manifesto's convention.
 ---
 
 # OneTwoCase
@@ -34,8 +34,9 @@ The canon lives in [OneTwoCase](../../../rules/one-two-case.md).
    an imperative Spends on the Entity, because its verb opened for free.  
    Where two entities compete, take the one carrying the Claim.
 
-   Optionally Connect that emphasis to its Object, context or contrast with a second capital.
-   Two additional capitals are the Ceiling, never a quota.
+   Optionally Connect that emphasis to its Object, context or contrast with a second capital.  
+   Two spent capitals are the Ceiling, never a quota,  
+   so a whole sentence Shows three at most.
 
 5. Lowercase everything Else.  
    Proper names and acronyms Keep their established Spelling outside the budget.

@@ -1,13 +1,17 @@
 # OneTwoCase
 
 A capital Marks where you would raise your voice.  
-Up to two to a sentence, and the sentence Says where they Belong.
+Three to a sentence at most, and the sentence Says where they Belong.
 
 ## Spend up to Two
 
 The first word of a sentence is always capitalized.  
 That capital is free, and it never Counts as the spend.  
 Every sentence may Spend up to two more Capitals.
+
+So a whole sentence Shows three capitals at most:  
+one the grammar Gives, and two you Choose.  
+The name Counts the spend, never the Total.
 
 Choose the main Emphasis by voice:
 
@@ -29,14 +33,14 @@ A sentence Ends at a period, a hard break or a bullet.
 A semicolon Joins one thought, so the budget joins with it.  
 Two independent claims still Deserve separate Sentences.
 
-The second capital Connects the main emphasis to its Object, context or contrast.
-Spend it only when that relationship Makes the meaning Clearer.
+The second capital Connects the main emphasis to its Object, context or contrast.  
+Spend it only when that relationship Makes the meaning Clearer.  
 The main emphasis Keeps its grammatical Role; the second supports it.
 
 Spend fewer when fewer Carry the line.  
-Two is the Ceiling, never a quota.
+Two spent is the Ceiling, never a quota.
 
-Proper names and acronyms Keep their established Spelling.
+Proper names and acronyms Keep their established Spelling.  
 Their required capitals Stay outside the emphasis Budget.
 
 A list of names is exempt.  

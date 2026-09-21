@@ -76,10 +76,10 @@ RoTaTion Keeps the relationships open to another reading.
 
 - Use it as agent Rules,
   and read the manifesto that Explains their purpose.
-- Use up to two emphasis Capitals per sentence, beyond its free Initial.
+- Use three Capitals per sentence at most: the free Initial, and up to two you Spend.
   The main emphasis Follows the voice; the second marks a useful Relationship.
   Proper names and acronyms Keep their established Spelling.
-  [OneTwoCase](rules/one-two-case.md) Holds the convention; two is a Ceiling, never a quota.
+  [OneTwoCase](rules/one-two-case.md) Holds the convention; two spent is a Ceiling, never a quota.
 - Every Line is written  
   to be read in one heartbeat.
 - Three is a Source, not a count.  
