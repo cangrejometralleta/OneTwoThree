@@ -1,8 +1,8 @@
 # School — the Specification
 
-What the Service Does, in no Language.
-Every Rewrite in this Directory Answers exactly this,
-so a Reader can Compare Shapes instead of Behaviours.
+What the service Does, in no Language.
+Every rewrite in this directory Answers exactly this,
+so a reader can Compare shapes instead of behaviours.
 
 ## The Nine Routes
 
@@ -19,7 +19,7 @@ so a Reader can Compare Shapes instead of Behaviours.
 | GET | `/courses/{id}` | 200 | yes |
 
 Every Route but `/token` Requires `Authorization: Bearer <token>`.
-An Unnamed Caller Gets 401 and Learns nothing else.
+An unnamed caller Gets 401 and Learns nothing else.
 
 ## The Wire
 
@@ -32,16 +32,16 @@ TokenView    { "token": "" }
 FailureView  { "error": "" }
 ```
 
-A List Route Answers an Array of Views.
-`GET /students?page=0&size=10` Windows the Page; Omit both for the whole Set.
-A Page or Size that is not a whole Number is Invalid, never Zero.
-Three Runtimes Read `?page=abc` three different Ways until this Line Existed.
+A list route Answers an array of Views.
+`GET /students?page=0&size=10` Windows the Page; omit both for the whole set.
+A page or size that is not a whole number is Invalid, never Zero.
+Three runtimes Read `?page=abc` three different Ways until this line existed.
 
-The Body never Carries an Identity. The Path and the Store Own it.
+The body never Carries an Identity. The path and the store Own it.
 
 ## The Ten Faults
 
-Each one Carries its Status. No Handler Chooses a Number.
+Each one Carries its Status. No handler Chooses a Number.
 
 | Fault | Status | Reason |
 | --- | --- | --- |
@@ -56,23 +56,23 @@ Each one Carries its Status. No Handler Chooses a Number.
 | Course Unknown | 404 | `course not Found` |
 | RUT Taken | 409 | `rut is already Registered` |
 
-A Failure Carrying no Fault Answers 500.
-A Driver Error is Ours, never the Caller's.
+A failure carrying no Fault Answers 500.
+A driver error is Ours, never the Caller's.
 
 ## The Rules the Business will not Bend
 
-- A Student Needs a Name, a valid RUT, an Age and an existing Course.
-- The Age Floor is a Global Constant, Read from `constants/school.json`.
-- A RUT Passes the Modulo eleven Check its Digit Encodes.
-  Shape `^[0-9]+-[0-9kK]$`, Weights two through seven Right to Left,
-  Remainder eleven Means `0` and ten Means `k`.
-- A RUT is unique across Students, and the Store Proves it.
-- A Course Needs a Code and a Name.
-- Creating or Rewriting a Student Checks the Course Exists first.
+- A student Needs a name, a valid RUT, an age and an existing course.
+- The age Floor is a global Constant, read from `constants/school.json`.
+- A RUT Passes the modulo eleven Check its digit encodes.
+  Shape `^[0-9]+-[0-9kK]$`, weights two through seven right to left,
+  remainder eleven Means `0` and ten Means `k`.
+- A RUT is unique across students, and the store Proves it.
+- A course Needs a code and a name.
+- Creating or rewriting a student Checks the course Exists first.
 
 ## Startup
 
-Nothing Opens before the Configuration Validates.
+Nothing Opens before the configuration Validates.
 
 | Variable | Destination | Validation |
 | --- | --- | --- |
@@ -83,23 +83,23 @@ Nothing Opens before the Configuration Validates.
 | `SERVER` | serverAdapter | a Framework this Runtime Implements |
 | `TOKEN_SECRET` | Secret Injection | Required; no File Key |
 
-Unknown Keys, Nulls, wrong Types and missing required Values Stop Startup.
-Global Constants Load separately and no Variable can Override them.
+Unknown keys, nulls, wrong types and missing required values Stop Startup.
+Global constants Load separately and no variable can Override them.
 
 ## The Token
 
-A Bearer Token Carries a Subject and a Deadline, Signed with the Secret.
-The Subject is `student-registry`, and a Guarded Handler Reads it as the Caller.
-It Dies once its Deadline Passes, and never before.
+A bearer token Carries a subject and a deadline, Signed with the secret.
+The subject is `student-registry`, and a guarded handler Reads it as the Caller.
+It Dies once its deadline Passes, and never before.
 
-The Comparison Reads forward. A Token is Dead when `now` is after the Deadline.
-Reading it backwards Validates only Expired Tokens, which is the Bug
-[the Before](BEFORE.md) Shipped and all three Rewrites Pin.
+The Comparison Reads forward. A token is Dead when `now` is after the Deadline.
+Reading it backwards Validates only Expired tokens, which is the bug
+[the Before](BEFORE.md) shipped and all three rewrites pin.
 
 ## What a Rewrite Must Keep
 
-- The Core Names no Vendor and no Socket.
-- Two Places Hold every Vendor: the Store and the Server.
-- The Entity is never the DTO. Three Shapes Carry one Record.
-- A Fault Declares its Answer beside its Reason, once.
-- A Handler Answers with a Value or Fails; it Builds no Reply.
+- The core Names no vendor and no socket.
+- Two places Hold every vendor: the store and the server.
+- The Entity is never the DTO. Three shapes Carry one Record.
+- A fault Declares its Answer beside its reason, once.
+- A handler Answers with a value or Fails; it builds no reply.

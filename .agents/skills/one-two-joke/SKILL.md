@@ -60,7 +60,7 @@ already Says why: normalising deletes the signal it was given.
 ## When a Human Adds one
 
 Say the Shape and stop:
-one file per joke, free Form inside,
+one file per joke, free form inside,
 `kebab-case.es.md` or `kebab-case.en.md`,
 and a line in the Index with the name only.
 

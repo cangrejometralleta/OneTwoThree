@@ -1,7 +1,7 @@
 # The Converter
 
 Markdown in, a laid-out PDF out. No pandoc, no weasyprint —
-goldmark Reads the AST, gopdf Draws the Page, both pure Go.
+goldmark Reads the AST, gopdf Draws the page, both pure Go.
 
 ```sh
 ./build.sh                    # the Gates, then the Binary
@@ -20,29 +20,29 @@ render/fonts/   Liberation Serif + DejaVu Sans Mono, vendored
 ```
 
 `go list -deps ./document ./style` Names no Vendor.
-The Core Cannot Import goldmark or gopdf, because it never Sees them.
+The core cannot Import goldmark or gopdf, because it never Sees them.
 
-Every Number the Page Depends on Carries a Name in `style/`.
+Every number the page depends on Carries a Name in `style/`.
 Read `10.5` alone and it Says nothing; read `SizeEpigraph`
-and it Says where the Number Lands.
+and it Says where the number Lands.
 
 ## Five Rules Turn a Document into a Booklet
 
 `ExtractCoverBlock`, `SplitTitleIndex`, `BuildTriadBlock`,
-`BuildCalloutBlock`, `MarkClosingParagraph` — one Function per Shape a
-plain Markdown Element can Take. The Title, the first Paragraph and the
-first Blockquote Become the Cover. A Heading Split on `·` Gains an Index.
-A single-row Table Becomes three Columns. A Blockquote that Opens on a
-bold Word Becomes a labeled Callout. The last italic Paragraph Closes
+`BuildCalloutBlock`, `MarkClosingParagraph` — one function per Shape a
+plain Markdown element can Take. The title, the first paragraph and the
+first blockquote Become the Cover. A heading split on `·` Gains an Index.
+A single-row table Becomes three Columns. A blockquote that opens on a
+bold word Becomes a labeled Callout. The last italic paragraph Closes
 the Book.
 
-Read `document_test.go` against `testdata/sample.md` — every Rule Fires
-at least once there, including the Case a Rule Refuses.
+Read `document_test.go` against `testdata/sample.md` — every rule Fires
+at least once there, including the case a rule Refuses.
 
 ## Fonts Travel with the Binary
 
-Liberation Serif Plays the Role Bitstream Charter Played in the old
-style.css; DejaVu Sans Mono Keeps the Mono Face. Both Ship under free
-Licenses (see `fonts/LIBERATION-LICENSE`, `fonts/DEJAVU-LICENSE`) and
-are Embedded with `go:embed`, so the Tool Depends on no Font the Machine
-Running it Happens to Have.
+Liberation Serif Plays the role Bitstream Charter played in the old
+style.css; DejaVu Sans Mono Keeps the Mono face. Both ship under free
+licenses (see `fonts/LIBERATION-LICENSE`, `fonts/DEJAVU-LICENSE`) and
+are Embedded with `go:embed`, so the tool Depends on no font the machine
+running it happens to have.

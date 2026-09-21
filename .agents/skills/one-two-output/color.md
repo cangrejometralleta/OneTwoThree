@@ -68,13 +68,13 @@ and it Survives a light terminal as well as a dark one.
 
 Rule seven Takes the whole warm end off the table,
 so the three hues Come from the cool half. That is a
-Constraint, not a taste. The Bonus: no pair among them
-fails Red-Green Deficiency, because the reserve
+Constraint, not a taste. The bonus: no pair among them
+fails red-green deficiency, because the reserve
 already Removed the colliding pair.
 
-Blue and Cyan Sit close, and a washed-out terminal
-can Blur them into one. Swap Cyan for `38;5;208` Orange
-if it happens — but Orange Neighbors the ⚠️ Yellow.
+Blue and cyan Sit close, and a washed-out terminal
+can Blur them into one. Swap cyan for `38;5;208` orange
+if it happens — but orange Neighbors the ⚠️ yellow.
 Pick your Collision.
 
 The paper palette in `examples/pdf/colors.go` Runs warm
@@ -120,7 +120,7 @@ lower when you know the page will spend more than it Shows.
 
 Markdown can do what a terminal cannot: gather Lines. A blockquote
 Groups before any mark does, and it spends no mark to do it.
-It was Built, Tested, and Cut. The reason is worth Keeping.
+It was Built, tested, and cut. The reason is worth Keeping.
 
 Moving a line **is** its Mark, so the tokens that earned the group
 carry nothing. The indent says *these Belong* and never says
@@ -128,14 +128,14 @@ carry nothing. The indent says *these Belong* and never says
 question the proof Warns about.
 
 And a blockquote already Means quotation or aside. Borrowing it
-Rebuilds the trap that barred bold and the Emoji Trio.
+Rebuilds the trap that barred bold and the emoji trio.
 
 The deeper reason: color Adds a channel. Indentation Spends one
 Markdown already uses. The terminal has a free Dimension;
 a rendered document does not.
 
 If a surface ever Appears with a spare structural channel —
-Columns, a Gutter, a Margin — the idea Returns. The test it needs
+columns, a gutter, a margin — the idea Returns. The test it needs
 is mechanical and Written down: groups that move must Miss each
 other and run without a gap. The rest Stay put and take a mark.
 
@@ -148,7 +148,7 @@ better than a model does. Do not color by Hand — pipe it:
 your-command | python3 color.py
 ```
 
-It Reads stdin, Finds the tokens that repeat, Hands the first
+It Reads stdin, finds the tokens that repeat, hands the first
 three a hue, and Writes stdout. Python 3, no Dependencies.
 
 - `--legend` — Name the Key on stderr, so nobody guesses it.
@@ -160,7 +160,7 @@ It Passes through untouched when stdout is not a terminal,
 so a pipe never Eats an escape. `NO_COLOR` Beats `--force`:
 the reader's standing preference Outranks the writer's flag.
 
-A slash Separates tokens; a Dot, Dash, Colon or Underscore binds them.
+A slash Separates tokens; a dot, dash, colon or underscore binds them.
 So `shape_test.go:41` Survives whole, while `.agents/skills/one-two-case`
 splits into three — and the last of them can Rhyme with the same name
 standing alone on another line. That rhyme is the Co-occurrence.

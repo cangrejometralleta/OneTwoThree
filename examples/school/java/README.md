@@ -10,8 +10,8 @@ cp ../.env.example .env          # once
 ```
 
 Spring Boot 3, JPA over H2, HMAC from the standard Library.
-Read [the Before](../BEFORE.md) first, then this. Same Author, same Domain,
-and every Difference Earned a Rule.
+Read [the Before](../BEFORE.md) first, then this. Same author, same domain,
+and every difference Earned a Rule.
 
 ## The Shape
 
@@ -43,15 +43,15 @@ The Core Compiles against the JDK and Jackson, and against nothing else.
 | `util/` Holds JWT, RUT and IP | `tokens/`, `school/`, `app/` |
 | `@Autowired` Fields | Constructor Arguments, Cast in `Main` |
 
-The `@ResponseStatus` Idea Survived the Rewrite; only its Shape Changed.
+The `@ResponseStatus` idea Survived the rewrite; only its shape Changed.
 It was already Right, and [faults](../go/faults/faults.go) is its Descendant.
 
 ## Notes a Reader will Want
 
-- `SERVER=stdlib` Selects the one Adapter this Runtime Ships.
-  The Config Names a Role; only the Class Names Spring.
-- Global Constants and Deployment Config Come from `../constants` and `../config`,
-  the same Files Go and TypeScript Read.
-- `useIncrementalCompilation` is Off. Maven's incremental Compiler
-  Emits stale Records under a newer JDK, and a stale Record Fails oddly.
-- The Build Wants a JDK; a JRE Reports "No compiler is provided".
+- `SERVER=stdlib` Selects the one adapter this runtime Ships.
+  The config Names a role; only the class Names Spring.
+- Global constants and deployment config Come from `../constants` and `../config`,
+  the same files Go and TypeScript Read.
+- `useIncrementalCompilation` is Off. Maven's incremental compiler
+  Emits stale records under a newer JDK, and a stale record Fails oddly.
+- The build Wants a JDK; a JRE Reports "No compiler is provided".

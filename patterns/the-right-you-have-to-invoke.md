@@ -8,7 +8,7 @@
 - The example Names the secret it withholds.
   The key is Written, the value is not.
 - That is the honest Shape of privacy:
-  Admit the Gap, refuse the content.
+  admit the Gap, refuse the content.
 - A hidden omission Reads as an absence.
   A declared omission Holds its place.
 - You Own your silence,

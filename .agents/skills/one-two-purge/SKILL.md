@@ -6,8 +6,8 @@ description: "Find an exact sensitive value across files, Git history and local 
 # OneTwoPurge
 
 A Remover of sensitive history, not a promise that exposure never happened.
-It Detects without echoing, Names the affected surfaces,
-Confirms the destructive boundary, then Purges and Verifies.
+It Detects without echoing, names the affected surfaces,
+confirms the destructive boundary, then purges and Verifies.
 
 The first action after a credential exposure is Revocation or Rotation.
 History rewriting Reduces distribution; it does not make a leaked secret safe.
@@ -15,7 +15,7 @@ History rewriting Reduces distribution; it does not make a leaked secret safe.
 ## The Value
 
 Never ask the user to paste a sensitive Value into chat.
-Never place it in a command Argument, generated Script, Log or Report.
+Never place it in a command Argument, generated script, log or report.
 
 Ask the user to enter it directly into an interactive terminal with Echo
 disabled and keep it in a temporary environment Variable such as
@@ -39,7 +39,7 @@ Read three Surfaces. Detection Changes nothing.
 
 Use fixed-string matching by Default. Treat the Value as data, never a regular
 expression. Exclude binary payload output and report only redacted Paths,
-Commit IDs, Ref Names and Counts.
+commit IDs, ref names and Counts.
 
 Do not search unrelated home Directories merely because they are accessible.
 Name every Path outside the current repository and ask before reading it.
@@ -60,11 +60,11 @@ Detection does not Authorize mutation.
 
 Before purging, Explain:
 
-- the exact Files, Refs and History Stores that will change;
+- the exact Files, refs and history stores that will change;
 - whether Git commit IDs will Change;
 - whether Tags or Branches require replacement;
 - whether a remote Force Push will be needed;
-- that existing Clones, Forks, Caches and Logs may retain the old value;
+- that existing Clones, forks, caches and logs may retain the old value;
 - which Backups will be created and when they will be removed.
 
 Require explicit Confirmation for each destructive boundary:
@@ -72,7 +72,7 @@ Require explicit Confirmation for each destructive boundary:
 1. Rewrite repository History.
 2. Rewrite each shell history File.
 3. Expire Reflogs and prune unreachable Git objects.
-4. Force Push rewritten Branches or Tags.
+4. Force Push rewritten branches or tags.
 
 Never combine those Approvals. Never infer Consent from the original request.
 
@@ -91,7 +91,7 @@ Do not commit unless the user separately Requests a commit.
 Prefer `git-filter-repo` when installed and supported by the Repository.
 Read its installed Help before constructing the rewrite.
 Use a replacement File or Callback that reads the value without placing it in
-the command Line, process List or persistent project Files.
+the command line, process list or persistent project files.
 
 Before rewriting:
 
@@ -103,7 +103,7 @@ Before rewriting:
 - refuse to overwrite an existing Bundle.
 
 Do not use `filter-branch` when `git-filter-repo` is available.
-Do not delete original Refs, expire Reflogs or run Garbage Collection until the
+Do not delete original refs, expire reflogs or run garbage collection until the
 rewritten history passes Verification and the user confirms final pruning.
 
 Never Force Push automatically. Show the affected remote Refs and ask for a
@@ -117,8 +117,8 @@ Create a permission-restricted Backup beside neither the repository nor its
 tracked Files. Parse the native history Format; do not treat structured Fish or
 multiline history as plain independent lines when that would corrupt entries.
 
-Write a replacement File atomically, preserve Permissions and Ownership,
-then ask the user to restart or reload affected shell Sessions.
+Write a replacement File atomically, preserve Permissions and ownership,
+then ask the user to restart or reload affected shell sessions.
 Never clear an entire History when exact entry removal is possible.
 
 ## Verify
@@ -135,21 +135,21 @@ A zero Match in rewritten Git does not prove remote caches or existing clones
 forgot the Value. Say so.
 
 Only after Verification may the user separately approve deleting recovery
-Refs, expiring Reflogs, pruning Objects and removing Backups.
+refs, expiring reflogs, pruning objects and removing backups.
 
 ## Boundaries
 
 - Never reveal a sensitive Value back to the user.
 - Never send it to a network Service or external Scanner.
 - Never mutate global credential Stores without an explicit request.
-- Never rewrite signed Commits or Tags without naming that signatures Break.
+- Never rewrite signed Commits or tags without naming that signatures Break.
 - Never rewrite a shared Branch without naming the coordination required.
-- Never remove audit evidence required by Law, Policy or an active Incident.
+- Never remove audit evidence required by Law, policy or an active incident.
 - Stop when repository ownership, remote authority or History format is unclear.
 
 ## What it Returns
 
-Report States, Counts and remaining Actions only:
+Report States, counts and remaining actions only:
 
 ```text
 ✅ Purge Verified

@@ -111,17 +111,17 @@ The install itself does not create a Handoff or other runtime artifacts.
 
 ## Installation Rules
 
-An Install Writes more than links. These Considerations Come from installs
-that Looked correct and still Broke something quiet.
+An Install Writes more than links. These considerations Come from installs
+that looked correct and still Broke something quiet.
 
 ### A Link is not a Directory
 
 `/.agents/` Matches a real directory and never a symbolic Link.
-The Trailing slash is the whole Bug: the day `.agents` Becomes a link,
-that Pattern Stops matching and the cache Starts being carried.
+The trailing slash is the whole Bug: the day `.agents` becomes a link,
+that pattern Stops matching and the cache Starts being carried.
 
-Drop the Slash for every Entrance that is a link, and Check every
-ignore File the project has, not only `.gitignore`:
+Drop the Slash for every entrance that is a link, and Check every
+ignore file the project has, not only `.gitignore`:
 
 ```text
 .gitignore       the Repository does not Carry the cache
@@ -134,7 +134,7 @@ in every Build. Verify with `git check-ignore`, never by Reading the file.
 
 ### The Copy Forgets where it Came from
 
-A sparse Clone Knows its head; a flat Copy Knows nothing.
+A sparse clone Knows its head; a flat copy Knows nothing.
 A generated ZIP records its origin, commit and file inventory in
 `.agents/distribution.json`; verify it before loading the Snapshot.
 For a legacy copy without that manifest, `AGENTS.md` must Record the address
@@ -153,9 +153,9 @@ Asks for the head and Accepts no older commit.
 ### Restore before you Reshape
 
 An install that Rewrites the root may Delete the two files the repository
-actually Carries, `AGENTS.md` and its `CLAUDE.md` link.
+actually carries, `AGENTS.md` and its `CLAUDE.md` link.
 Read `git status` before Writing anything. A `D` on either one is Loss,
-and the Commit is the only Copy left.
+and the commit is the only Copy left.
 Restore first, Reshape second, and never in one Step.
 
 ### The Minimum must still Work
