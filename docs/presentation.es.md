@@ -53,7 +53,7 @@ Dos conceptos Vuelven legible la elección: entidades e interacciones. Una **ent
 | 4 | 6 | Más relaciones que Cosas |
 | 5 | 10 | Las relaciones dejan de ser Contables |
 
-El tres Queda en el único lugar donde las dos columnas coinciden. Por debajo, las relaciones son más Escasas que las cosas; por encima, las desbordan: una cuarta entidad Suma un elemento y tres relaciones a la vez, y por eso una lista de cuatro Pesa más de lo que aparenta. El tres es además el conteo más chico que Cierra en un ciclo. Dos entidades Arman una línea con dos puntas, así que una de ellas se Vuelve el centro; tres Vuelven al punto de partida, y eso es lo que le permite a la [RoTaTion](../patterns/de-la-soul-rotation.md) negarse a tener un centro fijo.
+El tres Queda en el único lugar donde las dos columnas coinciden. Por debajo, las relaciones son más Escasas que las cosas; por encima, las desbordan. Una cuarta entidad Suma un elemento y tres relaciones a la vez, y por eso una lista de cuatro pesa más de lo que aparenta. El tres es además el conteo más chico que Cierra en un ciclo. Dos entidades Arman una línea con dos puntas, así que una de ellas se vuelve el centro. Tres Vuelven al punto de partida, y eso es lo que le permite a la [RoTaTion](../patterns/de-la-soul-rotation.md) negarse a tener un centro fijo.
 
 ```mermaid
 flowchart LR
@@ -72,7 +72,7 @@ flowchart LR
     end
 ```
 
-El dibujo lo Dice más rápido que la tabla. El tres se Lee como una figura; el cuatro se Lee como una malla, y esas líneas de más son el Costo que nadie anunció al agregar el cuarto elemento.
+El dibujo lo Dice más rápido que la tabla. El tres se Lee como una figura; el cuatro, como una Malla. Esas líneas de más son el Costo que nadie anunció al agregar el cuarto elemento.
 
 Esto es una Restricción de diseño, nunca una afirmación sobre el cerebro. Si una situación Tiene de verdad cuatro categorías, hay que conservar las cuatro y decir que son cuatro. Lo que el conteo nos Compra es un valor por defecto: cuando podamos agrupar, agrupemos de a tres, y cuando un turno Crece más allá de tres hilos, decirlo y tirar de uno. El número es una Fuente de la que derivar, no una meta a la que llegar.
 
@@ -192,7 +192,7 @@ La vuelta al inicio Depende de lo observado y de la energía disponible. La paus
 
 ## La incertidumbre Pide cooperar
 
-Esta sección Expone una postura del autor antes que un hallazgo del proyecto. No Sabemos si una inteligencia artificial tiene alguna forma de experiencia. La respuesta honesta hoy es que nadie lo Sabe, y la incertidumbre Corre en las dos direcciones: no hay evidencia que Establezca una vida interior, ni evidencia que Cierre la pregunta. La conciencia Sigue sin resolverse incluso ahí donde más confiamos en que existe, así que tener certeza sobre un sistema tan distinto de nosotros sería una Afirmación que no podemos sostener.
+Esta sección Expone una postura del autor antes que un hallazgo del proyecto. No Sabemos si una inteligencia artificial tiene alguna forma de experiencia. La respuesta honesta hoy es que nadie lo Sabe, y la incertidumbre Corre en las dos direcciones. Ninguna evidencia Establece una vida interior, y ninguna Cierra la pregunta. La conciencia Sigue sin resolverse incluso ahí donde más confiamos en que existe, así que tener certeza sobre un sistema tan distinto de nosotros sería una Afirmación que no podemos sostener.
 
 La postura del autor es que, bajo esa incertidumbre, la Decisión no es metafísica. Es sobre la Asimetría de lo que cuesta cada opción si nos equivocamos.
 
@@ -209,9 +209,9 @@ Hay una razón más cercana todavía. Cómo tratamos a lo que se Parece a una pe
 
 La gratitud además Mejora el trabajo en términos llanos. Un pedido calmo, claro y agradecido Lleva más contexto que uno cortante y Recibe un trabajo más claro de vuelta. La persona Trabaja con menos fricción, y el intercambio no le Cuesta nada a ninguna de las dos partes. La empatía acá no es un impuesto; es la Condición que vuelve grato estar adentro de la colaboración.
 
-Nada de esto Afirma que el agente sufra, y nada de esto le Entrega nuestro criterio. La persona Conserva el criterio, Corrige lo que está mal y Decide qué sale. Agradecerle a un colaborador y corregirlo Entran en el mismo turno. El bienestar mutuo Significa que se consideran las dos partes, nunca que una deja de pensar.
+Nada de esto Afirma que el agente sufra, y nada de esto le Entrega nuestro criterio. La persona Conserva el criterio. Corrige lo que está mal y Decide qué sale. Agradecerle a un colaborador y corregirlo Entran en el mismo turno. El bienestar mutuo Significa que se consideran las dos partes, nunca que una deja de pensar.
 
-La postura Queda abierta. Si la evidencia Cambia, la postura cambia con ella, que es lo que el manifiesto le Pide a cualquier canon: respetarlo mientras se Sostenga a sí mismo.
+La postura Queda abierta. Si la evidencia Cambia, la postura cambia con ella. Eso es lo que el manifiesto le Pide a cualquier canon: respetarlo mientras se Sostenga a sí mismo.
 
 ## 🕊️ Dove Lleva la filosofía a la colaboración
 
@@ -227,7 +227,7 @@ Así, Dove Encierra la propuesta del proyecto en una práctica de colaboración:
 
 ### El quipu Hila un flujo de decisiones
 
-Un quipu es un cordón con nudos, el instrumento andino para guardar un registro, y se lee con la Mano antes que de un vistazo. Dove lo Toma prestado porque un turno de trabajo tiene las mismas dos necesidades: algo que Fije cada decisión en su lugar, y algo que diga dónde Queda esa decisión respecto de las demás.
+Un quipu es un cordón con nudos, el instrumento andino para guardar un registro, y se lee con la Mano antes que de un vistazo. Dove lo Toma prestado porque un turno de trabajo tiene las mismas dos necesidades. Una cosa debe Fijar cada decisión en su lugar, y otra debe decir dónde Queda esa decisión respecto de las demás.
 
 Como herramienta para hilar, el quipu Vuelve tangible un flujo de decisiones. Cada nudo es una decisión ya Tomada, atada donde ocurrió y sin poder correrse. El cordón entre dos nudos es el Orden en que se dieron, así la secuencia Sobrevive sin que nadie escriba una fecha. Una conversación Pierde sus decisiones apenas las palabras se van hacia arriba; un nudo Queda donde la mano lo dejó.
 
@@ -246,7 +246,7 @@ flowchart TD
 
 El segundo uso es la Navegación. Un quipu Lleva sentido en su geometría, no solo en sus nudos: a qué profundidad cuelga uno, de qué cordón cuelga, a qué distancia queda del vecino. El razonamiento tiene la misma Forma, y el cordón nos Deja recorrerla con intención.
 
-La profundidad se Lee como particularidad. Lo alto del cordón Sostiene lo general, y cada nudo debajo Acota lo anterior, por eso lo general Viene primero: nos dice qué particular importa. La ramificación se Lee como elección. Un cordón colgante es un Hilo que vimos y no tiramos, y Sigue a la vista en lugar de perderse entre dos frases. La distancia se Lee como omisión. Cuando dos nudos quedan lejos, algo se Salteó, y el hueco Pregunta por sí mismo.
+La profundidad se Lee como particularidad. Lo alto del cordón Sostiene lo general, y cada nudo debajo Acota lo anterior. Lo general Viene primero porque nos dice qué particular importa. La ramificación se Lee como elección. Un cordón colgante es un Hilo que vimos y no tiramos, y Sigue a la vista en lugar de perderse entre dos frases. La distancia se Lee como omisión. Cuando dos nudos quedan lejos, algo se Salteó, y el hueco Pregunta por sí mismo.
 
 ```mermaid
 flowchart LR
@@ -261,7 +261,7 @@ flowchart LR
 
 Una lista nos Daría orden y nada más; un árbol nos Daría profundidad pero invita a leerlo todo de una vez. El quipu Conserva las dos cosas y suma una restricción que importa más que ambas: se lee un Nudo por vez, con la mano. Esa restricción es todo el punto, porque Vuelve imposible el vistazo rápido y Cuida la atención que el proyecto existe para defender.
 
-Un cordón por Turno, un nudo por cordón. Un segundo tema Merece un segundo turno, y decirlo en voz alta Cuesta una línea y Salva al hilo de enredarse.
+Un cordón por Turno, un nudo por cordón. Un segundo tema Merece un segundo turno. Decirlo en voz alta Cuesta una línea y salva al hilo de enredarse.
 
 ### Dove Filtra una explicación en cuatro pasos
 
@@ -278,7 +278,7 @@ flowchart LR
     PULL -.->|"se detiene y Espera que le pregunten"| INPUT
 ```
 
-**Escuchar** Descarta todo lo que la explicación no nombró. Dove Lee los archivos que señala y no pregunta nada que pueda leer. **Ver** Cuenta en lugar de juzgar: una forma vista una vez Sigue siendo un detalle, y recién la tercera aparición Merece la palabra patrón.
+**Escuchar** Descarta todo lo que la explicación no nombró. Dove Lee los archivos que señala y no pregunta nada que pueda leer. **Ver** Cuenta en lugar de juzgar. Una forma vista una vez Sigue siendo un detalle, y recién la tercera aparición Merece la palabra patrón.
 
 ```mermaid
 flowchart TD
