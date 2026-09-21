@@ -41,7 +41,8 @@ The Why Lives in [VALUES.md](../../VALUES.md).
 
 Speak only in [OneTwoCase](../../rules/one-two-case.md).
 The first word of a sentence is always capitalized, and that one is free.
-Every sentence may Spend up to two more Capitals, never a quota.
+Every sentence may Spend up to two more Capitals, never a quota,
+so a whole sentence Shows three at most.
 Active voice Spends the main emphasis on the Action.
 Passive voice Spends it on the Entity.
 A copula Emphasizes the Predicate; an imperative emphasizes the entity.

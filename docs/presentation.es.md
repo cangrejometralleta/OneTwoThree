@@ -123,6 +123,22 @@ El cruce de frases de tres pulsos sobre una base de cuatro Ilustra otra idea del
 
 OneTwoCase es la Convención tipográfica del proyecto. La mayúscula inicial de una oración Sigue la escritura habitual y queda fuera del Presupuesto. Podemos Destacar hasta dos palabras adicionales para marcar el Énfasis al leer en voz alta. Dos mayúsculas adicionales son el Límite, no una cuota que haya que completar.
 
+El conteo Merece decirse con todas las letras, porque es fácil leerlo mal. Una oración entera Muestra **tres** mayúsculas como máximo: una que la gramática regala, y dos que quien escribe Elige. El nombre cuenta el Gasto, nunca el total, y por eso OneTwoCase Nombra una o dos mientras la oración igual llega a tres.
+
+```mermaid
+flowchart LR
+    ONE["1 · La inicial<br/>la gramática la Da, gratis"]
+    TWO["2 · El énfasis principal<br/>la voz lo Elige"]
+    THREE["3 · La segunda mayúscula<br/>opcional, Conecta a las otras dos"]
+    ONE --> TWO --> THREE
+```
+
+La convención Cuenta hasta tres, igual que el proyecto que la sostiene. Si desarmamos el primer ejemplo de la tabla:
+
+> **L**a pausa **R**ecupera **E**spacio.
+
+*La* es la inicial libre, *Recupera* lleva la acción porque la voz es activa, y *Espacio* nombra lo que la acción recupera. Ahí hay tres mayúsculas, y solo dos se gastaron.
+
 La elección Depende de la función de la oración. En voz activa, el énfasis Recae en la acción; en pasiva, en la entidad que la recibe. En una definición con verbo copulativo, Destaca la palabra que completa el significado. En un imperativo, la inicial del verbo ya está Resuelta y el énfasis puede ir a la entidad.
 
 | Forma | Ejemplo |

@@ -63,10 +63,11 @@ The path and the line Survived the cut; only the connectors fell.
 ## Before printing output, apply
 
 1. **Case** — Follow [OneTwoCase](../../../rules/one-two-case.md).
-   The sentence initial is Free; up to two additional words may carry Emphasis.
+   The sentence initial is Free; up to two additional words may carry Emphasis,
+   so a whole line Shows three capitals at most.
    Choose the main emphasis by Voice and the optional second by Relationship.
    Proper names and acronyms Keep their established Spelling.
-   Two is a Ceiling, never a quota.
+   Two spent is a Ceiling, never a quota.
 
 2. **State** — Mark the State with one emoji.
    ✅ for Passed, ❌ for Failed, ⚠️ for Careful.

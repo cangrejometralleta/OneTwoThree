@@ -123,6 +123,22 @@ A three beat phrase moving across a four beat foundation Illustrates another ide
 
 OneTwoCase is the project's Typographic convention. The first capital in a sentence Follows ordinary writing and stays outside the Budget. We can Emphasize up to two additional words to mark the Stress when reading aloud. Two additional capitals are the Ceiling, not a quota to fill.
 
+The count Deserves saying plainly, because it is easy to misread. A whole sentence Shows **three** capitals at most: one the grammar gives for free, and two the writer Chooses. The name counts the Spend, never the total, which is why OneTwoCase Names one or two while the sentence still reaches three.
+
+```mermaid
+flowchart LR
+    ONE["1 · The initial<br/>the grammar Gives it, free"]
+    TWO["2 · The main emphasis<br/>the voice Chooses it"]
+    THREE["3 · The second capital<br/>optional, it Connects the other two"]
+    ONE --> TWO --> THREE
+```
+
+The convention Counts to three, like the project that holds it. Taking the table's first example apart:
+
+> **A** pause **R**estores **S**pace.
+
+*A* is the free initial, *Restores* carries the action because the voice is active, and *Space* names what the action restores. Three capitals Stand there, and only two were spent.
+
 The choice Depends on the sentence's function. In active voice, emphasis Falls on the action; in passive voice, on the entity receiving it. In a definition using a linking verb, it Marks the word that completes the meaning. In an imperative, the verb already has its Initial capital, leaving the emphasis available for the entity.
 
 | Form | Example |
