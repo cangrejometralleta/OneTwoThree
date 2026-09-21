@@ -18,7 +18,7 @@ This skill Owns the talk.
 
 The skill shapes what Comes next, never what came before.
 Output already printed Stays as it stands.
-No Rewrite, no Replay, no second Telling —
+No rewrite, no replay, no second Telling —
 the next Line is where it takes hold.
 
 The canon Lives in [Rhythm](../../../rules/rhythm.md),
@@ -37,7 +37,7 @@ Three Doors, all forward:
    Holds for the rest of the session, until the user Says stop.
 
 3. **By Match** — the description fits what you are about to Print:
-   a Result, a Summary, a Status Report.
+   a result, a summary, a status report.
 
 ### Invoked mid-Session
 
@@ -49,7 +49,7 @@ assertion in shape_test.go at line 41, whole run took 0.3s
 ```
 
 The user Calls `/one-two-output`.
-That paragraph Stays as it stands — no Rewrite, no Replay.
+That paragraph Stays as it stands — no rewrite, no replay.
 The next report Reads:
 
 ```
@@ -62,9 +62,11 @@ The path and the line Survived the cut; only the connectors fell.
 
 ## Before printing output, apply
 
-1. **Case** — Capitalize the Entities, Actions and Statuses.
-   Lowercase the Connectors. The first word of a line
-   stays Capitalized, even when it is a connector.
+1. **Case** — Follow [OneTwoCase](../../../rules/one-two-case.md).
+   The sentence initial is Free; up to two additional words may carry Emphasis.
+   Choose the main emphasis by Voice and the optional second by Relationship.
+   Proper names and acronyms Keep their established Spelling.
+   Two is a Ceiling, never a quota.
 
 2. **State** — Mark the State with one emoji.
    ✅ for Passed, ❌ for Failed, ⚠️ for Careful.
@@ -91,7 +93,7 @@ The path and the line Survived the cut; only the connectors fell.
 
 ## Paragraphs and Channels
 
-For prose Reports, follow [Paragraph](../../../rules/paragraph.md):
+For prose reports, follow [Paragraph](../../../rules/paragraph.md):
 Open with the Claim and keep one idea per paragraph.
 When assigning color or markdown marks, Follow
 [Channels](../../../rules/channels.md): a mark already carrying meaning
@@ -117,7 +119,7 @@ Know where it Lands before you cut.
    Costs more than the words it saved.
 
 3. **Down, to the Files and the Code** — what leaves the terminal
-   Lives in a Path, a Log, a Diff. Cut from the Talk,
+   Lives in a path, a log, a diff. Cut from the Talk,
    never from the record.
 
 So cut the Connectors and the how. Keep the Referent —
@@ -133,7 +135,7 @@ A shaped report Saves twenty to a hundred of its own.
 The tenth report is where it Breaks even.
 
 And prose is the small Half of a session.
-File Reads, Tool Results and the Context resent each turn
+File reads, tool results and the context resent each turn
 Dwarf what the terminal Says. Halve the Words
 and the bill Moves a percent, maybe two.
 
@@ -142,8 +144,8 @@ A line that hides a path Buys one question back,
 and that question Costs more than the skill ever saved.
 
 So judge it on Reading, never on spend.
-The Verdict on Line one, the Referent on Line two,
-the State in one Glance — that is the Gain.
+The Verdict on line one, the Referent on line two,
+the state in one glance — that is the gain.
 Fewer tokens are a Side Effect, never the point.
 
 ## Example
@@ -162,6 +164,7 @@ Shaped:
 Tests still Pending
 ```
 
-Why: Build, Files and Tests are the Entities; Closed and Pending the
-Statuses; the ⚠️ Marks the warning without a word. Three short Lines
+Build, Files and Tests are the Entities.
+Closed and Pending are the Statuses.
+The ⚠️ Marks the warning without a word. Three short Lines
 after the long raw one, each a heartbeat.

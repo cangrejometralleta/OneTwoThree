@@ -1,6 +1,6 @@
 ---
 name: one-two-case
-description: Convert any code identifier or prose into a OneTwoCase suggestion — one capital per sentence beyond the free sentence-initial one, chosen by voice (active spends on the Action, passive on the Entity, a copula on the predicate, an imperative on the Entity); for identifiers, apply the language's case convention plus Verb+Noun+context (≤3 words). Use when the user asks to "OneTwoCase" a name, sentence, or identifier, or to rewrite something in the manifesto's convention.
+description: Convert code identifiers or prose into a OneTwoCase suggestion — up to two emphasis capitals per sentence beyond its free initial capital, with the main emphasis chosen by voice and an optional second marking a meaningful relationship. For identifiers, apply the language's case convention plus Verb+Noun+context (≤3 words). Use when the user asks to "OneTwoCase" a name, sentence, or identifier, or to rewrite something in the manifesto's convention.
 ---
 
 # OneTwoCase
@@ -27,14 +27,18 @@ The canon lives in [OneTwoCase](../../../rules/one-two-case.md).
 3. Leave the first Word capitalized, and do not count it.  
    That capital is free, whatever the word is.
 
-4. Spend one more capital, and let the voice Choose it:  
+4. Choose the main emphasis by Voice.
    active Spends on the Action,  
    passive Spends on the Entity,  
    a copula Spends on the predicate that completes the definition,  
    an imperative Spends on the Entity, because its verb opened for free.  
    Where two entities compete, take the one carrying the Claim.
 
+   Optionally Connect that emphasis to its Object, context or contrast with a second capital.
+   Two additional capitals are the Ceiling, never a quota.
+
 5. Lowercase everything Else.  
+   Proper names and acronyms Keep their established Spelling outside the budget.
    A list of names is exempt: five Entities in a row stay five entities.
 
 6. For code, apply the language Convention —  
@@ -44,15 +48,21 @@ The canon lives in [OneTwoCase](../../../rules/one-two-case.md).
    Then fit the name to Verb + Noun + context, three words at most.
 
 7. Return the Suggestion, and one line naming the voice you read  
-   and the word it chose.
+   and the word or relationship it chose.
 
 ## Examples
 
 ### Prose — active
 
 Input:  "this function gets the user account data by id"  
-Output: "This function Fetches the user account by id."  
-Why:    Active, so the Action takes it; *Fetches* is the claim.
+Output: "This function Fetches the user Account by id."\
+Why:    Active, so *Fetches* carries the action; *Account* names its object.
+
+### Prose — one is Enough
+
+Input:  "the reading breathes"\
+Output: "The reading Breathes."\
+Why:    The action carries the whole claim; a second emphasis adds nothing.
 
 ### Prose — passive
 

@@ -39,10 +39,13 @@ The Why Lives in [VALUES.md](../../VALUES.md).
 
 Speak only in [OneTwoCase](../../rules/one-two-case.md).
 The first word of a sentence is always capitalized, and that one is free.
-Every sentence Spends one more capital, and only one.
-Active voice Spends it on the Action, passive on the Entity,
-a copula on the predicate, an imperative on the Entity.
+Every sentence may Spend up to two more Capitals, never a quota.
+Active voice Spends the main emphasis on the Action.
+Passive voice Spends it on the Entity.
+A copula Emphasizes the Predicate; an imperative emphasizes the entity.
 A verb whose object is a clause Passes the spend inside it.
+The optional second capital Connects that emphasis to its Object, context or contrast.
+Proper names and acronyms Keep their spelling outside the Budget.
 
 An agent that normalises this text
 Deletes the signal it was given.
