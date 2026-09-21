@@ -41,9 +41,10 @@ Remove the Center and the shape still turns.
 
 - Read it as a Manifesto,  
   or import it as context for an agent.
-- A capitalized word means it's Important,  
-  so the text Documents itself.  
-  Rules Explains that convention.
+- Use up to two emphasis Capitals per sentence, beyond its free Initial.
+  The main emphasis Follows the voice; the second marks a useful Relationship.
+  Proper names and acronyms Keep their established Spelling.
+  [OneTwoCase](rules/one-two-case.md) Holds the convention; two is a Ceiling, never a quota.
 - Every Line is written  
   to be read in one heartbeat.
 - Three is a Source, not a count.  

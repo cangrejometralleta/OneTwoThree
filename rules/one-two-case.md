@@ -1,13 +1,15 @@
 # OneTwoCase
 
 A capital Marks where you would raise your voice.  
-One to a sentence, and the sentence Says which one.
+Up to two to a sentence, and the sentence Says where they Belong.
 
-## Spend One
+## Spend up to Two
 
 The first word of a sentence is always capitalized.  
 That capital is free, and it never Counts as the spend.  
-Every sentence Spends one more, and only one.
+Every sentence may Spend up to two more Capitals.
+
+Choose the main Emphasis by voice:
 
 - Active voice Spends on the Action.  
   The doing is the claim.
@@ -25,10 +27,17 @@ Every sentence Spends one more, and only one.
 
 A sentence Ends at a period, a hard break or a bullet.  
 A semicolon Joins one thought, so the budget joins with it.  
-Two clauses that wanted two capitals wanted a period.
+Two independent claims still Deserve separate Sentences.
+
+The second capital Connects the main emphasis to its Object, context or contrast.
+Spend it only when that relationship Makes the meaning Clearer.
+The main emphasis Keeps its grammatical Role; the second supports it.
 
 Spend fewer when fewer Carry the line.  
-One is the ceiling, never a quota.
+Two is the Ceiling, never a quota.
+
+Proper names and acronyms Keep their established Spelling.
+Their required capitals Stay outside the emphasis Budget.
 
 A list of names is exempt.  
 `Intent, Done, Open, State and Next` are five Entities in a row,  
@@ -44,11 +53,19 @@ Active, so the Action Takes it:
 
 > A major language Reached it first, and its compiler holds the line.
 
+The action and its object can Share the Emphasis:
+
+> A pause Restores Space.
+
+One capital still Carries a short Thought:
+
+> The reading Breathes.
+
 Copular, so the predicate Takes it:
 
 > A checkpoint is a Snapshot, not a session closing.
 
-Imperative, so the verb Opens for free and the Entity Takes it:
+Imperative, so the verb Opens for free and the Entity takes it:
 
 > Leave its State outside the head before the turn ends.
 
@@ -59,7 +76,7 @@ A light verb, so the spend Passes into the clause:
 
 Spending twice on *Says* Said nothing twice.
 
-The same four sentences Carried seventeen capitals before:
+The following sentences Carry too many competing Capitals:
 
 > All six Paths from the Checkpoint are Committed and Pushed.  
 > A major Language Reached it first, and its Compiler Holds the Line.  
@@ -69,15 +86,15 @@ The same four sentences Carried seventeen capitals before:
 Every noun is shouting there, so none of them Is.
 
 Compose under the budget rather than converting to it.  
-A sentence built around its one stressed word Comes out whole,  
-and a sentence stripped down to one Reads like a sentence missing words.
+A sentence built around its emphasis Comes out Whole.
+Adding a second capital merely to fill the budget Creates Noise.
 
 ## Two Tiers
 
 A capital is a raised voice, and **bold is a shout**.  
 Bold Carries further, so it Costs the page more.
 
-- One capital to a sentence.  
+- Up to two emphasis Capitals to a sentence.
   One bold to a section, or none at all.
 - Bold the claim a reader must Leave with.  
   Never bold what a capital already Marks.
