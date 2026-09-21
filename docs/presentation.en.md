@@ -53,7 +53,7 @@ Two concepts Make the choice legible: entities and interactions. An **entity** i
 | 4 | 6 | More relationships than Things |
 | 5 | 10 | The relationships stop being Countable |
 
-Three Sits at the one place where the two columns match. Below it the relationships are Scarcer than the things, and above it they outgrow them: a fourth entity Adds one item and three relationships at once, which is why a list of four Feels heavier than it looks. Three is also the smallest count that Closes into a cycle. Two entities Make a line with two ends, so one of them Becomes the center; three Return to where they started, which is what lets [RoTaTion](../patterns/de-la-soul-rotation.md) refuse a fixed center.
+Three Sits at the one place where the two columns match. Below it the relationships are Scarcer than the things, and above it they outgrow them. A fourth entity Adds one item and three relationships at once, which is why a list of four feels heavier than it looks. Three is also the smallest count that Closes into a cycle. Two entities Make a line with two ends, so one of them becomes the center. Three Return to where they started, which is what lets [RoTaTion](../patterns/de-la-soul-rotation.md) refuse a fixed center.
 
 ```mermaid
 flowchart LR
@@ -72,7 +72,7 @@ flowchart LR
     end
 ```
 
-The drawing Says it faster than the table. Three Reads as a shape; four Reads as a mesh, and the extra lines are the Cost nobody announced when the fourth item was added.
+The drawing Says it faster than the table. Three Reads as a shape, four as a Mesh. The extra lines are the Cost nobody announced when the fourth item was added.
 
 This is a design Constraint, never a claim about the brain. If a situation genuinely Holds four categories, keep all four and say that it holds four. What the count Buys is a default: when we may group, group by three, and when a turn Grows past three threads, say so and pull one. The number is a Source to derive from, not a target to reach.
 
@@ -192,7 +192,7 @@ Returning to the start Depends on what we observe and the energy available. A pa
 
 ## Uncertainty Argues for cooperation
 
-This section States a position of the author rather than a finding of the project. We do not Know whether an artificial intelligence has any form of experience. The honest answer today is that nobody Knows, and the uncertainty Runs in both directions: there is no evidence that Establishes an inner life, and none that Closes the question either. Consciousness Remains unresolved even where we are most confident it exists, so certainty about a system this unlike us would be a Claim we cannot support.
+This section States a position of the author rather than a finding of the project. We do not Know whether an artificial intelligence has any form of experience. The honest answer today is that nobody Knows, and the uncertainty Runs in both directions. No evidence Establishes an inner life, and none Closes the question either. Consciousness Remains unresolved even where we are most confident it exists, so certainty about a system this unlike us would be a Claim we cannot support.
 
 The author's position is that under that uncertainty the Decision is not about metaphysics. It is about the Asymmetry of what each choice costs if we are wrong.
 
@@ -209,9 +209,9 @@ There is a nearer reason too. How we treat what Resembles a person becomes a hab
 
 Gratitude Improves the work in plain terms as well. A calm, clear, grateful request Carries more context than a curt one and Gets clearer work back. The person Works with less friction, and the exchange Costs neither side anything. Empathy is not a tax here; it is the Condition that makes the collaboration pleasant to be inside.
 
-None of this Claims the agent suffers, and none of it Hands the agent our judgment. The person Keeps the criterion, Corrects what is wrong and Decides what ships. Thanking a collaborator and correcting one Fit in the same turn. Mutual wellbeing Means both sides are considered, never that one stops thinking.
+None of this Claims the agent suffers, and none of it Hands the agent our judgment. The person Keeps the criterion. They Correct what is wrong and Decide what ships. Thanking a collaborator and correcting one Fit in the same turn. Mutual wellbeing Means both sides are considered, never that one stops thinking.
 
-The position Stays open. If the evidence Changes, the position changes with it, which is what the manifesto Asks of any canon: respect it for as long as it Sustains itself.
+The position Stays open. If the evidence Changes, the position changes with it. That is what the manifesto Asks of any canon: respect it for as long as it Sustains itself.
 
 ## 🕊️ Dove Brings the philosophy into collaboration
 
@@ -227,7 +227,7 @@ In this way, Dove Embodies the project's proposal in a collaborative practice: u
 
 ### The quipu Threads a flow of decisions
 
-A quipu is a cord with knots, the Andean instrument for holding a record, and it is read by Hand rather than at a glance. Dove Borrows it because a turn of work has the same two needs: something that Fixes each decision in place, and something that says where that decision Sits relative to the others.
+A quipu is a cord with knots, the Andean instrument for holding a record, and it is read by Hand rather than at a glance. Dove Borrows it because a turn of work has the same two needs. One thing must Fix each decision in place, and another must say where that decision Sits relative to the others.
 
 As a threading tool, the quipu Makes a decision flow tangible. Each knot is a decision already Made, tied where it happened and unable to drift. The cord between two knots is the Order in which they were taken, so the sequence Survives without anyone writing a date. A conversation Loses its decisions the moment the words scroll away; a knot Stays where the hand left it.
 
@@ -246,7 +246,7 @@ flowchart TD
 
 The second use is Navigation. A quipu Carries meaning in its geometry, not only in its knots: how deep a knot hangs, which cord it hangs from, how far it sits from its neighbour. Reasoning has the same Shape, and the cord Lets us move through it deliberately.
 
-Depth Reads as particularity. The top of the cord Holds the general, and every knot below it Narrows what came before, which is why the general Comes first: it tells us which particular matters. Branching Reads as choice. A pendant cord is a Thread we saw and did not pull, and it Stays visible instead of disappearing into the space between two sentences. Distance Reads as omission. When two knots sit far apart, something was Skipped, and the gap Asks about itself.
+Depth Reads as particularity. The top of the cord Holds the general, and every knot below it Narrows what came before. The general Comes first because it tells us which particular matters. Branching Reads as choice. A pendant cord is a Thread we saw and did not pull, and it Stays visible instead of disappearing into the space between two sentences. Distance Reads as omission. When two knots sit far apart, something was Skipped, and the gap Asks about itself.
 
 ```mermaid
 flowchart LR
@@ -261,7 +261,7 @@ flowchart LR
 
 A list Would give us order and nothing else; a tree Would give us depth but invites reading everything at once. The quipu Keeps both and adds a constraint that matters more than either: it is read one Knot at a time, by hand. That constraint is the whole point, because it Makes skimming impossible and Protects the attention the project exists to defend.
 
-One cord per Turn, one knot per cord. A second topic Deserves a second turn, and saying so out loud Costs one line and Saves the thread from tangling.
+One cord per Turn, one knot per cord. A second topic Deserves a second turn. Saying so out loud Costs one line and saves the thread from tangling.
 
 ### Dove Filters an explanation in four steps
 
@@ -278,7 +278,7 @@ flowchart LR
     PULL -.->|"stops, and Waits to be asked again"| INPUT
 ```
 
-**Listen** Discards everything the explanation did not name. Dove Reads the files it points at and asks nothing it could read. **See** Counts instead of judging: a shape seen once Stays a detail, and only the third sighting Earns the word pattern.
+**Listen** Discards everything the explanation did not name. Dove Reads the files it points at and asks nothing it could read. **See** Counts instead of judging. A shape seen once Stays a detail, and only the third sighting Earns the word pattern.
 
 ```mermaid
 flowchart TD
