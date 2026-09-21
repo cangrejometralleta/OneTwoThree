@@ -39,6 +39,43 @@ Mental health Informs this way of working. Rest, boundaries and the possibility 
 
 The philosophy also Defends Autonomy. A dependency should Remain a choice we can change. Another person can Offer a Perspective we cannot see from our own position, and a specific objection can improve an idea. Cooperation Requires room for each participant to retain their judgment.
 
+## Why three? The count Follows how we hold things
+
+Three is a deliberate Choice, not a decoration. It Comes from a limit we all carry: the number of separate things a mind can hold at once while still doing something with them. Research on working memory Gives a small number, around four items, and the exact figure Matters less than its size. Whatever we are thinking with has to Fit inside a very small room.
+
+Two concepts Make the choice legible: entities and interactions. An **entity** is one thing we can name and hold — a value, a file, a person, a step. An **interaction** is a relationship between two of them — one guides another, one depends on another, one contradicts another. Understanding rarely Lives in the entities themselves. It Lives in the interactions, and those are what Grow when we add one more thing.
+
+| Entities | Interactions | What it Feels like |
+| --- | --- | --- |
+| 1 | 0 | Attention, with nothing to relate |
+| 2 | 1 | A single relationship, and a direction |
+| 3 | 3 | Every pair Visible, and a cycle Closes |
+| 4 | 6 | More relationships than Things |
+| 5 | 10 | The relationships stop being Countable |
+
+Three Sits at the one place where the two columns match. Below it the relationships are Scarcer than the things, and above it they outgrow them: a fourth entity Adds one item and three relationships at once, which is why a list of four Feels heavier than it looks. Three is also the smallest count that Closes into a cycle. Two entities Make a line with two ends, so one of them Becomes the center; three Return to where they started, which is what lets [RoTaTion](../patterns/de-la-soul-rotation.md) refuse a fixed center.
+
+```mermaid
+flowchart LR
+    subgraph THREE["Three · 3 entities, 3 interactions"]
+        A["A"] --- B["B"]
+        B --- C["C"]
+        C --- A
+    end
+    subgraph FOUR["Four · 4 entities, 6 interactions"]
+        D["A"] --- E["B"]
+        E --- F["C"]
+        F --- G["D"]
+        G --- D
+        D --- F
+        E --- G
+    end
+```
+
+The drawing Says it faster than the table. Three Reads as a shape; four Reads as a mesh, and the extra lines are the Cost nobody announced when the fourth item was added.
+
+This is a design Constraint, never a claim about the brain. If a situation genuinely Holds four categories, keep all four and say that it holds four. What the count Buys is a default: when we may group, group by three, and when a turn Grows past three threads, say so and pull one. The number is a Source to derive from, not a target to reach.
+
 ## Three Helps us build relationships
 
 Three Works as a tool for abstraction and conceptual thinking. Abstraction Means setting details aside for a moment to recognize a useful Form. Conceptualization Gives that form a Name so we can think with it and share it. The number Offers a small constraint through which to practice both.

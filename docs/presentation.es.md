@@ -39,6 +39,43 @@ La salud mental Orienta esta manera de trabajar. El descanso, los límites y la 
 
 La filosofía también Defiende la Autonomía. Una dependencia debería Seguir siendo una elección que podamos cambiar. Otra persona puede Aportar una Perspectiva que no vemos desde nuestra posición, y una objeción concreta puede mejorar una idea. Cooperar Requiere espacio para que cada participante conserve su criterio.
 
+## ¿Por qué tres? El conteo Sigue cómo sostenemos las cosas
+
+El tres es una Elección deliberada, no un adorno. Viene de un límite que todos Cargamos: la cantidad de cosas separadas que una mente puede sostener a la vez mientras además hace algo con ellas. La investigación sobre memoria de trabajo Da un número chico, alrededor de cuatro elementos, y la cifra exacta Importa menos que su tamaño. Aquello con lo que pensamos tiene que Entrar en una habitación muy pequeña.
+
+Dos conceptos Vuelven legible la elección: entidades e interacciones. Una **entidad** es una cosa que podemos nombrar y sostener: un valor, un archivo, una persona, un paso. Una **interacción** es una relación entre dos de ellas: una guía a otra, una depende de otra, una contradice a otra. La comprensión rara vez Vive en las entidades mismas. Vive en las interacciones, y son ellas las que Crecen cuando agregamos una cosa más.
+
+| Entidades | Interacciones | Cómo se Siente |
+| --- | --- | --- |
+| 1 | 0 | Atención, sin nada que relacionar |
+| 2 | 1 | Una sola relación, y una dirección |
+| 3 | 3 | Cada par Visible, y un ciclo Cierra |
+| 4 | 6 | Más relaciones que Cosas |
+| 5 | 10 | Las relaciones dejan de ser Contables |
+
+El tres Queda en el único lugar donde las dos columnas coinciden. Por debajo, las relaciones son más Escasas que las cosas; por encima, las desbordan: una cuarta entidad Suma un elemento y tres relaciones a la vez, y por eso una lista de cuatro Pesa más de lo que aparenta. El tres es además el conteo más chico que Cierra en un ciclo. Dos entidades Arman una línea con dos puntas, así que una de ellas se Vuelve el centro; tres Vuelven al punto de partida, y eso es lo que le permite a la [RoTaTion](../patterns/de-la-soul-rotation.md) negarse a tener un centro fijo.
+
+```mermaid
+flowchart LR
+    subgraph THREE["Tres · 3 entidades, 3 interacciones"]
+        A["A"] --- B["B"]
+        B --- C["C"]
+        C --- A
+    end
+    subgraph FOUR["Cuatro · 4 entidades, 6 interacciones"]
+        D["A"] --- E["B"]
+        E --- F["C"]
+        F --- G["D"]
+        G --- D
+        D --- F
+        E --- G
+    end
+```
+
+El dibujo lo Dice más rápido que la tabla. El tres se Lee como una figura; el cuatro se Lee como una malla, y esas líneas de más son el Costo que nadie anunció al agregar el cuarto elemento.
+
+Esto es una Restricción de diseño, nunca una afirmación sobre el cerebro. Si una situación Tiene de verdad cuatro categorías, hay que conservar las cuatro y decir que son cuatro. Lo que el conteo nos Compra es un valor por defecto: cuando podamos agrupar, agrupemos de a tres, y cuando un turno Crece más allá de tres hilos, decirlo y tirar de uno. El número es una Fuente de la que derivar, no una meta a la que llegar.
+
 ## El tres Ayuda a construir relaciones
 
 El tres Funciona como una herramienta para abstraer y conceptualizar. Abstraer Consiste en apartar por un momento los detalles para reconocer una Forma útil. Conceptualizar Da Nombre a esa forma para poder pensar con ella y compartirla. El número Ofrece una restricción pequeña con la que ensayar ambas operaciones.
