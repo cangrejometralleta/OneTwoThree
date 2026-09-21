@@ -1,12 +1,26 @@
 # OneTwoThree
 
+OneTwoThree is a set of agent Rules that also forms a manifesto.
+The rules Guide how agents read, write and collaborate.
+The manifesto Grounds them in minimalism, calm and care for human attention.
+
 > Because we Hate making documentation.
 > 
 > The Limit behind all of this was lived before it was written.
 > Autistic burnout Taught it, minimalism only named it.
 > 
-> Thanks De La Soul, Grandma COBOL and John Cage
+> Thanks [De La Soul](https://en.wikipedia.org/wiki/De_La_Soul), Grandma COBOL and [John Cage](https://en.wikipedia.org/wiki/John_Cage)
 > for inspiring this Project.
+
+## The name Carries a Rhythm
+
+OneTwoThree Draws its name from [De La Soul](https://en.wikipedia.org/wiki/De_La_Soul)'s [*The Magic Number*](https://en.wikipedia.org/wiki/The_Magic_Number), with its phrase “three is the magic number”.
+[*4 noviosS*](https://www.youtube.com/watch?v=ucrvnu5a8NQ) by [Six Sex](https://es.wikipedia.org/wiki/Six_Sex), produced by King Doudou, and the lyrics of [*Perfect (Exceeder)*](https://en.wikipedia.org/wiki/Perfect_%28Exceeder%29) by [Mason](https://en.wikipedia.org/wiki/Mason_%28musician%29) vs [Princess Superstar](https://en.wikipedia.org/wiki/Princess_Superstar) also Inspired its reading and writing Cadence.
+Their counting phrases Help turn words into a Pulse: an entrance, an emphasis and room to breathe.
+
+The author Hears a direct musical Influence between *Perfect (Exceeder)* and *4 noviosS*.
+That connection is his Interpretation as a listener.
+Together, these references Gave the project a Rhythm to read and write by.
 
 ## License
 
@@ -27,6 +41,11 @@ This page is the Door that indexes them.
 Why / How / Where:  
 the triad Lives in the structure itself.
 
+### RoTaTion Connects the Three
+
+[De La Soul](https://en.wikipedia.org/wiki/De_La_Soul) [RoTaTion](patterns/de-la-soul-rotation.md) Connects three elements through three pairs, with no fixed center.
+Enter through any Element and follow the relationships.
+
 ```mermaid
 flowchart LR
     VALUES["VALUES<br/>the Why"] -- "Why becomes How" --> RULES["RULES<br/>the How"]
@@ -39,8 +58,22 @@ Remove the Center and the shape still turns.
 
 ## How to Read it
 
-- Read it as a Manifesto,  
-  or import it as context for an agent.
+Three layers Connect the purpose to a concrete action:
+
+```mermaid
+flowchart TD
+    PURPOSE["Purpose<br/>Protect human attention"]
+    STRUCTURE["Structure<br/>Keep one task visible"]
+    ACTION["Action<br/>Write down the next step"]
+    PURPOSE -->|Guides| STRUCTURE
+    STRUCTURE -->|Makes concrete| ACTION
+```
+
+These layers Offer a path from the general to the particular.
+RoTaTion Keeps the relationships open to another reading.
+
+- Use it as agent Rules,
+  and read the manifesto that Explains their purpose.
 - Use up to two emphasis Capitals per sentence, beyond its free Initial.
   The main emphasis Follows the voice; the second marks a useful Relationship.
   Proper names and acronyms Keep their established Spelling.
