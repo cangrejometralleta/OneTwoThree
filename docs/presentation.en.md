@@ -155,6 +155,14 @@ This Device Helps Readers locate what matters through contrast with the surround
 
 In code, Capitalization Respects the Conventions and meaning of the programming language. The sentence Rule does not Apply mechanically to Identifiers. The broader Purpose remains the same: making a useful distinction visible.
 
+### Origin and History · from Go to De La Soul
+
+OneTwoCase draws part of its Inspiration from Go. In that language, the Initial of a name declared at package level determines whether it is Exported: `CountRows` can be used from another package, while `countRows` stays within its own. The Capital communicates a Difference in scope. OneTwoCase brings that idea into Prose to make visible which Entity or Interaction deserves attention.
+
+De La Soul contributes Counting and Cadence. *The Magic Number* inspires the presence of Three in the project; the name OneTwoCase is spoken with that pause between beats: One. Two. Case. Music invites us to hear the Text and choose where the Voice rises. That rhythmic influence joins the visual distinction learned from Go.
+
+The Convention took shape through Writing in the repository. It first limited emphasis to one Capital per sentence; it then allowed two and later three. The current rule organizes the Budget by passages between punctuation marks and chooses emphasis by Meaning: up to three marks to show Entities and their Interactions. The grammatical initial stays outside the Count. Those revisions share one Aim: for Emphasis to help us Read.
+
 ## Emojis and Pauses guide the Reading
 
 An Emoji can make a sentence's Meaning visible before we read it in full. A status marker helps us recognize a result or something that needs Attention: ✅ means ready, while a warning asks us to pause and review. The Text always Explains the Message so the symbol does not have to carry it alone.

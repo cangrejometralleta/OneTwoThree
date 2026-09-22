@@ -155,6 +155,14 @@ El Recurso Ayuda a localizar lo Importante mediante el contraste con el resto de
 
 En código, las Mayúsculas Respetan las Convenciones y el significado del lenguaje de programación. La Regla de la oración no se Aplica mecánicamente a los Identificadores. El Propósito general sigue siendo el mismo: hacer visible una distinción útil.
 
+### Origen e Historia · de Go a De La Soul
+
+OneTwoCase toma parte de su Inspiración de Go. En ese lenguaje, la Inicial de un nombre declarado a nivel de paquete distingue si está Exportado: `CountRows` puede usarse desde otro paquete, mientras que `countRows` queda dentro del suyo. La Mayúscula comunica una Diferencia de alcance. OneTwoCase lleva esa idea a la Prosa para hacer visible qué Entidad o Interacción merece atención.
+
+De La Soul aporta el Conteo y la Cadencia. *The Magic Number* inspira la presencia del Tres en el proyecto; el nombre OneTwoCase se pronuncia con esa pausa entre golpes: One. Two. Case. La Música invita a escuchar el Texto y a elegir dónde sube la Voz. Esa influencia rítmica se une a la distinción visual aprendida de Go.
+
+La Convención se fue afinando en la Escritura del repositorio. Primero limitó el énfasis a una Mayúscula por oración; después permitió dos y luego tres. La regla actual organiza el Presupuesto por tramos entre signos de puntuación y elige el énfasis por el Sentido: hasta tres marcas para mostrar Entidades y sus Interacciones. La inicial gramatical queda fuera de la Cuenta. La historia de esos ajustes conserva una misma Búsqueda: que el Énfasis ayude a Leer.
+
 ## Los Emojis y las Pausas orientan la Lectura
 
 Un Emoji puede hacer visible el Sentido de una frase antes de leerla completa. Una marca de estado permite reconocer un resultado o algo que necesita Atención: ✅ indica que está listo, mientras que una advertencia pide detenerse a revisar. El Texto Explica siempre el Mensaje para que el símbolo no tenga que sostenerlo por sí solo.
