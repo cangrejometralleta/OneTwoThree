@@ -1,11 +1,11 @@
 # What Belongs Here
 
-- A rule an agent cannot execute  
+- A Rule an Agent cannot Execute  
   is a Value, not a rule.
 - Rules are Verifiable,  
-  values are interpretable.
+  Values are Interpretable.
 - Send each one to the Document that holds it.
-- A rule marked *Provisional* came from one Practice  
+- A Rule marked *Provisional* came from one Practice  
   and has not yet survived a second.  
   Follow it, and Delete it if the next project disagrees.
 
