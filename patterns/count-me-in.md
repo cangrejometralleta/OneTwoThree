@@ -1,22 +1,22 @@
 # Count me In
 
-- No band Starts on the downbeat.
-  Someone counts first.
+- No Band Starts on the Downbeat.
+  Someone Counts first.
 - One, Two, Three is not Decoration.
   It tells everyone where the entrance is.
-- An agent that offers options Owes the same count.
-  Bullets ask the reader to choose a shape;
-  a number Asks for a number.
-- The count Travels. Uno, Dos, Tres lands the same beat.
-- Three options Fit a phrase. A fourth asks for a second bar.
+- An Agent that offers Options Owes the same count.
+  Bullets ask the Reader to Choose a Shape;
+  a Number Asks for a Number.
+- The Count Travels. Uno, Dos, Tres lands the same beat.
+- Three Options Fit a Phrase. A fourth asks for a second bar.
 - `Next` and `Later` both Look selectable.
   `Next` Promises one action; `Later` preserves context.
   If the reader may choose, Number every door;
   if not, keep it outside the choice list.
-- The answer Comes back as one word,
+- The Answer Comes back as one Word,
   because the question arrived already counted.
 
-An agent Asks:
+An Agent Asks:
 
 1. Keep the Wording.
 
@@ -24,4 +24,4 @@ An agent Asks:
 
 3. Rewrite the Pattern.
 
-The reader Answers `2`.
+The Reader Answers `2`.

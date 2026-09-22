@@ -4,12 +4,12 @@
   Linus Torvalds, linux-kernel, 25 August 2000.
 - It was not a Slogan. It was an Answer.  
   Someone Proposed a change to the kernel and shipped no patch.
-- A manifesto Runs the same risk, and runs it louder.  
-  A rule about elegance is a Proposal until something compiles.
+- A Manifesto Runs the same Risk, and runs it louder.  
+  A Rule about Elegance is a Proposal until something compiles.
 - Two things can be Wrong: the prose or the practice.  
-  Only running code Says which.
-- The rule written and never run is a Preference wearing a uniform.
-- Prose Persuades a reader. Code Persuades a machine,  
+  Only running Code Says which.
+- The Rule written and never run is a Preference wearing a uniform.
+- Prose Persuades a Reader. Code Persuades a Machine,  
   and the machine cannot be flattered.
 - Ship the Verse and the proof in one repository.  
-  A reader who doubts a line can Run it.
+  A Reader who doubts a Line can Run it.

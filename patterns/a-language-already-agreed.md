@@ -1,11 +1,11 @@
 # A Language Already Agreed
 
-- Go Exports a name by capitalising it.
-- Capital Means public, lowercase Means private,
-  and the compiler enforces the line.
-- We Wrote the same rule for prose
+- Go Exports a Name by capitalising it.
+- Capital means Public, Lowercase means Private,
+  and the Compiler Enforces the Line.
+- We wrote the same Rule for Prose
   before we noticed a language had it.
-- A convention two domains reach separately
+- A Convention two Domains reach Separately
   is not a Preference.
 - This is why the Examples run in Go.
-  The rule Compiles there.
+  The Rule Compiles there.

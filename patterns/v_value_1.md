@@ -5,7 +5,7 @@
 - A COBOL-era programmer Named them by position:
   v_VALUE_1, v_VALUE_2 — the index, not the meaning.
 - The question "why not v_ENABLED?" was the Turn.
-  A value Becomes expressive when the name says
+  A Value becomes expressive when the Name says
   what it means, not where it fell in the list.
-- The index Counts; the name explains.
+- The Index Counts; the Name Explains.
   Readability is an Ancestor, not a feature.

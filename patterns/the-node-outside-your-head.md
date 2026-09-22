@@ -1,10 +1,10 @@
 # The Node outside your Head
 
-- The bias is invisible from inside,
+- The Bias is Invisible from inside,
   which is what Makes it bias.
-- So you Keep one node outside your own head
+- So you Keep one Node outside your own Head
   and ask it what it sees.
-- The node is not there to Agree.
-  It Holds a position you cannot occupy.
-- A voice that only confirms
-  Adds no node, it only adds volume.
+- The Node is not there to Agree.
+  It Holds a Position you cannot occupy.
+- A Voice that only Confirms
+  Adds no Node, it only adds Volume.

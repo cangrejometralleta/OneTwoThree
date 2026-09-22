@@ -1,17 +1,17 @@
 # Ritual as Belonging, not Belief
 
-- A shared rhythm Creates belonging
-  without imposing a story.
+- A shared Rhythm Creates Belonging
+  without Imposing a Story.
 - Offer the Gesture, let the other answer
-  with theirs. The frame is Shared;
-  the meaning stays local.
+  with theirs. The Frame is Shared;
+  the Meaning stays Local.
 - Three instances, three domains:
-  a community that Mirrors gestures
+  a Community that Mirrors Gestures
   instead of asking questions,
-  a household that Held weekend practice
+  a Household that Held weekend Practice
   and birthday ritual as belonging,
   and Tit-for-Tat — cooperate first,
   mirror the last move, forgive fast.
-- Who offers the ritual Cooperates;
-  who imposes the story Kidnaps.
+- Who offers the Ritual Cooperates;
+  who imposes the Story Kidnaps.
 - Roots: Axelrod, The Evolution of Cooperation.
