@@ -17,10 +17,12 @@ The shape Lives in [The Lever and the Tape](../../../patterns/the-lever-and-the-
 ```mermaid
 flowchart TD
     START["yo dove"] --> UPSTREAM{"Upstream Exists?"}
-    UPSTREAM -- Yes --> PULL["Pull · Rebase · Autostash"]
+    UPSTREAM -- Yes --> PULL["Attempt Pull · Rebase · Autostash"]
     UPSTREAM -- No --> LOCAL["Continue from local State"]
     PULL --> SYNC{"Synchronization Succeeded?"}
-    SYNC -- No --> STOP["Report unresolved Git State · Stop"]
+    SYNC -- No --> SAFE{"Git State Safe to Read?"}
+    SAFE -- Yes --> LOCAL
+    SAFE -- No --> STOP["Report unresolved Git State · Stop"]
     SYNC -- Yes --> EVIDENCE["Read Handoff · History · Changes · Canon"]
     LOCAL --> EVIDENCE
     EVIDENCE --> RECONSTRUCT["Reconstruct Intent · Done · Open · State"]
@@ -43,7 +45,7 @@ that does not depend on earlier work.
 
 Before reading the Handoff or reconstructing state,
 identify the current Branch and its configured upstream.
-When an upstream Exists, run:
+When an upstream Exists, attempt within available permissions:
 
 ```
 git pull --rebase --autostash
@@ -52,12 +54,17 @@ git pull --rebase --autostash
 This Pulls remote commits, rebases local commits when needed,
 and preserves staged and unstaged Changes across the rebase.
 Then read git State again; the reconstructed session starts there.
+Synchronization is best effort, not a Prerequisite for opening a session.
 
 When no upstream Exists, name the branch and continue without pulling.
 Never create an Upstream during session opening.
-If fetch, rebase or autostash restoration Fails,
-stop and report the exact git State and unresolved operation.
-Do not continue from stale or conflicted Evidence.
+If synchronization is unavailable, denied or Fails without leaving
+an unresolved operation or conflict, report the limitation and Continue
+from local evidence. Do not request additional Permission solely
+to synchronize during session opening.
+Do not claim the local state Reflects the latest remote state.
+If a rebase or merge remains in progress, or conflicts remain
+after autostash restoration, stop and report the exact Git state.
 
 ## Evidence
 
