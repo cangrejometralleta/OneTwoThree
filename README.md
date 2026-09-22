@@ -1,8 +1,8 @@
 # OneTwoThree
 
 OneTwoThree is a set of agent Rules that also forms a manifesto.
-The rules Guide how agents read, write and collaborate.
-The manifesto Grounds them in minimalism, calm and care for human attention.
+The Rules Guide how Agents read, write and collaborate.
+The Manifesto Grounds them in Minimalism, calm and care for human attention.
 
 > Because we Hate making documentation.
 > 
@@ -12,17 +12,17 @@ The manifesto Grounds them in minimalism, calm and care for human attention.
 > Thanks [De La Soul](https://en.wikipedia.org/wiki/De_La_Soul), Grandma COBOL and [John Cage](https://en.wikipedia.org/wiki/John_Cage)
 > for inspiring this Project.
 
-## The name Carries a Rhythm
+## The Name Carries a Rhythm
 
 OneTwoThree Draws its name from [De La Soul](https://en.wikipedia.org/wiki/De_La_Soul)'s [*The Magic Number*](https://en.wikipedia.org/wiki/The_Magic_Number), with its phrase “three is the magic number”.
 [*4 noviosS*](https://www.youtube.com/watch?v=ucrvnu5a8NQ) by [Six Sex](https://es.wikipedia.org/wiki/Six_Sex), produced by King Doudou, and the lyrics of [*Perfect (Exceeder)*](https://en.wikipedia.org/wiki/Perfect_%28Exceeder%29) by [Mason](https://en.wikipedia.org/wiki/Mason_%28musician%29) vs [Princess Superstar](https://en.wikipedia.org/wiki/Princess_Superstar) also Inspired its reading and writing Cadence.
-Their counting phrases Help turn words into a Pulse: an entrance, an emphasis and room to breathe.
+Their counting Phrases help turn Words into a Pulse: an entrance, an emphasis and room to breathe.
 
-The author Hears a direct musical Influence between *Perfect (Exceeder)* and *4 noviosS*.
-That connection is his Interpretation as a listener.
-Together, these references Gave the project a Rhythm to read and write by.
+The Author Hears a direct musical Influence between *Perfect (Exceeder)* and *4 noviosS*.
+That Connection is his Interpretation as a listener.
+Together, these References gave the Project a Rhythm to read and write by.
 
-OneTwoThree and one-two-three Name the same project. Any form of emphasis is Accepted here: camel case, kebab case, spaces or none. The name is made to be Counted, never said in one breath.
+OneTwoThree and one-two-three Name the same Project. Any form of emphasis is Accepted here: camel case, kebab case, spaces or none. The Name is made to be Counted, never said in one breath.
 
 ## License
 
@@ -33,19 +33,19 @@ Do whatever you want with it.
 
 ## Documents
 
-Three documents Hold the manifesto.  
-This page is the Door that indexes them.
+Three Documents Hold the Manifesto.  
+This Page is the Door that indexes them.
 
 - [Values](VALUES.md) — why it Exists.
 - [Rules](RULES.md) — how it Applies.
 - [Patterns](PATTERNS.md) — where the Why comes from.
 
 Why / How / Where:  
-the triad Lives in the structure itself.
+the Triad Lives in the Structure itself.
 
 ### RoTaTion Connects the Three
 
-[De La Soul](https://en.wikipedia.org/wiki/De_La_Soul) [RoTaTion](patterns/de-la-soul-rotation.md) Connects three elements through three pairs, with no fixed center.
+[De La Soul](https://en.wikipedia.org/wiki/De_La_Soul) [RoTaTion](patterns/de-la-soul-rotation.md) Connects three Elements through three Pairs, with no fixed center.
 Enter through any Element and follow the relationships.
 
 ```mermaid
@@ -55,12 +55,12 @@ flowchart LR
     PATTERNS -- "the Root Grounds the Why" --> VALUES
 ```
 
-Three elements, three pairs, no Center.
-Remove the Center and the shape still turns.
+Three Elements, three Pairs, no Center.
+Remove the Center and the Shape still Turns.
 
 ## How to Read it
 
-Three layers Connect the purpose to a concrete action:
+Three Layers connect the Purpose to a concrete Action:
 
 ```mermaid
 flowchart TD
@@ -71,8 +71,8 @@ flowchart TD
     STRUCTURE -->|Makes concrete| ACTION
 ```
 
-These layers Offer a path from the general to the particular.
-RoTaTion Keeps the relationships open to another reading.
+These Layers Offer a Path from the general to the particular.
+RoTaTion Keeps the Relationships open to another reading.
 
 - Use it as agent Rules,
   and read the manifesto that Explains their purpose.
@@ -90,7 +90,7 @@ RoTaTion Keeps the relationships open to another reading.
 ## 🕊️ Work with Dove and the Skills
 
 [Dove](.agents/agents/dove.md) Holds the voice.
-The skills Define the operations; their linked instructions hold the details.
+The Skills Define the Operations; their linked instructions hold the details.
 
 | When | Skill | What it does |
 | --- | --- | --- |
@@ -101,12 +101,12 @@ The skills Define the operations; their linked instructions hold the details.
 | Ask to organize, commit and push | [commit-commit-commit](.agents/skills/commit-commit-commit/SKILL.md) | Groups changes by feature, validates and commits each group, then Pushes once after all succeed. |
 | `bye dove` or request a handoff | [bye-bye-bye](.agents/skills/bye-bye-bye/SKILL.md) | Expands the checkpoint into a closing handoff and Stops. |
 
-The [session diagram](patterns/the-lever-and-the-tape.md) Connects these operations.
-A new request with its own intent Starts its own work.
-Opening a session Names the next step; continuation takes it when requested.
-Publication and closing each Need their own request.
+The [Session Diagram](patterns/the-lever-and-the-tape.md) Connects these operations.
+A new Request with its own Intent starts its own Work.
+Opening a Session Names the next Step; Continuation takes it when Requested.
+Publication and Closing each need their own Request.
 
-Supporting skills Shape the work as it happens:
+Supporting Skills Shape the Work as it happens:
 [one-two-refactor](.agents/skills/one-two-refactor/SKILL.md) guides code,
 [one-two-case](.agents/skills/one-two-case/SKILL.md) converts names and prose,
 and [one-two-output](.agents/skills/one-two-output/SKILL.md) shapes terminal output.
@@ -129,14 +129,14 @@ flowchart LR
     RELOAD --> VERIFY["Reload the client · Begin a new chat<br/>Verify discovery"]
 ```
 
-Existing installations Keep their chosen mechanism and local customizations.
+Existing Installations Keep their chosen Mechanism and local customizations.
 A [portable ZIP](.agents/skills/one-two-update/references/zip.md) Records its source commit and file inventory.
 It is a Snapshot; the live canon remains the head of `main`.
-Filesystem validation Proves the links; client discovery proves the load.
+Filesystem Validation Proves the Links; client Discovery Proves the Load.
 
 ## Agents Work among Others
 
-An agent Needs more than a goal.
+An Agent Needs more than a Goal.
 It needs a Society: explicit authority, independent signals,
 the right to stop and a human it can escalate to.
 
@@ -147,7 +147,7 @@ and never let pressure make harm look necessary.
 
 ## How Context Becomes Canon
 
-Three stages Carry a piece of life into the canon,
+Three Stages Carry a piece of Life into the canon,
 and only the third one stays.
 
 - **CHAOS.md** Holds the raw life.
@@ -166,18 +166,18 @@ flowchart LR
     CHAOS -- "Strip the Person" --> STORY -- "Strip the Story" --> CANON
 ```
 
-Between the first and the second you Strip the person.
-Between the second and the third you Strip the story.
+Between the first and the second you Strip the Person.
+Between the second and the third you Strip the Story.
 What is left is the Belief, the Rule or the Root.
 
-- A belief Goes to Values.
-- A rule an agent can run Goes to Rules.
-- A root Goes to Patterns.
+- A Belief Goes to Values.
+- A Rule an agent can run Goes to Rules.
+- A Root Goes to Patterns.
 - Delete it from Stories once it lands.
 
 CHAOS.md never Empties, because a source never empties.
 Stories Empties, because a passage is meant to.
-Nine entries Fill the passage.
+Nine Entries Fill the Passage.
 Distill before you promote a Tenth.
 
 .gitignore Names CHAOS.md out loud.
@@ -199,13 +199,13 @@ It Runs beside it, and it never arrives.
 
 A human Writes them by hand, to tune the humour of the language.
 The Rules Teach an agent to count beats; none of them teaches timing.
-An agent Reads the directory to hear the voice,
+An Agent Reads the directory to hear the Voice,
 and it never adds a line to it.
 
-Each joke Stays in the language it was born in, Spanish or English.
+Each Joke Stays in the Language it was born in, Spanish or English.
 Most of them are Grammatical, and a translated pun is a sentence about a pun.
 
-No one Explains a joke there, least of all an agent.
+No one Explains a Joke there, least of all an agent.
 Explaining Kills it, and there is no careful way to do it.
 
 [.canonignore](.canonignore) Says the same thing to a machine.

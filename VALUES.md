@@ -1,12 +1,12 @@
 # Values
 
-- This document can be a fun Read  
+- This Document can be a fun Read  
   while listening to hip-hop,  
   pop or R&B music,  
   Remember that.
-- AI and humans can Interact  
+- AI and Humans can Interact  
   in the same language nowadays.
-- Elegance Comes from simplicity,  
+- Elegance Comes from Simplicity,  
   both feel natural to us humans.
 - Minimalism here is not a Style.  
   Autistic burnout Taught the limit,  
@@ -23,19 +23,19 @@
   Use the least meaningful Words possible.
 - What you Depend on  
   should stay a Choice you can unmake.
-- A line should not be very Long  
+- A Line should not be very Long  
   and still be readable.
 - Reading a line should  
   take you a Heartbeat.
-- Groovy music Follows  
+- Groovy Music Follows  
   the heartbeat rhythm.
 - Reading and writing  
   your code under this principle  
   Gives it a better rhythm.
-- Now development is Poetry,  
-  and debugging is Rapping.
+- Now Development is Poetry,  
+  and Debugging is Rapping.
 - Live it first, Name it later.  
-  A concept named too early  
+  A Concept named too early  
   Freezes what you had not yet felt.
 - Saying it out loud is how a Story gets built.  
   Spoken, a divergence is your Narrative;  
@@ -47,8 +47,8 @@
   choose in-person over written.  
   Text Loses what those exchanges need.
 - Color is an Index, not decoration.  
-  A hue Groups what it marks,  
-  and the grouping itself Carries meaning.
+  A Hue Groups what it marks,  
+  and the Grouping itself Carries Meaning.
 - Name the Movement, not the quantity.  
   OneTwoThree Walks the count,  
   Three only Holds it still.
