@@ -63,11 +63,12 @@ The path and the line Survived the cut; only the connectors fell.
 ## Before printing output, apply
 
 1. **Case** — Follow [OneTwoCase](../../../rules/one-two-case.md).
-   The sentence initial is Free; up to two additional words may carry Emphasis,
-   so a whole line Shows three capitals at most.
-   Choose the main emphasis by Voice and the optional second by Relationship.
-   Proper names and acronyms Keep their established Spelling.
-   Two spent is a Ceiling, never a quota.
+   The grammatical initial is free; each passage between punctuation marks
+   may carry up to three emphasis Capitals.
+   Identify the important Entities and their Interactions.
+   Two entities and one interaction are a useful shape, never a required formula.
+   Proper names and acronyms keep their established Spelling.
+   Three spent is a Ceiling, never a quota; follow the canon for boundaries.
 
 2. **State** — Mark the State with one emoji.
    ✅ for Passed, ❌ for Failed, ⚠️ for Careful.

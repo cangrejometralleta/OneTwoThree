@@ -121,34 +121,35 @@ A three beat phrase moving across a four beat foundation Illustrates another ide
 
 ## OneTwoCase Shows where the voice rises
 
-OneTwoCase is the project's Typographic convention. The first capital in a sentence Follows ordinary writing and stays outside the Budget. We can Emphasize up to two additional words to mark the Stress when reading aloud. Two additional capitals are the Ceiling, not a quota to fill.
+OneTwoCase is the project's typographic Convention. It highlights important Entities and their Interactions: what participates in an idea and how those parts relate. Two entities and one interaction are a useful shape, not a requirement to find two nouns and a verb in every phrase.
 
-The count Deserves saying plainly, because it is easy to misread. A whole sentence Shows **three** capitals at most: one the grammar gives for free, and two the writer Chooses. The name counts the Spend, never the total, which is why OneTwoCase Names one or two while the sentence still reaches three.
+Each passage between punctuation marks allows up to three emphasis Capitals. The grammatical initial is free, and proper names and acronyms keep their spelling outside the Budget. Three is a ceiling, never a quota: a phrase can need fewer marks.
 
 ```mermaid
 flowchart LR
-    ONE["1 · The initial<br/>the grammar Gives it, free"]
-    TWO["2 · The main emphasis<br/>the voice Chooses it"]
-    THREE["3 · The second capital<br/>optional, it Connects the other two"]
-    ONE --> TWO --> THREE
+    PERSON["Entity · Person"]
+    MACHINE["Entity · Machine"]
+    PERSON -->|Interaction · Guides| MACHINE
 ```
 
-The convention Counts to three, like the project that holds it. Taking the table's first example apart:
+> The Person Guides the Machine.
 
-> **A** pause **R**estores **S**pace.
+*Person* and *Machine* identify the entities; *Guides* names their interaction. *The* is the free initial, so the passage shows four capitals while spending only three.
 
-*A* is the free initial, *Restores* carries the action because the voice is active, and *Space* names what the action restores. Three capitals Stand there, and only two were spent.
+A comma, semicolon, colon or sentence ending renews the Budget. Dashes and parentheses also separate passages when they delimit clauses; punctuation inside a word or number does not. A bullet or hard line break ends a passage, while visual wrapping does not. Punctuation serves the meaning and is never added to earn more capitals.
 
-The choice Depends on the sentence's function. In active voice, emphasis Falls on the action; in passive voice, on the entity receiving it. In a definition using a linking verb, it Marks the word that completes the meaning. In an imperative, the verb already has its Initial capital, leaving the emphasis available for the entity.
+> The Person Guides the Machine, the Machine Supports the Person.
 
-| Form | Example |
+Each passage highlights a relationship. The lowercase *the* after the comma has no free capital: only ordinary grammar grants one.
+
+| Relationship | Example |
 | --- | --- |
-| Active | A pause Restores Space. |
-| Passive | The Task was completed. |
-| Definition | Rest is Necessary. |
-| Imperative | Protect your Attention. |
+| Two entities and an interaction | A Pause Restores Space. |
+| One entity and its action | The Person Rests. |
+| A definition | Rest is Care. |
+| An imperative | Protect your Attention. |
 
-The second capital Connects the main emphasis to another word that makes its Meaning more precise. In “A pause Restores Space,” the action and what it restores form a visible relationship. The sentence “The reading Breathes” keeps just one emphasis mark because it already carries the complete idea. Proper names and acronyms Retain their spelling and do not consume this Budget.
+The choice follows Meaning rather than grammatical voice or word spacing. Entities can be people, things or concepts; their relationship can be an action, a state or a connection. A phrase never needs an invented participant to complete the count.
 
 This device Helps readers locate what matters through contrast with the surrounding sentence. Its limit Requires the writer to choose what actually carries the idea. Bold has Greater intensity and is reserved for an exceptional claim. The visual hierarchy Aims to support reading without filling the page with signals.
 

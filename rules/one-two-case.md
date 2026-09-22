@@ -1,104 +1,88 @@
 # OneTwoCase
 
-A capital Marks where you would raise your voice.  
-Three to a sentence at most, and the sentence Says where they Belong.
+A capital Marks an Entity or an Interaction worth noticing.  
+Identify what matters in the phrase, and how those parts Relate.
 
-## Spend up to Two
+## Identify Entities and Interactions
 
-The first word of a sentence is always capitalized.  
-That capital is free, and it never Counts as the spend.  
-Every sentence may Spend up to two more Capitals.
+Read each passage between punctuation marks for its Meaning:
 
-So a whole sentence Shows three capitals at most:  
-one the grammar Gives, and two you Choose.  
-The name Counts the spend, never the Total.
+1. Identify the Entities that carry the claim.  
+   People, things and concepts can all participate.
+2. Identify their Interaction or Relationship.  
+   An action, a state or a connection may hold them together.
+3. Capitalize up to three words that make that relationship Visible.  
+   Use fewer when fewer carry the idea.
 
-Choose the main Emphasis by voice:
+Two entities and an interaction are a useful Shape, not a required formula.  
+Do not force two nouns and a verb into every phrase.  
+An entity may stand alone, and an interaction may already be understood.
+Choose by Meaning rather than grammatical voice or word spacing.
 
-- Active voice Spends on the Action.  
-  The doing is the claim.
-- A verb whose object is a clause Passes the spend inside it.  
-  *Says what we believe* Reports; the claim is in the clause.
-- The verb Keeps it when the clause cannot take it.  
-  *Says which* Offers no word to land on.
-- Passive voice Spends on the Entity.  
-  The actor is gone, and the thing is all that stands there.
-- A copula Spends on the predicate.  
-  Capitalize the word that Completes the definition,  
-  never the word being defined.
-- An imperative Spends on the Entity.  
-  Its verb Opens the sentence and is already free.
+## Spend up to Three
 
-A sentence Ends at a period, a hard break or a bullet.  
-A semicolon Joins one thought, so the budget joins with it.  
-Two independent claims still Deserve separate Sentences.
+The first word of a sentence keeps its grammatical Capital.  
+That initial is free, even when it names an entity or interaction.
+Each passage between punctuation marks may spend up to three emphasis Capitals.  
+Three is the Ceiling, never a quota.
 
-The second capital Connects the main emphasis to its Object, context or contrast.  
-Spend it only when that relationship Makes the meaning Clearer.  
-The main emphasis Keeps its grammatical Role; the second supports it.
+A comma, semicolon, colon or sentence-ending mark starts a fresh Budget.  
+Dashes and parentheses also delimit passages when they separate clauses.  
+A bullet or a hard line break ends the passage; visual wrapping does not.
+Punctuation within a word or number does not split the Budget.  
+Do not add punctuation merely to earn more capitals.
 
-Spend fewer when fewer Carry the line.  
-Two spent is the Ceiling, never a quota.
+A passage with a grammatical initial can therefore show four Capitals:  
+one required by grammar, and up to three chosen for emphasis.
+A comma does not make the next initial Free.  
+Only ordinary grammar does.
 
-Proper names and acronyms Keep their established Spelling.  
-Their required capitals Stay outside the emphasis Budget.
-
+Proper names and acronyms keep their established Spelling.  
+Their required capitals stay outside the emphasis Budget.
 A list of names is exempt.  
-`Intent, Done, Open, State and Next` are five Entities in a row,  
-and demoting four of them Turns a schema into a shopping list.
+`Intent, Done, Open, State and Next` names a schema.
 
-## Read the Difference
+## Read the Relationship
 
-Passive, so the Entity Takes it:
+Two entities and their interaction:
 
-> All six Paths from the checkpoint are committed and pushed.
+> The Person Guides the Machine.
 
-Active, so the Action Takes it:
+*The* is the free initial.  
+*Person*, *Guides* and *Machine* spend the three emphasis Capitals.
 
-> A major language Reached it first, and its compiler holds the line.
+An abstract entity can participate:
 
-The action and its object can Share the Emphasis:
+> A Pause Restores Space.
 
-> A pause Restores Space.
+An entity and its action need only two:
 
-One capital still Carries a short Thought:
+> The Person Rests.
 
-> The reading Breathes.
+An imperative already carries its action in the free initial:
 
-Copular, so the predicate Takes it:
+> Protect your Attention.
 
-> A checkpoint is a Snapshot, not a session closing.
+A definition can highlight the relationship that matters:
 
-Imperative, so the verb Opens for free and the Entity takes it:
+> Rest is Care.
 
-> Leave its State outside the head before the turn ends.
+Punctuation separates the budgets without requiring their full use:
 
-A light verb, so the spend Passes into the clause:
+> The Person Guides the Machine, the Machine Supports the Person.
 
-> Values says what We believe.  
-> This says where the Belief comes from.
+The first passage has four capitals including its initial.  
+The second has three, all spent on the Relationship.
 
-Spending twice on *Says* Said nothing twice.
-
-The following sentences Carry too many competing Capitals:
-
-> All six Paths from the Checkpoint are Committed and Pushed.  
-> A major Language Reached it first, and its Compiler Holds the Line.  
-> A Checkpoint is a Snapshot, not a Session Closing.  
-> Leave its State outside the Head before the Turn Ends.
-
-Every noun is shouting there, so none of them Is.
-
-Compose under the budget rather than converting to it.  
-A sentence built around its emphasis Comes out Whole.
-Adding a second capital merely to fill the budget Creates Noise.
+Compose around the Entities and Interactions the reader should notice.  
+Adding a capital merely to fill the budget creates Noise.
 
 ## Two Tiers
 
 A capital is a raised voice, and **bold is a shout**.  
 Bold Carries further, so it Costs the page more.
 
-- Up to two emphasis Capitals to a sentence.
+- Up to three emphasis Capitals per passage between punctuation marks.
   One bold to a section, or none at all.
 - Bold the claim a reader must Leave with.  
   Never bold what a capital already Marks.

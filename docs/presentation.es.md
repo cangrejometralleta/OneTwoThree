@@ -121,34 +121,35 @@ El cruce de frases de tres pulsos sobre una base de cuatro Ilustra otra idea del
 
 ## OneTwoCase Señala dónde poner la voz
 
-OneTwoCase es la Convención tipográfica del proyecto. La mayúscula inicial de una oración Sigue la escritura habitual y queda fuera del Presupuesto. Podemos Destacar hasta dos palabras adicionales para marcar el Énfasis al leer en voz alta. Dos mayúsculas adicionales son el Límite, no una cuota que haya que completar.
+OneTwoCase es la Convención tipográfica del proyecto. Destaca las Entidades importantes y sus Interacciones: qué participa en una idea y cómo se relacionan sus partes. Dos entidades y una interacción son una forma útil de leer, no una obligación de encontrar dos sustantivos y un verbo en cada frase.
 
-El conteo Merece decirse con todas las letras, porque es fácil leerlo mal. Una oración entera Muestra **tres** mayúsculas como máximo: una que la gramática regala, y dos que quien escribe Elige. El nombre cuenta el Gasto, nunca el total, y por eso OneTwoCase Nombra una o dos mientras la oración igual llega a tres.
+Cada tramo entre signos de puntuación admite hasta tres mayúsculas de Énfasis. La inicial gramatical es gratuita, y los nombres propios y las siglas conservan su escritura fuera del Presupuesto. Tres es un límite, nunca una cuota: una frase puede necesitar menos marcas.
 
 ```mermaid
 flowchart LR
-    ONE["1 · La inicial<br/>la gramática la Da, gratis"]
-    TWO["2 · El énfasis principal<br/>la voz lo Elige"]
-    THREE["3 · La segunda mayúscula<br/>opcional, Conecta a las otras dos"]
-    ONE --> TWO --> THREE
+    PERSON["Entidad · Persona"]
+    MACHINE["Entidad · Máquina"]
+    PERSON -->|Interacción · Orienta| MACHINE
 ```
 
-La convención Cuenta hasta tres, igual que el proyecto que la sostiene. Si desarmamos el primer ejemplo de la tabla:
+> La Persona Orienta a la Máquina.
 
-> **L**a pausa **R**ecupera **E**spacio.
+*Persona* y *Máquina* identifican las entidades; *Orienta* nombra su interacción. *La* es la inicial gratuita, por lo que el tramo muestra cuatro mayúsculas y gasta solo tres.
 
-*La* es la inicial libre, *Recupera* lleva la acción porque la voz es activa, y *Espacio* nombra lo que la acción recupera. Ahí hay tres mayúsculas, y solo dos se gastaron.
+Una coma, un punto y coma, dos puntos o un cierre de oración renuevan el Presupuesto. Las rayas y los paréntesis también separan tramos cuando delimitan cláusulas; la puntuación dentro de una palabra o un número no lo hace. Una viñeta o un salto de línea explícito termina el tramo, mientras que el ajuste visual de línea no. La puntuación sirve al sentido y nunca se añade para obtener más mayúsculas.
 
-La elección Depende de la función de la oración. En voz activa, el énfasis Recae en la acción; en pasiva, en la entidad que la recibe. En una definición con verbo copulativo, Destaca la palabra que completa el significado. En un imperativo, la inicial del verbo ya está Resuelta y el énfasis puede ir a la entidad.
+> La Persona Orienta a la Máquina, la Máquina Apoya a la Persona.
 
-| Forma | Ejemplo |
+Cada tramo destaca una relación. El artículo *la* después de la coma no tiene una mayúscula gratuita: solo la gramática habitual la concede.
+
+| Relación | Ejemplo |
 | --- | --- |
-| Activa | La pausa Recupera Espacio. |
-| Pasiva | La Tarea fue completada. |
-| Definición | El descanso es Necesario. |
-| Imperativo | Protege tu Atención. |
+| Dos entidades y una interacción | Una Pausa Recupera Espacio. |
+| Una entidad y su acción | La Persona Descansa. |
+| Una definición | El Descanso es Cuidado. |
+| Un imperativo | Protege tu Atención. |
 
-La segunda mayúscula Conecta el énfasis principal con otra palabra que precisa su Sentido. En «La pausa Recupera Espacio», la acción y lo recuperado forman una relación visible. La frase «La lectura Respira» conserva una sola marca de énfasis porque ya expresa la idea completa. Los nombres propios y las siglas Mantienen su escritura y no consumen este Presupuesto.
+La elección sigue el Sentido, en lugar de la voz gramatical o la distancia entre palabras. Las entidades pueden ser personas, cosas o conceptos; su relación puede ser una acción, un estado o una conexión. Ninguna frase necesita un participante inventado para completar la cuenta.
 
 El recurso Ayuda a localizar lo importante mediante el contraste con el resto de la frase. Al limitarlo, quien escribe Debe decidir qué sostiene realmente la idea. La negrita Tiene más intensidad y se reserva para una afirmación excepcional. La jerarquía visual Intenta facilitar la lectura sin llenar la página de señales.
 
