@@ -2,22 +2,22 @@
 
 > Provisional. Written from practice, not yet Weathered.
 
-- The core Names no vendor and no socket.  
+- The Core names no Vendor and no Socket.  
   It compiles against the Language, and against nothing else.
-- Let the compiler hold the Boundary.  
+- Let the Compiler hold the Boundary.  
   A package the core cannot import  
   is Stronger than a rule the core agrees to follow.
-- The shapes the layers speak in Import nothing.  
+- The Shapes the Layers speak in Import nothing.  
   Everything can depend on them, and nothing Couples through them.
-- A handler Answers with a value, or it fails.  
+- A Handler Answers with a Value, or it fails.  
   It builds no Reply and names no status.
-- The route Declares the happy status.  
+- The Route Declares the happy Status.  
   Read the Table and you know the service.
 - Validation of form is not validation of Meaning.  
   A broken path Belongs to the application;  
   an age below the floor belongs to the business.
-- The caller was Named before the story started.  
-  A handler Reads the caller and trusts it.
+- The Caller was Named before the story started.  
+  A Handler Reads the Caller and trusts it.
 - Two places Hold every vendor: the store and the server.  
   Swapping one Edits one of them.
 
@@ -29,6 +29,6 @@ api         the Script
 adapters    THE ONLY PACKAGES THAT NAME A VENDOR
 ```
 
-The check Runs in one command.  
+The Check Runs in one Command.  
 `go list -deps ./school`, or a grep for the Import.  
-A vendor in the answer is a Boundary already crossed.
+A Vendor in the Answer is a Boundary already crossed.

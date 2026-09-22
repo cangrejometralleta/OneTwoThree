@@ -19,14 +19,14 @@
   The demand is about the Extension, never about the work.
 - Name, call, exit code. A fourth line is the shim starting to Think,  
   and a shim that thinks is a Wrapper, which is a second program.
-- The logic Lives once, in the language it thinks best in.  
-  Every other platform Calls it. None of them translates it.
-- A script translated is a second Script, and the second one lies.  
+- The Logic Lives once, in the language it thinks best in.  
+  Every other Platform Calls it. None of them translates it.
+- A Script translated is a second script, and the second one lies.  
   Both start identical and Part at the first fix only one received.
-- A shim cannot Diverge, because a shim decides nothing.
-- One helper Finds the interpreter, for every shim.  
+- A Shim cannot Diverge, because a shim decides nothing.
+- One Helper Finds the Interpreter, for every shim.  
   Five copies of that search go Stale on the first new path.
-- The pattern Asks for an interpreter already installed over there.  
+- The Pattern Asks for an Interpreter already installed over there.  
   Where you cannot assume one, rewrite, and test for the Divergence.
 
 ```cmd
@@ -49,10 +49,10 @@ exit /b %errorlevel%
 
 ## The Invariants
 
-- The shim Propagates the exit code.  
+- The Shim Propagates the exit Code.  
   Without it, a Windows CI passes Always.
-- The shim Resolves against itself with `%~dp0`, never the current directory.
-- The line endings Live in `.gitattributes`, not in each machine's editor.
+- The Shim Resolves against itself with `%~dp0`, never the current directory.
+- The line Endings Live in `.gitattributes`, not in each machine's editor.
 
   ```
   *.cmd text eol=crlf
@@ -60,10 +60,10 @@ exit /b %errorlevel%
   ```
 
 - The `.cmd` stays ASCII. Another codepage Dirties the accents.
-- A shim is read from here and Proven only over there.  
+- A Shim is read from here and Proven only over there.  
   Until someone runs it on the platform, say it is Unverified.
 
-The check Costs two commands.  
+The Check Costs two Commands.  
 `rg -n 'build\.sh|run\.sh' README.md` Names the doors in the root.  
 `wc -l *.cmd` Says no shim passed three lines plus `@echo off`.  
 Every `.sh` with a shim beside it Holds the logic alone.

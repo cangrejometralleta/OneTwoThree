@@ -2,19 +2,19 @@
 
 - Three-line functions  
   are the ideal size Target.
-- Three lines Means three beats, not three newlines.  
+- Three Lines means three Beats, not three newlines.  
   A beat is one Thought:  
   receive, transform and return.
 - A language with explicit errors Spends newlines.  
   Count the Thoughts instead.
-- One unit Owns one concern.  
-  A function Does one thing.
-- More lines Signal a missing abstraction layer.
-- When the body Earns more lines,  
+- One Unit Owns one Concern.  
+  A Function Does one Thing.
+- More Lines signal a missing Abstraction Layer.
+- When the Body Earns more Lines,  
   group them into Three,  
   one blank line between each section.
-- Three sections Read like three lines.  
-  The rhythm Survives.
+- Three Sections Read like three Lines.  
+  The Rhythm Survives.
 
 ```go
 // ListStudentRecords Spends eleven lines on three beats.

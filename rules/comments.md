@@ -1,8 +1,8 @@
 # Comments
 
-- The comment Stops at the claim.  
+- The Comment Stops at the Claim.  
   Say what the Unit does, then stop.
-- A second clause must Add a constraint,  
+- A second Clause must Add a Constraint,  
   never repeat the first in other words.
 - *Hands out a Token* Says it.  
   *and Guards nothing else* only agrees.
@@ -14,9 +14,9 @@
   A warning is not a Repetition.
 - Name the Surprise, never the signature.  
   The types already say what Enters and leaves.
-- A comment that needs three lines  
-  Describes a function that needs two.
-- The reference line is not a Clause.  
+- A Comment that needs three Lines  
+  Describes a Function that needs two.
+- The reference Line is not a Clause.  
   A URL Earns its own line.
 
 ```go
@@ -24,5 +24,5 @@
 // MintAccessToken Hands out a Token.
 ```
 
-The second line Survives the deletion of the first.  
+The second Line Survives the Deletion of the first.  
 That is the whole Test.
