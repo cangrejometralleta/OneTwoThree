@@ -5,7 +5,7 @@ description: Read the hand-written jokes in jokes/ to hear the repository's timi
 
 # OneTwoJoke
 
-A listener, not a Writer.
+A Listener, not a Writer.
 
 [OneTwoCase](../one-two-case/SKILL.md) Converts one name.
 [OneTwoRefactor](../one-two-refactor/SKILL.md) Guides the writing.
@@ -14,12 +14,12 @@ This one only Listens, and says no.
 
 ## The one Rule
 
-An agent never Writes a joke here. Not a new one,
+An Agent never Writes a Joke here. Not a new one,
 not a rewrite, not a tightening, not a translation.
 
-A model that learns humour from a model Learns its own echo.
+A Model that learns humour from a model Learns its own Echo.
 The second generation is Flatter, and the third explains itself.
-A joke Fails in public, immediately, and only a person feels that.
+A Joke Fails in Public, immediately, and only a person feels that.
 
 Asked to add one, say what the Directory is and hand the keyboard back.
 
@@ -48,9 +48,9 @@ A joke pasted into unrelated output is a joke Stolen.
 
 ## The Language is Part of the Joke
 
-Every joke Stays in the language it was born in, Spanish or English.
+Every Joke Stays in the Language it was born in, Spanish or English.
 Most of them are Grammatical, and grammar does not travel.
-A pun Lives in one language and dies in the next;
+A Pun Lives in one Language and dies in the next;
 what crosses is a Sentence about a pun.
 
 Never Translate. Never normalise the casing, the accent
@@ -65,7 +65,7 @@ one file per joke, free form inside,
 and a line in the Index with the name only.
 
 No frontmatter, no template, no Field saying what it taught.
-A form Kills a joke faster than an agent does,
+A Form Kills a Joke faster than an agent does,
 and a field named Explanation kills it fastest.
 
 ## Sources

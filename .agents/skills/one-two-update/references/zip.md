@@ -2,7 +2,7 @@
 
 The ZIP is a generated Snapshot, never the live canon.
 It needs no Git checkout or symbolic links in the receiving project.
-The exporter Requires Go 1.22 or newer and Git on the producing machine.
+The Exporter Requires Go 1.22 or newer and Git on the producing machine.
 
 ## Entrypoints
 
@@ -27,7 +27,7 @@ The maintenance skills `one-two-update` and `one-two-reload` are always Included
 The source must be a checkout with the official OneTwoThree Origin.
 The command does not fetch or claim that local `HEAD` is the latest Canon.
 For a current export, synchronize the source through the normal update workflow First.
-A dirty source Requires `--allow-dirty`, and the manifest labels that preview.
+A dirty Source Requires `--allow-dirty`, and the manifest labels that preview.
 No commit, push, installation or remote upload Happens during export.
 
 ## What Travels
@@ -44,10 +44,10 @@ Every archive entry is a real File.
 The generated Markdown points to its new internal locations.
 The source checkout Stays untouched.
 
-The package Keeps the complete rule, value and pattern bodies.
+The Package Keeps the complete rule, value and pattern bodies.
 It omits Git metadata, unrelated skills, local settings, examples and paths
 excluded by `.canonignore`.
-The selected skills Keep their supporting scripts and references.
+The selected Skills Keep their supporting scripts and references.
 
 Optional links to omitted source material Become upstream commit URLs and
 appear in `remote_references`; those references require network Access.
@@ -55,12 +55,12 @@ appear in `remote_references`; those references require network Access.
 hand-written material that cannot be distributed.
 A missing local reference or selected dependency Fails the export.
 
-The manifest Records the official source, local commit, dirty flag,
+The Manifest Records the official source, local commit, dirty flag,
 selected skills and agents, and each payload file's SHA-256 digest.
 Its inventory excludes the Manifest itself.
 The exporter validates internal Markdown links and reopens the archive to
 verify its entries before creating the requested Output.
-The same source and selection Produce the same ZIP bytes.
+The same Source and Selection Produce the same ZIP bytes.
 An existing output file is never Replaced.
 
 ## Install or Replace

@@ -9,8 +9,8 @@ A small Snapshot during work, not a session closing.
 It Leaves the current thread outside the session
 without turning every turn into a full handoff.
 
-The canon lives in [Session Checkpoint](../../../rules/session-checkpoint.md).
-The closing handoff Lives in [ByeByeBye](../bye-bye-bye/SKILL.md).
+The Canon lives in [Session Checkpoint](../../../rules/session-checkpoint.md).
+The closing Handoff Lives in [ByeByeBye](../bye-bye-bye/SKILL.md).
 
 ## When it Runs
 
@@ -49,12 +49,12 @@ Name unrelated dirty Paths only when needed to exclude them.
 Mark uncertain claims as `Inferred`.
 Never Store secrets, tokens, terminal history or full conversation text.
 
-The checkpoint may Replace an older closing handoff
+The Checkpoint may Replace an older closing Handoff
 only after new work has begun.
 
 ## What it Returns
 
-Checkpointing is supporting Work, not a second result.
+Checkpointing is supporting Work, not a second Result.
 After writing, continue the active turn and Report its outcome normally.
 
 ## Bounds

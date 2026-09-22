@@ -5,13 +5,13 @@ description: "Close a work session by writing a concise, self-contained reposito
 
 # ByeByeBye
 
-A session closing, not a summary for Display.
-It Leaves the next session one durable thread to pick up.
+A session Closing, not a Summary for Display.
+It Leaves the next Session one durable Thread to pick up.
 
-The next turn Lives in [YoYoYo](../yo-yo-yo/SKILL.md).
-The canon Lives in [Change Growth](../../../rules/change-growth.md).
-The working snapshot Lives in [OneTwoCheckpoint](../one-two-checkpoint/SKILL.md).
-The shape Lives in [The Lever and the Tape](../../../patterns/the-lever-and-the-tape.md).
+The next Turn Lives in [YoYoYo](../yo-yo-yo/SKILL.md).
+The Canon Lives in [Change Growth](../../../rules/change-growth.md).
+The working Snapshot Lives in [OneTwoCheckpoint](../one-two-checkpoint/SKILL.md).
+The Shape Lives in [The Lever and the Tape](../../../patterns/the-lever-and-the-tape.md).
 
 ```mermaid
 flowchart TD
@@ -52,7 +52,7 @@ Do not review the Code or invent work that was not discussed.
 
 Write `.handoff.md` at the repository Root.
 Replace its content when it already Exists;
-one repository Holds one active handoff.
+one Repository Holds one active Handoff.
 Expand a compact Checkpoint into this full closing shape.
 
 Use this Shape:
@@ -81,7 +81,7 @@ Use this Shape:
 **Next** — one concrete Action.
 ```
 
-The files section Makes the handoff usable without repository access.
+The files Section makes the Handoff usable without repository access.
 List every File affected by the active work, including already committed files
 the next session must understand. For each one, name its State and
 summarize the relevant change. Include a small exact Snippet when names,

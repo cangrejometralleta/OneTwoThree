@@ -5,14 +5,14 @@ description: "Resume work at the beginning of a new session from recent conversa
 
 # YoYoYo
 
-A session opening, not a standup and not a code Review.
+A session Opening, not a standup and not a code Review.
 It Reconstructs where the work stopped,
 checks whether the change stayed one change,
 and leaves one Part ready to continue.
 
-The next turn Lives in [NextNextNext](../next-next-next/SKILL.md).
-The canon Lives in [Change Growth](../../../rules/change-growth.md).
-The shape Lives in [The Lever and the Tape](../../../patterns/the-lever-and-the-tape.md).
+The next Turn Lives in [NextNextNext](../next-next-next/SKILL.md).
+The Canon Lives in [Change Growth](../../../rules/change-growth.md).
+The Shape Lives in [The Lever and the Tape](../../../patterns/the-lever-and-the-tape.md).
 
 ```mermaid
 flowchart TD
@@ -82,8 +82,8 @@ Read the smallest recent Window that explains the current state:
 4. **Canon** — the rule or nearby plan Named by that work,
    only when it Changes what should continue.
 
-The handoff Names the continuation. History explains it.
-Git Confirms the durable state.
+The Handoff Names the Continuation. History Explains it.
+Git Confirms the durable State.
 No one source Overrides a present disagreement.
 
 Prefer the local session Store for history.
@@ -152,7 +152,7 @@ When it is `Unclear`, name one focused Check that can decide.
 
 When the user must choose, end with three numbered Options
 and do not name a `Next` until the user Answers.
-The chosen number becomes the next Step.
+The chosen Number becomes the next Step.
 
 ## What it Returns
 

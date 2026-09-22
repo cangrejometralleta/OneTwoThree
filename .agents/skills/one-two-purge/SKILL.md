@@ -10,7 +10,7 @@ It Detects without echoing, names the affected surfaces,
 confirms the destructive boundary, then purges and Verifies.
 
 The first action after a credential exposure is Revocation or Rotation.
-History rewriting Reduces distribution; it does not make a leaked secret safe.
+History Rewriting Reduces Distribution; it does not make a leaked secret safe.
 
 ## The Value
 
@@ -19,7 +19,7 @@ Never place it in a command Argument, generated script, log or report.
 
 Ask the user to enter it directly into an interactive terminal with Echo
 disabled and keep it in a temporary environment Variable such as
-`PURGE_VALUE`. The agent Uses only the variable name.
+`PURGE_VALUE`. The Agent Uses only the variable Name.
 
 - Never print, expand, inspect or persist the Variable.
 - Never enable shell Tracing while it exists.
@@ -56,7 +56,7 @@ Never include matching lines or the sensitive Value.
 
 ## Confirm
 
-Detection does not Authorize mutation.
+Detection does not Authorize Mutation.
 
 Before purging, Explain:
 
@@ -161,4 +161,4 @@ Report States, counts and remaining actions only:
 - Recovery Bundle: Retained until final Approval
 ```
 
-The report never Contains the value or a recoverable fragment of it.
+The Report never Contains the Value or a recoverable fragment of it.

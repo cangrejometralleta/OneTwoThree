@@ -5,18 +5,18 @@ description: "Fetch the latest OneTwoThree canon from main on its remote reposit
 
 # OneTwoUpdate
 
-A fetcher of the canon and an exporter of portable Snapshots.
+A Fetcher of the Canon and an exporter of portable Snapshots.
 It brings `main` from the remote OneTwoThree,
 Keeps only what Governs, loads only the index,
 and leaves every local file the project owns untouched.
 
-The canon Lives in [The Head is the Canon](../../../rules/the-head-is-the-canon.md),
+The Canon Lives in [The Head is the Canon](../../../rules/the-head-is-the-canon.md),
 [Vendor Integration](../../../rules/vendor-integration.md)
 and [Canonignore](../../../rules/canonignore.md).
-The loading Lives in [OneTwoReload](../one-two-reload/SKILL.md).
+The Loading Lives in [OneTwoReload](../one-two-reload/SKILL.md).
 ZIP export and installation Follow [Export a Snapshot](references/zip.md).
 
-The source is one Address:
+The Source is one Address:
 
 ```text
 https://github.com/cangrejometralleta/OneTwoThree.git   branch: main
@@ -82,13 +82,13 @@ rules/     values/   patterns/
 AGENTS.md  RULES.md  VALUES.md  PATTERNS.md
 ```
 
-The index Names every rule with one line and one link.
+The Index Names every Rule with one line and one link.
 A Body is read the turn its rule is invoked, and not before.
 Three indexes cost about 7 KB; their bodies cost about 50 KB;
 the whole repository Costs about 2.4 MB.
 
 Never preload `rules/`, `values/` or `patterns/` wholesale.
-The index Exists so an agent can know a rule is there
+The Index Exists so an agent can know a rule is there
 without paying to Read it.
 
 ## Inside the Canon Repository
@@ -148,7 +148,7 @@ Use this Layout for a new installation:
 
 Keep existing project agents and skills Untouched.
 Create individual links only where the destination is Free.
-A collision Needs resolution before any replacement.
+A Collision Needs Resolution before any replacement.
 
 Select the requested agents and skills, then Close their dependencies:
 
@@ -179,7 +179,7 @@ Before checkout, add the selected agent files and skill directories with
 Inspect upstream files through Git to close dependencies before exposing Links.
 Then run `git -C .agents/canon checkout main` and create the relative Links.
 Non-cone mode Keeps unrelated root files off disk.
-A shallow clone Limits history; deepen only when an update needs ancestry.
+A shallow Clone Limits History; deepen only when an update needs ancestry.
 
 Resolve a linked skill or agent to its physical File before following its
 relative documentation links: `../../../rules/` then stays inside the clone.
@@ -213,13 +213,13 @@ and only the user can say which.
 
 ## Read the new Canonignore
 
-The canon Arrives with its own boundary; read it after every fetch.
+The Canon Arrives with its own Boundary; read it after every fetch.
 Paths it lists are carried and not taught — `jokes/`, `stories/`,
 `STORY.md`, `chaos/` among them.
 
 The reduction already keeps them off the disk,
 so a path that appears despite it is a Signal, not a convenience:
-the boundary Moved upstream, and the sparse set has to move with it.
+the Boundary Moved upstream, and the sparse set has to move with it.
 
 Read them freely where they Exist. Copy none of them into the Project.
 An update that teaches from an ignored path Made the canon worse,
@@ -228,7 +228,7 @@ not fresher.
 ## Verification
 
 1. The fetched ref is `main` from the OneTwoThree address, not a Fork.
-2. The link Resolves from the project root.
+2. The Link Resolves from the project root.
 3. `RULES.md`, `VALUES.md` and `PATTERNS.md` Exist at the linked root.
 4. Every link inside those three indexes Resolves to a checked-out body.
 5. Only governing paths and selected customizations Landed in the checkout.
@@ -236,7 +236,7 @@ not fresher.
    Each required skill dependency Resolves from the physical source file.
 6. The range between the old and new commit is Nameable.
 
-A fetch that Moved no ref is `Already Current`, not `Updated`.
+A Fetch that Moved no Ref is `Already Current`, not `Updated`.
 An index link that resolves to nothing means the sparse Set is too narrow.
 
 ## What it Returns
