@@ -1,8 +1,8 @@
 # One Instinct, Three Planes
 
-- Minimalism in code, in prose and in structure
+- Minimalism in Code, in Prose and in Structure
   is the same Instinct.
-- It Reduces the cost
+- It Reduces the Cost
   of holding each element in mind.
 - Style is the Surface,
-  reduction is the Cause.
+  Reduction is the Cause.

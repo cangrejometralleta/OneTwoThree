@@ -5,5 +5,5 @@
 - Rhetoric: the Tricolon.
 - Game design: a three-character Rotation, as in Bug Fables.
 - Architecture: MVC, Input → Process → Output.
-- The same three Works everywhere,
+- The same Three Works everywhere,
   so it is a Source, not a coincidence.

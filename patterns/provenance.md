@@ -1,6 +1,6 @@
 # Provenance
 
-- Values Holds the why.
-- Rules Holds the how.
-- Patterns Holds where the why comes from.
+- Values Holds the Why.
+- Rules Holds the How.
+- Patterns Holds where the Why comes from.
 - Place new Content by its concern.
