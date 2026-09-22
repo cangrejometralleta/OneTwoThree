@@ -1,17 +1,17 @@
 # Seams
 
 - Break where the Grammar bends.  
-  A sentence Shows its own joints: a conjunction, a comma, a preposition.
+  A Sentence Shows its own Joints: a conjunction, a comma, a preposition.
 - Never break inside a Unit that reads as one.  
-  An article Holds its noun.
+  An Article Holds its Noun.
 - Symmetry is not the Cause.  
   A joint near the middle just Happens to land there.
 - Among the legal joints, choose by Meaning.  
-  A short line Emphasises.
+  A short Line Emphasises.
 - Go has the same Joints:  
   && and ||, the comma in a list, the dot in a chain.
 - Better than breaking a long expression, name its Parts.  
-  A named condition Documents while it breaks.
+  A named Condition Documents while it breaks.
 
 ```go
 // CheckOrderRecord Names each Condition, then reads them together.

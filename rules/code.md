@@ -57,31 +57,31 @@ func BuildOrderReceipt(id string, items []Item, percent int) string {
 }
 ```
 
-- Every name Follows **Verb + Noun + context**.
-- Every function Owns one concern and returns it.
-- The emoji Lives in output, never in a name.
+- Every Name Follows **Verb + Noun + context**.
+- Every Function Owns one Concern and returns it.
+- The Emoji Lives in Output, never in a name.
 - Comments Follow OneTwoCase too.
 - BuildOrderReceipt Spends eight lines  
   on three beats.
 - Every name here Counts five syllables.
 
-Two whole services Live in [examples/school](../examples/school),
+Two whole Services Live in [examples/school](../examples/school),
 one in Go and one in TypeScript.
-Six frameworks Serve them and return identical answers.
+Six Frameworks Serve them and return identical answers.
 
 [The Before](../examples/school/BEFORE.md) Reads the original beside them.
 Every rule there was Broken, and each break names the rule it earned.
 
-- A handler there Names no driver and no query.
+- A Handler there names no Driver and no Query.
 - Read one out loud and it is still a Sentence.
-- Two files Hold every vendor import.
-- A handler there Spends lines on errors  
+- Two Files Hold every vendor Import.
+- A Handler there spends Lines on Errors  
   and still counts three beats.
-- The code Obeyed this rule  
+- The Code Obeyed this Rule  
   before the rule was written down.
 
 *Talk is cheap. Show me the code.*
 Torvalds Answered a proposal that shipped no patch.
-A manifesto Runs the same risk, and this is the answer to it:
+A Manifesto Runs the same Risk, and this is the answer to it:
 every rule that governs code Runs in [examples](../examples).
 [Show me the Code](../patterns/show-me-the-code.md) Says why that matters.

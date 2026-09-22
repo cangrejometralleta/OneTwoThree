@@ -1,18 +1,18 @@
 # Constants
 
-- Global constants Hold the same meaning across environments.  
+- Global Constants Hold the same Meaning across environments.  
   Keep shared declarative Values in descriptive files under `constants/`.
-- A value that changes by environment is Configuration.  
+- A Value that changes by Environment is Configuration.  
   Keep it separately under `config/`, in a descriptive YAML, JSON or TOML File.
 - Name the File after the concern it holds.  
   `enrollment.production.yaml` Says more than `constants.yaml`.
 - Keep algorithmic and protocol Constants beside their logic.  
-  A deployment must not Redefine what the algorithm means.
+  A Deployment must not Redefine what the Algorithm means.
 
 ## Global Constants Define shared Meaning
 
 - Separate global Constants from environment defaults.  
-  A default can be Overridden; a global constant cannot.
+  A Default can be Overridden; a global constant cannot.
 - Load global Constants separately from environment configuration.  
   Reject environment Files or variables that attempt to override them.
 - Validate both Sets at startup and expose them as separate typed values.  
@@ -43,7 +43,7 @@ enrollmentStates = ["pending", "accepted", "rejected"]
 ```
 
 Development and production Read the same file.  
-Changing these states Changes the application contract,  
+Changing these States changes the application Contract,  
 so the change Travels with the code that uses them.
 
 ## Files Describe the Values
@@ -116,15 +116,15 @@ requestTimeoutSeconds = 15
 - Select the Environment explicitly at startup.  
   Reject an unknown Environment or a missing selected file.
 - Apply the Defaults, then the environment file, then declared variables.  
-  Later values Replace earlier values for the same key.  
-  Global constants never Enter this override chain.
+  Later Values Replace earlier Values for the same key.  
+  Global Constants never Enter this override chain.
 - Load and validate once at Startup; pass typed configuration onward.  
   Reject unknown Keys, invalid types and missing required values.
 
 For this example, files hold flat Keys.  
-An absent key Inherits its default; `null` is invalid.
+An absent Key Inherits its Default; `null` is invalid.
 
-The loader Declares these environment variables:
+The Loader Declares these environment Variables:
 
 | Variable | Destination | Validation |
 | --- | --- | --- |
@@ -147,7 +147,7 @@ studentLimit: 30
 serviceUrl: https://enrollment.example.com
 ```
 
-The loader Implements selection, overrides and validation.  
+The Loader Implements Selection, overrides and validation.  
 YAML, JSON and TOML only describe Data;  
 they do not Expand environment variables on their own.
 
@@ -158,13 +158,13 @@ they do not Expand environment variables on their own.
 
 - A variable nobody declared is a variable nobody Finds.  
   `.env.example` is the Contract, and it is committed.
-- Required variables Live uncommented, with a placeholder value.  
+- Required Variables Live uncommented, with a placeholder value.  
   A reader copies the file and Sees at once what startup wants.
-- Optional overrides Live commented, showing the default they replace.  
-  The comment Documents; it never loads.
+- Optional Overrides Live commented, showing the default they replace.  
+  The Comment Documents; it never loads.
 - `.env` is Local, and git ignores it.  
-  The loader Reads it when present and says nothing when absent.
-- An exported variable Wins. The file fills the gaps it left.  
+  The Loader Reads it when present and says nothing when absent.
+- An exported Variable Wins. The file fills the gaps it left.  
   A shell that sets a value Meant it; a file only suggested one.
 
 ```sh
@@ -186,7 +186,7 @@ Each one is more Explicit than the one behind it.
 > Proposed. Four are Canon above. Domain data and deployment topology
 > come from one Project and await a second.
 
-A value Belongs to exactly one kind. Asking which one Answers
+A Value Belongs to exactly one Kind. Asking which one Answers
 where it lives, who may change it, and what breaks if it moves.
 
 **What the Code Means.** It Changes when the code changes.
@@ -221,14 +221,14 @@ where it lives, who may change it, and what breaks if it moves.
 
 ## Constants Stay with their Meaning
 
-A unit conversion Belongs beside the calculation:
+A unit Conversion Belongs beside the Calculation:
 
 ```go
 const secondsPerMinute = 60
 ```
 
-A shared state catalog Belongs in `constants/`.  
-A timeout Belongs in `config/`.  
-A conversion factor Belongs beside its calculation.
+A shared state Catalog Belongs in `constants/`.  
+A Timeout Belongs in `config/`.  
+A conversion Factor Belongs beside its Calculation.
 
 Secrets Enter through injection, never through either directory.

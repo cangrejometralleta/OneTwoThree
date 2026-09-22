@@ -5,13 +5,13 @@
 - Expose that Source through relative symbolic links
   where the tool supports them.
 - Add only the Metadata and format adapter each vendor requires.
-  The adapter Points to the instructions; it never repeats them.
+  The Adapter Points to the Instructions; it never repeats them.
 
 ## One Source, every Entrance
 
 This repository Keeps agent instructions in `.agents/agents/`
 and skills in `.agents/skills/`.
-Every vendor entrance Resolves to one of those two directories:
+Every vendor Entrance Resolves to one of those two directories:
 
 ```text
 CLAUDE.md      -> AGENTS.md
@@ -29,8 +29,8 @@ so count the missing Entrances, never the symmetrical ones.
 `CLAUDE.md` is an Entrance too. The client Looks for that name,
 and the link Hands it `AGENTS.md` instead of a second copy to drift.
 
-The shared markdown Defines the agent's voice and behavior.
-The small TOML adapter Identifies the Codex agent
+The shared Markdown Defines the agent's Voice and behavior.
+The small TOML Adapter Identifies the Codex agent
 and instructs it to read that markdown before it talks.
 
 Skills use the shorter `one-two-` Prefix.
@@ -55,7 +55,7 @@ flowchart TD
     Adapter -->|Instructs the Agent to Read| Markdown
 ```
 
-A link Shares files; it does not convert formats.
+A Link Shares Files; it does not convert formats.
 The TOML reference is an Instruction to the agent,
 not an automatic markdown import.
 

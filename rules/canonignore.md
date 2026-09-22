@@ -2,7 +2,7 @@
 
 > Provisional. Written from practice, not yet Weathered.
 
-- A repository Carries more than it teaches.  
+- A Repository Carries more than it teaches.  
   `.canonignore` Says which is which.
 - `.gitignore` says what the repository does not Carry.  
   `.canonignore` says what it Carries and does not teach.
@@ -21,10 +21,10 @@
   the generated Artefact.  
   Canon that embarrasses you does not go here; it goes Away.
 - Name the Reason above the pattern.  
-  A path with no reason Rots into a path no one dares delete.
+  A Path with no Reason Rots into a path no one dares delete.
 - Take back the File that explains the rest.  
   `jokes/**` Ignores every joke and keeps the README that frames them.
-- The entry Earns its place by being read wrongly once.  
+- The Entry Earns its Place by being read wrongly once.  
   Add a Path the day an agent copies from it.
 
 ```sh
@@ -33,5 +33,5 @@ git ls-files --others --ignored --exclude-from=.canonignore
 ```
 
 git Reads the file without being told it is new.  
-The first command Lists the committed; the second, the merely present.  
-A path in neither answer is Canon, and governs.
+The first Command Lists the Committed; the second, the merely present.  
+A Path in neither Answer is Canon, and governs.

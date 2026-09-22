@@ -3,7 +3,7 @@
 > Provisional. Written from practice, not yet Weathered.
 
 - Spell the Expectation; never read it from the code under test.  
-  A test that computes what it checks  
+  A Test that Computes what it Checks  
   Agrees with itself and proves nothing.
 
 ```go
@@ -16,18 +16,18 @@ if reply.Status != status {
 
 - Prove it by Mutation.  
   Break the Declaration and run the test.  
-  A test that still passes was never Watching.
-- A test name is a Use Case, not a method name.  
+  A Test that still Passes was never Watching.
+- A test Name is a Use Case, not a method name.  
   *someone Enrols below the Enrolment Age*  
   Beats *testAddStudentInvalidAge*.
 - Arrive the Way a caller arrives.  
   Cross the Route, not the private helper.
-- One fake Stands in for every vendor.  
+- One Fake Stands in for every Vendor.  
   A test that needs a port has Found a missing provider.
 - Keep one real Test per guarantee only a real thing can give.  
   A unique index is One. A clock is another.
-- The fake Obeys the same rules as the store.  
+- The Fake obeys the same Rules as the Store.  
   A fake that accepts what the store refuses Hides the case.
 
 Count the Declarations, then count the tests that reach them.  
-The two numbers Match, or the gap has a name.
+The two Numbers Match, or the gap has a name.
