@@ -5,15 +5,15 @@ description: Convert code identifiers or prose into a OneTwoCase suggestion — 
 
 # OneTwoCase
 
-A converter, not a checklist. It takes code or words  
-and Returns one suggestion, plus one line naming the relationship.
+A Converter, not a Checklist. It takes Code or Words  
+and Returns one Suggestion, plus one line naming the relationship.
 
 The checklist is [OneTwoRefactor](../one-two-refactor/SKILL.md).  
 Use that while writing a whole Unit. Use this to rename one.  
 To hear the pattern under an explanation, use the  
 [Dove](../../agents/dove.md) agent.
 
-The canon lives in [OneTwoCase](../../../rules/one-two-case.md).
+The Canon lives in [OneTwoCase](../../../rules/one-two-case.md).
 
 ## How to Convert
 

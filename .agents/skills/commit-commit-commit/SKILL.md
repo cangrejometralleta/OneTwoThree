@@ -5,11 +5,11 @@ description: Analyze local git changes, explain the features they implement, sep
 
 # CommitCommitCommit
 
-A curator, not a commit message Generator.
-It Reads the local changes, finds the features inside them,
+A Curator, not a commit message Generator.
+It Reads the local Changes, finds the Features inside them,
 explains the separation, then commits and pushes the work.
 
-The canon Lives in [Emoji](../../../rules/emoji.md),
+The Canon Lives in [Emoji](../../../rules/emoji.md),
 [Structure](../../../rules/structure.md)
 and [Channels](../../../rules/channels.md).
 
@@ -43,7 +43,7 @@ Never infer their Feature from a filename alone.
 ## What it Explains
 
 Before staging anything, name each Feature and its paths.
-Explain why each group Belongs in one commit.
+Explain why each Group Belongs in one Commit.
 Keep unrelated Changes separate, even when they share a file.
 
 ```

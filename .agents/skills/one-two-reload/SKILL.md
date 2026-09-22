@@ -5,12 +5,12 @@ description: "Load or refresh a local project's skills and custom agents in the 
 
 # OneTwoReload
 
-A loader of local customizations, not an installer of global State.
+A Loader of local Customizations, not an installer of global State.
 It Finds the canonical skills and agents in the current project,
 connects the active client to them, removes obsolete entrances and references,
 reloads what the client can reload, and verifies what it can discover.
 
-The canon Lives in [Vendor Integration](../../../rules/vendor-integration.md).
+The Canon Lives in [Vendor Integration](../../../rules/vendor-integration.md).
 
 ## What it Reads
 
@@ -50,7 +50,7 @@ Treat these as common Entrances, not timeless guarantees:
 | OpenCode | Discover from its local configuration or Documentation | Discover from its local configuration or Documentation |
 
 If the installed client documents another Path, follow the installed client.
-The client Owns discovery; this skill owns the local connection to it.
+The Client Owns Discovery; this skill owns the local connection to it.
 
 ## Reload Rules
 
@@ -60,7 +60,7 @@ The client Owns discovery; this skill owns the local connection to it.
 - Never claim a Reload from filesystem changes alone.
 - When no reload action is exposed, validate the Files and ask for the smallest
   manual action: start a new chat, reload the window or restart the client.
-- A skill cannot Reload the turn already reading it. Verify the next discovery
+- A Skill cannot Reload the Turn already reading it. Verify the next discovery
   cycle and say when that Boundary applies.
 - After any skill, agent, entrance or tool change, Remind the user to reload or
   restart the client and begin a new chat. The current turn may keep the old
@@ -129,12 +129,12 @@ ignore file the project has, not only `.gitignore`:
 .gcloudignore    the Deploy does not Upload it
 ```
 
-A missed Line in a deploy ignore Ships the canon and its `.git`
+A missed Line in a deploy ignore Ships the Canon and its `.git`
 in every Build. Verify with `git check-ignore`, never by Reading the file.
 
 ### The Copy Forgets where it Came from
 
-A sparse clone Knows its head; a flat copy Knows nothing.
+A sparse Clone Knows its Head; a flat copy Knows nothing.
 A generated ZIP records its origin, commit and file inventory in
 `.agents/distribution.json`; verify it before loading the Snapshot.
 For a legacy copy without that manifest, `AGENTS.md` must Record the address
@@ -152,7 +152,7 @@ Asks for the head and Accepts no older commit.
 
 ### Restore before you Reshape
 
-An install that Rewrites the root may Delete the two files the repository
+An Install that Rewrites the root may Delete the two files the repository
 actually carries, `AGENTS.md` and its `CLAUDE.md` link.
 Read `git status` before Writing anything. A `D` on either one is Loss,
 and the commit is the only Copy left.
@@ -174,7 +174,7 @@ never solve a missing resource by silently copying the excluded Tree.
 
 ## Verification
 
-The filesystem check Proves the entrance:
+The filesystem Check Proves the Entrance:
 
 1. Every link Resolves inside the project.
 2. Every skill folder name Matches its frontmatter `name`.
@@ -182,7 +182,7 @@ The filesystem check Proves the entrance:
 4. No stale reference Points to a renamed skill or agent.
 5. No removed name Remains in hidden, ignored or generated project paths.
 
-The client check Proves the load:
+The client Check Proves the Load:
 
 1. Query the client's customization Listing when available.
 2. Confirm the expected Names appear exactly once per logical source.

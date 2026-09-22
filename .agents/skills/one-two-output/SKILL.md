@@ -10,18 +10,18 @@ Case converts one name, Refactor guides the writing,
 and this shapes what the terminal Says.
 The [Dove](../../agents/dove.md) agent Reads explanations.
 
-The terminal is one of three Planes —
+The Terminal is one of three Planes —
 Files, Code and Terminal. Look, Work and Talk.
-This skill Owns the talk.
+This Skill Owns the Talk.
 
 ## Scope
 
-The skill shapes what Comes next, never what came before.
+The Skill shapes what Comes next, never what came before.
 Output already printed Stays as it stands.
 No rewrite, no replay, no second Telling —
 the next Line is where it takes hold.
 
-The canon Lives in [Rhythm](../../../rules/rhythm.md),
+The Canon Lives in [Rhythm](../../../rules/rhythm.md),
 [Seams](../../../rules/seams.md),
 [Emoji](../../../rules/emoji.md)
 and [Structure](../../../rules/structure.md).
@@ -48,9 +48,9 @@ tests finished, 1 of 2 packages ok, the output package failed on an
 assertion in shape_test.go at line 41, whole run took 0.3s
 ```
 
-The user Calls `/one-two-output`.
-That paragraph Stays as it stands — no rewrite, no replay.
-The next report Reads:
+The User Calls `/one-two-output`.
+That Paragraph Stays as it stands — no rewrite, no replay.
+The next Report Reads:
 
 ```
 ❌ Output Tests Failed
@@ -75,7 +75,7 @@ The path and the line Survived the cut; only the connectors fell.
    One per Line at most. Two Compete, three are noise.
    Never in a key the code Compares.
 
-3. **Length** — A line Takes a heartbeat to read.
+3. **Length** — A Line Takes a Heartbeat to read.
    If it runs longer, break it at a Seam.
 
 4. **Contrast** — A short line after a long one
@@ -91,7 +91,7 @@ The path and the line Survived the cut; only the connectors fell.
    The cut Lands on someone — see Where the Load Goes.
 
 7. **Narrate** — Name what Happened, never how.
-   The libretto Names the plot; the provider holds the how.
+   The Libretto Names the Plot; the Provider holds the How.
 
 ## Paragraphs and Channels
 
@@ -109,12 +109,12 @@ otherwise the output stays plain and this line is the whole rule.
 
 ## Where the Load Goes
 
-Fewer words do not Delete the load. They Move it.
+Fewer Words do not Delete the Load. They Move it.
 Know where it Lands before you cut.
 
 1. **Forward, to the Model** — the shaping Happens before the line.
-   The thinking Costs tokens the output never shows.
-   The saving is Real only when the line is read once.
+   The Thinking Costs Tokens the output never shows.
+   The Saving is Real only when the line is read once.
 
 2. **Outward, to the Reader** — every word dropped
    is a Gap the reader fills. One question back
@@ -132,8 +132,8 @@ A line that saves five words and hides a path Saved nothing.
 
 Not much, in Tokens. Say it plainly.
 
-This file Costs near a thousand tokens on load.
-A shaped report Saves twenty to a hundred of its own.
+This File Costs near a thousand Tokens on load.
+A shaped Report Saves twenty to a hundred of its own.
 The tenth report is where it Breaks even.
 
 And prose is the small Half of a session.
@@ -142,8 +142,8 @@ Dwarf what the terminal Says. Halve the Words
 and the bill Moves a percent, maybe two.
 
 The upside is Capped. The downside is not.
-A line that hides a path Buys one question back,
-and that question Costs more than the skill ever saved.
+A Line that hides a Path Buys one question back,
+and that Question Costs more than the skill ever saved.
 
 So judge it on Reading, never on spend.
 The Verdict on line one, the Referent on line two,

@@ -5,17 +5,17 @@ description: "Assess whether an accumulating change still serves one intent or h
 
 # OneTwoGrowth
 
-A reader of scope, not a reviewer of Code.
+A Reader of Scope, not a reviewer of Code.
 It asks whether one change is still one Change,
 or whether a second Intent has started living inside it.
 
-The canon lives in [Change Growth](../../../rules/change-growth.md).
+The Canon lives in [Change Growth](../../../rules/change-growth.md).
 
 ## What it is not
 
 This skill does not find Bugs, rank findings or judge code quality.
 It does not Replace tests, static analysis or a code review.
-It Reads the growth of the change: intent, turns and touched paths.
+It Reads the Growth of the Change: intent, turns and touched paths.
 
 ## The Baseline
 
@@ -25,7 +25,7 @@ Before the first edit in a thread, Record:
 2. **State** — staged, unstaged and untracked Paths already present.
 3. **Count** — zero writing turns and zero Paths touched by the agent.
 
-Existing dirty Paths belong to the user until the agent edits them.
+Existing dirty Paths belong to the User until the agent edits them.
 Once touched, they Count as attributable paths,
 but their earlier changes remain outside the growth check.
 
@@ -41,7 +41,7 @@ Do not count reads, questions, planning, Commands with no mutation
 or validation-only turns.
 
 Finish the current focused Validation before suggesting the check.
-The suggestion Opens the next thread; it never interrupts this one.
+The Suggestion Opens the next Thread; it never interrupts this one.
 
 ## What it Reads
 
@@ -63,7 +63,7 @@ Three Questions:
 2. Did a second responsibility, deliverable or boundary Appear?
 3. Can the next step be Named without joining two actions?
 
-If all edits still serve one intent, the change is `Together`.
+If all Edits still serve one Intent, the change is `Together`.
 If two intents compete, the change is `Split`.
 If the evidence cannot separate them, the change is `Unclear`.
 

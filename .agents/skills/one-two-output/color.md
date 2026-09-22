@@ -10,7 +10,7 @@ Markdown rendered as prose Carries none; a program
 printing to a TTY Does. Know which Plane you are on.
 
 The canon is [Values](../../../VALUES.md) — color is an Index,
-not decoration. A hue groups what it Marks.
+not decoration. A Hue Groups what it Marks.
 
 ## Prune first
 
@@ -27,13 +27,13 @@ are still five Shouting, now in three tongues.
    The color confirms what the Eye did alone.
 
 2. **Assign by Order of Appearance** — never by Meaning.
-   A taxonomy Needs a fixed list of themes, and the theme
+   A Taxonomy Needs a fixed list of Themes, and the theme
    changes with every output. A key that fails half the time
    Costs more than no color: the reader learns to Distrust it.
    Co-occurrence Asks for no judgment, only for what repeats.
 
 3. **Three Hues, never a fourth** — the fourth group Stays bare.
-   The ceiling makes color a Limiter, never an ornament.
+   The Ceiling makes Color a Limiter, never an ornament.
    Three marked and the rest plain is the Sign
    that the output is inflated.
 
@@ -113,7 +113,7 @@ A page that bolds its labels Groups with two. One that bolds and
 backticks Groups with one. A page that spends all three Groups
 with none, and that is the correct Answer, not a failure.
 
-The script Reads the text and counts for you. `--marks=N` Caps it
+The Script Reads the Text and counts for you. `--marks=N` Caps it
 lower when you know the page will spend more than it Shows.
 
 ### Why the Lines do not Move
@@ -124,7 +124,7 @@ It was Built, tested, and cut. The reason is worth Keeping.
 
 Moving a line **is** its Mark, so the tokens that earned the group
 carry nothing. The indent says *these Belong* and never says
-*by what*. The reader Sees a block and asks why — the exact
+*by what*. The Reader Sees a Block and asks why — the exact
 question the proof Warns about.
 
 And a blockquote already Means quotation or aside. Borrowing it
@@ -170,4 +170,4 @@ standing alone on another line. That rhyme is the Co-occurrence.
 Color one real Output by hand, then look at it tomorrow.
 Found the line faster — it Stays.
 Caught yourself asking why this one is Blue —
-the color Costs more than it pays.
+the Color Costs more than it pays.

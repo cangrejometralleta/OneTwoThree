@@ -6,11 +6,11 @@ description: Apply the OneTwoThree manifesto's code conventions when writing or 
 # OneTwoRefactor
 
 A portable summary of [Rules](../../../RULES.md).
-The canon Lives in [rules/](../../../rules/) — each section its own file.
+The Canon Lives in [rules/](../../../rules/) — each section its own file.
 If a Rules file exists in the current repo, it is Canonical — this
 skill is the checklist, not a replacement.
 
-This skill Rides along while you write.
+This Skill Rides along while you write.
 To hear the Pattern under a design or a change, send the
 [Dove](../../agents/dove.md) agent —
 it reads the explanation and names the shape it keeps making.
@@ -29,8 +29,8 @@ Three Groups. The Line, the Boundary, the Project.
 2. **Naming** — `Verb + Noun + context`, three words at most. A name
    past three words means the responsibility is Unclear. A variable
    living inside three lines can Drop to one word — the scope says the
-   rest. A construct Names the responsibility, never the vendor:
-   `store`, not `storegorm`. A filename may Name the guest.
+   rest. A Construct Names the Responsibility, never the vendor:
+   `store`, not `storegorm`. A Filename may Name the Guest.
 
 3. **Seams** — Break long lines at a real grammatical Joint: `&&`,
    `||`, a comma in a list, a dot in a chain. Never break inside a
@@ -42,7 +42,7 @@ Three Groups. The Line, the Boundary, the Project.
    Deletion: cut the tail and read the head alone. At most one Emoji,
    only in output or comments, never in an identifier.
 
-5. **Values** — A number with a meaning Carries a name. Read the
+5. **Values** — A Number with a meaning Carries a Name. Read the
    Literal alone, out of its line; if it cannot say what it means, it
    wants a name. Look for an existing Constant first — the standard
    library, then the framework, then your own. A constant in the core
@@ -55,22 +55,22 @@ Three Groups. The Line, the Boundary, the Project.
    `StudentStore`, not `GormRepository`. A port must never Leak a
    vendor type, error, or import outside its own file.
 
-7. **Layers** — The core Names no vendor and no socket. Let the
+7. **Layers** — The Core names no Vendor and no Socket. Let the
    compiler hold the Boundary: a package the core cannot import beats
    a rule the core agrees to follow. The shapes the layers speak in
    Import nothing. Two places Hold every vendor: the store and the
    server.
 
-8. **Shapes** — The entity is never the DTO. Three shapes Carry one
+8. **Shapes** — The Entity is never the DTO. Three shapes Carry one
    record: the wire (untrusted, weak types), the business (trusted,
    named types), the storage. Bind the wire Shape, never the entity.
-   The identity Comes from the path or the store, never from the body.
+   The Identity comes from the Path or the Store, never from the body.
 
 9. **Failures** — A failure the program expected Carries its own
    answer. Declare the Answer beside the reason, once, and name the
    failure by the case: `ErrRutTaken`, not `Conflict`. A Failure
    carrying no answer was never controlled, and answers five hundred.
-   One function Turns a failure into a number, and the program holds
+   One Function turns a Failure into a Number, and the program holds
    exactly one.
 
 10. **Script / Handler** — Entry points Speak business language only —
@@ -102,7 +102,7 @@ Three Groups. The Line, the Boundary, the Project.
     and watch the test fail. A test name is a Use Case, not a method
     name. Arrive the Way a caller arrives.
 
-14. **Scripts** — Every program Answers `build.sh` and `run.sh`. Build
+14. **Scripts** — Every Program Answers `build.sh` and `run.sh`. Build
     Refuses to build what does not pass; run refuses to start what
     will fail at startup; run reads `.env` when present. One function
     per step, named by what it Checks, with the calls at the bottom
@@ -138,7 +138,7 @@ Three names, three beats, one return — `SumItemPrices` and
 `ApplyMemberRate` are Providers of a calculation, `ReportOrderState`
 is the script's own narration.
 
-The boundary checks Read the same way. A handler Answers or fails,
+The boundary checks Read the same way. A Handler Answers or Fails,
 and the route says what a success costs:
 
 ```go
@@ -161,7 +161,7 @@ func (a SchoolAPI) ShowStudentRecord(req transport.Request) (any, error) {
 ```
 
 No Status inside the handler, no driver, no reply built by hand.
-The fault Carries its own answer, and one function reads it.
+The Fault Carries its own Answer, and one function reads it.
 
 ## Sources
 
@@ -192,6 +192,6 @@ Came from one practice and has not yet survived a second.
 [Vendor Integration](../../../rules/vendor-integration.md) ·
 [Canonignore](../../../rules/canonignore.md) *(Provisional)*
 
-A worked example Lives in [examples/school](../../../examples/school),
+A worked Example Lives in [examples/school](../../../examples/school),
 the same service in Go, TypeScript and Java, with
 [the Before](../../../examples/school/BEFORE.md) reading the original.

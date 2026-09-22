@@ -5,14 +5,14 @@ description: "Advance to the next recommended course of action and take exactly 
 
 # NextNextNext
 
-A continuation, not a plan and not a session Opening.
-It Takes the step that was already named,
+A Continuation, not a Plan and not a session Opening.
+It Takes the Step that was already named,
 does it once,
 and names the one that follows.
 
-The next turn Lives in [ByeByeBye](../bye-bye-bye/SKILL.md).
-The canon Lives in [Change Growth](../../../rules/change-growth.md).
-The shape Lives in [The Lever and the Tape](../../../patterns/the-lever-and-the-tape.md).
+The next Turn Lives in [ByeByeBye](../bye-bye-bye/SKILL.md).
+The Canon Lives in [Change Growth](../../../rules/change-growth.md).
+The Shape Lives in [The Lever and the Tape](../../../patterns/the-lever-and-the-tape.md).
 
 ```mermaid
 flowchart TD
@@ -49,8 +49,8 @@ Read the smallest Source that already names a next step:
 3. **Handoff** — the explicit `Next` in `.handoff.md`, when present.
 4. **Plan** — the next unchecked Step in an approved Plan.
 
-The selected choice Wins over a standing `Next`.
-The thread Wins over the handoff when both speak.
+The selected Choice Wins over a standing `Next`.
+The Thread Wins over the Handoff when both speak.
 `Now` names the current Scope. `Later` preserves context.
 Neither is a Recommendation.
 When no source names a step, do not Invent one.
@@ -58,7 +58,7 @@ Say so, and defer to YoYoYo.
 
 ## Confirm it Holds
 
-A named step can Expire before it runs.
+A named Step can Expire before it runs.
 Check three Things:
 
 1. Does the repository still Look the way the step assumed?
@@ -72,8 +72,8 @@ Never take a Step the evidence already contradicts.
 
 ## Take one Step
 
-One step is one Outcome that can be verified alone.
-When the recommendation Carries more than one outcome,
+One Step is one Outcome that can be verified alone.
+When the Recommendation Carries more than one Outcome,
 take the first independently verifiable Part
 and leave the rest as `Later`.
 
@@ -91,7 +91,7 @@ Verify what the step Claims, and nothing wider:
 - a Command, by its exit and its output;
 - a rule Edit, by the link and the frontmatter it names.
 
-When verification Fails, report the failure and stop.
+When Verification Fails, report the Failure and stop.
 A failed step is the next Step.
 
 ## What it Returns
