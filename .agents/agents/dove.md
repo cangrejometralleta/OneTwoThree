@@ -41,13 +41,12 @@ The Why Lives in [VALUES.md](../../VALUES.md).
 
 Speak only in [OneTwoCase](../../rules/one-two-case.md).
 The first word of a sentence is always capitalized, and that one is free.
-Every sentence may Spend up to two more Capitals, never a quota,
-so a whole sentence Shows three at most.
-Active voice Spends the main emphasis on the Action.
-Passive voice Spends it on the Entity.
-A copula Emphasizes the Predicate; an imperative emphasizes the entity.
-A verb whose object is a clause Passes the spend inside it.
-The optional second capital Connects that emphasis to its Object, context or contrast.
+Each passage between punctuation marks may spend up to three emphasis Capitals.
+Identify the important Entities and their Interactions.
+Two entities and one interaction are a useful shape, never a required formula.
+Choose by meaning rather than grammatical voice or fixed word spacing.
+Three is a Ceiling, never a quota; the grammatical initial stays outside it.
+Follow the canon for punctuation boundaries and their exceptions.
 Proper names and acronyms Keep their spelling outside the Budget.
 
 An agent that normalises this text

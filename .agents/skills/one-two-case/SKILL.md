@@ -1,12 +1,12 @@
 ---
 name: one-two-case
-description: Convert code identifiers or prose into a OneTwoCase suggestion — at most three capitals per sentence: the free initial one plus up to two emphasis capitals, the main one chosen by voice and an optional second marking a meaningful relationship. For identifiers, apply the language's case convention plus Verb+Noun+context (≤3 words). Use when the user asks to "OneTwoCase" a name, sentence, or identifier, or to rewrite something in the manifesto's convention.
+description: Convert code identifiers or prose into a OneTwoCase suggestion — identify important entities and their interactions, with up to three emphasis capitals per passage between punctuation marks; the grammatical initial is free. For identifiers, apply the language's case convention plus Verb+Noun+context (≤3 words). Use when the user asks to "OneTwoCase" a name, sentence, or identifier, or to rewrite something in the manifesto's convention.
 ---
 
 # OneTwoCase
 
 A converter, not a checklist. It takes code or words  
-and Returns one suggestion, plus one line saying why.
+and Returns one suggestion, plus one line naming the relationship.
 
 The checklist is [OneTwoRefactor](../one-two-refactor/SKILL.md).  
 Use that while writing a whole Unit. Use this to rename one.  
@@ -21,26 +21,23 @@ The canon lives in [OneTwoCase](../../../rules/one-two-case.md).
    Prose is a sentence or a comment.  
    Code is an identifier, a function, a variable.
 
-2. Split the prose into Sentences.  
-   Each sentence Carries its own budget, and a bullet line counts as one.
+2. Split the prose at punctuation that separates passages.  
+   Commas, semicolons, colons and sentence endings renew the Budget.  
+   Follow the canon for clause-delimiting dashes, parentheses and line breaks.
+   Punctuation within a word or number does not split the passage.
 
-3. Leave the first Word capitalized, and do not count it.  
-   That capital is free, whatever the word is.
+3. Keep the grammatical initial capitalized without spending Budget.  
+   A word after a comma has no free capital merely because it starts a passage.
+   Proper names and acronyms retain their established spelling outside the budget.
 
-4. Choose the main emphasis by Voice.
-   active Spends on the Action,  
-   passive Spends on the Entity,  
-   a copula Spends on the predicate that completes the definition,  
-   an imperative Spends on the Entity, because its verb opened for free.  
-   Where two entities compete, take the one carrying the Claim.
+4. Identify the important Entities and their Interactions.  
+   Capitalize up to three words per passage that make the relationship visible.
+   Two entities and one interaction are a useful shape, not a noun-and-verb quota.
+   Choose by meaning rather than grammatical voice or fixed word spacing.
+   Use fewer when the phrase needs fewer; never invent a participant.
 
-   Optionally Connect that emphasis to its Object, context or contrast with a second capital.  
-   Two spent capitals are the Ceiling, never a quota,  
-   so a whole sentence Shows three at most.
-
-5. Lowercase everything Else.  
-   Proper names and acronyms Keep their established Spelling outside the budget.
-   A list of names is exempt: five Entities in a row stay five entities.
+5. Lowercase other discretionary emphasis.  
+   A list of names stays exempt, and punctuation must not be added for budget.
 
 6. For code, apply the language Convention —  
    PascalCase when exported,  
@@ -48,40 +45,41 @@ The canon lives in [OneTwoCase](../../../rules/one-two-case.md).
    snake_case for Python.  
    Then fit the name to Verb + Noun + context, three words at most.
 
-7. Return the Suggestion, and one line naming the voice you read  
-   and the word or relationship it chose.
+7. Return the Suggestion, and one line naming the Entities or Interaction it highlights.
 
 ## Examples
 
-### Prose — active
+### Prose — entities and interaction
 
-Input:  "this function gets the user account data by id"  
-Output: "This function Fetches the user Account by id."\
-Why:    Active, so *Fetches* carries the action; *Account* names its object.
+Input: "the person guides the machine"  
+Output: "The Person Guides the Machine."\
+Why: *Person* and *Machine* are the entities; *Guides* names their interaction.
+The initial *The* is free, leaving three spent capitals.
 
-### Prose — one is Enough
+### Prose — fewer are Enough
 
-Input:  "the reading breathes"\
-Output: "The reading Breathes."\
-Why:    The action carries the whole claim; a second emphasis adds nothing.
+Input: "the person rests"  
+Output: "The Person Rests."\
+Why: One entity and its action carry the claim without another participant.
 
-### Prose — passive
+### Prose — punctuation
 
-Input:  "all six paths from the checkpoint were committed and pushed"  
-Output: "All six Paths from the checkpoint were committed and pushed."  
-Why:    Passive, so the Entity takes it; the actor is gone.
+Input: "the person guides the machine, the machine supports the person"  
+Output: "The Person Guides the Machine, the Machine Supports the Person."\
+Why: Each passage highlights its relationship within a separate budget.
+Only the sentence's grammatical initial is free.
 
-### Prose — copular
+### Prose — definition
 
-Input:  "a checkpoint is a snapshot, not a session closing"  
-Output: "A checkpoint is a Snapshot, not a session closing."  
-Why:    A copula, so the predicate takes it; *Snapshot* completes the definition.
+Input: "rest is care"  
+Output: "Rest is Care."\
+Why: The definition connects two concepts; *Rest* already has its free initial.
 
 ### Prose — imperative
 
-Input:  "read the long line as the opening"  
-Output: "Read the long line as the Opening."  
-Why:    Imperative, so the verb opened for free and the Entity took the spend.
+Input: "protect your attention"  
+Output: "Protect your Attention."\
+Why: The action already has its free initial; the emphasis identifies its entity.
 
 ### Prose — bold
 
