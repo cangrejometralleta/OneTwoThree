@@ -3,23 +3,23 @@
 > This File was written by an Agent.
 > Every other File here must not be.
 
-A human Writes the Jokes. By Hand. That is the whole Point.
+A Human Writes the Jokes. By Hand. That is the whole Point.
 
-The rules Teach an agent to count beats and break at a Seam.
+The Rules teach an Agent to count beats and break at a Seam.
 None of them Teaches Timing.
 Timing is what Survives when the rule is followed and the line
 still lands flat, and no count Explains why.
 
 ## Why a Human, and only a Human
 
-- A model that Learns humour from a model Learns its own echo.\
+- A Model that Learns Humour from a model learns its own echo.\
   The second generation is Flatter, and the third Explains itself.
-- A joke Fails in Public, immediately.\
+- A Joke Fails in Public, immediately.\
   That failure is the Signal, and only a person Feels it.
 - What Lands is Local.  
   It Knows the year, the room and who is Listening.
 
-An agent Reads this directory to hear the Voice.
+An Agent Reads this directory to hear the Voice.
 It never Adds to it, and never Quotes from it.
 
 ## What Belongs
@@ -47,17 +47,17 @@ Asked what a joke means here, an agent Says nothing and Points at the file.
 
 ## The Language is Part of the Joke
 
-Every joke Stays in the Language it was born in.
+Every Joke Stays in the Language it was born in.
 Most of them are Grammatical, and grammar does not Travel.
 
-- A pun Lives in one language and Dies in the next.\
+- A Pun Lives in one language and Dies in the next.\
   What crosses is a Sentence about a Pun.
 - Two languages Break a Line in two different places.\
   That Difference is exactly what this directory is Collecting.
 - Spanish and English Land here, side by side, Untranslated.  
   Neither one is the Original; both are.
 
-An agent never Translates a Joke.
+An Agent never Translates a Joke.
 It never Normalises the casing, the accent or the punctuation either.
 [Reading this Repository](../rules/reading-this-repository.md) already says why:
 normalising Deletes the Signal it was given.
@@ -84,7 +84,7 @@ Add a Line to the index below with the name, and Stop there.
 No frontmatter, no template, no Fields to Fill,
 and no note saying what it taught.
 
-A form Kills a joke faster than an agent does,
+A Form Kills a Joke faster than an agent does,
 and a field named explanation Kills it fastest.
 The language suffix is an Address, not a Form.
 
