@@ -1,6 +1,6 @@
 # School Service
 
-The technical test, Rewritten three times.
+The technical Test, Rewritten three times.
 Students, courses, a chilean RUT and a token,
 served by seven frameworks that never Touch the Business.
 
@@ -8,8 +8,8 @@ served by seven frameworks that never Touch the Business.
 each seam earned. Read that first if you want the Argument
 instead of the Conclusion.
 
-Every directory Answers the same two Scripts.
-Learn them once and every runtime Opens the same Way.
+Every Directory Answers the same two Scripts.
+Learn them once and every Runtime Opens the same Way.
 
 ```bash
 cp ../.env.example .env             # once, beside the Program you Run
@@ -55,8 +55,8 @@ config/school.production.json      Separate Production Database Path
 ```
 
 Select `APP_ENV` Explicitly: `development` or `production`.
-The loader Applies Defaults, then the selected file, then declared variables.
-Global constants Load separately and never Enter that chain.
+The Loader Applies Defaults, then the selected file, then declared variables.
+Global Constants Load separately and never Enter that chain.
 Files are Read once at Startup; restart after a change.
 
 | Variable | Destination | Validation |
@@ -76,7 +76,7 @@ including attempts to Override global constants.
 `TOKEN_SECRET` is Supplied by the deployment, never Committed to JSON.
 The Secret in the run example is for local Demonstration only.
 
-Each script Enters its own directory first, so it Runs from anywhere.
+Each Script Enters its own Directory first, so it Runs from anywhere.
 Go and Java walk up until they Find `constants/` and `config/`,
 so a package test reads the same data;
 TypeScript Resolves those directories relative to its module.
@@ -99,11 +99,11 @@ settings        the strict JSON Loader
 domain          the Business Truth
 ```
 
-Two files Hold every Vendor.
+Two Files Hold every Vendor.
 Swapping one Edits one of them, and nothing else.
 
 In Go those files are grouped into packages,
-so the compiler Guards the Boundary the rule describes.
+so the Compiler Guards the Boundary the rule describes.
 TypeScript Keeps the flat Shape above.
 
 ```text
@@ -121,7 +121,7 @@ tokens/         the Token Adapter, standard Library only
 ```
 
 `go list -deps ./school` Names no Vendor and no Socket.
-The core cannot Import gorm, chi, gin or net/http, because it never Sees them.
+The Core cannot Import gorm, chi, gin or net/http, because it never Sees them.
 
 ## The Contract, on its own
 
@@ -129,19 +129,19 @@ The core cannot Import gorm, chi, gin or net/http, because it never Sees them.
 It Imports nothing, so reading it Costs no context.
 Open one File and you Know the whole API.
 
-The crossing Lives with the business Types instead, in `school/wire.go`.
-A shape stays a shape; the core Owns the Promotion.
+The Crossing Lives with the business Types instead, in `school/wire.go`.
+A Shape stays a shape; the Core Owns the Promotion.
 
 ## Controlled Failures
 
-A business error Declares its Answer beside its reason,
+A business Error Declares its Answer beside its reason,
 so no handler ever chooses a number.
 
 ```go
 var ErrRutTaken = faults.ReportTakenValue("rut is already Registered")
 ```
 
-A handler never Builds a Reply. It Answers with a value, or it Fails:
+A Handler never Builds a Reply. It Answers with a value, or it Fails:
 
 ```go
 func (a SchoolAPI) ShowStudentRecord(req transport.Request) (any, error) {
@@ -159,19 +159,19 @@ func (a SchoolAPI) ShowStudentRecord(req transport.Request) (any, error) {
 }
 ```
 
-One function Turns that into a Reply, and it is the only one in the program:
+One Function Turns that into a Reply, and it is the only one in the program:
 
 ```go
 func AnswerWith(status int, tell Telling) transport.Handler
 ```
 
-A failure that Carries no fault was never Controlled.
+A Failure that carries no Fault was never Controlled.
 It answers five hundred, because it is Ours and not the Caller's.
-A driver error Reaches the Edge as a five hundred, never as a four hundred.
+A driver Error Reaches the Edge as a five hundred, never as a four hundred.
 
 No package and no type Carries a vendor Name.
 `store` Says the responsibility, `store_gorm.go` Says who fulfils it.
-A filename can Name a guest; a construct Names the business.
+A Filename can Name a Guest; a Construct Names the Business.
 
 ## The Application Layer
 
@@ -179,28 +179,28 @@ Three things Live between the transport and the business,
 and none of them is a business Rule.
 
 - **The Crossing.** `AnswerWith` Turns a Telling into a Handler.
-  The route Declares the happy status; a fault Declares its own.
+  The Route Declares the happy Status; a fault Declares its own.
 - **Validation.** `ReadPathNumber`, `ReadJSONBody` and `ReadPageRequest`
   Check the Form of a request, never its Meaning.
 - **Context.** `RequireProvenCaller` Names the Caller before the story starts.
   A handler behind it Reads `req.Caller` and Trusts it.
 
-The libretto Says all of it at a Glance:
+The Libretto Says all of it at a Glance:
 
 ```go
 {Method: "GET", Pattern: "/students/{id}", Handle: a.Guarded(http.StatusOK, a.ShowStudentRecord)},
 ```
 
-Every route but `POST /token` Names its Caller.
+Every Route but `POST /token` Names its Caller.
 An unnamed caller Gets four hundred and one and Learns nothing else.
 
 ## Providers
 
-A provider is an Interface the core Declares.
+A Provider is an Interface the core Declares.
 `StudentStore` Names a Need. `store.School` Fills it.
 The Handlers never Learn which.
 
-Each provider Carries the URL of the Contract it wraps,
+Each Provider carries the URL of the Contract it wraps,
 so a reader chasing a detail never leaves the file.
 
 The Word Collides. Angular, NestJS and Terraform
@@ -216,7 +216,7 @@ The literature Calls this a Port.
 | `StudentRow`  | yes     | Storage  |
 
 The Entity is never the DTO.
-A client cannot Set an Identity by sending one.
+A Client cannot Set an Identity by sending one.
 
 ## Typing as Documentation
 
@@ -227,7 +227,7 @@ and both Compile down to a string.
 ## What the Tests Buy
 
 `SchoolAPI` Depends on three Interfaces, never on a Library.
-So the tests Hand it three maps and Finish in milliseconds,
+So the Tests hand it three Maps and finish in milliseconds,
 with no database and no port.
 
 One of them pins the comparison that broke the original:

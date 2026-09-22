@@ -1,7 +1,7 @@
 # School — the Specification
 
-What the service Does, in no Language.
-Every rewrite in this directory Answers exactly this,
+What the Service Does, in no Language.
+Every Rewrite in this Directory Answers exactly this,
 so a reader can Compare shapes instead of behaviours.
 
 ## The Nine Routes
@@ -32,12 +32,12 @@ TokenView    { "token": "" }
 FailureView  { "error": "" }
 ```
 
-A list route Answers an array of Views.
+A list Route Answers an array of Views.
 `GET /students?page=0&size=10` Windows the Page; omit both for the whole set.
 A page or size that is not a whole number is Invalid, never Zero.
-Three runtimes Read `?page=abc` three different Ways until this line existed.
+Three Runtimes Read `?page=abc` three different Ways until this line existed.
 
-The body never Carries an Identity. The path and the store Own it.
+The Body never Carries an Identity. The Path and the Store Own it.
 
 ## The Ten Faults
 
@@ -56,23 +56,23 @@ Each one Carries its Status. No handler Chooses a Number.
 | Course Unknown | 404 | `course not Found` |
 | RUT Taken | 409 | `rut is already Registered` |
 
-A failure carrying no Fault Answers 500.
-A driver error is Ours, never the Caller's.
+A Failure carrying no Fault Answers 500.
+A driver Error is Ours, never the Caller's.
 
 ## The Rules the Business will not Bend
 
-- A student Needs a name, a valid RUT, an age and an existing course.
+- A Student Needs a Name, a valid RUT, an age and an existing course.
 - The age Floor is a global Constant, read from `constants/school.json`.
 - A RUT Passes the modulo eleven Check its digit encodes.
   Shape `^[0-9]+-[0-9kK]$`, weights two through seven right to left,
   remainder eleven Means `0` and ten Means `k`.
 - A RUT is unique across students, and the store Proves it.
-- A course Needs a code and a name.
+- A Course needs a Code and a Name.
 - Creating or rewriting a student Checks the course Exists first.
 
 ## Startup
 
-Nothing Opens before the configuration Validates.
+Nothing Opens before the Configuration Validates.
 
 | Variable | Destination | Validation |
 | --- | --- | --- |
@@ -84,12 +84,12 @@ Nothing Opens before the configuration Validates.
 | `TOKEN_SECRET` | Secret Injection | Required; no File Key |
 
 Unknown keys, nulls, wrong types and missing required values Stop Startup.
-Global constants Load separately and no variable can Override them.
+Global Constants load separately and no Variable can Override them.
 
 ## The Token
 
-A bearer token Carries a subject and a deadline, Signed with the secret.
-The subject is `student-registry`, and a guarded handler Reads it as the Caller.
+A bearer Token carries a Subject and a Deadline, Signed with the secret.
+The Subject is `student-registry`, and a guarded handler Reads it as the Caller.
 It Dies once its deadline Passes, and never before.
 
 The Comparison Reads forward. A token is Dead when `now` is after the Deadline.
@@ -98,8 +98,8 @@ Reading it backwards Validates only Expired tokens, which is the bug
 
 ## What a Rewrite Must Keep
 
-- The core Names no vendor and no socket.
+- The Core names no Vendor and no Socket.
 - Two places Hold every vendor: the store and the server.
-- The Entity is never the DTO. Three shapes Carry one Record.
-- A fault Declares its Answer beside its reason, once.
-- A handler Answers with a value or Fails; it builds no reply.
+- The Entity is never the DTO. Three Shapes Carry one Record.
+- A Fault Declares its Answer beside its reason, once.
+- A Handler answers with a Value or Fails; it builds no reply.

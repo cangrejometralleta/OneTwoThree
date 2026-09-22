@@ -1,7 +1,7 @@
 # The Converter
 
 Markdown in, a laid-out PDF out. No pandoc, no weasyprint —
-goldmark Reads the AST, gopdf Draws the page, both pure Go.
+goldmark Reads the AST, gopdf Draws the Page, both pure Go.
 
 ```sh
 ./build.sh                    # the Gates, then the Binary
@@ -20,9 +20,9 @@ render/fonts/   Liberation Serif + DejaVu Sans Mono, vendored
 ```
 
 `go list -deps ./document ./style` Names no Vendor.
-The core cannot Import goldmark or gopdf, because it never Sees them.
+The Core cannot Import goldmark or gopdf, because it never Sees them.
 
-Every number the page depends on Carries a Name in `style/`.
+Every Number the page depends on carries a Name in `style/`.
 Read `10.5` alone and it Says nothing; read `SizeEpigraph`
 and it Says where the number Lands.
 
@@ -30,9 +30,9 @@ and it Says where the number Lands.
 
 `ExtractCoverBlock`, `SplitTitleIndex`, `BuildTriadBlock`,
 `BuildCalloutBlock`, `MarkClosingParagraph` — one function per Shape a
-plain Markdown element can Take. The title, the first paragraph and the
+plain Markdown element can Take. The Title, the first Paragraph and the
 first blockquote Become the Cover. A heading split on `·` Gains an Index.
-A single-row table Becomes three Columns. A blockquote that opens on a
+A single-row Table Becomes three Columns. A blockquote that opens on a
 bold word Becomes a labeled Callout. The last italic paragraph Closes
 the Book.
 
