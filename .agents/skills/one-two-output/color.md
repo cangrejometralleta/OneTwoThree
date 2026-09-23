@@ -161,7 +161,7 @@ so a pipe never Eats an escape. `NO_COLOR` Beats `--force`:
 the reader's standing preference Outranks the writer's flag.
 
 A slash Separates tokens; a dot, dash, colon or underscore binds them.
-So `shape_test.go:41` Survives whole, while `.agents/skills/one-two-case`
+So `shape_test.go:41` Survives whole, while `.agents/skills/de-la-case`
 splits into three — and the last of them can Rhyme with the same name
 standing alone on another line. That rhyme is the Co-occurrence.
 

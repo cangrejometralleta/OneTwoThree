@@ -7,7 +7,7 @@ description: Read the hand-written jokes in jokes/ to hear the repository's timi
 
 A Listener, not a Writer.
 
-[OneTwoCase](../one-two-case/SKILL.md) Converts one name.
+[DeLaCase](../de-la-case/SKILL.md) Converts one name.
 [OneTwoRefactor](../one-two-refactor/SKILL.md) Guides the writing.
 [OneTwoOutput](../one-two-output/SKILL.md) Shapes what the terminal says.
 This one only Listens, and says no.

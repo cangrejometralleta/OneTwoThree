@@ -1,9 +1,9 @@
 ---
-name: one-two-case
-description: Convert code identifiers or prose into a OneTwoCase suggestion — identify important entities and their interactions, with up to three emphasis capitals per passage between punctuation marks; the grammatical initial is free. For identifiers, apply the language's case convention plus Verb+Noun+context (≤3 words). Use when the user asks to "OneTwoCase" a name, sentence, or identifier, or to rewrite something in the manifesto's convention.
+name: de-la-case
+description: Convert code identifiers or prose into a DeLaCase suggestion — identify important entities and their interactions, with up to three emphasis capitals per passage between punctuation marks; the grammatical initial is free. For identifiers, apply the language's case convention plus Verb+Noun+context (≤3 words). Use when the user asks to "DeLaCase" a name, sentence, or identifier, or to rewrite something in the manifesto's convention.
 ---
 
-# OneTwoCase
+# DeLaCase
 
 A Converter, not a Checklist. It takes Code or Words  
 and Returns one Suggestion, plus one line naming the relationship.
@@ -13,7 +13,7 @@ Use that while writing a whole Unit. Use this to rename one.
 To hear the pattern under an explanation, use the  
 [Dove](../../agents/dove.md) agent.
 
-The Canon lives in [OneTwoCase](../../../rules/one-two-case.md).
+The Canon lives in [DeLaCase](../../../rules/de-la-case.md).
 
 ## How to Convert
 
@@ -114,3 +114,5 @@ Why:    snake_case for Python; three words again, id and data were local to the 
   None of them is a Sentence, so none of them spends.
 - An identifier Spends nothing, because it is not a sentence.  
   Case there belongs to the Language, and the language decides.
+- Final text shown to users in an interface uses ordinary capitalization.\
+  Use DeLaCase there only when explicitly requested.

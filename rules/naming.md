@@ -21,5 +21,5 @@
 sumItemPrices      JavaScript, Go unexported
 SumItemPrices      Go exported
 sum_item_prices    Python
-Sum Item Prices    Markdown, OneTwoCase
+Sum Item Prices    Markdown, DeLaCase
 ```

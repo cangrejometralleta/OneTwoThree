@@ -40,8 +40,8 @@ open, advance, commit and close — so they stand out from the rest.
 [next-next-next](../.agents/skills/next-next-next/SKILL.md) Advances one step.
 [commit-commit-commit](../.agents/skills/commit-commit-commit/SKILL.md) Handles commits and the final push.
 [bye-bye-bye](../.agents/skills/bye-bye-bye/SKILL.md) Closes with a handoff.
-The typography skill is [one-two-case](../.agents/skills/one-two-case/SKILL.md),
-and its convention is [OneTwoCase](one-two-case.md).
+The typography skill is [de-la-case](../.agents/skills/de-la-case/SKILL.md),
+and its convention is [DeLaCase](de-la-case.md).
 The third word Carries no stage; the triple chant is the lever,
 and [The Lever and the Tape](../patterns/the-lever-and-the-tape.md) Draws it.
 

@@ -80,7 +80,7 @@ RoTaTion Keeps the Relationships open to another reading.
   per passage between punctuation marks; the grammatical initial is free.
   Two entities and one interaction are a useful shape, never a required formula.
   Proper names and acronyms keep their established Spelling.
-  [OneTwoCase](rules/one-two-case.md) holds the convention; three spent is a Ceiling, never a quota.
+  [DeLaCase](rules/de-la-case.md) holds the convention; three spent is a Ceiling, never a quota.
 - Every Line is written  
   to be read in one heartbeat.
 - Three is a Source, not a count.  
@@ -108,9 +108,9 @@ Publication and Closing each need their own Request.
 
 Supporting Skills Shape the Work as it happens:
 [one-two-refactor](.agents/skills/one-two-refactor/SKILL.md) guides code,
-[one-two-case](.agents/skills/one-two-case/SKILL.md) converts names and prose,
+[de-la-case](.agents/skills/de-la-case/SKILL.md) converts names and prose,
 and [one-two-output](.agents/skills/one-two-output/SKILL.md) shapes terminal output.
-The typography convention is [OneTwoCase](rules/one-two-case.md).
+The typography convention is [DeLaCase](rules/de-la-case.md).
 The commit workflow is `commit-commit-commit`.
 
 ## Connect a Project
