@@ -37,4 +37,5 @@
 - [The Test is an Entry Point](patterns/the-test-is-an-entry-point.md)
 - [The Lever and the Tape](patterns/the-lever-and-the-tape.md)
 - [Branches Give Cooperation a Path](patterns/branches-give-cooperation-a-path.md)
+- [The Harness must Die](patterns/the-harness-must-die.md)
 - [The Release that never Shipped](patterns/the-release-that-never-shipped.md)
