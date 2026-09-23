@@ -161,6 +161,8 @@ DeLaCase toma parte de su Inspiración de Go. En ese lenguaje, la Inicial de un 
 
 De La Soul aporta el Conteo y la Cadencia. *The Magic Number* inspira la presencia del Tres en el proyecto. Además, el grupo suele estilizar los títulos de sus canciones con una capitalización parecida a esta; esa elección estética inspira el nombre DeLaCase. La Música invita a escuchar el Texto y a elegir dónde sube la Voz. Esa influencia rítmica se une a la distinción visual aprendida de Go.
 
+Soñamos con que Programar sea Escribir Poesía y Leer código sea Rapear. El Flujo de esta forma de Leer es compatible con la Música. Muchos de estos Textos se han probado mientras sonaba la Música aquí Referenciada, con la esperanza de que su Pulso y sus Pausas faciliten la Lectura del código. Es una Búsqueda, no un efecto demostrado.
+
 DeLaCase es un nombre de trabajo. Los nombres que empiezan por OneTwo son provisionales porque pueden confundir; este nombre hace visible tanto la influencia de De La Soul como su uso estilístico de una capitalización parecida en los títulos de sus canciones.
 
 La Convención se fue afinando en la Escritura del repositorio. Primero limitó el énfasis a una Mayúscula por oración; después permitió dos y luego tres. La regla actual organiza el Presupuesto por tramos entre signos de puntuación y elige el énfasis por el Sentido: hasta tres marcas para mostrar Entidades y sus Interacciones. La inicial gramatical queda fuera de la Cuenta. La historia de esos ajustes conserva una misma Búsqueda: que el Énfasis ayude a Leer.
