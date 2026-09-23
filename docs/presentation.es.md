@@ -119,9 +119,9 @@ El Contraste entre intensidad y quietud Encuentra otra referencia en [Pixies](ht
 
 El cruce de frases de tres pulsos sobre una base de cuatro Ilustra otra idea del manifiesto. Ambos Ciclos vuelven a Encontrarse después de doce pulsos. Esta Imagen Ayuda a pensar un Ritmo con variación y retorno, sin exigir que toda frase tenga el mismo tamaño.
 
-## OneTwoCase Señala dónde poner la Voz
+## DeLaCase Señala dónde poner la Voz
 
-OneTwoCase es la Convención tipográfica del proyecto. Destaca las Entidades importantes y sus Interacciones: qué Participa en una Idea y cómo se Relacionan sus partes. Dos entidades y una interacción son una forma útil de leer, no una obligación de encontrar dos sustantivos y un verbo en cada frase.
+DeLaCase es la Convención tipográfica del proyecto. Destaca las Entidades importantes y sus Interacciones: qué Participa en una Idea y cómo se Relacionan sus partes. Dos entidades y una interacción son una forma útil de leer, no una obligación de encontrar dos sustantivos y un verbo en cada frase.
 
 Cada tramo entre signos de puntuación admite hasta tres mayúsculas de Énfasis. La Inicial gramatical es Gratuita, y los nombres propios y las siglas conservan su escritura fuera del Presupuesto. Tres es un Límite, nunca una Cuota: una Frase puede necesitar menos Marcas.
 
@@ -157,9 +157,11 @@ En código, las Mayúsculas Respetan las Convenciones y el significado del lengu
 
 ### Origen e Historia · de Go a De La Soul
 
-OneTwoCase toma parte de su Inspiración de Go. En ese lenguaje, la Inicial de un nombre declarado a nivel de paquete distingue si está Exportado: `CountRows` puede usarse desde otro paquete, mientras que `countRows` queda dentro del suyo. La Mayúscula comunica una Diferencia de alcance. OneTwoCase lleva esa idea a la Prosa para hacer visible qué Entidad o Interacción merece atención.
+DeLaCase toma parte de su Inspiración de Go. En ese lenguaje, la Inicial de un nombre declarado a nivel de paquete distingue si está Exportado: `CountRows` puede usarse desde otro paquete, mientras que `countRows` queda dentro del suyo. La Mayúscula comunica una Diferencia de alcance. DeLaCase lleva esa idea a la Prosa para hacer visible qué Entidad o Interacción merece atención.
 
-De La Soul aporta el Conteo y la Cadencia. *The Magic Number* inspira la presencia del Tres en el proyecto; el nombre OneTwoCase se pronuncia con esa pausa entre golpes: One. Two. Case. La Música invita a escuchar el Texto y a elegir dónde sube la Voz. Esa influencia rítmica se une a la distinción visual aprendida de Go.
+De La Soul aporta el Conteo y la Cadencia. *The Magic Number* inspira la presencia del Tres en el proyecto. Además, el grupo suele estilizar los títulos de sus canciones con una capitalización parecida a esta; esa elección estética inspira el nombre DeLaCase. La Música invita a escuchar el Texto y a elegir dónde sube la Voz. Esa influencia rítmica se une a la distinción visual aprendida de Go.
+
+DeLaCase es un nombre de trabajo. Los nombres que empiezan por OneTwo son provisionales porque pueden confundir; este nombre hace visible tanto la influencia de De La Soul como su uso estilístico de una capitalización parecida en los títulos de sus canciones.
 
 La Convención se fue afinando en la Escritura del repositorio. Primero limitó el énfasis a una Mayúscula por oración; después permitió dos y luego tres. La regla actual organiza el Presupuesto por tramos entre signos de puntuación y elige el énfasis por el Sentido: hasta tres marcas para mostrar Entidades y sus Interacciones. La inicial gramatical queda fuera de la Cuenta. La historia de esos ajustes conserva una misma Búsqueda: que el Énfasis ayude a Leer.
 
@@ -230,7 +232,7 @@ Su Nombre Honra a [David «Trugoy the Dove» Jolicoeur](https://en.wikipedia.org
 
 Dove Organiza cada Turno alrededor de un Tema, una perspectiva y un cierre. Puede Señalar dos direcciones posibles y tirar del primer hilo, dando un solo Paso. La imagen del quipu, un cordón que se Recorre nudo a nudo, expresa ese descenso de lo general a lo particular.
 
-Su Voz Busca Calma, frases legibles y espacio entre ideas. Usa OneTwoCase para Marcar el Énfasis y mantiene el alcance de cada intervención pequeño. La Persona Orienta el Trabajo mediante sus respuestas y puede corregir cualquier interpretación.
+Su Voz Busca Calma, frases legibles y espacio entre ideas. Usa DeLaCase para Marcar el Énfasis y mantiene el alcance de cada intervención pequeño. La Persona Orienta el Trabajo mediante sus respuestas y puede corregir cualquier interpretación.
 
 Así, Dove Encierra la propuesta del proyecto en una práctica de colaboración: comprender lo que tenemos delante, reconocer una relación útil y avanzar lo suficiente para ver mejor. Después, deja Espacio para decidir el siguiente Paso.
 
@@ -347,6 +349,6 @@ Los dos Turnos Terminan igual: un paso dado, un paso ofrecido y lugar para que l
 
 ### Lecturas del proyecto
 
-[Valores](../VALUES.md) · [Principios](../values/principles.md) · [Patrones](../PATTERNS.md) · [OneTwoCase](../rules/one-two-case.md) · [Ritmo](../rules/rhythm.md) · [Emojis](../rules/emoji.md) · [Quiebres de línea](../rules/seams.md) · [Linaje](../patterns/lineage.md) · [Dove](../.agents/agents/dove.md)
+[Valores](../VALUES.md) · [Principios](../values/principles.md) · [Patrones](../PATTERNS.md) · [DeLaCase](../rules/de-la-case.md) · [Ritmo](../rules/rhythm.md) · [Emojis](../rules/emoji.md) · [Quiebres de línea](../rules/seams.md) · [Linaje](../patterns/lineage.md) · [Dove](../.agents/agents/dove.md)
 
 🦀 Cangrejo Metralleta

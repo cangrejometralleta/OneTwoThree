@@ -1,6 +1,6 @@
 ---
 name: one-two-output
-description: Format terminal output for readability — OneTwoCase prose, one emoji to mark the state (✅/❌/⚠️), short heartbeat lines, a short line after a long one for contrast, breaks at grammatical seams, the least words that carry the meaning, narrate what happened not how. Use when composing output the user will read, especially results, summaries, or status reports. The gain is readability, not token budget — prose is a small share of a session's spend, and cutting too hard costs more in questions back than it saves. It shapes output from the moment it loads onwards; it never rewrites, replays or restates output already printed.
+description: Format terminal output for readability — DeLaCase prose, one emoji to mark the state (✅/❌/⚠️), short heartbeat lines, a short line after a long one for contrast, breaks at grammatical seams, the least words that carry the meaning, narrate what happened not how. Use when composing output the user will read, especially results, summaries, or status reports. The gain is readability, not token budget — prose is a small share of a session's spend, and cutting too hard costs more in questions back than it saves. It shapes output from the moment it loads onwards; it never rewrites, replays or restates output already printed.
 ---
 
 # OneTwoOutput
@@ -62,13 +62,15 @@ The path and the line Survived the cut; only the connectors fell.
 
 ## Before printing output, apply
 
-1. **Case** — Follow [OneTwoCase](../../../rules/one-two-case.md).
+1. **Case** — Follow [DeLaCase](../../../rules/de-la-case.md).
    The grammatical initial is free; each passage between punctuation marks
    may carry up to three emphasis Capitals.
    Identify the important Entities and their Interactions.
    Two entities and one interaction are a useful shape, never a required formula.
    Proper names and acronyms keep their established Spelling.
    Three spent is a Ceiling, never a quota; follow the canon for boundaries.
+   Final text shown to users in an interface uses ordinary capitalization;
+   use DeLaCase there only when explicitly requested.
 
 2. **State** — Mark the State with one emoji.
    ✅ for Passed, ❌ for Failed, ⚠️ for Careful.

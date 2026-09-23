@@ -1,6 +1,6 @@
 # Lineage
 
-- OneTwoCase — the typographic Convention.
+- DeLaCase — the typographic Convention.
 - De La Soul RoTaTion — the structural Principle.
 - OneTwoTree — the epistemological Variant.
 - Cangrejo Metralleta — me, the author, the name is a long and nerd-Story.

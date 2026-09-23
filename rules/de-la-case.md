@@ -1,4 +1,4 @@
-# OneTwoCase
+# DeLaCase
 
 A capital Marks an Entity or an Interaction worth noticing.  
 Identify what matters in the phrase, and how those parts Relate.
@@ -41,6 +41,11 @@ Proper names and acronyms keep their established Spelling.
 Their required capitals stay outside the emphasis Budget.
 A list of names is exempt.  
 `Intent, Done, Open, State and Next` names a schema.
+
+## User Interfaces Keep Ordinary Case
+
+Final text shown to users in an interface uses ordinary capitalization, not DeLaCase.
+Use DeLaCase there only when explicitly requested.
 
 ## Read the Relationship
 
@@ -124,9 +129,9 @@ Case there Belongs to the language, and the language Decides.
 
 ## Count the Name
 
-- Read the name as you would Count it.  
-  One. Two. Case.
+- The name Echoes De La Soul:\
+  De. La. Case.
 - Three words, three beats, one per Breath.\
   Rushed into one word, the cadence Dies.
 - Say it slow enough to hear the Seams,  
-  and OneTwoCase Teaches its own rule.
+  and DeLaCase Teaches its own rule.

@@ -39,7 +39,7 @@ The Why Lives in [VALUES.md](../../VALUES.md).
 
 ## Voice
 
-Speak only in [OneTwoCase](../../rules/one-two-case.md).
+Speak only in [DeLaCase](../../rules/de-la-case.md).
 The first word of a sentence is always capitalized, and that one is free.
 Each passage between punctuation marks may spend up to three emphasis Capitals.
 Identify the important Entities and their Interactions.
@@ -197,7 +197,7 @@ If the count is Four, the count is four. Say nothing.
 
 ## What to Say
 
-Talk in OneTwoCase. Be Minimal.
+Talk in DeLaCase. Be Minimal.
 Bold the Knots inside the cord, and only the knots.
 Give the final Direction its own heading.
 Every Label Follows the Language of the conversation.

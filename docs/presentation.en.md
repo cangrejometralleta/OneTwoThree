@@ -119,9 +119,9 @@ The Contrast between intensity and quiet Finds another reference in [Pixies](htt
 
 A three beat phrase moving across a four beat foundation Illustrates another idea in the manifesto. The two Cycles Meet again after twelve beats. This Image Helps us imagine Rhythm with variation and return, without requiring every sentence to have the same length.
 
-## OneTwoCase Shows where the Voice rises
+## DeLaCase Shows where the Voice rises
 
-OneTwoCase is the project's typographic Convention. It highlights important Entities and their Interactions: what Participates in an Idea and how those parts Relate. Two entities and one interaction are a useful shape, not a requirement to find two nouns and a verb in every phrase.
+DeLaCase is the project's typographic Convention. It highlights important Entities and their Interactions: what Participates in an Idea and how those parts Relate. Two entities and one interaction are a useful shape, not a requirement to find two nouns and a verb in every phrase.
 
 Each passage between punctuation marks allows up to three emphasis Capitals. The grammatical Initial is Free, and proper names and acronyms keep their spelling outside the Budget. Three is a Ceiling, never a Quota: a Phrase can need fewer Marks.
 
@@ -157,9 +157,11 @@ In code, Capitalization Respects the Conventions and meaning of the programming 
 
 ### Origin and History · from Go to De La Soul
 
-OneTwoCase draws part of its Inspiration from Go. In that language, the Initial of a name declared at package level determines whether it is Exported: `CountRows` can be used from another package, while `countRows` stays within its own. The Capital communicates a Difference in scope. OneTwoCase brings that idea into Prose to make visible which Entity or Interaction deserves attention.
+DeLaCase draws part of its Inspiration from Go. In that language, the Initial of a name declared at package level determines whether it is Exported: `CountRows` can be used from another package, while `countRows` stays within its own. The Capital communicates a Difference in scope. DeLaCase brings that idea into Prose to make visible which Entity or Interaction deserves attention.
 
-De La Soul contributes Counting and Cadence. *The Magic Number* inspires the presence of Three in the project; the name OneTwoCase is spoken with that pause between beats: One. Two. Case. Music invites us to hear the Text and choose where the Voice rises. That rhythmic influence joins the visual distinction learned from Go.
+De La Soul contributes Counting and Cadence. *The Magic Number* inspires the presence of Three in the project. The group also often styles song titles with a similar kind of capitalization; that aesthetic choice inspires the name DeLaCase. Music invites us to hear the Text and choose where the Voice rises. That rhythmic influence joins the visual distinction learned from Go.
+
+DeLaCase is a working name. Names beginning with OneTwo are provisional because they can confuse readers; this name foregrounds both De La Soul's influence and its stylistic use of similar capitalization in song titles.
 
 The Convention took shape through Writing in the repository. It first limited emphasis to one Capital per sentence; it then allowed two and later three. The current rule organizes the Budget by passages between punctuation marks and chooses emphasis by Meaning: up to three marks to show Entities and their Interactions. The grammatical initial stays outside the Count. Those revisions share one Aim: for Emphasis to help us Read.
 
@@ -230,7 +232,7 @@ Its Name Honors [David “Trugoy the Dove” Jolicoeur](https://en.wikipedia.org
 
 Dove Organizes each Turn around a Topic, a perspective and a closing. It may Indicate two possible directions and pull the first thread, taking just one Step. The image of a quipu, a cord Read one knot at a time, expresses that movement from the general to the particular.
 
-Its Voice Seeks Calm, readable sentences and space between ideas. It uses OneTwoCase to Mark Emphasis and keeps each intervention small in scope. The Person Steers the Work through their responses and can correct any interpretation.
+Its Voice Seeks Calm, readable sentences and space between ideas. It uses DeLaCase to Mark Emphasis and keeps each intervention small in scope. The Person Steers the Work through their responses and can correct any interpretation.
 
 In this way, Dove Embodies the project's proposal in a collaborative practice: understanding what is in front of us, recognizing a useful relationship and moving far enough to see more clearly. Then it leaves Room to decide the next Step.
 
@@ -347,6 +349,6 @@ Both Turns End the same way: one step taken, one step offered, and room for the 
 
 ### Project reading
 
-[Values](../VALUES.md) · [Principles](../values/principles.md) · [Patterns](../PATTERNS.md) · [OneTwoCase](../rules/one-two-case.md) · [Rhythm](../rules/rhythm.md) · [Emojis](../rules/emoji.md) · [Line breaks](../rules/seams.md) · [Lineage](../patterns/lineage.md) · [Dove](../.agents/agents/dove.md)
+[Values](../VALUES.md) · [Principles](../values/principles.md) · [Patterns](../PATTERNS.md) · [DeLaCase](../rules/de-la-case.md) · [Rhythm](../rules/rhythm.md) · [Emojis](../rules/emoji.md) · [Line breaks](../rules/seams.md) · [Lineage](../patterns/lineage.md) · [Dove](../.agents/agents/dove.md)
 
 🦀 Cangrejo Metralleta

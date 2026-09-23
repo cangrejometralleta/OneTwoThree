@@ -196,7 +196,7 @@ Keep the Report short and separate proven states:
 
 ```text
 ✅ Loaded in GitHub Copilot
-- Skills: one-two-case, one-two-reload
+- Skills: de-la-case, one-two-reload
 - Agents: dove
 - Entrance: .github/skills -> ../.agents/skills
 - Removed: 3 stale References

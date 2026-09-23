@@ -9,7 +9,7 @@
 - Silence Frames the Sound.
   The Verse Frames the Chorus.
   The short Line Frames the long one.
-- OneTwoCase Works for this reason:
+- DeLaCase Works for this reason:
   the lowercase Connector Makes
   the capitalized Word Land.
 - The Count is the Signal,
