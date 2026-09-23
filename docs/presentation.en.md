@@ -62,6 +62,10 @@ flowchart LR
         B --- C["C"]
         C --- A
     end
+```
+
+```mermaid
+flowchart LR
     subgraph FOUR["Four · 4 entities, 6 interactions"]
         D["A"] --- E["B"]
         E --- F["C"]
@@ -72,7 +76,7 @@ flowchart LR
     end
 ```
 
-The Drawing Says it faster than the Table. Three Reads as a Shape, four as a Mesh. The extra Lines are the Cost nobody announced when the fourth item was added.
+The Drawing Says it faster than the Table. Three Reads as a Shape: a Triangle, and no line crosses another, so the eye can hold all three relationships in one glance. Four Reads as a Mesh: two lines must cross to connect every pair, and untangling that crossing is the extra work nobody announced when the fourth item was added.
 
 This is a design Constraint, never a claim about the brain. If a Situation genuinely Holds four Categories, keep all four and say that it holds four. What the Count buys is a Default: when we may group, group by three, and when a Turn Grows past three Threads, say so and pull one. The Number is a Source to derive from, not a target to reach.
 
@@ -157,7 +161,7 @@ In code, Capitalization Respects the Conventions and meaning of the programming 
 
 ### Origin and History · from Go to De La Soul
 
-DeLaCase draws part of its Inspiration from Go. In that language, the Initial of a name declared at package level determines whether it is Exported: `CountRows` can be used from another package, while `countRows` stays within its own. The Capital communicates a Difference in scope. DeLaCase brings that idea into Prose to make visible which Entity or Interaction deserves attention.
+DeLaCase draws part of its Inspiration from [Go](https://go.dev), a Programming language. In Go, files that work together sit inside a Package, roughly a folder of related code, and the Initial of a name declared at that level determines whether it is Exported: `CountRows` can be used from another package, while `countRows` stays within its own. The Capital communicates a Difference in Scope, in the sense of which code is allowed to reach it. DeLaCase brings that idea into Prose to make visible which Entity or Interaction deserves attention.
 
 De La Soul contributes Counting and Cadence. *The Magic Number* inspires the presence of Three in the project. The group also often styles song titles with a similar kind of capitalization; that aesthetic choice inspires the name DeLaCase. Music invites us to hear the Text and choose where the Voice rises. That rhythmic influence joins the visual distinction learned from Go.
 
@@ -247,7 +251,8 @@ As a threading tool, the Quipu makes a Decision Flow tangible. Each Knot is a De
 As a conceptualizing tool, tying a Knot Forces a Decision to become one nameable thing. A vague Intention cannot be Knotted. If the Topic Resists a single Line, the turn is not ready to edit, and that Refusal is Information rather than a failure.
 
 ```mermaid
-flowchart TD
+%%{init: {"flowchart": {"nodeSpacing": 90, "rankSpacing": 110}, "themeVariables": {"fontSize": "20px"}}}%%
+flowchart LR
     CORD["The main cord<br/>hangs from the General"]
     TOPIC["Knot 1 · Topic<br/>the one thing this turn is About"]
     PERSP["Knot 2 · Perspective<br/>the angle, and Why that one"]
@@ -262,6 +267,7 @@ The second use is Navigation. A Quipu carries Meaning in its Geometry, not only 
 Depth Reads as Particularity. The top of the Cord Holds the General, and every Knot below it Narrows what came before. The General Comes first because it tells us which particular matters. Branching Reads as Choice. A pendant Cord is a Thread we saw and did not pull, and it Stays visible instead of disappearing into the space between two sentences. Distance Reads as Omission. When two knots sit far apart, something was Skipped, and the Gap Asks about itself.
 
 ```mermaid
+%%{init: {"flowchart": {"nodeSpacing": 90, "rankSpacing": 110}, "themeVariables": {"fontSize": "20px"}}}%%
 flowchart LR
     GENERAL["General<br/>the ask, as given"]
     MIDDLE["Narrower<br/>the shape that Repeats"]
@@ -281,6 +287,7 @@ One Cord per Turn, one Knot per Cord. A second Topic Deserves a second Turn. Say
 The Workflow is a Filter, not a summary. Each Step Removes what the next one does not need, so the Answer Arrives smaller than the Question.
 
 ```mermaid
+%%{init: {"flowchart": {"nodeSpacing": 90, "rankSpacing": 110}, "themeVariables": {"fontSize": "20px"}}}%%
 flowchart LR
     INPUT["What was said<br/>the explanation, as given"]
     LISTEN["Listen<br/>read only what it Names"]
@@ -348,6 +355,20 @@ Closing — I read the screen's query and timed it. Next: the index, or the payl
 ```
 
 Both Turns End the same way: one step taken, one step offered, and room for the Person to Choose. The Filter Protects Attention by returning less than it received.
+
+## The Harness must Die
+
+OneTwoThree is itself a Harness, in the sense a Climber or a Rider would recognize: gear built to support and guide, worn only for as long as the task needs it. Here that gear is a scaffold of Language, Patterns and Rules for working beside an Agent, and Dove, its voice in this document, is part of that scaffold too. The Harness's Value is what we Learn while building it, and that Learning stays with us after we set it down.
+
+A Harness can also lend smaller or local Models some of the interaction capabilities we take for granted in larger ones. We want it to keep supporting that Possibility. But like any scaffold, it can become a Crutch the moment we stop asking whether it still Helps.
+
+Its Purpose includes becoming dispensable. What taught us a Stride must not bind us to it. Every so often, try the work with lighter guidance: keep what still helps us Understand and verify, and let go of what has become Ceremony. [Robert C. Martin](https://x.com/unclebobmartin/status/2098432570887217520) described building a restrictive harness and later finding it unnecessary as agents improved, while still valuing the tests and feedback it left behind. His experience Argues for reevaluation, not a universal schedule for dropping every harness.
+
+Dove is no exception. Its Role is to make the manifesto's habits easy to practice, one Turn at a time, until they no longer need naming. The day its Steps stop teaching us anything new is the day we are ready to take them without it, and that day would not be a Failure of the Agent. It would be the Harness doing exactly what it was built to do.
+
+[*De La Soul Is Dead*](https://delasoul.bandcamp.com/album/de-la-soul-is-dead) lends this Idea its name, borrowed as an Image and not as a claim about the album's meaning. A useful Scaffold can reach its ending; knowing when to set it down is itself part of the Practice.
+
+This document opened with a Sentence that can guide a Person and a Machine at once. It closes by turning that same trust toward itself: a Manifesto that asks to be Outgrown is only honest if it means it. Read what Helps, keep what Lasts, and when the scaffold is no longer needed, set it down without Ceremony.
 
 ### Project reading
 

@@ -62,6 +62,10 @@ flowchart LR
         B --- C["C"]
         C --- A
     end
+```
+
+```mermaid
+flowchart LR
     subgraph FOUR["Cuatro · 4 entidades, 6 interacciones"]
         D["A"] --- E["B"]
         E --- F["C"]
@@ -72,7 +76,7 @@ flowchart LR
     end
 ```
 
-El Dibujo lo Dice más rápido que la Tabla. El Tres se Lee como una Figura; el cuatro, como una Malla. Esas Líneas de más son el Costo que nadie anunció al agregar el cuarto elemento.
+El Dibujo lo Dice más rápido que la Tabla. El Tres se Lee como una Figura: un Triángulo, donde ninguna línea cruza otra, así que el ojo sostiene las tres relaciones en una sola mirada. El Cuatro se Lee como una Malla: dos líneas tienen que cruzarse para conectar cada par, y desenredar ese cruce es el trabajo de más que nadie anunció al agregar el cuarto elemento.
 
 Esto es una Restricción de diseño, nunca una afirmación sobre el cerebro. Si una Situación Tiene de verdad cuatro Categorías, hay que conservar las cuatro y decir que son cuatro. Lo que el Conteo nos compra es un Valor por defecto: cuando podamos agrupar, agrupemos de a tres, y cuando un Turno Crece más allá de tres Hilos, decirlo y tirar de uno. El Número es una Fuente de la que derivar, no una meta a la que llegar.
 
@@ -157,7 +161,7 @@ En código, las Mayúsculas Respetan las Convenciones y el significado del lengu
 
 ### Origen e Historia · de Go a De La Soul
 
-DeLaCase toma parte de su Inspiración de Go. En ese lenguaje, la Inicial de un nombre declarado a nivel de paquete distingue si está Exportado: `CountRows` puede usarse desde otro paquete, mientras que `countRows` queda dentro del suyo. La Mayúscula comunica una Diferencia de alcance. DeLaCase lleva esa idea a la Prosa para hacer visible qué Entidad o Interacción merece atención.
+DeLaCase toma parte de su Inspiración de [Go](https://go.dev), un lenguaje de Programación. En Go, los archivos que trabajan juntos viven dentro de un Paquete, más o menos una carpeta de código relacionado, y la Inicial de un nombre declarado a ese nivel distingue si está Exportado: `CountRows` puede usarse desde otro paquete, mientras que `countRows` queda dentro del suyo. La Mayúscula comunica una Diferencia de Alcance, en el sentido de qué código puede llegar hasta él. DeLaCase lleva esa idea a la Prosa para hacer visible qué Entidad o Interacción merece atención.
 
 De La Soul aporta el Conteo y la Cadencia. *The Magic Number* inspira la presencia del Tres en el proyecto. Además, el grupo suele estilizar los títulos de sus canciones con una capitalización parecida a esta; esa elección estética inspira el nombre DeLaCase. La Música invita a escuchar el Texto y a elegir dónde sube la Voz. Esa influencia rítmica se une a la distinción visual aprendida de Go.
 
@@ -247,7 +251,8 @@ Como herramienta para hilar, el Quipu vuelve tangible un Flujo de Decisiones. Ca
 Como herramienta para conceptualizar, atar un Nudo Obliga a que una Decisión se vuelva una sola cosa nombrable. Una Intención vaga no se puede Anudar. Si el Tema se Resiste a una sola Línea, el turno no está listo para editar, y esa Negativa es Información antes que un fracaso.
 
 ```mermaid
-flowchart TD
+%%{init: {"flowchart": {"nodeSpacing": 90, "rankSpacing": 110}, "themeVariables": {"fontSize": "20px"}}}%%
+flowchart LR
     CORD["El cordón principal<br/>cuelga de lo General"]
     TOPIC["Nudo 1 · Tema<br/>la única cosa de este Turno"]
     PERSP["Nudo 2 · Perspectiva<br/>el ángulo, y Por qué ese"]
@@ -262,6 +267,7 @@ El segundo uso es la Navegación. Un Quipu lleva Sentido en su Geometría, no so
 La Profundidad se Lee como Particularidad. Lo alto del Cordón Sostiene lo General, y cada Nudo debajo Acota lo Anterior. Lo General Viene primero porque nos dice qué particular importa. La Ramificación se Lee como Elección. Un Cordón colgante es un Hilo que vimos y no tiramos, y Sigue a la vista en lugar de perderse entre dos frases. La Distancia se Lee como Omisión. Cuando dos nudos quedan lejos, algo se Salteó, y el Hueco Pregunta por sí mismo.
 
 ```mermaid
+%%{init: {"flowchart": {"nodeSpacing": 90, "rankSpacing": 110}, "themeVariables": {"fontSize": "20px"}}}%%
 flowchart LR
     GENERAL["General<br/>el pedido, tal cual"]
     MIDDLE["Más acotado<br/>la forma que se Repite"]
@@ -281,6 +287,7 @@ Un Cordón por Turno, un Nudo por Cordón. Un segundo Tema Merece un segundo Tur
 El Flujo es un Filtro, no un resumen. Cada Paso Descarta lo que el siguiente no necesita, así la Respuesta Llega más pequeña que la Pregunta.
 
 ```mermaid
+%%{init: {"flowchart": {"nodeSpacing": 90, "rankSpacing": 110}, "themeVariables": {"fontSize": "20px"}}}%%
 flowchart LR
     INPUT["Lo que se dijo<br/>la explicación, tal cual"]
     LISTEN["Escuchar<br/>leer solo lo que Nombra"]
@@ -348,6 +355,20 @@ Cierre — leí la consulta de la pantalla y la medí. Sigue: el índice, o el t
 ```
 
 Los dos Turnos Terminan igual: un paso dado, un paso ofrecido y lugar para que la Persona Elija. El Filtro Cuida la Atención devolviendo menos de lo que recibió.
+
+## El Harness debe Morir
+
+OneTwoThree es en sí mismo un Harness, en el sentido que reconocería quien escala o quien monta a caballo: un equipo hecho para sostener y guiar, puesto solo mientras la tarea lo necesita. Acá ese equipo es un andamiaje de Lenguaje, Patrones y Reglas para trabajar junto a un Agente, y Dove, su voz en este documento, también es parte de ese andamiaje. El Valor del Harness es lo que Aprendemos mientras lo construimos, y ese Aprendizaje se queda con nosotros después de dejarlo.
+
+Un Harness también puede prestarle a Modelos chicos o locales parte de las capacidades de interacción que damos por sentadas en los Modelos grandes. Queremos que siga sosteniendo esa Posibilidad. Pero como cualquier andamio, puede volverse una Muleta apenas dejamos de preguntarnos si todavía Ayuda.
+
+Su Propósito incluye volverse prescindible. Lo que nos enseñó un Paso no debe atarnos a él. De tanto en tanto, prueba el trabajo con una guía más liviana: conserva lo que todavía te ayuda a Entender y verificar, y suelta lo que se volvió Ceremonia. [Robert C. Martin](https://x.com/unclebobmartin/status/2098432570887217520) contó que construyó un harness restrictivo y después lo encontró innecesario a medida que los agentes mejoraban, aunque siguió valorando los tests y la retroalimentación que ese harness dejó atrás. Su experiencia Sostiene la idea de reevaluar, no un calendario universal para soltar todo harness.
+
+Dove no es una excepción. Su Función es volver fáciles de practicar los hábitos del manifiesto, un Turno a la vez, hasta que ya no necesiten nombrarse. El día en que sus Pasos dejen de enseñarnos algo nuevo es el día en que estamos listos para darlos sin él, y ese día no sería un Fracaso del Agente. Sería el Harness haciendo exactamente lo que se construyó para hacer.
+
+[*De La Soul Is Dead*](https://delasoul.bandcamp.com/album/de-la-soul-is-dead) le presta a esta Idea su nombre, tomado como una Imagen y no como una afirmación sobre el sentido del disco. Un Andamio útil puede llegar a su final; saber cuándo dejarlo es, en sí mismo, parte de la Práctica.
+
+Este documento abrió con una Frase que puede orientar a una Persona y a una Máquina a la vez. Cierra devolviendo esa misma confianza hacia sí mismo: un Manifiesto que pide ser Superado solo es honesto si lo dice en serio. Lee lo que Ayuda, conserva lo que Dura, y cuando el andamio ya no haga falta, déjalo sin Ceremonia.
 
 ### Lecturas del proyecto
 
