@@ -70,18 +70,18 @@ Do not stage a mixed Hunk merely because its file is already in a group.
 
 ## Branches Keep the Flow
 
-- If the current branch is `develop`, identify its integration branch from the
-  repository and remote configuration; it may be `main` or `master`.
-  When that branch has commits not yet integrated into `develop`, remind the
-  user to merge it into `develop` before more work accumulates. Do not merge
-  silently; this skill's request is a reminder, not merge authorization.
+- Work on `main` when one Change can be finished and integrated at a time.
+- Use a feature branch when work needs isolation or can proceed in parallel.
+  Branch from `main` and return finished, validated work there.
 - On a feature branch, use [Change Growth](../../../rules/change-growth.md).
   When the feature reaches three attributable writing turns or three touched
   files, remind both the agent and the user to pause and name its scope before
   adding more. If it has become multiple intents, recommend splitting the
   work; do not silently split or merge it.
+- Use `develop` only when concurrent Features need a shared Integration before
+  `main`; follow the repository's configured target instead of assuming one.
 - [Branches Give Cooperation a Path](../../../patterns/branches-give-cooperation-a-path.md)
-  describes the `main`/`develop`/feature flow.
+  describes direct integration and the optional shared integration branch.
 
 ## The Boundaries
 
