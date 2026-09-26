@@ -51,13 +51,12 @@ AGENTS.md stays free for the short pointer to canon.
 
 ## Undistilled Context
 
-9 of 9 filled. Distill before promoting a tenth.
+8 of 9 filled. Distill before promoting a tenth.
 
 - [Lost work](stories/lost-work.md)
 - [Own linter](stories/own-linter.md)
 - [Another three showing up on its own](stories/another-three-showing-up.md) (SPECULATIVE)
 - [Modular cluster with LiteLLM](stories/modular-cluster-litellm.md)
-- [Ritual as belonging, not belief](stories/ritual-as-belonging-not-belief.md)
 - [Color by semantic association](stories/color-by-semantic-association.md)
 - [Tools missing between turns](stories/tools-missing-between-turns.md)
 - [The Distance the User Opens](stories/the-distance-the-user-opens.md) (SPECULATIVE)
