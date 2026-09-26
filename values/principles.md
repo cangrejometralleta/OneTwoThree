@@ -46,3 +46,8 @@
 - Keep the cheap Ritual with the strongest signal.  
   When a Ritual Costs almost nothing  
   and carries enormous signal, it Stays.
+- One Commit is a Guess.  
+  Two Commits are an Opinion.  
+  Three Commits are a Direction.
+- An Agent Proposes, a Peer Reviews,  
+  the History Confirms.

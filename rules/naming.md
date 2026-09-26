@@ -8,6 +8,12 @@
 - A Variable that lives in three Lines  
   Holds one word, because the scope says the rest.
 - Three words Fit in memory and survive a rename.
+- Sibling Functions Rhyme:  
+  same Skeleton, different Word.
+- One Idea Keeps one Word.  
+  A Synonym Breaks the Rhyme.
+- The Signature is the Bass Line.  
+  If the Signature Grooves, the Body will Follow.
 - A Construct Names the Responsibility, never the vendor.  
   *(Provisional)* `store` says what it Does;  
   `storegorm` says who it Called.
