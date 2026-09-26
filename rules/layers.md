@@ -18,8 +18,11 @@
   an age below the floor belongs to the business.
 - The Caller was Named before the story started.  
   A Handler Reads the Caller and trusts it.
-- Two places Hold every vendor: the store and the server.  
-  Swapping one Edits one of them.
+- Adapters Hold every vendor, and one place Composes them.  
+  Swapping one Edits its adapter and the Composition.
+- A Package is earned by what it Does, never by its length.  
+  Files Split the reading; packages Split the dependencies.  
+  The Tests Move with the responsibility they prove.
 
 ```text
 transport   the Shapes; imports nothing

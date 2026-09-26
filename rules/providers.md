@@ -9,10 +9,13 @@
   StudentStore, not GormRepository.
 - One Struct may Fulfil several Providers.  
   One Provider must never Leak its Vendor.
+- The Consumer Declares the Provider it needs,  
+  small, and next to the code that calls it.  
+  The Composition is the one place that Joins them.
 - Comment each Provider with the URL  
   of the contract it wraps.  
   A reader should not have to Search.
-- Count the Files that import a vendor.  
+- Count the Packages that import a vendor.  
   If the count grows past one, the provider Failed.
 - The Word Collides with Angular, NestJS and Terraform,  
   where a provider is a registered dependency.  
