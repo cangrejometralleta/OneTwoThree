@@ -22,6 +22,7 @@
 - [Comments](rules/comments.md) — stop at the Claim.
 - [Channels](rules/channels.md) — the surface Sells a fixed number.
 - [Emoji](rules/emoji.md) — one per Line at most.
+- [Translations](rules/translations.md) — one Identity, two tongues. *(Provisional)*
 - [Structure](rules/structure.md) — three Beats, not three newlines.
 - [Change Growth](rules/change-growth.md) — pause when one change starts Becoming two. *(Provisional)*
 - [Session Checkpoint](rules/session-checkpoint.md) — state Survives outside the session. *(Provisional)*
