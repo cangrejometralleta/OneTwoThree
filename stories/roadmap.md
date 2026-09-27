@@ -49,3 +49,9 @@ token (keyword, string, comment) — narrow niche, but a real one, and
 one flat color, so there's nothing to unlearn.
 How to apply any of this is still open.
 Not yet a confirmed root: one lived instance.
+
+- **Code, by the AST** — free. Build it in `pdf/`; it Unblocks the prose.  
+- **Prose, by role** — BLOCKED.  
+  Blocked on: a role tagger no rule can run yet, and a palette  
+  that does not Collide with the Emoji trio.  
+  Distill when: code blocks render by role, and a palette is chosen.
