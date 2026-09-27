@@ -8,6 +8,7 @@ import (
 
 	"github.com/cangrejometralleta/OneTwoThree/pdf/document"
 	"github.com/cangrejometralleta/OneTwoThree/pdf/markdown"
+	"github.com/cangrejometralleta/OneTwoThree/pdf/roles"
 )
 
 func TestRenderDocumentToPDFWritesAValidFile(t *testing.T) {
@@ -150,5 +151,24 @@ func assertIsPDF(t *testing.T, path string) {
 	}
 	if len(data) < 1000 {
 		t.Fatalf("a Document with embedded Fonts Must not be Tiny, got %d Bytes", len(data))
+	}
+}
+
+// Every Byte of a Line Lands in exactly one Piece, in Order.
+func TestSplitLineByRoleKeepsEveryByte(t *testing.T) {
+	line := "x := BuildStudent(id)"
+	spans := []roles.Span{{Start: 105, End: 117, Role: roles.Action}}
+
+	pieces := splitLineByRole(line, 100, spans)
+
+	var joined strings.Builder
+	for _, piece := range pieces {
+		joined.WriteString(piece.text)
+	}
+	if joined.String() != line {
+		t.Fatalf("wanted %q back, got %q", line, joined.String())
+	}
+	if pieces[1].text != "BuildStudent" || pieces[1].role != roles.Action {
+		t.Fatalf("wanted BuildStudent as an Action, got %+v", pieces[1])
 	}
 }

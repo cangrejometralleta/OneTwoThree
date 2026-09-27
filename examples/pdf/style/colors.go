@@ -23,3 +23,11 @@ var (
 	ColorCloseInk    = ColorInk{0x6b, 0x61, 0x58} // .close { color }
 	ColorCodeRule    = ColorInk{0xe0, 0xd3, 0xc2} // pre { border-left }
 )
+
+// The Role Inks Colour Go Code by what a Name Does, not by its Syntax.
+// Red, green and yellow are Spoken for by the Emoji Rule,
+// so the Roles Borrow two Hues the Reader has not Learned yet.
+var (
+	ColorEntityInk = ColorInk{0x2f, 0x5d, 0x6e} // a Type: a slate Teal
+	ColorActionInk = ColorInk{0x7a, 0x3f, 0x66} // a Call: a dusk Plum
+)

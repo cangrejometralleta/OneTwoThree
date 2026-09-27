@@ -20,14 +20,15 @@
 // Rules Names under its own Script Section, Running here for
 // real instead of Quoted as an Example.
 //
-// Four Packages Divide the Work, and the Compiler Holds the Line.
+// Five Packages Divide the Work, and the Compiler Holds the Line.
 // markdown/ is the only Package that Imports goldmark. render/ is
 // the only one that Imports gopdf. document/ Holds neither: it is
 // the Business Truth in between, five small Functions Named after
 // the Shape each One Produces — ExtractCoverBlock, SplitTitleIndex,
 // BuildTriadBlock, BuildCalloutBlock, MarkClosingParagraph.
 // style/ Holds the Page, the Type Scale and the Colors, and Imports
-// nothing at all.
+// nothing at all. roles/ Reads a Go Block with go/parser and Names
+// each Type an Entity and each Call an Action, so render/ can Ink them.
 //
 // `go list -deps ./document ./style` Names no Vendor. The Boundary
 // is no longer a Promise a File Keeps; it is one the Build Enforces.

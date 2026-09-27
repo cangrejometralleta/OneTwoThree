@@ -14,6 +14,7 @@ goldmark Reads the AST, gopdf Draws the Page, both pure Go.
 main.go         Casts the Players, then Steps off the Stage
 document/       the Domain: Document, Section, Block, and five Rules
 style/          the Page, the Type Scale, the Colors; Imports nothing
+roles/          Go Code by Role: a Type is an Entity, a Call an Action
 markdown/       THE ONLY PACKAGE THAT IMPORTS GOLDMARK
 render/         THE ONLY PACKAGE THAT IMPORTS GOPDF, and the Fonts
 render/fonts/   Liberation Serif + DejaVu Sans Mono, vendored

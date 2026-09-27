@@ -2,6 +2,7 @@ package render
 
 import (
 	"github.com/cangrejometralleta/OneTwoThree/pdf/document"
+	"github.com/cangrejometralleta/OneTwoThree/pdf/roles"
 	"github.com/cangrejometralleta/OneTwoThree/pdf/style"
 
 	"fmt"
@@ -368,7 +369,15 @@ func drawQuote(pdf *gopdf.GoPdf, quote document.Quote) {
 // drawCodeBlock Draws preformatted Text in the Mono Face, on a tinted Box.
 func drawCodeBlock(pdf *gopdf.GoPdf, code document.CodeBlock) {
 	must(pdf.SetFont(fontMono, "", style.SizeCode))
-	height := layoutWrappedText(pdf, code.Text, style.ContentWidth-style.PadCalloutSide)
+	lines, spans := readCodeRoles(pdf, code)
+
+	var height float64
+	if spans != nil {
+		height = float64(len(lines)) * lineHeightMM(style.SizeCode)
+		ensureRoom(pdf, height+style.PadCodeBox)
+	} else {
+		height = layoutWrappedText(pdf, code.Text, style.ContentWidth-style.PadCalloutSide)
+	}
 	boxHeight := height + style.PadCodeBox
 
 	top := pdf.GetY()
@@ -382,9 +391,95 @@ func drawCodeBlock(pdf *gopdf.GoPdf, code document.CodeBlock) {
 
 	setTextColor(pdf, style.ColorBody)
 	pdf.SetXY(style.MarginLeft+style.IndentCallout, top+style.OffsetCodeText)
-	must(pdf.MultiCellWithOption(&gopdf.Rect{W: style.ContentWidth - style.PadCalloutSide, H: height}, code.Text, gopdf.CellOption{Align: gopdf.Left}))
+	if spans != nil {
+		drawCodeByRole(pdf, lines, spans)
+	} else {
+		must(pdf.MultiCellWithOption(&gopdf.Rect{W: style.ContentWidth - style.PadCalloutSide, H: height}, code.Text, gopdf.CellOption{Align: gopdf.Left}))
+	}
 
 	pdf.SetXY(style.MarginLeft, top+boxHeight+style.GapCode)
+}
+
+// roleInks Maps each Role to the Ink it is Drawn in.
+var roleInks = map[roles.Role]style.ColorInk{
+	roles.Plain:  style.ColorBody,
+	roles.Entity: style.ColorEntityInk,
+	roles.Action: style.ColorActionInk,
+}
+
+// codeTab is how a Tab Reads in the Mono Face: four Columns.
+const codeTab = "    "
+
+// readCodeRoles Returns the Lines and Role Spans of a Go Block,
+// or nil Spans when it should be Drawn plain instead:
+// not Go, not Parsable, or a Line that would Wrap.
+// A wrapped Line Loses its Columns, and a plain Block Beats a broken one.
+func readCodeRoles(pdf *gopdf.GoPdf, code document.CodeBlock) ([]string, []roles.Span) {
+	if code.Lang != "go" {
+		return nil, nil
+	}
+
+	spans := roles.TagGoRoles(code.Text)
+	if spans == nil {
+		return nil, nil
+	}
+
+	lines := strings.Split(code.Text, "\n")
+	for _, line := range lines {
+		width, err := pdf.MeasureTextWidth(strings.ReplaceAll(line, "\t", codeTab))
+		if err != nil || width > style.ContentWidth-style.PadCalloutSide {
+			return nil, nil
+		}
+	}
+
+	return lines, spans
+}
+
+// drawCodeByRole Draws Go Code one Line at a Time, each Word in its Role's Ink.
+func drawCodeByRole(pdf *gopdf.GoPdf, lines []string, spans []roles.Span) {
+	left := pdf.GetX()
+	offset := 0
+
+	for _, line := range lines {
+		pdf.SetX(left)
+		for _, piece := range splitLineByRole(line, offset, spans) {
+			setTextColor(pdf, roleInks[piece.role])
+			must(pdf.Cell(nil, strings.ReplaceAll(piece.text, "\t", codeTab)))
+		}
+		pdf.SetY(pdf.GetY() + lineHeightMM(style.SizeCode))
+		offset += len(line) + 1
+	}
+	setTextColor(pdf, style.ColorBody)
+}
+
+// rolePiece is one Run of Text Drawn in one Ink.
+type rolePiece struct {
+	text string
+	role roles.Role
+}
+
+// splitLineByRole Cuts one Line into Runs at every Span Boundary.
+// offset is where the Line Starts inside the whole Block.
+func splitLineByRole(line string, offset int, spans []roles.Span) []rolePiece {
+	pieces := []rolePiece{}
+	cursor := 0
+
+	for _, span := range spans {
+		start, end := span.Start-offset, span.End-offset
+		if end <= 0 || start >= len(line) {
+			continue
+		}
+		if start > cursor {
+			pieces = append(pieces, rolePiece{text: line[cursor:start], role: roles.Plain})
+		}
+		pieces = append(pieces, rolePiece{text: line[start:end], role: span.Role})
+		cursor = end
+	}
+	if cursor < len(line) {
+		pieces = append(pieces, rolePiece{text: line[cursor:], role: roles.Plain})
+	}
+
+	return pieces
 }
 
 // drawTableBlock is the Fallback for a Table a Triad could not Fit:
