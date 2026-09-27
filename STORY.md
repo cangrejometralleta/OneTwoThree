@@ -51,11 +51,10 @@ AGENTS.md stays free for the short pointer to canon.
 
 ## Undistilled Context
 
-8 of 9 filled. Distill before promoting a tenth.
+7 of 9 filled. Distill before promoting a tenth.
 
-- [Roadmap](stories/roadmap.md) — own linter, modular cluster with LiteLLM
+- [Roadmap](stories/roadmap.md) — own linter, modular cluster with LiteLLM, color by semantic association
 - [Another three showing up on its own](stories/another-three-showing-up.md) (SPECULATIVE)
-- [Color by semantic association](stories/color-by-semantic-association.md)
 - [Tools missing between turns](stories/tools-missing-between-turns.md)
 - [The Distance the User Opens](stories/the-distance-the-user-opens.md) (SPECULATIVE)
 - [What the Muchi refactor left open](stories/muchi-structure.md)
