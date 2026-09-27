@@ -6,7 +6,6 @@ import (
 	"testing"
 
 	"github.com/cangrejometralleta/OneTwoThree/examples/school/go/app"
-	"github.com/cangrejometralleta/OneTwoThree/examples/school/go/faults"
 	"github.com/cangrejometralleta/OneTwoThree/examples/school/go/school"
 	"github.com/cangrejometralleta/OneTwoThree/examples/school/go/tokens"
 	"github.com/cangrejometralleta/OneTwoThree/examples/school/go/transport"
@@ -171,7 +170,7 @@ func CheckFault(t *testing.T, got, want error, status int) {
 		t.Fatalf("wanted %v, got %v", want, got)
 	}
 
-	if answer := faults.ReadFaultStatus(got); answer != status {
+	if answer := app.ReadFaultStatus(got); answer != status {
 		t.Errorf("wanted %d, got %d", status, answer)
 	}
 }

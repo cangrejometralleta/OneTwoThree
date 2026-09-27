@@ -1,7 +1,6 @@
 package tokens
 
 import (
-	"net/http"
 	"testing"
 	"time"
 
@@ -75,7 +74,7 @@ func CheckUnprovenCaller(t *testing.T, err error) {
 		t.Fatalf("wanted %v, got %v", ErrTokenIsInvalid, err)
 	}
 
-	if got := faults.ReadFaultStatus(err); got != http.StatusUnauthorized {
-		t.Fatalf("wanted 401, got %d", got)
+	if got := faults.ReadFaultKind(err); got != faults.UnprovenCaller {
+		t.Fatalf("wanted UnprovenCaller, got %d", got)
 	}
 }

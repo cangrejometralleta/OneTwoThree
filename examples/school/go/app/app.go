@@ -1,9 +1,6 @@
 package app
 
-import (
-	"github.com/cangrejometralleta/OneTwoThree/examples/school/go/faults"
-	"github.com/cangrejometralleta/OneTwoThree/examples/school/go/transport"
-)
+import "github.com/cangrejometralleta/OneTwoThree/examples/school/go/transport"
 
 // A Telling Speaks Business only: it Answers with a Value, or it Fails.
 // It Names no Status and Builds no Reply.
@@ -17,7 +14,7 @@ func AnswerWith(status int, tell Telling) transport.Handler {
 		body, err := tell(req)
 		if err != nil {
 			return transport.Response{
-				Status: faults.ReadFaultStatus(err),
+				Status: ReadFaultStatus(err),
 				Body:   map[string]string{"error": err.Error()},
 			}
 		}

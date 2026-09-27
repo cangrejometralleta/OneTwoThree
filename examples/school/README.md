@@ -146,6 +146,10 @@ so no handler ever chooses a number.
 var ErrRutTaken = faults.ReportTakenValue("rut is already Registered")
 ```
 
+In Go the Answer is a Kind, not a number: `faults/` Names no Protocol.
+`app/status.go` is the one Table that Turns a Kind into an HTTP Status,
+so the Core Stays free of `net/http`.
+
 A Handler never Builds a Reply. It Answers with a value, or it Fails:
 
 ```go
