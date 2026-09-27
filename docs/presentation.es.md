@@ -16,6 +16,8 @@ OneTwoThree es un Manifiesto y una Práctica para expresar ideas, organizar trab
 
 El Proyecto Reúne Valores, Patrones y Reglas. Los Valores Expresan lo que importa; los Patrones Reconocen Formas que reaparecen en situaciones distintas. Las Reglas Convierten parte de ese aprendizaje en Acciones que se pueden comprobar. Esta Distinción Permite tener Convicciones y, al mismo tiempo, revisar cómo las llevamos a la práctica.
 
+Ninguna Idea Entra directo a esos tres. Llega como experiencia en bruto, se vuelve una [Historia](../STORY.md) cuando se le quita la Persona, y espera ahí hasta poder Gobernar. Nueve Historias Llenan el Pasaje; una décima espera hasta que alguna Salga. El mismo Pasaje Funciona en un proyecto de código, donde una Historia Aterriza como documentación, como código sostenido por un test o como la promesa que hace una API.
+
 La Propuesta es aplicable fuera de la Programación. Una Lista de pendientes, una Decisión compartida o una Explicación difícil también Exigen elegir qué mostrar, qué relacionar y qué dejar para después. Este Documento Presenta las Ideas del proyecto y algunas maneras de probarlas en la vida diaria.
 
 Podemos Leer una Situación en tres Capas, desde su propósito hasta una acción concreta. Cada Capa Responde una Pregunta y da contexto a la siguiente. Este Esquema Propone una manera de explicar el proyecto y aplicarlo a una tarea.
@@ -165,7 +167,7 @@ DeLaCase toma parte de su Inspiración de [Go](https://go.dev), un lenguaje de P
 
 De La Soul aporta el Conteo y la Cadencia. *The Magic Number* inspira la presencia del Tres en el proyecto. Además, el grupo suele estilizar los títulos de sus canciones con una capitalización parecida a esta; esa elección estética inspira el nombre DeLaCase. La Música invita a escuchar el Texto y a elegir dónde sube la Voz. Esa influencia rítmica se une a la distinción visual aprendida de Go.
 
-Soñamos con que Programar sea Escribir Poesía y Leer código sea Rapear. El Flujo de esta forma de Leer es compatible con la Música. Muchos de estos Textos se han probado mientras sonaba la Música aquí Referenciada, con la esperanza de que su Pulso y sus Pausas faciliten la Lectura del código. Es una Búsqueda, no un efecto demostrado.
+Soñamos con que Programar sea Escribir Poesía y Leer código sea Rapear. El Flujo de esta forma de Leer es compatible con la Música. Muchos de estos Textos se han probado mientras sonaba la Música aquí Referenciada, con la esperanza de que su Pulso y sus Pausas faciliten la Lectura del código. Es una Búsqueda, no un efecto demostrado. La regla de [Nombres](../rules/naming.md) Da un paso concreto hacia ella: las funciones hermanas Riman, una idea Conserva una palabra y la firma es la línea de bajo.
 
 DeLaCase es un nombre de trabajo. Los nombres que empiezan por OneTwo son provisionales porque pueden confundir; este nombre hace visible tanto la influencia de De La Soul como su uso estilístico de una capitalización parecida en los títulos de sus canciones.
 
@@ -173,7 +175,7 @@ La Convención se fue afinando en la Escritura del repositorio. Primero limitó 
 
 ## Los Emojis y las Pausas orientan la Lectura
 
-Un Emoji puede hacer visible el Sentido de una frase antes de leerla completa. Una marca de estado permite reconocer un resultado o algo que necesita Atención: ✅ indica que está listo, mientras que una advertencia pide detenerse a revisar. El Texto Explica siempre el Mensaje para que el símbolo no tenga que sostenerlo por sí solo.
+Un Emoji puede hacer visible el Sentido de una frase antes de leerla completa. Una marca de estado permite reconocer un resultado o algo que necesita Atención: ✅ marca algo que pasó, ❌ algo que falló, y una advertencia pide detenerse a revisar. El Texto Explica siempre el Mensaje para que el símbolo no tenga que sostenerlo por sí solo.
 
 La Paloma Identifica a Dove y acompaña su voz de Calma. Usarla junto al nombre en su presentación permite reconocer al agente sin repetir la señal en cada frase. Cada Emoji Conserva una Función clara y aparece, como máximo, una vez por línea. El Énfasis funciona mejor cuando deja Espacio alrededor.
 
@@ -372,6 +374,6 @@ Este documento abrió con una Frase que puede orientar a una Persona y a una Má
 
 ### Lecturas del proyecto
 
-[Valores](../VALUES.md) · [Principios](../values/principles.md) · [Patrones](../PATTERNS.md) · [DeLaCase](../rules/de-la-case.md) · [Ritmo](../rules/rhythm.md) · [Emojis](../rules/emoji.md) · [Quiebres de línea](../rules/seams.md) · [Linaje](../patterns/lineage.md) · [Dove](../.agents/agents/dove.md)
+[Valores](../VALUES.md) · [Principios](../values/principles.md) · [Patrones](../PATTERNS.md) · [DeLaCase](../rules/de-la-case.md) · [Ritmo](../rules/rhythm.md) · [Emojis](../rules/emoji.md) · [Quiebres de línea](../rules/seams.md) · [Nombres](../rules/naming.md) · [Historias](../STORY.md) · [Linaje](../patterns/lineage.md) · [Dove](../.agents/agents/dove.md)
 
 🦀 Cangrejo Metralleta
