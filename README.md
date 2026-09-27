@@ -98,7 +98,7 @@ The Skills Define the Operations; their linked instructions hold the details.
 | `next`, `sigue` or a selected option | [next-next-next](.agents/skills/next-next-next/SKILL.md) | Takes one recommended step, verifies it and names the Following step. |
 | A durable edit, decision or validation | [one-two-checkpoint](.agents/skills/one-two-checkpoint/SKILL.md) | Saves the current thread in `.handoff.md` during Work. |
 | A change starts growing | [one-two-growth](.agents/skills/one-two-growth/SKILL.md) | Checks whether one intent still Holds the change. |
-| Ask for pending stories | [one-two-distill](.agents/skills/one-two-distill/SKILL.md) | Sorts the Stories by what they wait on and distills the one you pick. |
+| Ask for pending stories | [one-two-stories](.agents/skills/one-two-stories/SKILL.md) | Sorts the Stories by what they wait on and distills the one you pick. |
 | Ask to organize, commit and push | [commit-commit-commit](.agents/skills/commit-commit-commit/SKILL.md) | Groups changes by feature, validates and commits each group, then Pushes once after all succeed. |
 | `bye dove` or request a handoff | [bye-bye-bye](.agents/skills/bye-bye-bye/SKILL.md) | Expands the checkpoint into a closing handoff and Stops. |
 
