@@ -77,6 +77,7 @@ func (Quote) isBlock() {}
 // CodeBlock Holds preformatted Text, set in the Mono Face.
 type CodeBlock struct {
 	Text string
+	Lang string // the Fence's Info Word, "go" or empty
 }
 
 func (CodeBlock) isBlock() {}

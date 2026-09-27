@@ -131,6 +131,7 @@ func buildBlock(n ast.Node, source []byte) document.Block {
 	case *ast.FencedCodeBlock:
 		return document.CodeBlock{
 			Text: extractCodeText(v, source),
+			Lang: string(v.Language(source)),
 		}
 	case *ast.CodeBlock:
 		return document.CodeBlock{

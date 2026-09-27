@@ -50,8 +50,9 @@ one flat color, so there's nothing to unlearn.
 How to apply any of this is still open.
 Not yet a confirmed root: one lived instance.
 
-- **Code, by the AST** — free. Build it in `pdf/`; it Unblocks the prose.  
+- **Code, by the AST** — built. `examples/pdf/roles` Tags a Go Block;  
+  a Type is Inked slate Teal, a Call dusk Plum. A Conversion Reads as a Call.  
 - **Prose, by role** — BLOCKED.  
   Blocked on: a role tagger no rule can run yet, and a palette  
   that does not Collide with the Emoji trio.  
-  Distill when: code blocks render by role, and a palette is chosen.
+  Distill when: a palette is chosen for Prose, and a tagger can Run.
