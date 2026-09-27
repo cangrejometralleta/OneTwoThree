@@ -135,6 +135,14 @@ A [portable ZIP](.agents/skills/one-two-update/references/zip.md) Records its so
 It is a Snapshot; the live canon remains the head of `main`.
 Filesystem Validation Proves the Links; client Discovery Proves the Load.
 
+## Examples Show the Rules Running
+
+- [School](examples/school/README.md) — one API in Go, Java and TypeScript.
+  In Go each Vendor Gets its own Package, the Consumer Declares its Providers,
+  and a Fault Carries a Kind, so the Core never Imports `net/http`.
+- [PDF](examples/pdf/README.md) — the manifesto Rendered from Markdown in Go.
+  Go Code is Inked by Role: a Type as an Entity, a Call as an Action.
+
 ## Agents Work among Others
 
 An Agent Needs more than a Goal.
@@ -151,7 +159,7 @@ and never let pressure make harm look necessary.
 Three Stages Carry a piece of Life into the canon,
 and only the third one stays.
 
-- **CHAOS.md** Holds the raw life.
+- **chaos/** Holds the raw life.
   Private, never Committed,
   names and dates still in it.
 - **Stories** Holds the same piece
@@ -161,7 +169,7 @@ and only the third one stays.
 
 ```mermaid
 flowchart LR
-    CHAOS["CHAOS.md<br/>the raw Life<br/>private, never Committed"]
+    CHAOS["chaos/<br/>the raw Life<br/>private, never Committed"]
     STORY["STORY.md<br/>the Person Removed<br/>public, still not Canon"]
     CANON["VALUES · RULES · PATTERNS<br/>what Survived<br/>the Canon"]
     CHAOS -- "Strip the Person" --> STORY -- "Strip the Story" --> CANON
@@ -174,14 +182,25 @@ What is left is the Belief, the Rule or the Root.
 - A Belief Goes to Values.
 - A Rule an agent can run Goes to Rules.
 - A Root Goes to Patterns.
+- Something still to Build Waits in the [Roadmap](stories/roadmap.md).
 - Delete it from Stories once it lands.
 
-CHAOS.md never Empties, because a source never empties.
+A Story Waits on evidence, on work still Moving,
+or on something that must be Decided first — BLOCKED.
+[one-two-stories](.agents/skills/one-two-stories/SKILL.md) Sorts them
+and distills the one you pick, one per turn.
+
+The same Passage Works in a code project.
+There a Decision Lands in `docs/`, a Rule in code held by a Test,
+and a Promise in the API contract.
+The [Distillation Flow](.agents/skills/one-two-stories/distillation-flow.md) Draws both.
+
+chaos/ never Empties, because a source never empties.
 Stories Empties, because a passage is meant to.
 Nine Entries Fill the Passage.
 Distill before you promote a Tenth.
 
-.gitignore Names CHAOS.md out loud.
+chaos/ Carries its own .gitignore: only its example Ships.
 Patterns Explains why,
 under The Right you have to Invoke.
 
