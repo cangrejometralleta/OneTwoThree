@@ -1,4 +1,4 @@
-package serving
+package ginserver
 
 import "testing"
 

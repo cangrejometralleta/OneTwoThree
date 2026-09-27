@@ -12,9 +12,9 @@ import (
 // SchoolAPI Holds the Cast every Story Needs.
 // Three Providers, no Libraries: a Test can Hand it three Fakes.
 type SchoolAPI struct {
-	Students school.StudentStore
-	Courses  school.CourseStore
-	Tokens   school.TokenIssuer
+	Students StudentStore
+	Courses  CourseStore
+	Tokens   TokenIssuer
 }
 
 // DeclareSchoolRoutes is the Libretto.

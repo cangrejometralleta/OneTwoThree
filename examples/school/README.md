@@ -99,24 +99,29 @@ settings        the strict JSON Loader
 domain          the Business Truth
 ```
 
-Two Files Hold every Vendor.
-Swapping one Edits one of them, and nothing else.
+Adapters Hold every Vendor, and one place Composes them.
+Swapping one Edits its adapter and the Composition.
 
-In Go those files are grouped into packages,
+In Go each Vendor Gets a package of its own,
 so the Compiler Guards the Boundary the rule describes.
+Swapping one Edits its adapter and `main.go`, the one Composition.
+The Consumer Declares the Provider it Calls:
+`api/` Declares the Stores, `app/` Declares the one Method its Guard Reads.
 TypeScript Keeps the flat Shape above.
 
 ```text
-main.go         Casts the Players; the only File that Knows every Package
+main.go         Casts the Players and Picks the Server; the only File that Knows every Package
 transport/      Request, Response, Handler, Route; Imports nothing
 wire/           the Contract: every Shape a Client Sends or Receives
 faults/         the controlled Failures, each Carrying its Answer
-school/         the Core: domain, providers, constants. No HTTP at all
-app/            the Application Layer: the Crossing, Validation and Context
-api/            the Script: Handlers that Answer or Fail
+school/         the Core: domain, page, admission Constants. No Providers, no Vendor
+app/            the Application Layer: the Crossing, Validation, and the Guard's CallerReader
+api/            the Script: Handlers, and the Providers they Declare
 settings/       the strict JSON Loader and the validated SchoolConfig
 store/          THE ONLY PACKAGE THAT IMPORTS AN ORM
-serving/        THE ONLY PACKAGE THAT IMPORTS A FRAMEWORK
+serving/        the stdlib Server and the shared Request Reading
+serving/chiserver/  THE ONLY PACKAGE THAT IMPORTS chi
+serving/ginserver/  THE ONLY PACKAGE THAT IMPORTS gin
 tokens/         the Token Adapter, standard Library only
 ```
 
