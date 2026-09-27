@@ -16,6 +16,8 @@ OneTwoThree is a Manifesto and a Practice for expressing ideas, organizing work 
 
 The Project Brings together Values, Patterns and Rules. Values Express what matters; Patterns Recognize Forms that recur in different situations. Rules Turn some of that Learning into Actions we can verify. This Distinction Allows us to hold Convictions while revising how we put them into practice.
 
+No Idea Enters those three directly. It Arrives as raw experience, becomes a [Story](../STORY.md) once the Person is removed from it, and waits there until it can Govern. Nine Stories Fill the Passage; a tenth has to wait until one Leaves. The same Passage Works in a code project, where a Story Lands as documentation, as code held by a test or as the promise an API makes.
+
 The Approach is useful beyond Programming. A Task list, a shared Decision or a difficult Explanation also Requires choices about what to show, what to connect and what to leave for later. This Document Introduces the project's Ideas and some ways to try them in everyday life.
 
 We can Read a Situation through three Layers, from its purpose to a concrete action. Each Layer Answers a Question and gives context to the next. This Diagram Offers one way to explain the project and apply it to a task.
@@ -165,7 +167,7 @@ DeLaCase draws part of its Inspiration from [Go](https://go.dev), a Programming 
 
 De La Soul contributes Counting and Cadence. *The Magic Number* inspires the presence of Three in the project. The group also often styles song titles with a similar kind of capitalization; that aesthetic choice inspires the name DeLaCase. Music invites us to hear the Text and choose where the Voice rises. That rhythmic influence joins the visual distinction learned from Go.
 
-We Dream that Programming can be Writing Poetry and Reading code can be Rapping. The Flow this way of Reading creates feels compatible with Music. Many of these Texts have been tried while listening to the Music referenced here, in the hope that its Pulse and Pauses make code easier to Read. That is an Aim, not a proven effect.
+We Dream that Programming can be Writing Poetry and Reading code can be Rapping. The Flow this way of Reading creates feels compatible with Music. Many of these Texts have been tried while listening to the Music referenced here, in the hope that its Pulse and Pauses make code easier to Read. That is an Aim, not a proven effect. The [Naming](../rules/naming.md) rule Takes one concrete step toward it: sibling functions Rhyme, one idea Keeps one word, and the signature is the bass line.
 
 DeLaCase is a working name. Names beginning with OneTwo are provisional because they can confuse readers; this name foregrounds both De La Soul's influence and its stylistic use of similar capitalization in song titles.
 
@@ -173,7 +175,7 @@ The Convention took shape through Writing in the repository. It first limited em
 
 ## Emojis and Pauses guide the Reading
 
-An Emoji can make a sentence's Meaning visible before we read it in full. A status marker helps us recognize a result or something that needs Attention: ✅ means ready, while a warning asks us to pause and review. The Text always Explains the Message so the symbol does not have to carry it alone.
+An Emoji can make a sentence's Meaning visible before we read it in full. A status marker helps us recognize a result or something that needs Attention: ✅ marks something that passed, ❌ something that failed, and a warning asks us to pause and review. The Text always Explains the Message so the symbol does not have to carry it alone.
 
 The Dove Identifies Dove and accompanies its Calm voice. Placing it beside the name in an introduction makes the agent recognizable without repeating the signal in every sentence. Each Emoji Keeps a clear Function and appears at most once per line. Emphasis works best when it leaves Space around it.
 
@@ -372,6 +374,6 @@ This document opened with a Sentence that can guide a Person and a Machine at on
 
 ### Project reading
 
-[Values](../VALUES.md) · [Principles](../values/principles.md) · [Patterns](../PATTERNS.md) · [DeLaCase](../rules/de-la-case.md) · [Rhythm](../rules/rhythm.md) · [Emojis](../rules/emoji.md) · [Line breaks](../rules/seams.md) · [Lineage](../patterns/lineage.md) · [Dove](../.agents/agents/dove.md)
+[Values](../VALUES.md) · [Principles](../values/principles.md) · [Patterns](../PATTERNS.md) · [DeLaCase](../rules/de-la-case.md) · [Rhythm](../rules/rhythm.md) · [Emojis](../rules/emoji.md) · [Line breaks](../rules/seams.md) · [Naming](../rules/naming.md) · [Stories](../STORY.md) · [Lineage](../patterns/lineage.md) · [Dove](../.agents/agents/dove.md)
 
 🦀 Cangrejo Metralleta
