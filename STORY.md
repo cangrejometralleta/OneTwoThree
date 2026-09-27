@@ -41,8 +41,9 @@ under "How Context Becomes Canon".
   A limit generates quality here too.
 - This file shrinks; the canon grows.
 - Each entry carries its status:
-  UNDISTILLED, or SPECULATIVE
-  when the connection is still a hunch, not yet a root.
+  UNDISTILLED, SPECULATIVE
+  when the connection is still a hunch, not yet a root,
+  or BLOCKED when something must be decided or built first.
 
 It isn't called AGENTS.md
 because Agents load that name as a project instruction.

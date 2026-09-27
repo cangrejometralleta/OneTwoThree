@@ -33,6 +33,17 @@ its diagram Names them. Without one, use the nearer map below.
 A Code project's Story may be work that has not stopped Moving.
 That is its own State, and it never Drains early.
 
+## Blocked is not Waiting
+
+`Waiting` needs the world to Repeat something; nobody can hurry it.
+`Blocked` needs someone to Do something: decide, build, or land another story.
+
+- Mark it in the Index: `(BLOCKED: what)`, beside `(SPECULATIVE)`.
+- Inside the Story, a `Blocked on` line sits beside `Distill when`.  
+  The first Names the Dependency; the second, the moment it can Move.
+- A Story with parts Blocks only the part that Waits.  
+  The free part is Named apart, so it can Move alone.
+
 ## When it Runs
 
 - The user Asks for pending, undistilled or open Stories.
@@ -56,6 +67,7 @@ For each Story, name its **State**:
 | `Merge` | It is the Same kind as another story | two roadmap items, two sightings |
 | `Misplaced` | It Belongs to another repository | a to-do list for one project |
 | `Moving` | Work still in progress | a half-built feature, gaps Named |
+| `Blocked` | A named Dependency stands in front | a decision, a tool or another story |
 | `Waiting` | Its trigger is not Met | one lived instance, no second |
 | `Speculative` | Marked a hunch by its author | `(SPECULATIVE)` in the index |
 
@@ -72,6 +84,8 @@ Then the Count, `N of 9`.
 Then up to three numbered Options, only among `Ready`,
 `Answered`, `Merge` and `Misplaced`. Recommend one, and say why.
 `Moving`, `Waiting` and `Speculative` are listed, never offered.
+A `Blocked` story is never offered either; its Unblocking step is,
+when that step can be taken now.
 If nothing can Move, say so and stop.
 
 The user Picks by number. A number from the Table
@@ -115,7 +129,7 @@ Next — commit the merge.
 ## Bounds
 
 - Never write a Story from chaos, and never read chaos to fill one.
-- Never Distill a `Moving`, `Speculative` or `Waiting` story unless the user insists,
+- Never Distill a `Moving`, `Blocked`, `Speculative` or `Waiting` story unless the user insists,
   and then name what the project Loses by taking it early.
 - Never land two Stories in one turn.
 - Never promote a tenth Story while nine are Full.
