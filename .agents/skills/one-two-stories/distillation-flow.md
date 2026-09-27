@@ -19,9 +19,12 @@ flowchart TD
     STATE -- "same kind as another" --> MERGE["Merge"]
     STATE -- "another repo's work" --> MISPLACED["Misplaced"]
     STATE -- "still in progress" --> MOVING["Moving"]
+    STATE -- "a Dependency stands" --> BLOCKED["Blocked"]
     STATE -- "trigger not Met" --> WAIT["Waiting"]
     STATE -- "a hunch" --> SPEC["Speculative"]
 
+    BLOCKED --> UNBLOCK["Offer the Unblocking step"]
+    UNBLOCK --> OFFER
     MOVING --> LISTED["Listed, never Offered"]
     WAIT --> LISTED
     SPEC --> LISTED
@@ -93,6 +96,10 @@ Every Story Answers three, in this order:
 - *What the Muchi refactor left open* held three points.  
   The Canon already Answered two; they were muchi-api's work, not ours.  
   One real question Remained, waiting for a second adapter.
+- *Color by semantic association* was two ideas under one title.  
+  Code Coloured by the AST was free to build;  
+  Prose Coloured by role was Blocked on a tagger and a palette.  
+  Waiting could not Name that; Blocked was Added for it.
 - A merge Frees a slot; a shortened story Keeps it.  
   Only a Story that Leaves makes room for the tenth.
 
@@ -100,7 +107,5 @@ Every Story Answers three, in this order:
 
 - Is `stories/roadmap.md` a Story, or a Stage of its own  
   beside the Passage, the way Jokes are?
-- Does a Story need a `BLOCKED` state for work  
-  that waits on something outside the repository?
 - Should this Flow reach the README, under "How Context Becomes Canon",  
   once a second session has used it?
