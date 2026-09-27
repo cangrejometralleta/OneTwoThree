@@ -54,7 +54,7 @@ AGENTS.md stays free for the short pointer to canon.
 
 6 of 9 filled. Distill before promoting a tenth.
 
-- [Roadmap](stories/roadmap.md) — own linter, modular cluster with LiteLLM, color by semantic association
+- [Roadmap](stories/roadmap.md) — own linter, modular cluster with LiteLLM, color by semantic association (prose BLOCKED: a role tagger and a palette)
 - [Another three showing up on its own](stories/another-three-showing-up.md) (SPECULATIVE)
 - [The Distance the User Opens](stories/the-distance-the-user-opens.md) (SPECULATIVE)
 - [What the Muchi refactor left open](stories/muchi-structure.md)
