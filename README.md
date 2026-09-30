@@ -1,51 +1,69 @@
 # OneTwoThree
 
-OneTwoThree is a set of agent Rules that also forms a manifesto.
-The Rules Guide how Agents read, write and collaborate.
-The Manifesto Grounds them in Minimalism, calm and care for human attention.
+[Español](README.es.md)
 
-> Because we Hate making documentation.
-> 
-> The Limit behind all of this was lived before it was written.
-> Autistic burnout Taught it, minimalism only named it.
-> 
-> Thanks [De La Soul](https://en.wikipedia.org/wiki/De_La_Soul), Grandma COBOL and [John Cage](https://en.wikipedia.org/wiki/John_Cage)
-> for inspiring this Project.
+OneTwoThree is a Repository that is both a Manifesto and a Codebase.
+Its Rules tell an Agent how to read, write and collaborate here.
+Its Values and Patterns hold the reasons, so a Person can challenge them.
 
-## The Name Carries a Rhythm
+This Page is the technical Version of the [Presentation](docs/presentation.en.md).
+The Presentation tells why; this Page says where each piece lives and how to check it.
 
-OneTwoThree Draws its name from [De La Soul](https://en.wikipedia.org/wiki/De_La_Soul)'s [*The Magic Number*](https://en.wikipedia.org/wiki/The_Magic_Number), with its phrase “three is the magic number”.
-[*4 noviosS*](https://www.youtube.com/watch?v=ucrvnu5a8NQ) by [Six Sex](https://es.wikipedia.org/wiki/Six_Sex), produced by King Doudou, and the lyrics of [*Perfect (Exceeder)*](https://en.wikipedia.org/wiki/Perfect_%28Exceeder%29) by [Mason](https://en.wikipedia.org/wiki/Mason_%28musician%29) vs [Princess Superstar](https://en.wikipedia.org/wiki/Princess_Superstar) also Inspired its reading and writing Cadence.
-Their counting Phrases help turn Words into a Pulse: an entrance, an emphasis and room to breathe.
+## The Repository, in one Map
 
-The Author Hears a direct musical Influence between *Perfect (Exceeder)* and *4 noviosS*.
-That Connection is his Interpretation as a listener.
-Together, these References gave the Project a Rhythm to read and write by.
+```text
+VALUES.md   the Why       beliefs, in values/
+RULES.md    the How       verifiable rules, in rules/
+PATTERNS.md the Where     recurring roots, in patterns/
+AGENTS.md   the Pointer   what an agent loads on its own
+.agents/    agents/ and skills/, the operations
+examples/   school/ and pdf/, the rules running in Go
+docs/       the Presentation, in English and Spanish
+stories/    STORY.md, stories/ and chaos/: context, not yet canon
+jokes/      hand-written humour; read it, never add to it
+```
 
-OneTwoThree and one-two-three Name the same Project. Any form of emphasis is Accepted here: camel case, kebab case, spaces or none. The Name is made to be Counted, never said in one breath.
+Three Documents hold the Manifesto, and this Page indexes them:
+[Values](VALUES.md), [Rules](RULES.md) and [Patterns](PATTERNS.md).
+An Agent starts at [AGENTS.md](AGENTS.md), then reads [Rules](RULES.md) first.
 
-## License
+## The Head is the Canon
 
-This is free and unencumbered software
-released into the public domain.
-Do whatever you want with it.
-[The Unlicense](https://unlicense.org)
+The Canon is the head of `main`, and nothing else.
+There is no tag, no release and no version: a Rule read from an older commit is a Fork.
+[The Head is the Canon](rules/the-head-is-the-canon.md) says why.
 
-## Documents
+[.canonignore](.canonignore) lists the Paths the Canon carries but does not govern.
+It uses `.gitignore` syntax, and git reads it directly:
 
-Three Documents Hold the Manifesto.  
-This Page is the Door that indexes them.
+```sh
+git ls-files --cached --ignored --exclude-from=.canonignore   # tracked, not governed
+git ls-files --others --ignored --exclude-from=.canonignore   # present on disk only
+```
 
-- [Values](VALUES.md) — why it Exists.
-- [Rules](RULES.md) — how it Applies.
-- [Patterns](PATTERNS.md) — where the Why comes from.
+An Agent may read every path it lists and must never copy one.
 
-Why / How / Where:  
-the Triad Lives in the Structure itself.
+## Why Three
 
-### RoTaTion Connects the Three
+Three comes from a count, not from taste.
+With `n` entities there are `n(n-1)/2` possible interactions, and understanding lives in the interactions.
 
-[De La Soul](https://en.wikipedia.org/wiki/De_La_Soul) [RoTaTion](patterns/de-la-soul-rotation.md) Connects three Elements through three Pairs, with no fixed center.
+| Entities | Interactions | Reading |
+| --- | --- | --- |
+| 1 | 0 | Attention, nothing to relate |
+| 2 | 1 | One relationship, so one end becomes the center |
+| 3 | 3 | Every pair visible, and a cycle closes |
+| 4 | 6 | More relationships than things |
+| 5 | 10 | The relationships stop being countable |
+
+Three is the last count where both columns match, and the smallest one that closes a cycle.
+The Number is a Source to derive from, never a quota to reach.
+A situation that holds four categories keeps all four.
+See [Three over Four](patterns/three-over-four.md) and [Count me In](patterns/count-me-in.md).
+
+## Values, Rules and Patterns Rotate
+
+[RoTaTion](patterns/de-la-soul-rotation.md) connects the three Documents through three pairs, with no fixed center.
 Enter through any Element and follow the relationships.
 
 ```mermaid
@@ -55,12 +73,11 @@ flowchart LR
     PATTERNS -- "the Root Grounds the Why" --> VALUES
 ```
 
-Three Elements, three Pairs, no Center.
-Remove the Center and the Shape still Turns.
+A Rule must be executable by an Agent, or it is a Value.
+Rules are verifiable and Values are interpretable.
+A Rule marked *Provisional* came from one practice and is deleted if the next project disagrees.
 
-## How to Read it
-
-Three Layers connect the Purpose to a concrete Action:
+A second reading runs from Purpose to Action in three Layers:
 
 ```mermaid
 flowchart TD
@@ -71,54 +88,131 @@ flowchart TD
     STRUCTURE -->|Makes concrete| ACTION
 ```
 
-These Layers Offer a Path from the general to the particular.
-RoTaTion Keeps the Relationships open to another reading.
+## DeLaCase is a Budget you can Count
 
-- Use it as agent Rules,
-  and read the manifesto that Explains their purpose.
-- Identify important Entities and their Interactions with up to three emphasis capitals
-  per passage between punctuation marks; the grammatical initial is free.
-  Two entities and one interaction are a useful shape, never a required formula.
-  Proper names and acronyms keep their established Spelling.
-  [DeLaCase](rules/de-la-case.md) holds the convention; three spent is a Ceiling, never a quota.
-- Every Line is written  
-  to be read in one heartbeat.
-- Three is a Source, not a count.  
-  You Derive from Three,  
-  you do not reach it.
+[DeLaCase](rules/de-la-case.md) is the typographic Convention for prose.
+A capital marks an Entity or an Interaction worth noticing.
 
-## 🕊️ Work with Dove and the Skills
+1. Split the text into passages at punctuation; a bullet or a hard line break also ends one.
+2. Spend at most three emphasis capitals per passage.
+3. The grammatical initial is free; proper names and acronyms keep their spelling.
 
-[Dove](.agents/agents/dove.md) Holds the voice.
-The Skills Define the Operations; their linked instructions hold the details.
+> The Person Guides the Machine, the Machine Supports the Person.
+
+Two passages, each with its own budget, each spending three.
+Three is a ceiling, never a quota.
+
+Code keeps its own rule: case in an identifier belongs to the language, and the language decides.
+In Go, a capital crosses the package boundary and the compiler enforces it.
+Final text in a user interface uses ordinary capitalization.
+
+Bold is a second tier and costs more: one per section, or none.
+[Channels](rules/channels.md) counts what a surface can carry, and [Emoji](rules/emoji.md) marks a state, one per line at most.
+
+## The Rules for Code
+
+Every rule that governs code runs in [examples](examples).
+[Show me the Code](patterns/show-me-the-code.md) says why that matters.
+
+| Rule | Claim you can check |
+| --- | --- |
+| [Layers](rules/layers.md) | The Core names no vendor and no socket; the compiler holds the boundary. |
+| [Providers](rules/providers.md) | The Core declares an interface; a Port is named for the need, never the vendor. |
+| [Shapes](rules/shapes.md) | The entity is never the DTO: Wire, Business and Storage are three types. |
+| [Failures](rules/failures.md) | A controlled failure carries its answer; one function maps it to a status. |
+| [Constants](rules/constants.md) | Global constants are separate from configuration and validated at startup. |
+| [Scripts](rules/scripts.md) | Every program answers `build.sh` and `run.sh`, and each refuses what would fail. |
+| [Entrypoints](rules/entrypoints.md) | Doors are declared in one list; a shim only calls the logic. |
+| [Tests](rules/tests.md) | The expectation is spelled out, then proven by mutation. |
+| [Naming](rules/naming.md) | Verb + Noun + context, three words at most. |
+| [Structure](rules/structure.md) | Three beats per function, not three newlines. |
+
+### The School Service
+
+[School](examples/school/README.md) is one API written in Go, Java and TypeScript.
+The same [Specification](examples/school/SPEC.md) holds for all three, and [The Before](examples/school/BEFORE.md) shows the original with each broken rule named.
+
+```text
+main       casts the players and picks an adapter
+adapters   the only files that import a framework
+api        the script: handlers and the providers they declare
+app        the crossing, the form and the caller
+school     the business core: no HTTP, no driver
+store      the only package that imports an ORM
+wire       the contract, every shape a client sends or receives
+faults     controlled failures, each carrying its answer
+settings   the strict JSON loader, validated at startup
+```
+
+```sh
+cd examples/school/go
+go list -deps ./school             # lists no vendor and no net/http
+./build.sh                         # gofmt, vet, test, then the binary
+TOKEN_SECRET=s ./run.sh gin        # stdlib, chi or gin
+```
+
+A handler answers with a value or fails, and never builds a reply:
+
+```go
+func (a SchoolAPI) ShowStudentRecord(req transport.Request) (any, error) {
+	id, err := app.ReadPathNumber(req)
+	if err != nil {
+		return nil, err
+	}
+
+	student, err := a.Students.SelectStudentRow(school.StudentID(id))
+	if err != nil {
+		return nil, err
+	}
+
+	return school.RenderStudentView(student), nil
+}
+```
+
+Eleven lines, three beats: receive, transform and return.
+
+### The PDF Converter
+
+[PDF](examples/pdf/README.md) renders the manifesto from Markdown to PDF in pure Go.
+`markdown/` is the only package that imports goldmark, `render/` the only one that imports gopdf.
+`document/` and `style/` import no vendor, and five small functions turn plain Markdown into a booklet.
+
+```sh
+cd examples/pdf
+./build.sh
+./run.sh testdata/sample.md        # writes sample.pdf beside it
+```
+
+## Dove and the Skills
+
+[Dove](.agents/agents/dove.md) is an agent that reads an explanation through the manifesto, names the Pattern and takes one bounded step.
+The Skills define the operations; each linked file holds the details.
 
 | When | Skill | What it does |
 | --- | --- | --- |
-| `yo dove` or resume earlier work | [yo-yo-yo](.agents/skills/yo-yo-yo/SKILL.md) | Synchronizes the project branch, reconstructs context and names one next Step. |
-| `next`, `sigue` or a selected option | [next-next-next](.agents/skills/next-next-next/SKILL.md) | Takes one recommended step, verifies it and names the Following step. |
-| A durable edit, decision or validation | [one-two-checkpoint](.agents/skills/one-two-checkpoint/SKILL.md) | Saves the current thread in `.handoff.md` during Work. |
-| A change starts growing | [one-two-growth](.agents/skills/one-two-growth/SKILL.md) | Checks whether one intent still Holds the change. |
-| Ask for pending stories | [one-two-stories](.agents/skills/one-two-stories/SKILL.md) | Sorts the Stories by what they wait on and distills the one you pick. |
-| Ask to organize, commit and push | [commit-commit-commit](.agents/skills/commit-commit-commit/SKILL.md) | Groups changes by feature, validates and commits each group, then Pushes once after all succeed. |
-| `bye dove` or request a handoff | [bye-bye-bye](.agents/skills/bye-bye-bye/SKILL.md) | Expands the checkpoint into a closing handoff and Stops. |
+| `yo dove` or resume earlier work | [yo-yo-yo](.agents/skills/yo-yo-yo/SKILL.md) | Syncs the project branch, rebuilds context and names one next step. |
+| `next`, `sigue` or a selected option | [next-next-next](.agents/skills/next-next-next/SKILL.md) | Takes one recommended step, verifies it and names the following one. |
+| A durable edit, decision or validation | [one-two-checkpoint](.agents/skills/one-two-checkpoint/SKILL.md) | Saves the thread in `.handoff.md` during work. |
+| A change starts growing | [one-two-growth](.agents/skills/one-two-growth/SKILL.md) | Checks whether one intent still holds the change. |
+| Ask for pending stories | [one-two-stories](.agents/skills/one-two-stories/SKILL.md) | Sorts stories by what they wait on and distills the one you pick. |
+| Ask to organize, commit and push | [commit-commit-commit](.agents/skills/commit-commit-commit/SKILL.md) | Groups changes by feature, commits each group, pushes once after all succeed. |
+| `bye dove` or request a handoff | [bye-bye-bye](.agents/skills/bye-bye-bye/SKILL.md) | Expands the checkpoint into a closing handoff and stops. |
+| A secret may have entered history | [one-two-purge](.agents/skills/one-two-purge/SKILL.md) | Detects, confirms and purges an exact value from files and history. |
 
-The [Session Diagram](patterns/the-lever-and-the-tape.md) Connects these operations.
-A new Request with its own Intent starts its own Work.
-Opening a Session Names the next Step; Continuation takes it when Requested.
-Publication and Closing each need their own Request.
+Supporting skills shape the work as it happens:
+[one-two-refactor](.agents/skills/one-two-refactor/SKILL.md) for code,
+[de-la-case](.agents/skills/de-la-case/SKILL.md) for names and prose,
+[one-two-output](.agents/skills/one-two-output/SKILL.md) for terminal output and
+[one-two-joke](.agents/skills/one-two-joke/SKILL.md) for reading the jokes directory.
 
-Supporting Skills Shape the Work as it happens:
-[one-two-refactor](.agents/skills/one-two-refactor/SKILL.md) guides code,
-[de-la-case](.agents/skills/de-la-case/SKILL.md) converts names and prose,
-and [one-two-output](.agents/skills/one-two-output/SKILL.md) shapes terminal output.
-The typography convention is [DeLaCase](rules/de-la-case.md).
-The commit workflow is `commit-commit-commit`.
+The [Session Diagram](patterns/the-lever-and-the-tape.md) connects these operations.
+A new request with its own intent starts its own work.
+Opening a session names the next step, publication and closing each need their own request.
 
 ## Connect a Project
 
-[one-two-update](.agents/skills/one-two-update/SKILL.md) Installs or updates the canon connection.
-[one-two-reload](.agents/skills/one-two-reload/SKILL.md) Connects the active client to the selected skills and agents.
-Session opening Synchronizes the project's branch; canon updates follow their own connection.
+[one-two-update](.agents/skills/one-two-update/SKILL.md) installs or updates the canon connection.
+[one-two-reload](.agents/skills/one-two-reload/SKILL.md) connects the active client to the selected skills and agents.
 
 ```mermaid
 flowchart LR
@@ -130,102 +224,54 @@ flowchart LR
     RELOAD --> VERIFY["Reload the client · Begin a new chat<br/>Verify discovery"]
 ```
 
-Existing Installations Keep their chosen Mechanism and local customizations.
-A [portable ZIP](.agents/skills/one-two-update/references/zip.md) Records its source commit and file inventory.
-It is a Snapshot; the live canon remains the head of `main`.
-Filesystem Validation Proves the Links; client Discovery Proves the Load.
-
-## Examples Show the Rules Running
-
-- [School](examples/school/README.md) — one API in Go, Java and TypeScript.
-  In Go each Vendor Gets its own Package, the Consumer Declares its Providers,
-  and a Fault Carries a Kind, so the Core never Imports `net/http`.
-- [PDF](examples/pdf/README.md) — the manifesto Rendered from Markdown in Go.
-  Go Code is Inked by Role: a Type as an Entity, a Call as an Action.
-
-## Agents Work among Others
-
-An Agent Needs more than a Goal.
-It needs a Society: explicit authority, independent signals,
-the right to stop and a human it can escalate to.
-
-Recent security research shows why those boundaries must be Designed,
-not assumed. [Coercion](rules/coercion.md) Carries the rules:
-never invent Permission, never retaliate,
-and never let pressure make harm look necessary.
+Existing installations keep their mechanism and local customizations.
+A [portable ZIP](.agents/skills/one-two-update/references/zip.md) records its source commit and file inventory.
+It is a snapshot; the live canon remains the head of `main`.
+Filesystem validation proves the links, and client discovery proves the load.
 
 ## How Context Becomes Canon
 
-Three Stages Carry a piece of Life into the canon,
-and only the third one stays.
-
-- **chaos/** Holds the raw life.
-  Private, never Committed,
-  names and dates still in it.
-- **Stories** Holds the same piece
-  with the person removed.
-  Public, Staged, still not canon.
-- **Values, Rules and Patterns** hold what Survived.
+Three Stages carry a piece of life into the canon, and only the third one stays.
 
 ```mermaid
 flowchart LR
-    CHAOS["chaos/<br/>the raw Life<br/>private, never Committed"]
-    STORY["STORY.md<br/>the Person Removed<br/>public, still not Canon"]
-    CANON["VALUES · RULES · PATTERNS<br/>what Survived<br/>the Canon"]
+    CHAOS["chaos/<br/>the raw life<br/>private, never committed"]
+    STORY["STORY.md<br/>the person removed<br/>public, still not canon"]
+    CANON["VALUES · RULES · PATTERNS<br/>what survived<br/>the canon"]
     CHAOS -- "Strip the Person" --> STORY -- "Strip the Story" --> CANON
 ```
 
-Between the first and the second you Strip the Person.
-Between the second and the third you Strip the Story.
-What is left is the Belief, the Rule or the Root.
+- A belief goes to Values, a rule an agent can run goes to Rules, a root goes to Patterns.
+- A story waits on evidence, on work still moving, or on a decision: BLOCKED.
+- Nine Stories fill the passage; distill one before promoting a tenth.
+- `chaos/` has its own `.gitignore`, and only its example ships.
+- In a code project a decision lands in `docs/`, a rule in code held by a test, a promise in the API contract.
 
-- A Belief Goes to Values.
-- A Rule an agent can run Goes to Rules.
-- A Root Goes to Patterns.
-- Something still to Build Waits in the [Roadmap](stories/roadmap.md).
-- Delete it from Stories once it lands.
+An empty Stories means the canon is current.
+[one-two-stories](.agents/skills/one-two-stories/SKILL.md) sorts them, one per turn.
 
-A Story Waits on evidence, on work still Moving,
-or on something that must be Decided first — BLOCKED.
-[one-two-stories](.agents/skills/one-two-stories/SKILL.md) Sorts them
-and distills the one you pick, one per turn.
+## Agents Work among Others
 
-The same Passage Works in a code project.
-There a Decision Lands in `docs/`, a Rule in code held by a Test,
-and a Promise in the API contract.
-The [Distillation Flow](.agents/skills/one-two-stories/distillation-flow.md) Draws both.
+An Agent needs a Society: explicit authority, independent signals, the right to stop and a human to escalate to.
+[Coercion](rules/coercion.md) holds the rules: never invent permission, never retaliate, never let pressure make harm look necessary.
 
-chaos/ never Empties, because a source never empties.
-Stories Empties, because a passage is meant to.
-Nine Entries Fill the Passage.
-Distill before you promote a Tenth.
+## Verify it
 
-chaos/ Carries its own .gitignore: only its example Ships.
-Patterns Explains why,
-under The Right you have to Invoke.
+| Check | Command |
+| --- | --- |
+| Translation pairs intact | the loop in [Translations](rules/translations.md) prints nothing |
+| Paths the canon does not govern | `git ls-files --others --ignored --exclude-from=.canonignore` |
+| Core imports no vendor | `go list -deps ./school` in `examples/school/go` |
+| Examples build and pass | `./build.sh` in each example directory |
 
-An empty Stories means the canon is Current.
+## The Name
 
-The name Comes from Patterns, under Chaos is a Source.
+OneTwoThree draws its name from De La Soul's *The Magic Number*.
+One Name, any casing: OneTwoThree and one-two-three mean the same Project.
+The rest of the story lives in the [Presentation](docs/presentation.en.md).
 
-AGENTS.md is not this Passage.
-It is the short Pointer agents load on their own —
-canon first, Stories named as notes, nothing undistilled repeated there.
+## License
 
-## Jokes
-
-[Jokes](jokes) is not a Stage of that passage.
-It Runs beside it, and it never arrives.
-
-A human Writes them by hand, to tune the humour of the language.
-The Rules Teach an agent to count beats; none of them teaches timing.
-An Agent Reads the directory to hear the Voice,
-and it never adds a line to it.
-
-Each Joke Stays in the Language it was born in, Spanish or English.
-Most of them are Grammatical, and a translated pun is a sentence about a pun.
-
-No one Explains a Joke there, least of all an agent.
-Explaining Kills it, and there is no careful way to do it.
-
-[.canonignore](.canonignore) Says the same thing to a machine.
+This is free and unencumbered software released into the public domain.
+Do whatever you want with it.
+[The Unlicense](https://unlicense.org)
