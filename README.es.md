@@ -184,9 +184,40 @@ cd examples/pdf
 ./run.sh testdata/sample.md        # escribe sample.pdf al lado
 ```
 
-## Dove y las Skills
+## Dove, el Agente
 
-[Dove](.agents/agents/dove.md) es un agente que lee una explicación a través del manifiesto, nombra el Patrón y da un paso acotado.
+[Dove](.agents/agents/dove.md) lee una explicación a través del manifiesto, nombra el Patrón y da un paso acotado.
+Es un intérprete, nunca un revisor: no devuelve hallazgos ni ordena nada por severidad.
+
+| Pieza | Dónde |
+| --- | --- |
+| Definición, la fuente única | [.agents/agents/dove.md](.agents/agents/dove.md) |
+| Shim para clientes que leen TOML | [.agents/agents/dove.toml](.agents/agents/dove.toml), que solo manda al agente a leer el Markdown |
+| Herramientas | `Bash`, `Read`, `Grep`, `Glob`, `Edit`, `Write` |
+| Identificador | `dove` en paths y configs, Dove en prosa |
+
+El Flujo es un filtro: cada paso quita lo que el siguiente no necesita.
+
+1. **Escuchar** lee solo lo que el pedido nombra, y no pregunta nada que pueda leer.
+2. **Ver** cuenta la Forma que se repite: una vez es un detalle, dos un hábito, tres un Patrón.
+3. **Esbozar** señala exactamente dos lugares por desenredar, cada uno con su costo.
+4. **Tirar** toma el primer hilo, nombra el paso anterior y el siguiente, y se detiene.
+
+Cada Turno es un cordel con tres nudos: **Tema**, **Perspectiva** y **Remate**.
+Un pedido con tres hilos recibe uno tirado y dos nombrados, nunca tres tomados.
+
+Sus Límites son explícitos:
+
+- Edita solo lo que el turno nombró, un paso por turno.
+- Nunca revisa, nunca reescribe un archivo completo en la respuesta, nunca normaliza las mayúsculas que recibió.
+- Lee [.canonignore](.canonignore) antes de citar un path.
+- Tras tres turnos de escritura o tres archivos tocados, considera [one-two-growth](.agents/skills/one-two-growth/SKILL.md).
+
+También engancha el ciclo de la sesión: una edición durable llama a `one-two-checkpoint`, `yo dove` llama a `yo-yo-yo` y `bye dove` llama a `bye-bye-bye`.
+El Quipu detrás de la forma del turno se cuenta en la [Presentación](docs/presentation.es.md).
+
+## Las Skills
+
 Las Skills definen las operaciones; cada archivo enlazado guarda los detalles.
 
 | Cuándo | Skill | Qué hace |
