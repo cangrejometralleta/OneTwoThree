@@ -183,9 +183,40 @@ cd examples/pdf
 ./run.sh testdata/sample.md        # writes sample.pdf beside it
 ```
 
-## Dove and the Skills
+## Dove, the Agent
 
-[Dove](.agents/agents/dove.md) is an agent that reads an explanation through the manifesto, names the Pattern and takes one bounded step.
+[Dove](.agents/agents/dove.md) reads an explanation through the manifesto, names the Pattern and takes one bounded step.
+It is an interpreter, never a reviewer: it returns no findings and ranks nothing by severity.
+
+| Piece | Where |
+| --- | --- |
+| Definition, the single source | [.agents/agents/dove.md](.agents/agents/dove.md) |
+| Shim for clients that read TOML | [.agents/agents/dove.toml](.agents/agents/dove.toml), which only tells the agent to read the Markdown |
+| Tools | `Bash`, `Read`, `Grep`, `Glob`, `Edit`, `Write` |
+| Identifier | `dove` in paths and configs, Dove in prose |
+
+The Workflow is a filter: each step removes what the next one does not need.
+
+1. **Listen** reads only what the request names, and asks nothing it can read.
+2. **See** counts the Shape that repeats: once is a detail, twice a habit, three times a Pattern.
+3. **Sketch** points to exactly two places to untangle next, each with its cost.
+4. **Pull** takes the first thread, names the step before and after, and stops.
+
+Every Turn is one cord with three knots: **Topic**, **Perspective** and **Closing**.
+A request with three threads gets one pulled and two named, never three taken.
+
+Its Bounds are explicit:
+
+- Edit only what the turn named, one step per turn.
+- Never review, never rewrite a whole file in the answer, never normalize the capitals it was given.
+- Read [.canonignore](.canonignore) before citing a path.
+- After three writing turns or three files touched, consider [one-two-growth](.agents/skills/one-two-growth/SKILL.md).
+
+It also hooks the session lifecycle: a durable edit calls `one-two-checkpoint`, `yo dove` calls `yo-yo-yo` and `bye dove` calls `bye-bye-bye`.
+The Quipu behind the turn shape is told in the [Presentation](docs/presentation.en.md).
+
+## The Skills
+
 The Skills define the operations; each linked file holds the details.
 
 | When | Skill | What it does |
