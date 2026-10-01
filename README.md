@@ -298,7 +298,7 @@ An Agent needs a Society: explicit authority, independent signals, the right to 
 ## The Name
 
 OneTwoThree draws its name from De La Soul's *The Magic Number*.
-One Name, any casing: OneTwoThree and one-two-three mean the same Project.
+One Name, any casing: OneTwoThree, one-two-three, One Two Three and one_two_three mean the same Project.
 The rest of the story lives in the [Presentation](docs/presentation.en.md).
 
 ## License

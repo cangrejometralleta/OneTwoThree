@@ -299,7 +299,7 @@ Un Agente necesita una Sociedad: autoridad explícita, señales independientes, 
 ## El Nombre
 
 OneTwoThree toma su nombre de *The Magic Number*, de De La Soul.
-Un solo Nombre, cualquier escritura: OneTwoThree y one-two-three son el mismo Proyecto.
+Un solo Nombre, cualquier escritura: OneTwoThree, one-two-three, One Two Three y one_two_three son el mismo Proyecto.
 El resto de la historia vive en la [Presentación](docs/presentation.es.md).
 
 ## Licencia
