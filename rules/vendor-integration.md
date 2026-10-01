@@ -6,6 +6,8 @@
   where the tool supports them.
 - Add only the Metadata and format adapter each vendor requires.
   The Adapter Points to the Instructions; it never repeats them.
+- The same Rule unbrands the Words:
+  [Unbrand](unbrand.md) keeps the Vendor out of the Work.
 
 ## One Source, every Entrance
 

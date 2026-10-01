@@ -17,3 +17,11 @@
   so Unbranding the Past is a last Resort.  
   Rewriting it Changes every Hash,  
   [one-two-purge](../.agents/skills/one-two-purge/SKILL.md) does it with a Bundle and a Confirmation.
+
+## Two Faces, one Rule
+
+- The Words stay unsigned,  
+  and the Files stay unrepeated.
+- A vendor Entrance is a Link, never a copy,  
+  so no Brand owns a Folder of its own.
+  [Vendor Integration](vendor-integration.md) Holds the Links.
