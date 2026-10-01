@@ -213,7 +213,7 @@ Sus Límites son explícitos:
 - Lee [.canonignore](.canonignore) antes de citar un path.
 - Tras tres turnos de escritura o tres archivos tocados, considera [one-two-growth](.agents/skills/one-two-growth/SKILL.md).
 
-También engancha el ciclo de la sesión: una edición durable llama a `one-two-checkpoint`, `yo dove` llama a `yo-yo-yo` y `bye dove` llama a `bye-bye-bye`.
+También engancha el ciclo de la sesión: una edición durable llama a `one-two-checkpoint`, `hey dove` llama a `hey-hey-hey` y `bye dove` llama a `bye-bye-bye`.
 El Quipu detrás de la forma del turno se cuenta en la [Presentación](docs/presentation.es.md).
 
 ## Las Skills
@@ -222,7 +222,7 @@ Las Skills definen las operaciones; cada archivo enlazado guarda los detalles.
 
 | Cuándo | Skill | Qué hace |
 | --- | --- | --- |
-| `yo dove` o retomar trabajo previo | [yo-yo-yo](.agents/skills/yo-yo-yo/SKILL.md) | Sincroniza la rama, reconstruye el contexto y nombra un siguiente paso. |
+| `hey dove` o retomar trabajo previo | [hey-hey-hey](.agents/skills/hey-hey-hey/SKILL.md) | Sincroniza la rama, reconstruye el contexto y nombra un siguiente paso. |
 | `next`, `sigue` u opción elegida | [next-next-next](.agents/skills/next-next-next/SKILL.md) | Da un paso recomendado, lo verifica y nombra el siguiente. |
 | Una edición, decisión o validación durable | [one-two-checkpoint](.agents/skills/one-two-checkpoint/SKILL.md) | Guarda el hilo en `.handoff.md` durante el trabajo. |
 | Un cambio empieza a crecer | [one-two-growth](.agents/skills/one-two-growth/SKILL.md) | Revisa si una sola intención aún sostiene el cambio. |

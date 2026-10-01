@@ -36,7 +36,7 @@ and instructs it to read that markdown before it talks.
 Skills use the shorter `one-two-` Prefix.
 The repeated three-part names Mark fundamental workflow operations —
 open, advance, commit and close — so they stand out from the rest.
-[yo-yo-yo](../.agents/skills/yo-yo-yo/SKILL.md) Opens the session.
+[hey-hey-hey](../.agents/skills/hey-hey-hey/SKILL.md) Opens the session.
 [next-next-next](../.agents/skills/next-next-next/SKILL.md) Advances one step.
 [commit-commit-commit](../.agents/skills/commit-commit-commit/SKILL.md) Handles commits and the final push.
 [bye-bye-bye](../.agents/skills/bye-bye-bye/SKILL.md) Closes with a handoff.
