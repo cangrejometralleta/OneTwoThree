@@ -303,6 +303,4 @@ The rest of the story lives in the [Presentation](docs/presentation.en.md).
 
 ## License
 
-This is free and unencumbered software released into the public domain.
-Do whatever you want with it.
-[The Unlicense](https://unlicense.org)
+[MIT](LICENSE). Code and prose alike — use it, adapt it, share it, just keep the copyright notice.

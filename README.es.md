@@ -304,6 +304,4 @@ El resto de la historia vive en la [Presentación](docs/presentation.es.md).
 
 ## Licencia
 
-Este es software libre y sin restricciones, liberado al dominio público.
-Haz lo que quieras con él.
-[The Unlicense](https://unlicense.org)
+[MIT](LICENSE). Código y texto por igual — úsalo, adáptalo, compártelo, solo mantén el aviso de copyright.
