@@ -1,9 +1,9 @@
 ---
-name: ha-ha-hey
-description: "Resume work at the beginning of a new session from recent conversation history and repository changes. Use when starting or returning to a project, asking where work stopped, recovering context, checking whether recent work grew into multiple intents, or deciding which part to continue first."
+name: ring-ring-ring
+description: "Resume work at the beginning of a new session from recent conversation history and repository changes. Use when the user greets Dove with ha, hey, yo, hi, sup, ring or ring ring dove, when starting or returning to a project, asking where work stopped, recovering context, checking whether recent work grew into multiple intents, or deciding which part to continue first."
 ---
 
-# HaHaHey
+# RingRingRing
 
 A session Opening, not a standup and not a code Review.
 It Reconstructs where the work stopped,

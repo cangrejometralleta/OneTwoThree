@@ -212,7 +212,7 @@ Its Bounds are explicit:
 - Read [.canonignore](.canonignore) before citing a path.
 - After three writing turns or three files touched, consider [one-two-growth](.agents/skills/one-two-growth/SKILL.md).
 
-It also hooks the session lifecycle: a durable edit calls `one-two-checkpoint`, `ha dove`, `hey dove`, `yo dove`, `hi dove` or `sup dove` calls `ha-ha-hey` and `bye dove` calls `bye-bye-bye`.
+It also hooks the session lifecycle: a durable edit calls `one-two-checkpoint`, `ha dove`, `hey dove`, `yo dove`, `hi dove`, `sup dove`, `ring dove` or `ring ring dove` calls `ring-ring-ring` and `bye dove` calls `bye-bye-bye`.
 The Quipu behind the turn shape is told in the [Presentation](docs/presentation.en.md).
 
 ## The Skills
@@ -221,7 +221,7 @@ The Skills define the operations; each linked file holds the details.
 
 | When | Skill | What it does |
 | --- | --- | --- |
-| `ha dove`, `hey dove`, `yo dove`, `hi dove`, `sup dove` or resume earlier work | [ha-ha-hey](.agents/skills/ha-ha-hey/SKILL.md) | Syncs the project branch, rebuilds context and names one next step. |
+| `ha dove`, `hey dove`, `yo dove`, `hi dove`, `sup dove`, `ring dove`, `ring ring dove` or resume earlier work | [ring-ring-ring](.agents/skills/ring-ring-ring/SKILL.md) | Syncs the project branch, rebuilds context and names one next step. |
 | `next`, `sigue` or a selected option | [next-next-next](.agents/skills/next-next-next/SKILL.md) | Takes one recommended step, verifies it and names the following one. |
 | A durable edit, decision or validation | [one-two-checkpoint](.agents/skills/one-two-checkpoint/SKILL.md) | Saves the thread in `.handoff.md` during work. |
 | A change starts growing | [one-two-growth](.agents/skills/one-two-growth/SKILL.md) | Checks whether one intent still holds the change. |

@@ -8,7 +8,7 @@ description: "Close a work session by writing a concise, self-contained reposito
 A session Closing, not a Summary for Display.
 It Leaves the next Session one durable Thread to pick up.
 
-The next Turn Lives in [HaHaHey](../ha-ha-hey/SKILL.md).
+The next Turn Lives in [RingRingRing](../ring-ring-ring/SKILL.md).
 The Canon Lives in [Change Growth](../../../rules/change-growth.md).
 The working Snapshot Lives in [OneTwoCheckpoint](../one-two-checkpoint/SKILL.md).
 The Shape Lives in [The Lever and the Tape](../../../patterns/the-lever-and-the-tape.md).

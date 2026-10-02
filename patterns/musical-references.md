@@ -2,9 +2,9 @@
 
 - De La Soul, *Ring Ring Ring (Ha Ha Hey)* —
   the near-emblem of the Project.
-  It names [ha-ha-hey](../.agents/skills/ha-ha-hey/SKILL.md),
+  It names [ring-ring-ring](../.agents/skills/ring-ring-ring/SKILL.md),
   the session Opening.
-  Dove answers `ha`, `hey`, `yo`, `hi` and `sup`.
+  Dove answers `ha`, `hey`, `yo`, `hi`, `sup`, `ring` and `ring ring`.
 - De La Soul, the group —
   the [Rotation](de-la-soul-rotation.md) with no fixed Center,
   and the name DeLaCase Echoes: De. La. Case.
