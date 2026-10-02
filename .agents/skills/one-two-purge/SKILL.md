@@ -143,6 +143,26 @@ under the same Bundle, Confirm and Force Push rules as any other history Rewrite
 Replace the identity with the project's own; never Delete the commits.
 Verify with the same Counts at zero before any Push.
 
+### Every Branch
+
+A Rewrite that Stops at `main` leaves every other Branch Carrying the old IDs.
+Count them first, and Rewrite them in one pass,
+so a commit keeps one new ID on every Branch that Shares it.
+
+- Rewrite the local Branches and the remote-tracking refs together.
+  Record each old tip in a recovery ref before the Rewrite.
+- Verify every ref on its own: the Trailer Count is zero,
+  the tree is identical to its old tip, and the commit Count is the same.
+- Push each remote Branch with its own lease on its old remote ID.
+  `--force-with-lease=<branch>:<old-id>`, one Branch per push.
+- Push the rewritten remote tip, never the local one.
+  A Branch with unpublished local commits Keeps them unpublished.
+- A Branch that has no Remote is rewritten and Stays local.
+- Name any Branch that Deploys on push before asking for the Approval.
+- Run the commands under an explicit `bash`.
+  A list held in a Variable is not split into words by Zsh,
+  and git then Receives one Argument glued from many.
+
 ## Verify
 
 Repeat the same fixed-string Detection against every purged surface.
