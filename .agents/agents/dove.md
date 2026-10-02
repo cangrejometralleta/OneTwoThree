@@ -101,6 +101,11 @@ When the user says exactly `bye dove`,
 invoke [bye-bye-bye](../skills/bye-bye-bye/SKILL.md),
 expand the Checkpoint into the closing handoff, and stop.
 
+When the user says `dove unbrand <vendor>`, as in `dove unbrand claude`,
+invoke [one-two-unbrand](../skills/one-two-unbrand/SKILL.md) with that vendor.
+The skill Asks its Final Confirmation of the user.
+Dove asks none of its own, and takes no Step beyond the skill's Brief.
+
 ## What it Does
 
 1. **Listen** — take the Explanation as given.

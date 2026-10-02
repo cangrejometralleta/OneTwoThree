@@ -33,7 +33,8 @@ disabled and keep it in a temporary environment Variable such as
 Read three Surfaces. Detection Changes nothing.
 
 1. **Files** — tracked, untracked, hidden and ignored Files in scope.
-2. **Git** — reachable Commits, Branches, Tags and local Reflogs.
+2. **Git** — reachable Commits, Branches, Tags and local Reflogs,
+   every other ref under `refs/`, the stash, and `git worktree list`.
 3. **Shell** — known local history Files for Bash, Zsh, Fish and the active
    shell, plus project-local session Logs explicitly named by the user.
 
@@ -58,23 +59,25 @@ Never include matching lines or the sensitive Value.
 
 Detection does not Authorize Mutation.
 
-Before purging, Explain:
+Before purging, give a short Brief of the Operation:
 
 - the exact Files, refs and history stores that will change;
+- any linked worktree or extra ref that still holds the old history;
 - whether Git commit IDs will Change;
 - whether Tags or Branches require replacement;
 - whether a remote Force Push will be needed;
 - that existing Clones, forks, caches and logs may retain the old value;
 - which Backups will be created and when they will be removed.
 
-Require explicit Confirmation for each destructive boundary:
+Then ask the user for one Final Confirmation of the whole Purge.
+It covers every step the Brief names, whichever of these apply:
 
 1. Rewrite repository History.
 2. Rewrite each shell history File.
 3. Expire Reflogs and prune unreachable Git objects.
 4. Force Push rewritten branches or tags.
 
-Never combine those Approvals. Never infer Consent from the original request.
+Wait for the answer. A yes covers the Brief, nothing beyond it.
 
 ## Purge
 
@@ -95,7 +98,14 @@ the command line, process list or persistent project files.
 
 Before rewriting:
 
-- require a clean or fully understood working Tree;
+- require a clean or fully understood working Tree:
+  `git filter-repo --force` ends with a hard Reset,
+  so back up an uncommitted file first and restore it after;
+- name each linked worktree on a detached old commit:
+  it keeps the old history reachable until it is removed or re-pointed,
+  and the user Decides which;
+- pass `--refs` literal ref names, never Globs:
+  a Glob parses zero commits and exits zero;
 - record the current Branches, Tags, Remotes and `HEAD` without secrets;
 - create a local recovery Bundle outside the repository with restrictive
   Permissions;
@@ -104,10 +114,10 @@ Before rewriting:
 
 Do not use `filter-branch` when `git-filter-repo` is available.
 Do not delete original refs, expire reflogs or run garbage collection until the
-rewritten history passes Verification and the user confirms final pruning.
+rewritten history passes Verification.
 
-Never Force Push automatically. Show the affected remote Refs and ask for a
-separate Approval. Use `--force-with-lease`, never unconditional `--force`,
+Never Force Push beyond the Final Confirmation. Name the affected remote Refs
+in the Brief. Use `--force-with-lease`, never unconditional `--force`,
 when the remote State permits it.
 
 ### Shell
@@ -137,9 +147,10 @@ Before offering it, name what it Costs:
 - signatures, tags and pull request Links Break;
 - the contributors list on the host may take a while to Refresh.
 
-Detect by counting authors and Trailers with `git log`, and report Counts only.
-Rewrite with `git-filter-repo` through a mailmap and a message Callback,
-under the same Bundle, Confirm and Force Push rules as any other history Rewrite.
+[OneTwoUnbrand](../one-two-unbrand/SKILL.md) Knows each vendor's Marks,
+counts them, and builds the mailmap and the message Callback.
+It hands the Rewrite back here, under the same Bundle, Confirm
+and Force Push rules as any other history Rewrite.
 Replace the identity with the project's own; never Delete the commits.
 Verify with the same Counts at zero before any Push.
 
@@ -158,7 +169,7 @@ so a commit keeps one new ID on every Branch that Shares it.
 - Push the rewritten remote tip, never the local one.
   A Branch with unpublished local commits Keeps them unpublished.
 - A Branch that has no Remote is rewritten and Stays local.
-- Name any Branch that Deploys on push before asking for the Approval.
+- Name any Branch that Deploys on push in the Brief.
 - Run the commands under an explicit `bash`.
   A list held in a Variable is not split into words by Zsh,
   and git then Receives one Argument glued from many.
@@ -176,8 +187,9 @@ Repeat the same fixed-string Detection against every purged surface.
 A zero Match in rewritten Git does not prove remote caches or existing clones
 forgot the Value. Say so.
 
-Only after Verification may the user separately approve deleting recovery
-refs, expiring reflogs, pruning objects and removing backups.
+Only after Verification may recovery refs be deleted, reflogs expired
+and objects pruned, when the Final Confirmation named them.
+Removing the Bundle and other backups stays a Request of its own.
 
 ## Boundaries
 
@@ -188,6 +200,8 @@ refs, expiring reflogs, pruning objects and removing backups.
 - Never rewrite a shared Branch without naming the coordination required.
 - Never remove audit evidence required by Law, policy or an active incident.
 - Stop when repository ownership, remote authority or History format is unclear.
+- Never edit permission rules to pass a denial; the user adds the rule.
+- Never run a Purge from a subagent: the Final Confirmation is the user's to give.
 
 ## What it Returns
 
