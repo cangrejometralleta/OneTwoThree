@@ -173,7 +173,7 @@ Came from one practice and has not yet survived a second.
 [Naming](../../../rules/naming.md) ·
 [Seams](../../../rules/seams.md) ·
 [Comments](../../../rules/comments.md) ·
-[Values](../../../rules/values.md) *(Provisional)* ·
+[Magic Numbers](../../../rules/magic-numbers.md) *(Provisional)* ·
 [Emoji](../../../rules/emoji.md)
 
 **The Boundary** —

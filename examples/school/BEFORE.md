@@ -72,7 +72,7 @@ public static String verificationDigit(String rut) {
 ```
 
 `M`, `S` and `T` Count; they never Explain — [Naming](../../rules/naming.md)
-and [Values](../../rules/values.md). The rewrite Named the Parts:
+and [Magic Numbers](../../rules/magic-numbers.md). The rewrite Named the Parts:
 `CheckDigitFor`, `RutWeights`, `NameCheckRemainder`.
 
 ### A Comment that Said the Signature back
