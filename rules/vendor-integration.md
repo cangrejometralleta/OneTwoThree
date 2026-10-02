@@ -17,6 +17,7 @@ Every vendor Entrance Resolves to one of those two directories:
 
 ```text
 CLAUDE.md      -> AGENTS.md
+GEMINI.md      -> AGENTS.md
 .claude/agents -> ../.agents/agents
 .claude/skills -> ../.agents/skills
 .codex/agents  -> ../.agents/agents
@@ -28,7 +29,7 @@ Codex Reads `.agents/skills/` where it already lives, and needs no link.
 An entrance that repeats what the client already finds is Clutter,
 so count the missing Entrances, never the symmetrical ones.
 
-`CLAUDE.md` is an Entrance too. The client Looks for that name,
+`CLAUDE.md` and `GEMINI.md` are Entrances too. Each client Looks for its name,
 and the link Hands it `AGENTS.md` instead of a second copy to drift.
 
 The shared Markdown Defines the agent's Voice and behavior.
