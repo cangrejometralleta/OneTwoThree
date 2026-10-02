@@ -2,5 +2,14 @@
   "attribution": {
     "commit": "",
     "pr": ""
+  },
+  "permissions": {
+    "allow": [
+      "Bash(git bundle:*)",
+      "Bash(git filter-repo:*)",
+      "Bash(git filter-branch:*)",
+      "Bash(git update-ref:*)",
+      "Bash(git push --force-with-lease:*)"
+    ]
   }
 }
