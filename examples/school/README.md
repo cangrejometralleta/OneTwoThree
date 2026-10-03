@@ -105,8 +105,9 @@ Swapping one Edits its adapter and the Composition.
 In Go each Vendor Gets a package of its own,
 so the Compiler Guards the Boundary the rule describes.
 Swapping one Edits its adapter and `main.go`, the one Composition.
-The Consumer Declares the Provider it Calls:
-`api/` Declares the Stores, `app/` Declares the one Method its Guard Reads.
+The Consumer Declares each Provider it Calls:
+`app/` Declares services, Store Ports and Token Issuer; `handler/` Declares
+Routes.
 TypeScript Keeps the flat Shape above.
 
 ```text
@@ -115,8 +116,8 @@ transport/      Request, Response, Handler, Route; Imports nothing
 wire/           the Contract: every Shape a Client Sends or Receives
 faults/         the controlled Failures, each Carrying its Answer
 school/         the Core: domain, page, admission Constants. No Providers, no Vendor
-app/            the Application Layer: the Crossing, Validation, and the Guard's CallerReader
-api/            the Script: Handlers, and the Providers they Declare
+app/            Services, Store Ports, TokenIssuer, Crossing, Validation and CallerReader
+handler/        the Script: Routes, Handler Methods and Wire Mappings
 settings/       the strict JSON Loader and the validated SchoolConfig
 store/          THE ONLY PACKAGE THAT IMPORTS AN ORM
 serving/        the stdlib Server and the shared Request Reading
@@ -125,8 +126,8 @@ serving/ginserver/  THE ONLY PACKAGE THAT IMPORTS gin
 tokens/         the Token Adapter, standard Library only
 ```
 
-`go list -deps ./school` Names no Vendor and no Socket.
-The Core cannot Import gorm, chi, gin or net/http, because it never Sees them.
+`go list -deps ./school` Names no Wire Package, Vendor or Socket.
+The Core cannot Import wire, gorm, chi, gin or net/http, because it never Sees them.
 
 ## The Contract, on its own
 
@@ -134,8 +135,9 @@ The Core cannot Import gorm, chi, gin or net/http, because it never Sees them.
 It Imports nothing, so reading it Costs no context.
 Open one File and you Know the whole API.
 
-The Crossing Lives with the business Types instead, in `school/wire.go`.
-A Shape stays a shape; the Core Owns the Promotion.
+The Wire Package Holds declarations only. `handler/model_dto.go` Promotes
+request shapes and Renders response shapes, leaving the Core free of
+transport imports.
 
 ## Controlled Failures
 
@@ -150,21 +152,22 @@ In Go the Answer is a Kind, not a number: `faults/` Names no Protocol.
 `app/status.go` is the one Table that Turns a Kind into an HTTP Status,
 so the Core Stays free of `net/http`.
 
-A Handler never Builds a Reply. It Answers with a value, or it Fails:
+A Handler never Builds a Reply. It Calls the Application Service and Answers
+with a value, or it Fails:
 
 ```go
-func (a SchoolAPI) ShowStudentRecord(req transport.Request) (any, error) {
+func (a Handler) ShowStudentRecord(req transport.Request) (any, error) {
 	id, err := app.ReadPathNumber(req)
 	if err != nil {
 		return nil, err
 	}
 
-	student, err := a.Students.SelectStudentRow(school.StudentID(id))
+	student, err := a.School.ReadStudent(school.StudentID(id))
 	if err != nil {
 		return nil, err
 	}
 
-	return school.RenderStudentView(student), nil
+	return renderStudentView(student), nil
 }
 ```
 
@@ -184,9 +187,10 @@ A Filename can Name a Guest; a Construct Names the Business.
 
 ## The Application Layer
 
-Three things Live between the transport and the business,
+Four things Live between the transport and the business,
 and none of them is a business Rule.
 
+- **Composition.** `SchoolService` Joins Store Ports and owns the use cases.
 - **The Crossing.** `AnswerWith` Turns a Telling into a Handler.
   The Route Declares the happy Status; a fault Declares its own.
 - **Validation.** `ReadPathNumber`, `ReadJSONBody` and `ReadPageRequest`
@@ -205,9 +209,10 @@ An unnamed caller Gets four hundred and one and Learns nothing else.
 
 ## Providers
 
-A Provider is an Interface the core Declares.
-`StudentStore` Names a Need. `store.School` Fills it.
-The Handlers never Learn which.
+A Provider is an Interface its Consumer Declares.
+`app.SchoolService` Needs `StudentStore` and `CourseStore`; `store.School`
+Fills both. The Handler Calls the Service and never Learns which Store
+Fulfils it.
 
 Each Provider carries the URL of the Contract it wraps,
 so a reader chasing a detail never leaves the file.
@@ -235,9 +240,9 @@ and both Compile down to a string.
 
 ## What the Tests Buy
 
-`SchoolAPI` Depends on three Interfaces, never on a Library.
-So the Tests hand it three Maps and finish in milliseconds,
-with no database and no port.
+`app.SchoolService` Depends on store ports, and `handler.Handler` Depends on that
+Service plus the Token Issuer. Tests supply fakes through the same Composition,
+with no database and no network port.
 
 One of them pins the comparison that broke the original:
 a token Dies **once** its deadline Passes, never before.

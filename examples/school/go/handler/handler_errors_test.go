@@ -1,4 +1,4 @@
-package api
+package handler
 
 import (
 	"errors"
@@ -16,7 +16,7 @@ import (
 func TestEachFaultReachesTheEdgeWhole(t *testing.T) {
 	cases := []struct {
 		story  string
-		arrive func(SchoolAPI) error
+		arrive func(Handler) error
 		want   error
 		status int
 	}{
@@ -52,7 +52,7 @@ func TestEachFaultReachesTheEdgeWhole(t *testing.T) {
 		},
 		{
 			story: "someone Enrols with a RUT already Registered",
-			arrive: func(api SchoolAPI) error {
+			arrive: func(api Handler) error {
 				EnrolWithBody(`{"rut":"12345678-5","name":"Ada","age":20,"courseId":1}`)(api)
 
 				return EnrolWithBody(`{"rut":"12345678-5","name":"Grace","age":22,"courseId":1}`)(api)
@@ -62,7 +62,7 @@ func TestEachFaultReachesTheEdgeWhole(t *testing.T) {
 		},
 		{
 			story: "someone Asks for a Student by a Path that Holds no Number",
-			arrive: func(api SchoolAPI) error {
+			arrive: func(api Handler) error {
 				return TellingFailure(api.ShowStudentRecord, transport.Request{Path: map[string]string{"id": "abc"}})
 			},
 			want:   app.ErrPathIsBroken,
@@ -70,7 +70,7 @@ func TestEachFaultReachesTheEdgeWhole(t *testing.T) {
 		},
 		{
 			story: "someone Asks for a Student who never Enrolled",
-			arrive: func(api SchoolAPI) error {
+			arrive: func(api Handler) error {
 				return TellingFailure(api.ShowStudentRecord, transport.Request{Path: map[string]string{"id": "42"}})
 			},
 			want:   school.ErrStudentUnknown,
@@ -78,7 +78,7 @@ func TestEachFaultReachesTheEdgeWhole(t *testing.T) {
 		},
 		{
 			story: "someone Asks for a Course that never Opened",
-			arrive: func(api SchoolAPI) error {
+			arrive: func(api Handler) error {
 				return TellingFailure(api.ShowCourseRecord, transport.Request{Path: map[string]string{"id": "99"}})
 			},
 			want:   school.ErrCourseUnknown,
@@ -86,7 +86,7 @@ func TestEachFaultReachesTheEdgeWhole(t *testing.T) {
 		},
 		{
 			story: "someone Asks for a Page that Counts backwards",
-			arrive: func(api SchoolAPI) error {
+			arrive: func(api Handler) error {
 				return TellingFailure(api.ListStudentRecords, transport.Request{Query: map[string]string{"page": "-1"}})
 			},
 			want:   school.ErrPageIsInvalid,
@@ -94,7 +94,7 @@ func TestEachFaultReachesTheEdgeWhole(t *testing.T) {
 		},
 		{
 			story: "someone Asks for a Page Numbered with a Word",
-			arrive: func(api SchoolAPI) error {
+			arrive: func(api Handler) error {
 				return TellingFailure(api.ListStudentRecords, transport.Request{Query: map[string]string{"page": "abc"}})
 			},
 			want:   school.ErrPageIsInvalid,
@@ -102,7 +102,7 @@ func TestEachFaultReachesTheEdgeWhole(t *testing.T) {
 		},
 		{
 			story: "someone Asks for a Size Measured in Words",
-			arrive: func(api SchoolAPI) error {
+			arrive: func(api Handler) error {
 				return TellingFailure(api.ListCourseRecords, transport.Request{Query: map[string]string{"size": "many"}})
 			},
 			want:   school.ErrPageIsInvalid,
@@ -110,7 +110,7 @@ func TestEachFaultReachesTheEdgeWhole(t *testing.T) {
 		},
 		{
 			story: "someone Drops a Student who already Left",
-			arrive: func(api SchoolAPI) error {
+			arrive: func(api Handler) error {
 				return TellingFailure(api.DropStudentRecord, transport.Request{Path: map[string]string{"id": "7"}})
 			},
 			want:   school.ErrStudentUnknown,
@@ -118,7 +118,7 @@ func TestEachFaultReachesTheEdgeWhole(t *testing.T) {
 		},
 		{
 			story: "someone Rewrites an Enrolment that never Existed",
-			arrive: func(api SchoolAPI) error {
+			arrive: func(api Handler) error {
 				return TellingFailure(api.SaveStudentRecord, transport.Request{
 					Path: map[string]string{"id": "7"},
 					Body: []byte(`{"rut":"12345678-5","name":"Ada","age":20,"courseId":1}`),
@@ -129,7 +129,7 @@ func TestEachFaultReachesTheEdgeWhole(t *testing.T) {
 		},
 		{
 			story: "someone Arrives with no Token at all",
-			arrive: func(api SchoolAPI) error {
+			arrive: func(api Handler) error {
 				guarded := app.RequireProvenCaller(api.Tokens, api.ListStudentRecords)
 
 				return TellingFailure(guarded, transport.Request{})
@@ -147,8 +147,8 @@ func TestEachFaultReachesTheEdgeWhole(t *testing.T) {
 }
 
 // EnrolWithBody Spells the most common Arrival once.
-func EnrolWithBody(body string) func(SchoolAPI) error {
-	return func(api SchoolAPI) error {
+func EnrolWithBody(body string) func(Handler) error {
+	return func(api Handler) error {
 		return TellingFailure(api.AddStudentRecord, transport.Request{Body: []byte(body)})
 	}
 }

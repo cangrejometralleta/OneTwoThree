@@ -30,9 +30,15 @@ public Student create(@RequestBody @Valid Student student)
 ```
 
 ```go
-// The after Binds a body, and the core decides what it becomes.
-body, err := app.ReadJSONBody[wire.StudentBody](req)
-student := school.BuildStudentRecord(body, 0)
+// The Handler binds a wire shape and maps it into a business shape.
+func (a Handler) readStudentBody(req transport.Request, id school.StudentID) (school.Student, error) {
+	body, err := app.ReadJSONBody[wire.StudentBody](req)
+	if err != nil {
+		return school.Student{}, err
+	}
+
+	return buildStudentRecord(body, id), nil
+}
 ```
 
 The Annotation Saved four Lines and spent the boundary.  

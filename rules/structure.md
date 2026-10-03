@@ -17,24 +17,26 @@
   The Rhythm Survives.
 
 ```go
-// ListStudentRecords Spends eleven lines on three beats.
-// Receive, transform, return.
+// ShowStudentRecord Spends thirteen lines on three beats.
+// Receive the path, read the service, return the wire view.
 // The errors Cost lines, they never cost thoughts.
-func (a SchoolAPI) ListStudentRecords(req Request) Response {
-	page, err := ReadPageRequest(req)
+func (a Handler) ShowStudentRecord(req transport.Request) (any, error) {
+	id, err := app.ReadPathNumber(req)
 	if err != nil {
-		return BuildFailureReply(err)
+		return nil, err
 	}
 
-	students, err := a.Students.SelectStudentPage(page)
+	student, err := a.School.ReadStudent(school.StudentID(id))
 	if err != nil {
-		return BuildFailureReply(err)
+		return nil, err
 	}
 
-	return Response{http.StatusOK, RenderStudentViews(students)}
+	return renderStudentView(student), nil
 }
 ```
 
-Count the beats and you get Three.  
-Count the newlines and you get Eleven.  
+Count the beats and you get Three.
+
+Count the newlines and you get Thirteen.
+
 Only one of those numbers Means anything.

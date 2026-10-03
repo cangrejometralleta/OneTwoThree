@@ -4,7 +4,8 @@ import (
 	"log"
 	"strconv"
 
-	"github.com/cangrejometralleta/OneTwoThree/examples/school/go/api"
+	"github.com/cangrejometralleta/OneTwoThree/examples/school/go/app"
+	"github.com/cangrejometralleta/OneTwoThree/examples/school/go/handler"
 	"github.com/cangrejometralleta/OneTwoThree/examples/school/go/serving"
 	"github.com/cangrejometralleta/OneTwoThree/examples/school/go/serving/chiserver"
 	"github.com/cangrejometralleta/OneTwoThree/examples/school/go/serving/ginserver"
@@ -27,16 +28,15 @@ func main() {
 		log.Fatalf("❌ School Database Refused to Open: %v", err)
 	}
 
-	service := api.SchoolAPI{
-		Students: registry,
-		Courses:  registry,
-		Tokens:   tokens.BuildAccessTokens(config.TokenSecret, config.TokenLifeSeconds),
+	schoolHandler := handler.Handler{
+		School: app.SchoolService{Students: registry, Courses: registry},
+		Tokens: tokens.BuildAccessTokens(config.TokenSecret, config.TokenLifeSeconds),
 	}
 	server := SelectServerAdapter(config.ServerAdapter)
 	address := ":" + strconv.Itoa(config.Port)
 
 	log.Printf("✅ School Listening on %s through %q", address, config.ServerAdapter)
-	log.Fatal(server.ServeRoutes(service.DeclareSchoolRoutes(), address))
+	log.Fatal(server.ServeRoutes(schoolHandler.DeclareSchoolRoutes(), address))
 }
 
 // SelectServerAdapter Picks the Framework at Startup, never at Compile Time.

@@ -1,10 +1,11 @@
-package api
+package handler
 
 import (
 	"errors"
 	"net/http"
 	"testing"
 
+	"github.com/cangrejometralleta/OneTwoThree/examples/school/go/app"
 	"github.com/cangrejometralleta/OneTwoThree/examples/school/go/school"
 	"github.com/cangrejometralleta/OneTwoThree/examples/school/go/tokens"
 	"github.com/cangrejometralleta/OneTwoThree/examples/school/go/transport"
@@ -93,16 +94,19 @@ func (f *FakeSchool) SelectCoursePage(school.Page) ([]school.Course, error) {
 }
 
 // BuildTestingSchool Hands the API three Fakes.
-func BuildTestingSchool() SchoolAPI {
+func BuildTestingSchool() Handler {
 	fake := BuildFakeSchool()
 	issuer := tokens.BuildAccessTokens("test", 60)
 
-	return SchoolAPI{Students: fake, Courses: fake, Tokens: issuer}
+	return Handler{
+		School: app.SchoolService{Students: fake, Courses: fake},
+		Tokens: issuer,
+	}
 }
 
 // CallRoute Arrives the Way a Client Arrives: through the Libretto.
 // It Crosses AnswerWith and the Guard, so a Test Sees the real Status.
-func CallRoute(t *testing.T, api SchoolAPI, method, pattern string, req transport.Request) transport.Response {
+func CallRoute(t *testing.T, api Handler, method, pattern string, req transport.Request) transport.Response {
 	t.Helper()
 
 	token, err := api.Tokens.IssueAccessToken("student-registry")
@@ -190,7 +194,7 @@ func TestGuardedHandlerReceivesTheNamedCaller(t *testing.T) {
 // An uncontrolled Store Failure never Becomes the Caller's Fault.
 func TestUncontrolledFailureAnswersFiveHundred(t *testing.T) {
 	api := BuildTestingSchool()
-	api.Students = BrokenSchool{FakeSchool: BuildFakeSchool()}
+	api.School.Students = BrokenSchool{FakeSchool: BuildFakeSchool()}
 
 	reply := CallRoute(t, api, "GET", "/students", transport.Request{})
 

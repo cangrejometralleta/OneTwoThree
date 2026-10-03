@@ -135,8 +135,8 @@ The same [Specification](examples/school/SPEC.md) holds for all three, and [The 
 ```text
 main       casts the players and picks an adapter
 adapters   the only files that import a framework
-api        the script: handlers and the providers they declare
-app        the crossing, the form and the caller
+handler    the script: route declarations and handler methods
+app        services, store ports, the crossing, form and caller
 school     the business core: no HTTP, no driver
 store      the only package that imports an ORM
 wire       the contract, every shape a client sends or receives
@@ -154,18 +154,18 @@ TOKEN_SECRET=s ./run.sh gin        # stdlib, chi or gin
 A handler answers with a value or fails, and never builds a reply:
 
 ```go
-func (a SchoolAPI) ShowStudentRecord(req transport.Request) (any, error) {
+func (a Handler) ShowStudentRecord(req transport.Request) (any, error) {
 	id, err := app.ReadPathNumber(req)
 	if err != nil {
 		return nil, err
 	}
 
-	student, err := a.Students.SelectStudentRow(school.StudentID(id))
+	student, err := a.School.ReadStudent(school.StudentID(id))
 	if err != nil {
 		return nil, err
 	}
 
-	return school.RenderStudentView(student), nil
+	return renderStudentView(student), nil
 }
 ```
 

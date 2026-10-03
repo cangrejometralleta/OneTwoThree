@@ -27,8 +27,8 @@
 ```text
 transport   the Shapes; imports nothing
 core        the Business; no HTTP, no driver
-app         the Crossing, the form, the caller
-api         the Script
+app         services, Store Ports, crossing, form, caller
+handler     the Script
 adapters    THE ONLY PACKAGES THAT NAME A VENDOR
 ```
 
