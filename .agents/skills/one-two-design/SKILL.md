@@ -113,6 +113,9 @@ Keep it to the Shape and its Decisions, never a Review.
 
 ## Bounds
 
+- Always generate from zero when it is possible.
+  Patch only when generation is not, and say why.
+  A Spec proves itself sufficient only by Producing the Code again.
 - Never add a Layer, a Provider or an Option without a named Reason.
 - Never design a Generic Framework before a second Example demands it.
 - Never regenerate in two repositories in one thread.
