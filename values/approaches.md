@@ -12,3 +12,6 @@
   is not a Unit.
 - Ask three Questions before writing:  
   Who Reads it? Who Runs it? Who Deletes it?
+- A Working Example beats the Generic one.  
+  The generic Version waits for a second Example to Demand it.  
+  Proportion Matters: an Example is the Size of its Problem.
