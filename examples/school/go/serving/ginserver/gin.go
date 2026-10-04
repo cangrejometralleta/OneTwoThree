@@ -1,10 +1,8 @@
 package ginserver
 
-// This Package is the only one that Imports gin.
-// Swapping it out Edits this Package and main.go, and nothing else.
-
 import (
-	"strings"
+	"net/http"
+	"regexp"
 
 	"github.com/gin-gonic/gin"
 
@@ -12,46 +10,32 @@ import (
 	"github.com/cangrejometralleta/OneTwoThree/examples/school/go/transport"
 )
 
-// GinServer Serves the same Routes with gin.
-// Gin Owns its own Context, so this Adapter Carries the most Work.
-// Reference: https://pkg.go.dev/github.com/gin-gonic/gin
+// GinServer Serves the Routes with gin. This Package is the only one that Imports gin.
 type GinServer struct{}
 
-// ServeRoutes Mounts every Route on a gin Engine.
-func (GinServer) ServeRoutes(routes []transport.Route, address string) error {
+var braceName = regexp.MustCompile(`\{([a-z_]+)\}`)
+
+// BuildHandler Declares each Route on a gin Engine, turning {id} into :id.
+func (GinServer) BuildHandler(routes []transport.Route) http.Handler {
 	gin.SetMode(gin.ReleaseMode)
 	engine := gin.New()
 
 	for _, route := range routes {
-		engine.Handle(route.Method, TranslateRoutePattern(route.Pattern), GinHandlerFor(route))
+		handle := serving.ServeRouteHandler(route, func(r *http.Request, name string) string {
+			return r.PathValue(name)
+		})
+		engine.Handle(route.Method, braceName.ReplaceAllString(route.Pattern, ":$1"), func(c *gin.Context) {
+			for _, param := range c.Params {
+				c.Request.SetPathValue(param.Key, param.Value)
+			}
+			handle(c.Writer, c.Request)
+		})
 	}
 
-	return engine.Run(address)
+	return engine
 }
 
-// GinHandlerFor Wraps one Route, Reading Params the gin Way.
-func GinHandlerFor(route transport.Route) gin.HandlerFunc {
-	names := serving.ListPatternParams(route.Pattern)
-
-	return func(c *gin.Context) {
-		path := map[string]string{}
-		for _, name := range names {
-			path[name] = c.Param(name)
-		}
-
-		serving.WriteReplyAsJSON(c.Writer, route.Handle(serving.ReadRequestValues(c.Request, path)))
-	}
-}
-
-// TranslateRoutePattern Turns {id} into :id, which is all gin Wants.
-func TranslateRoutePattern(pattern string) string {
-	parts := strings.Split(pattern, "/")
-
-	for index, part := range parts {
-		if strings.HasPrefix(part, "{") && strings.HasSuffix(part, "}") {
-			parts[index] = ":" + strings.Trim(part, "{}")
-		}
-	}
-
-	return strings.Join(parts, "/")
+// ServeRoutes Listens on the Address until it Fails.
+func (s GinServer) ServeRoutes(routes []transport.Route, address string) error {
+	return http.ListenAndServe(address, s.BuildHandler(routes))
 }

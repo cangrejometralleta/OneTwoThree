@@ -14,8 +14,8 @@ func buildConfigFixture(t *testing.T) string {
 		t.Fatal(err)
 	}
 
-	for _, layer := range []string{"defaults", "development", "production"} {
-		name := "school." + layer + ".json"
+	names := []string{"school.defaults.json", "school.development.json", "school.production.json", "registry.json"}
+	for _, name := range names {
 		data, err := os.ReadFile(filepath.Join("..", "..", "config", name))
 		if err != nil {
 			t.Fatal(err)
@@ -25,20 +25,42 @@ func buildConfigFixture(t *testing.T) string {
 		}
 	}
 
-	registry, err := os.ReadFile(filepath.Join("..", "..", "config", "registry.json"))
+	return root
+}
+
+func readyEnvironment() map[string]string {
+	return map[string]string{"APP_ENV": "production", "TOKEN_SECRET": "test-secret"}
+}
+
+func TestConfigPrecedence(t *testing.T) {
+	root := buildConfigFixture(t)
+	path := filepath.Join(root, "config", "school.production.json")
+	if err := os.WriteFile(path, []byte(`{"databasePath":"production.db","port":9000}`), 0600); err != nil {
+		t.Fatal(err)
+	}
+	environment := readyEnvironment()
+
+	config, err := LoadSchoolConfig(root, environment)
 	if err != nil {
 		t.Fatal(err)
 	}
-	if err := os.WriteFile(filepath.Join(root, "config", "registry.json"), registry, 0600); err != nil {
-		t.Fatal(err)
+	if config.Port != 9000 || config.DatabasePath != "production.db" {
+		t.Fatal("Environment File Must Replace Defaults")
 	}
 
-	return root
+	environment["SCHOOL_PORT"] = "9100"
+	config, err = LoadSchoolConfig(root, environment)
+	if err != nil {
+		t.Fatal(err)
+	}
+	if config.Port != 9100 {
+		t.Fatal("Variable Must Replace Environment File")
+	}
 }
 
 func TestConfigResolvesTheRegistryFromTheDataRoot(t *testing.T) {
 	root := buildConfigFixture(t)
-	environment := map[string]string{"APP_ENV": "production", "TOKEN_SECRET": "test-secret"}
+	environment := readyEnvironment()
 
 	config, err := LoadSchoolConfig(root, environment)
 	if err != nil {
@@ -56,32 +78,6 @@ func TestConfigResolvesTheRegistryFromTheDataRoot(t *testing.T) {
 	environment["SCHOOL_REGISTRY_PATH"] = "config"
 	if _, err := LoadSchoolConfig(root, environment); err == nil {
 		t.Fatal("A Directory is not a Registry File")
-	}
-}
-
-func TestConfigPrecedence(t *testing.T) {
-	root := buildConfigFixture(t)
-	path := filepath.Join(root, "config", "school.production.json")
-	if err := os.WriteFile(path, []byte(`{"databasePath":"production.db","port":9000}`), 0600); err != nil {
-		t.Fatal(err)
-	}
-	environment := map[string]string{"APP_ENV": "production", "TOKEN_SECRET": "test-secret"}
-
-	config, err := LoadSchoolConfig(root, environment)
-	if err != nil {
-		t.Fatal(err)
-	}
-	if config.Port != 9000 || config.DatabasePath != "production.db" {
-		t.Fatal("Environment File Must Replace Defaults")
-	}
-	environment["SCHOOL_PORT"] = "9100"
-	config, err = LoadSchoolConfig(root, environment)
-	if err != nil {
-		t.Fatal(err)
-	}
-
-	if config.Port != 9100 {
-		t.Fatal("Variable Must Replace Environment File")
 	}
 }
 
@@ -132,7 +128,7 @@ func TestConfigRejectsInvalidInputs(t *testing.T) {
 					t.Fatal(err)
 				}
 			}
-			environment := map[string]string{"APP_ENV": "production", "TOKEN_SECRET": "test-secret"}
+			environment := readyEnvironment()
 			for key, value := range test.environment {
 				environment[key] = value
 			}
@@ -150,10 +146,10 @@ func TestConfigValidatesBeforeOverrides(t *testing.T) {
 	if err := os.WriteFile(path, []byte(`{"port":null}`), 0600); err != nil {
 		t.Fatal(err)
 	}
+	environment := readyEnvironment()
+	environment["SCHOOL_PORT"] = "9100"
 
-	_, err := LoadSchoolConfig(root, map[string]string{"APP_ENV": "production", "SCHOOL_PORT": "9100", "TOKEN_SECRET": "test-secret"})
-
-	if err == nil {
+	if _, err := LoadSchoolConfig(root, environment); err == nil {
 		t.Fatal("An Override Must not Hide Invalid Defaults")
 	}
 }

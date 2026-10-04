@@ -1,40 +1,31 @@
 package transport
 
-// This Package Holds the Shapes the Layers Speak in.
-// It Imports nothing, so every Layer can Depend on it.
-
-// Request is what a Handler Receives.
-// No Framework Type Appears here.
+// Request is what the Door Hands the Script: no Framework Type Crosses it.
 type Request struct {
-	Path  map[string]string
-	Query map[string]string
-	Token string
-	Body  []byte
-
-	// Caller is Empty until the Application Names it.
-	// A Handler Reads it; no Adapter ever Fills it.
+	Path   map[string]string
+	Query  map[string]string
+	Body   []byte
+	Token  string
 	Caller string
 }
 
-// Response is what a Handler Returns.
+// Response is what the Script Hands back: a Status and a Body to Render.
 type Response struct {
 	Status int
 	Body   any
 }
 
-// Handler is the only Signature the Business Layer Knows.
+// Handler Answers one Request.
 type Handler func(Request) Response
 
-// Route Binds one Method and one Pattern to one Handler.
-// Patterns Use {name}, and each Adapter Translates from there.
+// Route Declares one Door: Method, Pattern and the Handler behind it.
 type Route struct {
 	Method  string
 	Pattern string
 	Handle  Handler
 }
 
-// Server is the Contract every HTTP Adapter Fulfils.
-// Swapping Frameworks Means Swapping the Value behind this Interface.
+// Server Serves Routes on an Address; each Framework Fills it in its own Package.
 type Server interface {
 	ServeRoutes(routes []Route, address string) error
 }

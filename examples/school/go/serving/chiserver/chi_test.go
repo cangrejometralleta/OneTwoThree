@@ -1,4 +1,4 @@
-package ginserver
+package chiserver
 
 import (
 	"testing"
@@ -7,8 +7,8 @@ import (
 	"github.com/cangrejometralleta/OneTwoThree/examples/school/go/transport"
 )
 
-var _ transport.Server = GinServer{}
+var _ transport.Server = ChiServer{}
 
-func TestGinServerAnswersTheSharedContract(t *testing.T) {
-	adaptertest.CheckAdapterAnswersTheSameWay(t, GinServer{}.BuildHandler)
+func TestChiServerAnswersTheSharedContract(t *testing.T) {
+	adaptertest.CheckAdapterAnswersTheSameWay(t, ChiServer{}.BuildHandler)
 }

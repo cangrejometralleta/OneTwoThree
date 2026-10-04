@@ -3,16 +3,18 @@ package handler
 import (
 	"errors"
 	"net/http"
+	"sort"
 	"testing"
 
 	"github.com/cangrejometralleta/OneTwoThree/examples/school/go/app"
 	"github.com/cangrejometralleta/OneTwoThree/examples/school/go/school"
 	"github.com/cangrejometralleta/OneTwoThree/examples/school/go/tokens"
 	"github.com/cangrejometralleta/OneTwoThree/examples/school/go/transport"
+	"github.com/cangrejometralleta/OneTwoThree/examples/school/go/wire"
 )
 
-// FakeSchool Stands in for GORM.
-// No Database, no Framework, no Port: the Providers Allow it.
+// FakeSchool Stands in for the Store. No Database, no Framework, no Port:
+// the Providers Allow it. Course 1 is Open, and the RUT is Unique like a real Index.
 type FakeSchool struct {
 	students map[school.StudentID]school.Student
 	courses  map[school.CourseID]school.Course
@@ -25,14 +27,12 @@ func BuildFakeSchool() *FakeSchool {
 	}
 }
 
-// InsertStudentRow Keeps the RUT unique, the Way a real Index would.
 func (f *FakeSchool) InsertStudentRow(s school.Student) (school.Student, error) {
 	for _, enrolled := range f.students {
 		if enrolled.Rut == s.Rut {
 			return school.Student{}, school.ErrRutTaken
 		}
 	}
-
 	s.ID = school.StudentID(len(f.students) + 1)
 	f.students[s.ID] = s
 
@@ -44,6 +44,7 @@ func (f *FakeSchool) SelectStudentRow(id school.StudentID) (school.Student, erro
 	if !found {
 		return school.Student{}, school.ErrStudentUnknown
 	}
+
 	return student, nil
 }
 
@@ -52,6 +53,7 @@ func (f *FakeSchool) UpdateStudentRow(s school.Student) (school.Student, error) 
 		return school.Student{}, school.ErrStudentUnknown
 	}
 	f.students[s.ID] = s
+
 	return s, nil
 }
 
@@ -60,20 +62,24 @@ func (f *FakeSchool) DeleteStudentRow(id school.StudentID) error {
 		return school.ErrStudentUnknown
 	}
 	delete(f.students, id)
+
 	return nil
 }
 
 func (f *FakeSchool) SelectStudentPage(school.Page) ([]school.Student, error) {
-	students := make([]school.Student, 0, len(f.students))
+	roll := make([]school.Student, 0, len(f.students))
 	for _, student := range f.students {
-		students = append(students, student)
+		roll = append(roll, student)
 	}
-	return students, nil
+	sort.Slice(roll, func(a, b int) bool { return roll[a].ID < roll[b].ID })
+
+	return roll, nil
 }
 
 func (f *FakeSchool) InsertCourseRow(c school.Course) (school.Course, error) {
 	c.ID = school.CourseID(len(f.courses) + 1)
 	f.courses[c.ID] = c
+
 	return c, nil
 }
 
@@ -82,15 +88,18 @@ func (f *FakeSchool) SelectCourseRow(id school.CourseID) (school.Course, error) 
 	if !found {
 		return school.Course{}, school.ErrCourseUnknown
 	}
+
 	return course, nil
 }
 
 func (f *FakeSchool) SelectCoursePage(school.Page) ([]school.Course, error) {
-	courses := make([]school.Course, 0, len(f.courses))
+	catalogue := make([]school.Course, 0, len(f.courses))
 	for _, course := range f.courses {
-		courses = append(courses, course)
+		catalogue = append(catalogue, course)
 	}
-	return courses, nil
+	sort.Slice(catalogue, func(a, b int) bool { return catalogue[a].ID < catalogue[b].ID })
+
+	return catalogue, nil
 }
 
 // FakeOffice Stands in for the Registry and the Notice: every RUT is Real.
@@ -119,11 +128,10 @@ func (SilentOffice) AnnounceEnrollment(school.Student) error {
 // BuildTestingSchool Hands the API its Fakes.
 func BuildTestingSchool() Handler {
 	fake := BuildFakeSchool()
-	issuer := tokens.BuildAccessTokens("test", 60)
 
 	return Handler{
 		School: app.SchoolService{Students: fake, Courses: fake, Registry: FakeOffice{}, Notices: FakeOffice{}},
-		Tokens: issuer,
+		Tokens: tokens.BuildAccessTokens("test", 60),
 	}
 }
 
@@ -158,6 +166,7 @@ func TestEachRouteAnswersWithItsDeclaredStatus(t *testing.T) {
 		Body: []byte(`{"rut":"12345678-5","name":"Ada Lovelace","age":21,"courseId":1}`),
 	}
 	open := transport.Request{Body: []byte(`{"code":"FIS-201","name":"Physics"}`)}
+	one := transport.Request{Path: map[string]string{"id": "1"}}
 
 	cases := []struct {
 		story   string
@@ -169,12 +178,12 @@ func TestEachRouteAnswersWithItsDeclaredStatus(t *testing.T) {
 		{"a Token is Minted", "POST", "/token", transport.Request{}, http.StatusCreated},
 		{"someone Enrols", "POST", "/students", enrol, http.StatusCreated},
 		{"the Roll is Read", "GET", "/students", transport.Request{}, http.StatusOK},
-		{"one Student is Read", "GET", "/students/{id}", transport.Request{Path: map[string]string{"id": "1"}}, http.StatusOK},
+		{"one Student is Read", "GET", "/students/{id}", one, http.StatusOK},
 		{"an Enrolment is Rewritten", "PUT", "/students/{id}", rewrite, http.StatusOK},
 		{"the Catalogue is Read", "GET", "/courses", transport.Request{}, http.StatusOK},
 		{"a Course Opens", "POST", "/courses", open, http.StatusCreated},
-		{"one Course is Read", "GET", "/courses/{id}", transport.Request{Path: map[string]string{"id": "1"}}, http.StatusOK},
-		{"an Enrolment Ends", "DELETE", "/students/{id}", transport.Request{Path: map[string]string{"id": "1"}}, http.StatusNoContent},
+		{"one Course is Read", "GET", "/courses/{id}", one, http.StatusOK},
+		{"an Enrolment Ends", "DELETE", "/students/{id}", one, http.StatusNoContent},
 	}
 
 	for _, test := range cases {
@@ -183,6 +192,44 @@ func TestEachRouteAnswersWithItsDeclaredStatus(t *testing.T) {
 				t.Fatalf("wanted %d, got %d: %v", test.status, reply.Status, reply.Body)
 			}
 		})
+	}
+}
+
+// Every Route the Libretto Declares has a Story above, and the Spec Names nine.
+func TestTheLibrettoDeclaresExactlyTheNineRoutesOfTheSpec(t *testing.T) {
+	routes := BuildTestingSchool().DeclareSchoolRoutes()
+
+	if len(routes) != 9 {
+		t.Fatalf("the Spec Names nine Routes, the Libretto Declares %d", len(routes))
+	}
+}
+
+func TestARewriteChangesTheStudentAndADeleteLeavesNoBody(t *testing.T) {
+	api := BuildTestingSchool()
+	CallRoute(t, api, "POST", "/students", transport.Request{Body: []byte(`{"rut":"12345678-5","name":"Ada","age":20,"courseId":1}`)})
+
+	rewritten := CallRoute(t, api, "PUT", "/students/{id}", transport.Request{
+		Path: map[string]string{"id": "1"},
+		Body: []byte(`{"rut":"12345678-5","name":"Ada Lovelace","age":21,"courseId":1}`),
+	})
+	view, ok := rewritten.Body.(wire.StudentView)
+	if !ok || view.Name != "Ada Lovelace" || view.Age != 21 {
+		t.Fatalf("the Rewrite must Answer the Student as it Stands, got %v", rewritten.Body)
+	}
+
+	dropped := CallRoute(t, api, "DELETE", "/students/{id}", transport.Request{Path: map[string]string{"id": "1"}})
+	if dropped.Status != http.StatusNoContent || dropped.Body != nil {
+		t.Fatalf("a Delete Answers 204 and no Body, got %d %v", dropped.Status, dropped.Body)
+	}
+}
+
+func TestAFailureReachesTheClientAsAFailureViewWithItsReason(t *testing.T) {
+	api := BuildTestingSchool()
+
+	reply := CallRoute(t, api, "GET", "/students/{id}", transport.Request{Path: map[string]string{"id": "42"}})
+
+	if reply.Status != http.StatusNotFound || reply.Body != (wire.FailureView{Error: "student not Found"}) {
+		t.Fatalf("reply=%v", reply)
 	}
 }
 
@@ -203,54 +250,40 @@ func TestEveryRouteButTheTokenRefusesAnUnnamedCaller(t *testing.T) {
 
 	for _, route := range api.DeclareSchoolRoutes() {
 		reply := route.Handle(transport.Request{Path: map[string]string{"id": "1"}})
-
-		wanted := http.StatusUnauthorized
 		if route.Pattern == "/token" {
-			wanted = http.StatusCreated
+			continue
 		}
-
-		if reply.Status != wanted {
-			t.Errorf("%s %s: wanted %d, got %d", route.Method, route.Pattern, wanted, reply.Status)
+		if reply.Status != http.StatusUnauthorized || reply.Body != (wire.FailureView{Error: "token is Invalid or Expired"}) {
+			t.Errorf("%s %s must Refuse an unnamed caller, got %d %v", route.Method, route.Pattern, reply.Status, reply.Body)
 		}
 	}
 }
 
-// A Guarded Handler Reads a Caller it never had to Check.
 func TestGuardedHandlerReceivesTheNamedCaller(t *testing.T) {
 	api := BuildTestingSchool()
-	seen := ""
-
+	var seen string
 	guarded := api.Guarded(http.StatusOK, func(req transport.Request) (any, error) {
 		seen = req.Caller
 
-		return nil, nil
+		return "told", nil
 	})
-
 	token, _ := api.Tokens.IssueAccessToken("student-registry")
-	guarded(transport.Request{Token: token})
 
-	if seen != "student-registry" {
-		t.Fatalf("wanted the Subject, got %q", seen)
+	if reply := guarded(transport.Request{Token: token}); reply.Status != http.StatusOK || seen != "student-registry" {
+		t.Fatalf("reply=%v seen=%q", reply, seen)
 	}
 }
 
-// An uncontrolled Store Failure never Becomes the Caller's Fault.
 func TestUncontrolledFailureAnswersFiveHundred(t *testing.T) {
 	api := BuildTestingSchool()
-	api.School.Students = BrokenSchool{FakeSchool: BuildFakeSchool()}
+	broken := api.Guarded(http.StatusOK, func(transport.Request) (any, error) {
+		return nil, errors.New("the driver Broke at /var/db")
+	})
+	token, _ := api.Tokens.IssueAccessToken("student-registry")
 
-	reply := CallRoute(t, api, "GET", "/students", transport.Request{})
+	reply := broken(transport.Request{Token: token})
 
-	if reply.Status != http.StatusInternalServerError {
-		t.Fatalf("wanted 500, got %d", reply.Status)
+	if reply.Status != http.StatusInternalServerError || reply.Body != (wire.FailureView{Error: "internal error"}) {
+		t.Fatalf("a driver Message must not Leave, reply=%v", reply)
 	}
-}
-
-// BrokenSchool Fails the Way a Driver Fails: with no Status to Offer.
-type BrokenSchool struct {
-	*FakeSchool
-}
-
-func (BrokenSchool) SelectStudentPage(school.Page) ([]school.Student, error) {
-	return nil, errors.New("the driver Closed the Connection")
 }

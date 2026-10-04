@@ -50,6 +50,7 @@ func (o Office) ConfirmRut(rut school.RUT) (bool, error) {
 // AnnounceEnrollment Sends the Notice to the Log, naming the Student by Id.
 func (o Office) AnnounceEnrollment(student school.Student) error {
 	o.log().Info("Enrollment Announced", "student", student.ID, "course", student.Course)
+
 	return nil
 }
 

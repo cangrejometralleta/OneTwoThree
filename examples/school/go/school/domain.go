@@ -6,15 +6,13 @@ import (
 	"strings"
 )
 
-// StudentID and its Siblings Name a Row that already Exists.
 type StudentID uint
 type CourseID uint
 
-// RUT is the Chilean Tax Identity, Digit included.
-// A String Underneath, and still Impossible to Pass as a Name.
+// RUT is the Chilean tax Number a Student is Known by.
 type RUT string
 
-// FullName is how a Person Wants to be Called.
+// FullName is what a Person is Called.
 type FullName string
 
 // CourseCode is the short Label a Course Answers to.
@@ -38,6 +36,9 @@ type Course struct {
 
 var rutShape = regexp.MustCompile(`^[0-9]+-[0-9kK]$`)
 
+// RutWeights Cycles two through seven, Read right to left.
+var RutWeights = []int{2, 3, 4, 5, 6, 7}
+
 // CheckStudentRecord Refuses a Student the Business cannot Use.
 func (s Student) CheckStudentRecord() error {
 	if s.Name == "" {
@@ -51,6 +52,15 @@ func (s Student) CheckStudentRecord() error {
 	return s.CheckStudentAge()
 }
 
+// CheckStudentAge Holds the one Rule the School will not Bend.
+func (s Student) CheckStudentAge() error {
+	if s.Age < ReadSchoolConstants().MinimumAgeYears {
+		return ErrAgeIsTooLow
+	}
+
+	return nil
+}
+
 // CheckCourseRecord Refuses a Course the Business cannot Use.
 func (c Course) CheckCourseRecord() error {
 	if c.Code == "" {
@@ -59,15 +69,6 @@ func (c Course) CheckCourseRecord() error {
 
 	if c.Name == "" {
 		return ErrNameIsEmpty
-	}
-
-	return nil
-}
-
-// CheckStudentAge Holds the one Rule the School will not Bend.
-func (s Student) CheckStudentAge() error {
-	if s.Age < ReadSchoolConstants().MinimumAgeYears {
-		return ErrAgeIsTooLow
 	}
 
 	return nil
@@ -92,17 +93,14 @@ func CheckDigitFor(body string) string {
 		return ""
 	}
 
-	sum, index := 0, 0
+	sum, position := 0, 0
 	for ; number > 0; number /= 10 {
-		sum += number % 10 * RutWeights[index%len(RutWeights)]
-		index++
+		sum += number % 10 * RutWeights[position%len(RutWeights)]
+		position++
 	}
 
 	return NameCheckRemainder(11 - sum%11)
 }
-
-// RutWeights Cycles two through seven, Read right to left.
-var RutWeights = []int{2, 3, 4, 5, 6, 7}
 
 // NameCheckRemainder Turns a Remainder into the Character it Means.
 func NameCheckRemainder(remainder int) string {

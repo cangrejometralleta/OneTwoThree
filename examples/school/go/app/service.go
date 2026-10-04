@@ -38,10 +38,11 @@ func (s SchoolService) EnrollStudent(student school.Student) (school.Student, er
 	}
 
 	s.announceEnrollment(kept)
+
 	return kept, nil
 }
 
-// SaveStudent Validates and Rewrites one Enrolment.
+// SaveStudent Validates and Rewrites one Enrolment. It Announces nothing.
 func (s SchoolService) SaveStudent(student school.Student) (school.Student, error) {
 	if err := s.checkStudent(student); err != nil {
 		return school.Student{}, err
@@ -65,7 +66,7 @@ func (s SchoolService) ReadCourse(id school.CourseID) (school.Course, error) {
 	return s.Courses.SelectCourseRow(id)
 }
 
-// CreateCourse Stores one Course.
+// CreateCourse Validates and Stores one Course.
 func (s SchoolService) CreateCourse(course school.Course) (school.Course, error) {
 	if err := course.CheckCourseRecord(); err != nil {
 		return school.Course{}, err
@@ -74,6 +75,7 @@ func (s SchoolService) CreateCourse(course school.Course) (school.Course, error)
 	return s.Courses.InsertCourseRow(course)
 }
 
+// checkStudent Asks in the Order the Spec Names: Form, Course, Registry.
 func (s SchoolService) checkStudent(student school.Student) error {
 	if err := student.CheckStudentRecord(); err != nil {
 		return err

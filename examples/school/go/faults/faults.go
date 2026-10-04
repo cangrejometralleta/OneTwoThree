@@ -71,3 +71,13 @@ func ReadFaultKind(err error) Kind {
 
 	return Unexpected
 }
+
+// ReadFaultReason Finds the Reason a Fault Declares, or Says nothing of a driver.
+func ReadFaultReason(err error) string {
+	var fault Fault
+	if errors.As(err, &fault) {
+		return fault.Reason
+	}
+
+	return "internal error"
+}

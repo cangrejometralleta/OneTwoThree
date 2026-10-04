@@ -1,6 +1,9 @@
 package school
 
-// Page Carries Pagination without Naming a Database.
+// DefaultPageSize Windows a Page when the Caller Names a page but no size.
+const DefaultPageSize = 10
+
+// Page Windows a List. A Size of zero Asks for the whole Set.
 type Page struct {
 	Number int
 	Size   int

@@ -24,21 +24,28 @@ func TestReadFaultKindAnswersForEachKind(t *testing.T) {
 	}
 }
 
-// An uncontrolled Failure is ours.
+// An uncontrolled Failure is ours, and its Message never Leaves.
 func TestReadFaultKindRefusesToGuess(t *testing.T) {
-	if got := ReadFaultKind(errors.New("the driver Broke")); got != Unexpected {
+	driver := errors.New("the driver Broke at /var/db")
+
+	if got := ReadFaultKind(driver); got != Unexpected {
 		t.Fatalf("wanted Unexpected, got %d", got)
+	}
+	if reason := ReadFaultReason(driver); reason != "internal error" {
+		t.Fatalf("a driver Message must not Leave, got %q", reason)
 	}
 }
 
-// A wrapped Fault still Carries its Kind.
+// A wrapped Fault still Carries its Kind and its Reason.
 func TestReadFaultKindSurvivesWrapping(t *testing.T) {
 	wrapped := fmt.Errorf("while Reading: %w", ReportMissingRecord("gone"))
 
 	if got := ReadFaultKind(wrapped); got != MissingRecord {
 		t.Fatalf("wanted MissingRecord through the Wrapper, got %d", got)
 	}
-
+	if reason := ReadFaultReason(wrapped); reason != "gone" {
+		t.Fatalf("wanted the Declared Reason, got %q", reason)
+	}
 	if !errors.Is(wrapped, ReportMissingRecord("gone")) {
 		t.Fatal("a Fault Must stay Comparable through a Wrapper")
 	}

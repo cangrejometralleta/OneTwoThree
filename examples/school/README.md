@@ -125,6 +125,7 @@ app/            Services, Store Ports, TokenIssuer, Crossing, Validation and Cal
 handler/        the Script: Routes, Handler Methods and Wire Mappings
 settings/       the strict JSON Loader and the validated SchoolConfig
 store/          THE ONLY PACKAGE THAT IMPORTS AN ORM
+campus/         the Registry and the Notice: one Office Filling both Ports
 serving/        the stdlib Server and the shared Request Reading
 serving/chiserver/  THE ONLY PACKAGE THAT IMPORTS chi
 serving/ginserver/  THE ONLY PACKAGE THAT IMPORTS gin

@@ -5,15 +5,13 @@ import (
 	"github.com/cangrejometralleta/OneTwoThree/examples/school/go/wire"
 )
 
+// The Wire never Becomes the Business by Accident: these are the Crossings.
+
 func buildStudentRecord(body wire.StudentBody, id school.StudentID) school.Student {
 	return school.Student{
 		ID: id, Rut: school.RUT(body.Rut), Name: school.FullName(body.Name),
 		Age: body.Age, Course: school.CourseID(body.Course),
 	}
-}
-
-func buildCourseRecord(body wire.CourseBody, id school.CourseID) school.Course {
-	return school.Course{ID: id, Code: school.CourseCode(body.Code), Name: school.FullName(body.Name)}
 }
 
 func renderStudentView(student school.Student) wire.StudentView {
@@ -30,6 +28,10 @@ func renderStudentViews(students []school.Student) []wire.StudentView {
 	}
 
 	return views
+}
+
+func buildCourseRecord(body wire.CourseBody) school.Course {
+	return school.Course{Code: school.CourseCode(body.Code), Name: school.FullName(body.Name)}
 }
 
 func renderCourseView(course school.Course) wire.CourseView {

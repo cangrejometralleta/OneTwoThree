@@ -1,11 +1,10 @@
 package wire
 
 // This Package is the Contract, and Imports nothing.
-// Reading it Costs no Context.
+// Open one File and you Know the whole API.
 
-// StudentBody is what a Client Sends.
-// Weak on Purpose: the Wire Cannot be Trusted,
-// so nothing here is a Business Type yet.
+// StudentBody is what a Client Sends. Weak on Purpose: the Wire cannot be
+// Trusted, so nothing here is a Business Type yet.
 type StudentBody struct {
 	Rut    string `json:"rut"`
 	Name   string `json:"name"`
@@ -33,4 +32,14 @@ type CourseView struct {
 	ID   uint   `json:"id"`
 	Code string `json:"code"`
 	Name string `json:"name"`
+}
+
+// TokenView is what the Door Hands out for a Token.
+type TokenView struct {
+	Token string `json:"token"`
+}
+
+// FailureView is the one Shape every Failure Answers with.
+type FailureView struct {
+	Error string `json:"error"`
 }

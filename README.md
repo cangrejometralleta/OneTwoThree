@@ -177,6 +177,7 @@ handler    the script: route declarations and handler methods
 app        services, store ports, the crossing, form and caller
 school     the business core: no HTTP, no driver
 store      the only package that imports an ORM
+campus     the registry and the notice, one office filling both ports
 wire       the contract, every shape a client sends or receives
 faults     controlled failures, each carrying its answer
 settings   the strict JSON loader, validated at startup

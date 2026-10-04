@@ -11,7 +11,9 @@ import (
 	"github.com/cangrejometralleta/OneTwoThree/examples/school/go/transport"
 )
 
-// Every Fault the Service Declares, Reached the Way a Caller Reaches it.
+const validBody = `{"rut":"12345678-5","name":"Ada","age":20,"courseId":1}`
+
+// Every Fault the Spec Names, Reached the Way a Caller Reaches it.
 // Each Name is a Use Case, because a controlled Failure is one.
 func TestEachFaultReachesTheEdgeWhole(t *testing.T) {
 	cases := []struct {
@@ -20,158 +22,64 @@ func TestEachFaultReachesTheEdgeWhole(t *testing.T) {
 		want   error
 		status int
 	}{
+		{"someone Enrols with no Name", enrolWith(`{"rut":"12345678-5","name":"","age":20,"courseId":1}`), school.ErrNameIsEmpty, http.StatusBadRequest},
+		{"someone Enrols with a RUT that Fails its Digit", enrolWith(`{"rut":"12345678-9","name":"Ada","age":20,"courseId":1}`), school.ErrRutIsInvalid, http.StatusBadRequest},
+		{"someone Enrols below the Enrolment Age", enrolWith(`{"rut":"12345678-5","name":"Ada","age":9,"courseId":1}`), school.ErrAgeIsTooLow, http.StatusBadRequest},
+		{"someone Enrols into a Course that never Opened", enrolWith(`{"rut":"12345678-5","name":"Ada","age":20,"courseId":99}`), school.ErrCourseUnknown, http.StatusNotFound},
+		{"someone Sends a Body that is not JSON", enrolWith(`{"rut":`), app.ErrBodyIsBroken, http.StatusBadRequest},
+		{"someone Sends a Body with a Field Missing", enrolWith(`{"rut":"12345678-5","name":"Ada","age":20}`), app.ErrBodyIsBroken, http.StatusBadRequest},
+		{"someone Sends a Body with an Identity of their own", enrolWith(`{"id":5,"rut":"12345678-5","name":"Ada","age":20,"courseId":1}`), app.ErrBodyIsBroken, http.StatusBadRequest},
 		{
-			story:  "someone Enrols with no Name",
-			arrive: EnrolWithBody(`{"rut":"12345678-5","name":"","age":20,"courseId":1}`),
-			want:   school.ErrNameIsEmpty,
-			status: http.StatusBadRequest,
-		},
-		{
-			story:  "someone Enrols with a RUT that Fails its Digit",
-			arrive: EnrolWithBody(`{"rut":"12345678-9","name":"Ada","age":20,"courseId":1}`),
-			want:   school.ErrRutIsInvalid,
-			status: http.StatusBadRequest,
-		},
-		{
-			story:  "someone Enrols below the Enrolment Age",
-			arrive: EnrolWithBody(`{"rut":"12345678-5","name":"Ada","age":9,"courseId":1}`),
-			want:   school.ErrAgeIsTooLow,
-			status: http.StatusBadRequest,
-		},
-		{
-			story:  "someone Enrols into a Course that never Opened",
-			arrive: EnrolWithBody(`{"rut":"12345678-5","name":"Ada","age":20,"courseId":99}`),
-			want:   school.ErrCourseUnknown,
-			status: http.StatusNotFound,
-		},
-		{
-			story:  "someone Sends a Body that is not JSON",
-			arrive: EnrolWithBody(`{"rut":`),
-			want:   app.ErrBodyIsBroken,
-			status: http.StatusBadRequest,
-		},
-		{
-			story: "someone Enrols with a RUT already Registered",
-			arrive: func(api Handler) error {
-				EnrolWithBody(`{"rut":"12345678-5","name":"Ada","age":20,"courseId":1}`)(api)
+			"someone Enrols with a RUT already Registered",
+			func(api Handler) error {
+				enrolWith(validBody)(api)
 
-				return EnrolWithBody(`{"rut":"12345678-5","name":"Grace","age":22,"courseId":1}`)(api)
+				return enrolWith(`{"rut":"12345678-5","name":"Grace","age":22,"courseId":1}`)(api)
 			},
-			want:   school.ErrRutTaken,
-			status: http.StatusConflict,
+			school.ErrRutTaken, http.StatusConflict,
 		},
 		{
-			story: "someone Enrols with a RUT the Registry Denies",
-			arrive: func(api Handler) error {
+			"someone Enrols with a RUT the Registry Denies",
+			func(api Handler) error {
 				api.School.Registry = DenyingOffice{}
 
-				return EnrolWithBody(`{"rut":"12345678-5","name":"Ada","age":20,"courseId":1}`)(api)
+				return enrolWith(validBody)(api)
 			},
-			want:   school.ErrRutUnregistered,
-			status: http.StatusUnprocessableEntity,
+			school.ErrRutUnregistered, http.StatusUnprocessableEntity,
 		},
 		{
-			story: "someone Enrols while the Registry cannot Answer",
-			arrive: func(api Handler) error {
+			"someone Enrols while the Registry cannot Answer",
+			func(api Handler) error {
 				api.School.Registry = SilentOffice{}
 
-				return EnrolWithBody(`{"rut":"12345678-5","name":"Ada","age":20,"courseId":1}`)(api)
+				return enrolWith(validBody)(api)
 			},
-			want:   school.ErrRegistryUnavailable,
-			status: http.StatusServiceUnavailable,
+			school.ErrRegistryUnavailable, http.StatusServiceUnavailable,
+		},
+		{"someone Opens a Course with no Code", telling(Handler.AddCourseRecord, transport.Request{Body: []byte(`{"code":"","name":"Physics"}`)}), school.ErrCodeIsEmpty, http.StatusBadRequest},
+		{"someone Opens a Course with no Name", telling(Handler.AddCourseRecord, transport.Request{Body: []byte(`{"code":"FIS-201","name":""}`)}), school.ErrNameIsEmpty, http.StatusBadRequest},
+		{"someone Asks for a Student by a Path that Holds no Number", telling(Handler.ShowStudentRecord, pathID("abc")), app.ErrPathIsBroken, http.StatusBadRequest},
+		{"someone Asks for a Student by the Number zero", telling(Handler.ShowStudentRecord, pathID("0")), app.ErrPathIsBroken, http.StatusBadRequest},
+		{"someone Asks for a Student who never Enrolled", telling(Handler.ShowStudentRecord, pathID("42")), school.ErrStudentUnknown, http.StatusNotFound},
+		{"someone Asks for a Course that never Opened", telling(Handler.ShowCourseRecord, pathID("99")), school.ErrCourseUnknown, http.StatusNotFound},
+		{"someone Asks for a Page that Counts backwards", telling(Handler.ListStudentRecords, queryOf("page", "-1")), school.ErrPageIsInvalid, http.StatusBadRequest},
+		{"someone Asks for a Page Numbered with a Word", telling(Handler.ListStudentRecords, queryOf("page", "abc")), school.ErrPageIsInvalid, http.StatusBadRequest},
+		{"someone Asks for a Size Measured in Words", telling(Handler.ListCourseRecords, queryOf("size", "many")), school.ErrPageIsInvalid, http.StatusBadRequest},
+		{"someone Asks for a Size of zero", telling(Handler.ListCourseRecords, queryOf("size", "0")), school.ErrPageIsInvalid, http.StatusBadRequest},
+		{"someone Drops a Student who already Left", telling(Handler.DropStudentRecord, pathID("7")), school.ErrStudentUnknown, http.StatusNotFound},
+		{
+			"someone Rewrites an Enrolment that never Existed",
+			telling(Handler.SaveStudentRecord, transport.Request{Path: map[string]string{"id": "7"}, Body: []byte(validBody)}),
+			school.ErrStudentUnknown, http.StatusNotFound,
 		},
 		{
-			story: "someone Opens a Course with no Code",
-			arrive: func(api Handler) error {
-				return TellingFailure(api.AddCourseRecord, transport.Request{Body: []byte(`{"code":"","name":"Physics"}`)})
-			},
-			want:   school.ErrCodeIsEmpty,
-			status: http.StatusBadRequest,
-		},
-		{
-			story: "someone Opens a Course with no Name",
-			arrive: func(api Handler) error {
-				return TellingFailure(api.AddCourseRecord, transport.Request{Body: []byte(`{"code":"FIS-201","name":""}`)})
-			},
-			want:   school.ErrNameIsEmpty,
-			status: http.StatusBadRequest,
-		},
-		{
-			story: "someone Asks for a Student by a Path that Holds no Number",
-			arrive: func(api Handler) error {
-				return TellingFailure(api.ShowStudentRecord, transport.Request{Path: map[string]string{"id": "abc"}})
-			},
-			want:   app.ErrPathIsBroken,
-			status: http.StatusBadRequest,
-		},
-		{
-			story: "someone Asks for a Student who never Enrolled",
-			arrive: func(api Handler) error {
-				return TellingFailure(api.ShowStudentRecord, transport.Request{Path: map[string]string{"id": "42"}})
-			},
-			want:   school.ErrStudentUnknown,
-			status: http.StatusNotFound,
-		},
-		{
-			story: "someone Asks for a Course that never Opened",
-			arrive: func(api Handler) error {
-				return TellingFailure(api.ShowCourseRecord, transport.Request{Path: map[string]string{"id": "99"}})
-			},
-			want:   school.ErrCourseUnknown,
-			status: http.StatusNotFound,
-		},
-		{
-			story: "someone Asks for a Page that Counts backwards",
-			arrive: func(api Handler) error {
-				return TellingFailure(api.ListStudentRecords, transport.Request{Query: map[string]string{"page": "-1"}})
-			},
-			want:   school.ErrPageIsInvalid,
-			status: http.StatusBadRequest,
-		},
-		{
-			story: "someone Asks for a Page Numbered with a Word",
-			arrive: func(api Handler) error {
-				return TellingFailure(api.ListStudentRecords, transport.Request{Query: map[string]string{"page": "abc"}})
-			},
-			want:   school.ErrPageIsInvalid,
-			status: http.StatusBadRequest,
-		},
-		{
-			story: "someone Asks for a Size Measured in Words",
-			arrive: func(api Handler) error {
-				return TellingFailure(api.ListCourseRecords, transport.Request{Query: map[string]string{"size": "many"}})
-			},
-			want:   school.ErrPageIsInvalid,
-			status: http.StatusBadRequest,
-		},
-		{
-			story: "someone Drops a Student who already Left",
-			arrive: func(api Handler) error {
-				return TellingFailure(api.DropStudentRecord, transport.Request{Path: map[string]string{"id": "7"}})
-			},
-			want:   school.ErrStudentUnknown,
-			status: http.StatusNotFound,
-		},
-		{
-			story: "someone Rewrites an Enrolment that never Existed",
-			arrive: func(api Handler) error {
-				return TellingFailure(api.SaveStudentRecord, transport.Request{
-					Path: map[string]string{"id": "7"},
-					Body: []byte(`{"rut":"12345678-5","name":"Ada","age":20,"courseId":1}`),
-				})
-			},
-			want:   school.ErrStudentUnknown,
-			status: http.StatusNotFound,
-		},
-		{
-			story: "someone Arrives with no Token at all",
-			arrive: func(api Handler) error {
+			"someone Arrives with no Token at all",
+			func(api Handler) error {
 				guarded := app.RequireProvenCaller(api.Tokens, api.ListStudentRecords)
 
-				return TellingFailure(guarded, transport.Request{})
+				return tellingFailure(guarded, transport.Request{})
 			},
-			want:   tokens.ErrTokenIsInvalid,
-			status: http.StatusUnauthorized,
+			tokens.ErrTokenIsInvalid, http.StatusUnauthorized,
 		},
 	}
 
@@ -182,15 +90,25 @@ func TestEachFaultReachesTheEdgeWhole(t *testing.T) {
 	}
 }
 
-// EnrolWithBody Spells the most common Arrival once.
-func EnrolWithBody(body string) func(Handler) error {
+func enrolWith(body string) func(Handler) error {
+	return telling(Handler.AddStudentRecord, transport.Request{Body: []byte(body)})
+}
+
+func telling(script func(Handler, transport.Request) (any, error), req transport.Request) func(Handler) error {
 	return func(api Handler) error {
-		return TellingFailure(api.AddStudentRecord, transport.Request{Body: []byte(body)})
+		_, err := script(api, req)
+
+		return err
 	}
 }
 
-// TellingFailure Keeps only the Half a Fault Test Cares about.
-func TellingFailure(tell app.Telling, req transport.Request) error {
+func pathID(id string) transport.Request { return transport.Request{Path: map[string]string{"id": id}} }
+
+func queryOf(name, value string) transport.Request {
+	return transport.Request{Query: map[string]string{name: value}}
+}
+
+func tellingFailure(tell app.Telling, req transport.Request) error {
 	_, err := tell(req)
 
 	return err

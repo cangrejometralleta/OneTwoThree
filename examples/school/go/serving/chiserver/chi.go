@@ -1,8 +1,5 @@
 package chiserver
 
-// This Package is the only one that Imports chi.
-// Swapping it out Edits this Package and main.go, and nothing else.
-
 import (
 	"net/http"
 
@@ -12,31 +9,22 @@ import (
 	"github.com/cangrejometralleta/OneTwoThree/examples/school/go/transport"
 )
 
-// ChiServer Serves the same Routes with chi.
-// Reference: https://pkg.go.dev/github.com/go-chi/chi/v5
+// ChiServer Serves the Routes with chi. This Package is the only one that Imports chi.
 type ChiServer struct{}
 
-// ServeRoutes Mounts every Route on a chi Router.
-func (ChiServer) ServeRoutes(routes []transport.Route, address string) error {
+// BuildHandler Declares each Route on a chi Router; its Pattern already Reads {id}.
+func (ChiServer) BuildHandler(routes []transport.Route) http.Handler {
 	router := chi.NewRouter()
-
 	for _, route := range routes {
-		router.MethodFunc(route.Method, route.Pattern, ChiHandlerFor(route))
+		router.MethodFunc(route.Method, route.Pattern, serving.ServeRouteHandler(route, func(r *http.Request, name string) string {
+			return chi.URLParam(r, name)
+		}))
 	}
 
-	return http.ListenAndServe(address, router)
+	return router
 }
 
-// ChiHandlerFor Wraps one Route, Reading Params the chi Way.
-func ChiHandlerFor(route transport.Route) http.HandlerFunc {
-	names := serving.ListPatternParams(route.Pattern)
-
-	return func(w http.ResponseWriter, r *http.Request) {
-		path := map[string]string{}
-		for _, name := range names {
-			path[name] = chi.URLParam(r, name)
-		}
-
-		serving.WriteReplyAsJSON(w, route.Handle(serving.ReadRequestValues(r, path)))
-	}
+// ServeRoutes Listens on the Address until it Fails.
+func (s ChiServer) ServeRoutes(routes []transport.Route, address string) error {
+	return http.ListenAndServe(address, s.BuildHandler(routes))
 }

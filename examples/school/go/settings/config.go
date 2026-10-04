@@ -53,6 +53,7 @@ func LoadSchoolConfig(root string, environment map[string]string) (SchoolConfig,
 	if err := applyEnvironmentValues(values, environment, names, rules); err != nil {
 		return SchoolConfig{}, err
 	}
+
 	config, err := decodeDataValues[SchoolConfig](values, rules)
 	if err != nil {
 		return config, err
@@ -92,6 +93,7 @@ func checkServerAdapter(raw json.RawMessage) error {
 	if err := json.Unmarshal(raw, &value); err != nil {
 		return fmt.Errorf("Must be a String")
 	}
+
 	switch value {
 	case "stdlib", "chi", "gin":
 		return nil

@@ -107,6 +107,9 @@ and a Spec Line with no Test that Pins it is a Wish.
 | A Rewrite Asks and Announces nothing | `app`: `TestSaveStudentAsksTheRegistryAndAnnouncesNothing` |
 | Reading, Listing and Dropping go through the Ports | `app`: `TestReadStudent*`, `TestListStudents*`, `TestDeleteStudent*`, `TestCreateCourse*`, `TestReadCourse*` |
 | Each of the Nine Routes Answers its Success Status | `handler`: `TestEachRouteAnswersWithItsDeclaredStatus` |
+| A Request is Checked in Form: Path, Body, Page | `app`: `TestReadPathNumberWantsAPositiveWholeNumber`, `TestReadJSONBodyRefusesAnythingButOneWholeObject`, `TestReadPageRequest*` |
+| Every Framework Answers the same Way | `serving`: `adaptertest.CheckAdapterAnswersTheSameWay`, run by the stdlib, chi and gin Adapters |
+| The Store Proves the RUT is Unique | `store`: `TestInsertStudentRowRefusesADuplicateRut` |
 | Each Fault Answers its Status | `handler`: `TestEachFaultReachesTheEdgeWhole`, `app`: `TestReadFaultStatus*` |
 | Every Route but the Token Needs a Caller | `handler`: `TestEveryRouteButTheTokenRefusesAnUnnamedCaller` |
 | A Token Dies once, never before | `tokens`: `TestAccessTokenDiesOnlyAfterItsDeadline` |

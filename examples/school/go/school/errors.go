@@ -9,8 +9,8 @@ import (
 // The Business Fails in named Ways, never in Numbers.
 // Each one Declares the Answer it Deserves, once and here.
 var (
-	ErrCodeIsEmpty         = faults.RefuseInvalidInput("code is Empty")
 	ErrNameIsEmpty         = faults.RefuseInvalidInput("name is Empty")
+	ErrCodeIsEmpty         = faults.RefuseInvalidInput("code is Empty")
 	ErrRutIsInvalid        = faults.RefuseInvalidInput("rut Fails its Check Digit")
 	ErrAgeIsTooLow         = faults.RefuseInvalidInput(fmt.Sprintf("age Must be %d or more", ReadSchoolConstants().MinimumAgeYears))
 	ErrPageIsInvalid       = faults.RefuseInvalidInput("page Numbers Must not be negative")

@@ -27,9 +27,10 @@ func readDataFile(path string, rules map[string]ValueRule) (map[string]json.RawM
 	if values == nil {
 		return nil, fmt.Errorf("%s Must Hold an Object", path)
 	}
+
 	for key, value := range values {
-		rule, exists := rules[key]
-		if !exists {
+		rule, declared := rules[key]
+		if !declared {
 			return nil, fmt.Errorf("%s: Unknown Key %s", path, key)
 		}
 		if err := rule(value); err != nil {
@@ -44,15 +45,13 @@ func readDataFile(path string, rules map[string]ValueRule) (map[string]json.RawM
 func CheckIntegerRange(minimum, maximum int) ValueRule {
 	return func(raw json.RawMessage) error {
 		var value int
-		if string(raw) == "null" {
-			return fmt.Errorf("Must not be Null")
-		}
-		if err := json.Unmarshal(raw, &value); err != nil {
+		if err := json.Unmarshal(raw, &value); err != nil || string(raw) == "null" {
 			return fmt.Errorf("Must be an Integer")
 		}
 		if value < minimum || value > maximum {
 			return fmt.Errorf("Must be between %d and %d", minimum, maximum)
 		}
+
 		return nil
 	}
 }
@@ -66,6 +65,7 @@ func CheckTextValue(raw json.RawMessage) error {
 	if strings.TrimSpace(value) == "" {
 		return fmt.Errorf("Must not be Empty")
 	}
+
 	return nil
 }
 
@@ -73,7 +73,7 @@ func CheckTextValue(raw json.RawMessage) error {
 func decodeDataValues[T any](values map[string]json.RawMessage, rules map[string]ValueRule) (T, error) {
 	var result T
 	for key := range rules {
-		if _, exists := values[key]; !exists {
+		if _, present := values[key]; !present {
 			return result, fmt.Errorf("%s is Missing", key)
 		}
 	}
@@ -82,12 +82,12 @@ func decodeDataValues[T any](values map[string]json.RawMessage, rules map[string
 	if err != nil {
 		return result, err
 	}
-	err = json.Unmarshal(data, &result)
 
-	return result, err
+	return result, json.Unmarshal(data, &result)
 }
 
 // ReadGlobalValues Loads Constants without an Environment Override Path.
+// Invalid Constants Stop the Program before it Starts.
 func ReadGlobalValues[T any](path string, rules map[string]ValueRule) T {
 	values, err := readDataFile(path, rules)
 	if err != nil {
@@ -112,10 +112,12 @@ func readEnvironmentFiles(root, concern, environment string, rules map[string]Va
 	if err != nil {
 		return nil, err
 	}
+
 	overrides, err := readDataFile(filepath.Join(root, "config", concern+"."+environment+".json"), rules)
 	if err != nil {
 		return nil, err
 	}
+
 	for key, value := range overrides {
 		values[key] = value
 	}
@@ -126,7 +128,7 @@ func readEnvironmentFiles(root, concern, environment string, rules map[string]Va
 // checkEnvironmentKeys Refuses undeclared Variables in this Service Namespace.
 func checkEnvironmentKeys(environment map[string]string, prefix string, names map[string]string) error {
 	for name := range environment {
-		if _, exists := names[name]; strings.HasPrefix(name, prefix) && !exists {
+		if _, declared := names[name]; strings.HasPrefix(name, prefix) && !declared {
 			return fmt.Errorf("Unknown Variable %s; Global Constants Cannot be Overridden", name)
 		}
 	}
@@ -135,12 +137,13 @@ func checkEnvironmentKeys(environment map[string]string, prefix string, names ma
 }
 
 // applyEnvironmentValues Validates declared Variables before Replacing Values.
-func applyEnvironmentValues(values map[string]json.RawMessage, environment map[string]string, names map[string]string, rules map[string]ValueRule) error {
+func applyEnvironmentValues(values map[string]json.RawMessage, environment, names map[string]string, rules map[string]ValueRule) error {
 	for name, key := range names {
-		value, exists := environment[name]
-		if !exists {
+		value, present := environment[name]
+		if !present {
 			continue
 		}
+
 		raw, err := encodeEnvironmentValue(value, rules[key])
 		if err != nil {
 			return fmt.Errorf("%s: %w", name, err)
@@ -151,21 +154,25 @@ func applyEnvironmentValues(values map[string]json.RawMessage, environment map[s
 	return nil
 }
 
+var wholeNumber = regexp.MustCompile(`^[0-9]+$`)
+
 // encodeEnvironmentValue Accepts Text or a decimal Integer, never implicit Booleans.
 func encodeEnvironmentValue(value string, rule ValueRule) (json.RawMessage, error) {
-	raw, _ := json.Marshal(value)
-	if rule(raw) == nil {
-		return raw, nil
+	text, _ := json.Marshal(value)
+	if rule(text) == nil {
+		return text, nil
 	}
 
-	if !regexp.MustCompile(`^[0-9]+$`).MatchString(value) {
+	if !wholeNumber.MatchString(value) {
 		return nil, fmt.Errorf("Invalid Value")
 	}
+
 	number, err := strconv.Atoi(value)
 	if err != nil {
 		return nil, fmt.Errorf("Invalid Integer")
 	}
-	raw, _ = json.Marshal(number)
+
+	raw, _ := json.Marshal(number)
 
 	return raw, rule(raw)
 }
@@ -195,5 +202,6 @@ func ReadProcessEnvironment() map[string]string {
 		name, value, _ := strings.Cut(entry, "=")
 		values[name] = value
 	}
+
 	return values
 }

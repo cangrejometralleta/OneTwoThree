@@ -1,65 +1,101 @@
 package app
 
 import (
+	"bytes"
 	"encoding/json"
+	"errors"
+	"io"
+	"reflect"
 	"strconv"
+	"strings"
 
 	"github.com/cangrejometralleta/OneTwoThree/examples/school/go/faults"
 	"github.com/cangrejometralleta/OneTwoThree/examples/school/go/school"
 	"github.com/cangrejometralleta/OneTwoThree/examples/school/go/transport"
 )
 
-// A Request can be Malformed without Breaking a single Business Rule.
-// Those Failures Belong to the Application.
+// The Form of a Request, Checked before its Meaning.
 var (
 	ErrBodyIsBroken = faults.RefuseInvalidInput("body is not valid JSON")
 	ErrPathIsBroken = faults.RefuseInvalidInput("path Holds no valid Identity")
 )
 
-// ReadPathNumber Pulls an Identity out of the Path.
-func ReadPathNumber(req transport.Request) (uint64, error) {
-	raw, err := strconv.ParseUint(req.Path["id"], 10, 64)
-	if err != nil {
+// ReadPathNumber Reads the positive whole Number in the Path's {id}.
+func ReadPathNumber(req transport.Request) (uint, error) {
+	number, err := strconv.ParseUint(req.Path["id"], 10, 32)
+	if err != nil || number == 0 {
 		return 0, ErrPathIsBroken
 	}
 
-	return raw, nil
+	return uint(number), nil
 }
 
-// ReadJSONBody Decodes the Wire into whatever Shape the Caller Expects.
-// It Validates the Form, never the Meaning: the Core Owns the Rules.
+// ReadJSONBody Reads one JSON Object whose Fields are all there, all known
+// and all of the right Type. Anything Less is Body is Broken.
 func ReadJSONBody[T any](req transport.Request) (T, error) {
 	var body T
 
-	if err := json.Unmarshal(req.Body, &body); err != nil {
+	if err := checkFieldsArePresent[T](req.Body); err != nil {
+		return body, ErrBodyIsBroken
+	}
+
+	decoder := json.NewDecoder(bytes.NewReader(req.Body))
+	decoder.DisallowUnknownFields()
+	if err := decoder.Decode(&body); err != nil {
+		return body, ErrBodyIsBroken
+	}
+
+	if err := decoder.Decode(&struct{}{}); !errors.Is(err, io.EOF) {
 		return body, ErrBodyIsBroken
 	}
 
 	return body, nil
 }
 
-// ReadPageRequest Reads Pagination, Defaulting to the whole Set.
-func ReadPageRequest(req transport.Request) (school.Page, error) {
-	page := school.Page{
-		Number: ReadWholeOrRefuse(req.Query["page"]),
-		Size:   ReadWholeOrRefuse(req.Query["size"]),
+// checkFieldsArePresent Refuses a Body with a Field missing or null.
+func checkFieldsArePresent[T any](data []byte) error {
+	var sent map[string]json.RawMessage
+	if err := json.Unmarshal(data, &sent); err != nil || sent == nil {
+		return ErrBodyIsBroken
 	}
 
-	return page, page.CheckPageBounds()
+	shape := reflect.TypeFor[T]()
+	for position := 0; position < shape.NumField(); position++ {
+		name, _, _ := strings.Cut(shape.Field(position).Tag.Get("json"), ",")
+		value, present := sent[name]
+		if !present || string(value) == "null" {
+			return ErrBodyIsBroken
+		}
+	}
+
+	return nil
 }
 
-// ReadWholeOrRefuse Reads a whole Number, or Returns one the Bounds Refuse.
-// An absent Value Means the whole Set; a Word Means the Caller Mistyped.
-// Swallowing the Parse Error would Answer two hundred to Nonsense.
-func ReadWholeOrRefuse(value string) int {
-	if value == "" {
-		return 0
+// ReadPageRequest Reads the Window a list Route Asks for.
+// Neither Named Asks for the whole Set; one alone takes the other's Default.
+func ReadPageRequest(req transport.Request) (school.Page, error) {
+	page, hasPage := req.Query["page"]
+	size, hasSize := req.Query["size"]
+	if !hasPage && !hasSize {
+		return school.Page{}, nil
 	}
 
-	number, err := strconv.Atoi(value)
-	if err != nil {
-		return -1
+	window := school.Page{Number: 0, Size: school.DefaultPageSize}
+	if hasPage {
+		number, err := strconv.Atoi(page)
+		if err != nil || number < 0 {
+			return school.Page{}, school.ErrPageIsInvalid
+		}
+		window.Number = number
 	}
 
-	return number
+	if hasSize {
+		count, err := strconv.Atoi(size)
+		if err != nil || count < 1 {
+			return school.Page{}, school.ErrPageIsInvalid
+		}
+		window.Size = count
+	}
+
+	return window, nil
 }

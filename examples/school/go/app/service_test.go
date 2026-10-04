@@ -25,6 +25,7 @@ func buildShelf() *shelf {
 func (s *shelf) InsertStudentRow(student school.Student) (school.Student, error) {
 	student.ID = school.StudentID(len(s.students) + 1)
 	s.students[student.ID] = student
+
 	return student, nil
 }
 
@@ -33,6 +34,7 @@ func (s *shelf) SelectStudentRow(id school.StudentID) (school.Student, error) {
 	if !found {
 		return school.Student{}, school.ErrStudentUnknown
 	}
+
 	return student, nil
 }
 
@@ -41,6 +43,7 @@ func (s *shelf) UpdateStudentRow(student school.Student) (school.Student, error)
 		return school.Student{}, school.ErrStudentUnknown
 	}
 	s.students[student.ID] = student
+
 	return student, nil
 }
 
@@ -49,6 +52,7 @@ func (s *shelf) DeleteStudentRow(id school.StudentID) error {
 		return school.ErrStudentUnknown
 	}
 	delete(s.students, id)
+
 	return nil
 }
 
@@ -59,6 +63,7 @@ func (s *shelf) SelectStudentPage(page school.Page) ([]school.Student, error) {
 		roll = append(roll, student)
 	}
 	sort.Slice(roll, func(a, b int) bool { return roll[a].ID < roll[b].ID })
+
 	return roll, nil
 }
 
@@ -67,12 +72,14 @@ func (s *shelf) SelectCourseRow(id school.CourseID) (school.Course, error) {
 	if !found {
 		return school.Course{}, school.ErrCourseUnknown
 	}
+
 	return course, nil
 }
 
 func (s *shelf) InsertCourseRow(course school.Course) (school.Course, error) {
 	course.ID = school.CourseID(len(s.courses) + 1)
 	s.courses[course.ID] = course
+
 	return course, nil
 }
 
@@ -83,6 +90,7 @@ func (s *shelf) SelectCoursePage(page school.Page) ([]school.Course, error) {
 		catalogue = append(catalogue, course)
 	}
 	sort.Slice(catalogue, func(a, b int) bool { return catalogue[a].ID < catalogue[b].ID })
+
 	return catalogue, nil
 }
 
@@ -97,16 +105,19 @@ type office struct {
 
 func (o *office) ConfirmRut(rut school.RUT) (bool, error) {
 	o.asked = append(o.asked, rut)
+
 	return o.registered, o.down
 }
 
 func (o *office) AnnounceEnrollment(student school.Student) error {
 	o.announced = append(o.announced, student)
+
 	return o.noticeErr
 }
 
 func buildAdmission(front *office) (SchoolService, *shelf) {
 	books := buildShelf()
+
 	return SchoolService{Students: books, Courses: books, Registry: front, Notices: front}, books
 }
 
@@ -194,6 +205,16 @@ func TestSaveStudentAsksTheRegistryAndAnnouncesNothing(t *testing.T) {
 	front.registered = true
 	if _, err := service.SaveStudent(kept); err != nil || len(front.announced) != announcedByEnrolment {
 		t.Fatalf("a rewrite announces nothing, err=%v announced=%d", err, len(front.announced))
+	}
+}
+
+func TestSaveStudentRefusesAStudentNobodyHolds(t *testing.T) {
+	service, _ := buildAdmission(&office{registered: true})
+	ghost := readyStudent()
+	ghost.ID = 42
+
+	if _, err := service.SaveStudent(ghost); !errors.Is(err, school.ErrStudentUnknown) {
+		t.Fatalf("err=%v", err)
 	}
 }
 

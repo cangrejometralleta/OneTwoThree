@@ -178,6 +178,7 @@ handler    el guion: declaraciones de rutas y métodos handler
 app        servicios, ports del store, el cruce, la forma y el caller
 school     el núcleo de negocio: sin HTTP, sin driver
 store      el único paquete que importa un ORM
+campus     el registro y el aviso, una oficina que cumple ambos puertos
 wire       el contrato, cada forma que un cliente envía o recibe
 faults     fallos controlados, cada uno con su respuesta
 settings   el cargador JSON estricto, validado al arrancar

@@ -4,83 +4,80 @@ import (
 	"crypto/hmac"
 	"crypto/sha256"
 	"encoding/base64"
-	"strconv"
+	"encoding/json"
 	"strings"
 	"time"
 
 	"github.com/cangrejometralleta/OneTwoThree/examples/school/go/faults"
 )
 
-// ErrTokenIsInvalid Covers every Way a Token can Fail.
-// A Caller who Cannot Prove itself Gets one Answer, never a Reason why.
+// ErrTokenIsInvalid Answers every Token the Guard cannot Trust, whatever Broke.
+// A Caller Learns that it Failed and never why.
 var ErrTokenIsInvalid = faults.RefuseUnprovenCaller("token is Invalid or Expired")
 
-// AccessTokens Fulfils TokenIssuer with the standard Library only.
-// Reference: https://pkg.go.dev/crypto/hmac
+// AccessTokens Mints and Reads Bearer Tokens signed with HMAC-SHA256,
+// using the standard Library alone. A Token is two base64url Parts joined by
+// a dot: the Claims, then the Signature over them.
 type AccessTokens struct {
-	Secret []byte
-	Life   time.Duration
-	Now    func() time.Time
+	secret []byte
+	life   time.Duration
+	now    func() time.Time
 }
 
-// BuildAccessTokens Takes the two Values Validated at Startup.
-// It Names no Config Shape.
+type claims struct {
+	Subject  string `json:"sub"`
+	Deadline int64  `json:"exp"`
+}
+
+// BuildAccessTokens Casts the Issuer with its Secret and how long a Token Lives.
 func BuildAccessTokens(secret string, lifeSeconds int) AccessTokens {
-	return AccessTokens{
-		Secret: []byte(secret),
-		Life:   time.Duration(lifeSeconds) * time.Second,
-		Now:    time.Now,
-	}
+	return AccessTokens{secret: []byte(secret), life: time.Duration(lifeSeconds) * time.Second, now: time.Now}
 }
 
-// IssueAccessToken Signs a Subject together with its Deadline.
-func (h AccessTokens) IssueAccessToken(subject string) (string, error) {
-	if len(h.Secret) == 0 {
+// IssueAccessToken Mints a Token for one Subject. An empty Secret Signs nothing.
+func (a AccessTokens) IssueAccessToken(subject string) (string, error) {
+	if len(a.secret) == 0 || subject == "" {
 		return "", ErrTokenIsInvalid
 	}
 
-	claim := subject + "." + strconv.FormatInt(h.Now().Add(h.Life).Unix(), 10)
-
-	return claim + "." + h.SignTokenClaim(claim), nil
-}
-
-// ReadAccessToken Returns the Subject, or Says why it Cannot.
-// The Comparison Reads forward: a Token Dies once its Deadline Passes.
-func (h AccessTokens) ReadAccessToken(token string) (string, error) {
-	claim, err := h.OpenSignedClaim(token)
+	payload, err := json.Marshal(claims{Subject: subject, Deadline: a.now().Add(a.life).Unix()})
 	if err != nil {
 		return "", err
 	}
 
-	subject, deadline, _ := strings.Cut(claim, ".")
-	seconds, parseErr := strconv.ParseInt(deadline, 10, 64)
-	if parseErr != nil || h.Now().After(time.Unix(seconds, 0)) {
-		return "", ErrTokenIsInvalid
-	}
+	encoded := base64.RawURLEncoding.EncodeToString(payload)
 
-	return subject, nil
+	return encoded + "." + a.sign(encoded), nil
 }
 
-// OpenSignedClaim Returns the Claim only when the Signature Holds.
-func (h AccessTokens) OpenSignedClaim(token string) (string, error) {
-	cut := strings.LastIndex(token, ".")
-	if cut < 0 {
+// ReadCaller Names the Subject a Token Proves.
+// The Comparison Reads forward: a Token is Dead when now is after its Deadline.
+func (a AccessTokens) ReadCaller(token string) (string, error) {
+	encoded, signature, found := strings.Cut(token, ".")
+	if !found || len(a.secret) == 0 || !hmac.Equal([]byte(signature), []byte(a.sign(encoded))) {
 		return "", ErrTokenIsInvalid
 	}
 
-	claim, signature := token[:cut], token[cut+1:]
-
-	if !hmac.Equal([]byte(signature), []byte(h.SignTokenClaim(claim))) {
+	payload, err := base64.RawURLEncoding.DecodeString(encoded)
+	if err != nil {
 		return "", ErrTokenIsInvalid
 	}
 
-	return claim, nil
+	var read claims
+	if err := json.Unmarshal(payload, &read); err != nil || read.Subject == "" {
+		return "", ErrTokenIsInvalid
+	}
+
+	if a.now().Unix() > read.Deadline {
+		return "", ErrTokenIsInvalid
+	}
+
+	return read.Subject, nil
 }
 
-// SignTokenClaim Reduces a Claim to its Signature.
-func (h AccessTokens) SignTokenClaim(claim string) string {
-	mac := hmac.New(sha256.New, h.Secret)
-	mac.Write([]byte(claim))
+func (a AccessTokens) sign(encoded string) string {
+	mac := hmac.New(sha256.New, a.secret)
+	mac.Write([]byte(encoded))
 
 	return base64.RawURLEncoding.EncodeToString(mac.Sum(nil))
 }
