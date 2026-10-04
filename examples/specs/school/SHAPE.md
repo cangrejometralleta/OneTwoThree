@@ -106,6 +106,7 @@ and a Spec Line with no Test that Pins it is a Wish.
 | A Failed Notice never Fails the Enrolment | `app`: `TestEnrollStudentKeepsAFailedNoticeInsideTheAnswer`, `handler`: `TestEnrolmentSurvivesAFailedAnnouncement` |
 | A Rewrite Asks and Announces nothing | `app`: `TestSaveStudentAsksTheRegistryAndAnnouncesNothing` |
 | Reading, Listing and Dropping go through the Ports | `app`: `TestReadStudent*`, `TestListStudents*`, `TestDeleteStudent*`, `TestCreateCourse*`, `TestReadCourse*` |
+| Each of the Nine Routes Answers its Success Status | `handler`: `TestEachRouteAnswersWithItsDeclaredStatus` |
 | Each Fault Answers its Status | `handler`: `TestEachFaultReachesTheEdgeWhole`, `app`: `TestReadFaultStatus*` |
 | Every Route but the Token Needs a Caller | `handler`: `TestEveryRouteButTheTokenRefusesAnUnnamedCaller` |
 | A Token Dies once, never before | `tokens`: `TestAccessTokenDiesOnlyAfterItsDeadline` |

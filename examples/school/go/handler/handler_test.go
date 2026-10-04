@@ -153,6 +153,11 @@ func CallRoute(t *testing.T, api Handler, method, pattern string, req transport.
 func TestEachRouteAnswersWithItsDeclaredStatus(t *testing.T) {
 	api := BuildTestingSchool()
 	enrol := transport.Request{Body: []byte(`{"rut":"12345678-5","name":"Ada","age":20,"courseId":1}`)}
+	rewrite := transport.Request{
+		Path: map[string]string{"id": "1"},
+		Body: []byte(`{"rut":"12345678-5","name":"Ada Lovelace","age":21,"courseId":1}`),
+	}
+	open := transport.Request{Body: []byte(`{"code":"FIS-201","name":"Physics"}`)}
 
 	cases := []struct {
 		story   string
@@ -165,6 +170,10 @@ func TestEachRouteAnswersWithItsDeclaredStatus(t *testing.T) {
 		{"someone Enrols", "POST", "/students", enrol, http.StatusCreated},
 		{"the Roll is Read", "GET", "/students", transport.Request{}, http.StatusOK},
 		{"one Student is Read", "GET", "/students/{id}", transport.Request{Path: map[string]string{"id": "1"}}, http.StatusOK},
+		{"an Enrolment is Rewritten", "PUT", "/students/{id}", rewrite, http.StatusOK},
+		{"the Catalogue is Read", "GET", "/courses", transport.Request{}, http.StatusOK},
+		{"a Course Opens", "POST", "/courses", open, http.StatusCreated},
+		{"one Course is Read", "GET", "/courses/{id}", transport.Request{Path: map[string]string{"id": "1"}}, http.StatusOK},
 		{"an Enrolment Ends", "DELETE", "/students/{id}", transport.Request{Path: map[string]string{"id": "1"}}, http.StatusNoContent},
 	}
 
