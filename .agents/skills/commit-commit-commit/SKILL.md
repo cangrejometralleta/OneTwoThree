@@ -89,7 +89,12 @@ Do not stage a mixed Hunk merely because its file is already in a group.
 - Never Rewrite, amend or squash existing commits unless asked.
 - Never Include unrelated local changes to make the tree clean.
 - Never Push when validation fails or a commit fails.
-- Never force Push.
+- When replacing remote history is required, inspect the exact target and use
+  `--force-with-lease`; never use unconditional `--force` or bypass branch
+  protection.
+- Do not warn or ask again solely because the configured push target is `main`.
+  Push normally to the existing upstream; let branch protection accept or
+  reject the update, and report any rejection without bypassing it.
 - Never Brand a commit or pull request with its Vendor —
   no co-author, session or generated-by Trailer; the message carries the Change.
 - Never create an Upstream without naming the branch and asking first.
