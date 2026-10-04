@@ -61,7 +61,7 @@ AGENTS.md stays free for the short pointer to canon.
 - [A Memory at the Root](stories/memory-index.md)
 - [Distillation Reaches a Codebase](stories/distillation-in-code.md)
 - [A Channel for Design](stories/a-channel-for-design.md) — the Value landed; the example Catalog and the `one-two-refactor` rename wait
-- [School in Two More Languages](stories/school-in-two-more-languages.md) (BLOCKED: Go must close first)
+- [School in Two More Languages](stories/school-in-two-more-languages.md) (BLOCKED: waiting for the go-ahead; the method is a clean-context agent)
 
 ## Provenance Map
 
