@@ -2,12 +2,46 @@
 
 [Español](README.es.md)
 
-OneTwoThree is a Repository that is both a Manifesto and a Codebase.
+OneTwoThree is a Harness for shared Work between a Person and an Agent.
+It Protects human attention by keeping the next Step small, the State outside the mind and the Machine inside its Authority.
+
+It does not try to use every Capability, cover every Case or automate every Decision.
+**More is a Cost before it is a Feature.**
+
+The Repository is both a Manifesto and a Codebase.
 Its Rules tell an Agent how to read, write and collaborate here.
 Its Values and Patterns hold the reasons, so a Person can challenge them.
 
-This Page is the technical Version of the [Presentation](docs/presentation.en.md).
-The Presentation tells why; this Page says where each piece lives and how to check it.
+The Harness is meant to become unnecessary.
+What remains is the Learning.
+
+This Page is the technical Presentation of OneTwoThree.
+The longer [Presentation](docs/presentation.en.md) tells why the ideas exist; this Page shows the Architecture, Operations and checks that make them concrete.
+
+## Technical Presentation
+
+The Harness has three jobs: preserve Context across disposable sessions, bound what an Agent may do next and turn repeated experience into inspectable Canon.
+
+```text
+Person       supplies Intention, judgment and authority
+Harness      holds Context, rules, operations and boundaries
+Agent        reads the current state and takes one verifiable Step
+```
+
+A normal session is deliberately small:
+
+```text
+ring-ring-ring   reconstruct Context and name one next Step
+next-next-next   execute that Step, verify it and stop
+one-two-checkpoint   persist durable state while the Work is moving
+bye-bye-bye     leave a handoff another session can resume
+```
+
+Projects connect to the Canon through `one-two-update`, then expose selected skills and agents through `one-two-reload`. Existing installations keep their distribution mechanism: clone, submodule, subtree, symlink or portable ZIP. Filesystem validation proves the connection; client discovery proves that the Agent actually loaded it.
+
+The same boundary applies to knowledge. Raw experience stays in `chaos/`, a depersonalized observation may become a Story, and only Learning that survives review becomes a Value, Rule or Pattern. The System may generate and compare; the Person decides what governs.
+
+The examples make the architectural Rules executable. The School service is generated from a Contract, a Specification and a Shape that live apart from its code; Go follows them today, and Java and TypeScript wait to be regenerated; the PDF converter keeps Markdown parsing, document structure and rendering behind explicit boundaries. The point is not maximum automation. The point is Work that remains understandable, interruptible, verifiable and resumable.
 
 ## The Repository, in one Map
 
@@ -60,6 +94,9 @@ Three is the last count where both columns match, and the smallest one that clos
 The Number is a Source to derive from, never a quota to reach.
 A situation that holds four categories keeps all four.
 See [Three over Four](patterns/three-over-four.md) and [Count me In](patterns/count-me-in.md).
+
+Three does not ask the System to do less because less is virtuous.
+It asks what must remain Visible for a Person to understand, interrupt and continue the Work.
 
 ## Values, Rules and Patterns Rotate
 
@@ -225,6 +262,7 @@ The Skills define the operations; each linked file holds the details.
 | `ha dove`, `hey dove`, `yo dove`, `hi dove`, `sup dove`, `ring dove`, `ring ring dove` or resume earlier work | [ring-ring-ring](.agents/skills/ring-ring-ring/SKILL.md) | Syncs the project branch, rebuilds context and names one next step. |
 | `next`, `sigue` or a selected option | [next-next-next](.agents/skills/next-next-next/SKILL.md) | Takes one recommended step, verifies it and names the following one. |
 | A durable edit, decision or validation | [one-two-checkpoint](.agents/skills/one-two-checkpoint/SKILL.md) | Saves the thread in `.handoff.md` during work. |
+| A requirement changes the shape of an app | [one-two-design](.agents/skills/one-two-design/SKILL.md) | Picks the smallest shape from the Example of its kind, and keeps the origin Example and the real code in step. |
 | A change starts growing | [one-two-growth](.agents/skills/one-two-growth/SKILL.md) | Checks whether one intent still holds the change. |
 | Ask for pending stories | [one-two-stories](.agents/skills/one-two-stories/SKILL.md) | Sorts stories by what they wait on and distills the one you pick. |
 | Ask to organize, commit and push | [commit-commit-commit](.agents/skills/commit-commit-commit/SKILL.md) | Groups changes by feature, commits each group, pushes once after all succeed. |
@@ -263,7 +301,6 @@ Filesystem validation proves the links, and client discovery proves the load.
 
 ## How Context Becomes Canon
 
-| A requirement changes the shape of an app | [one-two-design](.agents/skills/one-two-design/SKILL.md) | Picks the smallest shape from the Example of its kind, and keeps the origin Example and the real code in step. |
 Three Stages carry a piece of life into the canon, and only the third one stays.
 
 ```mermaid

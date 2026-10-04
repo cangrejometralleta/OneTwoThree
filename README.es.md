@@ -2,13 +2,47 @@
 
 [English](README.md)
 
-OneTwoThree es un Repositorio que es a la vez un Manifiesto y una Base de código.
+OneTwoThree es un Harness para el Trabajo compartido entre una Persona y un Agente.
+Protege la atención humana manteniendo pequeño el siguiente Paso, el Estado fuera de la mente y la Máquina dentro de su Autoridad.
+
+No intenta usar toda Capacidad, cubrir todo Caso ni automatizar toda Decisión.
+**Más es un Costo antes que una Función.**
+
+El Repositorio es a la vez un Manifiesto y una Base de código.
 Sus Reglas dicen cómo un Agente debe leer, escribir y colaborar aquí.
 Sus Valores y Patrones guardan las razones, para que una Persona pueda cuestionarlas.
 
-Esta Página es la versión técnica de la [Presentación](docs/presentation.es.md).
-La Presentación cuenta el porqué; esta Página dice dónde vive cada pieza y cómo comprobarla.
+El Harness está hecho para volverse innecesario.
+Lo que queda es el Aprendizaje.
+
+Esta Página es la Presentación técnica de OneTwoThree.
+La [Presentación](docs/presentation.es.md), más larga, cuenta por qué existen las ideas; esta Página muestra la Arquitectura, las Operaciones y los chequeos que las vuelven concretas.
 Los documentos enlazados están en inglés, salvo la Presentación.
+
+## Presentación técnica
+
+El Harness tiene tres trabajos: preservar el Contexto entre sesiones desechables, acotar lo que un Agente puede hacer a continuación y convertir la experiencia repetida en un Canon inspeccionable.
+
+```text
+Persona      aporta Intención, criterio y autoridad
+Harness      guarda Contexto, reglas, operaciones y límites
+Agente       lee el estado actual y da un Paso verificable
+```
+
+Una sesión normal es deliberadamente pequeña:
+
+```text
+ring-ring-ring   reconstruye el Contexto y nombra un siguiente Paso
+next-next-next   ejecuta ese Paso, lo verifica y se detiene
+one-two-checkpoint   persiste el estado durable mientras el Trabajo avanza
+bye-bye-bye     deja un handoff que otra sesión pueda retomar
+```
+
+Los proyectos se conectan al Canon con `one-two-update` y luego exponen las skills y agentes elegidos con `one-two-reload`. Las instalaciones existentes conservan su mecanismo de distribución: clone, submodule, subtree, symlink o ZIP portable. La validación del filesystem prueba la conexión; el descubrimiento del cliente prueba que el Agente realmente la cargó.
+
+El mismo límite vale para el conocimiento. La experiencia en bruto se queda en `chaos/`, una observación despersonalizada puede volverse una Story, y solo el Aprendizaje que sobrevive a la revisión se vuelve un Valor, una Regla o un Patrón. El Sistema puede generar y comparar; la Persona decide qué gobierna.
+
+Los ejemplos vuelven ejecutables las Reglas de arquitectura. El servicio School se genera desde un Contrato, una Especificación y una Forma que viven aparte de su código; Go las sigue hoy, y Java y TypeScript esperan su regeneración; el conversor PDF mantiene el parseo de Markdown, la estructura del documento y el renderizado detrás de fronteras explícitas. El punto no es la máxima automatización. El punto es un Trabajo que siga siendo comprensible, interrumpible, verificable y retomable.
 
 ## El Repositorio, en un Mapa
 
@@ -61,6 +95,9 @@ Tres es el último conteo donde ambas columnas coinciden, y el menor que cierra 
 El Número es una Fuente de la que derivar, nunca una cuota que alcanzar.
 Una situación con cuatro categorías se queda con las cuatro.
 Ver [Three over Four](patterns/three-over-four.md) y [Count me In](patterns/count-me-in.md).
+
+Tres no le pide al Sistema que haga menos porque menos sea virtuoso.
+Pregunta qué debe seguir Visible para que una Persona entienda, interrumpa y continúe el Trabajo.
 
 ## Valores, Reglas y Patrones Rotan
 
@@ -137,8 +174,8 @@ El servicio Go sigue las tres; Java y TypeScript conservan aún la forma anterio
 ```text
 main       arma los actores y elige un adaptador
 adapters   los únicos archivos que importan un framework
-api        el guion: handlers y los providers que declaran
-app        el cruce, la forma y el caller
+handler    el guion: declaraciones de rutas y métodos handler
+app        servicios, ports del store, el cruce, la forma y el caller
 school     el núcleo de negocio: sin HTTP, sin driver
 store      el único paquete que importa un ORM
 wire       el contrato, cada forma que un cliente envía o recibe
@@ -156,18 +193,18 @@ TOKEN_SECRET=s ./run.sh gin        # stdlib, chi o gin
 Un handler responde con un valor o falla, y nunca arma una respuesta:
 
 ```go
-func (a SchoolAPI) ShowStudentRecord(req transport.Request) (any, error) {
+func (a Handler) ShowStudentRecord(req transport.Request) (any, error) {
 	id, err := app.ReadPathNumber(req)
 	if err != nil {
 		return nil, err
 	}
 
-	student, err := a.Students.SelectStudentRow(school.StudentID(id))
+	student, err := a.School.ReadStudent(school.StudentID(id))
 	if err != nil {
 		return nil, err
 	}
 
-	return school.RenderStudentView(student), nil
+	return renderStudentView(student), nil
 }
 ```
 
@@ -226,6 +263,7 @@ Las Skills definen las operaciones; cada archivo enlazado guarda los detalles.
 | `ha dove`, `hey dove`, `yo dove`, `hi dove`, `sup dove`, `ring dove`, `ring ring dove` o retomar trabajo previo | [ring-ring-ring](.agents/skills/ring-ring-ring/SKILL.md) | Sincroniza la rama, reconstruye el contexto y nombra un siguiente paso. |
 | `next`, `sigue` u opción elegida | [next-next-next](.agents/skills/next-next-next/SKILL.md) | Da un paso recomendado, lo verifica y nombra el siguiente. |
 | Una edición, decisión o validación durable | [one-two-checkpoint](.agents/skills/one-two-checkpoint/SKILL.md) | Guarda el hilo en `.handoff.md` durante el trabajo. |
+| Un requisito cambia la forma de una app | [one-two-design](.agents/skills/one-two-design/SKILL.md) | Elige la forma más pequeña desde el Ejemplo de su tipo, y mantiene al día el Ejemplo origen y el código real. |
 | Un cambio empieza a crecer | [one-two-growth](.agents/skills/one-two-growth/SKILL.md) | Revisa si una sola intención aún sostiene el cambio. |
 | Pedir las stories pendientes | [one-two-stories](.agents/skills/one-two-stories/SKILL.md) | Ordena las stories por lo que esperan y destila la que elijas. |
 | Pedir organizar, commitear y pushear | [commit-commit-commit](.agents/skills/commit-commit-commit/SKILL.md) | Agrupa cambios por feature, commitea cada grupo y pushea una vez al final. |
@@ -264,7 +302,6 @@ La validación del filesystem prueba los links, y el descubrimiento del cliente 
 
 ## Cómo el Contexto se vuelve Canon
 
-| Un requisito cambia la forma de una app | [one-two-design](.agents/skills/one-two-design/SKILL.md) | Elige la forma más pequeña desde el Ejemplo de su tipo, y mantiene al día el Ejemplo origen y el código real. |
 Tres Etapas llevan un pedazo de vida al canon, y solo la tercera se queda.
 
 ```mermaid
