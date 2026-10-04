@@ -1,0 +1,356 @@
+openapi: 3.1.0
+info:
+  title: School
+  version: 1.0.0
+  description: >-
+    The contract of the School service, written from SPEC.md.
+    Every route but POST /token needs a bearer token.
+    A Failure always Answers FailureView, and each fault carries its status.
+servers:
+  - url: http://localhost:8080
+security:
+  - bearer: []
+paths:
+  /token:
+    post:
+      operationId: issueToken
+      summary: Hand out a bearer token
+      security: []
+      responses:
+        "201":
+          description: A signed token whose Subject is student-registry.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/TokenView"
+  /students:
+    get:
+      operationId: listStudents
+      summary: List students
+      parameters:
+        - $ref: "#/components/parameters/Page"
+        - $ref: "#/components/parameters/Size"
+      responses:
+        "200":
+          description: The students in the window, or all of them when no window is Asked.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/StudentView"
+        "400":
+          $ref: "#/components/responses/Invalid"
+        "401":
+          $ref: "#/components/responses/Unauthorized"
+    post:
+      operationId: createStudent
+      summary: Admit a student
+      description: >-
+        Checks run in the order Form, Course, Registry, Store.
+        The Enrollment is Announced once the store Keeps the student,
+        and an Announcement that fails never fails the Enrollment.
+      requestBody:
+        $ref: "#/components/requestBodies/StudentBody"
+      responses:
+        "201":
+          description: The student that was Kept.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/StudentView"
+        "400":
+          $ref: "#/components/responses/Invalid"
+        "401":
+          $ref: "#/components/responses/Unauthorized"
+        "404":
+          $ref: "#/components/responses/NotFound"
+        "409":
+          $ref: "#/components/responses/RutTaken"
+        "422":
+          $ref: "#/components/responses/RutUnregistered"
+        "503":
+          $ref: "#/components/responses/RegistryUnavailable"
+  /students/{id}:
+    parameters:
+      - $ref: "#/components/parameters/Id"
+    get:
+      operationId: getStudent
+      summary: Read one student
+      responses:
+        "200":
+          description: The student.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/StudentView"
+        "400":
+          $ref: "#/components/responses/Invalid"
+        "401":
+          $ref: "#/components/responses/Unauthorized"
+        "404":
+          $ref: "#/components/responses/NotFound"
+    put:
+      operationId: rewriteStudent
+      summary: Rewrite a student
+      description: >-
+        Asks the Registry like an admission does, and Announces nothing.
+      requestBody:
+        $ref: "#/components/requestBodies/StudentBody"
+      responses:
+        "200":
+          description: The student as it Stands now.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/StudentView"
+        "400":
+          $ref: "#/components/responses/Invalid"
+        "401":
+          $ref: "#/components/responses/Unauthorized"
+        "404":
+          $ref: "#/components/responses/NotFound"
+        "409":
+          $ref: "#/components/responses/RutTaken"
+        "422":
+          $ref: "#/components/responses/RutUnregistered"
+        "503":
+          $ref: "#/components/responses/RegistryUnavailable"
+    delete:
+      operationId: deleteStudent
+      summary: Drop a student
+      responses:
+        "204":
+          description: The student is gone.
+        "400":
+          $ref: "#/components/responses/Invalid"
+        "401":
+          $ref: "#/components/responses/Unauthorized"
+        "404":
+          $ref: "#/components/responses/NotFound"
+  /courses:
+    get:
+      operationId: listCourses
+      summary: List courses
+      parameters:
+        - $ref: "#/components/parameters/Page"
+        - $ref: "#/components/parameters/Size"
+      responses:
+        "200":
+          description: The courses in the window, or all of them when no window is Asked.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/CourseView"
+        "400":
+          $ref: "#/components/responses/Invalid"
+        "401":
+          $ref: "#/components/responses/Unauthorized"
+    post:
+      operationId: createCourse
+      summary: Open a course
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/CourseBody"
+      responses:
+        "201":
+          description: The course that was Kept.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/CourseView"
+        "400":
+          $ref: "#/components/responses/Invalid"
+        "401":
+          $ref: "#/components/responses/Unauthorized"
+  /courses/{id}:
+    parameters:
+      - $ref: "#/components/parameters/Id"
+    get:
+      operationId: getCourse
+      summary: Read one course
+      responses:
+        "200":
+          description: The course.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/CourseView"
+        "400":
+          $ref: "#/components/responses/Invalid"
+        "401":
+          $ref: "#/components/responses/Unauthorized"
+        "404":
+          $ref: "#/components/responses/NotFound"
+components:
+  securitySchemes:
+    bearer:
+      type: http
+      scheme: bearer
+      description: >-
+        Carries a Subject and a Deadline, signed with the secret.
+        It dies once its deadline passes, and never before.
+  parameters:
+    Id:
+      name: id
+      in: path
+      required: true
+      schema:
+        type: integer
+        minimum: 1
+    Page:
+      name: page
+      in: query
+      description: Zero based. A value that is not a whole number is Invalid, never Zero.
+      schema:
+        type: integer
+        minimum: 0
+    Size:
+      name: size
+      in: query
+      description: A value that is not a whole number is Invalid, never Zero.
+      schema:
+        type: integer
+        minimum: 1
+  requestBodies:
+    StudentBody:
+      required: true
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/StudentBody"
+  schemas:
+    StudentBody:
+      type: object
+      description: What a Client Sends. The body never carries an Identity.
+      required: [rut, name, age, courseId]
+      additionalProperties: false
+      properties:
+        rut:
+          type: string
+          pattern: "^[0-9]+-[0-9kK]$"
+          description: Passes the modulo eleven check its digit encodes.
+        name:
+          type: string
+          minLength: 1
+        age:
+          type: integer
+          minimum: 18
+          description: The Floor is the global constant minimumAgeYears.
+        courseId:
+          type: integer
+          minimum: 1
+    StudentView:
+      type: object
+      required: [id, rut, name, age, courseId]
+      properties:
+        id:
+          type: integer
+        rut:
+          type: string
+        name:
+          type: string
+        age:
+          type: integer
+        courseId:
+          type: integer
+    CourseBody:
+      type: object
+      required: [code, name]
+      additionalProperties: false
+      properties:
+        code:
+          type: string
+          minLength: 1
+        name:
+          type: string
+          minLength: 1
+    CourseView:
+      type: object
+      required: [id, code, name]
+      properties:
+        id:
+          type: integer
+        code:
+          type: string
+        name:
+          type: string
+    TokenView:
+      type: object
+      required: [token]
+      properties:
+        token:
+          type: string
+    FailureView:
+      type: object
+      required: [error]
+      properties:
+        error:
+          type: string
+          description: The reason the fault Declares, never a driver message.
+  responses:
+    Invalid:
+      description: >-
+        Name is Empty, RUT is Invalid, Age is too Low, Page is Invalid,
+        Body is Broken or Path is Broken.
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/FailureView"
+          examples:
+            nameIsEmpty:
+              value: { error: "name is Empty" }
+            rutIsInvalid:
+              value: { error: "rut Fails its Check Digit" }
+            ageIsTooLow:
+              value: { error: "age Must be 18 or more" }
+            pageIsInvalid:
+              value: { error: "page Numbers Must not be negative" }
+            bodyIsBroken:
+              value: { error: "body is not valid JSON" }
+            pathIsBroken:
+              value: { error: "path Holds no valid Identity" }
+    Unauthorized:
+      description: Token is Invalid. An unnamed caller learns nothing else.
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/FailureView"
+          example: { error: "token is Invalid or Expired" }
+    NotFound:
+      description: Student Unknown or Course Unknown.
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/FailureView"
+          examples:
+            studentUnknown:
+              value: { error: "student not Found" }
+            courseUnknown:
+              value: { error: "course not Found" }
+    RutTaken:
+      description: The RUT is already Registered to another student.
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/FailureView"
+          example: { error: "rut is already Registered" }
+    RutUnregistered:
+      description: The Registry denies the RUT.
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/FailureView"
+          example: { error: "rut is not in the Registry" }
+    RegistryUnavailable:
+      description: The Registry cannot Answer now. An Unknown is never a Yes.
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/FailureView"
+          example: { error: "registry cannot Answer now" }

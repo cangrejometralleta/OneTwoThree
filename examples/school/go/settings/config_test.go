@@ -25,7 +25,38 @@ func buildConfigFixture(t *testing.T) string {
 		}
 	}
 
+	registry, err := os.ReadFile(filepath.Join("..", "..", "config", "registry.json"))
+	if err != nil {
+		t.Fatal(err)
+	}
+	if err := os.WriteFile(filepath.Join(root, "config", "registry.json"), registry, 0600); err != nil {
+		t.Fatal(err)
+	}
+
 	return root
+}
+
+func TestConfigResolvesTheRegistryFromTheDataRoot(t *testing.T) {
+	root := buildConfigFixture(t)
+	environment := map[string]string{"APP_ENV": "production", "TOKEN_SECRET": "test-secret"}
+
+	config, err := LoadSchoolConfig(root, environment)
+	if err != nil {
+		t.Fatal(err)
+	}
+	if config.RegistryPath != filepath.Join(root, "config", "registry.json") {
+		t.Fatalf("RegistryPath=%s", config.RegistryPath)
+	}
+
+	environment["SCHOOL_REGISTRY_PATH"] = filepath.Join(root, "config", "absent.json")
+	if _, err := LoadSchoolConfig(root, environment); err == nil {
+		t.Fatal("A Registry File that does not Exist Must Stop Startup")
+	}
+
+	environment["SCHOOL_REGISTRY_PATH"] = "config"
+	if _, err := LoadSchoolConfig(root, environment); err == nil {
+		t.Fatal("A Directory is not a Registry File")
+	}
 }
 
 func TestConfigPrecedence(t *testing.T) {
@@ -68,6 +99,7 @@ func TestConfigRejectsInvalidInputs(t *testing.T) {
 		{name: "invalid port", environment: map[string]string{"SCHOOL_PORT": "65536"}},
 		{name: "fractional port", environment: map[string]string{"SCHOOL_PORT": "3.5"}},
 		{name: "empty path", environment: map[string]string{"SCHOOL_DATABASE_PATH": " "}},
+		{name: "empty registry path", environment: map[string]string{"SCHOOL_REGISTRY_PATH": " "}},
 		{name: "global variable", environment: map[string]string{"SCHOOL_MINIMUM_AGE_YEARS": "1"}},
 		{name: "unknown variable", environment: map[string]string{"SCHOOL_TYPO": "1"}},
 		{name: "global file key", file: `{"databasePath":"test.db","minimumAgeYears":1}`},

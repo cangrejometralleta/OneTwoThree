@@ -52,7 +52,7 @@ AGENTS.md stays free for the short pointer to canon.
 
 ## Undistilled Context
 
-7 of 9 filled. Distill before promoting a tenth.
+8 of 9 filled. Distill before promoting a tenth.
 
 - [Roadmap](stories/roadmap.md) — own linter, modular cluster with LiteLLM, color by semantic association (prose BLOCKED: a role tagger and a palette)
 - [Another three showing up on its own](stories/another-three-showing-up.md) (SPECULATIVE)
@@ -61,6 +61,7 @@ AGENTS.md stays free for the short pointer to canon.
 - [A Memory at the Root](stories/memory-index.md)
 - [Distillation Reaches a Codebase](stories/distillation-in-code.md)
 - [A Channel for Design](stories/a-channel-for-design.md) — the Value landed; the example Catalog and the `one-two-refactor` rename wait
+- [School in Two More Languages](stories/school-in-two-more-languages.md) (BLOCKED: Go must close first)
 
 ## Provenance Map
 

@@ -12,10 +12,12 @@ import (
 // Every controlled Fault Answers with the Status its Kind Maps to.
 func TestReadFaultStatusAnswersForEachKind(t *testing.T) {
 	cases := map[error]int{
-		faults.RefuseInvalidInput("bad"):   http.StatusBadRequest,
-		faults.RefuseUnprovenCaller("who"): http.StatusUnauthorized,
-		faults.ReportMissingRecord("gone"): http.StatusNotFound,
-		faults.ReportTakenValue("taken"):   http.StatusConflict,
+		faults.RefuseInvalidInput("bad"):         http.StatusBadRequest,
+		faults.RefuseUnprovenCaller("who"):       http.StatusUnauthorized,
+		faults.ReportMissingRecord("gone"):       http.StatusNotFound,
+		faults.ReportTakenValue("taken"):         http.StatusConflict,
+		faults.RefuseUnprocessableValue("no"):    http.StatusUnprocessableEntity,
+		faults.ReportUnavailableProvider("down"): http.StatusServiceUnavailable,
 	}
 
 	for fault, wanted := range cases {

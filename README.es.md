@@ -18,7 +18,7 @@ RULES.md    el Cómo        reglas verificables, en rules/
 PATTERNS.md el Dónde       raíces que se repiten, en patterns/
 AGENTS.md   el Puntero     lo que un agente carga solo
 .agents/    agents/ y skills/, las operaciones
-examples/   school/ y pdf/, las reglas corriendo en Go
+examples/   school/ y pdf/, las reglas corriendo en Go; specs/ guarda lo que las genera
 docs/       la Presentación, en inglés y en español
 stories/    STORY.md, stories/ y chaos/: contexto, aún no canon
 jokes/      humor escrito a mano; se lee, nunca se agrega
@@ -130,8 +130,9 @@ Cada regla que gobierna código corre en [examples](examples).
 
 ### El Servicio School
 
-[School](examples/school/README.md) es una API escrita en Go, Java y TypeScript.
-La misma [Especificación](examples/school/SPEC.md) vale para las tres, y [The Before](examples/school/BEFORE.md) muestra el original con cada regla rota nombrada.
+[School](examples/school/README.md) es una API generada desde un [Contrato](examples/specs/school/openapi.yaml), una [Especificación](examples/specs/school/SPEC.md) y una [Forma](examples/specs/school/SHAPE.md).
+El servicio Go sigue las tres; Java y TypeScript conservan aún la forma anterior y esperan su regeneración.
+[The Before](examples/school/BEFORE.md) muestra el original con cada regla rota nombrada.
 
 ```text
 main       arma los actores y elige un adaptador

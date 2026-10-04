@@ -9,10 +9,12 @@ import (
 // Every controlled Fault Answers with the Kind it Declared.
 func TestReadFaultKindAnswersForEachKind(t *testing.T) {
 	cases := map[error]Kind{
-		RefuseInvalidInput("bad"):   InvalidInput,
-		RefuseUnprovenCaller("who"): UnprovenCaller,
-		ReportMissingRecord("gone"): MissingRecord,
-		ReportTakenValue("taken"):   TakenValue,
+		RefuseInvalidInput("bad"):         InvalidInput,
+		RefuseUnprovenCaller("who"):       UnprovenCaller,
+		ReportMissingRecord("gone"):       MissingRecord,
+		ReportTakenValue("taken"):         TakenValue,
+		RefuseUnprocessableValue("no"):    UnprocessableValue,
+		ReportUnavailableProvider("down"): UnavailableProvider,
 	}
 
 	for fault, wanted := range cases {

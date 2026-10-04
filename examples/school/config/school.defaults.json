@@ -1,5 +1,6 @@
 {
   "port": 8080,
+  "registryPath": "config/registry.json",
   "tokenLifeSeconds": 600,
   "serverAdapter": "stdlib"
 }

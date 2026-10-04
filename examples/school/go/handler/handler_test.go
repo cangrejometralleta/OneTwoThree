@@ -93,13 +93,36 @@ func (f *FakeSchool) SelectCoursePage(school.Page) ([]school.Course, error) {
 	return courses, nil
 }
 
-// BuildTestingSchool Hands the API three Fakes.
+// FakeOffice Stands in for the Registry and the Notice: every RUT is Real.
+type FakeOffice struct{}
+
+func (FakeOffice) ConfirmRut(school.RUT) (bool, error) { return true, nil }
+
+func (FakeOffice) AnnounceEnrollment(school.Student) error { return nil }
+
+// DenyingOffice Stands in for a Registry that Knows no one.
+type DenyingOffice struct{ FakeOffice }
+
+func (DenyingOffice) ConfirmRut(school.RUT) (bool, error) { return false, nil }
+
+// SilentOffice Stands in for a Registry that cannot Answer, and a Notice that cannot Leave.
+type SilentOffice struct{ FakeOffice }
+
+func (SilentOffice) ConfirmRut(school.RUT) (bool, error) {
+	return false, errors.New("registry socket closed")
+}
+
+func (SilentOffice) AnnounceEnrollment(school.Student) error {
+	return errors.New("mail is down")
+}
+
+// BuildTestingSchool Hands the API its Fakes.
 func BuildTestingSchool() Handler {
 	fake := BuildFakeSchool()
 	issuer := tokens.BuildAccessTokens("test", 60)
 
 	return Handler{
-		School: app.SchoolService{Students: fake, Courses: fake},
+		School: app.SchoolService{Students: fake, Courses: fake, Registry: FakeOffice{}, Notices: FakeOffice{}},
 		Tokens: issuer,
 	}
 }
@@ -151,6 +174,17 @@ func TestEachRouteAnswersWithItsDeclaredStatus(t *testing.T) {
 				t.Fatalf("wanted %d, got %d: %v", test.status, reply.Status, reply.Body)
 			}
 		})
+	}
+}
+
+// A Notice that did not Leave never Fails the Enrolment the Caller Asked for.
+func TestEnrolmentSurvivesAFailedAnnouncement(t *testing.T) {
+	api := BuildTestingSchool()
+	api.School.Notices = SilentOffice{}
+	enrol := transport.Request{Body: []byte(`{"rut":"12345678-5","name":"Ada","age":20,"courseId":1}`)}
+
+	if reply := CallRoute(t, api, "POST", "/students", enrol); reply.Status != http.StatusCreated {
+		t.Fatalf("wanted %d, got %d: %v", http.StatusCreated, reply.Status, reply.Body)
 	}
 }
 

@@ -1,6 +1,6 @@
 # School — Java
 
-The same [Specification](../SPEC.md) as Go and TypeScript,
+The same [Contract](../../specs/school/openapi.yaml) and [Specification](../../specs/school/SPEC.md) as Go and TypeScript,
 in the Language [the Before](../BEFORE.md) was Written in.
 
 ```bash

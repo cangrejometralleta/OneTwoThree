@@ -4,6 +4,10 @@ The technical Test, Rewritten three times.
 Students, courses, a chilean RUT and a token,
 served by seven frameworks that never Touch the Business.
 
+The Go Service is Generated from the Contract, the Specification and the Shape
+in [specs/school](../specs/school). Java and TypeScript keep the earlier Shape
+and Wait to be Regenerated, so only Go Answers the whole Contract today.
+
 [The Before](BEFORE.md) Reads the original test and Names the rule
 each seam earned. Read that first if you want the Argument
 instead of the Conclusion.
@@ -32,7 +36,7 @@ The Argument Wins over both.
 `run.sh` Refuses to Start without a Secret.
 Both Say which adapter they know, and Name the one you asked for.
 
-The [Specification](SPEC.md) Says what all three Answer.
+The [Contract](../specs/school/openapi.yaml), the [Specification](../specs/school/SPEC.md) and [the Shape](../specs/school/SHAPE.md) Say what a Generated Service Answers; Go does today.
 
 ```bash
 TOKEN_SECRET=s go/run.sh gin        # Go
@@ -64,6 +68,7 @@ Files are Read once at Startup; restart after a change.
 | `APP_ENV` | Environment File | Required; `development` or `production` |
 | `SCHOOL_PORT` | `port` | Integer 1–65535; Default 8080 |
 | `SCHOOL_DATABASE_PATH` | `databasePath` | Nonempty String |
+| `SCHOOL_REGISTRY_PATH` | `registryPath` | Nonempty String; the File must Exist; relative Paths Resolve from the data Root |
 | `SCHOOL_TOKEN_LIFE_SECONDS` | `tokenLifeSeconds` | 1–86400 Seconds; Default 600 |
 | `SERVER` | `serverAdapter` | Go: `stdlib`, `chi`, `gin`; TypeScript: `stdlib`, `node`, `express`, `fastify` |
 | `TOKEN_SECRET` | Secret Injection | Required in every Environment; no File Key |

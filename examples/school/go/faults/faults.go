@@ -13,6 +13,8 @@ const (
 	UnprovenCaller
 	MissingRecord
 	TakenValue
+	UnprocessableValue
+	UnavailableProvider
 )
 
 // A Fault is a Failure the Program Expected, Carrying the Kind it Deserves.
@@ -45,6 +47,18 @@ func ReportMissingRecord(reason string) Fault {
 // ReportTakenValue Names a Collision with something already Stored.
 func ReportTakenValue(reason string) Fault {
 	return Fault{Kind: TakenValue, Reason: reason}
+}
+
+// RefuseUnprocessableValue Names a Value that is well Formed and still Denied
+// by the Authority that Knows.
+func RefuseUnprocessableValue(reason string) Fault {
+	return Fault{Kind: UnprocessableValue, Reason: reason}
+}
+
+// ReportUnavailableProvider Names a Provider that cannot Answer now.
+// The Caller may Retry; an Unknown is never a Yes.
+func ReportUnavailableProvider(reason string) Fault {
+	return Fault{Kind: UnavailableProvider, Reason: reason}
 }
 
 // ReadFaultKind Finds the Fault inside any Wrapping.

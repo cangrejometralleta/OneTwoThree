@@ -61,6 +61,26 @@ func TestEachFaultReachesTheEdgeWhole(t *testing.T) {
 			status: http.StatusConflict,
 		},
 		{
+			story: "someone Enrols with a RUT the Registry Denies",
+			arrive: func(api Handler) error {
+				api.School.Registry = DenyingOffice{}
+
+				return EnrolWithBody(`{"rut":"12345678-5","name":"Ada","age":20,"courseId":1}`)(api)
+			},
+			want:   school.ErrRutUnregistered,
+			status: http.StatusUnprocessableEntity,
+		},
+		{
+			story: "someone Enrols while the Registry cannot Answer",
+			arrive: func(api Handler) error {
+				api.School.Registry = SilentOffice{}
+
+				return EnrolWithBody(`{"rut":"12345678-5","name":"Ada","age":20,"courseId":1}`)(api)
+			},
+			want:   school.ErrRegistryUnavailable,
+			status: http.StatusServiceUnavailable,
+		},
+		{
 			story: "someone Asks for a Student by a Path that Holds no Number",
 			arrive: func(api Handler) error {
 				return TellingFailure(api.ShowStudentRecord, transport.Request{Path: map[string]string{"id": "abc"}})

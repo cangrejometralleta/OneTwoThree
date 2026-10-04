@@ -2,9 +2,11 @@ package main
 
 import (
 	"log"
+	"log/slog"
 	"strconv"
 
 	"github.com/cangrejometralleta/OneTwoThree/examples/school/go/app"
+	"github.com/cangrejometralleta/OneTwoThree/examples/school/go/campus"
 	"github.com/cangrejometralleta/OneTwoThree/examples/school/go/handler"
 	"github.com/cangrejometralleta/OneTwoThree/examples/school/go/serving"
 	"github.com/cangrejometralleta/OneTwoThree/examples/school/go/serving/chiserver"
@@ -23,13 +25,21 @@ func main() {
 		log.Fatalf("❌ School Configuration Failed: %v", err)
 	}
 
-	registry, err := store.OpenSchoolStore(config.DatabasePath)
+	database, err := store.OpenSchoolStore(config.DatabasePath)
 	if err != nil {
 		log.Fatalf("❌ School Database Refused to Open: %v", err)
 	}
 
+	office, err := campus.OpenOffice(config.RegistryPath, slog.Default())
+	if err != nil {
+		log.Fatalf("❌ School Registry Refused to Open: %v", err)
+	}
+
 	schoolHandler := handler.Handler{
-		School: app.SchoolService{Students: registry, Courses: registry},
+		School: app.SchoolService{
+			Students: database, Courses: database,
+			Registry: office, Notices: office, Logger: slog.Default(),
+		},
 		Tokens: tokens.BuildAccessTokens(config.TokenSecret, config.TokenLifeSeconds),
 	}
 	server := SelectServerAdapter(config.ServerAdapter)

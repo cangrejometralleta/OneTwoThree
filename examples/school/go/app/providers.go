@@ -18,6 +18,17 @@ type CourseStore interface {
 	SelectCoursePage(page school.Page) ([]school.Course, error)
 }
 
+// RutRegistry Confirms whether a RUT Belongs to someone Real.
+// A RUT it Denies answers false; a Registry that cannot Answer returns an error.
+type RutRegistry interface {
+	ConfirmRut(rut school.RUT) (bool, error)
+}
+
+// EnrollmentNotifier Announces a Student the Store has Kept.
+type EnrollmentNotifier interface {
+	AnnounceEnrollment(student school.Student) error
+}
+
 // TokenIssuer Mints a Bearer Token and Reads one for the Guard.
 type TokenIssuer interface {
 	IssueAccessToken(subject string) (string, error)
