@@ -262,6 +262,7 @@ Filesystem validation proves the links, and client discovery proves the load.
 
 ## How Context Becomes Canon
 
+| A requirement changes the shape of an app | [one-two-design](.agents/skills/one-two-design/SKILL.md) | Picks the smallest shape from the Example of its kind, and keeps the origin Example and the real code in step. |
 Three Stages carry a piece of life into the canon, and only the third one stays.
 
 ```mermaid

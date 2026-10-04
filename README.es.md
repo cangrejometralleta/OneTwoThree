@@ -263,6 +263,7 @@ La validación del filesystem prueba los links, y el descubrimiento del cliente 
 
 ## Cómo el Contexto se vuelve Canon
 
+| Un requisito cambia la forma de una app | [one-two-design](.agents/skills/one-two-design/SKILL.md) | Elige la forma más pequeña desde el Ejemplo de su tipo, y mantiene al día el Ejemplo origen y el código real. |
 Tres Etapas llevan un pedazo de vida al canon, y solo la tercera se queda.
 
 ```mermaid
