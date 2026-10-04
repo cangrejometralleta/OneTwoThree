@@ -97,6 +97,7 @@ and a Spec Line with no Test that Pins it is a Wish.
 
 | The Spec Says | The Test that Pins it |
 | --- | --- |
+| A Course needs a Code and a Name | `school`: `TestCheckCourseRecordGuardsEachRule`, `app`: `TestCreateCourseRefusesACourseWithoutCodeOrName`, `handler`: `TestEachFaultReachesTheEdgeWhole` |
 | Name, age and RUT Rules | `school`: `TestCheckStudentRecordGuardsEachRule`, `TestRutLooksValid*` |
 | The Order is Form, Course, Registry, Store | `app`: `TestTheRegistryIsAskedAfterTheFormAndTheCourse` |
 | The Registry Denies | `app`: `TestEnrollStudentRefusesWhatTheRegistryDenies` |
@@ -104,6 +105,7 @@ and a Spec Line with no Test that Pins it is a Wish.
 | Enrolling Announces once the Store Keeps | `app`: `TestEnrollStudentAnnouncesOnceTheStoreKeeps` |
 | A Failed Notice never Fails the Enrolment | `app`: `TestEnrollStudentKeepsAFailedNoticeInsideTheAnswer`, `handler`: `TestEnrolmentSurvivesAFailedAnnouncement` |
 | A Rewrite Asks and Announces nothing | `app`: `TestSaveStudentAsksTheRegistryAndAnnouncesNothing` |
+| Reading, Listing and Dropping go through the Ports | `app`: `TestReadStudent*`, `TestListStudents*`, `TestDeleteStudent*`, `TestCreateCourse*`, `TestReadCourse*` |
 | Each Fault Answers its Status | `handler`: `TestEachFaultReachesTheEdgeWhole`, `app`: `TestReadFaultStatus*` |
 | Every Route but the Token Needs a Caller | `handler`: `TestEveryRouteButTheTokenRefusesAnUnnamedCaller` |
 | A Token Dies once, never before | `tokens`: `TestAccessTokenDiesOnlyAfterItsDeadline` |

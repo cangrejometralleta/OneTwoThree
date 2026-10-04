@@ -67,6 +67,10 @@ func (s SchoolService) ReadCourse(id school.CourseID) (school.Course, error) {
 
 // CreateCourse Stores one Course.
 func (s SchoolService) CreateCourse(course school.Course) (school.Course, error) {
+	if err := course.CheckCourseRecord(); err != nil {
+		return school.Course{}, err
+	}
+
 	return s.Courses.InsertCourseRow(course)
 }
 

@@ -296,8 +296,8 @@ components:
   responses:
     Invalid:
       description: >-
-        Name is Empty, RUT is Invalid, Age is too Low, Page is Invalid,
-        Body is Broken or Path is Broken.
+        Name is Empty, Code is Empty, RUT is Invalid, Age is too Low,
+        Page is Invalid, Body is Broken or Path is Broken.
       content:
         application/json:
           schema:
@@ -305,6 +305,8 @@ components:
           examples:
             nameIsEmpty:
               value: { error: "name is Empty" }
+            codeIsEmpty:
+              value: { error: "code is Empty" }
             rutIsInvalid:
               value: { error: "rut Fails its Check Digit" }
             ageIsTooLow:

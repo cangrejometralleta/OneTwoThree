@@ -81,6 +81,22 @@ func TestEachFaultReachesTheEdgeWhole(t *testing.T) {
 			status: http.StatusServiceUnavailable,
 		},
 		{
+			story: "someone Opens a Course with no Code",
+			arrive: func(api Handler) error {
+				return TellingFailure(api.AddCourseRecord, transport.Request{Body: []byte(`{"code":"","name":"Physics"}`)})
+			},
+			want:   school.ErrCodeIsEmpty,
+			status: http.StatusBadRequest,
+		},
+		{
+			story: "someone Opens a Course with no Name",
+			arrive: func(api Handler) error {
+				return TellingFailure(api.AddCourseRecord, transport.Request{Body: []byte(`{"code":"FIS-201","name":""}`)})
+			},
+			want:   school.ErrNameIsEmpty,
+			status: http.StatusBadRequest,
+		},
+		{
 			story: "someone Asks for a Student by a Path that Holds no Number",
 			arrive: func(api Handler) error {
 				return TellingFailure(api.ShowStudentRecord, transport.Request{Path: map[string]string{"id": "abc"}})

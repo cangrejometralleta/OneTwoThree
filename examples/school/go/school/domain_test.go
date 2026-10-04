@@ -23,6 +23,24 @@ func TestRutLooksValidRefusesBadDigits(t *testing.T) {
 	}
 }
 
+func TestCheckCourseRecordGuardsEachRule(t *testing.T) {
+	cases := map[string]struct {
+		course Course
+		want   error
+	}{
+		"valid":   {Course{Code: "MAT-101", Name: "Algebra"}, nil},
+		"no code": {Course{Name: "Algebra"}, ErrCodeIsEmpty},
+		"no name": {Course{Code: "MAT-101"}, ErrNameIsEmpty},
+		"neither": {Course{}, ErrCodeIsEmpty},
+	}
+
+	for name, test := range cases {
+		if got := test.course.CheckCourseRecord(); got != test.want {
+			t.Errorf("%s: wanted %v, got %v", name, test.want, got)
+		}
+	}
+}
+
 func TestCheckStudentRecordGuardsEachRule(t *testing.T) {
 	good := Student{Rut: "12345678-5", Name: "Ada", Age: 20, Course: 1}
 

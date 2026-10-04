@@ -51,6 +51,19 @@ func (s Student) CheckStudentRecord() error {
 	return s.CheckStudentAge()
 }
 
+// CheckCourseRecord Refuses a Course the Business cannot Use.
+func (c Course) CheckCourseRecord() error {
+	if c.Code == "" {
+		return ErrCodeIsEmpty
+	}
+
+	if c.Name == "" {
+		return ErrNameIsEmpty
+	}
+
+	return nil
+}
+
 // CheckStudentAge Holds the one Rule the School will not Bend.
 func (s Student) CheckStudentAge() error {
 	if s.Age < ReadSchoolConstants().MinimumAgeYears {

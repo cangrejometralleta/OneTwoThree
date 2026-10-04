@@ -19,6 +19,8 @@ A driver Error is Ours, never the Caller's.
   remainder eleven Means `0` and ten Means `k`.
 - A RUT is unique across students, and the store Proves it.
 - A Course needs a Code and a Name.
+  A Course without a Name Answers Name is Empty, and one without a Code
+  Answers Code is Empty, before the store Writes.
 - Creating or rewriting a student Checks the course Exists first.
 
 ## Admission, Asked of the Registry
