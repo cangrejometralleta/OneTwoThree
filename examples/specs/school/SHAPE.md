@@ -58,6 +58,7 @@ no Socket and no Wire Package.
 school     the Core: business Truth, no Provider, no Vendor
 app        the Service, its Ports, the Crossing and Validation
 handler    the Door: Routes and Handler methods
+transport  Request, Response and Route: the Shapes the Door and the Adapters Share; imports nothing
 wire       the Contract: every Shape a Client Sends or Receives
 faults     controlled Failures, each Carrying its Kind
 store      the only Package that Imports an ORM
@@ -67,6 +68,27 @@ serving    one Package per Framework; the Server and the Request Reading
 settings   the strict JSON Loader, Validated at Startup
 main       Casts the Players and Picks an Adapter
 ```
+
+## Other Languages
+
+A Language that is not Go Keeps the same Shape, and Answers these Questions its own Way.
+
+- JSON is a Vendor where the Standard Library has none. It Lives in one Package, `codec`,
+  the only one that Imports the Library; the Core, the Token and the Door Read Plain Values.
+- The Compiler Holds the Boundary where it Can. Where one Module cannot, a Test Reads the
+  Imports of each Package and Fails when the Core Names a Vendor; it Says which Vendor may
+  Live where, and the Build File is Part of the Check.
+- A Driver the Runtime Finds without an Import, as JDBC does, still Lives in the Store.
+- A Port is Named for one Object, and its Actions are that Object's: the Token Issuer
+  Mints and Reads.
+- The Door Splits Reading: `serving` Reads Bytes, Method, Path and Headers, and `app`
+  Reads them into Typed Values.
+- A Store Port Answers Absence however its Language Does, and the Service Raises Unknown.
+  The Store alone Raises RUT Taken, because only it Proves it.
+- A Test Name is the Story, in the Language's own Case.
+- The Format Gate is the Language's own Formatter; where none Ships, the Gate Checks what
+  it Can and Says so.
+- A Build Names the Toolchain it Needs, and a Missing one Stops it with the Fix.
 
 ## The Three Shapes
 

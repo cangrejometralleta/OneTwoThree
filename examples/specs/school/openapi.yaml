@@ -6,6 +6,8 @@ info:
     The contract of the School service, written from SPEC.md.
     Every route but POST /token needs a bearer token.
     A Failure always Answers FailureView, and each fault carries its status.
+    A path or a method no route holds answers 404 with `route not Found`, before the guard.
+    A failure that carries no fault answers 500 with `internal error`.
 servers:
   - url: http://localhost:8080
 security:
@@ -23,6 +25,8 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/TokenView"
+        "500":
+          $ref: "#/components/responses/ServerFailure"
   /students:
     get:
       operationId: listStudents
@@ -43,6 +47,8 @@ paths:
           $ref: "#/components/responses/Invalid"
         "401":
           $ref: "#/components/responses/Unauthorized"
+        "500":
+          $ref: "#/components/responses/ServerFailure"
     post:
       operationId: createStudent
       summary: Admit a student
@@ -71,6 +77,8 @@ paths:
           $ref: "#/components/responses/RutUnregistered"
         "503":
           $ref: "#/components/responses/RegistryUnavailable"
+        "500":
+          $ref: "#/components/responses/ServerFailure"
   /students/{id}:
     parameters:
       - $ref: "#/components/parameters/Id"
@@ -90,6 +98,8 @@ paths:
           $ref: "#/components/responses/Unauthorized"
         "404":
           $ref: "#/components/responses/NotFound"
+        "500":
+          $ref: "#/components/responses/ServerFailure"
     put:
       operationId: rewriteStudent
       summary: Rewrite a student
@@ -116,6 +126,8 @@ paths:
           $ref: "#/components/responses/RutUnregistered"
         "503":
           $ref: "#/components/responses/RegistryUnavailable"
+        "500":
+          $ref: "#/components/responses/ServerFailure"
     delete:
       operationId: deleteStudent
       summary: Drop a student
@@ -128,6 +140,8 @@ paths:
           $ref: "#/components/responses/Unauthorized"
         "404":
           $ref: "#/components/responses/NotFound"
+        "500":
+          $ref: "#/components/responses/ServerFailure"
   /courses:
     get:
       operationId: listCourses
@@ -148,6 +162,8 @@ paths:
           $ref: "#/components/responses/Invalid"
         "401":
           $ref: "#/components/responses/Unauthorized"
+        "500":
+          $ref: "#/components/responses/ServerFailure"
     post:
       operationId: createCourse
       summary: Open a course
@@ -168,6 +184,8 @@ paths:
           $ref: "#/components/responses/Invalid"
         "401":
           $ref: "#/components/responses/Unauthorized"
+        "500":
+          $ref: "#/components/responses/ServerFailure"
   /courses/{id}:
     parameters:
       - $ref: "#/components/parameters/Id"
@@ -187,6 +205,8 @@ paths:
           $ref: "#/components/responses/Unauthorized"
         "404":
           $ref: "#/components/responses/NotFound"
+        "500":
+          $ref: "#/components/responses/ServerFailure"
 components:
   securitySchemes:
     bearer:
@@ -244,7 +264,7 @@ components:
           description: The Floor is the global constant minimumAgeYears.
         courseId:
           type: integer
-          minimum: 1
+          description: A course nobody holds, zero included, is Course Unknown (404).
     StudentView:
       type: object
       required: [id, rut, name, age, courseId]
@@ -294,6 +314,13 @@ components:
           type: string
           description: The reason the fault Declares, never a driver message.
   responses:
+    ServerFailure:
+      description: A failure that carries no fault. The reason never names a driver.
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/FailureView"
+          example: { error: "internal error" }
     Invalid:
       description: >-
         Name is Empty, Code is Empty, RUT is Invalid, Age is too Low,
@@ -312,7 +339,7 @@ components:
             ageIsTooLow:
               value: { error: "age Must be 18 or more" }
             pageIsInvalid:
-              value: { error: "page Numbers Must not be negative" }
+              value: { error: "page or size is not valid" }
             bodyIsBroken:
               value: { error: "body is not valid JSON" }
             pathIsBroken:
@@ -325,7 +352,7 @@ components:
             $ref: "#/components/schemas/FailureView"
           example: { error: "token is Invalid or Expired" }
     NotFound:
-      description: Student Unknown or Course Unknown.
+      description: Student Unknown, Course Unknown or, for a route nobody holds, Route Unknown.
       content:
         application/json:
           schema:
@@ -335,6 +362,8 @@ components:
               value: { error: "student not Found" }
             courseUnknown:
               value: { error: "course not Found" }
+            routeUnknown:
+              value: { error: "route not Found" }
     RutTaken:
       description: The RUT is already Registered to another student.
       content:
