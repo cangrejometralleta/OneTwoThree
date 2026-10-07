@@ -1,6 +1,6 @@
 ---
 name: one-two-update
-description: "Maintain the OneTwoThree Canon connection through source distribution and client loading. Use when adopting, syncing or exporting the Canon, or exposing and reloading selected skills and agents in a supported client."
+description: "Maintain the OneTwoThree Canon connection through source distribution and client loading. Use when adopting, syncing or exporting the Canon, or exposing selected skills and refreshing them in the active client."
 ---
 
 # OneTwoUpdate
@@ -9,7 +9,7 @@ Maintain the project's connection to the OneTwoThree Canon and its active AI cli
 Choose the workflow that matches the request, and read only that workflow's reference.
 
 - **Adopt, sync or export the Canon** — follow [Source Distribution](references/source-distribution.md).
-- **Expose or reload project customizations** — follow [Client Loading](references/client-loading.md).
+- **Expose customizations and refresh the active client** — follow [Client Loading](references/client-loading.md).
 - **Both changed** — complete Source Distribution first, then Client Loading.
 
 The ZIP exporter and its installation guidance are in

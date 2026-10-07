@@ -31,9 +31,9 @@ the same file format, directory or reload command.
 7. Confirm every stale Reference has a valid canonical replacement.
 8. Remove obsolete Files and links; update references to the replacement.
 9. Validate Links, frontmatter, names and adapter syntax before reloading.
-10. Invoke the client's available reload, rescan or window-refresh Action.
+10. Refresh the active client through its available command, API or UI control.
 11. Verify Discovery through the client when an inspection tool exists.
-12. Report what Loaded, removed, stayed unavailable or needs a manual restart.
+12. Report what Loaded, removed, stayed unavailable or still needs a client action.
 
 Treat these as common Entrances, not timeless guarantees:
 
@@ -47,19 +47,34 @@ Treat these as common Entrances, not timeless guarantees:
 If the installed client documents another Path, follow the installed client.
 The Client Owns Discovery; this skill owns the local connection to it.
 
-## Reload Rules
+## Refresh the Active Client
 
-- Prefer a client API or editor Command that explicitly reloads customizations.
-- Reload the editor Window only when no narrower supported action exists.
-- Never kill an active client Process or delete its cache without permission.
-- Never claim a Reload from filesystem changes alone.
-- When no reload action is exposed, validate the Files and ask for the smallest
-  manual action: start a new chat, reload the window or restart the client.
-- A Skill cannot Reload the Turn already reading it. Verify the next discovery
-  cycle and say when that Boundary applies.
-- After any skill, agent, entrance or tool change, Remind the user to reload or
-  restart the client and begin a new chat. The current turn may keep the old
-  Customizations and tool grants even when the filesystem is already correct.
+Identify the client from the active app/session and available tools, not from
+the folder layout alone. After changing files, use the client's supported
+refresh action through its CLI, API or connected UI. Prefer an in-session
+action. Do this yourself when the active client is reachable; do not stop at
+giving the user a command.
+
+Use these documented behaviors as starting points. Check current official docs
+when the installed version exposes a different command or interface:
+
+| Client | Refresh the current client | Verify |
+| --- | --- | --- |
+| [Claude Code](https://code.claude.com/docs/en/skills) | When the active entrance is project `.claude/skills/`, edits are watched. If that top-level directory was created after startup, run `/reload-skills`. | Run `/skills`; invoke the changed skill again to load its current body. |
+| [Codex app, CLI or IDE](https://developers.openai.com/codex/skills) | Codex detects local skill changes. If the active client does not pick up the change, save the work and restart Codex. | Check the current skill picker/list and invoke the skill again. |
+| [OpenCode](https://docs.opencode.ai/docs/skills/) | Invoke the native `skill` tool again; each model step advertises available skills and the tool resolves the current file. | Confirm the loaded body matches the canonical file. |
+| [GitHub Copilot CLI](https://docs.github.com/en/copilot/how-tos/copilot-cli/customize-copilot/add-skills) | Run `/skills reload` in the active session. | Run `/skills info <name>` or `/skills list`. |
+| [GitHub Copilot in VS Code](https://code.visualstudio.com/docs/agent-customization/agent-skills) | No skill-specific refresh command is documented. Check the `/` skill menu; if stale, save the work and run `Developer: Reload Window`. | Reopen the skill menu and inspect the [Agent Customizations](https://code.visualstudio.com/docs/agent-customization/overview) view. |
+
+For another client, find its currently documented refresh control instead of
+assuming a universal reload command. Prefer the narrowest action that refreshes
+the active session. Do not force-quit a client or delete its cache.
+
+A refreshed skill registry does not erase instructions already injected into
+the current conversation. Re-invoke the changed skill when supported; if the
+client keeps the old body or cannot refresh this session, report that exact
+limit and the smallest remaining action. Never claim a client reload from
+filesystem changes alone.
 
 ## Integration Rules
 
@@ -196,10 +211,12 @@ Keep the Report short and separate proven states:
 - Entrance: .github/skills -> ../.agents/skills
 - Removed: 3 stale References
 
-⚠️ Codex entrance Validated; client restart Required.
+⚠️ Codex skill is on disk; the current client has not confirmed discovery.
 
-Reload the Client and begin a new chat before using the changed customizations.
+Refresh the active client and re-invoke the updated skill; start a new session
+only when the client requires it.
 ```
 
 Never say every client Loaded when only one client was available to verify.
-Never finish a Reload after changes without the client reload reminder.
+Never finish after changes without reporting the refresh action and whether
+the active client verified the updated customizations.

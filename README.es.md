@@ -292,7 +292,7 @@ flowchart LR
     FORMAT -- "ZIP" --> ZIP["Snapshot generado<br/>.agents/distribution.json"]
     CLONE --> RELOAD["carga en el cliente"]
     ZIP --> RELOAD
-    RELOAD --> VERIFY["Recargar el cliente · Abrir un chat nuevo<br/>Verificar el descubrimiento"]
+    RELOAD --> VERIFY["Actualizar el cliente activo<br/>Verificar el descubrimiento"]
 ```
 
 Las instalaciones existentes conservan su mecanismo y sus personalizaciones locales.
