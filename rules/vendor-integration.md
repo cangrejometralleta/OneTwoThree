@@ -21,6 +21,7 @@ GEMINI.md      -> AGENTS.md
 .claude/agents -> ../.agents/agents
 .claude/skills -> ../.agents/skills
 .codex/agents  -> ../.agents/agents
+.gemini/agents -> ../.agents/agents
 .github/agents -> ../.agents/agents
 .github/skills -> ../.agents/skills
 ```

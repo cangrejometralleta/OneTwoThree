@@ -17,7 +17,7 @@ Until then, the History Surface reports `no marks known` and stops.
 **Entrances**
 - `GEMINI.md` -> `AGENTS.md`, a symbolic link, as `CLAUDE.md` is.
   Present in this repository.
-- `.gemini/agents` -> `../.agents/agents`. Not created here yet.
+- `.gemini/agents` -> `../.agents/agents`. Present in this repository.
 
 **Not an Entrance** — `.gemini/skills`.
 The client Discovers skills in `.agents/skills/` where they already Live,
