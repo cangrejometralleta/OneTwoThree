@@ -38,7 +38,7 @@ one-two-checkpoint   persiste el estado durable mientras el Trabajo avanza
 bye-bye-bye     deja un handoff que otra sesión pueda retomar
 ```
 
-Los proyectos se conectan al Canon con `one-two-update` y luego exponen las skills y agentes elegidos con `one-two-reload`. Las instalaciones existentes conservan su mecanismo de distribución: clone, submodule, subtree, symlink o ZIP portable. La validación del filesystem prueba la conexión; el descubrimiento del cliente prueba que el Agente realmente la cargó.
+Los proyectos se conectan al Canon y cargan las skills y agentes elegidos con `one-two-update`, que guía por separado la distribución del Canon y la carga de personalizaciones en el cliente. Las instalaciones existentes conservan su mecanismo de distribución: clone, submodule, subtree, symlink o ZIP portable. La validación del filesystem prueba la conexión; el descubrimiento del cliente prueba que el Agente realmente la cargó.
 
 El mismo límite vale para el conocimiento. La experiencia en bruto se queda en `chaos/`, una observación despersonalizada puede volverse una Story, y solo el Aprendizaje que sobrevive a la revisión se vuelve un Valor, una Regla o un Patrón. El Sistema puede generar y comparar; la Persona decide qué gobierna.
 
@@ -264,7 +264,7 @@ Las Skills definen las operaciones; cada archivo enlazado guarda los detalles.
 | `ha dove`, `hey dove`, `yo dove`, `hi dove`, `sup dove`, `ring dove`, `ring ring dove` o retomar trabajo previo | [ring-ring-ring](.agents/skills/ring-ring-ring/SKILL.md) | Sincroniza la rama, reconstruye el contexto y nombra un siguiente paso. |
 | `next`, `sigue` u opción elegida | [next-next-next](.agents/skills/next-next-next/SKILL.md) | Da un paso recomendado, lo verifica y nombra el siguiente. |
 | Una edición, decisión o validación durable | [one-two-checkpoint](.agents/skills/one-two-checkpoint/SKILL.md) | Guarda el hilo en `.handoff.md` durante el trabajo. |
-| Un requisito cambia la forma de una app | [one-two-design](.agents/skills/one-two-design/SKILL.md) | Elige la forma más pequeña desde el Ejemplo de su tipo, y mantiene al día el Ejemplo origen y el código real. |
+| Cambia el código o un requisito cambia la forma de una app | [one-two-refactor](.agents/skills/one-two-refactor/SKILL.md) | Aplica las Rules de código y lee el flujo de diseño si el requisito cambia la forma de la app. |
 | Un cambio empieza a crecer | [one-two-growth](.agents/skills/one-two-growth/SKILL.md) | Revisa si una sola intención aún sostiene el cambio. |
 | Pedir las stories pendientes | [one-two-stories](.agents/skills/one-two-stories/SKILL.md) | Ordena las stories por lo que esperan y destila la que elijas. |
 | Pedir organizar, commitear y pushear | [commit-commit-commit](.agents/skills/commit-commit-commit/SKILL.md) | Agrupa cambios por feature, commitea cada grupo y pushea una vez al final. |
@@ -272,10 +272,9 @@ Las Skills definen las operaciones; cada archivo enlazado guarda los detalles.
 | Un secreto pudo entrar al historial | [one-two-purge](.agents/skills/one-two-purge/SKILL.md) | Detecta, confirma y purga un valor exacto de archivos e historial; también quita la autoría como último recurso. |
 
 Las skills de apoyo dan forma al trabajo mientras ocurre:
-[one-two-refactor](.agents/skills/one-two-refactor/SKILL.md) para código,
-[de-la-case](.agents/skills/de-la-case/SKILL.md) para nombres y prosa,
-[one-two-output](.agents/skills/one-two-output/SKILL.md) para la salida de terminal y
-[one-two-joke](.agents/skills/one-two-joke/SKILL.md) para leer el directorio de chistes.
+[one-two-refactor](.agents/skills/one-two-refactor/SKILL.md) para código y diseño guiado por requisitos,
+[de-la-case](.agents/skills/de-la-case/SKILL.md) para nombres y prosa, y
+[what-i-did-today](.agents/skills/what-i-did-today/SKILL.md) para novedades de Jira.
 
 El [Diagrama de Sesión](patterns/the-lever-and-the-tape.md) conecta estas operaciones.
 Un pedido nuevo con su propia intención inicia su propio trabajo.
@@ -283,15 +282,15 @@ Abrir una sesión nombra el siguiente paso; publicar y cerrar necesitan cada uno
 
 ## Conectar un Proyecto
 
-[one-two-update](.agents/skills/one-two-update/SKILL.md) instala o actualiza la conexión con el canon.
-[one-two-reload](.agents/skills/one-two-reload/SKILL.md) conecta el cliente activo con las skills y agentes elegidos.
+[one-two-update](.agents/skills/one-two-update/SKILL.md) gestiona la conexión con el canon y conecta el cliente activo con las skills y agentes elegidos.
+[apply-symlink-structure](.agents/skills/apply-symlink-structure/SKILL.md) aplica una estructura documentada de enlaces relativos a una carpeta o proyecto.
 
 ```mermaid
 flowchart LR
     UPDATE["one-two-update"] --> FORMAT{"Distribución"}
     FORMAT -- "Clone" --> CLONE[".agents/canon<br/>Links relativos seleccionados"]
     FORMAT -- "ZIP" --> ZIP["Snapshot generado<br/>.agents/distribution.json"]
-    CLONE --> RELOAD["one-two-reload"]
+    CLONE --> RELOAD["carga en el cliente"]
     ZIP --> RELOAD
     RELOAD --> VERIFY["Recargar el cliente · Abrir un chat nuevo<br/>Verificar el descubrimiento"]
 ```

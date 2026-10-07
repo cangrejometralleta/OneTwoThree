@@ -22,7 +22,7 @@ Run from the source repository, using absolute source and output Paths:
 `--skills` accepts comma-separated Names.
 Agent and skill links Close the selection recursively, including cycles.
 A referenced agent may therefore Return through a selected skill.
-The maintenance skills `one-two-update` and `one-two-reload` are always Included.
+The maintenance skill `one-two-update` is always Included.
 
 The source must be a checkout with the official OneTwoThree Origin.
 The command does not fetch or claim that local `HEAD` is the latest Canon.
@@ -51,8 +51,6 @@ The selected Skills Keep their supporting scripts and references.
 
 Optional links to omitted source material Become upstream commit URLs and
 appear in `remote_references`; those references require network Access.
-`one-two-joke` is unavailable in this format because its workflow Requires
-hand-written material that cannot be distributed.
 A missing local reference or selected dependency Fails the export.
 
 The Manifest Records the official source, local commit, dirty flag,
@@ -66,7 +64,7 @@ An existing output file is never Replaced.
 ## Install or Replace
 
 For an empty destination, extract the ZIP at the project Root.
-Then use OneTwoReload for the active client's discovery Entrances.
+Then use the Client Loading workflow in OneTwoUpdate for the active client's discovery Entrances.
 The consuming project needs neither Git nor Go merely to read the package.
 Executing an included supporting tool may Require its own runtime.
 

@@ -1,6 +1,6 @@
 ---
 name: one-two-refactor
-description: Apply the OneTwoThree manifesto's code conventions when writing or refactoring code and its configuration — structure, naming, seams, comments, named values, Provider and Layer boundaries, wire/business/storage Shapes, controlled Failures, constants, tests, build scripts, and shared vendor integration. Use whenever generating or refactoring code in a project that follows Rules from cangrejometralleta/OneTwoThree, or when the user asks for "the manifesto rules". To hear the pattern under a design or a change, send Dove instead — it reads the explanation and names the shape it keeps making.
+description: Apply OneTwoThree code conventions while writing or refactoring code. For new applications or requirements that change an application's shape, also use the linked design workflow. Use in projects following this Canon or when asked for its Rules.
 ---
 
 # OneTwoRefactor
@@ -11,6 +11,8 @@ If a Rules file exists in the current repo, it is Canonical — this
 skill is the checklist, not a replacement.
 
 This Skill Rides along while you write.
+For a new application or a requirement that changes its shape,
+read [Design Workflow](references/design.md) before implementation.
 To hear the Pattern under a design or a change, send the
 [Dove](../../agents/dove.md) agent —
 it reads the explanation and names the shape it keeps making.

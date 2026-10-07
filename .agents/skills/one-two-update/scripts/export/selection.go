@@ -40,7 +40,7 @@ func collectBundle(source sourceTree, options exportOptions) (map[string][]byte,
 	if err := selection.addCanon(); err != nil {
 		return nil, err
 	}
-	for _, skill := range strings.Split("one-two-update,one-two-reload,"+options.skills, ",") {
+	for _, skill := range strings.Split("one-two-update,"+options.skills, ",") {
 		if skill != "" {
 			if err := selection.addSkill(skill); err != nil {
 				return nil, err
@@ -85,9 +85,6 @@ func (selection *bundleSelection) addDirectory(prefix string) error {
 func (selection *bundleSelection) addSkill(name string) error {
 	if !selectionName.MatchString(name) {
 		return fmt.Errorf("invalid skill name: %s", name)
-	}
-	if name == "one-two-joke" {
-		return fmt.Errorf("one-two-joke requires excluded hand-written material; it cannot be bundled")
 	}
 	if selection.skills[name] {
 		return nil

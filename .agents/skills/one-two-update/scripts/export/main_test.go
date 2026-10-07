@@ -17,26 +17,27 @@ func createFixture(t *testing.T) string {
 	t.Helper()
 	root := t.TempDir()
 	files := map[string]string{
-		"AGENTS.md":                                 "[Rules](RULES.md)\n",
-		"RULES.md":                                  "[Rule](rules/one.md)\n",
-		"VALUES.md":                                 "[Value](values/one.md)\n",
-		"PATTERNS.md":                               "[Pattern](patterns/one.md)\n",
-		"rules/one.md":                              "[Example](../examples/demo.md)\n",
-		"values/one.md":                             "Value\n",
-		"patterns/one.md":                           "Pattern\n",
-		".canonignore":                              "jokes/**\n**/bin/**\n",
-		".gitignore":                                ".agents/settings.local.json\n",
-		".agents/skills/one-two-update/SKILL.md":    "[Reload](../one-two-reload/SKILL.md)\n",
-		".agents/skills/one-two-reload/SKILL.md":    "[Update](../one-two-update/SKILL.md)\n",
-		".agents/skills/reader/SKILL.md":            "[Helper](../helper/SKILL.md)\n[Rule](../../../rules/one.md)\n",
-		".agents/skills/helper/SKILL.md":            "[Reader](../reader/SKILL.md)\n[Notes](references/notes.md)\n",
-		".agents/skills/helper/references/notes.md": "Supporting notes\n",
-		".agents/skills/unused/SKILL.md":            "Not selected\n",
-		".agents/skills/reader/bin/compiled":        "Do not carry\n",
-		".agents/agents/dove.md":                    "[Reader](../skills/reader/SKILL.md)\n[Values](../../VALUES.md)\n",
-		".agents/agents/dove.toml":                  "name = 'dove'\n",
-		"examples/demo.md":                          "An optional example\n",
-		"jokes/private.md":                          "Excluded source\n",
+		"AGENTS.md":                              "[Rules](RULES.md)\n",
+		"RULES.md":                               "[Rule](rules/one.md)\n",
+		"VALUES.md":                              "[Value](values/one.md)\n",
+		"PATTERNS.md":                            "[Pattern](patterns/one.md)\n",
+		"rules/one.md":                           "[Example](../examples/demo.md)\n",
+		"values/one.md":                          "Value\n",
+		"patterns/one.md":                        "Pattern\n",
+		".canonignore":                           "jokes/**\n**/bin/**\n",
+		".gitignore":                             ".agents/settings.local.json\n",
+		".agents/skills/one-two-update/SKILL.md": "[Source](references/source-distribution.md)\n[Client](references/client-loading.md)\n",
+		".agents/skills/one-two-update/references/source-distribution.md": "[Client](client-loading.md)\n",
+		".agents/skills/one-two-update/references/client-loading.md":      "[Source](source-distribution.md)\n",
+		".agents/skills/reader/SKILL.md":                                  "[Helper](../helper/SKILL.md)\n[Rule](../../../rules/one.md)\n",
+		".agents/skills/helper/SKILL.md":                                  "[Reader](../reader/SKILL.md)\n[Notes](references/notes.md)\n",
+		".agents/skills/helper/references/notes.md":                       "Supporting notes\n",
+		".agents/skills/unused/SKILL.md":                                  "Not selected\n",
+		".agents/skills/reader/bin/compiled":                              "Do not carry\n",
+		".agents/agents/dove.md":                                          "[Reader](../skills/reader/SKILL.md)\n[Values](../../VALUES.md)\n",
+		".agents/agents/dove.toml":                                        "name = 'dove'\n",
+		"examples/demo.md":                                                "An optional example\n",
+		"jokes/private.md":                                                "Excluded source\n",
 	}
 	for name, content := range files {
 		writeFixture(t, root, name, content)
@@ -163,7 +164,7 @@ func TestExportWorksWithoutGitOrSymlinks(t *testing.T) {
 }
 
 func TestExportRefusesIncompleteOrUnsafeSources(t *testing.T) {
-	for _, scenario := range []string{"unknown", "dirty", "missing", "excluded", "symlink", "escape"} {
+	for _, scenario := range []string{"unknown", "dirty", "missing", "symlink", "escape"} {
 		t.Run(scenario, func(t *testing.T) {
 			source := createFixture(t)
 			output := filepath.Join(t.TempDir(), "bundle.zip")
@@ -176,8 +177,6 @@ func TestExportRefusesIncompleteOrUnsafeSources(t *testing.T) {
 				args = args[:len(args)-1]
 			case "missing":
 				writeFixture(t, source, ".agents/skills/reader/SKILL.md", "[Missing](references/absent.md)\n")
-			case "excluded":
-				args = append(args, "--skills", "one-two-joke")
 			case "escape":
 				args = append(args, "--skills", "../../outside")
 			case "symlink":

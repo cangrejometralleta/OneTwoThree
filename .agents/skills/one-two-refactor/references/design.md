@@ -1,24 +1,18 @@
----
-name: one-two-design
-description: "Design an application or evolve one from requirements, keeping its architecture as simple as maintainable allows by copying the shape of the Example of its Kind. Capture each design decision in the origin Example, regenerate it in the real project, and let the real code confirm or contradict it. Use when a requirement changes the shape of an app, when starting a project of a known Kind, or when real code teaches something the Examples do not hold yet. For conventions while writing code, use one-two-refactor."
----
-
-# OneTwoDesign
+# Design Workflow
 
 A Shape-giver, not a style-checker.
 It decides how little Architecture a requirement needs,
 and keeps the Example and the real Code telling the same Story.
 
-The Values Live in [Approaches](../../../values/approaches.md):
+The Values Live in [Approaches](../../../../values/approaches.md):
 Convention over Configuration, Simplicity over Coverage,
 and a Working Example beats the Generic one.
-The Evidence Lives in [Show me the Code](../../../patterns/show-me-the-code.md).
+The Evidence Lives in [Show me the Code](../../../../patterns/show-me-the-code.md).
 
-## What it is not
+## Boundary
 
-It is not [one-two-refactor](../one-two-refactor/SKILL.md),
-which Rides along while you write and checks each line against the Rules.
-This Skill Runs before the Lines, when a requirement Moves the Shape.
+This workflow Runs before implementation when a requirement Moves the Shape.
+The parent [OneTwoRefactor](../SKILL.md) applies code Rules while writing.
 It is not a Code Review, and it never invents a Generic Framework.
 
 ## When it Runs
@@ -37,8 +31,8 @@ Copy the Structure of the Example of its Kind, not its Business.
 
 | Kind | Origin Example | Real Example |
 | --- | --- | --- |
-| API | [examples/school](../../../examples/school) | muchi-api, beside this repository |
-| Converter | [examples/pdf](../../../examples/pdf) | none yet |
+| API | [examples/school](../../../../examples/school) | muchi-api, beside this repository |
+| Converter | [examples/pdf](../../../../examples/pdf) | none yet |
 
 A Kind with no row is a new Kind: build the smallest working Shape first,
 and let the Next project decide what is Generic.
@@ -65,10 +59,10 @@ flowchart TD
 2. **Kind** — find the Example of its Kind; copy its Structure.
 3. **Smallest Shape** — start with one package and one Door.
    A seam Earns its place by a named Rule:
-   a vendor Behind [Layers](../../../rules/layers.md) and
-   [Providers](../../../rules/providers.md),
-   a boundary Crossing in [Shapes](../../../rules/shapes.md),
-   a controlled Answer in [Failures](../../../rules/failures.md).
+   a vendor Behind [Layers](../../../../rules/layers.md) and
+   [Providers](../../../../rules/providers.md),
+   a boundary Crossing in [Shapes](../../../../rules/shapes.md),
+   a controlled Answer in [Failures](../../../../rules/failures.md).
    A seam with no Reason is a Layer nobody can Delete.
 4. **Three Questions** — who Reads it, who Runs it, who Deletes it.
    A Unit that cannot be Deleted alone is not a Unit.
@@ -121,6 +115,6 @@ Keep it to the Shape and its Decisions, never a Review.
 - Never regenerate in two repositories in one thread.
   Name the other repository's Step and hand it over.
 - Never let the Origin Win a Disagreement with real running Code.
-- Never copy a Path that [.canonignore](../../../.canonignore) lists.
+- Never copy a Path that [.canonignore](../../../../.canonignore) lists.
 - Never present a Decision without its Cost.
-- Never commit; [commit-commit-commit](../commit-commit-commit/SKILL.md) does that.
+- Never commit; [commit-commit-commit](../../commit-commit-commit/SKILL.md) does that.

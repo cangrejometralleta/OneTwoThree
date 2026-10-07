@@ -1,16 +1,11 @@
----
-name: one-two-reload
-description: "Load or refresh a local project's skills and custom agents in the current AI client, removing stale references after replacements resolve. Use when project customizations are missing, stale, renamed, duplicated, newly linked, or need reloading in GitHub Copilot, OpenCode, Claude, Codex, or another supported client."
----
-
-# OneTwoReload
+# Client Loading
 
 A Loader of local Customizations, not an installer of global State.
 It Finds the canonical skills and agents in the current project,
 connects the active client to them, removes obsolete entrances and references,
 reloads what the client can reload, and verifies what it can discover.
 
-The Canon Lives in [Vendor Integration](../../../rules/vendor-integration.md).
+The Canon Lives in [Vendor Integration](../../../../rules/vendor-integration.md).
 
 ## What it Reads
 
@@ -86,7 +81,7 @@ The Client Owns Discovery; this skill owns the local connection to it.
 
 ## Contained Distribution
 
-Use [OneTwoUpdate](../one-two-update/SKILL.md) for the installation layout
+Use [Source Distribution](source-distribution.md) for the installation layout
 and dependency Selection.
 For a clone, keep the reduced source in `.agents/canon` and expose selected
 agents and skills through individual relative Links.
@@ -147,7 +142,7 @@ https://github.com/cangrejometralleta/OneTwoThree.git   branch: main
 
 The ZIP manifest marks `snapshot: true`; name it as a snapshot when Reporting.
 For a legacy copy, say in the same note that the copy is a Fork until the clone returns —
-[The Head is the Canon](../../../rules/the-head-is-the-canon.md)
+[The Head is the Canon](../../../../rules/the-head-is-the-canon.md)
 Asks for the head and Accepts no older commit.
 
 ### Restore before you Reshape
@@ -196,7 +191,7 @@ Keep the Report short and separate proven states:
 
 ```text
 ✅ Loaded in GitHub Copilot
-- Skills: de-la-case, one-two-reload
+- Skills: de-la-case, one-two-update
 - Agents: dove
 - Entrance: .github/skills -> ../.agents/skills
 - Removed: 3 stale References
