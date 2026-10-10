@@ -33,7 +33,7 @@ Una sesión normal es deliberadamente pequeña:
 
 ```text
 ring-ring-ring   reconstruye el Contexto y nombra un siguiente Paso
-next-next-next   ejecuta ese Paso, lo verifica y se detiene
+the-next-episodie   ejecuta ese Paso, lo verifica y se detiene
 one-two-checkpoint   persiste el estado durable mientras el Trabajo avanza
 bye-bye-bye     deja un handoff que otra sesión pueda retomar
 ```
@@ -262,9 +262,10 @@ Las Skills definen las operaciones; cada archivo enlazado guarda los detalles.
 | Cuándo | Skill | Qué hace |
 | --- | --- | --- |
 | `ha dove`, `hey dove`, `yo dove`, `hi dove`, `sup dove`, `ring dove`, `ring ring dove` o retomar trabajo previo | [ring-ring-ring](.agents/skills/ring-ring-ring/SKILL.md) | Sincroniza la rama, reconstruye el contexto y nombra un siguiente paso. |
-| `next`, `sigue` u opción elegida | [next-next-next](.agents/skills/next-next-next/SKILL.md) | Da un paso recomendado, lo verifica y nombra el siguiente. |
+| `next`, `sigue` u opción elegida | [the-next-episodie](.agents/skills/the-next-episodie/SKILL.md) | Da un paso recomendado, lo verifica y nombra el siguiente. |
 | Una edición, decisión o validación durable | [one-two-checkpoint](.agents/skills/one-two-checkpoint/SKILL.md) | Guarda el hilo en `.handoff.md` durante el trabajo. |
 | Cambia el código o un requisito cambia la forma de una app | [one-two-refactor](.agents/skills/one-two-refactor/SKILL.md) | Aplica las Rules de código y lee el flujo de diseño si el requisito cambia la forma de la app. |
+| Preguntar si hay bloqueos o razonamiento repetido | [one-two-unblock](.agents/skills/one-two-unblock/SKILL.md) | Distingue bloqueos, ciclos o hipótesis agotadas y determina qué permite avanzar. |
 | Un cambio empieza a crecer | [one-two-growth](.agents/skills/one-two-growth/SKILL.md) | Revisa si una sola intención aún sostiene el cambio. |
 | Pedir las stories pendientes | [one-two-stories](.agents/skills/one-two-stories/SKILL.md) | Ordena las stories por lo que esperan y destila la que elijas. |
 | Pedir organizar, commitear y pushear | [commit-commit-commit](.agents/skills/commit-commit-commit/SKILL.md) | Agrupa cambios por feature, commitea cada grupo y pushea una vez al final. |
@@ -274,7 +275,7 @@ Las Skills definen las operaciones; cada archivo enlazado guarda los detalles.
 Las skills de apoyo dan forma al trabajo mientras ocurre:
 [one-two-refactor](.agents/skills/one-two-refactor/SKILL.md) para código y diseño guiado por requisitos,
 [de-la-case](.agents/skills/de-la-case/SKILL.md) para nombres y prosa, y
-[what-i-did-today](.agents/skills/what-i-did-today/SKILL.md) para novedades de Jira.
+[what-i-did-today](.agents/skills/what-i-did-today/SKILL.md) para resumir la sesión.
 
 El [Diagrama de Sesión](patterns/the-lever-and-the-tape.md) conecta estas operaciones.
 Un pedido nuevo con su propia intención inicia su propio trabajo.

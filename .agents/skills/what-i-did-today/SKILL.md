@@ -1,25 +1,42 @@
 ---
 name: what-i-did-today
-description: Create a concise first-person Markdown Jira comment that leads with completed work and reports active blockers or states when none were identified. Use when someone asks what they did today or needs help briefing recent session activity.
+description: Summarize completed work and meaningful remaining limitations across the current session, from its start or the latest ring-ring-ring through now. Use when someone asks what they did today or requests a session recap.
 ---
 
 # WhatIDidToday
 
-Turn the current work session into a brief Jira comment the user can paste as-is. Lead with what was completed, then state blocker status.
+Give a compact recap of the work in the current session, through this request.
 
-## Build the Recap
+## Set the Window
 
-Use the conversation and visible evidence: edits, commands, tool results, decisions and outcomes. Inspect current files or Git state only when they clarify what happened. Distinguish completed work from plans. Never invent activity, imply unfinished work is complete, or claim validation that did not happen. Leave out conversation detours, internal reasoning and unrelated pre-existing changes.
+Start at the beginning of the current session, or at the latest point where
+[RingRingRing](../ring-ring-ring/SKILL.md) reopened it, whichever is later.
+Include relevant actions, decisions and outcomes through now.
+Do not treat the calendar day as the boundary or carry older work forward
+just because it is still visible in the repository.
 
-Write from the user's point of view in first person, using active verbs such as “I updated” or “I traced.” Start with the most important completed work and its result. Include validation only when it happened. Keep plans and remaining work separate from completed work so they do not overshadow it.
+Use the conversation as the record. Inspect files or Git state only to clarify
+what changed in this window. Distinguish completed work from plans;
+never claim a check passed unless it did.
+Exclude internal reasoning, unrelated pre-existing changes and detours
+that did not change the work or its direction.
 
-Use a short Markdown structure by default:
+## Write the Recap
 
-- **Done** — the completed work and its outcome.
-- **Blockers** — each active blocker and what it prevents or waits on. If no blocker appears in the session evidence, say “No blockers were identified in this session.” If the status is genuinely unclear, say so instead of guessing.
+Write briefly from the user's point of view, with ordinary capitalization.
+Lead with the most important completed outcome.
+Mention other completed work only when it helps describe the session.
+If the session found a blocker, state it clearly after the completed work.
+Name what it prevents and what condition or input would unblock it.
+Do not bury a blocker among minor details or soften it into a generic limitation.
+Include other limitations only when they materially affect the result.
+When no blocker was found, do not add a generic all-clear.
 
-Keep the recap brief, with fewer details for a small session. Use ordinary capitalization in the Jira comment.
+Let the session determine the shape: one short paragraph for a small session,
+or a short paragraph and a few bullets when several outcomes need separation.
+Use no fixed headings or repeated status template.
 
-Return only the Markdown comment body, with no code fence, preamble or sign-off. Do not post the comment or interact with Jira; this skill prepares text for the user to paste.
+Return only the recap; do not add a preamble, sign-off or follow-up offer.
 
-If the session does not provide enough evidence to describe completed work truthfully, ask one focused question or state the specific detail that is missing. Do not fill gaps with guesses.
+If the session boundary or evidence is unclear enough to make the recap
+unreliable, state the specific uncertainty instead of guessing.

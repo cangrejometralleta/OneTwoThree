@@ -11,6 +11,8 @@
 - Minimalism here is not a Style.  
   Autistic burnout Taught the limit,  
   and living it Came before writing it.
+- Cognitive Accessibility is a Design condition: Limited Attention must not prevent a Person from understanding or steering the Work.
+- The Person Chooses the Pace and depth; Design for attention that varies, and assume no Diagnosis from how someone reads.
 - One is the Minimum  
   number of items  
   to hold in mind at a time.

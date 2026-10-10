@@ -5,6 +5,8 @@ description: "Close a work session by writing a concise, self-contained reposito
 
 # ByeByeBye
 
+The Name Recalls *Bye Bye Bye* by NSYNC; the farewell makes it easier to remember.
+
 A session Closing, not a Summary for Display.
 It Leaves the next Session one durable Thread to pick up.
 

@@ -1,9 +1,12 @@
 ---
-name: next-next-next
+name: the-next-episodie
 description: "Advance to the next recommended course of action and take exactly one Step. Use when the user says next, sigue, continue, go on, selects a numbered option, or asks what to do now and wants it done rather than listed. It finds the standing recommendation or selected choice, confirms it still holds, takes one Step, and names the Step after it."
 ---
 
-# NextNextNext
+# TheNextEpisodie
+
+The Name Recalls *The Next Episode* by Dr. Dre featuring Snoop Dogg.
+The next episode makes the Continuation easier to remember.
 
 A Continuation, not a Plan and not a session Opening.
 It Takes the Step that was already named,

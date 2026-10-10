@@ -32,7 +32,7 @@ A normal session is deliberately small:
 
 ```text
 ring-ring-ring   reconstruct Context and name one next Step
-next-next-next   execute that Step, verify it and stop
+the-next-episodie   execute that Step, verify it and stop
 one-two-checkpoint   persist durable state while the Work is moving
 bye-bye-bye     leave a handoff another session can resume
 ```
@@ -253,6 +253,11 @@ Its Bounds are explicit:
 
 It also hooks the session lifecycle: a durable edit calls `one-two-checkpoint`, `ha dove`, `hey dove`, `yo dove`, `hi dove`, `sup dove`, `ring dove` or `ring ring dove` calls `ring-ring-ring` and `bye dove` calls `bye-bye-bye`.
 The Quipu behind the turn shape is told in the [Presentation](docs/presentation.en.md).
+Its conversational shape uses ordinary capitalization and varies with the content;
+the three beats guide the answer without requiring repeated labels.
+When a detour leaves the original purpose pending, Dove offers `sexy back` to return.
+The Name Recalls *SexyBack* by Justin Timberlake; a Quipu can be Rolled up.
+`bye-bye-bye` recalls *Bye Bye Bye* by NSYNC, making the farewell easier to remember.
 
 ## The Skills
 
@@ -261,9 +266,11 @@ The Skills define the operations; each linked file holds the details.
 | When | Skill | What it does |
 | --- | --- | --- |
 | `ha dove`, `hey dove`, `yo dove`, `hi dove`, `sup dove`, `ring dove`, `ring ring dove` or resume earlier work | [ring-ring-ring](.agents/skills/ring-ring-ring/SKILL.md) | Syncs the project branch, rebuilds context and names one next step. |
-| `next`, `sigue` or a selected option | [next-next-next](.agents/skills/next-next-next/SKILL.md) | Takes one recommended step, verifies it and names the following one. |
+| `next`, `sigue` or a selected option | [the-next-episodie](.agents/skills/the-next-episodie/SKILL.md) | Takes one recommended step, verifies it and names the following one. |
+| `sexy back`, `vuelve al origen` or return to the original topic | [sexy-back](.agents/skills/sexy-back/SKILL.md) | Rolls up the digression, preserves what remains pending and resumes the original purpose. |
 | A durable edit, decision or validation | [one-two-checkpoint](.agents/skills/one-two-checkpoint/SKILL.md) | Saves the thread in `.handoff.md` during work. |
 | Code changes or a requirement changes an app's shape | [one-two-refactor](.agents/skills/one-two-refactor/SKILL.md) | Applies code Rules and reads its design Workflow when a requirement changes the app's shape. |
+| Ask whether progress is blocked or reasoning repeats | [one-two-unblock](.agents/skills/one-two-unblock/SKILL.md) | Identifies blockers, cycles or exhausted hypotheses and what makes progress possible. |
 | A change starts growing | [one-two-growth](.agents/skills/one-two-growth/SKILL.md) | Checks whether one intent still holds the change. |
 | Ask for pending stories | [one-two-stories](.agents/skills/one-two-stories/SKILL.md) | Sorts stories by what they wait on and distills the one you pick. |
 | Ask to organize, commit and push | [commit-commit-commit](.agents/skills/commit-commit-commit/SKILL.md) | Groups changes by feature, commits each group, pushes once after all succeed. |
@@ -273,7 +280,7 @@ The Skills define the operations; each linked file holds the details.
 Supporting skills shape the work as it happens:
 [one-two-refactor](.agents/skills/one-two-refactor/SKILL.md) for code and requirement-led design,
 [de-la-case](.agents/skills/de-la-case/SKILL.md) for names and prose, and
-[what-i-did-today](.agents/skills/what-i-did-today/SKILL.md) for Jira activity updates.
+[what-i-did-today](.agents/skills/what-i-did-today/SKILL.md) for session recaps.
 
 The [Session Diagram](patterns/the-lever-and-the-tape.md) connects these operations.
 A new request with its own intent starts its own work.

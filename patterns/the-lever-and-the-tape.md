@@ -7,9 +7,11 @@
 ```mermaid
 flowchart TD
     HEY["ring-ring-ring<br/>Open · Read the Tape"]
-    NEXT["next-next-next<br/>Advance · Move one Cell"]
+    NEXT["the-next-episodie<br/>Advance · Move one Cell"]
     BYE["bye-bye-bye<br/>Close · Write the Tape"]
 
+    BACK["sexy-back<br/>Roll up the detour · Return to the origin"]
+    UNBLOCK["one-two-unblock<br/>Evidence · Diagnosis · What enables progress"]
     CHECKPOINT["one-two-checkpoint<br/>Save the current Thread"]
     WAIT["Wait for the next Request"]
     COMMIT["commit-commit-commit<br/>Group · Validate · Commit · Push"]
@@ -19,6 +21,13 @@ flowchart TD
     NEXT -- "Durable edit, decision or Validation" --> CHECKPOINT
     CHECKPOINT -- "Write .handoff.md" --> WAIT
     NEXT -- "No durable Change" --> WAIT
+    WAIT -- "Request return to the origin" --> BACK
+    BACK -- "Durable change or Decision" --> CHECKPOINT
+    BACK -- "No durable change" --> WAIT
+    WAIT -- "Ask about blockers or repeated reasoning" --> UNBLOCK
+    NEXT -- "Before an unchanged retry" --> UNBLOCK
+    UNBLOCK -- "Diagnosis changes the next step" --> CHECKPOINT
+    UNBLOCK -- "Conversation only · Name missing input or next action" --> WAIT
     WAIT -- "Request commit and Push" --> COMMIT
     COMMIT -- "Record the durable Result" --> CHECKPOINT
     WAIT -- "bye dove · request Handoff" --> BYE
@@ -47,3 +56,9 @@ flowchart TD
 - The chance is only in the Chant, never in the transition.
   A Lever that surprises is a Slot Machine.
   A Lever that resolves is a Groove.
+
+- [SexyBack](../.agents/skills/sexy-back/SKILL.md) Returns to the original purpose when requested.
+  The detour Keeps its results and pending work.
+- [OneTwoUnblock](../.agents/skills/one-two-unblock/SKILL.md) Names what enables progress.
+  A blocker Needs a dependency; a cycle Needs new evidence.
+  Exhausted hypotheses Need another observation or perspective.
