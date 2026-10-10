@@ -2,11 +2,10 @@
 
 The technical Test, Rewritten three times.
 Students, courses, a chilean RUT and a token,
-served by seven frameworks that never Touch the Business.
+served by runtimes that never Touch the Business.
 
-The Go Service is Generated from the Contract, the Specification and the Shape
-in [specs/school](../specs/school). Java and TypeScript keep the earlier Shape
-and Wait to be Regenerated, so only Go Answers the whole Contract today.
+The Go and TypeScript Services are Generated from the Contract, the Specification and the Shape
+in [specs/school](../specs/school). Java keeps the earlier Shape and Waits to be Regenerated.
 
 [The Before](BEFORE.md) Reads the original test and Names the rule
 each seam earned. Read that first if you want the Argument
@@ -16,40 +15,42 @@ Every Directory Answers the same two Scripts.
 Learn them once and every Runtime Opens the same Way.
 
 ```bash
-cp ../.env.example .env             # once, beside the Program you Run
+cp ../.env.example .env             # once per runtime directory
 ./build.sh                          # the Gates, then the Artefact
-./run.sh [adapter]                  # the Service
+./run.sh [adapter]                  # Go and Java; TypeScript uses stdlib
 ```
 
 [.env.example](.env.example) is the Contract: required variables live,
 optional ones commented beside the default they Replace.
 `run.sh` Reads `.env` when present, and an exported variable Wins.
-The Argument Wins over both.
+The Argument Wins over both. TypeScript reads `.env` from `ts/`, uses the shared School configuration, and keeps its JSON store separate in `school-ts.db`.
 
 | | Go | TypeScript | Java |
 |---|---|---|---|
-| Gates | gofmt, vet, test | install, tsc, test | toolchain, test |
-| Store | GORM over SQLite | `node:sqlite` | JPA over H2 |
-| Adapters | stdlib, chi, gin | stdlib, node, express, fastify | stdlib |
+| Gates | gofmt, vet, test | Node syntax and type checks, 18 behavior tests | toolchain, test |
+| Store | GORM over SQLite | JSON file store | JPA over H2 |
+| Adapters | stdlib, chi, gin | stdlib | stdlib |
 
 `build.sh` Refuses to Build what does not Pass.
 `run.sh` Refuses to Start without a Secret.
-Both Say which adapter they know, and Name the one you asked for.
+Go and Java select an adapter; TypeScript Runs its stdlib adapter.
 
-The [Contract](../specs/school/openapi.yaml), the [Specification](../specs/school/SPEC.md) and [the Shape](../specs/school/SHAPE.md) Say what a Generated Service Answers; Go does today.
+The [Contract](../specs/school/openapi.yaml), the [Specification](../specs/school/SPEC.md) and [the Shape](../specs/school/SHAPE.md) Say what a Generated Service Answers; Go and the regenerated TypeScript service do today. See the TypeScript [regeneration notes](ts/REGENERATION.md) for implementation choices and verification limits.
 
 ```bash
 TOKEN_SECRET=s go/run.sh gin        # Go
-TOKEN_SECRET=s ts/run.sh fastify    # TypeScript
+TOKEN_SECRET=s ts/run.sh        # TypeScript
 TOKEN_SECRET=s java/run.sh          # Java
 ```
+
+TypeScript runtime uses Node.js 22.6 or newer and its standard library. Its build checks syntax and types and runs 18 behavior tests. A socket smoke test could not run in the sandbox; see [regeneration notes](ts/REGENERATION.md).
 
 ## Constants and Environments
 
 Go and TypeScript Read the same JSON Files, following
 [Constants](../../rules/constants.md).
 `minimumAgeYears: 18` is the shared Enrollment Rule.
-RUT weights and modulo eleven Stay beside their Algorithm.
+RUT weights and modulo eleven Stay beside their Algorithm. TypeScript uses Node.js 22.6 or newer and the standard library; it writes JSON to `school-ts.db` to keep its store separate from the SQLite services.
 
 ```text
 constants/school.json              Global Constants; no Overrides
@@ -70,7 +71,7 @@ Files are Read once at Startup; restart after a change.
 | `SCHOOL_DATABASE_PATH` | `databasePath` | Nonempty String |
 | `SCHOOL_REGISTRY_PATH` | `registryPath` | Nonempty String; the File must Exist; relative Paths Resolve from the data Root |
 | `SCHOOL_TOKEN_LIFE_SECONDS` | `tokenLifeSeconds` | 1–86400 Seconds; Default 600 |
-| `SERVER` | `serverAdapter` | Go: `stdlib`, `chi`, `gin`; TypeScript: `stdlib`, `node`, `express`, `fastify` |
+| `SERVER` | `serverAdapter` | Go: `stdlib`, `chi`, `gin`; TypeScript: `stdlib` |
 | `TOKEN_SECRET` | Secret Injection | Required in every Environment; no File Key |
 
 Unknown keys, nulls, invalid types and missing required values Stop Startup

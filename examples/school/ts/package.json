@@ -1,19 +1,17 @@
 {
-  "name": "school-ts",
+  "name": "school-service-typescript",
   "private": true,
   "type": "module",
   "scripts": {
-    "build": "tsc",
-    "start": "node dist/main.js",
-    "test": "tsc && node --test dist/*.test.js"
+    "build": "./build.sh",
+    "start": "./run.sh",
+    "test": "node --experimental-strip-types tests/school.test.ts"
   },
-  "dependencies": {
-    "express": "^5.1.0",
-    "fastify": "^5.6.1"
+  "engines": {
+    "node": ">=22.6"
   },
   "devDependencies": {
-    "@types/express": "^5.0.0",
     "@types/node": "^22.0.0",
-    "typescript": "^5.6.0"
+    "typescript": "^5.9.0"
   }
 }

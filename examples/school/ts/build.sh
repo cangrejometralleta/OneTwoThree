@@ -1,44 +1,28 @@
 #!/usr/bin/env sh
-# Builds the School Bundle once the Install, Type and Test Gates pass.
 set -eu
-
 cd -- "$(dirname -- "$0")"
 
 verify_toolchain() {
-	if ! command -v npm >/dev/null 2>&1; then
-		echo "❌ npm not Found"
-		return 1
+	if ! command -v node >/dev/null 2>&1; then
+		echo "Node.js 22.6 or newer is required" >&2
+		exit 1
 	fi
-	echo "✅ Toolchain Found"
+	node -e 'const [major,minor]=process.versions.node.split(".").map(Number); if(major<22 || (major===22 && minor<6)){console.error("Node.js 22.6 or newer is required");process.exit(1)}'
+	if [ ! -x node_modules/.bin/tsc ]; then
+		echo "TypeScript dependencies are missing; run npm install" >&2
+		exit 1
+	fi
 }
 
-install_packages() {
-	if [ -f package-lock.json ]; then
-		npm ci --silent
-	else
-		npm install --silent
-	fi
-	echo "✅ Packages Installed"
+verify_source() {
+	node --experimental-strip-types --check main.ts
+	node_modules/.bin/tsc --project tsconfig.json
 }
 
-verify_types() {
-	if ! npm run --silent build; then
-		echo "❌ Type Check Failed"
-		return 1
-	fi
-	echo "✅ Type Check Passed"
-}
-
-verify_tests() {
-	if ! npm test --silent; then
-		echo "❌ Tests Failed"
-		return 1
-	fi
-	echo "✅ Tests Passed"
+run_tests() {
+	node --experimental-strip-types tests/school.test.ts
 }
 
 verify_toolchain
-install_packages
-verify_types
-verify_tests
-echo "✅ Bundle Built at ./dist"
+verify_source
+run_tests
