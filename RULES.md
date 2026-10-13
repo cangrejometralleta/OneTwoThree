@@ -9,7 +9,7 @@
 
 ## The Rules
 
-- [The Head is the Canon](rules/the-head-is-the-canon.md) — no tag, no release, no Fork.
+- [The Head is the Canon](rules/the-head-is-the-canon.md) — releases name snapshots; main is Canon.
 - [DeLaCase](rules/de-la-case.md) — the typographic Convention.
 - [Reading this Repository](rules/reading-this-repository.md) — how to Read it.
 - [Canonignore](rules/canonignore.md) — carried, and not Taught. *(Provisional)*

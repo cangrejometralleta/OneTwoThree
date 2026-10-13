@@ -6,4 +6,4 @@ This is a snapshot behind [The Release that never Shipped](../patterns/the-relea
 - Tags were fifty-five commits behind `main`.
 - The inherited process included a `develop` branch, pull requests and stale backup refs.
 - Cooperative work later gave `develop` a deliberate role: shared integration with one feature branch per feature.
-- The practice ended with the `1.0.0` tag, named `UNTAG`.
+- The no-release practice ended with the `1.0.0` tag, named `UNTAG`.

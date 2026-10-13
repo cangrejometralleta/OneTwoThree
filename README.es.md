@@ -65,7 +65,9 @@ Un Agente parte en [AGENTS.md](AGENTS.md) y lee primero [Rules](RULES.md).
 ## El Head es el Canon
 
 El Canon es el head de `main`, y nada más.
-No hay tag, ni release, ni versión: una Regla leída desde un commit antiguo es un Fork.
+Los releases estables nombran snapshots útiles para distribuir; `main` sigue siendo la fuente actual.
+Un proyecto que fija un release sigue un Fork. `1.0.0` es el UNTAG histórico;
+`v1.0.0` es el primer release estable.
 [The Head is the Canon](rules/the-head-is-the-canon.md) explica por qué.
 
 [.canonignore](.canonignore) lista los Paths que el Canon lleva pero no gobierna.
