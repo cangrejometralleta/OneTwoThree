@@ -1,9 +1,9 @@
 ---
-name: one-two-update
+name: dove-update
 description: "Maintain the OneTwoThree Canon connection through source distribution and client loading. Use when adopting, syncing or exporting the Canon, or exposing selected skills and refreshing them in the active client."
 ---
 
-# OneTwoUpdate
+# DoveUpdate
 
 Maintain the project's connection to the OneTwoThree Canon and its active AI client.
 Choose the workflow that matches the request, and read only that workflow's reference.

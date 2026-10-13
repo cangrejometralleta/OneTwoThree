@@ -6,7 +6,7 @@
 
 ```mermaid
 flowchart TD
-    HEY["ring-ring-ring<br/>Open · Read the Tape"]
+    HEY["yo-yo-yo<br/>Open · Read the Tape"]
     NEXT["the-next-episodie<br/>Advance · Move one Cell"]
     BYE["bye-bye-bye<br/>Close · Write the Tape"]
 

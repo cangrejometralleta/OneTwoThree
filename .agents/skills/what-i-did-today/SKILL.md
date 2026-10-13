@@ -1,6 +1,6 @@
 ---
 name: what-i-did-today
-description: Summarize completed work and meaningful remaining limitations across the current session, from its start or the latest ring-ring-ring through now. Use when someone asks what they did today or requests a session recap.
+description: Summarize completed work and meaningful remaining limitations across the current session, from its start or the latest yo-yo-yo through now. Use when someone asks what they did today or requests a session recap.
 ---
 
 # WhatIDidToday
@@ -10,7 +10,7 @@ Give a compact recap of the work in the current session, through this request.
 ## Set the Window
 
 Start at the beginning of the current session, or at the latest point where
-[RingRingRing](../ring-ring-ring/SKILL.md) reopened it, whichever is later.
+[YoYoYo](../yo-yo-yo/SKILL.md) reopened it, whichever is later.
 Include relevant actions, decisions and outcomes through now.
 Do not treat the calendar day as the boundary or carry older work forward
 just because it is still visible in the repository.

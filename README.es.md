@@ -32,13 +32,13 @@ Agente       lee el estado actual y da un Paso verificable
 Una sesión normal es deliberadamente pequeña:
 
 ```text
-ring-ring-ring   reconstruye el Contexto y nombra un siguiente Paso
+yo-yo-yo   reconstruye el Contexto y nombra un siguiente Paso
 the-next-episodie   ejecuta ese Paso, lo verifica y se detiene
 one-two-checkpoint   persiste el estado durable mientras el Trabajo avanza
 bye-bye-bye     deja un handoff que otra sesión pueda retomar
 ```
 
-Los proyectos se conectan al Canon y cargan las skills y agentes elegidos con `one-two-update`, que guía por separado la distribución del Canon y la carga de personalizaciones en el cliente. Las instalaciones existentes conservan su mecanismo de distribución: clone, submodule, subtree, symlink o ZIP portable. La validación del filesystem prueba la conexión; el descubrimiento del cliente prueba que el Agente realmente la cargó.
+Los proyectos se conectan al Canon y cargan las skills y agentes elegidos con `dove-update`, que guía por separado la distribución del Canon y la carga de personalizaciones en el cliente. Las instalaciones existentes conservan su mecanismo de distribución: clone, submodule, subtree, symlink o ZIP portable. La validación del filesystem prueba la conexión; el descubrimiento del cliente prueba que el Agente realmente la cargó.
 
 El mismo límite vale para el conocimiento. La experiencia en bruto se queda en `chaos/`, una observación despersonalizada puede volverse una Story, y solo el Aprendizaje que sobrevive a la revisión se vuelve un Valor, una Regla o un Patrón. El Sistema puede generar y comparar; la Persona decide qué gobierna.
 
@@ -252,7 +252,7 @@ Sus Límites son explícitos:
 - Lee [.canonignore](.canonignore) antes de citar un path.
 - Tras tres turnos de escritura o tres archivos tocados, considera [one-two-growth](.agents/skills/one-two-growth/SKILL.md).
 
-También engancha el ciclo de la sesión: una edición durable llama a `one-two-checkpoint`, `ha dove`, `hey dove`, `yo dove`, `hi dove`, `sup dove`, `ring dove` o `ring ring dove` llaman a `ring-ring-ring` y `bye dove` llama a `bye-bye-bye`.
+También engancha el ciclo de la sesión: una edición durable llama a `one-two-checkpoint`, `ha dove`, `hey dove`, `yo dove`, `hi dove`, `sup dove`, `ring dove` o `ring ring dove` llaman a `yo-yo-yo` y `bye dove` llama a `bye-bye-bye`.
 El Quipu detrás de la forma del turno se cuenta en la [Presentación](docs/presentation.es.md).
 
 ## Las Skills
@@ -261,7 +261,7 @@ Las Skills definen las operaciones; cada archivo enlazado guarda los detalles.
 
 | Cuándo | Skill | Qué hace |
 | --- | --- | --- |
-| `ha dove`, `hey dove`, `yo dove`, `hi dove`, `sup dove`, `ring dove`, `ring ring dove` o retomar trabajo previo | [ring-ring-ring](.agents/skills/ring-ring-ring/SKILL.md) | Sincroniza la rama, reconstruye el contexto y nombra un siguiente paso. |
+| `ha dove`, `hey dove`, `yo dove`, `hi dove`, `sup dove`, `ring dove`, `ring ring dove` o retomar trabajo previo | [yo-yo-yo](.agents/skills/yo-yo-yo/SKILL.md) | Sincroniza la rama, reconstruye el contexto y nombra un siguiente paso. |
 | `next`, `sigue` u opción elegida | [the-next-episodie](.agents/skills/the-next-episodie/SKILL.md) | Da un paso recomendado, lo verifica y nombra el siguiente. |
 | Una edición, decisión o validación durable | [one-two-checkpoint](.agents/skills/one-two-checkpoint/SKILL.md) | Guarda el hilo en `.handoff.md` durante el trabajo. |
 | Cambia el código o un requisito cambia la forma de una app | [one-two-refactor](.agents/skills/one-two-refactor/SKILL.md) | Aplica las Rules de código y lee el flujo de diseño si el requisito cambia la forma de la app. |
@@ -283,12 +283,12 @@ Abrir una sesión nombra el siguiente paso; publicar y cerrar necesitan cada uno
 
 ## Conectar un Proyecto
 
-[one-two-update](.agents/skills/one-two-update/SKILL.md) gestiona la conexión con el canon y conecta el cliente activo con las skills y agentes elegidos.
+[dove-update](.agents/skills/dove-update/SKILL.md) gestiona la conexión con el canon y conecta el cliente activo con las skills y agentes elegidos.
 [apply-symlink-structure](.agents/skills/apply-symlink-structure/SKILL.md) aplica una estructura documentada de enlaces relativos a una carpeta o proyecto.
 
 ```mermaid
 flowchart LR
-    UPDATE["one-two-update"] --> FORMAT{"Distribución"}
+    UPDATE["dove-update"] --> FORMAT{"Distribución"}
     FORMAT -- "Clone" --> CLONE[".agents/canon<br/>Links relativos seleccionados"]
     FORMAT -- "ZIP" --> ZIP["Snapshot generado<br/>.agents/distribution.json"]
     CLONE --> RELOAD["carga en el cliente"]
@@ -297,7 +297,7 @@ flowchart LR
 ```
 
 Las instalaciones existentes conservan su mecanismo y sus personalizaciones locales.
-Un [ZIP portable](.agents/skills/one-two-update/references/zip.md) registra su commit de origen y el inventario de archivos.
+Un [ZIP portable](.agents/skills/dove-update/references/zip.md) registra su commit de origen y el inventario de archivos.
 Es un snapshot; el canon vivo sigue siendo el head de `main`.
 La validación del filesystem prueba los links, y el descubrimiento del cliente prueba la carga.
 

@@ -12,7 +12,7 @@ The Exporter Requires Go 1.22 or newer and Git on the producing machine.
 Run from the source repository, using absolute source and output Paths:
 
 ```sh
-.agents/skills/one-two-update/scripts/export/run.sh \
+.agents/skills/dove-update/scripts/export/run.sh \
   --source "$PWD" \
   --output /tmp/onetwothree.zip \
   --skills commit-commit-commit
@@ -22,7 +22,7 @@ Run from the source repository, using absolute source and output Paths:
 `--skills` accepts comma-separated Names.
 Agent and skill links Close the selection recursively, including cycles.
 A referenced agent may therefore Return through a selected skill.
-The maintenance skill `one-two-update` is always Included.
+The maintenance skill `dove-update` is always Included.
 
 The source must be a checkout with the official OneTwoThree Origin.
 The command does not fetch or claim that local `HEAD` is the latest Canon.
@@ -64,7 +64,7 @@ An existing output file is never Replaced.
 ## Install or Replace
 
 For an empty destination, extract the ZIP at the project Root.
-Then use the Client Loading workflow in OneTwoUpdate for the active client's discovery Entrances.
+Then use the Client Loading workflow in DoveUpdate for the active client's discovery Entrances.
 The consuming project needs neither Git nor Go merely to read the package.
 Executing an included supporting tool may Require its own runtime.
 

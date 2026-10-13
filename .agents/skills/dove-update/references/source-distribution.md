@@ -44,7 +44,7 @@ when a rule read here disagrees with the rule named upstream,
 or when the user requests a ZIP of selected agents and skills.
 
 Use [Client Loading](client-loading.md) for client discovery and reload.
-Do not invoke to open a session; RingRingRing Pulls the project's own branch.
+Do not invoke to open a session; YoYoYo Pulls the project's own branch.
 
 ## Choose the Distribution
 
@@ -149,7 +149,7 @@ Select the requested agents and skills, then Close their dependencies:
 
 - Include each referenced skill and agent, recursively, until the set Stops growing.
 - Keep the selected skill's supporting files when its workflow Requires them.
-- Include `one-two-update` for distribution Maintenance.
+- Include `dove-update` for distribution Maintenance.
 - Keep all three indexes and their bodies so Dove can Read every value and pattern.
 - Exclude stories, jokes, examples, development tools and local Settings.
 
@@ -166,7 +166,7 @@ git clone --depth=1 --filter=blob:none --no-checkout --single-branch --branch ma
 git -C .agents/canon sparse-checkout set --no-cone \
   '/AGENTS.md' '/RULES.md' '/VALUES.md' '/PATTERNS.md' '/.canonignore' \
   '/rules/' '/values/' '/patterns/' \
-  '/.agents/skills/one-two-update/'
+  '/.agents/skills/dove-update/'
 ```
 
 Before checkout, add the selected agent files and skill directories with

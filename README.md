@@ -31,13 +31,13 @@ Agent        reads the current state and takes one verifiable Step
 A normal session is deliberately small:
 
 ```text
-ring-ring-ring   reconstruct Context and name one next Step
+yo-yo-yo   reconstruct Context and name one next Step
 the-next-episodie   execute that Step, verify it and stop
 one-two-checkpoint   persist durable state while the Work is moving
 bye-bye-bye     leave a handoff another session can resume
 ```
 
-Projects connect to the Canon and load selected skills and agents through `one-two-update`, which routes source distribution and client loading separately. Existing installations keep their distribution mechanism: clone, submodule, subtree, symlink or portable ZIP. Filesystem validation proves the connection; client discovery proves that the Agent actually loaded it.
+Projects connect to the Canon and load selected skills and agents through `dove-update`, which routes source distribution and client loading separately. Existing installations keep their distribution mechanism: clone, submodule, subtree, symlink or portable ZIP. Filesystem validation proves the connection; client discovery proves that the Agent actually loaded it.
 
 The same boundary applies to knowledge. Raw experience stays in `chaos/`, a depersonalized observation may become a Story, and only Learning that survives review becomes a Value, Rule or Pattern. The System may generate and compare; the Person decides what governs.
 
@@ -251,7 +251,7 @@ Its Bounds are explicit:
 - Read [.canonignore](.canonignore) before citing a path.
 - After three writing turns or three files touched, consider [one-two-growth](.agents/skills/one-two-growth/SKILL.md).
 
-It also hooks the session lifecycle: a durable edit calls `one-two-checkpoint`, `ha dove`, `hey dove`, `yo dove`, `hi dove`, `sup dove`, `ring dove` or `ring ring dove` calls `ring-ring-ring` and `bye dove` calls `bye-bye-bye`.
+It also hooks the session lifecycle: a durable edit calls `one-two-checkpoint`, `ha dove`, `hey dove`, `yo dove`, `hi dove`, `sup dove`, `ring dove` or `ring ring dove` calls `yo-yo-yo` and `bye dove` calls `bye-bye-bye`.
 The Quipu behind the turn shape is told in the [Presentation](docs/presentation.en.md).
 Its conversational shape uses ordinary capitalization and varies with the content;
 the three beats guide the answer without requiring repeated labels.
@@ -265,7 +265,7 @@ The Skills define the operations; each linked file holds the details.
 
 | When | Skill | What it does |
 | --- | --- | --- |
-| `ha dove`, `hey dove`, `yo dove`, `hi dove`, `sup dove`, `ring dove`, `ring ring dove` or resume earlier work | [ring-ring-ring](.agents/skills/ring-ring-ring/SKILL.md) | Syncs the project branch, rebuilds context and names one next step. |
+| `ha dove`, `hey dove`, `yo dove`, `hi dove`, `sup dove`, `ring dove`, `ring ring dove` or resume earlier work | [yo-yo-yo](.agents/skills/yo-yo-yo/SKILL.md) | Syncs the project branch, rebuilds context and names one next step. |
 | `next`, `sigue` or a selected option | [the-next-episodie](.agents/skills/the-next-episodie/SKILL.md) | Takes one recommended step, verifies it and names the following one. |
 | `sexy back`, `vuelve al origen` or return to the original topic | [sexy-back](.agents/skills/sexy-back/SKILL.md) | Rolls up the digression, preserves what remains pending and resumes the original purpose. |
 | A durable edit, decision or validation | [one-two-checkpoint](.agents/skills/one-two-checkpoint/SKILL.md) | Saves the thread in `.handoff.md` during work. |
@@ -288,12 +288,12 @@ Opening a session names the next step, publication and closing each need their o
 
 ## Connect a Project
 
-[one-two-update](.agents/skills/one-two-update/SKILL.md) manages the canon connection and connects the active client to selected skills and agents.
+[dove-update](.agents/skills/dove-update/SKILL.md) manages the canon connection and connects the active client to selected skills and agents.
 [apply-symlink-structure](.agents/skills/apply-symlink-structure/SKILL.md) applies a documented relative-link layout to a folder or project.
 
 ```mermaid
 flowchart LR
-    UPDATE["one-two-update"] --> FORMAT{"Distribution"}
+    UPDATE["dove-update"] --> FORMAT{"Distribution"}
     FORMAT -- "Clone" --> CLONE[".agents/canon<br/>Selected relative links"]
     FORMAT -- "ZIP" --> ZIP["Generated snapshot<br/>.agents/distribution.json"]
     CLONE --> RELOAD["client loading"]
@@ -302,7 +302,7 @@ flowchart LR
 ```
 
 Existing installations keep their mechanism and local customizations.
-A [portable ZIP](.agents/skills/one-two-update/references/zip.md) records its source commit and file inventory.
+A [portable ZIP](.agents/skills/dove-update/references/zip.md) records its source commit and file inventory.
 It is a snapshot; the live canon remains the head of `main`.
 Filesystem validation proves the links, and client discovery proves the load.
 

@@ -40,7 +40,7 @@ func collectBundle(source sourceTree, options exportOptions) (map[string][]byte,
 	if err := selection.addCanon(); err != nil {
 		return nil, err
 	}
-	for _, skill := range strings.Split("one-two-update,"+options.skills, ",") {
+	for _, skill := range strings.Split("dove-update,"+options.skills, ",") {
 		if skill != "" {
 			if err := selection.addSkill(skill); err != nil {
 				return nil, err
