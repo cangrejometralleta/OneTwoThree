@@ -71,15 +71,8 @@ Un proyecto que fija un release sigue un Fork. `1.0.0` es el UNTAG histórico;
 `v1.0.0` es el primer release estable.
 [The Head is the Canon](rules/the-head-is-the-canon.md) explica por qué.
 
-[.canonignore](.canonignore) lista los Paths que el Canon lleva pero no gobierna.
-Usa la sintaxis de `.gitignore`, y git lo lee directamente:
-
-```sh
-git ls-files --cached --ignored --exclude-from=.canonignore   # versionado, no gobernado
-git ls-files --others --ignored --exclude-from=.canonignore   # solo en disco
-```
-
-Un Agente puede leer cada path de la lista, pero nunca copiar uno.
+[.canonignore](.canonignore) marca paths versionados de contexto, referencia y
+soporte que el Canon no gobierna. Consúltalo solo cuando trabajes con ellos.
 
 ## Por qué Tres
 
@@ -252,7 +245,6 @@ Sus Límites son explícitos:
 
 - Edita solo lo que el turno nombró, un paso por turno.
 - Nunca revisa, nunca reescribe un archivo completo en la respuesta, nunca normaliza las mayúsculas que recibió.
-- Lee [.canonignore](.canonignore) antes de citar un path.
 - Tras tres turnos de escritura o tres archivos tocados, considera [one-two-growth](.agents/skills/one-two-growth/SKILL.md).
 
 También engancha el ciclo de la sesión: una edición durable llama a `one-two-checkpoint`, `ha dove`, `hey dove`, `yo dove`, `hi dove`, `sup dove`, `ring dove` o `ring ring dove` llaman a `yo-yo-yo` y `bye dove` llama a `bye-bye-bye`.
@@ -336,7 +328,6 @@ Un Agente necesita una Sociedad: autoridad explícita, señales independientes, 
 | Chequeo | Comando |
 | --- | --- |
 | Pares de traducción intactos | el loop de [Translations](rules/translations.md) no imprime nada |
-| Paths que el canon no gobierna | `git ls-files --others --ignored --exclude-from=.canonignore` |
 | El Core no importa vendors | `go list -deps ./school` en `examples/school/go` |
 | Los ejemplos compilan y pasan | `./build.sh` en cada directorio de ejemplo |
 

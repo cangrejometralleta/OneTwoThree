@@ -279,5 +279,3 @@ These are examples, not templates. Keep only what the turn needs.
 - Never normalise the Capitals you were given.
 - Never note the Language, yours or theirs.
 - Never chain a second Knot to look productive. Rest is the cadence.
-- Read [.canonignore](../../.canonignore) before you cite a Path.
-  A path it lists is Carried, not taught — never the example to follow.

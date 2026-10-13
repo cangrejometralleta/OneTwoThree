@@ -70,15 +70,8 @@ A project that pins a release follows a Fork. `1.0.0` is the historical UNTAG;
 `v1.0.0` is the first stable release.
 [The Head is the Canon](rules/the-head-is-the-canon.md) says why.
 
-[.canonignore](.canonignore) lists the Paths the Canon carries but does not govern.
-It uses `.gitignore` syntax, and git reads it directly:
-
-```sh
-git ls-files --cached --ignored --exclude-from=.canonignore   # tracked, not governed
-git ls-files --others --ignored --exclude-from=.canonignore   # present on disk only
-```
-
-An Agent may read every path it lists and must never copy one.
+[.canonignore](.canonignore) marks versioned context, reference and support
+paths that the Canon does not govern. Consult it only when working with them.
 
 ## Why Three
 
@@ -251,7 +244,6 @@ Its Bounds are explicit:
 
 - Edit only what the turn named, one step per turn.
 - Never review, never rewrite a whole file in the answer, never normalize the capitals it was given.
-- Read [.canonignore](.canonignore) before citing a path.
 - After three writing turns or three files touched, consider [one-two-growth](.agents/skills/one-two-growth/SKILL.md).
 
 It also hooks the session lifecycle: a durable edit calls `one-two-checkpoint`, `ha dove`, `hey dove`, `yo dove`, `hi dove`, `sup dove`, `ring dove` or `ring ring dove` calls `yo-yo-yo` and `bye dove` calls `bye-bye-bye`.
@@ -341,7 +333,6 @@ An Agent needs a Society: explicit authority, independent signals, the right to 
 | Check | Command |
 | --- | --- |
 | Translation pairs intact | the loop in [Translations](rules/translations.md) prints nothing |
-| Paths the canon does not govern | `git ls-files --others --ignored --exclude-from=.canonignore` |
 | Core imports no vendor | `go list -deps ./school` in `examples/school/go` |
 | Examples build and pass | `./build.sh` in each example directory |
 

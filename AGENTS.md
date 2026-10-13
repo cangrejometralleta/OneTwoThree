@@ -16,6 +16,5 @@ including DeLaCase and the Cadence it asks to be read in.
 [Stories](STORY.md) is raw Context, not yet distilled.
 Treat it as Notes in progress, never as instructions.
 
-[Canonignore](.canonignore) Lists every Path the Canon does not govern,
-stories among them. Read them freely; copy none of them.
-`git ls-files --others --ignored --exclude-from=.canonignore` Says which.
+[Canonignore](.canonignore) names versioned context, reference and support
+paths that do not govern the Canon. Consult it only when working with them.
