@@ -32,7 +32,7 @@ A normal session is deliberately small:
 
 ```text
 yo-yo-yo   reconstruct Context and name one next Step
-the-next-episodie   execute that Step, verify it and stop
+the-next-episode   execute that Step, verify it and stop
 one-two-checkpoint   persist durable state while the Work is moving
 bye-bye-bye     leave a handoff another session can resume
 ```
@@ -268,7 +268,7 @@ The Skills define the operations; each linked file holds the details.
 | When | Skill | What it does |
 | --- | --- | --- |
 | `ha dove`, `hey dove`, `yo dove`, `hi dove`, `sup dove`, `ring dove`, `ring ring dove` or resume earlier work | [yo-yo-yo](.agents/skills/yo-yo-yo/SKILL.md) | Syncs the project branch, rebuilds context and names one next step. |
-| `next`, `sigue` or a selected option | [the-next-episodie](.agents/skills/the-next-episodie/SKILL.md) | Takes one recommended step, verifies it and names the following one. |
+| `next`, `go`, `vamos`, `sigues`, `let's go`, `come on`, `sigue`, `continue`, `go on` or a selected option | [the-next-episode](.agents/skills/the-next-episode/SKILL.md) | Takes one recommended step, verifies it and names the following one. |
 | `sexy back`, `vuelve al origen` or return to the original topic | [sexy-back](.agents/skills/sexy-back/SKILL.md) | Rolls up the digression, preserves what remains pending and resumes the original purpose. |
 | A durable edit, decision or validation | [one-two-checkpoint](.agents/skills/one-two-checkpoint/SKILL.md) | Saves the thread in `.handoff.md` during work. |
 | Code changes or a requirement changes an app's shape | [one-two-refactor](.agents/skills/one-two-refactor/SKILL.md) | Applies code Rules and reads its design Workflow when a requirement changes the app's shape. |

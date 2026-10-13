@@ -33,7 +33,7 @@ Una sesión normal es deliberadamente pequeña:
 
 ```text
 yo-yo-yo   reconstruye el Contexto y nombra un siguiente Paso
-the-next-episodie   ejecuta ese Paso, lo verifica y se detiene
+the-next-episode   ejecuta ese Paso, lo verifica y se detiene
 one-two-checkpoint   persiste el estado durable mientras el Trabajo avanza
 bye-bye-bye     deja un handoff que otra sesión pueda retomar
 ```
@@ -264,7 +264,7 @@ Las Skills definen las operaciones; cada archivo enlazado guarda los detalles.
 | Cuándo | Skill | Qué hace |
 | --- | --- | --- |
 | `ha dove`, `hey dove`, `yo dove`, `hi dove`, `sup dove`, `ring dove`, `ring ring dove` o retomar trabajo previo | [yo-yo-yo](.agents/skills/yo-yo-yo/SKILL.md) | Sincroniza la rama, reconstruye el contexto y nombra un siguiente paso. |
-| `next`, `sigue` u opción elegida | [the-next-episodie](.agents/skills/the-next-episodie/SKILL.md) | Da un paso recomendado, lo verifica y nombra el siguiente. |
+| `next`, `go`, `vamos`, `sigues`, `let's go`, `come on`, `sigue`, `continue`, `go on` u opción elegida | [the-next-episode](.agents/skills/the-next-episode/SKILL.md) | Da un paso recomendado, lo verifica y nombra el siguiente. |
 | Una edición, decisión o validación durable | [one-two-checkpoint](.agents/skills/one-two-checkpoint/SKILL.md) | Guarda el hilo en `.handoff.md` durante el trabajo. |
 | Cambia el código o un requisito cambia la forma de una app | [one-two-refactor](.agents/skills/one-two-refactor/SKILL.md) | Aplica las Rules de código y lee el flujo de diseño si el requisito cambia la forma de la app. |
 | Preguntar si hay bloqueos o razonamiento repetido | [one-two-unblock](.agents/skills/one-two-unblock/SKILL.md) | Distingue bloqueos, ciclos o hipótesis agotadas y determina qué permite avanzar. |

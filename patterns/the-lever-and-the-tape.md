@@ -7,7 +7,7 @@
 ```mermaid
 flowchart TD
     HEY["yo-yo-yo<br/>Open · Read the Tape"]
-    NEXT["the-next-episodie<br/>Advance · Move one Cell"]
+    NEXT["the-next-episode<br/>Advance · Move one Cell"]
     BYE["bye-bye-bye<br/>Close · Write the Tape"]
 
     BACK["sexy-back<br/>Roll up the detour · Return to the origin"]
@@ -17,7 +17,7 @@ flowchart TD
     COMMIT["commit-commit-commit<br/>Group · Validate · Commit · Push"]
 
     HEY -- "Name one next Step" --> WAIT
-    WAIT -- "next · sigue · selected Option" --> NEXT
+    WAIT -- "next · go · vamos · sigues · let's go · come on · selected Option" --> NEXT
     NEXT -- "Durable edit, decision or Validation" --> CHECKPOINT
     CHECKPOINT -- "Write .handoff.md" --> WAIT
     NEXT -- "No durable Change" --> WAIT

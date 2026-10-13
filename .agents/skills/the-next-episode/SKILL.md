@@ -1,9 +1,9 @@
 ---
-name: the-next-episodie
-description: "Advance to the next recommended course of action and take exactly one Step. Use when the user says next, sigue, continue, go on, selects a numbered option, or asks what to do now and wants it done rather than listed. It finds the standing recommendation or selected choice, confirms it still holds, takes one Step, and names the Step after it."
+name: the-next-episode
+description: "Advance to the next recommended action and take exactly one Step. Use when the user affirmatively says next, go, vamos, sigues, let's go, come on, sigue, continue or go on, selects a numbered option, or asks to proceed and wants action. Confirm the step still holds, take it and name the following step."
 ---
 
-# TheNextEpisodie
+# TheNextEpisode
 
 The Name Recalls *The Next Episode* by Dr. Dre featuring Snoop Dogg.
 The next episode makes the Continuation easier to remember.
@@ -19,7 +19,7 @@ The Shape Lives in [The Lever and the Tape](../../../patterns/the-lever-and-the-
 
 ```mermaid
 flowchart TD
-    START["next · sigue · 1/2/3"] --> FIND{"Recommendation Found?"}
+    START["next · go · vamos · sigues · let's go · come on<br/>sigue · continue · go on · 1/2/3"] --> FIND{"Recommendation Found?"}
     FIND -- No --> OPEN["Defer to YoYoYo · Stop"]
     FIND -- Yes --> HOLDS{"Still Holds?"}
     HOLDS -- No --> RENAME["Name what Changed · Restate one Step"]
@@ -34,9 +34,12 @@ flowchart TD
 
 ## When it Runs
 
-Invoke when the user says `next`, `sigue`, `continue` or `go on`,
-replies with the number of a presented choice,
-or asks what to do now and wants it Done, not listed.
+Invoke when the user uses `next`, `go`, `vamos`, `sigues`, `let's go`
+or `come on` as an affirmative continuation prompt. Also accept `sigue`,
+`continue` and `go on`, a reply with the number of a presented choice,
+or a request to proceed and do the next step.
+
+These phrases select the standing recommendation; they do not create one.
 
 Do not invoke to open a Session; YoYoYo reconstructs state.
 Do not invoke to close one; ByeByeBye writes the Handoff.
@@ -50,6 +53,8 @@ Read the smallest Source that already names a next step:
    resolved against the numbered choices immediately before it.
 2. **This Thread** — the last explicit `Next` line Stated here.
 3. **Handoff** — the explicit `Next` in `.handoff.md`, when present.
+   Respect its `Blockers` and the state of any named related repository.
+   A `Logs` reference is evidence to consult, not a Step to execute.
 4. **Plan** — the next unchecked Step in an approved Plan.
 
 The selected Choice Wins over a standing `Next`.
@@ -64,7 +69,8 @@ Say so, and defer to YoYoYo.
 A named Step can Expire before it runs.
 Check three Things:
 
-1. Does the repository still Look the way the step assumed?
+1. Does this repository, and any related repository named in the Thread,
+   still Look the way the step assumed? Do not scan other repositories.
 2. Did the user Change the intent since the step was named?
 3. Was the Step already done by a later turn or another session?
 
@@ -98,6 +104,12 @@ When Verification Fails, report the Failure and stop.
 A failed step is the next Step.
 
 ## What it Returns
+
+For a routine step, report `Done`, `Verified` and `Next`; include `Later`
+only when useful context was deferred. Report `Blockers` when something
+prevents progress. Include related-repository state and `Logs` only when
+they affect the Step. These conditional details keep a step report concise;
+the checkpoint and closing handoff retain the full state.
 
 ```text
 ✅ **Done** — Linked the reading Rotation into the rules index.
