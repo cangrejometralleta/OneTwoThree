@@ -8,6 +8,8 @@
   in the same language nowadays.
 - Elegance Comes from Simplicity,  
   both feel natural to us humans.
+- Aesthetic Choices must serve the Work, not force its Shape. Less is more, but never less than what it is.
+- Design always has a Direction. A Program sometimes reveals the Shape it wants to take; the Systems Designer listens for its Rhythm.
 - Minimalism here is not a Style.  
   Autistic burnout Taught the limit,  
   and living it Came before writing it.
