@@ -1,6 +1,6 @@
 # Patterns
 >
-> Where the Three Comes from,
+> Where behavior meets agent design,
 > and why the framework holds.
 >
 > Values Believes. This Remembers.
@@ -9,7 +9,6 @@
 
 - [One Instinct, Three Planes](patterns/one-instinct-three-planes.md)
 - [The Three Arrives Uninvited](patterns/the-three-arrives-uninvited.md)
-- [The Three across Domains](patterns/the-three-across-domains.md)
 - [A Language Already Agreed](patterns/a-language-already-agreed.md)
 - [De La Soul RoTaTion](patterns/de-la-soul-rotation.md)
 - [OneTwoTree — Distributed Trust](patterns/onetwotree-distributed-trust.md)
@@ -32,9 +31,7 @@
 - [Ritual as Belonging, not Belief](patterns/ritual-as-belonging-not-belief.md)
 - [The Mismatch is a Protocol Clash](patterns/the-mismatch-is-a-protocol-clash.md)
 - [No Inherited Structure, more Invented Ritual](patterns/no-inherited-structure-more-invented-ritual.md)
-- [Lineage](patterns/lineage.md)
 - [Provenance](patterns/provenance.md)
-- [Musical References](patterns/musical-references.md)
 - [The Test is an Entry Point](patterns/the-test-is-an-entry-point.md)
 - [The Lever and the Tape](patterns/the-lever-and-the-tape.md)
 - [Branches Give Cooperation a Path](patterns/branches-give-cooperation-a-path.md)

@@ -9,5 +9,4 @@
   and preserve the delta that explains them.
 - Code is one Part of a product,
   the Product is a living System.
-- Roots: Naur, Programming as Theory Building.
-- Roots: Lehman, the Laws of Software Evolution.
+Sources: [Manifesto Influences](../references/manifesto-influences.md#named-sources).

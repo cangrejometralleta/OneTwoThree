@@ -1,12 +1,7 @@
 # Anti-Patterns
 
-- More than three Responsibilities  
-  Suggest a missing Abstraction Layer.
-- A Name with no Verb  
-  Suggests a missing Action.
-- A Unit with no clear Return  
-  Breaks the Rotation.
+- More than three responsibilities may signal a missing abstraction.
+- A name with no verb may hide a missing action.
+- A unit with no clear output may have unclear responsibility.
 
-Read the Name alone, without the body.  
-A Name with a verb Says one Responsibility.  
-A Name with none Says however many it grew.
+Treat these as review prompts, not automatic defects.

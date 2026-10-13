@@ -26,6 +26,13 @@ stories/**
 chaos/**
 CHAOS.md
 
+# References are kept for lookup, not taught as Canon.
+references/musical-references.md
+references/manifesto-influences.md
+references/coercion-evidence.md
+references/configuration-examples.md
+references/release-ritual-history.md
+
 # Vendored and Generated. Present on Disk, Written by no one here.
 **/node_modules/**
 **/dist/**

@@ -1,10 +1,8 @@
 # What Belongs Here
 
-- A Rule an Agent cannot Execute  
-  is a Value, not a rule.
-- Rules are Verifiable,  
-  Values are Interpretable.
-- Send each one to the Document that holds it.
+- Rules direct behavior and say how to review it. A review may need human judgment.
+- Values and Patterns explain the reasons and behavior models behind that guidance.
+- Keep lookup material—source lists, historical facts and optional examples—in `references/`; mark it in `.canonignore`.
 - A Rule marked *Provisional* came from one Practice  
   and has not yet survived a second.  
   Follow it, and Delete it if the next project disagrees.
@@ -16,11 +14,11 @@
 - [Reading this Repository](rules/reading-this-repository.md) — how to Read it.
 - [Canonignore](rules/canonignore.md) — carried, and not Taught. *(Provisional)*
 - [Search](rules/search.md) — three narrow Queries.
-- [Rhythm](rules/rhythm.md) — contrast Carries the line.
-- [Paragraph](rules/paragraph.md) — one idea, and the claim Opens it.
+- [Rhythm](rules/rhythm.md) — vary length when contrast helps clarity.
+- [Paragraph](rules/paragraph.md) — one claim, stated first.
 - [Seams](rules/seams.md) — break where the Grammar bends.
 - [Comments](rules/comments.md) — stop at the Claim.
-- [Channels](rules/channels.md) — the surface Sells a fixed number.
+- [Channels](rules/channels.md) — give each visual channel one meaning.
 - [Emoji](rules/emoji.md) — one per Line at most.
 - [Translations](rules/translations.md) — one Identity, two tongues. *(Provisional)*
 - [Structure](rules/structure.md) — three Beats, not three newlines.
@@ -39,7 +37,7 @@
 - [Shapes](rules/shapes.md) — the entity is never the DTO.
 - [Magic Numbers](rules/magic-numbers.md) — the index counts, the name Explains. *(Provisional)*
 - [Constants](rules/constants.md) — descriptive files, explicit Environments.
-- [Anti-Patterns](rules/anti-patterns.md) — more than three Responsibilities.
+- [Anti-Patterns](rules/anti-patterns.md) — review signals, not automatic errors.
 - [Scripts](rules/scripts.md) — build.sh and run.sh, Everywhere. *(Provisional)*
 - [Entrypoints](rules/entrypoints.md) — declared doors, one logic, thin Shims. *(Provisional)*
 - [Code](rules/code.md) — Go, because the rules Read better when they run.

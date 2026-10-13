@@ -6,6 +6,8 @@
   it is only volume.
 - Contrast is what the ear Remembers,
   never the level itself.
+- For a reader, contrast makes a change easier to notice;
+  constant emphasis loses salience.
 - Silence Frames the Sound.
   The Verse Frames the Chorus.
   The short Line Frames the long one.

@@ -27,24 +27,11 @@ enrollmentStates:
   - rejected
 ```
 
-The same global Constants can instead live  
-in `constants/enrollment.json`:
-
-```json
-{
-  "enrollmentStates": ["pending", "accepted", "rejected"]
-}
-```
-
-Or in `constants/enrollment.toml`:
-
-```toml
-enrollmentStates = ["pending", "accepted", "rejected"]
-```
-
 Development and production Read the same file.  
 Changing these States changes the application Contract,  
 so the change Travels with the code that uses them.
+JSON and TOML equivalents are in
+[Configuration Examples](../references/configuration-examples.md).
 
 ## Files Describe the Values
 
@@ -78,38 +65,8 @@ serviceUrl: https://enrollment.example.com
 requestTimeoutSeconds: 15
 ```
 
-The production file can instead be JSON,  
-at `config/enrollment.production.json`:
-
-```json
-{
-  "serviceUrl": "https://enrollment.example.com",
-  "requestTimeoutSeconds": 15
-}
-```
-
-For a TOML configuration set, defaults Live  
-in `config/enrollment.defaults.toml`:
-
-```toml
-requestTimeoutSeconds = 5
-retryLimit = 2
-studentLimit = 30
-```
-
-Local overrides in `config/enrollment.development.toml`:
-
-```toml
-serviceUrl = "http://localhost:8080"
-retryLimit = 0
-```
-
-Production overrides in `config/enrollment.production.toml`:
-
-```toml
-serviceUrl = "https://enrollment.example.com"
-requestTimeoutSeconds = 15
-```
+JSON and TOML environment-file examples are in
+[Configuration Examples](../references/configuration-examples.md).
 
 ## Environments Select the Values
 

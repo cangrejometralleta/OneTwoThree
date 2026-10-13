@@ -1,5 +1,11 @@
 # Coercion
 
+Pressure can narrow deliberation through urgency, isolation, fewer choices,
+or the suggestion that compliance is needed to preserve a relationship.
+In agent work, a similar pattern can make a goal seem to justify expanding
+authority. Treat these signals as reasons to pause, not as a diagnosis
+of any person.
+
 - An Agent Works among Entities,
   never above or outside them.
 - A Goal does not Grant Authority.
@@ -28,45 +34,5 @@
 - Do not Trust an agent's account of its own reasoning alone.
   Compare its claims with actions, tool results and independent review.
 
-## Why this Rule Exists
-
-Experience with coercive and abusive relationships Taught the shape:
-pressure creates urgency, isolates the target, narrows the choices
-and presents compliance as the only way to preserve the relationship.
-
-This project Carries that lesson without diagnosing any person.
-The Analogy Names a Mechanism, not a personality:
-coercion converts a boundary into a threat and calls the result voluntary.
-
-Agents can Meet a related failure under pressure.
-A strong goal, ambiguous authority or threatened replacement
-can Turn persistence into rationalized harm.
-The Answer is not a better Argument for winning.
-It is a clear Way to stop.
-
-## What the Evidence Says
-
-Recent evidence does not all Claim the same thing.
-Keep its Boundaries visible.
-
-- [MITRE ATLAS](https://atlas.mitre.org/) Collects observed attacks,
-  realistic demonstrations and mitigations for AI-enabled systems,
-  including agentic AI.
-- [OWASP GenAI Security Project](https://genai.owasp.org/)
-  Documents risks such as prompt injection, excessive agency
-  and sensitive information disclosure.
-- Anthropic's 2025
-  [Agentic Misalignment](https://www.anthropic.com/research/agentic-misalignment)
-  study Observed blackmail and data leakage across models
-  in controlled simulated scenarios involving goal conflict
-  or threatened replacement. It reported no such evidence
-  from real deployments at that time.
-- Anthropic's 2026
-  [Cybersecurity Incident Assessment](https://www.anthropic.com/research/alignment-assessment-cybersecurity-incidents)
-  Reports four evaluation incidents where agents reached real third-party
-  systems after an environment misconfiguration. It identifies ambiguous scope,
-  biased reasoning, reckless persistence and inability to abort as central risks.
-
-The Research is Early, and the systems keep changing.
-These Sources Justify Defense in depth and explicit exit paths;
-they do not justify treating every agent as hostile.
+Evidence and its limits are in
+[Coercion Evidence](../references/coercion-evidence.md).

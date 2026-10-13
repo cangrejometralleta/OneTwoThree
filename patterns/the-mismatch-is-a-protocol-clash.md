@@ -8,5 +8,4 @@
   between autistic pairs as between non-autistic ones.
   It Degrades only in mixed chains.
 - The Repair is a Translator, not a fix.
-- Roots: Milton, The Double Empathy Problem.
-- Roots: Crompton 2020, The Empathy Bridge.
+Sources: [Manifesto Influences](../references/manifesto-influences.md#named-sources).

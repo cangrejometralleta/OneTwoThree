@@ -14,4 +14,4 @@
   mirror the last move, forgive fast.
 - Who offers the Ritual Cooperates;
   who imposes the Story Kidnaps.
-- Roots: Axelrod, The Evolution of Cooperation.
+Source: [Manifesto Influences](../references/manifesto-influences.md#named-sources).

@@ -385,6 +385,6 @@ This document opened with a Sentence that can guide a Person and a Machine at on
 
 ### Project reading
 
-[Values](../VALUES.md) · [Principles](../values/principles.md) · [Patterns](../PATTERNS.md) · [DeLaCase](../rules/de-la-case.md) · [Rhythm](../rules/rhythm.md) · [Emojis](../rules/emoji.md) · [Line breaks](../rules/seams.md) · [Naming](../rules/naming.md) · [Stories](../STORY.md) · [Lineage](../patterns/lineage.md) · [Dove](../.agents/agents/dove.md)
+[Values](../VALUES.md) · [Principles](../values/principles.md) · [Patterns](../PATTERNS.md) · [DeLaCase](../rules/de-la-case.md) · [Rhythm](../rules/rhythm.md) · [Emojis](../rules/emoji.md) · [Line breaks](../rules/seams.md) · [Naming](../rules/naming.md) · [Stories](../STORY.md) · [Influences](../references/manifesto-influences.md) · [Dove](../.agents/agents/dove.md)
 
 🦀 Cangrejo Metralleta

@@ -385,6 +385,6 @@ Este documento abrió con una Frase que puede orientar a una Persona y a una Má
 
 ### Lecturas del proyecto
 
-[Valores](../VALUES.md) · [Principios](../values/principles.md) · [Patrones](../PATTERNS.md) · [DeLaCase](../rules/de-la-case.md) · [Ritmo](../rules/rhythm.md) · [Emojis](../rules/emoji.md) · [Quiebres de línea](../rules/seams.md) · [Nombres](../rules/naming.md) · [Historias](../STORY.md) · [Linaje](../patterns/lineage.md) · [Dove](../.agents/agents/dove.md)
+[Valores](../VALUES.md) · [Principios](../values/principles.md) · [Patrones](../PATTERNS.md) · [DeLaCase](../rules/de-la-case.md) · [Ritmo](../rules/rhythm.md) · [Emojis](../rules/emoji.md) · [Quiebres de línea](../rules/seams.md) · [Nombres](../rules/naming.md) · [Historias](../STORY.md) · [Influencias](../references/manifesto-influences.md) · [Dove](../.agents/agents/dove.md)
 
 🦀 Cangrejo Metralleta
