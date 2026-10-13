@@ -27,7 +27,9 @@ When the user closes the session, invoke `bye-bye-bye` Instead.
 
 ## Write the Checkpoint
 
-Read only the current Intent, the durable event and repository state.
+Read the current Intent, the durable event and this repository's state.
+If the active Intent depends on work in another repository, inspect only
+repositories named in the current Thread; do not scan neighboring projects.
 Replace `.handoff.md` at the repository Root with:
 
 ```markdown
@@ -39,15 +41,22 @@ Replace `.handoff.md` at the repository Root with:
 
 **Open** — the unresolved Edit, decision or validation.
 
+**Blockers** — what prevents progress and what would clear it, or `None`.
+
 **State** — branch, changed Paths and relevant commit when known.
+
+**Related repositories** — directly related repo/worktree, branch, state and relevant paths or commit; otherwise `None`.
+
+**Logs** — source, date and session/record ID for needed cross-repo context; `Unavailable` if relevant logs cannot be read, otherwise `None`.
 
 **Next** — one concrete Action.
 ```
 
-Keep each Field to one short paragraph.
+Keep each Field to one short paragraph. Use `None` when a field does not apply.
 Name unrelated dirty Paths only when needed to exclude them.
 Mark uncertain claims as `Inferred`.
-Never Store secrets, tokens, terminal history or full conversation text.
+For cross-repo work, record only the log reference and the event needed to resume;
+never copy full logs, terminal history, secrets, tokens or conversation text.
 
 The Checkpoint may Replace an older closing Handoff
 only after new work has begun.

@@ -68,6 +68,8 @@ Use this Shape:
 
 **Open** — the unresolved Decision, edit or validation.
 
+**Blockers** — what prevents progress and what would clear it, or `None`.
+
 **Growth** — Together, Split or Unclear.
 
 **Now** — the one Part to resume first.
@@ -77,6 +79,10 @@ Use this Shape:
 **Files**
 - `path` — Added, Modified, Deleted or Renamed.
   What changed, why it matters, and the pending Detail needed to continue.
+
+**Related repositories** — directly related repo/worktree, branch, state and relevant paths or commit; otherwise `None`.
+
+**Logs** — source, date and session/record ID for needed cross-repo context; `Unavailable` if relevant logs cannot be read, otherwise `None`.
 
 **Validation** — the Command and its result, or Not Run.
 
@@ -92,6 +98,8 @@ Do not copy a whole File or a large diff.
 
 Keep claims Factual and paths repository-relative.
 Mark uncertain claims as `Inferred`.
+For related repositories, inspect only work named in the active Thread.
+Record log references and the event needed to resume, not raw logs.
 Never Store secrets, tokens, terminal history or full conversation text.
 
 When growth is `Split`, preserve every Part
