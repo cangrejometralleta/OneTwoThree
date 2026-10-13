@@ -13,6 +13,16 @@ flowchart TD
     BACK["sexy-back<br/>Roll up the detour · Return to the origin"]
     UNBLOCK["one-two-unblock<br/>Evidence · Diagnosis · What enables progress"]
     CHECKPOINT["one-two-checkpoint<br/>Save the current Thread"]
+    TRANSFER["one-two-transfer<br/>Pass the Thread to a paired repository"]
+    PAYLOAD["Build a small context graph"]
+    H_INTENT["Intent · root"]
+    H_EVIDENCE["Done · State"]
+    H_OPEN["Open · Blockers"]
+    H_REFS["Related repositories · Logs"]
+    H_NEXT["One Next · destination"]
+    COPY["Return receiver .handoff.md<br/>as a copy-ready block"]
+    PASTE["User copies it to destination root"]
+    OPEN["yo-yo-yo reads the handoff<br/>Receiver owns active Next"]
     WAIT["Wait for the next Request"]
     COMMIT["commit-commit-commit<br/>Group · Validate · Commit · Push"]
 
@@ -21,6 +31,20 @@ flowchart TD
     NEXT -- "Durable edit, decision or Validation" --> CHECKPOINT
     CHECKPOINT -- "Write .handoff.md" --> WAIT
     NEXT -- "No durable Change" --> WAIT
+    NEXT -- "Next action belongs in a paired repo" --> TRANSFER
+    TRANSFER --> PAYLOAD
+    PAYLOAD --> COPY
+    PAYLOAD --> H_INTENT
+    H_INTENT --> H_EVIDENCE
+    H_INTENT --> H_OPEN
+    H_INTENT --> H_REFS
+    H_INTENT --> H_NEXT
+    H_EVIDENCE --> H_NEXT
+    H_OPEN --> H_NEXT
+    H_REFS --> H_EVIDENCE
+    COPY --> PASTE
+    PASTE --> OPEN
+    OPEN --> NEXT
     WAIT -- "Request return to the origin" --> BACK
     BACK -- "Durable change or Decision" --> CHECKPOINT
     BACK -- "No durable change" --> WAIT
@@ -46,6 +70,8 @@ flowchart TD
 - [OneTwoCheckpoint](../.agents/skills/one-two-checkpoint/SKILL.md) Saves a durable change during work.
   [ByeByeBye](../.agents/skills/bye-bye-bye/SKILL.md) Expands that state when the session closes.
   Both Write `.handoff.md`; the next opening reads it.
+- [OneTwoTransfer](../.agents/skills/one-two-transfer/SKILL.md) passes the active Thread between paired repositories without closing the session.
+  It returns a copy-ready `.handoff.md` whose Intent connects the evidence, open work, references and one `Next`.
 - [CommitCommitCommit](../.agents/skills/commit-commit-commit/SKILL.md) Publishes when requested.
   Feature Commits Come first; one push follows successful validation and commits.
   Publication does not Close the session.

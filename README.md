@@ -34,6 +34,7 @@ A normal session is deliberately small:
 yo-yo-yo   reconstruct Context and name one next Step
 the-next-episode   execute that Step, verify it and stop
 one-two-checkpoint   persist durable state while the Work is moving
+one-two-transfer    return a copy-ready handoff for another repository
 bye-bye-bye     leave a handoff another session can resume
 ```
 
@@ -271,6 +272,7 @@ The Skills define the operations; each linked file holds the details.
 | `next`, `go`, `vamos`, `sigues`, `let's go`, `come on`, `sigue`, `continue`, `go on` or a selected option | [the-next-episode](.agents/skills/the-next-episode/SKILL.md) | Takes one recommended step, verifies it and names the following one. |
 | `sexy back`, `vuelve al origen` or return to the original topic | [sexy-back](.agents/skills/sexy-back/SKILL.md) | Rolls up the digression, preserves what remains pending and resumes the original purpose. |
 | A durable edit, decision or validation | [one-two-checkpoint](.agents/skills/one-two-checkpoint/SKILL.md) | Saves the thread in `.handoff.md` during work. |
+| Move work to another repository | [one-two-transfer](.agents/skills/one-two-transfer/SKILL.md) | Returns a copy-ready `.handoff.md`; no destination path is needed. |
 | Code changes or a requirement changes an app's shape | [one-two-refactor](.agents/skills/one-two-refactor/SKILL.md) | Applies code Rules and reads its design Workflow when a requirement changes the app's shape. |
 | Ask whether progress is blocked or reasoning repeats | [one-two-unblock](.agents/skills/one-two-unblock/SKILL.md) | Identifies blockers, cycles or exhausted hypotheses and what makes progress possible. |
 | A change starts growing | [one-two-growth](.agents/skills/one-two-growth/SKILL.md) | Checks whether one intent still holds the change. |

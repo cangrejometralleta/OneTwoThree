@@ -33,6 +33,8 @@ flowchart TD
 
 Invoke when the user says `bye dove`, asks to stop,
 or Requests a handoff for the next session.
+Do not use it when the current Thread moves to a paired repository
+and continues in the same conversation; use [OneTwoTransfer](../one-two-transfer/SKILL.md).
 
 ## Evidence
 
@@ -84,6 +86,8 @@ Use this Shape:
 
 **Logs** — source, date and session/record ID for needed cross-repo context; `Unavailable` if relevant logs cannot be read, otherwise `None`.
 
+**Transfer** — `None`, `Prepared for manual copy to <destination or Not specified>`, or `From`/`To` a repository handoff; only the receiver owns the active `Next` after transfer.
+
 **Validation** — the Command and its result, or Not Run.
 
 **Next** — one concrete Action.
@@ -100,6 +104,9 @@ Keep claims Factual and paths repository-relative.
 Mark uncertain claims as `Inferred`.
 For related repositories, inspect only work named in the active Thread.
 Record log references and the event needed to resume, not raw logs.
+When closing a transferred Thread, preserve the `Transfer` direction from
+[OneTwoTransfer](../one-two-transfer/SKILL.md) and the pointer to the repository
+that owns the active `Next`.
 Never Store secrets, tokens, terminal history or full conversation text.
 
 When growth is `Split`, preserve every Part

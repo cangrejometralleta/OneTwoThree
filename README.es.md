@@ -35,6 +35,7 @@ Una sesión normal es deliberadamente pequeña:
 yo-yo-yo   reconstruye el Contexto y nombra un siguiente Paso
 the-next-episode   ejecuta ese Paso, lo verifica y se detiene
 one-two-checkpoint   persiste el estado durable mientras el Trabajo avanza
+one-two-transfer    entrega un handoff listo para copiar a otro repositorio
 bye-bye-bye     deja un handoff que otra sesión pueda retomar
 ```
 
@@ -266,6 +267,7 @@ Las Skills definen las operaciones; cada archivo enlazado guarda los detalles.
 | `ha dove`, `hey dove`, `yo dove`, `hi dove`, `sup dove`, `ring dove`, `ring ring dove` o retomar trabajo previo | [yo-yo-yo](.agents/skills/yo-yo-yo/SKILL.md) | Sincroniza la rama, reconstruye el contexto y nombra un siguiente paso. |
 | `next`, `go`, `vamos`, `sigues`, `let's go`, `come on`, `sigue`, `continue`, `go on` u opción elegida | [the-next-episode](.agents/skills/the-next-episode/SKILL.md) | Da un paso recomendado, lo verifica y nombra el siguiente. |
 | Una edición, decisión o validación durable | [one-two-checkpoint](.agents/skills/one-two-checkpoint/SKILL.md) | Guarda el hilo en `.handoff.md` durante el trabajo. |
+| Pasar trabajo a otro repositorio | [one-two-transfer](.agents/skills/one-two-transfer/SKILL.md) | Entrega un `.handoff.md` listo para copiar; no hace falta la ruta de destino. |
 | Cambia el código o un requisito cambia la forma de una app | [one-two-refactor](.agents/skills/one-two-refactor/SKILL.md) | Aplica las Rules de código y lee el flujo de diseño si el requisito cambia la forma de la app. |
 | Preguntar si hay bloqueos o razonamiento repetido | [one-two-unblock](.agents/skills/one-two-unblock/SKILL.md) | Distingue bloqueos, ciclos o hipótesis agotadas y determina qué permite avanzar. |
 | Un cambio empieza a crecer | [one-two-growth](.agents/skills/one-two-growth/SKILL.md) | Revisa si una sola intención aún sostiene el cambio. |

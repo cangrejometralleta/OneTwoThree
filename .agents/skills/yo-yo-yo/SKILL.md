@@ -74,6 +74,10 @@ Read the smallest recent Window that explains the current state:
    It may Hold a compact working checkpoint or a full closing handoff.
    Treat either as the previous session's explicit State,
    then confirm its claims against current repository State.
+   If `Transfer` says `To`, read only that named receiver handoff and resume
+   from its `Next`; if it says `From`, this repository owns the active `Next`.
+   A copied handoff is sufficient to resume; verify source state only when that
+   repository is already identified and accessible. Do not scan siblings.
 2. **History** — recent Sessions for this repository,
    newest first. Read summaries, user intent, decisions,
    touched files and the last unresolved Step.
@@ -101,12 +105,13 @@ cannot distinguish the active Intent from a completed one.
 
 ## Reconstruct the Handoff
 
-Name four Things:
+Name five Things:
 
 1. **Intent** — what the latest coherent work was trying to Achieve.
 2. **Done** — what history and changes Agree is already complete.
 3. **Open** — the concrete unresolved Decision, edit or validation.
 4. **State** — changed Paths, branch and relevant recent commit.
+5. **Transfer** — the paired repository and handoff that owns `Next`, or `None`.
 
 Mark uncertain claims as `Inferred`.
 If history and git Disagree, name the disagreement

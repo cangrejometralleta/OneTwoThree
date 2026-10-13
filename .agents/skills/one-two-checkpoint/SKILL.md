@@ -11,6 +11,8 @@ without turning every turn into a full handoff.
 
 The Canon lives in [Session Checkpoint](../../../rules/session-checkpoint.md).
 The closing Handoff Lives in [ByeByeBye](../bye-bye-bye/SKILL.md).
+When work moves to a paired repository, [OneTwoTransfer](../one-two-transfer/SKILL.md)
+owns the transfer; this Skill records durable state in the current repository.
 
 ## When it Runs
 
@@ -48,6 +50,8 @@ Replace `.handoff.md` at the repository Root with:
 **Related repositories** — directly related repo/worktree, branch, state and relevant paths or commit; otherwise `None`.
 
 **Logs** — source, date and session/record ID for needed cross-repo context; `Unavailable` if relevant logs cannot be read, otherwise `None`.
+
+**Transfer** — `None`, `Prepared for manual copy to <destination or Not specified>`, or `From`/`To` a repository handoff that owns the active `Next`.
 
 **Next** — one concrete Action.
 ```
