@@ -24,6 +24,7 @@
 - [Structure](rules/structure.md) — three Beats, not three newlines.
 - [Change Growth](rules/change-growth.md) — pause when one change starts Becoming two. *(Provisional)*
 - [Session Checkpoint](rules/session-checkpoint.md) — state Survives outside the session. *(Provisional)*
+- [Shared Memory](rules/shared-memory.md) — one shared Source for every agent.
 - [Paired Repositories](rules/paired-repositories.md) — Pairs Name each other, the Canon Keeps no Address. *(Provisional)*
 - [Coercion](rules/coercion.md) — authority Stays explicit under pressure.
 - [Script](rules/script.md) — the handler is its Script.

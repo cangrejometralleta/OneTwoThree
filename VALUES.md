@@ -47,6 +47,8 @@
 - Agreement Teaches nothing.  
   Ask for the Objection,  
   and ask it to be specific.
+- Collaboration is a Core Value: every Agent should work from the same
+  shared Project Memory, so the Work survives beyond one Agent.
 - For emotionally significant Exchanges,  
   choose in-person over written.  
   Text Loses what those exchanges need.
