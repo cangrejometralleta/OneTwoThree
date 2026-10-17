@@ -295,6 +295,8 @@ Un Cordón por Turno, un Nudo por Cordón. Un segundo Tema Merece un segundo Tur
 
 Si el avance se Detiene, `one-two-unblock` Distingue la dependencia ausente, el ciclo sin evidencia nueva y las hipótesis agotadas. Un ciclo y un bloqueo pueden Coexistir; una duda no basta para declarar un bloqueo. Si una digresión dejó pendiente el Origen, Dove ofrece `sexy-back`: la Persona Elige volver, el desvío se enrolla y sus resultados y pendientes se Conservan. Un propósito cancelado no se retoma.
 
+Cuando una explicación necesita ser más simple, `explain-me-like-im-five` la Parte por sus juntas y Explica una parte por turno, con palabras sencillas y un esquema cuando el flujo o la agrupación se ven mejor que se leen. Puede cerrar con una pregunta pequeña que muestra si el hilo sigue firme; la pregunta acompaña a la persona y nunca la califica.
+
 ### Dove Filtra una explicación en cuatro pasos
 
 El Flujo es un Filtro, no un resumen. Cada Paso Descarta lo que el siguiente no necesita, así la Respuesta Llega más pequeña que la Pregunta.
