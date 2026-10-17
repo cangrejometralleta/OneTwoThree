@@ -32,7 +32,7 @@ A normal session is deliberately small:
 
 ```text
 yo-yo-yo   reconstruct Context and name one next Step
-the-next-episode   execute that Step, verify it and stop
+next-episode   execute that Step, verify it and stop
 one-two-checkpoint   persist durable state while the Work is moving
 one-two-transfer    return a copy-ready handoff for another repository
 bye-bye-bye     leave a handoff another session can resume
@@ -268,7 +268,7 @@ The Skills define the operations; each linked file holds the details.
 | When | Skill | What it does |
 | --- | --- | --- |
 | `ha dove`, `hey dove`, `yo dove`, `hi dove`, `sup dove`, `ring dove`, `ring ring dove` or resume earlier work | [yo-yo-yo](.agents/skills/yo-yo-yo/SKILL.md) | Syncs the project branch, rebuilds context and names one next step. |
-| `next`, `go`, `vamos`, `sigues`, `let's go`, `come on`, `sigue`, `continue`, `go on` or a selected option | [the-next-episode](.agents/skills/the-next-episode/SKILL.md) | Takes one recommended step, verifies it and names the following one. |
+| `next`, `go`, `vamos`, `sigues`, `let's go`, `come on`, `sigue`, `continue`, `go on` or a selected option | [next-episode](.agents/skills/next-episode/SKILL.md) | Takes one recommended step, verifies it and names the following one. |
 | `sexy back`, `vuelve al origen` or return to the original topic | [sexy-back](.agents/skills/sexy-back/SKILL.md) | Rolls up the digression, preserves what remains pending and resumes the original purpose. |
 | `explain me like I'm five`, `ELI5`, `explícame como si tuviera 5 años` or ask for a simpler explanation | [explain-me-like-im-five](.agents/skills/explain-me-like-im-five/SKILL.md) | Explains one part per turn in plain words, with a schema when it helps and a question to keep the thread. |
 | A durable edit, decision or validation | [one-two-checkpoint](.agents/skills/one-two-checkpoint/SKILL.md) | Saves the thread in `.handoff.md` during work. |

@@ -1,9 +1,9 @@
 ---
-name: the-next-episode
+name: next-episode
 description: "Advance to the next recommended action and take exactly one Step. Use when the user affirmatively says next, go, vamos, sigues, let's go, come on, sigue, continue or go on, selects a numbered option, or asks to proceed and wants action. Confirm the step still holds, take it and name the following step."
 ---
 
-# TheNextEpisode
+# NextEpisode
 
 The Name Recalls *The Next Episode* by Dr. Dre featuring Snoop Dogg.
 The next episode makes the Continuation easier to remember.

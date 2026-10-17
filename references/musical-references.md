@@ -26,7 +26,7 @@
 - Dr. Dre ([EN](https://en.wikipedia.org/wiki/Dr._Dre) · [ES](https://es.wikipedia.org/wiki/Dr._Dre)) featuring
   Snoop Dogg ([EN](https://en.wikipedia.org/wiki/Snoop_Dogg) · [ES](https://es.wikipedia.org/wiki/Snoop_Dogg)),
   [*The Next Episode* on Spotify](https://open.spotify.com/track/20LxTsa6936zOlzTWqoPVt) —
-  the Name behind [the-next-episode](../.agents/skills/the-next-episode/SKILL.md),
+  the Name behind [next-episode](../.agents/skills/next-episode/SKILL.md),
   which advances one Step.
 - David "Trugoy the Dove" Jolicoeur ([EN](https://en.wikipedia.org/wiki/David_Jolicoeur) · [ES: De La Soul](https://es.wikipedia.org/wiki/De_La_Soul)) —
   the Name Dove Honors.
