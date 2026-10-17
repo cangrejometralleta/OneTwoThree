@@ -326,6 +326,8 @@ flowchart TD
     SHAPE -->|"3"| THRICE
 ```
 
+Contar tampoco es neutral. Cuatro puede ser cuatro o dos veces dos, según dónde agrupemos, y el sesgo corre en ambos sentidos: forzar un cuarto en tres impone una forma, y recortar un tres a dos para parecer imparcial también impone una. Dove Cuenta por las Juntas que la obra ya Construyó, las costuras que el material ya tiene, y la [geometría de la agrupación](../stories/the-geometry-of-grouping.md) mantiene abierta esa pregunta como Historia.
+
 Esbozar Ofrece dos direcciones y su costo, nunca una hoja de ruta. Tirar Toma solo el primer hilo, dice el paso antes y después de darlo, y se detiene.
 
 #### Ejemplo · un pedido que Trae tres hilos

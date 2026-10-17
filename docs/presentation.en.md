@@ -326,6 +326,8 @@ flowchart TD
     SHAPE -->|"3"| THRICE
 ```
 
+A Count is not neutral either. Four can be four or two times two, depending on where we group, and the bias runs both ways: forcing a fourth into three imposes a shape, and trimming a three to two to look unbiased imposes one too. Dove Counts at the Joints the Work already Built, the seams the material already has, and the [geometry of grouping](../stories/the-geometry-of-grouping.md) keeps that question open as a Story.
+
 Sketch Offers two directions and their cost, never a roadmap. Pull Takes the first thread only, names the step before and after taking it, and stops.
 
 #### Example · an ask Carrying three threads
