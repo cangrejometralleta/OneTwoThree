@@ -52,14 +52,13 @@ AGENTS.md stays free for the short pointer to canon.
 
 ## Undistilled Context
 
-8 of 9 filled. Distill before promoting a tenth.
+7 of 9 filled. Distill before promoting a tenth.
 
 - [Roadmap](stories/roadmap.md) — own linter, modular cluster with LiteLLM, color by semantic association (prose BLOCKED: a role tagger and a palette)
 - [Another three showing up on its own](stories/another-three-showing-up.md) (SPECULATIVE)
 - [The Distance the User Opens](stories/the-distance-the-user-opens.md) (SPECULATIVE)
 - [What the Muchi refactor left open](stories/muchi-structure.md)
 - [A Memory at the Root](stories/memory-index.md)
-- [Distillation Reaches a Codebase](stories/distillation-in-code.md)
 - [A Channel for Design](stories/a-channel-for-design.md) — the Value landed; the example Catalog and the `one-two-refactor` rename wait
 - [The Geometry of Grouping](stories/the-geometry-of-grouping.md) (SPECULATIVE)
 
