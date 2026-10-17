@@ -1,23 +1,31 @@
-import { createServer, type IncomingMessage, type Server, type ServerResponse } from 'node:http';
-import { Handler, encodeResponse } from '../handler/handler.ts';
-import type { Request } from '../transport/index.ts';
-export function serve(handler: Handler, port: number): Promise<Server> {
+import { createServer, type Server as NodeServer } from 'node:http';
+import type { AddressInfo } from 'node:net';
+
+import type { Libretto, Running, Server } from '../transport/transport.ts';
+import { serveLibretto } from './reading.ts';
+
+/**
+ * StdlibServer Serves a Libretto with node:http alone.
+ * Reference: https://nodejs.org/api/http.html#httpcreateserveroptions-requestlistener
+ */
+export class StdlibServer implements Server {
+  serveRoutes(libretto: Libretto, port: number): Promise<Running> {
+    return listen(createServer((incoming, outgoing) => void serveLibretto(libretto, incoming, outgoing)), port);
+  }
+}
+
+/** listen Starts a Node Server and Hands back the Port it Bound. */
+export function listen(server: NodeServer, port: number): Promise<Running> {
   return new Promise((resolve, reject) => {
-    const server = createServer(async (incoming: IncomingMessage, outgoing: ServerResponse) => {
-      try {
-        const chunks: Buffer[] = []; let length = 0;
-        for await (const chunk of incoming) {
-          const data = Buffer.isBuffer(chunk) ? chunk : Buffer.from(chunk);
-          if (length <= 1024 * 1024) { const remaining = 1024 * 1024 + 1 - length; chunks.push(data.subarray(0,remaining)); }
-          length += data.length;
-        }
-        const req: Request = { method: incoming.method ?? '', path: incoming.url ?? '/', headers: incoming.headers,
-          body: Buffer.concat(chunks) };
-        const response = encodeResponse(await handler.handle(req));
-        outgoing.statusCode = response.status; for (const [key,value] of Object.entries(response.headers)) outgoing.setHeader(key,value);
-        outgoing.end(response.body);
-      } catch { outgoing.statusCode = 500; outgoing.setHeader('content-type','application/json'); outgoing.end('{"error":"internal error"}'); }
+    server.once('error', reject);
+    server.listen(port, () => {
+      resolve({
+        port: (server.address() as AddressInfo).port,
+        close: () => new Promise((done) => {
+          server.closeAllConnections();
+          server.close(() => done());
+        }),
+      });
     });
-    server.once('error',reject); server.listen(port,'0.0.0.0',() => { server.removeListener('error',reject); resolve(server); });
   });
 }

@@ -1,89 +1,119 @@
-import { Fault } from '../faults/index.ts';
-import type { Course, Student } from '../school/index.ts';
-import { parseJson, stringifyJson } from '../codec/json.ts';
-import type { Request, Response } from '../transport/index.ts';
+import { answerWith, requireProvenCaller, type Telling } from '../app/answers.ts';
 import type { TokenIssuer } from '../app/ports.ts';
-import { SchoolService, statusForFault } from '../app/service.ts';
+import type { SchoolService } from '../app/service.ts';
+import { readJsonBody, readPageRequest, readPathNumber, ROUTE_UNKNOWN } from '../app/validation.ts';
+import { UNNUMBERED_STUDENT, type CourseId, type StudentId } from '../school/school.ts';
+import type { Handler, Libretto, Request } from '../transport/transport.ts';
+import type { CourseView, StudentView, TokenView } from '../wire/wire.ts';
+import {
+  buildCourseRecord, buildStudentRecord, COURSE_FIELDS, renderCourseView, renderStudentView, STUDENT_FIELDS,
+} from './crossings.ts';
 
-const I64_MIN = -(1n << 63n), I64_MAX = (1n << 63n) - 1n;
-const json = (status: number, body: unknown): Response => ({ status, headers: { 'content-type':'application/json' }, body });
-function routeFor(method: string, path: string): { route: string; id?: string | undefined } | undefined {
-  const key = `${method.toUpperCase()} ${path}`;
-  const exact = new Set(['POST /token','GET /students','POST /students','GET /courses','POST /courses']);
-  if (exact.has(key)) return { route: key };
-  const idPath = path.match(/^\/(students|courses)\/([^/]+)$/);
-  if (idPath) {
-    const allowed = idPath[1] === 'students' ? ['GET','PUT','DELETE'] : ['GET'];
-    if (allowed.includes(method.toUpperCase())) return { route: `${method.toUpperCase()} /${idPath[1]}/{id}`, id: idPath[2]! };
+/** CALLER_SUBJECT is the one Subject a Minted Token Names. */
+export const CALLER_SUBJECT = 'student-registry';
+
+const HTTP_OK = 200;
+const HTTP_CREATED = 201;
+const HTTP_NO_CONTENT = 204;
+
+/**
+ * SchoolHandler is the Door: it Orchestrates. It Decodes, Calls one Service method
+ * and Answers with a Value or Fails. It Reaches no Provider and no Vendor.
+ */
+export class SchoolHandler {
+  readonly #school: SchoolService;
+  readonly #tokens: TokenIssuer;
+
+  constructor(school: SchoolService, tokens: TokenIssuer) {
+    this.#school = school;
+    this.#tokens = tokens;
   }
-  return undefined;
-}
-function parseId(raw: string): bigint { if (!/^\d+$/.test(raw)) throw new Fault('PathBroken'); const id = BigInt(raw); if (id <= 0n) throw new Fault('PathBroken'); return id; }
-function bodyObject(req: Request, allowed: string[]): Record<string, unknown> {
-  if (req.body.byteLength > 1024 * 1024) throw new Fault('BodyBroken');
-  let raw: string;
-  try { raw = new TextDecoder('utf-8', { fatal:true }).decode(req.body); } catch { throw new Fault('BodyBroken'); }
-  let value: unknown; try { value = parseJson(raw); } catch { throw new Fault('BodyBroken'); }
-  if (!value || typeof value !== 'object' || Array.isArray(value)) throw new Fault('BodyBroken');
-  const obj = value as Record<string, unknown>;
-  if (Object.keys(obj).length !== allowed.length || allowed.some(key => !Object.hasOwn(obj,key))) throw new Fault('BodyBroken');
-  return obj;
-}
-function integer(value: unknown): value is bigint { return typeof value === 'bigint' && value >= I64_MIN && value <= I64_MAX; }
-function studentBody(req: Request) {
-  const b = bodyObject(req, ['rut','name','age','courseId']);
-  if (typeof b.rut !== 'string' || typeof b.name !== 'string' || !integer(b.age) || !integer(b.courseId)) throw new Fault('BodyBroken');
-  return { rut:b.rut, name:b.name, age:b.age, courseId:b.courseId };
-}
-function courseBody(req: Request) {
-  const b = bodyObject(req, ['code','name']); if (typeof b.code !== 'string' || typeof b.name !== 'string') throw new Fault('BodyBroken');
-  return { code:b.code, name:b.name };
-}
-function page(url: URL): { page: bigint; size: bigint } | undefined {
-  const p = url.searchParams.get('page'), s = url.searchParams.get('size');
-  if (p === null && s === null) return undefined;
-  const parse = (v: string | null, fallback: bigint, min: bigint): bigint => {
-    if (v === null) return fallback; if (!/^\d+$/.test(v)) throw new Fault('PageInvalid');
-    const n = BigInt(v); if (n < min || n > I64_MAX) { if (n > I64_MAX) return n; throw new Fault('PageInvalid'); } return n;
-  };
-  return { page:parse(p,0n,0n), size:parse(s,10n,1n) };
-}
-function windowed<T>(rows: T[], p: {page: bigint;size: bigint} | undefined): T[] {
-  if (!p) return rows;
-  const start = p.page * p.size; if (start > BigInt(Number.MAX_SAFE_INTEGER)) return [];
-  return rows.slice(Number(start), Number(start + p.size));
-}
-const studentView = (s: Student) => ({id:s.id,rut:s.rut,name:s.name,age:s.age,courseId:s.courseId});
-const courseView = (c: Course) => ({id:c.id,code:c.code,name:c.name});
-function failure(fault: Fault): Response { return json(statusForFault(fault.kind),{error:fault.message}); }
-export class Handler {
-  private service: SchoolService; private tokens: TokenIssuer;
-  constructor(service: SchoolService, tokens: TokenIssuer) { this.service=service; this.tokens=tokens; }
-  async handle(req: Request): Promise<Response> {
-    const path = req.path.split('?',1)[0]!; const match = routeFor(req.method,path);
-    if (!match) return failure(new Fault('RouteUnknown'));
-    if (match.route !== 'POST /token') {
-      const auth = req.headers.authorization;
-      const m = typeof auth === 'string' ? /^Bearer\s+(.+)$/i.exec(auth) : null;
-      if (!m || !this.tokens.verify(m[1]!)) return failure(new Fault('TokenInvalid'));
-    }
-    try {
-      const url = new URL(req.path,'http://school.local');
-      switch (match.route) {
-        case 'POST /token': return json(201,{token:this.tokens.issue()});
-        case 'GET /students': { const p = page(url); return json(200,windowed((await this.service.listStudents()).map(studentView),p)); }
-        case 'POST /students': return json(201,studentView(await this.service.enroll(studentBody(req))));
-        case 'GET /students/{id}': return json(200,studentView(await this.service.readStudent(parseId(match.id!))));
-        case 'PUT /students/{id}': return json(200,studentView(await this.service.save(parseId(match.id!),studentBody(req))));
-        case 'DELETE /students/{id}': await this.service.deleteStudent(parseId(match.id!)); return {status:204,headers:{}};
-        case 'GET /courses': { const p = page(url); return json(200,windowed((await this.service.listCourses()).map(courseView),p)); }
-        case 'POST /courses': return json(201,courseView(await this.service.createCourse(courseBody(req))));
-        case 'GET /courses/{id}': return json(200,courseView(await this.service.readCourse(parseId(match.id!))));
-      }
-      return failure(new Fault('RouteUnknown'));
-    } catch (e) { if (e instanceof Fault) return failure(e); return json(500,{error:'internal error'}); }
+
+  /** declareSchoolRoutes is the Libretto: every Door, its happy Status and its Guard. */
+  declareSchoolRoutes(): Libretto {
+    return {
+      routes: [
+        { method: 'POST', pattern: '/token', handle: answerWith(HTTP_CREATED, (request) => this.mintAccessToken(request)) },
+
+        { method: 'GET', pattern: '/students', handle: this.guarded(HTTP_OK, (request) => this.listStudentRecords(request)) },
+        { method: 'POST', pattern: '/students', handle: this.guarded(HTTP_CREATED, (request) => this.addStudentRecord(request)) },
+        { method: 'GET', pattern: '/students/{id}', handle: this.guarded(HTTP_OK, (request) => this.showStudentRecord(request)) },
+        { method: 'PUT', pattern: '/students/{id}', handle: this.guarded(HTTP_OK, (request) => this.saveStudentRecord(request)) },
+        { method: 'DELETE', pattern: '/students/{id}', handle: this.guarded(HTTP_NO_CONTENT, (request) => this.dropStudentRecord(request)) },
+
+        { method: 'GET', pattern: '/courses', handle: this.guarded(HTTP_OK, (request) => this.listCourseRecords(request)) },
+        { method: 'POST', pattern: '/courses', handle: this.guarded(HTTP_CREATED, (request) => this.addCourseRecord(request)) },
+        { method: 'GET', pattern: '/courses/{id}', handle: this.guarded(HTTP_OK, (request) => this.showCourseRecord(request)) },
+      ],
+      unknown: answerWith(HTTP_OK, async () => this.refuseUnknownRoute()),
+    };
   }
-}
-export function encodeResponse(response: Response): { status: number; headers: Record<string,string>; body: Uint8Array } {
-  return { status:response.status, headers:response.headers, body:response.status === 204 ? new Uint8Array() : new TextEncoder().encode(stringifyJson(response.body)) };
+
+  /** guarded Names the Caller before the Script runs, then Crosses to a Handler. */
+  guarded(status: number, tell: Telling): Handler {
+    return answerWith(status, requireProvenCaller(this.#tokens, tell));
+  }
+
+  /** mintAccessToken Hands out a Token. */
+  async mintAccessToken(_request: Request): Promise<TokenView> {
+    return { token: this.#tokens.issueAccessToken(CALLER_SUBJECT) };
+  }
+
+  /** listStudentRecords Tells one Page of the Roll. */
+  async listStudentRecords(request: Request): Promise<StudentView[]> {
+    const students = await this.#school.listStudents(readPageRequest(request));
+
+    return students.map(renderStudentView);
+  }
+
+  /** addStudentRecord Enrols a new Student. */
+  async addStudentRecord(request: Request): Promise<StudentView> {
+    const body = readJsonBody(request, STUDENT_FIELDS);
+
+    return renderStudentView(await this.#school.enrollStudent(buildStudentRecord(body, UNNUMBERED_STUDENT)));
+  }
+
+  /** showStudentRecord Tells the Story of one Student. */
+  async showStudentRecord(request: Request): Promise<StudentView> {
+    const id = readPathNumber(request) as StudentId;
+
+    return renderStudentView(await this.#school.readStudent(id));
+  }
+
+  /** saveStudentRecord Rewrites the Student the Path Names. */
+  async saveStudentRecord(request: Request): Promise<StudentView> {
+    const id = readPathNumber(request) as StudentId;
+    const body = readJsonBody(request, STUDENT_FIELDS);
+
+    return renderStudentView(await this.#school.saveStudent(buildStudentRecord(body, id)));
+  }
+
+  /** dropStudentRecord Ends an Enrolment. It Answers no Body. */
+  async dropStudentRecord(request: Request): Promise<undefined> {
+    await this.#school.deleteStudent(readPathNumber(request) as StudentId);
+
+    return undefined;
+  }
+
+  /** listCourseRecords Tells one Page of the Catalogue. */
+  async listCourseRecords(request: Request): Promise<CourseView[]> {
+    const courses = await this.#school.listCourses(readPageRequest(request));
+
+    return courses.map(renderCourseView);
+  }
+
+  /** addCourseRecord Opens a new Course. */
+  async addCourseRecord(request: Request): Promise<CourseView> {
+    return renderCourseView(await this.#school.createCourse(buildCourseRecord(readJsonBody(request, COURSE_FIELDS))));
+  }
+
+  /** showCourseRecord Tells the Story of one Course. */
+  async showCourseRecord(request: Request): Promise<CourseView> {
+    return renderCourseView(await this.#school.readCourse(readPathNumber(request) as CourseId));
+  }
+
+  /** refuseUnknownRoute Answers a Door the Libretto does not Hold, before any Guard. */
+  refuseUnknownRoute(): never {
+    throw ROUTE_UNKNOWN;
+  }
 }

@@ -42,7 +42,7 @@ Projects connect to the Canon and load selected skills and agents through `dove-
 
 The same boundary applies to knowledge. Raw experience stays in `chaos/`, a depersonalized observation may become a Story, and only Learning that survives review becomes a Value, Rule or Pattern. The System may generate and compare; the Person decides what governs.
 
-The examples make the architectural Rules executable. The School service is generated from a Contract, a Specification and a Shape that live apart from its code; Go follows them today, and Java and TypeScript wait to be regenerated; the PDF converter keeps Markdown parsing, document structure and rendering behind explicit boundaries. The point is not maximum automation. The point is Work that remains understandable, interruptible, verifiable and resumable.
+The examples make the architectural Rules executable. The School service is generated from a Contract, a Specification and a Shape that live apart from its code; Go, Java and TypeScript are regenerated from them and answer the same requests the same way; the PDF converter keeps Markdown parsing, document structure and rendering behind explicit boundaries. The point is not maximum automation. The point is Work that remains understandable, interruptible, verifiable and resumable.
 
 ## The Repository, in one Map
 
@@ -52,7 +52,7 @@ RULES.md    the How       verifiable rules, in rules/
 PATTERNS.md the Where     recurring roots, in patterns/
 AGENTS.md   the Pointer   what an agent loads on its own
 .agents/    agents/ and skills/, the operations
-examples/   school/ and pdf/, the rules running in Go; specs/ holds what generates them
+examples/   school/ in Go, Java and TypeScript, pdf/ in Go; specs/ holds what generates them
 docs/       the Presentation, in English and Spanish
 stories/    STORY.md, stories/ and chaos/: context, not yet canon
 jokes/      hand-written humour; read it, never add to it
@@ -163,7 +163,14 @@ Every rule that governs code runs in [examples](examples).
 ### The School Service
 
 [School](examples/school/README.md) is one API, generated from a [Contract](examples/specs/school/openapi.yaml), a [Specification](examples/specs/school/SPEC.md) and a [Shape](examples/specs/school/SHAPE.md).
-The Go service follows all three; Java and TypeScript still keep the earlier shape and wait to be regenerated.
+Go, Java and TypeScript are each generated from all three, and answer fifty edge requests with the same status, content type and body.
+Each keeps three shapes for one record, so the wire, the business and the storage validate apart.
+
+| | Go | Java | TypeScript |
+| --- | --- | --- | --- |
+| Store | GORM over SQLite | JDBC over H2 | Drizzle over SQLite |
+| Adapters | stdlib, chi, gin | stdlib, spring | stdlib, express |
+| Boundary check | `go list -deps` | `BoundariesTest` | `boundaries.test.ts` |
 [The Before](examples/school/BEFORE.md) shows the original with each broken rule named.
 
 ```text
@@ -334,7 +341,7 @@ An Agent needs a Society: explicit authority, independent signals, the right to 
 | Check | Command |
 | --- | --- |
 | Translation pairs intact | the loop in [Translations](rules/translations.md) prints nothing |
-| Core imports no vendor | `go list -deps ./school` in `examples/school/go` |
+| Core imports no vendor | `go list -deps ./school` in `examples/school/go`; the boundary test in `java/` and `ts/` |
 | Examples build and pass | `./build.sh` in each example directory |
 
 ## The Name

@@ -4,8 +4,8 @@ The technical Test, Rewritten three times.
 Students, courses, a chilean RUT and a token,
 served by runtimes that never Touch the Business.
 
-The Go and TypeScript Services are Generated from the Contract, the Specification and the Shape
-in [specs/school](../specs/school). Java keeps the earlier Shape and Waits to be Regenerated.
+The Go, Java and TypeScript Services are Generated from the Contract, the Specification and the Shape
+in [specs/school](../specs/school), and Answer the same Requests the same Way.
 
 [The Before](BEFORE.md) Reads the original test and Names the rule
 each seam earned. Read that first if you want the Argument
@@ -17,25 +17,25 @@ Learn them once and every Runtime Opens the same Way.
 ```bash
 cp ../.env.example .env             # once per runtime directory
 ./build.sh                          # the Gates, then the Artefact
-./run.sh [adapter]                  # Go and Java; TypeScript uses stdlib
+./run.sh [adapter]                  # stdlib is the Default everywhere
 ```
 
 [.env.example](.env.example) is the Contract: required variables live,
 optional ones commented beside the default they Replace.
 `run.sh` Reads `.env` when present, and an exported variable Wins.
-The Argument Wins over both. TypeScript reads `.env` from `ts/`, uses the shared School configuration, and keeps its JSON store separate in `school-ts.db`.
+The Argument Wins over both.
 
 | | Go | TypeScript | Java |
 |---|---|---|---|
-| Gates | gofmt, vet, test | Node syntax and type checks, 18 behavior tests | toolchain, lint, 93 tests |
-| Store | GORM over SQLite | JSON file store | JDBC over H2 |
-| Adapters | stdlib, chi, gin | stdlib | stdlib, spring |
+| Gates | gofmt, vet, 87 tests | strict types, 91 tests | toolchain, lint, 93 tests |
+| Store | GORM over SQLite | Drizzle over SQLite | JDBC over H2 |
+| Adapters | stdlib, chi, gin | stdlib, express | stdlib, spring |
 
 `build.sh` Refuses to Build what does not Pass.
 `run.sh` Refuses to Start without a Secret.
-Go and Java select an adapter; TypeScript Runs its stdlib adapter.
+Every runtime Selects its adapter at Startup.
 
-The [Contract](../specs/school/openapi.yaml), the [Specification](../specs/school/SPEC.md) and [the Shape](../specs/school/SHAPE.md) Say what a Generated Service Answers; Go and the regenerated TypeScript and Java services do today. See the TypeScript [regeneration notes](ts/REGENERATION.md) for implementation choices and verification limits.
+The [Contract](../specs/school/openapi.yaml), the [Specification](../specs/school/SPEC.md) and [the Shape](../specs/school/SHAPE.md) Say what a Generated Service Answers; all three do today. See the TypeScript [regeneration notes](ts/REGENERATION.md) for its implementation choices.
 
 ```bash
 TOKEN_SECRET=s go/run.sh gin        # Go
@@ -47,10 +47,10 @@ TypeScript runtime uses Node.js 22.6 or newer and its standard library. Its buil
 
 ## Constants and Environments
 
-Go and TypeScript Read the same JSON Files, following
+Go, Java and TypeScript Read the same JSON Files, following
 [Constants](../../rules/constants.md).
 `minimumAgeYears: 18` is the shared Enrollment Rule.
-RUT weights and modulo eleven Stay beside their Algorithm. TypeScript uses Node.js 22.6 or newer and the standard library; it writes JSON to `school-ts.db` to keep its store separate from the SQLite services.
+RUT weights and modulo eleven Stay beside their Algorithm.
 
 ```text
 constants/school.json              Global Constants; no Overrides

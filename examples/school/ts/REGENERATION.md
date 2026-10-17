@@ -1,21 +1,17 @@
-# Gaps and implementation choices
+# Implementation Choices
 
-- The clean input set intentionally contained only the specification, shape and contract. The integrated runner uses the shared `examples/school/config/`, `constants/` and registry files.
-- The spec does not define the `SERVER` adapter identifier; this runtime accepts
-  only `stdlib` (Node's built-in HTTP server).
-- The spec leaves the persistence format and database suffix open. This runtime
-  writes JSON to the exact configured database path and uses an in-process
-  serialized write queue; it is suitable for a single process.
-- The spec leaves enrollment logging format to the Runtime. This runtime logs one
-  line to stderr: `student <id> is enrolled`.
-- `DATA_ROOT` is an additional runtime setting used to locate constants, config,
-  and the registry. The runner sets it to the parent School example directory; it is outside the declared
-  `SCHOOL_` namespace.
+What the Spec Leaves to a Runtime, and how this one Answers.
 
-## Verification limit
+- **Whole Numbers are `bigint`.** A `number` Rounds past 2^53, and the Spec Says 64 bit.
+  The Wire, the Core and the Store Carry `bigint`; the JSON Writer Prints its Digits.
+- **JSON is Read by `src/codec`.** `JSON.parse` Keeps the last of a repeated Key, Rounds large
+  Numbers and cannot Tell `20` from `20.0`. The Reader is standard Library only.
+- **The Store is Drizzle over better-sqlite3.** Drizzle Maps the Rows; the Tables are Created at
+  Startup, the Way GORM's AutoMigrate Does. `better-sqlite3` Builds a native Binding, and
+  `package.json` Allows that one install Script.
+- **The Adapters are `stdlib` and `express`.** Both Hand the whole Node Request to `serving/reading.ts`,
+  so Express Decides nothing and Answers what node:http Answers.
+- **The Announcement is `student <id> is enrolled`**, on standard output.
+- **`databasePath` is used as Given**; SQLite Appends nothing.
 
-- The environment denied binding a local test socket (`EPERM`), so the stdlib
-  adapter was imported but not exercised over HTTP. Handler and service behavior
-  are covered by the passing unit tests.
-- Node does not ship a TypeScript formatter. `build.sh` checks Node's TypeScript
-  syntax handling, runs `tsc --noEmit`, executes the behavior tests, and checks import boundaries. The type check required fixing several inferred types after integration.
+Go, Java and TypeScript Answer the same fifty edge Requests with the same Status, Content-Type and Body.

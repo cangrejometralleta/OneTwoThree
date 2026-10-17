@@ -1,16 +1,40 @@
-import type { Course, Student } from '../school/index.ts';
+import type { Course, CourseId, Page, Rut, Student, StudentId } from '../school/school.ts';
+
+/** StudentStore Keeps Students wherever Students Live. Absence is undefined or false; only the Store Proves a Rut Taken. */
 export interface StudentStore {
-  selectStudent(id: bigint): Promise<Student | undefined>;
-  insertStudent(student: Student): Promise<Student>;
-  updateStudent(id: bigint, student: Student): Promise<Student | undefined>;
-  deleteStudent(id: bigint): Promise<boolean>;
-  listStudents(): Promise<Student[]>;
+  insertStudentRow(student: Student): Promise<Student>;
+  selectStudentRow(id: StudentId): Promise<Student | undefined>;
+  updateStudentRow(student: Student): Promise<boolean>;
+  deleteStudentRow(id: StudentId): Promise<boolean>;
+  selectStudentPage(page: Page): Promise<Student[]>;
 }
+
+/** CourseStore Keeps Courses, and Answers whether one Exists. */
 export interface CourseStore {
-  selectCourse(id: bigint): Promise<Course | undefined>;
-  insertCourse(course: Omit<Course, 'id'>): Promise<Course>;
-  listCourses(): Promise<Course[]>;
+  insertCourseRow(course: Course): Promise<Course>;
+  selectCourseRow(id: CourseId): Promise<Course | undefined>;
+  selectCoursePage(page: Page): Promise<Course[]>;
 }
-export interface TokenIssuer { issue(nowSeconds?: bigint): string; verify(token: string, nowSeconds?: bigint): string | undefined; }
-export interface RutRegistry { confirm(rut: string): Promise<boolean>; }
-export interface EnrollmentNotifier { announce(studentId: bigint): Promise<void>; }
+
+/** RutRegistry Confirms whether a Rut Belongs to someone Real. A Denied Rut is false; a Registry that cannot Answer Throws. */
+export interface RutRegistry {
+  confirmRut(rut: Rut): Promise<boolean>;
+}
+
+/** EnrollmentNotifier Announces a Student the Store has Kept. */
+export interface EnrollmentNotifier {
+  announceEnrollment(student: Student): Promise<void>;
+}
+
+/** CallerReader Names the Caller a Token Proves, or Throws. */
+export interface CallerReader {
+  readCaller(token: string): string;
+}
+
+/** TokenIssuer Mints a Bearer Token and Reads one for the Guard. */
+export interface TokenIssuer extends CallerReader {
+  issueAccessToken(subject: string): string;
+}
+
+/** Logger Writes one Line in the Runtime's own Format. */
+export type Logger = (line: string) => void;

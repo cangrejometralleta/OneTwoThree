@@ -1,20 +1,43 @@
-import { loadSettings } from './src/settings/loader.ts';
-import { FileStore } from './src/store/store.ts';
-import { Office } from './src/campus/office.ts';
-import { HmacTokenIssuer } from './src/tokens/token.ts';
 import { SchoolService } from './src/app/service.ts';
-import { Handler } from './src/handler/handler.ts';
-import { serve } from './src/serving/stdlib.ts';
+import { Office } from './src/campus/office.ts';
+import { SchoolHandler } from './src/handler/handler.ts';
+import { ExpressServer } from './src/serving/express/express-server.ts';
+import { StdlibServer } from './src/serving/stdlib.ts';
+import { loadSchoolConfig } from './src/settings/school-config.ts';
+import { findSchoolDataRoot, readGlobalConstants } from './src/settings/settings.ts';
+import { SchoolStore } from './src/store/school-store.ts';
+import { AccessTokens } from './src/tokens/access-tokens.ts';
+import type { Server } from './src/transport/transport.ts';
+
+/** SERVER_ADAPTERS is every Framework this Runtime Implements; the Loader only Receives the Names. */
+const SERVER_ADAPTERS: Readonly<Record<string, () => Server>> = {
+  stdlib: () => new StdlibServer(),
+  express: () => new ExpressServer(),
+};
+
+/** startSchool Casts the Players, then Steps off the Stage. It is the only File that Knows every Module by Name. */
+async function startSchool(): Promise<void> {
+  const root = findSchoolDataRoot(process.cwd());
+  const constants = readGlobalConstants(root);
+  const config = loadSchoolConfig(root, process.env, Object.keys(SERVER_ADAPTERS).sort());
+
+  const store = SchoolStore.openSchoolStore(config.databasePath);
+  const office = await Office.openOffice(config.registryPath, (line) => console.log(line));
+  const service = new SchoolService({
+    rules: { minimumAgeYears: constants.minimumAgeYears },
+    students: store, courses: store, registry: office, notices: office,
+    log: (line) => console.error(line),
+  });
+  const door = new SchoolHandler(service, new AccessTokens(config.tokenSecret, config.tokenLifeSeconds));
+
+  const server = SERVER_ADAPTERS[config.serverAdapter]?.();
+  const running = await server?.serveRoutes(door.declareSchoolRoutes(), config.port);
+  console.log(`✅ School Listening on :${running?.port} through ${config.serverAdapter}`);
+}
 
 try {
-  const settings = await loadSettings(import.meta.url);
-  const [store, office] = await Promise.all([FileStore.open(settings.databasePath), Office.open(settings.registryPath)]);
-  const tokens = new HmacTokenIssuer(settings.tokenSecret,settings.tokenLifeSeconds);
-  const service = new SchoolService(store,store,office,office,settings.constants);
-  await serve(new Handler(service,tokens),settings.port);
-  console.log(`School listening on ${settings.port}`);
-} catch (error) {
-  const message = error instanceof Error ? error.message : 'unknown startup failure';
-  console.error(`startup refused: ${message}`);
+  await startSchool();
+} catch (refused) {
+  console.error(`❌ School Refused to Start: ${refused instanceof Error ? refused.message : String(refused)}`);
   process.exitCode = 1;
 }

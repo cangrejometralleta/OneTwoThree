@@ -151,5 +151,5 @@ The Spec and this Shape are the Source. The Code is what they Produce.
    and the Shape Changes before School does.
 5. Keep [the Before](../../school/BEFORE.md) as it is. It is History, not Spec.
 
-The Go Service is Regenerated first.
-Java and TypeScript Wait for Go to Close.
+Go, Java and TypeScript are Regenerated from these,
+and Answer the same Requests the same Way.

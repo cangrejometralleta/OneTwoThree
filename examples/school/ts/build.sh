@@ -1,28 +1,52 @@
 #!/usr/bin/env sh
+# Checks School TypeScript once the Toolchain, Type and Test Gates pass.
 set -eu
+
 cd -- "$(dirname -- "$0")"
+LOWEST_NODE=24
 
 verify_toolchain() {
 	if ! command -v node >/dev/null 2>&1; then
-		echo "Node.js 22.6 or newer is required" >&2
-		exit 1
+		echo "❌ No Node Found"
+		echo "Install Node.js $LOWEST_NODE or newer: https://nodejs.org/en/download"
+		return 1
 	fi
-	node -e 'const [major,minor]=process.versions.node.split(".").map(Number); if(major<22 || (major===22 && minor<6)){console.error("Node.js 22.6 or newer is required");process.exit(1)}'
-	if [ ! -x node_modules/.bin/tsc ]; then
-		echo "TypeScript dependencies are missing; run npm install" >&2
-		exit 1
+	major="$(node -p 'process.versions.node.split(".")[0]')"
+	if [ "$major" -lt "$LOWEST_NODE" ]; then
+		echo "❌ Node $major is older than $LOWEST_NODE"
+		echo "Node $LOWEST_NODE Strips Types and Ships the Test Runner this Build Uses."
+		return 1
 	fi
+	echo "✅ Toolchain Found: Node $major"
 }
 
-verify_source() {
-	node --experimental-strip-types --check main.ts
-	node_modules/.bin/tsc --project tsconfig.json
+install_packages() {
+	if ! npm ci --no-audit --no-fund --silent; then
+		echo "❌ Packages Failed to Install"
+		echo "Run npm ci here; better-sqlite3 Builds a Native Binding."
+		return 1
+	fi
+	echo "✅ Packages Installed"
 }
 
-run_tests() {
-	node --experimental-strip-types tests/school.test.ts
+verify_types() {
+	# Node Ships no Formatter, so the strict Type Check is the Format Gate.
+	if ! node_modules/.bin/tsc --project tsconfig.json; then
+		echo "❌ Type Check Failed"
+		return 1
+	fi
+	echo "✅ Type Check Passed"
+}
+
+verify_tests() {
+	if ! node --test 'src/**/*.test.ts' >/dev/null; then
+		echo "❌ Tests Failed; Run: node --test 'src/**/*.test.ts'"
+		return 1
+	fi
+	echo "✅ Tests Passed"
 }
 
 verify_toolchain
-verify_source
-run_tests
+install_packages
+verify_types
+verify_tests

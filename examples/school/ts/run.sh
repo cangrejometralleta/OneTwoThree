@@ -1,20 +1,69 @@
 #!/usr/bin/env sh
+# Runs School. Pass the Server Adapter; stdlib is the Default.
 set -eu
-cd -- "$(dirname -- "$0")"
 
-verify_node() {
-	if ! command -v node >/dev/null 2>&1; then
-		echo "Node.js 22.6 or newer is required" >&2
-		exit 1
+cd -- "$(dirname -- "$0")"
+ADAPTER="${1:-}"
+
+read_dotenv() {
+	if [ ! -f .env ]; then
+		return 0
 	fi
-	node -e 'const [major,minor]=process.versions.node.split(".").map(Number); if(major<22 || (major===22 && minor<6)){console.error("Node.js 22.6 or newer is required");process.exit(1)}'
+
+	while IFS='=' read -r name value; do
+		case "$name" in ''|\#*) continue ;; esac
+		if [ -z "$(printenv "$name" 2>/dev/null || true)" ]; then
+			export "$name=$value"
+		fi
+	done < .env
+
+	echo "✅ Loaded .env"
+}
+
+select_settings() {
+	# The Argument Wins, then the Environment, then the Default.
+	SERVER="${ADAPTER:-${SERVER:-stdlib}}"
+	APP_ENV="${APP_ENV:-development}"
+	export APP_ENV SERVER
+}
+
+verify_adapter() {
+	case "$SERVER" in
+		stdlib|express) ;;
+		*)
+			echo "❌ Unknown Adapter: $SERVER"
+			echo "Usage: ./run.sh [stdlib|express]"
+			return 1
+			;;
+	esac
+}
+
+verify_secret() {
+	if [ -z "${TOKEN_SECRET:-}" ]; then
+		echo "❌ TOKEN_SECRET is Missing"
+		echo "The Deployment Supplies it; no File Key Holds it."
+		echo "Copy ../.env.example to .env, or Export it."
+		return 1
+	fi
+	echo "✅ Secret Supplied"
+}
+
+verify_packages() {
+	if [ ! -d node_modules/drizzle-orm ]; then
+		echo "❌ Packages Missing; Run ./build.sh first"
+		return 1
+	fi
+	echo "✅ Packages Found"
 }
 
 start_service() {
-	export DATA_ROOT="${DATA_ROOT:-..}"
-	export SCHOOL_DATABASE_PATH="${SCHOOL_DATABASE_PATH:-school-ts.db}"
-	exec node --experimental-strip-types main.ts
+	echo "✅ Starting School on $SERVER in $APP_ENV"
+	exec node main.ts
 }
 
-verify_node
+read_dotenv
+select_settings
+verify_adapter
+verify_secret
+verify_packages
 start_service
