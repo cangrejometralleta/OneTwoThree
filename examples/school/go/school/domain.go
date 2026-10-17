@@ -6,16 +6,19 @@ import (
 	"strings"
 )
 
-type StudentID uint
-type CourseID uint
+// StudentID is the Identity the Store Gives a Student; the Body never Carries it.
+type StudentID int64
+
+// CourseID is the Identity the Store Gives a Course.
+type CourseID int64
 
 // RUT is the Chilean tax Number a Student is Known by.
 type RUT string
 
-// FullName is what a Person is Called.
+// FullName is what a Person or a Course is Called, Stored as it Arrived.
 type FullName string
 
-// CourseCode is the short Label a Course Answers to.
+// CourseCode is the short Label a Course Answers to. Codes are not Unique.
 type CourseCode string
 
 // Student is the Business Truth about one Enrolment.
@@ -23,7 +26,7 @@ type Student struct {
 	ID     StudentID
 	Rut    RUT
 	Name   FullName
-	Age    int
+	Age    int64
 	Course CourseID
 }
 
@@ -34,14 +37,28 @@ type Course struct {
 	Name FullName
 }
 
-var rutShape = regexp.MustCompile(`^[0-9]+-[0-9kK]$`)
+// SchoolRules Holds the Global Constants the Business will not Bend. No Deployment Overrides them.
+type SchoolRules struct {
+	MinimumAgeYears int64
+}
 
-// RutWeights Cycles two through seven, Read right to left.
+// RutWeights Cycle two through seven, Read right to left.
 var RutWeights = []int{2, 3, 4, 5, 6, 7}
 
-// CheckStudentRecord Refuses a Student the Business cannot Use.
-func (s Student) CheckStudentRecord() error {
-	if s.Name == "" {
+// CheckModulus is the Modulo the Check Digit Encodes.
+const CheckModulus = 11
+
+var rutShape = regexp.MustCompile(`^[0-9]+-[0-9kK]$`)
+
+// ReadRUT Promotes Text into a RUT, in lower case: 12345-K and 12345-k are one RUT.
+// Leading zeros are not Merged.
+func ReadRUT(text string) RUT {
+	return RUT(strings.ToLower(text))
+}
+
+// CheckStudentRecord Refuses a Student the Business cannot Use: Name, then RUT, then Age.
+func (s Student) CheckStudentRecord(rules SchoolRules) error {
+	if s.Name.IsEmpty() {
 		return ErrNameIsEmpty
 	}
 
@@ -49,29 +66,29 @@ func (s Student) CheckStudentRecord() error {
 		return ErrRutIsInvalid
 	}
 
-	return s.CheckStudentAge()
-}
-
-// CheckStudentAge Holds the one Rule the School will not Bend.
-func (s Student) CheckStudentAge() error {
-	if s.Age < ReadSchoolConstants().MinimumAgeYears {
-		return ErrAgeIsTooLow
+	if s.Age < rules.MinimumAgeYears {
+		return ErrAgeIsTooLow(rules)
 	}
 
 	return nil
 }
 
-// CheckCourseRecord Refuses a Course the Business cannot Use.
+// CheckCourseRecord Refuses a Course the Business cannot Use: Code, then Name.
 func (c Course) CheckCourseRecord() error {
-	if c.Code == "" {
+	if strings.TrimSpace(string(c.Code)) == "" {
 		return ErrCodeIsEmpty
 	}
 
-	if c.Name == "" {
+	if c.Name.IsEmpty() {
 		return ErrNameIsEmpty
 	}
 
 	return nil
+}
+
+// IsEmpty Holds for a Name of only whitespace; the Text itself is never Trimmed.
+func (n FullName) IsEmpty() bool {
+	return strings.TrimSpace(string(n)) == ""
 }
 
 // LooksValid Runs the Modulo eleven Check the Digit Encodes.
@@ -86,23 +103,18 @@ func (r RUT) LooksValid() bool {
 	return digit == CheckDigitFor(body)
 }
 
-// CheckDigitFor Folds a RUT Body into its single Check Character.
+// CheckDigitFor Folds a RUT Body into its single Check Character, Digit by Digit.
 func CheckDigitFor(body string) string {
-	number, err := strconv.Atoi(body)
-	if err != nil {
-		return ""
+	sum := 0
+	for position := 0; position < len(body); position++ {
+		digit := int(body[len(body)-1-position] - '0')
+		sum = (sum + digit*RutWeights[position%len(RutWeights)]) % CheckModulus
 	}
 
-	sum, position := 0, 0
-	for ; number > 0; number /= 10 {
-		sum += number % 10 * RutWeights[position%len(RutWeights)]
-		position++
-	}
-
-	return NameCheckRemainder(11 - sum%11)
+	return NameCheckRemainder(CheckModulus - sum)
 }
 
-// NameCheckRemainder Turns a Remainder into the Character it Means.
+// NameCheckRemainder Turns a Remainder into the Character it Means: eleven is 0, ten is k.
 func NameCheckRemainder(remainder int) string {
 	switch remainder {
 	case 11:

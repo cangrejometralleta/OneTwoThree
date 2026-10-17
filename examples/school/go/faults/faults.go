@@ -17,6 +17,9 @@ const (
 	UnavailableProvider
 )
 
+// InternalReason is all a Caller Learns of a Failure that is Ours.
+const InternalReason = "internal error"
+
 // A Fault is a Failure the Program Expected, Carrying the Kind it Deserves.
 // A Failure that Reaches the Edge without one is Unexpected.
 type Fault struct {
@@ -49,20 +52,17 @@ func ReportTakenValue(reason string) Fault {
 	return Fault{Kind: TakenValue, Reason: reason}
 }
 
-// RefuseUnprocessableValue Names a Value that is well Formed and still Denied
-// by the Authority that Knows.
+// RefuseUnprocessableValue Names a well Formed Value the Authority that Knows still Denies.
 func RefuseUnprocessableValue(reason string) Fault {
 	return Fault{Kind: UnprocessableValue, Reason: reason}
 }
 
-// ReportUnavailableProvider Names a Provider that cannot Answer now.
-// The Caller may Retry; an Unknown is never a Yes.
+// ReportUnavailableProvider Names a Provider that cannot Answer now; an Unknown is never a Yes.
 func ReportUnavailableProvider(reason string) Fault {
 	return Fault{Kind: UnavailableProvider, Reason: reason}
 }
 
-// ReadFaultKind Finds the Fault inside any Wrapping.
-// A Fault Answers for itself; everything else is Unexpected.
+// ReadFaultKind Finds the Fault inside any Wrapping; everything else is Unexpected.
 func ReadFaultKind(err error) Kind {
 	var fault Fault
 	if errors.As(err, &fault) {
@@ -72,12 +72,12 @@ func ReadFaultKind(err error) Kind {
 	return Unexpected
 }
 
-// ReadFaultReason Finds the Reason a Fault Declares, or Says nothing of a driver.
+// ReadFaultReason Finds the Reason a Fault Declares, and Says nothing of a driver.
 func ReadFaultReason(err error) string {
 	var fault Fault
 	if errors.As(err, &fault) {
 		return fault.Reason
 	}
 
-	return "internal error"
+	return InternalReason
 }

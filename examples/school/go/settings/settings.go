@@ -1,14 +1,19 @@
 package settings
 
 import (
+	"bytes"
 	"encoding/json"
+	"errors"
 	"fmt"
+	"io"
 	"os"
 	"path/filepath"
 	"regexp"
-	"strconv"
 	"strings"
 )
+
+// dataRootSearchLevels Bounds the Walk up from the working Directory.
+const dataRootSearchLevels = 5
 
 // ValueRule Validates one declared Configuration Key.
 type ValueRule func(json.RawMessage) error
@@ -21,8 +26,12 @@ func readDataFile(path string, rules map[string]ValueRule) (map[string]json.RawM
 	}
 
 	var values map[string]json.RawMessage
-	if err := json.Unmarshal(data, &values); err != nil {
+	decoder := json.NewDecoder(bytes.NewReader(data))
+	if err := decoder.Decode(&values); err != nil {
 		return nil, fmt.Errorf("%s: %w", path, err)
+	}
+	if _, err := decoder.Token(); !errors.Is(err, io.EOF) {
+		return nil, fmt.Errorf("%s Holds a second Value", path)
 	}
 	if values == nil {
 		return nil, fmt.Errorf("%s Must Hold an Object", path)
@@ -41,11 +50,13 @@ func readDataFile(path string, rules map[string]ValueRule) (map[string]json.RawM
 	return values, nil
 }
 
+var jsonWhole = regexp.MustCompile(`^-?(0|[1-9][0-9]*)$`)
+
 // CheckIntegerRange Keeps JSON Numbers whole and Bounded.
-func CheckIntegerRange(minimum, maximum int) ValueRule {
+func CheckIntegerRange(minimum, maximum int64) ValueRule {
 	return func(raw json.RawMessage) error {
-		var value int
-		if err := json.Unmarshal(raw, &value); err != nil || string(raw) == "null" {
+		var value int64
+		if !jsonWhole.Match(raw) || json.Unmarshal(raw, &value) != nil {
 			return fmt.Errorf("Must be an Integer")
 		}
 		if value < minimum || value > maximum {
@@ -59,7 +70,7 @@ func CheckIntegerRange(minimum, maximum int) ValueRule {
 // CheckTextValue Requires a nonempty String.
 func CheckTextValue(raw json.RawMessage) error {
 	var value string
-	if err := json.Unmarshal(raw, &value); err != nil {
+	if len(raw) == 0 || raw[0] != '"' || json.Unmarshal(raw, &value) != nil {
 		return fmt.Errorf("Must be a String")
 	}
 	if strings.TrimSpace(value) == "" {
@@ -69,40 +80,55 @@ func CheckTextValue(raw json.RawMessage) error {
 	return nil
 }
 
-// decodeDataValues Requires every declared Key before Returning typed Data.
-func decodeDataValues[T any](values map[string]json.RawMessage, rules map[string]ValueRule) (T, error) {
-	var result T
+// CheckOneOf Accepts only the Names it is Given.
+func CheckOneOf(names []string) ValueRule {
+	return func(raw json.RawMessage) error {
+		var value string
+		if len(raw) > 0 && raw[0] == '"' && json.Unmarshal(raw, &value) == nil {
+			for _, name := range names {
+				if value == name {
+					return nil
+				}
+			}
+		}
+
+		return fmt.Errorf("Must be one of %v", names)
+	}
+}
+
+// requireEveryKey Refuses a Set of Values that Lacks a declared Key.
+func requireEveryKey(values map[string]json.RawMessage, rules map[string]ValueRule) error {
 	for key := range rules {
 		if _, present := values[key]; !present {
-			return result, fmt.Errorf("%s is Missing", key)
+			return fmt.Errorf("%s is Missing", key)
 		}
 	}
 
-	data, err := json.Marshal(values)
-	if err != nil {
-		return result, err
-	}
-
-	return result, json.Unmarshal(data, &result)
+	return nil
 }
 
-// ReadGlobalValues Loads Constants without an Environment Override Path.
-// Invalid Constants Stop the Program before it Starts.
-func ReadGlobalValues[T any](path string, rules map[string]ValueRule) T {
-	values, err := readDataFile(path, rules)
-	if err != nil {
-		panic(err)
-	}
-
-	result, err := decodeDataValues[T](values, rules)
-	if err != nil {
-		panic(err)
-	}
-
-	return result
+// GlobalConstants Holds the Values no Deployment can Override, Read from constants/.
+type GlobalConstants struct {
+	MinimumAgeYears int64 `json:"minimumAgeYears"`
 }
 
-// readEnvironmentFiles Applies Defaults before the selected Environment.
+// ReadGlobalConstants Loads Constants without an Override Path; no Variable Reaches them.
+func ReadGlobalConstants(root string) (GlobalConstants, error) {
+	rules := map[string]ValueRule{"minimumAgeYears": CheckIntegerRange(1, 200)}
+	values, err := readDataFile(filepath.Join(root, "constants", "school.json"), rules)
+	if err != nil {
+		return GlobalConstants{}, err
+	}
+	if err := requireEveryKey(values, rules); err != nil {
+		return GlobalConstants{}, err
+	}
+
+	var constants GlobalConstants
+
+	return constants, json.Unmarshal(values["minimumAgeYears"], &constants.MinimumAgeYears)
+}
+
+// readEnvironmentFiles Applies the Defaults, then the selected Environment. Both Files must Exist.
 func readEnvironmentFiles(root, concern, environment string, rules map[string]ValueRule) (map[string]json.RawMessage, error) {
 	if environment != "development" && environment != "production" {
 		return nil, fmt.Errorf("APP_ENV Must be development or production")
@@ -125,7 +151,7 @@ func readEnvironmentFiles(root, concern, environment string, rules map[string]Va
 	return values, nil
 }
 
-// checkEnvironmentKeys Refuses undeclared Variables in this Service Namespace.
+// checkEnvironmentKeys Refuses undeclared Variables in this Service's Namespace.
 func checkEnvironmentKeys(environment map[string]string, prefix string, names map[string]string) error {
 	for name := range environment {
 		if _, declared := names[name]; strings.HasPrefix(name, prefix) && !declared {
@@ -136,7 +162,7 @@ func checkEnvironmentKeys(environment map[string]string, prefix string, names ma
 	return nil
 }
 
-// applyEnvironmentValues Validates declared Variables before Replacing Values.
+// applyEnvironmentValues Validates declared Variables before Replacing Values. Set and Empty is Set.
 func applyEnvironmentValues(values map[string]json.RawMessage, environment, names map[string]string, rules map[string]ValueRule) error {
 	for name, key := range names {
 		value, present := environment[name]
@@ -154,45 +180,43 @@ func applyEnvironmentValues(values map[string]json.RawMessage, environment, name
 	return nil
 }
 
-var wholeNumber = regexp.MustCompile(`^[0-9]+$`)
+var digitsOnly = regexp.MustCompile(`^[0-9]+$`)
 
-// encodeEnvironmentValue Accepts Text or a decimal Integer, never implicit Booleans.
+// encodeEnvironmentValue Accepts Text or Digits only, so +80, " 80" and 80.0 Stop Startup.
 func encodeEnvironmentValue(value string, rule ValueRule) (json.RawMessage, error) {
 	text, _ := json.Marshal(value)
 	if rule(text) == nil {
 		return text, nil
 	}
 
-	if !wholeNumber.MatchString(value) {
+	if !digitsOnly.MatchString(value) {
 		return nil, fmt.Errorf("Invalid Value")
 	}
 
-	number, err := strconv.Atoi(value)
-	if err != nil {
-		return nil, fmt.Errorf("Invalid Integer")
+	raw := json.RawMessage(strings.TrimLeft(value, "0"))
+	if len(raw) == 0 {
+		raw = json.RawMessage("0")
 	}
-
-	raw, _ := json.Marshal(number)
 
 	return raw, rule(raw)
 }
 
-// FindSchoolDataRoot Walks up until the Data Directories Appear.
-// A Binary Runs from go/ and a Test Runs from its own Package.
-func FindSchoolDataRoot() string {
-	root, err := os.Getwd()
+// FindSchoolDataRoot Walks up from a Directory until constants/ Appears.
+// The Binary Runs from go/, and a Test from its own Package.
+func FindSchoolDataRoot(start string) (string, error) {
+	root, err := filepath.Abs(start)
 	if err != nil {
-		panic(err)
+		return "", err
 	}
 
-	for level := 0; level < 5; level++ {
-		if _, err := os.Stat(filepath.Join(root, "constants", "school.json")); err == nil {
-			return root
+	for level := 0; level < dataRootSearchLevels; level++ {
+		if info, err := os.Stat(filepath.Join(root, "constants", "school.json")); err == nil && !info.IsDir() {
+			return root, nil
 		}
 		root = filepath.Dir(root)
 	}
 
-	panic("school Data Directories not Found above the Working Directory")
+	return "", fmt.Errorf("school Data Directories not Found above %s", start)
 }
 
 // ReadProcessEnvironment Captures Startup Inputs once.

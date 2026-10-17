@@ -16,24 +16,27 @@ const (
 	SecondsInADay = 60 * 60 * 24
 )
 
-// SchoolConfig Holds Deployment Values; Secrets Have no File Key.
+const namespace = "SCHOOL_"
+
+// SchoolConfig Holds Deployment Values; the Secret has no File Key.
 type SchoolConfig struct {
 	Port             int    `json:"port"`
 	DatabasePath     string `json:"databasePath"`
 	RegistryPath     string `json:"registryPath"`
-	TokenLifeSeconds int    `json:"tokenLifeSeconds"`
+	TokenLifeSeconds int64  `json:"tokenLifeSeconds"`
 	ServerAdapter    string `json:"serverAdapter"`
 	TokenSecret      string `json:"-"`
 }
 
-// LoadSchoolConfig Resolves Startup Inputs before any Store or Listener Opens.
-func LoadSchoolConfig(root string, environment map[string]string) (SchoolConfig, error) {
+// LoadSchoolConfig Resolves Defaults, then the Environment File, then the Variables.
+// The Adapters a Runtime Implements Arrive from the Composition; this Loader Names none.
+func LoadSchoolConfig(root string, environment map[string]string, adapters []string) (SchoolConfig, error) {
 	rules := map[string]ValueRule{
 		"port":             CheckIntegerRange(LowestPort, HighestPort),
 		"databasePath":     CheckTextValue,
 		"registryPath":     CheckTextValue,
 		"tokenLifeSeconds": CheckIntegerRange(1, SecondsInADay),
-		"serverAdapter":    checkServerAdapter,
+		"serverAdapter":    CheckOneOf(adapters),
 	}
 	names := map[string]string{
 		"SCHOOL_PORT":               "port",
@@ -42,7 +45,7 @@ func LoadSchoolConfig(root string, environment map[string]string) (SchoolConfig,
 		"SCHOOL_TOKEN_LIFE_SECONDS": "tokenLifeSeconds",
 		"SERVER":                    "serverAdapter",
 	}
-	if err := checkEnvironmentKeys(environment, "SCHOOL_", names); err != nil {
+	if err := checkEnvironmentKeys(environment, namespace, names); err != nil {
 		return SchoolConfig{}, err
 	}
 
@@ -53,27 +56,30 @@ func LoadSchoolConfig(root string, environment map[string]string) (SchoolConfig,
 	if err := applyEnvironmentValues(values, environment, names, rules); err != nil {
 		return SchoolConfig{}, err
 	}
+	if err := requireEveryKey(values, rules); err != nil {
+		return SchoolConfig{}, err
+	}
 
-	config, err := decodeDataValues[SchoolConfig](values, rules)
-	if err != nil {
-		return config, err
+	data, _ := json.Marshal(values)
+	var config SchoolConfig
+	if err := json.Unmarshal(data, &config); err != nil {
+		return SchoolConfig{}, err
 	}
 
 	config.RegistryPath, err = findRegistryFile(root, config.RegistryPath)
 	if err != nil {
-		return config, err
+		return SchoolConfig{}, err
 	}
 
 	config.TokenSecret = environment["TOKEN_SECRET"]
 	if strings.TrimSpace(config.TokenSecret) == "" {
-		return config, fmt.Errorf("TOKEN_SECRET is Missing")
+		return SchoolConfig{}, fmt.Errorf("TOKEN_SECRET is Missing")
 	}
 
 	return config, nil
 }
 
-// findRegistryFile Resolves a relative Path from the Data Root, where the
-// Binary and a Test Agree, and Refuses a File that does not Exist.
+// findRegistryFile Resolves a relative Path from the Data Root, and Refuses a File that does not Exist.
 func findRegistryFile(root, path string) (string, error) {
 	if !filepath.IsAbs(path) {
 		path = filepath.Join(root, path)
@@ -85,19 +91,4 @@ func findRegistryFile(root, path string) (string, error) {
 	}
 
 	return path, nil
-}
-
-// checkServerAdapter Accepts only Adapters this Runtime Implements.
-func checkServerAdapter(raw json.RawMessage) error {
-	var value string
-	if err := json.Unmarshal(raw, &value); err != nil {
-		return fmt.Errorf("Must be a String")
-	}
-
-	switch value {
-	case "stdlib", "chi", "gin":
-		return nil
-	default:
-		return fmt.Errorf("Must be stdlib, chi or gin")
-	}
 }

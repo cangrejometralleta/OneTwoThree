@@ -11,13 +11,12 @@ import (
 	"github.com/cangrejometralleta/OneTwoThree/examples/school/go/faults"
 )
 
-// ErrTokenIsInvalid Answers every Token the Guard cannot Trust, whatever Broke.
-// A Caller Learns that it Failed and never why.
+// ErrTokenIsInvalid Answers every Token the Guard cannot Trust; a Caller Learns only that.
 var ErrTokenIsInvalid = faults.RefuseUnprovenCaller("token is Invalid or Expired")
 
-// AccessTokens Mints and Reads Bearer Tokens signed with HMAC-SHA256,
-// using the standard Library alone. A Token is two base64url Parts joined by
-// a dot: the Claims, then the Signature over them.
+// AccessTokens Mints and Reads Bearer Tokens signed with HMAC-SHA256, standard Library only.
+// A Token is two base64url Parts without padding: the Claims, then the Signature over them.
+// Reference: https://www.rfc-editor.org/rfc/rfc2104
 type AccessTokens struct {
 	secret []byte
 	life   time.Duration
@@ -30,7 +29,7 @@ type claims struct {
 }
 
 // BuildAccessTokens Casts the Issuer with its Secret and how long a Token Lives.
-func BuildAccessTokens(secret string, lifeSeconds int) AccessTokens {
+func BuildAccessTokens(secret string, lifeSeconds int64) AccessTokens {
 	return AccessTokens{secret: []byte(secret), life: time.Duration(lifeSeconds) * time.Second, now: time.Now}
 }
 

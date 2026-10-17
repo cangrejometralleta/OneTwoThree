@@ -9,6 +9,9 @@ import (
 	"github.com/cangrejometralleta/OneTwoThree/examples/school/go/wire"
 )
 
+// CallerSubject is the one Subject a Minted Token Names.
+const CallerSubject = "student-registry"
+
 // Handler is the Door: it Orchestrates. It Decodes, Calls one Service method
 // and Answers with a Value or Fails. It Reaches no Provider and no Vendor.
 type Handler struct {
@@ -17,19 +20,22 @@ type Handler struct {
 }
 
 // DeclareSchoolRoutes is the Libretto: every Door, its happy Status and its Guard.
-func (a Handler) DeclareSchoolRoutes() []transport.Route {
-	return []transport.Route{
-		{Method: "POST", Pattern: "/token", Handle: app.AnswerWith(http.StatusCreated, a.MintAccessToken)},
+func (a Handler) DeclareSchoolRoutes() transport.Libretto {
+	return transport.Libretto{
+		Routes: []transport.Route{
+			{Method: "POST", Pattern: "/token", Handle: app.AnswerWith(http.StatusCreated, a.MintAccessToken)},
 
-		{Method: "GET", Pattern: "/students", Handle: a.Guarded(http.StatusOK, a.ListStudentRecords)},
-		{Method: "POST", Pattern: "/students", Handle: a.Guarded(http.StatusCreated, a.AddStudentRecord)},
-		{Method: "GET", Pattern: "/students/{id}", Handle: a.Guarded(http.StatusOK, a.ShowStudentRecord)},
-		{Method: "PUT", Pattern: "/students/{id}", Handle: a.Guarded(http.StatusOK, a.SaveStudentRecord)},
-		{Method: "DELETE", Pattern: "/students/{id}", Handle: a.Guarded(http.StatusNoContent, a.DropStudentRecord)},
+			{Method: "GET", Pattern: "/students", Handle: a.Guarded(http.StatusOK, a.ListStudentRecords)},
+			{Method: "POST", Pattern: "/students", Handle: a.Guarded(http.StatusCreated, a.AddStudentRecord)},
+			{Method: "GET", Pattern: "/students/{id}", Handle: a.Guarded(http.StatusOK, a.ShowStudentRecord)},
+			{Method: "PUT", Pattern: "/students/{id}", Handle: a.Guarded(http.StatusOK, a.SaveStudentRecord)},
+			{Method: "DELETE", Pattern: "/students/{id}", Handle: a.Guarded(http.StatusNoContent, a.DropStudentRecord)},
 
-		{Method: "GET", Pattern: "/courses", Handle: a.Guarded(http.StatusOK, a.ListCourseRecords)},
-		{Method: "POST", Pattern: "/courses", Handle: a.Guarded(http.StatusCreated, a.AddCourseRecord)},
-		{Method: "GET", Pattern: "/courses/{id}", Handle: a.Guarded(http.StatusOK, a.ShowCourseRecord)},
+			{Method: "GET", Pattern: "/courses", Handle: a.Guarded(http.StatusOK, a.ListCourseRecords)},
+			{Method: "POST", Pattern: "/courses", Handle: a.Guarded(http.StatusCreated, a.AddCourseRecord)},
+			{Method: "GET", Pattern: "/courses/{id}", Handle: a.Guarded(http.StatusOK, a.ShowCourseRecord)},
+		},
+		Unknown: app.AnswerWith(http.StatusOK, a.RefuseUnknownRoute),
 	}
 }
 
@@ -40,7 +46,7 @@ func (a Handler) Guarded(status int, tell app.Telling) transport.Handler {
 
 // MintAccessToken Hands out a Token.
 func (a Handler) MintAccessToken(transport.Request) (any, error) {
-	token, err := a.Tokens.IssueAccessToken("student-registry")
+	token, err := a.Tokens.IssueAccessToken(CallerSubject)
 	if err != nil {
 		return nil, err
 	}
@@ -166,4 +172,9 @@ func (a Handler) ShowCourseRecord(req transport.Request) (any, error) {
 	}
 
 	return renderCourseView(course), nil
+}
+
+// RefuseUnknownRoute Answers a Door the Libretto does not Hold, before any Guard.
+func (a Handler) RefuseUnknownRoute(transport.Request) (any, error) {
+	return nil, app.ErrRouteUnknown
 }

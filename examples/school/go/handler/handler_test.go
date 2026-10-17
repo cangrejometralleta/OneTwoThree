@@ -18,12 +18,14 @@ import (
 type FakeSchool struct {
 	students map[school.StudentID]school.Student
 	courses  map[school.CourseID]school.Course
+	next     school.StudentID
 }
 
 func BuildFakeSchool() *FakeSchool {
 	return &FakeSchool{
 		students: map[school.StudentID]school.Student{},
 		courses:  map[school.CourseID]school.Course{1: {ID: 1, Code: "MAT-101", Name: "Algebra"}},
+		next:     1,
 	}
 }
 
@@ -33,37 +35,35 @@ func (f *FakeSchool) InsertStudentRow(s school.Student) (school.Student, error) 
 			return school.Student{}, school.ErrRutTaken
 		}
 	}
-	s.ID = school.StudentID(len(f.students) + 1)
+	s.ID = f.next
+	f.next++
 	f.students[s.ID] = s
 
 	return s, nil
 }
 
-func (f *FakeSchool) SelectStudentRow(id school.StudentID) (school.Student, error) {
+func (f *FakeSchool) SelectStudentRow(id school.StudentID) (school.Student, bool, error) {
 	student, found := f.students[id]
-	if !found {
-		return school.Student{}, school.ErrStudentUnknown
-	}
 
-	return student, nil
+	return student, found, nil
 }
 
-func (f *FakeSchool) UpdateStudentRow(s school.Student) (school.Student, error) {
+func (f *FakeSchool) UpdateStudentRow(s school.Student) (bool, error) {
 	if _, found := f.students[s.ID]; !found {
-		return school.Student{}, school.ErrStudentUnknown
+		return false, nil
 	}
 	f.students[s.ID] = s
 
-	return s, nil
+	return true, nil
 }
 
-func (f *FakeSchool) DeleteStudentRow(id school.StudentID) error {
+func (f *FakeSchool) DeleteStudentRow(id school.StudentID) (bool, error) {
 	if _, found := f.students[id]; !found {
-		return school.ErrStudentUnknown
+		return false, nil
 	}
 	delete(f.students, id)
 
-	return nil
+	return true, nil
 }
 
 func (f *FakeSchool) SelectStudentPage(school.Page) ([]school.Student, error) {
@@ -83,13 +83,10 @@ func (f *FakeSchool) InsertCourseRow(c school.Course) (school.Course, error) {
 	return c, nil
 }
 
-func (f *FakeSchool) SelectCourseRow(id school.CourseID) (school.Course, error) {
+func (f *FakeSchool) SelectCourseRow(id school.CourseID) (school.Course, bool, error) {
 	course, found := f.courses[id]
-	if !found {
-		return school.Course{}, school.ErrCourseUnknown
-	}
 
-	return course, nil
+	return course, found, nil
 }
 
 func (f *FakeSchool) SelectCoursePage(school.Page) ([]school.Course, error) {
@@ -102,51 +99,54 @@ func (f *FakeSchool) SelectCoursePage(school.Page) ([]school.Course, error) {
 	return catalogue, nil
 }
 
-// FakeOffice Stands in for the Registry and the Notice: every RUT is Real.
-type FakeOffice struct{}
-
-func (FakeOffice) ConfirmRut(school.RUT) (bool, error) { return true, nil }
-
-func (FakeOffice) AnnounceEnrollment(school.Student) error { return nil }
-
-// DenyingOffice Stands in for a Registry that Knows no one.
-type DenyingOffice struct{ FakeOffice }
-
-func (DenyingOffice) ConfirmRut(school.RUT) (bool, error) { return false, nil }
-
-// SilentOffice Stands in for a Registry that cannot Answer, and a Notice that cannot Leave.
-type SilentOffice struct{ FakeOffice }
-
-func (SilentOffice) ConfirmRut(school.RUT) (bool, error) {
-	return false, errors.New("registry socket closed")
+// FakeOffice Stands in for the Registry and the Notice, and Remembers what it was Asked.
+type FakeOffice struct {
+	Denies bool
+	Silent bool
+	Muted  bool
+	Asked  []school.RUT
 }
 
-func (SilentOffice) AnnounceEnrollment(school.Student) error {
-	return errors.New("mail is down")
+func (o *FakeOffice) ConfirmRut(rut school.RUT) (bool, error) {
+	o.Asked = append(o.Asked, rut)
+	if o.Silent {
+		return false, errors.New("registry socket closed")
+	}
+
+	return !o.Denies, nil
 }
 
-// BuildTestingSchool Hands the API its Fakes.
-func BuildTestingSchool() Handler {
+func (o *FakeOffice) AnnounceEnrollment(school.Student) error {
+	if o.Muted {
+		return errors.New("mail is down")
+	}
+
+	return nil
+}
+
+// BuildTestingSchool Hands the Door its Fakes.
+func BuildTestingSchool() (Handler, *FakeOffice) {
 	fake := BuildFakeSchool()
+	front := &FakeOffice{}
 
 	return Handler{
-		School: app.SchoolService{Students: fake, Courses: fake, Registry: FakeOffice{}, Notices: FakeOffice{}},
+		School: app.SchoolService{Rules: school.SchoolRules{MinimumAgeYears: 18}, Students: fake, Courses: fake,
+			Registry: front, Notices: front},
 		Tokens: tokens.BuildAccessTokens("test", 60),
-	}
+	}, front
 }
 
-// CallRoute Arrives the Way a Client Arrives: through the Libretto.
-// It Crosses AnswerWith and the Guard, so a Test Sees the real Status.
+// CallRoute Arrives the Way a Client Arrives: through the Libretto, the Answer and the Guard.
 func CallRoute(t *testing.T, api Handler, method, pattern string, req transport.Request) transport.Response {
 	t.Helper()
 
-	token, err := api.Tokens.IssueAccessToken("student-registry")
+	token, err := api.Tokens.IssueAccessToken(CallerSubject)
 	if err != nil {
 		t.Fatal(err)
 	}
-	req.Token = token
+	req.Headers = map[string]string{"authorization": "Bearer " + token}
 
-	for _, route := range api.DeclareSchoolRoutes() {
+	for _, route := range api.DeclareSchoolRoutes().Routes {
 		if route.Method == method && route.Pattern == pattern {
 			return route.Handle(req)
 		}
@@ -157,16 +157,15 @@ func CallRoute(t *testing.T, api Handler, method, pattern string, req transport.
 	return transport.Response{}
 }
 
-// The happy Status Lives in the Route.
+const enrolBody = `{"rut":"12345678-5","name":"Ada","age":20,"courseId":1}`
+
 func TestEachRouteAnswersWithItsDeclaredStatus(t *testing.T) {
-	api := BuildTestingSchool()
-	enrol := transport.Request{Body: []byte(`{"rut":"12345678-5","name":"Ada","age":20,"courseId":1}`)}
+	api, _ := BuildTestingSchool()
+	one := transport.Request{Path: map[string]string{"id": "1"}}
 	rewrite := transport.Request{
 		Path: map[string]string{"id": "1"},
 		Body: []byte(`{"rut":"12345678-5","name":"Ada Lovelace","age":21,"courseId":1}`),
 	}
-	open := transport.Request{Body: []byte(`{"code":"FIS-201","name":"Physics"}`)}
-	one := transport.Request{Path: map[string]string{"id": "1"}}
 
 	cases := []struct {
 		story   string
@@ -176,44 +175,40 @@ func TestEachRouteAnswersWithItsDeclaredStatus(t *testing.T) {
 		status  int
 	}{
 		{"a Token is Minted", "POST", "/token", transport.Request{}, http.StatusCreated},
-		{"someone Enrols", "POST", "/students", enrol, http.StatusCreated},
+		{"someone Enrols", "POST", "/students", transport.Request{Body: []byte(enrolBody)}, http.StatusCreated},
 		{"the Roll is Read", "GET", "/students", transport.Request{}, http.StatusOK},
 		{"one Student is Read", "GET", "/students/{id}", one, http.StatusOK},
 		{"an Enrolment is Rewritten", "PUT", "/students/{id}", rewrite, http.StatusOK},
 		{"the Catalogue is Read", "GET", "/courses", transport.Request{}, http.StatusOK},
-		{"a Course Opens", "POST", "/courses", open, http.StatusCreated},
+		{"a Course Opens", "POST", "/courses", transport.Request{Body: []byte(`{"code":"FIS-201","name":"Physics"}`)}, http.StatusCreated},
 		{"one Course is Read", "GET", "/courses/{id}", one, http.StatusOK},
 		{"an Enrolment Ends", "DELETE", "/students/{id}", one, http.StatusNoContent},
 	}
 
 	for _, test := range cases {
-		t.Run(test.story, func(t *testing.T) {
-			if reply := CallRoute(t, api, test.method, test.pattern, test.req); reply.Status != test.status {
-				t.Fatalf("wanted %d, got %d: %v", test.status, reply.Status, reply.Body)
-			}
-		})
+		if reply := CallRoute(t, api, test.method, test.pattern, test.req); reply.Status != test.status {
+			t.Errorf("%s: wanted %d, got %d: %v", test.story, test.status, reply.Status, reply.Body)
+		}
 	}
 }
 
-// Every Route the Libretto Declares has a Story above, and the Spec Names nine.
 func TestTheLibrettoDeclaresExactlyTheNineRoutesOfTheSpec(t *testing.T) {
-	routes := BuildTestingSchool().DeclareSchoolRoutes()
+	api, _ := BuildTestingSchool()
 
-	if len(routes) != 9 {
+	if routes := api.DeclareSchoolRoutes().Routes; len(routes) != 9 {
 		t.Fatalf("the Spec Names nine Routes, the Libretto Declares %d", len(routes))
 	}
 }
 
 func TestARewriteChangesTheStudentAndADeleteLeavesNoBody(t *testing.T) {
-	api := BuildTestingSchool()
-	CallRoute(t, api, "POST", "/students", transport.Request{Body: []byte(`{"rut":"12345678-5","name":"Ada","age":20,"courseId":1}`)})
+	api, _ := BuildTestingSchool()
+	CallRoute(t, api, "POST", "/students", transport.Request{Body: []byte(enrolBody)})
 
 	rewritten := CallRoute(t, api, "PUT", "/students/{id}", transport.Request{
 		Path: map[string]string{"id": "1"},
 		Body: []byte(`{"rut":"12345678-5","name":"Ada Lovelace","age":21,"courseId":1}`),
 	})
-	view, ok := rewritten.Body.(wire.StudentView)
-	if !ok || view.Name != "Ada Lovelace" || view.Age != 21 {
+	if rewritten.Body != (wire.StudentView{ID: 1, Rut: "12345678-5", Name: "Ada Lovelace", Age: 21, Course: 1}) {
 		t.Fatalf("the Rewrite must Answer the Student as it Stands, got %v", rewritten.Body)
 	}
 
@@ -223,65 +218,79 @@ func TestARewriteChangesTheStudentAndADeleteLeavesNoBody(t *testing.T) {
 	}
 }
 
-func TestAFailureReachesTheClientAsAFailureViewWithItsReason(t *testing.T) {
-	api := BuildTestingSchool()
+func TestTheViewEchoesTheRutInLowerCase(t *testing.T) {
+	api, front := BuildTestingSchool()
+	CallRoute(t, api, "POST", "/students", transport.Request{Body: []byte(`{"rut":"10000013-K","name":"Ada","age":20,"courseId":1}`)})
 
-	reply := CallRoute(t, api, "GET", "/students/{id}", transport.Request{Path: map[string]string{"id": "42"}})
-
-	if reply.Status != http.StatusNotFound || reply.Body != (wire.FailureView{Error: "student not Found"}) {
-		t.Fatalf("reply=%v", reply)
+	shown := CallRoute(t, api, "GET", "/students/{id}", transport.Request{Path: map[string]string{"id": "1"}})
+	if shown.Body != (wire.StudentView{ID: 1, Rut: "10000013-k", Name: "Ada", Age: 20, Course: 1}) || front.Asked[0] != "10000013-k" {
+		t.Fatalf("shown=%v asked=%v", shown.Body, front.Asked)
 	}
 }
 
-// A Notice that did not Leave never Fails the Enrolment the Caller Asked for.
-func TestEnrolmentSurvivesAFailedAnnouncement(t *testing.T) {
-	api := BuildTestingSchool()
-	api.School.Notices = SilentOffice{}
-	enrol := transport.Request{Body: []byte(`{"rut":"12345678-5","name":"Ada","age":20,"courseId":1}`)}
+func TestAnEmptyListAnswersAnEmptyArray(t *testing.T) {
+	api, _ := BuildTestingSchool()
 
-	if reply := CallRoute(t, api, "POST", "/students", enrol); reply.Status != http.StatusCreated {
+	views, ok := CallRoute(t, api, "GET", "/students", transport.Request{}).Body.([]wire.StudentView)
+	if !ok || views == nil || len(views) != 0 {
+		t.Fatalf("an empty Roll is [], never null, got %#v", views)
+	}
+}
+
+func TestEnrolmentSurvivesAFailedAnnouncement(t *testing.T) {
+	api, front := BuildTestingSchool()
+	front.Muted = true
+
+	if reply := CallRoute(t, api, "POST", "/students", transport.Request{Body: []byte(enrolBody)}); reply.Status != http.StatusCreated {
 		t.Fatalf("wanted %d, got %d: %v", http.StatusCreated, reply.Status, reply.Body)
 	}
 }
 
-// Every Route but the Token Names its Caller first.
 func TestEveryRouteButTheTokenRefusesAnUnnamedCaller(t *testing.T) {
-	api := BuildTestingSchool()
+	api, _ := BuildTestingSchool()
 
-	for _, route := range api.DeclareSchoolRoutes() {
-		reply := route.Handle(transport.Request{Path: map[string]string{"id": "1"}})
+	for _, route := range api.DeclareSchoolRoutes().Routes {
 		if route.Pattern == "/token" {
 			continue
 		}
+		reply := route.Handle(transport.Request{Path: map[string]string{"id": "1"}})
 		if reply.Status != http.StatusUnauthorized || reply.Body != (wire.FailureView{Error: "token is Invalid or Expired"}) {
 			t.Errorf("%s %s must Refuse an unnamed caller, got %d %v", route.Method, route.Pattern, reply.Status, reply.Body)
 		}
 	}
 }
 
-func TestGuardedHandlerReceivesTheNamedCaller(t *testing.T) {
-	api := BuildTestingSchool()
+func TestAnUnknownRouteAnswersBeforeTheGuard(t *testing.T) {
+	api, _ := BuildTestingSchool()
+
+	if reply := api.DeclareSchoolRoutes().Unknown(transport.Request{}); reply != (transport.Response{Status: http.StatusNotFound, Body: wire.FailureView{Error: "route not Found"}}) {
+		t.Fatalf("reply=%v", reply)
+	}
+}
+
+func TestAGuardedHandlerReceivesTheNamedCaller(t *testing.T) {
+	api, _ := BuildTestingSchool()
 	var seen string
 	guarded := api.Guarded(http.StatusOK, func(req transport.Request) (any, error) {
 		seen = req.Caller
 
 		return "told", nil
 	})
-	token, _ := api.Tokens.IssueAccessToken("student-registry")
+	token, _ := api.Tokens.IssueAccessToken(CallerSubject)
 
-	if reply := guarded(transport.Request{Token: token}); reply.Status != http.StatusOK || seen != "student-registry" {
+	if reply := guarded(transport.Request{Headers: map[string]string{"authorization": "Bearer " + token}}); reply.Status != http.StatusOK || seen != CallerSubject {
 		t.Fatalf("reply=%v seen=%q", reply, seen)
 	}
 }
 
-func TestUncontrolledFailureAnswersFiveHundred(t *testing.T) {
-	api := BuildTestingSchool()
+func TestAnUncontrolledFailureAnswersFiveHundredAndSaysNothingOfTheDriver(t *testing.T) {
+	api, _ := BuildTestingSchool()
 	broken := api.Guarded(http.StatusOK, func(transport.Request) (any, error) {
 		return nil, errors.New("the driver Broke at /var/db")
 	})
-	token, _ := api.Tokens.IssueAccessToken("student-registry")
+	token, _ := api.Tokens.IssueAccessToken(CallerSubject)
 
-	reply := broken(transport.Request{Token: token})
+	reply := broken(transport.Request{Headers: map[string]string{"authorization": "Bearer " + token}})
 
 	if reply.Status != http.StatusInternalServerError || reply.Body != (wire.FailureView{Error: "internal error"}) {
 		t.Fatalf("a driver Message must not Leave, reply=%v", reply)

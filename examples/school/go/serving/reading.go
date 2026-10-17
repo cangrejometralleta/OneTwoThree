@@ -4,40 +4,89 @@ import (
 	"encoding/json"
 	"io"
 	"net/http"
-	"regexp"
+	"net/url"
 	"strings"
 
 	"github.com/cangrejometralleta/OneTwoThree/examples/school/go/transport"
 )
 
-// MaxBodyBytes Bounds what a Client may Send before the Script Reads it.
-const MaxBodyBytes = 1 << 20
+// maxSwallowBytes Bounds what is Read and Dropped past the Body, so a Client can Read the Answer.
+const maxSwallowBytes = 2 << 20
 
-var patternNames = regexp.MustCompile(`\{([a-z_]+)\}`)
+// ServeLibretto Joins the three Beats every Adapter Shares: read, answer, write.
+// Every Framework Hands it the whole Request, so none of them Decides.
+func ServeLibretto(libretto transport.Libretto) http.HandlerFunc {
+	return func(w http.ResponseWriter, r *http.Request) {
+		body, _ := io.ReadAll(io.LimitReader(r.Body, transport.MaxBodyBytes+1))
+		_, _ = io.CopyN(io.Discard, r.Body, maxSwallowBytes)
 
-// ReadPatternNames Lists the Names a Route Pattern Declares: /students/{id} Holds id.
-func ReadPatternNames(pattern string) []string {
-	var names []string
-	for _, found := range patternNames.FindAllStringSubmatch(pattern, -1) {
-		names = append(names, found[1])
+		headers := map[string]string{}
+		for name, values := range r.Header {
+			headers[strings.ToLower(name)] = values[0]
+		}
+
+		req := transport.Request{Query: ReadQueryValues(r.URL.RawQuery), Headers: headers, Body: body}
+		WriteResponse(w, AnswerRequest(libretto, r.Method, r.URL.EscapedPath(), req))
 	}
-
-	return names
 }
 
-// ReadRequest Turns the Framework's Request into the Door's own: no Framework Type Crosses.
-func ReadRequest(r *http.Request, path map[string]string) transport.Request {
-	body, _ := io.ReadAll(io.LimitReader(r.Body, MaxBodyBytes))
+// AnswerRequest Finds the Route a Method and a raw Path Name, or Answers the Unknown.
+func AnswerRequest(libretto transport.Libretto, method, rawPath string, req transport.Request) transport.Response {
+	for _, route := range libretto.Routes {
+		if names, matched := MatchRoutePattern(route.Pattern, rawPath); matched && route.Method == method {
+			req.Path = names
 
-	query := map[string]string{}
-	for name, values := range r.URL.Query() {
-		query[name] = values[0]
+			return route.Handle(req)
+		}
 	}
 
-	return transport.Request{
-		Path: path, Query: query, Body: body,
-		Token: strings.TrimPrefix(r.Header.Get("Authorization"), "Bearer "),
+	return libretto.Unknown(req)
+}
+
+// MatchRoutePattern Reads the Names a Pattern Declares: /students/{id} Holds id. /students/ is not /students.
+func MatchRoutePattern(pattern, rawPath string) (map[string]string, bool) {
+	wanted := strings.Split(pattern, "/")
+	given := strings.Split(rawPath, "/")
+	if len(wanted) != len(given) {
+		return nil, false
 	}
+
+	names := map[string]string{}
+	for position, part := range wanted {
+		if strings.HasPrefix(part, "{") && strings.HasSuffix(part, "}") {
+			value, err := url.PathUnescape(given[position])
+			if given[position] == "" || err != nil {
+				return nil, false
+			}
+			names[part[1:len(part)-1]] = value
+		} else if part != given[position] {
+			return nil, false
+		}
+	}
+
+	return names, true
+}
+
+// ReadQueryValues Takes the first Value of a repeated Key; a Pair that cannot be Decoded is Dropped.
+func ReadQueryValues(rawQuery string) map[string]string {
+	values := map[string]string{}
+	if rawQuery == "" {
+		return values
+	}
+
+	for _, pair := range strings.Split(rawQuery, "&") {
+		rawName, rawValue, _ := strings.Cut(pair, "=")
+		name, nameErr := url.QueryUnescape(rawName)
+		value, valueErr := url.QueryUnescape(rawValue)
+		if nameErr != nil || valueErr != nil {
+			continue
+		}
+		if _, taken := values[name]; !taken {
+			values[name] = value
+		}
+	}
+
+	return values
 }
 
 // WriteResponse Renders the Script's Response: JSON, and no Body for a 204.
@@ -48,21 +97,14 @@ func WriteResponse(w http.ResponseWriter, reply transport.Response) {
 		return
 	}
 
+	data, err := json.Marshal(reply.Body)
+	if err != nil {
+		w.WriteHeader(http.StatusInternalServerError)
+
+		return
+	}
+
 	w.Header().Set("Content-Type", "application/json")
 	w.WriteHeader(reply.Status)
-	_ = json.NewEncoder(w).Encode(reply.Body)
-}
-
-// ServeRouteHandler Joins the three Beats every Adapter Shares: read, answer, write.
-func ServeRouteHandler(route transport.Route, readPath func(*http.Request, string) string) http.HandlerFunc {
-	names := ReadPatternNames(route.Pattern)
-
-	return func(w http.ResponseWriter, r *http.Request) {
-		path := make(map[string]string, len(names))
-		for _, name := range names {
-			path[name] = readPath(r, name)
-		}
-
-		WriteResponse(w, route.Handle(ReadRequest(r, path)))
-	}
+	_, _ = w.Write(data)
 }

@@ -9,22 +9,19 @@ import (
 	"github.com/cangrejometralleta/OneTwoThree/examples/school/go/transport"
 )
 
-// ChiServer Serves the Routes with chi. This Package is the only one that Imports chi.
+// ChiServer Serves a Libretto through chi. This Package is the only one that Imports chi.
+// Reference: https://go-chi.io/#/pages/routing
 type ChiServer struct{}
 
-// BuildHandler Declares each Route on a chi Router; its Pattern already Reads {id}.
-func (ChiServer) BuildHandler(routes []transport.Route) http.Handler {
+// BuildHandler Mounts one catch-all Route, so chi Hands every Request to the Libretto.
+func (ChiServer) BuildHandler(libretto transport.Libretto) http.Handler {
 	router := chi.NewRouter()
-	for _, route := range routes {
-		router.MethodFunc(route.Method, route.Pattern, serving.ServeRouteHandler(route, func(r *http.Request, name string) string {
-			return chi.URLParam(r, name)
-		}))
-	}
+	router.Handle("/*", serving.ServeLibretto(libretto))
 
 	return router
 }
 
 // ServeRoutes Listens on the Address until it Fails.
-func (s ChiServer) ServeRoutes(routes []transport.Route, address string) error {
-	return http.ListenAndServe(address, s.BuildHandler(routes))
+func (s ChiServer) ServeRoutes(libretto transport.Libretto, address string) error {
+	return http.ListenAndServe(address, s.BuildHandler(libretto))
 }

@@ -13,12 +13,13 @@ func TestStdlibServerAnswersTheSharedContract(t *testing.T) {
 	adaptertest.CheckAdapterAnswersTheSameWay(t, StdlibServer{}.BuildHandler)
 }
 
-func TestReadPatternNamesFindsEachBrace(t *testing.T) {
-	names := ReadPatternNames("/a/{id}/b/{other_id}")
-	if len(names) != 2 || names[0] != "id" || names[1] != "other_id" {
-		t.Fatalf("names=%v", names)
+func TestARoutePatternMatchesOnlyItsOwnShape(t *testing.T) {
+	if names, matched := MatchRoutePattern("/students/{id}", "/students/%31"); !matched || names["id"] != "1" {
+		t.Fatalf("names=%v matched=%v", names, matched)
 	}
-	if len(ReadPatternNames("/students")) != 0 {
-		t.Fatal("a Pattern with no Brace Declares no Name")
+	for _, path := range []string{"/students/", "/students", "/students/1/", "/student/1"} {
+		if _, matched := MatchRoutePattern("/students/{id}", path); matched {
+			t.Errorf("%s must not Match", path)
+		}
 	}
 }

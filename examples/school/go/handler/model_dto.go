@@ -9,15 +9,15 @@ import (
 
 func buildStudentRecord(body wire.StudentBody, id school.StudentID) school.Student {
 	return school.Student{
-		ID: id, Rut: school.RUT(body.Rut), Name: school.FullName(body.Name),
+		ID: id, Rut: school.ReadRUT(body.Rut), Name: school.FullName(body.Name),
 		Age: body.Age, Course: school.CourseID(body.Course),
 	}
 }
 
 func renderStudentView(student school.Student) wire.StudentView {
 	return wire.StudentView{
-		ID: uint(student.ID), Rut: string(student.Rut), Name: string(student.Name),
-		Age: student.Age, Course: uint(student.Course),
+		ID: int64(student.ID), Rut: string(student.Rut), Name: string(student.Name),
+		Age: student.Age, Course: int64(student.Course),
 	}
 }
 
@@ -35,7 +35,7 @@ func buildCourseRecord(body wire.CourseBody) school.Course {
 }
 
 func renderCourseView(course school.Course) wire.CourseView {
-	return wire.CourseView{ID: uint(course.ID), Code: string(course.Code), Name: string(course.Name)}
+	return wire.CourseView{ID: int64(course.ID), Code: string(course.Code), Name: string(course.Name)}
 }
 
 func renderCourseViews(courses []school.Course) []wire.CourseView {

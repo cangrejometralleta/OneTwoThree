@@ -3,21 +3,19 @@ package app
 import (
 	"errors"
 	"fmt"
-	"net/http"
 	"testing"
 
 	"github.com/cangrejometralleta/OneTwoThree/examples/school/go/faults"
 )
 
-// Every controlled Fault Answers with the Status its Kind Maps to.
 func TestReadFaultStatusAnswersForEachKind(t *testing.T) {
 	cases := map[error]int{
-		faults.RefuseInvalidInput("bad"):         http.StatusBadRequest,
-		faults.RefuseUnprovenCaller("who"):       http.StatusUnauthorized,
-		faults.ReportMissingRecord("gone"):       http.StatusNotFound,
-		faults.ReportTakenValue("taken"):         http.StatusConflict,
-		faults.RefuseUnprocessableValue("no"):    http.StatusUnprocessableEntity,
-		faults.ReportUnavailableProvider("down"): http.StatusServiceUnavailable,
+		faults.RefuseInvalidInput("bad"):         400,
+		faults.RefuseUnprovenCaller("who"):       401,
+		faults.ReportMissingRecord("gone"):       404,
+		faults.ReportTakenValue("taken"):         409,
+		faults.RefuseUnprocessableValue("no"):    422,
+		faults.ReportUnavailableProvider("down"): 503,
 	}
 
 	for fault, wanted := range cases {
@@ -27,18 +25,14 @@ func TestReadFaultStatusAnswersForEachKind(t *testing.T) {
 	}
 }
 
-// An uncontrolled Failure is ours.
 func TestReadFaultStatusRefusesToGuess(t *testing.T) {
-	if got := ReadFaultStatus(errors.New("the driver Broke")); got != http.StatusInternalServerError {
+	if got := ReadFaultStatus(errors.New("the driver Broke")); got != 500 {
 		t.Fatalf("wanted 500, got %d", got)
 	}
 }
 
-// A wrapped Fault still Carries its Answer.
 func TestReadFaultStatusSurvivesWrapping(t *testing.T) {
-	wrapped := fmt.Errorf("while Reading: %w", faults.ReportMissingRecord("gone"))
-
-	if got := ReadFaultStatus(wrapped); got != http.StatusNotFound {
+	if got := ReadFaultStatus(fmt.Errorf("while Reading: %w", faults.ReportMissingRecord("gone"))); got != 404 {
 		t.Fatalf("wanted 404 through the Wrapper, got %d", got)
 	}
 }

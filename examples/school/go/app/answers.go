@@ -24,3 +24,18 @@ func AnswerWith(status int, tell Telling) transport.Handler {
 		return transport.Response{Status: status, Body: value}
 	}
 }
+
+// RequireProvenCaller Names the Caller before the Story starts.
+// A Script behind it Reads req.Caller and Trusts it.
+func RequireProvenCaller(reader CallerReader, tell Telling) Telling {
+	return func(req transport.Request) (any, error) {
+		caller, err := reader.ReadCaller(ReadBearerToken(req))
+		if err != nil {
+			return nil, err
+		}
+
+		req.Caller = caller
+
+		return tell(req)
+	}
+}

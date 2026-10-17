@@ -1,8 +1,11 @@
 package campus
 
 import (
+	"bytes"
 	"encoding/json"
+	"errors"
 	"fmt"
+	"io"
 	"log/slog"
 	"os"
 
@@ -17,22 +20,28 @@ type Office struct {
 }
 
 // OpenOffice Reads the Registry File once, at Startup.
-// A File that is Missing, Broken or Holds a RUT that cannot Be one Stops Startup.
+// A File that is Missing, Empty, not an Array, Holds a second Value or a Text that
+// is not a valid RUT Stops Startup.
 func OpenOffice(path string, logger *slog.Logger) (Office, error) {
 	data, err := os.ReadFile(path)
 	if err != nil {
 		return Office{}, fmt.Errorf("registry file: %w", err)
 	}
 
-	var ruts []school.RUT
-	if err := json.Unmarshal(data, &ruts); err != nil {
-		return Office{}, fmt.Errorf("registry file %s: %w", path, err)
+	var texts []string
+	decoder := json.NewDecoder(bytes.NewReader(data))
+	if err := decoder.Decode(&texts); err != nil || texts == nil {
+		return Office{}, fmt.Errorf("registry file %s Must Hold one Array of Texts", path)
+	}
+	if _, err := decoder.Token(); !errors.Is(err, io.EOF) {
+		return Office{}, fmt.Errorf("registry file %s Holds a second Value", path)
 	}
 
-	registered := make(map[school.RUT]bool, len(ruts))
-	for _, rut := range ruts {
+	registered := make(map[school.RUT]bool, len(texts))
+	for _, text := range texts {
+		rut := school.ReadRUT(text)
 		if !rut.LooksValid() {
-			return Office{}, fmt.Errorf("registry file %s: %q is not a valid RUT", path, rut)
+			return Office{}, fmt.Errorf("registry file %s: %q is not a valid RUT", path, text)
 		}
 
 		registered[rut] = true
@@ -41,15 +50,14 @@ func OpenOffice(path string, logger *slog.Logger) (Office, error) {
 	return Office{registered: registered, Logger: logger}, nil
 }
 
-// ConfirmRut Answers whether the Registry Knows a RUT.
-// This Registry never Fails to Answer; a Remote one would.
+// ConfirmRut Answers whether the Registry Knows a RUT. This one never Fails to Answer.
 func (o Office) ConfirmRut(rut school.RUT) (bool, error) {
 	return o.registered[rut], nil
 }
 
-// AnnounceEnrollment Sends the Notice to the Log, naming the Student by Id.
+// AnnounceEnrollment Logs the Notice, Naming the Student by Id and never by RUT or Name.
 func (o Office) AnnounceEnrollment(student school.Student) error {
-	o.log().Info("Enrollment Announced", "student", student.ID, "course", student.Course)
+	o.log().Info(fmt.Sprintf("student %d is enrolled", student.ID))
 
 	return nil
 }

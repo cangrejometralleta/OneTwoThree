@@ -7,7 +7,9 @@ import (
 )
 
 // SchoolService Joins the Providers behind each School Use Case.
+// It never Learns that two Questions may have one Answerer.
 type SchoolService struct {
+	Rules    school.SchoolRules
 	Students StudentStore
 	Courses  CourseStore
 	Registry RutRegistry
@@ -20,12 +22,20 @@ func (s SchoolService) ListStudents(page school.Page) ([]school.Student, error) 
 	return s.Students.SelectStudentPage(page)
 }
 
-// ReadStudent Finds one Enrolment.
+// ReadStudent Finds one Enrolment, or it is Unknown.
 func (s SchoolService) ReadStudent(id school.StudentID) (school.Student, error) {
-	return s.Students.SelectStudentRow(id)
+	student, found, err := s.Students.SelectStudentRow(id)
+	if err != nil {
+		return school.Student{}, err
+	}
+	if !found {
+		return school.Student{}, school.ErrStudentUnknown
+	}
+
+	return student, nil
 }
 
-// EnrollStudent Validates and Saves one Enrolment, then Announces it.
+// EnrollStudent Validates and Keeps one Enrolment, then Announces it.
 // An Announcement that Fails never Fails the Enrolment: the Student Exists.
 func (s SchoolService) EnrollStudent(student school.Student) (school.Student, error) {
 	if err := s.checkStudent(student); err != nil {
@@ -48,12 +58,28 @@ func (s SchoolService) SaveStudent(student school.Student) (school.Student, erro
 		return school.Student{}, err
 	}
 
-	return s.Students.UpdateStudentRow(student)
+	updated, err := s.Students.UpdateStudentRow(student)
+	if err != nil {
+		return school.Student{}, err
+	}
+	if !updated {
+		return school.Student{}, school.ErrStudentUnknown
+	}
+
+	return student, nil
 }
 
-// DeleteStudent Removes one Enrolment.
+// DeleteStudent Ends one Enrolment, once.
 func (s SchoolService) DeleteStudent(id school.StudentID) error {
-	return s.Students.DeleteStudentRow(id)
+	deleted, err := s.Students.DeleteStudentRow(id)
+	if err != nil {
+		return err
+	}
+	if !deleted {
+		return school.ErrStudentUnknown
+	}
+
+	return nil
 }
 
 // ListCourses Reads one Page of the Catalogue.
@@ -61,12 +87,20 @@ func (s SchoolService) ListCourses(page school.Page) ([]school.Course, error) {
 	return s.Courses.SelectCoursePage(page)
 }
 
-// ReadCourse Finds one Course.
+// ReadCourse Finds one Course, or it is Unknown.
 func (s SchoolService) ReadCourse(id school.CourseID) (school.Course, error) {
-	return s.Courses.SelectCourseRow(id)
+	course, found, err := s.Courses.SelectCourseRow(id)
+	if err != nil {
+		return school.Course{}, err
+	}
+	if !found {
+		return school.Course{}, school.ErrCourseUnknown
+	}
+
+	return course, nil
 }
 
-// CreateCourse Validates and Stores one Course.
+// CreateCourse Validates and Keeps one Course.
 func (s SchoolService) CreateCourse(course school.Course) (school.Course, error) {
 	if err := course.CheckCourseRecord(); err != nil {
 		return school.Course{}, err
@@ -77,11 +111,11 @@ func (s SchoolService) CreateCourse(course school.Course) (school.Course, error)
 
 // checkStudent Asks in the Order the Spec Names: Form, Course, Registry.
 func (s SchoolService) checkStudent(student school.Student) error {
-	if err := student.CheckStudentRecord(); err != nil {
+	if err := student.CheckStudentRecord(s.Rules); err != nil {
 		return err
 	}
 
-	if _, err := s.Courses.SelectCourseRow(student.Course); err != nil {
+	if _, err := s.ReadCourse(student.Course); err != nil {
 		return err
 	}
 
@@ -98,7 +132,6 @@ func (s SchoolService) confirmRut(rut school.RUT) error {
 	if err != nil {
 		return school.ErrRegistryUnavailable
 	}
-
 	if !registered {
 		return school.ErrRutUnregistered
 	}
@@ -114,7 +147,7 @@ func (s SchoolService) announceEnrollment(student school.Student) {
 	}
 
 	if err := s.Notices.AnnounceEnrollment(student); err != nil {
-		s.log().Warn("Enrollment Announcement Failed", "student", student.ID, "error", err)
+		s.log().Warn("enrollment announcement failed", "student", int64(student.ID))
 	}
 }
 

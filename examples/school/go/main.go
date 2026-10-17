@@ -3,11 +3,14 @@ package main
 import (
 	"log"
 	"log/slog"
+	"maps"
+	"slices"
 	"strconv"
 
 	"github.com/cangrejometralleta/OneTwoThree/examples/school/go/app"
 	"github.com/cangrejometralleta/OneTwoThree/examples/school/go/campus"
 	"github.com/cangrejometralleta/OneTwoThree/examples/school/go/handler"
+	"github.com/cangrejometralleta/OneTwoThree/examples/school/go/school"
 	"github.com/cangrejometralleta/OneTwoThree/examples/school/go/serving"
 	"github.com/cangrejometralleta/OneTwoThree/examples/school/go/serving/chiserver"
 	"github.com/cangrejometralleta/OneTwoThree/examples/school/go/serving/ginserver"
@@ -17,10 +20,28 @@ import (
 	"github.com/cangrejometralleta/OneTwoThree/examples/school/go/transport"
 )
 
+// serverAdapters is every Framework this Runtime Implements; the Loader only Receives the Names.
+var serverAdapters = map[string]transport.Server{
+	"stdlib": serving.StdlibServer{},
+	"chi":    chiserver.ChiServer{},
+	"gin":    ginserver.GinServer{},
+}
+
 // main Casts the Players, then Steps off the Stage.
 // It is the only File that Knows every Package by Name.
 func main() {
-	config, err := settings.LoadSchoolConfig(settings.FindSchoolDataRoot(), settings.ReadProcessEnvironment())
+	root, err := settings.FindSchoolDataRoot(".")
+	if err != nil {
+		log.Fatalf("❌ School Data Not Found: %v", err)
+	}
+
+	constants, err := settings.ReadGlobalConstants(root)
+	if err != nil {
+		log.Fatalf("❌ School Constants Failed: %v", err)
+	}
+
+	names := slices.Sorted(maps.Keys(serverAdapters))
+	config, err := settings.LoadSchoolConfig(root, settings.ReadProcessEnvironment(), names)
 	if err != nil {
 		log.Fatalf("❌ School Configuration Failed: %v", err)
 	}
@@ -35,29 +56,16 @@ func main() {
 		log.Fatalf("❌ School Registry Refused to Open: %v", err)
 	}
 
-	schoolHandler := handler.Handler{
+	door := handler.Handler{
 		School: app.SchoolService{
+			Rules:    school.SchoolRules{MinimumAgeYears: constants.MinimumAgeYears},
 			Students: database, Courses: database,
 			Registry: office, Notices: office, Logger: slog.Default(),
 		},
 		Tokens: tokens.BuildAccessTokens(config.TokenSecret, config.TokenLifeSeconds),
 	}
-	server := SelectServerAdapter(config.ServerAdapter)
 	address := ":" + strconv.Itoa(config.Port)
 
 	log.Printf("✅ School Listening on %s through %q", address, config.ServerAdapter)
-	log.Fatal(server.ServeRoutes(schoolHandler.DeclareSchoolRoutes(), address))
-}
-
-// SelectServerAdapter Picks the Framework at Startup, never at Compile Time.
-// It Names every Adapter, so it Lives in the Composition.
-func SelectServerAdapter(name string) transport.Server {
-	switch name {
-	case "gin":
-		return ginserver.GinServer{}
-	case "chi":
-		return chiserver.ChiServer{}
-	default:
-		return serving.StdlibServer{}
-	}
+	log.Fatal(serverAdapters[config.ServerAdapter].ServeRoutes(door.DeclareSchoolRoutes(), address))
 }

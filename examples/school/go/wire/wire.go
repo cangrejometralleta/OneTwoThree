@@ -8,17 +8,17 @@ package wire
 type StudentBody struct {
 	Rut    string `json:"rut"`
 	Name   string `json:"name"`
-	Age    int    `json:"age"`
-	Course uint   `json:"courseId"`
+	Age    int64  `json:"age"`
+	Course int64  `json:"courseId"`
 }
 
 // StudentView is what a Client Gets back.
 type StudentView struct {
-	ID     uint   `json:"id"`
+	ID     int64  `json:"id"`
 	Rut    string `json:"rut"`
 	Name   string `json:"name"`
-	Age    int    `json:"age"`
-	Course uint   `json:"courseId"`
+	Age    int64  `json:"age"`
+	Course int64  `json:"courseId"`
 }
 
 // CourseBody is what a Client Sends about a Course.
@@ -29,7 +29,7 @@ type CourseBody struct {
 
 // CourseView is what a Client Gets back about a Course.
 type CourseView struct {
-	ID   uint   `json:"id"`
+	ID   int64  `json:"id"`
 	Code string `json:"code"`
 	Name string `json:"name"`
 }
