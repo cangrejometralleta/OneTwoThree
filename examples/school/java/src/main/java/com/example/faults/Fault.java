@@ -1,62 +1,88 @@
 package com.example.faults;
 
-import static java.net.HttpURLConnection.HTTP_BAD_REQUEST;
-import static java.net.HttpURLConnection.HTTP_CONFLICT;
-import static java.net.HttpURLConnection.HTTP_INTERNAL_ERROR;
-import static java.net.HttpURLConnection.HTTP_NOT_FOUND;
-import static java.net.HttpURLConnection.HTTP_UNAUTHORIZED;
+import java.util.Objects;
 
 /**
- * A Fault is a Failure the Program Expected, Carrying the Answer it Deserves.
- * A Failure that Reaches the Edge without one is a five hundred.
- *
- * <p>The Status Comes from the JDK, never from a Literal.
- * A Number Counts; a Name Explains.
+ * A Fault is a Failure the Program Expected, Carrying the Kind it Deserves.
+ * A Failure that Reaches the Edge without one is Unexpected.
  */
 public final class Fault extends RuntimeException {
 
-  private final int status;
+  /** INTERNAL_REASON is all a Caller Learns of a Failure that is Ours. */
+  public static final String INTERNAL_REASON = "internal error";
 
-  private Fault(int status, String reason) {
+  private final Kind kind;
+
+  private Fault(Kind kind, String reason) {
     super(reason, null, false, false);
-    this.status = status;
+    this.kind = kind;
   }
 
-  public int status() {
-    return status;
+  public Kind kind() {
+    return kind;
   }
 
-  /** RefuseInvalidInput Names a Caller that Sent something the Rules Reject. */
+  public String reason() {
+    return getMessage();
+  }
+
+  /** refuseInvalidInput Names a Caller that Sent something the Rules Reject. */
   public static Fault refuseInvalidInput(String reason) {
-    return new Fault(HTTP_BAD_REQUEST, reason);
+    return new Fault(Kind.INVALID_INPUT, reason);
   }
 
-  /** RefuseUnprovenCaller Names a Caller the Program cannot Recognise. */
+  /** refuseUnprovenCaller Names a Caller the Program cannot Recognise. */
   public static Fault refuseUnprovenCaller(String reason) {
-    return new Fault(HTTP_UNAUTHORIZED, reason);
+    return new Fault(Kind.UNPROVEN_CALLER, reason);
   }
 
-  /** ReportMissingRecord Names something the Caller Asked for and We Lack. */
+  /** reportMissingRecord Names something the Caller Asked for and We Lack. */
   public static Fault reportMissingRecord(String reason) {
-    return new Fault(HTTP_NOT_FOUND, reason);
+    return new Fault(Kind.MISSING_RECORD, reason);
   }
 
-  /** ReportTakenValue Names a Collision with something already Stored. */
+  /** reportTakenValue Names a Collision with something already Stored. */
   public static Fault reportTakenValue(String reason) {
-    return new Fault(HTTP_CONFLICT, reason);
+    return new Fault(Kind.TAKEN_VALUE, reason);
   }
 
-  /**
-   * ReadFaultStatus is the one Place that Turns a Failure into a Number.
-   * A Fault Answers for itself; everything else Answers five hundred.
-   */
-  public static int readFaultStatus(Throwable failure) {
-    for (Throwable step = failure; step != null; step = step.getCause()) {
-      if (step instanceof Fault fault) {
-        return fault.status();
+  /** refuseUnprocessableValue Names a well Formed Value the Authority that Knows still Denies. */
+  public static Fault refuseUnprocessableValue(String reason) {
+    return new Fault(Kind.UNPROCESSABLE_VALUE, reason);
+  }
+
+  /** reportUnavailableProvider Names a Provider that cannot Answer now; an Unknown is never a Yes. */
+  public static Fault reportUnavailableProvider(String reason) {
+    return new Fault(Kind.UNAVAILABLE_PROVIDER, reason);
+  }
+
+  /** readFaultKind Finds the Fault inside any Wrapping; everything else is Unexpected. */
+  public static Kind readFaultKind(Throwable failure) {
+    return findFault(failure).map(Fault::kind).orElse(Kind.UNEXPECTED);
+  }
+
+  /** readFaultReason Finds the Reason a Fault Declares, and Says nothing of a driver. */
+  public static String readFaultReason(Throwable failure) {
+    return findFault(failure).map(Fault::reason).orElse(INTERNAL_REASON);
+  }
+
+  private static java.util.Optional<Fault> findFault(Throwable failure) {
+    for (Throwable cause = failure; cause != null; cause = cause.getCause()) {
+      if (cause instanceof Fault fault) {
+        return java.util.Optional.of(fault);
       }
     }
 
-    return HTTP_INTERNAL_ERROR;
+    return java.util.Optional.empty();
+  }
+
+  @Override
+  public boolean equals(Object other) {
+    return other instanceof Fault fault && fault.kind == kind && fault.reason().equals(reason());
+  }
+
+  @Override
+  public int hashCode() {
+    return Objects.hash(kind, reason());
   }
 }

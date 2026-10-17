@@ -3,26 +3,37 @@ package com.example.transport;
 import java.util.Map;
 
 /**
- * Request is what a Handler Receives.
- * No Framework Type Appears here.
- *
- * <p>Caller is Empty until the Application Names it.
+ * Request is what the Door Hands the Script: no Framework Type Crosses it.
+ * Header Names Arrive in lower case; the Body is at most one Byte past the Bound.
  */
-public record Request(Map<String, String> path, Map<String, String> query, String token, byte[] body, String caller) {
+public record Request(Map<String, String> path, Map<String, String> query, Map<String, String> headers,
+    byte[] body, String caller) {
 
-  public static Request empty() {
-    return new Request(Map.of(), Map.of(), "", new byte[0], "");
+  /** MAX_BODY_BYTES Bounds what a Client may Send: one mebibyte. */
+  public static final int MAX_BODY_BYTES = 1 << 20;
+
+  public Request {
+    path = Map.copyOf(path);
+    query = Map.copyOf(query);
+    headers = Map.copyOf(headers);
+    body = body.clone();
   }
 
-  public Request namedFor(String caller) {
-    return new Request(path, query, token, body, caller);
+  /** EMPTY Holds nothing: no Path, no Query, no Header and no Body. */
+  public static final Request EMPTY = new Request(Map.of(), Map.of(), Map.of(), new byte[0], "");
+
+  /** withCaller Names the Caller the Guard Proved. */
+  public Request withCaller(String named) {
+    return new Request(path, query, headers, body, named);
   }
 
-  public String pathValue(String name) {
-    return path.getOrDefault(name, "");
+  /** withPath Hands the Route's Names to the Script. */
+  public Request withPath(Map<String, String> names) {
+    return new Request(names, query, headers, body, caller);
   }
 
-  public String queryValue(String name) {
-    return query.getOrDefault(name, "");
+  @Override
+  public byte[] body() {
+    return body.clone();
   }
 }

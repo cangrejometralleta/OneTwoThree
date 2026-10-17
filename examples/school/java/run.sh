@@ -30,10 +30,10 @@ select_settings() {
 
 verify_adapter() {
 	case "$SERVER" in
-		stdlib) ;;
+		stdlib|spring) ;;
 		*)
 			echo "❌ Unknown Adapter: $SERVER"
-			echo "This Runtime Ships one Server. Usage: ./run.sh [stdlib]"
+			echo "This Runtime Ships two Servers. Usage: ./run.sh [stdlib|spring]"
 			return 1
 			;;
 	esac
@@ -49,8 +49,6 @@ verify_secret() {
 	echo "✅ Secret Supplied"
 }
 
-
-
 verify_jar() {
 	if [ ! -f "$JAR" ]; then
 		echo "❌ Jar Missing; Run ./build.sh first"
@@ -61,7 +59,7 @@ verify_jar() {
 
 start_service() {
 	echo "✅ Starting School on $SERVER in $APP_ENV"
-	exec java -jar "$JAR"
+	exec "${JAVA_HOME:+$JAVA_HOME/bin/}java" -jar "$JAR"
 }
 
 read_dotenv

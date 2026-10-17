@@ -1,105 +1,114 @@
 package com.example.tokens;
 
+import com.example.app.TokenIssuer;
+import com.example.codec.Json;
 import com.example.faults.Fault;
-import com.example.school.TokenIssuer;
+
+import java.math.BigInteger;
+import java.nio.charset.StandardCharsets;
+import java.security.GeneralSecurityException;
+import java.security.MessageDigest;
+import java.time.Clock;
+import java.util.Base64;
+import java.util.LinkedHashMap;
+import java.util.Map;
+import java.util.Optional;
 
 import javax.crypto.Mac;
 import javax.crypto.spec.SecretKeySpec;
 
-import java.nio.charset.StandardCharsets;
-import java.time.Instant;
-import java.util.Base64;
-import java.util.function.Supplier;
-
-/** AccessTokens Fulfils TokenIssuer with the standard Library only. */
+/**
+ * AccessTokens Mints and Reads Bearer Tokens signed with HMAC-SHA256, javax.crypto only.
+ * A Token is two base64url Parts without padding: the Claims, then the Signature over them.
+ * Reference: https://www.rfc-editor.org/rfc/rfc2104
+ */
 public final class AccessTokens implements TokenIssuer {
 
-  /**
-   * ErrTokenIsInvalid Covers every Way a Token can Fail.
-   * A Caller who Cannot Prove itself Gets one Answer, never a Reason why.
-   */
+  /** TOKEN_IS_INVALID Answers every Token the Guard cannot Trust; a Caller Learns only that. */
   public static final Fault TOKEN_IS_INVALID = Fault.refuseUnprovenCaller("token is Invalid or Expired");
+
+  private static final String SIGNATURE_ALGORITHM = "HmacSHA256";
+  private static final Base64.Encoder ENCODER = Base64.getUrlEncoder().withoutPadding();
+  private static final Base64.Decoder DECODER = Base64.getUrlDecoder();
 
   private final byte[] secret;
   private final long lifeSeconds;
-  private final Supplier<Instant> now;
+  private final Clock clock;
 
-  private AccessTokens(String secret, long lifeSeconds, Supplier<Instant> now) {
+  private AccessTokens(String secret, long lifeSeconds, Clock clock) {
     this.secret = secret.getBytes(StandardCharsets.UTF_8);
     this.lifeSeconds = lifeSeconds;
-    this.now = now;
+    this.clock = clock;
   }
 
-  /** BuildAccessTokens Takes the two Values Validated at Startup. */
-  public static AccessTokens buildAccessTokens(String secret, int lifeSeconds) {
-    return new AccessTokens(secret, lifeSeconds, Instant::now);
-  }
-
-  /** BuildAccessTokensReading Hands a Test a Clock it can Move. */
-  public static AccessTokens buildAccessTokensReading(String secret, int lifeSeconds, Supplier<Instant> clock) {
+  /** buildAccessTokens Casts the Issuer with its Secret, how long a Token Lives, and a Clock. */
+  public static AccessTokens buildAccessTokens(String secret, long lifeSeconds, Clock clock) {
     return new AccessTokens(secret, lifeSeconds, clock);
   }
 
-  /** IssueAccessToken Signs a Subject together with its Deadline. */
+  /** issueAccessToken Mints a Token for one Subject. An empty Secret Signs nothing. */
   @Override
   public String issueAccessToken(String subject) {
-    if (secret.length == 0) {
+    if (secret.length == 0 || subject.isEmpty()) {
       throw TOKEN_IS_INVALID;
     }
 
-    String claim = subject + "." + now.get().plusSeconds(lifeSeconds).getEpochSecond();
+    Map<String, Object> claims = new LinkedHashMap<>();
+    claims.put("sub", subject);
+    claims.put("exp", readNowSeconds() + lifeSeconds);
+    String encoded = ENCODER.encodeToString(Json.writeJsonText(claims).getBytes(StandardCharsets.UTF_8));
 
-    return claim + "." + signTokenClaim(claim);
+    return encoded + "." + sign(encoded);
   }
 
   /**
-   * ReadAccessToken Returns the Subject, or Says why it Cannot.
-   * The Comparison Reads forward: a Token Dies once its Deadline Passes.
+   * readCaller Names the Subject a Token Proves.
+   * The Comparison Reads forward: a Token is Dead when now is after its Deadline.
    */
   @Override
-  public String readAccessToken(String token) {
-    String claim = openSignedClaim(token);
-    int dot = claim.lastIndexOf('.');
-
-    long deadline;
-    try {
-      deadline = Long.parseLong(claim.substring(dot + 1));
-    } catch (RuntimeException broken) {
+  public String readCaller(String token) {
+    String[] parts = token.split("\\.", -1);
+    if (secret.length == 0 || parts.length != 2
+        || !MessageDigest.isEqual(parts[1].getBytes(StandardCharsets.US_ASCII),
+            sign(parts[0]).getBytes(StandardCharsets.US_ASCII))) {
       throw TOKEN_IS_INVALID;
     }
 
-    if (now.get().getEpochSecond() > deadline) {
+    Map<?, ?> claims = readClaims(parts[0]).orElseThrow(() -> TOKEN_IS_INVALID);
+    if (!(claims.get("sub") instanceof String subject) || subject.isEmpty()
+        || !(claims.get("exp") instanceof BigInteger deadline)) {
+      throw TOKEN_IS_INVALID;
+    }
+    if (BigInteger.valueOf(readNowSeconds()).compareTo(deadline) > 0) {
       throw TOKEN_IS_INVALID;
     }
 
-    return claim.substring(0, dot);
+    return subject;
   }
 
-  /** OpenSignedClaim Returns the Claim only when the Signature Holds. */
-  private String openSignedClaim(String token) {
-    int dot = token == null ? -1 : token.lastIndexOf('.');
-    if (dot < 0) {
-      throw TOKEN_IS_INVALID;
+  private static Optional<Map<?, ?>> readClaims(String encoded) {
+    try {
+      return Json.readJsonText(DECODER.decode(encoded))
+          .filter(Map.class::isInstance)
+          .map(Map.class::cast);
+    } catch (IllegalArgumentException unreadable) {
+      return Optional.empty();
     }
-
-    String claim = token.substring(0, dot);
-    if (!java.security.MessageDigest.isEqual(signTokenClaim(claim).getBytes(StandardCharsets.UTF_8),
-        token.substring(dot + 1).getBytes(StandardCharsets.UTF_8))) {
-      throw TOKEN_IS_INVALID;
-    }
-
-    return claim;
   }
 
-  /** SignTokenClaim Reduces a Claim to its Signature. */
-  private String signTokenClaim(String claim) {
-    try {
-      Mac mac = Mac.getInstance("HmacSHA256");
-      mac.init(new SecretKeySpec(secret, "HmacSHA256"));
+  /** readNowSeconds Truncates Now to whole unix Seconds. */
+  private long readNowSeconds() {
+    return clock.instant().getEpochSecond();
+  }
 
-      return Base64.getUrlEncoder().withoutPadding().encodeToString(mac.doFinal(claim.getBytes(StandardCharsets.UTF_8)));
-    } catch (java.security.GeneralSecurityException impossible) {
-      throw new IllegalStateException(impossible);
+  private String sign(String encoded) {
+    try {
+      Mac mac = Mac.getInstance(SIGNATURE_ALGORITHM);
+      mac.init(new SecretKeySpec(secret, SIGNATURE_ALGORITHM));
+
+      return ENCODER.encodeToString(mac.doFinal(encoded.getBytes(StandardCharsets.US_ASCII)));
+    } catch (GeneralSecurityException impossible) {
+      throw new IllegalStateException("the JDK Ships HmacSHA256", impossible);
     }
   }
 }

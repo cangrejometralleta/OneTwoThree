@@ -1,8 +1,5 @@
 package com.example.transport;
 
-/**
- * Route Binds one Method and one Pattern to one Handler.
- * Patterns Use {name}, and each Adapter Translates from there.
- */
+/** Route Declares one Door: Method, Pattern and the Handler behind it. */
 public record Route(String method, String pattern, Handler handle) {
 }

@@ -1,111 +1,74 @@
 package com.example.settings;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.fasterxml.jackson.databind.JsonNode;
-import com.fasterxml.jackson.databind.node.IntNode;
-import com.fasterxml.jackson.databind.node.TextNode;
-import com.example.settings.Settings.ValueRule;
-
+import java.math.BigInteger;
+import java.nio.file.Files;
 import java.nio.file.Path;
-import java.util.LinkedHashMap;
 import java.util.Map;
+import java.util.Set;
 
-/** SchoolConfig Holds Deployment Values; Secrets Have no File Key. */
-@JsonIgnoreProperties(ignoreUnknown = false)
-public record SchoolConfig(int port, String databasePath, int tokenLifeSeconds, String serverAdapter,
-    String tokenSecret) {
+/**
+ * SchoolConfig Holds the Deployment Values, Validated once at Startup.
+ * The Secret has no File Key, and never Prints.
+ */
+public record SchoolConfig(int port, Path databasePath, Path registryPath, long tokenLifeSeconds,
+    String serverAdapter, String tokenSecret) {
 
-  /** The Bounds a Deployment Value Must Fall inside. */
-  private static final int LOWEST_PORT = 1;
-  private static final int HIGHEST_PORT = 65535;
-  private static final int SECONDS_IN_A_DAY = 60 * 60 * 24;
+  /** The Bounds a Deployment Value Must Fall inside. Read alone, 65535 Says nothing. */
+  public static final int LOWEST_PORT = 1;
+  public static final int HIGHEST_PORT = 65535;
+  public static final long SECONDS_IN_A_DAY = 60L * 60 * 24;
 
-  private static final Map<String, ValueRule> RULES = Map.of(
-      "port", Settings.checkIntegerRange(LOWEST_PORT, HIGHEST_PORT),
-      "databasePath", Settings.CHECK_TEXT_VALUE,
-      "tokenLifeSeconds", Settings.checkIntegerRange(1, SECONDS_IN_A_DAY),
-      "serverAdapter", Settings.checkChoiceValue("stdlib"));
+  private static final String NAMESPACE = "SCHOOL_";
 
-  private static final Map<String, String> NAMES = Map.of(
-      "SCHOOL_PORT", "port",
-      "SCHOOL_DATABASE_PATH", "databasePath",
-      "SCHOOL_TOKEN_LIFE_SECONDS", "tokenLifeSeconds",
-      "SERVER", "serverAdapter");
+  /**
+   * loadSchoolConfig Resolves Defaults, then the Environment File, then the Variables.
+   * The Adapters a Runtime Implements Arrive from the Composition; this Loader Names none.
+   */
+  public static SchoolConfig loadSchoolConfig(Path root, Map<String, String> environment, Set<String> adapters)
+      throws SettingsRefused {
+    Map<String, ValueRule> rules = Map.of(
+        "port", ValueRule.checkIntegerRange(LOWEST_PORT, HIGHEST_PORT),
+        "databasePath", ValueRule.checkTextValue(),
+        "registryPath", ValueRule.checkTextValue(),
+        "tokenLifeSeconds", ValueRule.checkIntegerRange(1, SECONDS_IN_A_DAY),
+        "serverAdapter", ValueRule.checkOneOf(adapters));
+    Map<String, String> names = Map.of(
+        "SCHOOL_PORT", "port",
+        "SCHOOL_DATABASE_PATH", "databasePath",
+        "SCHOOL_REGISTRY_PATH", "registryPath",
+        "SCHOOL_TOKEN_LIFE_SECONDS", "tokenLifeSeconds",
+        "SERVER", "serverAdapter");
 
-  /** LoadSchoolConfig Resolves Startup Inputs before any Store or Listener Opens. */
-  public static SchoolConfig loadSchoolConfig(Path root, Map<String, String> environment) {
-    checkEnvironmentKeys(environment);
-
-    Map<String, JsonNode> values = readEnvironmentFiles(root, environment.get("APP_ENV"));
-    applyEnvironmentValues(values, environment);
-
-    Deployment deployment = Settings.decodeDataValues(values, RULES, Deployment.class);
+    Settings.checkEnvironmentKeys(environment, NAMESPACE, names);
+    Map<String, Object> values = Settings.readEnvironmentFiles(root, "school", environment.get("APP_ENV"), rules);
+    Settings.applyEnvironmentValues(values, environment, names, rules);
+    Settings.requireEveryKey(values, rules);
 
     String secret = environment.getOrDefault("TOKEN_SECRET", "");
     if (secret.isBlank()) {
-      throw new IllegalStateException("TOKEN_SECRET is Missing");
+      throw new SettingsRefused("TOKEN_SECRET is Missing");
     }
 
-    return new SchoolConfig(deployment.port(), deployment.databasePath(), deployment.tokenLifeSeconds(),
-        deployment.serverAdapter(), secret);
+    return new SchoolConfig(((BigInteger) values.get("port")).intValueExact(),
+        Path.of((String) values.get("databasePath")),
+        findRegistryFile(root, (String) values.get("registryPath")),
+        ((BigInteger) values.get("tokenLifeSeconds")).longValueExact(),
+        (String) values.get("serverAdapter"), secret);
   }
 
-  private record Deployment(int port, String databasePath, int tokenLifeSeconds, String serverAdapter) {
-  }
-
-  /** ReadEnvironmentFiles Applies Defaults before the selected Environment. */
-  private static Map<String, JsonNode> readEnvironmentFiles(Path root, String environment) {
-    if (!"development".equals(environment) && !"production".equals(environment)) {
-      throw new IllegalStateException("APP_ENV Must be development or production");
+  /** findRegistryFile Resolves a relative Path from the Data Root, and Refuses a File that does not Exist. */
+  private static Path findRegistryFile(Path root, String path) throws SettingsRefused {
+    Path resolved = root.resolve(path);
+    if (!Files.isRegularFile(resolved)) {
+      throw new SettingsRefused("registryPath " + resolved + " Must be a File that Exists");
     }
 
-    Path folder = root.resolve("config");
-    Map<String, JsonNode> values = new LinkedHashMap<>(
-        Settings.readDataFile(folder.resolve("school.defaults.json"), RULES));
-    values.putAll(Settings.readDataFile(folder.resolve("school." + environment + ".json"), RULES));
-
-    return values;
+    return resolved;
   }
 
-  /** CheckEnvironmentKeys Refuses undeclared Variables in this Service Namespace. */
-  private static void checkEnvironmentKeys(Map<String, String> environment) {
-    for (String name : environment.keySet()) {
-      if (name.startsWith("SCHOOL_") && !NAMES.containsKey(name)) {
-        throw new IllegalStateException("Unknown Variable " + name + "; Global Constants Cannot be Overridden");
-      }
-    }
-  }
-
-  /** ApplyEnvironmentValues Validates declared Variables before Replacing Values. */
-  private static void applyEnvironmentValues(Map<String, JsonNode> values, Map<String, String> environment) {
-    NAMES.forEach((name, key) -> {
-      String value = environment.get(name);
-      if (value == null) {
-        return;
-      }
-      try {
-        values.put(key, encodeEnvironmentValue(value, RULES.get(key)));
-      } catch (RuntimeException broken) {
-        throw new IllegalStateException(name + ": " + broken.getMessage(), broken);
-      }
-    });
-  }
-
-  /** EncodeEnvironmentValue Accepts Text or a decimal Integer, never implicit Booleans. */
-  private static JsonNode encodeEnvironmentValue(String value, ValueRule rule) {
-    JsonNode text = TextNode.valueOf(value);
-    try {
-      rule.accept(text);
-      return text;
-    } catch (IllegalArgumentException notText) {
-      if (!value.matches("^[0-9]+$")) {
-        throw new IllegalArgumentException("Invalid Value");
-      }
-    }
-
-    JsonNode number = IntNode.valueOf(Integer.parseInt(value));
-    rule.accept(number);
-
-    return number;
+  @Override
+  public String toString() {
+    return "SchoolConfig[port=" + port + ", databasePath=" + databasePath + ", registryPath=" + registryPath
+        + ", tokenLifeSeconds=" + tokenLifeSeconds + ", serverAdapter=" + serverAdapter + ", tokenSecret=***]";
   }
 }

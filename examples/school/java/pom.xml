@@ -4,6 +4,7 @@
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
+  <!-- The Parent Pins Versions only; no Package but serving.spring Imports Spring. -->
   <parent>
     <groupId>org.springframework.boot</groupId>
     <artifactId>spring-boot-starter-parent</artifactId>
@@ -15,21 +16,25 @@
   <artifactId>school</artifactId>
   <version>1.0.0</version>
   <name>school</name>
-  <description>The Technical Test, Rewritten under the Rules</description>
+  <description>The Technical Test, Regenerated from the Contract, the Spec and the Shape</description>
 
   <properties>
     <java.version>21</java.version>
+    <start-class>com.example.Main</start-class>
   </properties>
 
   <dependencies>
+    <!-- serving.spring: the second Server Adapter. -->
     <dependency>
       <groupId>org.springframework.boot</groupId>
       <artifactId>spring-boot-starter-web</artifactId>
     </dependency>
+    <!-- codec: the only Package that Imports a JSON Library. -->
     <dependency>
-      <groupId>org.springframework.boot</groupId>
-      <artifactId>spring-boot-starter-data-jpa</artifactId>
+      <groupId>com.fasterxml.jackson.core</groupId>
+      <artifactId>jackson-databind</artifactId>
     </dependency>
+    <!-- store: Found by JDBC at Runtime, so no Package can Import it. -->
     <dependency>
       <groupId>com.h2database</groupId>
       <artifactId>h2</artifactId>
@@ -50,6 +55,11 @@
         <configuration>
           <!-- Incremental Compilation Emits stale Records under a newer JDK. -->
           <useIncrementalCompilation>false</useIncrementalCompilation>
+          <!-- The JDK Ships no Formatter, so the Lint is the Gate. -->
+          <compilerArgs>
+            <arg>-Xlint:all,-processing,-serial</arg>
+            <arg>-Werror</arg>
+          </compilerArgs>
         </configuration>
       </plugin>
       <plugin>

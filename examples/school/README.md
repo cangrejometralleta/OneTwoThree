@@ -27,15 +27,15 @@ The Argument Wins over both. TypeScript reads `.env` from `ts/`, uses the shared
 
 | | Go | TypeScript | Java |
 |---|---|---|---|
-| Gates | gofmt, vet, test | Node syntax and type checks, 18 behavior tests | toolchain, test |
-| Store | GORM over SQLite | JSON file store | JPA over H2 |
-| Adapters | stdlib, chi, gin | stdlib | stdlib |
+| Gates | gofmt, vet, test | Node syntax and type checks, 18 behavior tests | toolchain, lint, 93 tests |
+| Store | GORM over SQLite | JSON file store | JDBC over H2 |
+| Adapters | stdlib, chi, gin | stdlib | stdlib, spring |
 
 `build.sh` Refuses to Build what does not Pass.
 `run.sh` Refuses to Start without a Secret.
 Go and Java select an adapter; TypeScript Runs its stdlib adapter.
 
-The [Contract](../specs/school/openapi.yaml), the [Specification](../specs/school/SPEC.md) and [the Shape](../specs/school/SHAPE.md) Say what a Generated Service Answers; Go and the regenerated TypeScript service do today. See the TypeScript [regeneration notes](ts/REGENERATION.md) for implementation choices and verification limits.
+The [Contract](../specs/school/openapi.yaml), the [Specification](../specs/school/SPEC.md) and [the Shape](../specs/school/SHAPE.md) Say what a Generated Service Answers; Go and the regenerated TypeScript and Java services do today. See the TypeScript [regeneration notes](ts/REGENERATION.md) for implementation choices and verification limits.
 
 ```bash
 TOKEN_SECRET=s go/run.sh gin        # Go

@@ -1,46 +1,60 @@
 package com.example;
 
-import com.example.api.SchoolAPI;
-import com.example.serving.HTTPServer;
+import com.example.app.SchoolService;
+import com.example.campus.Office;
+import com.example.handler.SchoolHandler;
+import com.example.school.SchoolRules;
+import com.example.serving.spring.SpringServer;
+import com.example.serving.stdlib.StdlibServer;
+import com.example.settings.GlobalConstants;
 import com.example.settings.SchoolConfig;
 import com.example.settings.Settings;
-import com.example.store.CourseRows;
-import com.example.store.School;
-import com.example.store.StudentRows;
+import com.example.store.SchoolStore;
 import com.example.tokens.AccessTokens;
+import com.example.transport.Server;
 
-import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.context.annotation.Bean;
-import org.springframework.web.servlet.function.RouterFunction;
-import org.springframework.web.servlet.function.ServerResponse;
+import java.nio.file.Path;
+import java.time.Clock;
+import java.util.Map;
+import java.util.function.Supplier;
 
 /**
- * main Casts the Players, then Steps off the Stage.
+ * Main Casts the Players, then Steps off the Stage.
  * It is the only Class that Knows every Package by Name.
  */
-@SpringBootApplication
-public class Main {
+public final class Main {
 
-  public static void main(String[] args) {
-    SchoolConfig config = SchoolConfig.loadSchoolConfig(Settings.findSchoolDataRoot(),
-        Settings.readProcessEnvironment());
+  /** SERVER_ADAPTERS is every Framework this Runtime Implements; the Loader only Receives the Names. */
+  static final Map<String, Supplier<Server>> SERVER_ADAPTERS = Map.of(
+      "stdlib", StdlibServer::new,
+      "spring", SpringServer::new);
 
-    System.setProperty("server.port", String.valueOf(config.port()));
-    System.setProperty("school.token.secret", config.tokenSecret());
-    System.setProperty("school.token.life", String.valueOf(config.tokenLifeSeconds()));
-    System.setProperty("school.database.path", config.databasePath());
-
-    SpringApplication.run(Main.class, args);
+  private Main() {
   }
 
-  @Bean
-  RouterFunction<ServerResponse> schoolRoutes(StudentRows studentRows, CourseRows courseRows) {
-    School registry = new School(studentRows, courseRows);
-    SchoolAPI service = new SchoolAPI(registry, registry,
-        AccessTokens.buildAccessTokens(System.getProperty("school.token.secret", ""),
-            Integer.parseInt(System.getProperty("school.token.life", "600"))));
+  public static void main(String[] args) {
+    try {
+      startSchool();
+    } catch (Exception refused) {
+      System.err.println("❌ School Refused to Start: " + refused.getMessage());
+      System.exit(1);
+    }
+  }
 
-    return new HTTPServer(service.declareSchoolRoutes()).serveRoutes();
+  private static void startSchool() throws Exception {
+    Path root = Settings.findSchoolDataRoot(Path.of(""));
+    GlobalConstants constants = Settings.readGlobalConstants(root);
+    SchoolConfig config = SchoolConfig.loadSchoolConfig(root, System.getenv(), SERVER_ADAPTERS.keySet());
+
+    SchoolStore store = SchoolStore.openSchoolStore(config.databasePath());
+    Office office = Office.openOffice(config.registryPath(), System.getLogger("school.campus"));
+    SchoolService service = new SchoolService(new SchoolRules(constants.minimumAgeYears()), store, store,
+        office, office, System.getLogger("school.app"));
+    SchoolHandler door = new SchoolHandler(service,
+        AccessTokens.buildAccessTokens(config.tokenSecret(), config.tokenLifeSeconds(), Clock.systemUTC()));
+
+    Server server = SERVER_ADAPTERS.get(config.serverAdapter()).get();
+    Server.Running running = server.serveRoutes(door.declareSchoolRoutes(), config.port());
+    System.out.println("✅ School Listening on :" + running.port() + " through " + config.serverAdapter());
   }
 }

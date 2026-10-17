@@ -1,131 +1,147 @@
 package com.example.settings;
 
-import com.fasterxml.jackson.databind.JsonNode;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.databind.node.ObjectNode;
+import com.example.codec.Json;
 
 import java.io.IOException;
+import java.math.BigInteger;
 import java.nio.file.Files;
 import java.nio.file.Path;
-import java.nio.file.Paths;
 import java.util.LinkedHashMap;
 import java.util.Map;
-import java.util.function.Consumer;
+import java.util.regex.Pattern;
 
-/** The strict Loader. An Unknown Key Stops Startup before a Listener Opens. */
+/**
+ * Settings is the strict JSON Loader: Unknown Keys, nulls, wrong Types and
+ * missing required Values Stop Startup before anything Opens.
+ */
 public final class Settings {
+
+  /** DATA_ROOT_SEARCH_LEVELS Bounds the Walk up from the working Directory. */
+  private static final int DATA_ROOT_SEARCH_LEVELS = 5;
+
+  private static final Pattern WHOLE_NUMBER = Pattern.compile("^[0-9]+$");
 
   private Settings() {
   }
 
-  private static final ObjectMapper MAPPER = new ObjectMapper();
-
-  /** A ValueRule Validates one declared Configuration Key. */
-  public interface ValueRule extends Consumer<JsonNode> {
-  }
-
-  /** CheckIntegerRange Keeps JSON Numbers whole and Bounded. */
-  public static ValueRule checkIntegerRange(int minimum, int maximum) {
-    return value -> {
-      if (value.isNull() || !value.isInt()) {
-        throw new IllegalArgumentException("Must be an Integer");
-      }
-      if (value.asInt() < minimum || value.asInt() > maximum) {
-        throw new IllegalArgumentException("Must be between " + minimum + " and " + maximum);
-      }
-    };
-  }
-
-  /** CheckTextValue Requires a nonempty String. */
-  public static final ValueRule CHECK_TEXT_VALUE = value -> {
-    if (!value.isTextual()) {
-      throw new IllegalArgumentException("Must be a String");
-    }
-    if (value.asText().isBlank()) {
-      throw new IllegalArgumentException("Must not be Empty");
-    }
-  };
-
-  /** CheckChoiceValue Accepts only the Words this Runtime Implements. */
-  public static ValueRule checkChoiceValue(String... allowed) {
-    return value -> {
-      CHECK_TEXT_VALUE.accept(value);
-      for (String option : allowed) {
-        if (option.equals(value.asText())) {
-          return;
-        }
-      }
-      throw new IllegalArgumentException("Must be one of " + String.join(", ", allowed));
-    };
-  }
-
-  /** ReadDataFile Rejects Unknown Keys and Invalid Values before Merging. */
-  public static Map<String, JsonNode> readDataFile(Path path, Map<String, ValueRule> rules) {
-    JsonNode document;
+  /** readDataFile Rejects Unknown Keys and Invalid Values before Merging. */
+  static Map<String, Object> readDataFile(Path path, Map<String, ValueRule> rules) throws SettingsRefused {
+    byte[] data;
     try {
-      document = MAPPER.readTree(Files.readString(path));
-    } catch (IOException failure) {
-      throw new IllegalStateException(path + ": " + failure.getMessage(), failure);
+      data = Files.readAllBytes(path);
+    } catch (IOException missing) {
+      throw new SettingsRefused(path + " cannot be Read");
     }
 
-    if (document == null || !document.isObject()) {
-      throw new IllegalStateException(path + " Must Hold an Object");
+    Object read = Json.readJsonText(data).orElseThrow(() -> new SettingsRefused(path + " is not one JSON value"));
+    if (!(read instanceof Map<?, ?> values)) {
+      throw new SettingsRefused(path + " Must Hold an Object");
     }
 
-    Map<String, JsonNode> values = new LinkedHashMap<>();
-    document.fields().forEachRemaining(entry -> {
-      ValueRule rule = rules.get(entry.getKey());
+    Map<String, Object> checked = new LinkedHashMap<>();
+    for (Map.Entry<?, ?> entry : values.entrySet()) {
+      String key = (String) entry.getKey();
+      ValueRule rule = rules.get(key);
       if (rule == null) {
-        throw new IllegalStateException(path + ": Unknown Key " + entry.getKey());
+        throw new SettingsRefused(path + ": Unknown Key " + key);
       }
-      try {
-        rule.accept(entry.getValue());
-      } catch (IllegalArgumentException broken) {
-        throw new IllegalStateException(path + ": " + entry.getKey() + " " + broken.getMessage(), broken);
+      checkValue(rule, entry.getValue(), path + ": " + key);
+      checked.put(key, entry.getValue());
+    }
+
+    return checked;
+  }
+
+  /** requireEveryKey Refuses a Set of Values that Lacks a declared Key. */
+  static void requireEveryKey(Map<String, Object> values, Map<String, ValueRule> rules) throws SettingsRefused {
+    for (String key : rules.keySet()) {
+      if (!values.containsKey(key)) {
+        throw new SettingsRefused(key + " is Missing");
       }
-      values.put(entry.getKey(), entry.getValue());
-    });
+    }
+  }
+
+  /** readGlobalConstants Loads Constants without an Override Path; no Variable Reaches them. */
+  public static GlobalConstants readGlobalConstants(Path root) throws SettingsRefused {
+    Map<String, ValueRule> rules = Map.of("minimumAgeYears", ValueRule.checkIntegerRange(1, 200));
+    Map<String, Object> values = readDataFile(root.resolve("constants").resolve("school.json"), rules);
+    requireEveryKey(values, rules);
+
+    return new GlobalConstants(((BigInteger) values.get("minimumAgeYears")).intValueExact());
+  }
+
+  /** readEnvironmentFiles Applies the Defaults, then the selected Environment. Both Files must Exist. */
+  static Map<String, Object> readEnvironmentFiles(Path root, String concern, String environment,
+      Map<String, ValueRule> rules) throws SettingsRefused {
+    if (!"development".equals(environment) && !"production".equals(environment)) {
+      throw new SettingsRefused("APP_ENV Must be development or production");
+    }
+
+    Path config = root.resolve("config");
+    Map<String, Object> values = readDataFile(config.resolve(concern + ".defaults.json"), rules);
+    values.putAll(readDataFile(config.resolve(concern + "." + environment + ".json"), rules));
 
     return values;
   }
 
-  /** DecodeDataValues Requires every declared Key before Returning typed Data. */
-  public static <T> T decodeDataValues(Map<String, JsonNode> values, Map<String, ValueRule> rules, Class<T> shape) {
-    for (String key : rules.keySet()) {
-      if (!values.containsKey(key)) {
-        throw new IllegalStateException(key + " is Missing");
+  /** checkEnvironmentKeys Refuses undeclared Variables in this Service's Namespace. */
+  static void checkEnvironmentKeys(Map<String, String> environment, String prefix, Map<String, String> names)
+      throws SettingsRefused {
+    for (String name : environment.keySet()) {
+      if (name.startsWith(prefix) && !names.containsKey(name)) {
+        throw new SettingsRefused("Unknown Variable " + name + "; Global Constants Cannot be Overridden");
+      }
+    }
+  }
+
+  /** applyEnvironmentValues Validates declared Variables before Replacing Values. Set and Empty is Set. */
+  static void applyEnvironmentValues(Map<String, Object> values, Map<String, String> environment,
+      Map<String, String> names, Map<String, ValueRule> rules) throws SettingsRefused {
+    for (Map.Entry<String, String> declared : names.entrySet()) {
+      String text = environment.get(declared.getKey());
+      if (text != null) {
+        values.put(declared.getValue(), encodeEnvironmentValue(text, rules.get(declared.getValue()),
+            declared.getKey()));
+      }
+    }
+  }
+
+  /** encodeEnvironmentValue Accepts Text or Digits only, so +80, " 80" and 80.0 Stop Startup. */
+  private static Object encodeEnvironmentValue(String text, ValueRule rule, String name) throws SettingsRefused {
+    try {
+      rule.check(text);
+
+      return text;
+    } catch (SettingsRefused notText) {
+      if (!WHOLE_NUMBER.matcher(text).matches()) {
+        throw new SettingsRefused(name + ": " + notText.getMessage());
       }
     }
 
-    ObjectNode document = MAPPER.createObjectNode();
-    values.forEach(document::set);
+    BigInteger number = new BigInteger(text);
+    checkValue(rule, number, name);
 
-    return MAPPER.convertValue(document, shape);
+    return number;
   }
 
-  /** ReadGlobalValues Loads Constants without an Environment Override Path. */
-  public static <T> T readGlobalValues(Path path, Map<String, ValueRule> rules, Class<T> shape) {
-    return decodeDataValues(readDataFile(path, rules), rules, shape);
+  private static void checkValue(ValueRule rule, Object value, String where) throws SettingsRefused {
+    try {
+      rule.check(value);
+    } catch (SettingsRefused refused) {
+      throw new SettingsRefused(where + " " + refused.getMessage());
+    }
   }
 
-  /**
-   * FindSchoolDataRoot Walks up until the Data Directories Appear.
-   * A Binary Runs from java/ and a Test Runs from its own Directory.
-   */
-  public static Path findSchoolDataRoot() {
-    Path root = Paths.get("").toAbsolutePath();
-
-    for (int level = 0; level < 5 && root != null; level++, root = root.getParent()) {
-      if (Files.exists(root.resolve("constants").resolve("school.json"))) {
+  /** findSchoolDataRoot Walks up until constants/ Appears: the Jar Runs from java/, a Test from java/ too. */
+  public static Path findSchoolDataRoot(Path start) throws SettingsRefused {
+    Path root = start.toAbsolutePath();
+    for (int level = 0; level < DATA_ROOT_SEARCH_LEVELS && root != null; level++) {
+      if (Files.isRegularFile(root.resolve("constants").resolve("school.json"))) {
         return root;
       }
+      root = root.getParent();
     }
 
-    throw new IllegalStateException("school Data Directories not Found above the Working Directory");
-  }
-
-  /** ReadProcessEnvironment Captures Startup Inputs once. */
-  public static Map<String, String> readProcessEnvironment() {
-    return new LinkedHashMap<>(System.getenv());
+    throw new SettingsRefused("school Data Directories not Found above " + start.toAbsolutePath());
   }
 }

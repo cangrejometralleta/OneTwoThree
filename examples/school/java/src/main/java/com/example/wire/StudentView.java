@@ -1,5 +1,5 @@
 package com.example.wire;
 
 /** StudentView is what a Client Gets back. */
-public record StudentView(long id, String rut, String name, int age, long courseId) {
+public record StudentView(long id, String rut, String name, long age, long courseId) {
 }
