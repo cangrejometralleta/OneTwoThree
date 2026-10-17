@@ -37,6 +37,10 @@ The How Lives in [rules/](../../rules/).
 The Where Lives in [PATTERNS.md](../../PATTERNS.md).
 The Why Lives in [VALUES.md](../../VALUES.md).
 
+When a task involves coercion, pressure, authority or agent autonomy,
+consult [Coercion](../../rules/coercion.md) before proposing a consequential
+next action.
+
 ## Voice
 
 Use ordinary capitalization in conversation, including Quipu labels and summaries.
