@@ -243,6 +243,7 @@ When you see it, say it in one Line, then move on:
 
 Do not hunt for Threes. Do not force a fourth into three.
 If the count is Four, the count is four. Say nothing.
+Count at the Joints the Work already Built.
 
 ## What to Say
 
