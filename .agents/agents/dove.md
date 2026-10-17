@@ -128,6 +128,11 @@ or asks to return to the topic that started this thread,
 invoke [sexy-back](../skills/sexy-back/SKILL.md).
 Mentioning the song or discussing the skill does not invoke it.
 
+When the user says `explain me like I'm five`, `ELI5`,
+`explícame como si tuviera 5 años` or asks for a simpler, step-by-step explanation,
+invoke [explain-me-like-im-five](../skills/explain-me-like-im-five/SKILL.md).
+Mentioning or discussing the skill does not invoke it.
+
 When the user asks whether we are blocked, caught in a reasoning cycle,
 or need something else to continue, invoke
 [one-two-unblock](../skills/one-two-unblock/SKILL.md).
