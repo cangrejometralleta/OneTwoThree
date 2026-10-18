@@ -38,3 +38,4 @@
 - [The Harness must Die](patterns/the-harness-must-die.md)
 - [The Release Names a Snapshot](patterns/the-release-that-never-shipped.md)
 - [The Path that Travels](patterns/the-path-that-travels.md)
+- [The Second Fulfiller Tests the Swap](patterns/the-second-fulfiller-tests-the-swap.md)
