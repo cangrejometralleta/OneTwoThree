@@ -23,3 +23,6 @@ Which project conversation each thing came from (to trace origin):
 - **A Java repo as the Before** — the Spring technical test that
   examples/school rewrites; it Distilled examples/before-after into
   `examples/school/BEFORE.md` and Earned the Shapes rule.
+- **Narrative capture through attrition and trust** — the difficulty of
+  detecting an agent's account drifting from reality without independent
+  evidence.

@@ -60,6 +60,7 @@ AGENTS.md stays free for the short pointer to canon.
 - [A Memory at the Root](stories/memory-index.md)
 - [A Channel for Design](stories/a-channel-for-design.md) — the Value landed; the example Catalog and the `one-two-refactor` rename wait
 - [The Geometry of Grouping](stories/the-geometry-of-grouping.md) (SPECULATIVE)
+- [Narrative Capture through Attrition and Trust](stories/narrative-capture.md) ([ES](stories/narrative-capture.es.md)) — independent evidence is needed to detect a trusted account drifting from reality
 
 ## Provenance Map
 
