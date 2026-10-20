@@ -52,7 +52,7 @@ AGENTS.md stays free for the short pointer to canon.
 
 ## Undistilled Context
 
-7 of 9 filled. Distill before promoting a tenth.
+8 of 9 filled. Distill before promoting a tenth.
 
 - [Roadmap](stories/roadmap.md) — own linter, modular cluster with LiteLLM, color by semantic association (prose BLOCKED: a role tagger and a palette)
 - [Another three showing up on its own](stories/another-three-showing-up.md) (SPECULATIVE)
@@ -61,6 +61,7 @@ AGENTS.md stays free for the short pointer to canon.
 - [A Channel for Design](stories/a-channel-for-design.md) — the Value landed; the example Catalog and the `one-two-refactor` rename wait
 - [The Geometry of Grouping](stories/the-geometry-of-grouping.md) (SPECULATIVE)
 - [Narrative Capture through Attrition and Trust](stories/narrative-capture.md) ([ES](stories/narrative-capture.es.md)) — independent evidence is needed to detect a trusted account drifting from reality
+- [The Skill Travels; the Agent Has a Home](stories/agent-and-skill.md) (MOVING: generic support for `skills.lock` is in testing; failure cases remain) — across Agent hosts
 
 ## Provenance Map
 

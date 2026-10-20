@@ -26,3 +26,5 @@ Which project conversation each thing came from (to trace origin):
 - **Narrative capture through attrition and trust** — the difficulty of
   detecting an agent's account drifting from reality without independent
   evidence.
+
+- **Distributing an Agent with its Skill** — a portable workflow, a Codex-specific role file, and the open question of what one cross-host bundle contains.

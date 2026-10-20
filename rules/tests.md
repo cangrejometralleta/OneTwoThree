@@ -5,6 +5,7 @@
 - Spell the Expectation; never read it from the code under test.  
   A Test that Computes what it Checks  
   Agrees with itself and proves nothing.
+- Work is not Ready until Tests cover its declared behavior. One passing Happy Path proves only that Case.
 
 ```go
 // Both sides Move together. The mutation passes.
