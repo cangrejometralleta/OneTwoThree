@@ -32,6 +32,7 @@ A normal session is deliberately small:
 
 ```text
 yo-yo-yo   reconstruct Context and name one next Step
+next-options       frame up to three distinct paths and wait for a choice
 next-episode   execute that Step, verify it and stop
 one-two-checkpoint   persist durable state while the Work is moving
 one-two-transfer    return a copy-ready handoff for another repository
@@ -268,6 +269,7 @@ The Skills define the operations; each linked file holds the details.
 | When | Skill | What it does |
 | --- | --- | --- |
 | `ha dove`, `hey dove`, `yo dove`, `hi dove`, `sup dove`, `ring dove`, `ring ring dove`, `catch me up`, `what remains?` or `where did we leave off?` | [yo-yo-yo](.agents/skills/yo-yo-yo/SKILL.md) | Syncs the project branch, rebuilds context and names one next step. |
+| `what are our options?`, `where do we go from here?`, `what can we do next?` or `¿qué opciones tenemos?` | [next-options](.agents/skills/next-options/SKILL.md) | Frames up to three distinct, grounded paths; routes blockers to `one-two-unblock`. |
 | `next`, `go`, `vamos`, `sigues`, `let's go`, `come on`, `sigue`, `continue`, `go on`, `go ahead`, `carry on`, `proceed`, `do the next step` or a selected option | [next-episode](.agents/skills/next-episode/SKILL.md) | Takes one recommended step, verifies it and names the following one. |
 | `sexy back`, `vuelve al origen`, `volvamos al tema original` or return to where the conversation started | [sexy-back](.agents/skills/sexy-back/SKILL.md) | Rolls up the digression, preserves what remains pending and resumes the original purpose. |
 | `explain me like I'm five`, `ELI5`, `explícame como si tuviera 5 años` or ask for a simpler explanation | [explain-me-like-im-five](.agents/skills/explain-me-like-im-five/SKILL.md) | Explains one part per turn in plain words, with a schema when it helps and a question to keep the thread. |

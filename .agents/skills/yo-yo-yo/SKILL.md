@@ -155,9 +155,11 @@ Do not Edit, stage, commit or start a second part during this opening.
 When the state is `Together`, name one next Step.
 When it is `Unclear`, name one focused Check that can decide.
 
-When the user must choose, end with three numbered Options
-and do not name a `Next` until the user Answers.
-The chosen Number becomes the next Step.
+When the user must choose, invoke
+[NextOptions](../next-options/SKILL.md) to present up to three numbered
+Options. Do not name a `Next` until the user Answers.
+The chosen Number becomes the selected Step for
+[NextEpisode](../next-episode/SKILL.md).
 
 ## What it Returns
 

@@ -33,6 +33,7 @@ Una sesión normal es deliberadamente pequeña:
 
 ```text
 yo-yo-yo   reconstruye el Contexto y nombra un siguiente Paso
+next-options       presenta hasta tres caminos distintos y espera una elección
 next-episode   ejecuta ese Paso, lo verifica y se detiene
 one-two-checkpoint   persiste el estado durable mientras el Trabajo avanza
 one-two-transfer    entrega un handoff listo para copiar a otro repositorio
@@ -257,6 +258,7 @@ Las Skills definen las operaciones; cada archivo enlazado guarda los detalles.
 | Cuándo | Skill | Qué hace |
 | --- | --- | --- |
 | `ha dove`, `hey dove`, `yo dove`, `hi dove`, `sup dove`, `ring dove`, `ring ring dove`, `catch me up`, `what remains?` o `where did we leave off?` | [yo-yo-yo](.agents/skills/yo-yo-yo/SKILL.md) | Sincroniza la rama, reconstruye el contexto y nombra un siguiente paso. |
+| `what are our options?`, `where do we go from here?`, `what can we do next?` o `¿qué opciones tenemos?` | [next-options](.agents/skills/next-options/SKILL.md) | Presenta hasta tres caminos distintos y concretos; deriva los bloqueos a `one-two-unblock`. |
 | `next`, `go`, `vamos`, `sigues`, `let's go`, `come on`, `sigue`, `continue`, `go on`, `go ahead`, `carry on`, `proceed`, `do the next step` u opción elegida | [next-episode](.agents/skills/next-episode/SKILL.md) | Da un paso recomendado, lo verifica y nombra el siguiente. |
 | Una edición o decisión durable; `save progress` o `record where we are` | [one-two-checkpoint](.agents/skills/one-two-checkpoint/SKILL.md) | Guarda el hilo en `.handoff.md` durante el trabajo. |
 | `move this thread to another repo` o `carry this work over` | [one-two-transfer](.agents/skills/one-two-transfer/SKILL.md) | Entrega un `.handoff.md` listo para copiar; no hace falta la ruta de destino. |

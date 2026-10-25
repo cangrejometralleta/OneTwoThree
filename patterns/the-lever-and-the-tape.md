@@ -7,6 +7,7 @@
 ```mermaid
 flowchart TD
     HEY["yo-yo-yo<br/>Open · Read the Tape"]
+    OPTIONS["next-options<br/>Frame up to three paths · Wait for choice"]
     NEXT["next-episode<br/>Advance · Move one Cell"]
     BYE["bye-bye-bye<br/>Close · Write the Tape"]
 
@@ -27,6 +28,9 @@ flowchart TD
     COMMIT["commit-commit-commit<br/>Group · Validate · Commit · Push"]
 
     HEY -- "Name one next Step" --> WAIT
+    WAIT -- "Ask for paths from the current state" --> OPTIONS
+    OPTIONS -- "Numbered choice" --> NEXT
+    OPTIONS -- "No choice yet · Wait" --> WAIT
     WAIT -- "next · go · vamos · sigues · let's go · come on · selected Option" --> NEXT
     NEXT -- "Durable edit, decision or Validation" --> CHECKPOINT
     CHECKPOINT -- "Write .handoff.md" --> WAIT
@@ -67,6 +71,10 @@ flowchart TD
 - Opening, advancing and closing form a Ring across sessions.
   The next Request Chooses the Transition.
   A Halt after one Step leaves the Session open.
+- [NextOptions](../.agents/skills/next-options/SKILL.md) frames up to three
+  distinct, grounded paths at a decision point. If progress is blocked, it
+  routes the diagnosis to `one-two-unblock`. The selected path returns to
+  `next-episode`; showing options takes no Step by itself.
 - [OneTwoCheckpoint](../.agents/skills/one-two-checkpoint/SKILL.md) Saves a durable change during work.
   [ByeByeBye](../.agents/skills/bye-bye-bye/SKILL.md) Expands that state when the session closes.
   Both Write `.handoff.md`; the next opening reads it.
