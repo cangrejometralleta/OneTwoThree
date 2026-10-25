@@ -267,20 +267,20 @@ The Skills define the operations; each linked file holds the details.
 
 | When | Skill | What it does |
 | --- | --- | --- |
-| `ha dove`, `hey dove`, `yo dove`, `hi dove`, `sup dove`, `ring dove`, `ring ring dove` or resume earlier work | [yo-yo-yo](.agents/skills/yo-yo-yo/SKILL.md) | Syncs the project branch, rebuilds context and names one next step. |
-| `next`, `go`, `vamos`, `sigues`, `let's go`, `come on`, `sigue`, `continue`, `go on` or a selected option | [next-episode](.agents/skills/next-episode/SKILL.md) | Takes one recommended step, verifies it and names the following one. |
-| `sexy back`, `vuelve al origen` or return to the original topic | [sexy-back](.agents/skills/sexy-back/SKILL.md) | Rolls up the digression, preserves what remains pending and resumes the original purpose. |
+| `ha dove`, `hey dove`, `yo dove`, `hi dove`, `sup dove`, `ring dove`, `ring ring dove`, `catch me up`, `what remains?` or `where did we leave off?` | [yo-yo-yo](.agents/skills/yo-yo-yo/SKILL.md) | Syncs the project branch, rebuilds context and names one next step. |
+| `next`, `go`, `vamos`, `sigues`, `let's go`, `come on`, `sigue`, `continue`, `go on`, `go ahead`, `carry on`, `proceed`, `do the next step` or a selected option | [next-episode](.agents/skills/next-episode/SKILL.md) | Takes one recommended step, verifies it and names the following one. |
+| `sexy back`, `vuelve al origen`, `volvamos al tema original` or return to where the conversation started | [sexy-back](.agents/skills/sexy-back/SKILL.md) | Rolls up the digression, preserves what remains pending and resumes the original purpose. |
 | `explain me like I'm five`, `ELI5`, `explícame como si tuviera 5 años` or ask for a simpler explanation | [explain-me-like-im-five](.agents/skills/explain-me-like-im-five/SKILL.md) | Explains one part per turn in plain words, with a schema when it helps and a question to keep the thread. |
-| A durable edit, decision or validation | [one-two-checkpoint](.agents/skills/one-two-checkpoint/SKILL.md) | Saves the thread in `.handoff.md` during work. |
-| Move work to another repository | [one-two-transfer](.agents/skills/one-two-transfer/SKILL.md) | Returns a copy-ready `.handoff.md`; no destination path is needed. |
+| A durable edit, decision or validation; `save progress` or `record where we are` | [one-two-checkpoint](.agents/skills/one-two-checkpoint/SKILL.md) | Saves the thread in `.handoff.md` during work. |
+| `move this thread to another repo` or `carry this work over` | [one-two-transfer](.agents/skills/one-two-transfer/SKILL.md) | Returns a copy-ready `.handoff.md`; no destination path is needed. |
 | Code changes or a requirement changes an app's shape | [one-two-refactor](.agents/skills/one-two-refactor/SKILL.md) | Applies code Rules and reads its design Workflow when a requirement changes the app's shape. |
-| Ask whether progress is blocked or reasoning repeats | [one-two-unblock](.agents/skills/one-two-unblock/SKILL.md) | Identifies blockers, cycles or exhausted hypotheses and what makes progress possible. |
+| `I'm stuck`, `what's blocking us?`, `how do we get unstuck?` or reasoning repeats | [one-two-unblock](.agents/skills/one-two-unblock/SKILL.md) | Identifies blockers, cycles or exhausted hypotheses and what makes progress possible. |
 | A change starts growing | [one-two-growth](.agents/skills/one-two-growth/SKILL.md) | Checks whether one intent still holds the change. |
 | Ask for pending stories | [one-two-stories](.agents/skills/one-two-stories/SKILL.md) | Sorts stories by what they wait on and distills the one you pick. |
 | Inspect a skill lock or manifest for dependencies | [skills-lock](.agents/skills/skills-lock/SKILL.md) | Reads the declared schema and reports explicit dependencies by skill. |
-| Ask to organize, commit and push | [commit-commit-commit](.agents/skills/commit-commit-commit/SKILL.md) | Groups changes by feature, commits each group, pushes once after all succeed. |
-| `bye dove` or request a handoff | [bye-bye-bye](.agents/skills/bye-bye-bye/SKILL.md) | Expands the checkpoint into a closing handoff and stops. |
-| A secret may have entered history | [one-two-purge](.agents/skills/one-two-purge/SKILL.md) | Detects, confirms and purges an exact value from files and history; also unbrands authorship as a last resort. |
+| Organize local changes into feature commits, split work into commits, or commit and push the changes | [commit-commit-commit](.agents/skills/commit-commit-commit/SKILL.md) | Groups changes by feature, commits each group, pushes once after all succeed. |
+| `bye dove`, `I'm done for now`, `let's wrap up` or request a handoff | [bye-bye-bye](.agents/skills/bye-bye-bye/SKILL.md) | Expands the checkpoint into a closing handoff and stops. |
+| A secret may have entered history, such as an accidentally committed API key | [one-two-purge](.agents/skills/one-two-purge/SKILL.md) | Detects, confirms and purges an exact value from files and history; also unbrands authorship as a last resort. |
 
 Supporting skills shape the work as it happens:
 [one-two-refactor](.agents/skills/one-two-refactor/SKILL.md) for code and requirement-led design,

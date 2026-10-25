@@ -1,6 +1,6 @@
 ---
 name: what-i-did-today
-description: Summarize completed work and meaningful remaining limitations across the current session, from its start or the latest yo-yo-yo through now. Use when someone asks what they did today or requests a session recap.
+description: Summarize completed work and meaningful remaining limitations across the current session, from its start or the latest yo-yo-yo through now. Use when someone asks “what did we do today?”, “give me a recap”, “what have we finished?”, or requests a session summary.
 ---
 
 # WhatIDidToday

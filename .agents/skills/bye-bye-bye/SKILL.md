@@ -1,6 +1,6 @@
 ---
 name: bye-bye-bye
-description: "Close a work session by writing a concise, self-contained repository handoff that records affected files and lets a later session recover context even without direct file access. Use when the user says bye dove, asks to stop, requests a handoff, or wants the next session to resume safely."
+description: "Close a work session with a concise repository handoff. Use when the user says ‘bye dove’, ‘I’m done for now’, ‘let’s wrap up’ or ‘let’s stop here’, asks to leave a handoff, or wants the next session to resume safely."
 ---
 
 # ByeByeBye

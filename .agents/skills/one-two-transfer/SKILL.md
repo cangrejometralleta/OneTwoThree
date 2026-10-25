@@ -1,6 +1,6 @@
 ---
 name: one-two-transfer
-description: "Prepare a copy-ready handoff for moving an active work thread to another repository without needing its path. Use when the user asks to transfer work; use bye-bye-bye to close a session."
+description: "Prepare a copy-ready handoff for moving an active work thread to another repository without needing its path. Use when the user asks to transfer work, ‘move this thread to another repo’ or ‘carry this work over’; use bye-bye-bye to close a session."
 ---
 
 # OneTwoTransfer

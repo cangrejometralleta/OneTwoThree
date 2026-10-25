@@ -1,6 +1,6 @@
 ---
 name: yo-yo-yo
-description: "Resume work at the beginning of a new session from recent conversation history and repository changes. Use when the user greets Dove with ha, hey, yo, hi, sup, ring or ring ring dove, when starting or returning to a project, asking where work stopped, recovering context, checking whether recent work grew into multiple intents, or deciding which part to continue first."
+description: "Resume a project at the start of a returning session: recover where work stopped, what is done, what remains, and the next step. Use for greetings like ‘ha’, ‘hey’, ‘yo’, ‘hi’, ‘sup’ or ‘ring ring Dove’, or requests like ‘where did we leave off?’, ‘catch me up’, ‘what remains?’, ‘retomemos’, ‘¿por dónde íbamos?’ or ‘ponme al día’; also check whether recent work split into multiple intents."
 ---
 
 # YoYoYo

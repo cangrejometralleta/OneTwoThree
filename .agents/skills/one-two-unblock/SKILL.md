@@ -1,6 +1,6 @@
 ---
 name: one-two-unblock
-description: "Assess whether progress is possible, externally blocked, caught in repeated reasoning, or out of useful hypotheses. Use when the user asks whether we are stuck or what is missing to continue, or when attempts repeat without new evidence."
+description: "Assess whether progress is possible, externally blocked, caught in repeated reasoning, or out of useful hypotheses. Use when the user says ‘I’m stuck’, asks ‘what’s blocking us?’ or ‘how do we get unstuck?’, asks what is missing to continue, or when attempts repeat without new evidence."
 ---
 
 # OneTwoUnblock

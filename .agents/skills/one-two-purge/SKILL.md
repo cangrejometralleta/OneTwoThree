@@ -1,6 +1,6 @@
 ---
 name: one-two-purge
-description: "Find an exact sensitive value across files, Git history and local shell histories, then remove it through an explicit detect, confirm and purge workflow. Also removes agent authorship and attribution trailers from Git history as a last resort. Use when a secret, token, credential or private value may have entered repository or terminal history, or when the user asks to unbrand it."
+description: "Find an exact sensitive value across files, Git history and local shell histories, then remove it through an explicit detect, confirm and purge workflow. Also removes agent authorship and attribution trailers from Git history as a last resort. Use when a secret, token, credential or private value may have entered repository or terminal history, such as ‘I accidentally committed an API key’, or when the user asks to unbrand it."
 ---
 
 # OneTwoPurge

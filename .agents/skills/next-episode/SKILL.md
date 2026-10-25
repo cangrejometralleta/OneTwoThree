@@ -1,6 +1,6 @@
 ---
 name: next-episode
-description: "Advance to the next recommended action and take exactly one Step. Use when the user affirmatively says next, go, vamos, sigues, let's go, come on, sigue, continue or go on, selects a numbered option, or asks to proceed and wants action. Confirm the step still holds, take it and name the following step."
+description: "Take exactly one already-recommended next step. Use when the user affirmatively says ‘next’, ‘go’, ‘vamos’, ‘sigues’, ‘let’s go’, ‘come on’, ‘sigue’, ‘continue’, ‘go on’, ‘go ahead’, ‘carry on’, ‘proceed’, ‘do the next step’, ‘dale’ or ‘continúa’, selects a numbered option, or asks to take the named next step; confirm it still holds and name the following step."
 ---
 
 # NextEpisode

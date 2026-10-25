@@ -1,6 +1,6 @@
 ---
 name: one-two-checkpoint
-description: "Preserve the current work thread in a compact repository checkpoint after a durable edit, decision or validation, or when the user explicitly asks to save progress against an interrupted session. Do not use for conversation-only turns or final session closure."
+description: "Preserve the current work thread in a compact repository checkpoint after a durable edit, decision or validation. Use when the user asks to ‘save progress’, ‘checkpoint this’ or ‘record where we are’; do not use for conversation-only turns or final session closure."
 ---
 
 # OneTwoCheckpoint

@@ -256,17 +256,17 @@ Las Skills definen las operaciones; cada archivo enlazado guarda los detalles.
 
 | Cuándo | Skill | Qué hace |
 | --- | --- | --- |
-| `ha dove`, `hey dove`, `yo dove`, `hi dove`, `sup dove`, `ring dove`, `ring ring dove` o retomar trabajo previo | [yo-yo-yo](.agents/skills/yo-yo-yo/SKILL.md) | Sincroniza la rama, reconstruye el contexto y nombra un siguiente paso. |
-| `next`, `go`, `vamos`, `sigues`, `let's go`, `come on`, `sigue`, `continue`, `go on` u opción elegida | [next-episode](.agents/skills/next-episode/SKILL.md) | Da un paso recomendado, lo verifica y nombra el siguiente. |
-| Una edición, decisión o validación durable | [one-two-checkpoint](.agents/skills/one-two-checkpoint/SKILL.md) | Guarda el hilo en `.handoff.md` durante el trabajo. |
-| Pasar trabajo a otro repositorio | [one-two-transfer](.agents/skills/one-two-transfer/SKILL.md) | Entrega un `.handoff.md` listo para copiar; no hace falta la ruta de destino. |
+| `ha dove`, `hey dove`, `yo dove`, `hi dove`, `sup dove`, `ring dove`, `ring ring dove`, `catch me up`, `what remains?` o `where did we leave off?` | [yo-yo-yo](.agents/skills/yo-yo-yo/SKILL.md) | Sincroniza la rama, reconstruye el contexto y nombra un siguiente paso. |
+| `next`, `go`, `vamos`, `sigues`, `let's go`, `come on`, `sigue`, `continue`, `go on`, `go ahead`, `carry on`, `proceed`, `do the next step` u opción elegida | [next-episode](.agents/skills/next-episode/SKILL.md) | Da un paso recomendado, lo verifica y nombra el siguiente. |
+| Una edición o decisión durable; `save progress` o `record where we are` | [one-two-checkpoint](.agents/skills/one-two-checkpoint/SKILL.md) | Guarda el hilo en `.handoff.md` durante el trabajo. |
+| `move this thread to another repo` o `carry this work over` | [one-two-transfer](.agents/skills/one-two-transfer/SKILL.md) | Entrega un `.handoff.md` listo para copiar; no hace falta la ruta de destino. |
 | Cambia el código o un requisito cambia la forma de una app | [one-two-refactor](.agents/skills/one-two-refactor/SKILL.md) | Aplica las Rules de código y lee el flujo de diseño si el requisito cambia la forma de la app. |
-| Preguntar si hay bloqueos o razonamiento repetido | [one-two-unblock](.agents/skills/one-two-unblock/SKILL.md) | Distingue bloqueos, ciclos o hipótesis agotadas y determina qué permite avanzar. |
+| `I'm stuck`, `what's blocking us?`, `how do we get unstuck?` o razonamiento repetido | [one-two-unblock](.agents/skills/one-two-unblock/SKILL.md) | Distingue bloqueos, ciclos o hipótesis agotadas y determina qué permite avanzar. |
 | Un cambio empieza a crecer | [one-two-growth](.agents/skills/one-two-growth/SKILL.md) | Revisa si una sola intención aún sostiene el cambio. |
 | Pedir las stories pendientes | [one-two-stories](.agents/skills/one-two-stories/SKILL.md) | Ordena las stories por lo que esperan y destila la que elijas. |
-| Pedir organizar, commitear y pushear | [commit-commit-commit](.agents/skills/commit-commit-commit/SKILL.md) | Agrupa cambios por feature, commitea cada grupo y pushea una vez al final. |
-| `bye dove` o pedir un handoff | [bye-bye-bye](.agents/skills/bye-bye-bye/SKILL.md) | Expande el checkpoint en un handoff de cierre y se detiene. |
-| Un secreto pudo entrar al historial | [one-two-purge](.agents/skills/one-two-purge/SKILL.md) | Detecta, confirma y purga un valor exacto de archivos e historial; también quita la autoría como último recurso. |
+| Organizar cambios en commits por feature, separar el trabajo en commits o commitear y pushear | [commit-commit-commit](.agents/skills/commit-commit-commit/SKILL.md) | Agrupa cambios por feature, commitea cada grupo y pushea una vez al final. |
+| `bye dove`, `I'm done for now`, `let's wrap up` o pedir un handoff | [bye-bye-bye](.agents/skills/bye-bye-bye/SKILL.md) | Expande el checkpoint en un handoff de cierre y se detiene. |
+| Un secreto pudo entrar al historial, como una API key commiteada por error | [one-two-purge](.agents/skills/one-two-purge/SKILL.md) | Detecta, confirma y purga un valor exacto de archivos e historial; también quita la autoría como último recurso. |
 
 Las skills de apoyo dan forma al trabajo mientras ocurre:
 [one-two-refactor](.agents/skills/one-two-refactor/SKILL.md) para código y diseño guiado por requisitos,

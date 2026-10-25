@@ -1,6 +1,6 @@
 ---
 name: commit-commit-commit
-description: Analyze local git changes, explain the features they implement, separate them into coherent commits, commit each feature, and push after every commit succeeds. Use when the user asks to organize, explain, commit, and push local work.
+description: Analyze local Git changes, explain the features they implement, separate them into coherent commits, commit each feature, and push after every commit succeeds. Use when the user asks to organize local changes into feature commits, split the work into separate commits, or commit and push the changes.
 ---
 
 # CommitCommitCommit
