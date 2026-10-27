@@ -68,6 +68,18 @@ Do not stage a mixed Hunk merely because its file is already in a group.
 7. Repeat until the intended local Changes are committed.
 8. Push Once, after every commit and validation succeeds.
 
+## First Commit
+
+When the repository has no `HEAD`, nothing has Grown yet.
+Skip the Feature analysis and the growth check; make one Commit.
+
+1. Read the top-level tree and the README, if there is one.
+2. Name the repository's Purpose in one line: `Initial commit: <purpose>`.
+3. Add a body only when it helps, one line per main folder.
+
+Before staging, check that a `.gitignore` exists
+and that no Secret or ignored file is included.
+
 ## Branches Keep the Flow
 
 - Work on `main` when one Change can be finished and integrated at a time.
