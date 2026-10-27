@@ -96,10 +96,6 @@ Every Story Answers three, in this order:
 - *What the Muchi refactor left open* held three points.  
   The Canon already Answered two; they were muchi-api's work, not ours.  
   One real question Remained, waiting for a second adapter.
-- *Color by semantic association* was two ideas under one title.  
-  Code Coloured by the AST was free to build;  
-  Prose Coloured by role was Blocked on a tagger and a palette.  
-  Waiting could not Name that; Blocked was Added for it.
 - A merge Frees a slot; a shortened story Keeps it.  
   Only a Story that Leaves makes room for the tenth.
 
