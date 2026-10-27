@@ -151,7 +151,7 @@ Before offering it, name what it Costs:
 counts them, and builds the mailmap and the message Callback.
 It hands the Rewrite back here, under the same Bundle, Confirm
 and Force Push rules as any other history Rewrite.
-Replace the identity with the project's own; never Delete the commits.
+Replace the identity with the one the Brief Names, Proposed from the project's own; never Delete the commits.
 Verify with the same Counts at zero before any Push.
 
 ### Every Branch

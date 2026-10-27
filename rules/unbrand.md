@@ -1,7 +1,7 @@
 # Unbrand
 
 - The Work carries the Change,  
-  never the Name of the one who made it.
+  never the Name of a Tool that only Imposed itself.
 - No Co-author, Session link or Generated-by line  
   in a commit or a pull request.
 - No Signature in a file,  
@@ -17,6 +17,16 @@
   so Unbranding the Past is a last Resort.  
   Rewriting it Changes every Hash,  
   [one-two-purge](../.agents/skills/one-two-purge/SKILL.md) does it with a Bundle and a Confirmation.
+
+## Whose Name Leaves
+
+- Unbrand answers a big Vendor that Imposes its Part,  
+  a Trailer added by default and never asked for.
+- A Person is not a Vendor.  
+  A real Collaborator keeps the Credit of the Work,  
+  and no Rewrite Folds it into the Owner.
+- A Name Given on Purpose stays.  
+  When it is not clear whose Name it is, Leave it.
 
 ## Two Faces, one Rule
 

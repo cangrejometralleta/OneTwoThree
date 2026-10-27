@@ -42,6 +42,9 @@ Say what it would remove, and stop.
 
 1. **Count** — run the reference's Detect over every ref, Counts only.
 2. **Brief** and **Confirm** — as [OneTwoPurge](../one-two-purge/SKILL.md) asks.
+   The Brief Names the identity each Vendor-marked range Becomes,
+   Proposed from `git config`, never Assumed.
+   Whoever Authored the Work Keeps it; the User Confirms or Corrects each one.
 3. **Rewrite** — `git-filter-repo` through the reference's mailmap and Callback.
 4. **Verify** — the same Counts at zero, then the purge Verify.
 

@@ -28,6 +28,7 @@ They are the user's. Never touched, and `~/.gemini/` is Outside the repository.
 
 ## Leave alone
 
+- A Collaborator's own identity: only the Vendor's Imposed Marks Leave, see [Unbrand](../../../../rules/unbrand.md).
 - A `.gemini/commands` folder: it Holds the user's own slash commands.
 - The Format difference: a Gemini agent file has its own Frontmatter.
   A link Shares the file and does not convert it, so `.agents/agents/dove.md`

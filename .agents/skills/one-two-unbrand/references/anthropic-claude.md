@@ -17,7 +17,7 @@ git log --all -i -E --grep='co-authored-by: claude|claude-session|generated with
 git log --all --format='%an|%cn|%ae|%ce' | grep -ci anthropic
 ```
 
-**Mailmap** — the project's own identity, read from `git config`, never typed in:
+**Mailmap** — the identity the Brief Names, Proposed from `git config`, never typed in blind:
 
 ```text
 <user.name> <user.email> Claude <noreply@anthropic.com>
@@ -49,6 +49,7 @@ They are the user's: permissions, hooks and the attribution Blanks. Never touche
 
 - A human Co-author, and the identities of editors such as Zed or GitHub.
 - A vendor Entrance or an Adapter, where the Name is the subject.
+- A Collaborator's own identity: only the Vendor's Imposed Marks Leave, see [Unbrand](../../../../rules/unbrand.md).
 
 ## Keep it out
 
