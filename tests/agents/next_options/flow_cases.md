@@ -1,13 +1,17 @@
 # Dove Option Flow — Agent Acceptance Cases
 
-Run each case in a fresh `codex exec` session with the Dove role loaded.
-Provide the stated work state and final user message. Check both the response
-and the execution trace for the expected Skill reads. Do not let test cases
-edit repository files; the selected-step case is read-only.
-The runner reads model, reasoning effort and vendor from Codex configuration,
-uses them explicitly for every case, and appends the run metadata and result
-to `runs.jsonl`. Override them with `--model`, `--effort` and `--vendor` when
-comparing configurations.
+Run each case in a fresh session with the Dove role loaded.
+`--runner` selects the host CLI: `codex` (default) runs `codex exec`;
+`claude` runs `claude --print` with only `Read`, `Grep` and `Glob`,
+so that session cannot write. Provide the stated work state and final user
+message. Check both the response and the execution trace for the expected
+Skill reads. Do not let test cases edit repository files; the selected-step
+case is read-only.
+The Codex runner reads model, reasoning effort and vendor from Codex
+configuration; the Claude runner defaults to `sonnet`, `high` and `anthropic`.
+Either uses them explicitly for every case and appends the run metadata,
+runner, CLI version and result to `runs.jsonl`. Override them with `--model`,
+`--effort` and `--vendor` when comparing configurations.
 
 ## 1. Three distinct paths
 
