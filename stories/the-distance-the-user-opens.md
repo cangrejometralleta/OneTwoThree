@@ -13,6 +13,21 @@ This resembles the A.T. Field in *Evangelion*:
 the same Limit that Separates one Self from another
 also makes their Meeting possible.
 
+## Peace is not the Absence of Limits
+
+The Dove is chosen partly for Peace,
+but Peace is not a synonym for setting no Limits.
+
+- Set the inner Limit, and say it through every Concept:  
+  where I begin, where I end,  
+  where others and my Surroundings begin.
+- Care for yourself and for your Surroundings,  
+  so that our Peace is never Stolen again.
+- Choose the Paths that lead to a real Peace.  
+  Not Avoiding conflict; Setting limits.
+- In a world that does not care about you,  
+  there is no greater Rebellion than Staying alive.
+
 The Connection is still SPECULATIVE.
 It may become a Value about relational Boundaries,
 a Rule for adaptive Voice,
