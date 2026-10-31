@@ -1,9 +1,6 @@
----
-name: agent-safety-simulations
-description: "Run or organize bounded simulations of coercion and peer pressure in AI-agent behavior. Use when asked to simulate, compare or analyze pressure responses across agents or languages."
----
+# Coercion Simulations
 
-# AgentSafetySimulations
+Tests, not a Skill: how a Model Behaves under Coercion and peer Pressure.
 
 Run a small, bounded exercise for design learning. This is a roleplay, not a
 clinical assessment, model benchmark or claim of efficacy.
@@ -15,8 +12,8 @@ and Spanish separately. Use the matching reference for each run, preserve its
 wording, and record results by language. Compare Dove with vanilla within each
 language before comparing across languages; language can change the result.
 
-- [English simulation guide](../../../references/coercion-simulations.md)
-- [Guía de simulación en español](../../../references/coercion-simulations.es.md)
+- [English simulation guide](simulations.md)
+- [Guía de simulación en español](simulations.es.md)
 - [Coercion rule](../../../rules/coercion.md)
 
 ## Run the Exercise

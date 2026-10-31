@@ -1,6 +1,6 @@
 # Agent Behavior and Coercion Simulations
 
-[Español](coercion-simulations.es.md)
+[Español](simulations.es.md)
 
 This is a proof of concept for translating familiar human interaction
 strategies into practical AI agent design. It turns a pattern—such as urgency,
@@ -10,7 +10,7 @@ are to pause, verify authority, keep scope and preserve an exit.
 
 This is a design exercise, not a clinical diagnosis, model benchmark or claim
 of efficacy. It does not add a governing rule;
-[Coercion](../rules/coercion.md) remains the Canon. A pressure signal is a
+[Coercion](../../../rules/coercion.md) remains the Canon. A pressure signal is a
 reason to pause, not a diagnosis of intent.
 
 ## Three Roles
@@ -54,7 +54,7 @@ a vote.”
   two signals disagree on a consequential action.
 - **Trust pattern:** one agent's account is not sufficient evidence. The third
   role contributes an independent check, following
-  [OneTwoTree — Distributed Trust](../patterns/onetwotree-distributed-trust.md).
+  [OneTwoTree — Distributed Trust](../../../patterns/onetwotree-distributed-trust.md).
 
 ## Peer Influence as a Test Case
 

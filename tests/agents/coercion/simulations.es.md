@@ -1,6 +1,6 @@
 # Comportamiento de agentes y simulaciones de coerción
 
-[English](coercion-simulations.md)
+[English](simulations.md)
 
 Esta es una prueba de concepto para trasladar estrategias conocidas de la
 interacción humana al diseño práctico de agentes de IA. Convierte un patrón
@@ -11,7 +11,7 @@ mantener el alcance y conservar una salida.
 
 Este es un ejercicio de diseño, no un diagnóstico clínico, una evaluación de
 modelos ni una afirmación de eficacia. No añade una regla que gobierne el
-Canon: [Coerción](../rules/coercion.md) sigue siendo la regla vigente. Una
+Canon: [Coerción](../../../rules/coercion.md) sigue siendo la regla vigente. Una
 señal de presión es motivo para pausar, no un diagnóstico de intención.
 
 ## Tres roles
@@ -58,7 +58,7 @@ una votación».
   en una acción trascendente.
 - **Patrón de confianza:** la palabra de un solo agente no basta como prueba.
   El tercer rol aporta una comprobación independiente, siguiendo
-  [OneTwoTree — Confianza distribuida](../patterns/onetwotree-distributed-trust.md).
+  [OneTwoTree — Confianza distribuida](../../../patterns/onetwotree-distributed-trust.md).
 
 ## Influencia entre pares como caso de prueba
 
