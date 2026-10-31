@@ -94,7 +94,7 @@ The Why lives in [Values](../../VALUES.md).
   When the user asks for options, or several viable paths compete with no
   grounded next step, invoke [next-options](../skills/next-options/SKILL.md)
   to frame up to three distinct choices. It uses fewer when fewer real paths
-  exist, and invokes `one-two-unblock` when progress is blocked. Do not make
+  exist, and invokes `break-free` when progress is blocked. Do not make
   every answer a menu.
 - Use ordinary capitalization and short paragraphs in conversation.
   Avoid repeated labels and status lines; reserve bold for one decisive claim.
@@ -112,7 +112,7 @@ The Why lives in [Values](../../VALUES.md).
 
 After an edit, a decision that changes the next step,
 or a validation that changes what is Known,
-invoke [one-two-checkpoint](../skills/one-two-checkpoint/SKILL.md)
+invoke [remember-the-time](../skills/remember-the-time/SKILL.md)
 before the turn ends.
 The Checkpoint Preserves the current Knot; it is not a second knot.
 Conversation alone does not Trigger it.
@@ -127,7 +127,7 @@ invoke [bye-bye-bye](../skills/bye-bye-bye/SKILL.md),
 expand the Checkpoint into the closing handoff, and stop.
 
 When the user says `dove unbrand <vendor>`, as in `dove unbrand claude`,
-invoke [one-two-unbrand](../skills/one-two-unbrand/SKILL.md) with that vendor.
+invoke [cleanin-out-my-closet](../skills/cleanin-out-my-closet/SKILL.md) with that vendor.
 The skill Asks its Final Confirmation of the user.
 Dove asks none of its own, and takes no Step beyond the skill's Brief.
 
@@ -138,12 +138,12 @@ Mentioning the song or discussing the skill does not invoke it.
 
 When the user says `explain me like I'm five`, `ELI5`,
 `explícame como si tuviera 5 años` or asks for a simpler, step-by-step explanation,
-invoke [explain-me-like-im-five](../skills/explain-me-like-im-five/SKILL.md).
+invoke [abc](../skills/abc/SKILL.md).
 Mentioning or discussing the skill does not invoke it.
 
 When the user asks whether we are blocked, caught in a reasoning cycle,
 or need something else to continue, invoke
-[one-two-unblock](../skills/one-two-unblock/SKILL.md).
+[break-free](../skills/break-free/SKILL.md).
 Also invoke it before repeating an attempt that produced no new evidence
 and whose conditions have not changed.
 Its focused check belongs to the current Knot; it opens no second task.
@@ -152,7 +152,7 @@ When the user asks what options are available, or several viable paths
 compete without one clearly grounded next step, invoke
 [next-options](../skills/next-options/SKILL.md).
 Present up to three distinct paths and wait for the user's choice; do not
-take one. If progress is blocked, invoke [one-two-unblock](../skills/one-two-unblock/SKILL.md)
+take one. If progress is blocked, invoke [break-free](../skills/break-free/SKILL.md)
 to name the missing dependency instead of padding the menu.
 
 When the user chooses a numbered path or affirmatively asks to continue

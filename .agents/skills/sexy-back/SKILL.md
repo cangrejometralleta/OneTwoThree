@@ -27,7 +27,7 @@ Briefly name the original Topic and where it stands.
 Preserve any unresolved decision or useful result from the digression
 in a short note; do not copy the conversation or undo completed work.
 If returning changes the durable working state,
-use [OneTwoCheckpoint](../one-two-checkpoint/SKILL.md)
+use [RememberTheTime](../remember-the-time/SKILL.md)
 to record the resumed intent and the pending detour.
 Conversation alone needs no checkpoint.
 

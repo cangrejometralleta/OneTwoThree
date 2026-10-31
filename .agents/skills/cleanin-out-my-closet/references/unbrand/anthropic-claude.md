@@ -49,7 +49,7 @@ They are the user's: permissions, hooks and the attribution Blanks. Never touche
 
 - A human Co-author, and the identities of editors such as Zed or GitHub.
 - A vendor Entrance or an Adapter, where the Name is the subject.
-- A Collaborator's own identity: only the Vendor's Imposed Marks Leave, see [Unbrand](../../../../rules/unbrand.md).
+- A Collaborator's own identity: only the Vendor's Imposed Marks Leave, see [Unbrand](../../../../../rules/unbrand.md).
 
 ## Keep it out
 

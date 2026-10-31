@@ -1,6 +1,6 @@
 ---
 name: next-options
-description: "Frame up to three grounded ways forward. Use when the user asks ‘what are our options?’, ‘where do we go from here?’, ‘what can we do next?’, ‘¿qué opciones tenemos?’ or when several viable paths compete without a clear next step. Present only distinct choices and wait for the user; do not choose or execute one. If progress is blocked, invoke one-two-unblock and name the blocker plainly."
+description: "Frame up to three grounded ways forward. Use when the user asks ‘what are our options?’, ‘where do we go from here?’, ‘what can we do next?’, ‘¿qué opciones tenemos?’ or when several viable paths compete without a clear next step. Present only distinct choices and wait for the user; do not choose or execute one. If progress is blocked, invoke break-free and name the blocker plainly."
 ---
 
 # NextOptions
@@ -26,7 +26,7 @@ instead of inventing options.
 
 Check whether progress is blocked before framing choices.
 When an unavailable input, access, decision or external change prevents
-progress, invoke [OneTwoUnblock](../one-two-unblock/SKILL.md) to name the
+progress, invoke [BreakFree](../break-free/SKILL.md) to name the
 dependency and what would clear it. Say plainly when we are blocked;
 do not disguise the diagnosis as a menu or invent paths to fill one.
 
@@ -62,5 +62,5 @@ validation of malformed lock files is still open.
 
 Show fewer than three items when the state offers fewer distinct paths.
 If all progress depends on a missing input or external change, say we are
-blocked and name it; route the diagnosis through `one-two-unblock`.
+blocked and name it; route the diagnosis through `break-free`.
 Do not include a separate `Next` line. The user chooses the path.

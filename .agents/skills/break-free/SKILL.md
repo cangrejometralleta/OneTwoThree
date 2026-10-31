@@ -1,9 +1,9 @@
 ---
-name: one-two-unblock
+name: break-free
 description: "Assess whether progress is possible, externally blocked, caught in repeated reasoning, or out of useful hypotheses. Use when the user says ‘I’m stuck’, asks ‘what’s blocking us?’ or ‘how do we get unstuck?’, asks what is missing to continue, or when attempts repeat without new evidence."
 ---
 
-# OneTwoUnblock
+# BreakFree
 
 Make the next Movement possible by naming what prevents it.
 A failed attempt is Evidence; repeating its explanation adds none.
@@ -78,5 +78,5 @@ Comprobé la ruta activa: apunta a otra copia. Podemos continuar desde allí.
 If blocked, say exactly what is needed and how its arrival would unblock work.
 If no blocker was found, say so with the next useful action.
 Checkpoint a durable change or a diagnosis that changes the next step through
-[OneTwoCheckpoint](../one-two-checkpoint/SKILL.md).
+[RememberTheTime](../remember-the-time/SKILL.md).
 A conversation-only assessment needs no checkpoint.

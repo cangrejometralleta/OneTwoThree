@@ -1,17 +1,12 @@
----
-name: one-two-transfer
-description: "Prepare a copy-ready handoff for moving an active work thread to another repository without needing its path. Use when the user asks to transfer work, ‘move this thread to another repo’ or ‘carry this work over’; use bye-bye-bye to close a session."
----
-
-# OneTwoTransfer
+# Transfer
 
 Prepare a receiver `.handoff.md` that the user can copy into another repository.
 Do not require the destination path or checkout. The receiver owns the active
 `Next` after the handoff is copied there and opened.
 
-The Canon lives in [Paired Repositories](../../../rules/paired-repositories.md)
-and [Session Checkpoint](../../../rules/session-checkpoint.md).
-The Checkpoint shape lives in [OneTwoCheckpoint](../one-two-checkpoint/SKILL.md).
+The Canon lives in [Paired Repositories](../../../../rules/paired-repositories.md)
+and [Session Checkpoint](../../../../rules/session-checkpoint.md).
+The Checkpoint shape lives in [RememberTheTime](../../remember-the-time/SKILL.md).
 
 ## Prepare a Copy-Ready Handoff
 

@@ -1,9 +1,9 @@
 ---
-name: explain-me-like-im-five
+name: abc
 description: "Explain a system, idea or change in plain, grounded language, one small step per turn, using the project's own abstractions and a schema when it helps. Use when the user says explain me like I'm five, ELI5, explícame como si tuviera 5 años, or asks for a simpler, step-by-step explanation. Mentioning or editing this skill does not activate it."
 ---
 
-# ExplainMeLikeImFive
+# ABC
 
 A Guide, not a Lecture.
 It Takes one step, Shows it plainly,

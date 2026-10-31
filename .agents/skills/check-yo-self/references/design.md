@@ -12,7 +12,7 @@ The Evidence Lives in [Show me the Code](../../../../patterns/show-me-the-code.m
 ## Boundary
 
 This workflow Runs before implementation when a requirement Moves the Shape.
-The parent [OneTwoRefactor](../SKILL.md) applies code Rules while writing.
+The parent [CheckYoSelf](../SKILL.md) applies code Rules while writing.
 It is not a Code Review, and it never invents a Generic Framework.
 
 ## When it Runs

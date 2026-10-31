@@ -16,7 +16,7 @@
 - History is Appreciated,  
   so Unbranding the Past is a last Resort.  
   Rewriting it Changes every Hash,  
-  [one-two-purge](../.agents/skills/one-two-purge/SKILL.md) does it with a Bundle and a Confirmation.
+  [cleanin-out-my-closet](../.agents/skills/cleanin-out-my-closet/SKILL.md) does it with a Bundle and a Confirmation.
 
 ## Whose Name Leaves
 

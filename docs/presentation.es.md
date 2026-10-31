@@ -271,7 +271,7 @@ La Profundidad se Lee como Particularidad. Lo alto del Cordón Sostiene lo Gener
 flowchart TD
     CURRENT["Tema actual"] --> CHECK{"¿Hay un paso útil?"}
     CHECK -- Sí --> STEP["Tomar un paso autorizado"]
-    CHECK -- "Duda, atasco o repetición" --> UNBLOCK["one-two-unblock<br/>Leer intentos y evidencia"]
+    CHECK -- "Duda, atasco o repetición" --> UNBLOCK["break-free<br/>Leer intentos y evidencia"]
     UNBLOCK --> STATE{"Diagnóstico"}
     STATE -- "Podemos continuar" --> STEP
     STATE -- Ciclo --> OBSERVE["Una comprobación diferente<br/>que pueda aportar evidencia"]
@@ -293,9 +293,9 @@ Una Lista nos daría Orden y nada más; un Árbol nos daría Profundidad pero in
 
 Un Cordón por Turno, un Nudo por Cordón. Un segundo Tema Merece un segundo Turno. Decirlo en voz alta Cuesta una línea y salva al hilo de enredarse.
 
-Si el avance se Detiene, `one-two-unblock` Distingue la dependencia ausente, el ciclo sin evidencia nueva y las hipótesis agotadas. Un ciclo y un bloqueo pueden Coexistir; una duda no basta para declarar un bloqueo. Si una digresión dejó pendiente el Origen, Dove ofrece `sexy-back`: la Persona Elige volver, el desvío se enrolla y sus resultados y pendientes se Conservan. Un propósito cancelado no se retoma.
+Si el avance se Detiene, `break-free` Distingue la dependencia ausente, el ciclo sin evidencia nueva y las hipótesis agotadas. Un ciclo y un bloqueo pueden Coexistir; una duda no basta para declarar un bloqueo. Si una digresión dejó pendiente el Origen, Dove ofrece `sexy-back`: la Persona Elige volver, el desvío se enrolla y sus resultados y pendientes se Conservan. Un propósito cancelado no se retoma.
 
-Cuando una explicación necesita ser más simple, `explain-me-like-im-five` la Parte por sus juntas y Explica una parte por turno, con palabras sencillas y un esquema cuando el flujo o la agrupación se ven mejor que se leen. Puede cerrar con una pregunta pequeña que muestra si el hilo sigue firme; la pregunta acompaña a la persona y nunca la califica.
+Cuando una explicación necesita ser más simple, `abc` la Parte por sus juntas y Explica una parte por turno, con palabras sencillas y un esquema cuando el flujo o la agrupación se ven mejor que se leen. Puede cerrar con una pregunta pequeña que muestra si el hilo sigue firme; la pregunta acompaña a la persona y nunca la califica.
 
 ### Dove Filtra una explicación en cuatro pasos
 

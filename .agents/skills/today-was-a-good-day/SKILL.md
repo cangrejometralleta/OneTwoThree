@@ -1,9 +1,9 @@
 ---
-name: what-i-did-today
+name: today-was-a-good-day
 description: Summarize completed work and meaningful remaining limitations across the current session, from its start or the latest yo-yo-yo through now. Use when someone asks “what did we do today?”, “give me a recap”, “what have we finished?”, or requests a session summary.
 ---
 
-# WhatIDidToday
+# TodayWasAGoodDay
 
 Give a compact recap of the work in the current session, through this request.
 

@@ -2,7 +2,7 @@
 
 The Canon Teaches how to Read and write, but not where a Design Learns to
 Live. Design needs Change, and no one Door Takes them in. One skill,
-`one-two-refactor`, Covers them today, and its name Promises less than it Does.
+`check-yo-self`, Covers them today, and its name Promises less than it Does.
 
 The Aim is an Architecture so simple and so plain that it stays Maintainable.
 The Value already Landed in `values/approaches.md`; what Waits is the Door.
@@ -19,7 +19,7 @@ The Value already Landed in `values/approaches.md`; what Waits is the Door.
 
 Open: which Kinds belong in the Catalog besides API and Converter?
 Is the Door a Table in `examples/`, a Pattern, or a Skill?
-`one-two-refactor` Reads as Cleaning existing Code;
+`check-yo-self` Reads as Cleaning existing Code;
 would `one-two-design` Say what it does, and is the Rename worth its Links?
 
 Distill when a second Kind of Example keeps its own Entry in the Catalog.

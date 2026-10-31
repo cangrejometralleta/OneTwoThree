@@ -1,6 +1,6 @@
 ---
 name: bye-bye-bye
-description: "Close a work session with a concise repository handoff. Use when the user says ‘bye dove’, ‘I’m done for now’, ‘let’s wrap up’ or ‘let’s stop here’, asks to leave a handoff, or wants the next session to resume safely."
+description: "Close a work session with a concise repository handoff. Use when the user says ‘bye dove’, ‘I’m done for now’, ‘let’s wrap up’ or ‘let’s stop here’, asks to leave a handoff, or wants the next session to resume safely. Also prepares a copy-ready handoff to move a thread to another repository: ‘move this thread to another repo’, ‘carry this work over’, ‘transfer this work’."
 ---
 
 # ByeByeBye
@@ -12,7 +12,8 @@ It Leaves the next Session one durable Thread to pick up.
 
 The next Turn Lives in [YoYoYo](../yo-yo-yo/SKILL.md).
 The Canon Lives in [Change Growth](../../../rules/change-growth.md).
-The working Snapshot Lives in [OneTwoCheckpoint](../one-two-checkpoint/SKILL.md).
+The working Snapshot Lives in [RememberTheTime](../remember-the-time/SKILL.md).
+Moving a Thread to another Repository Lives in [Transfer](references/transfer.md).
 The Shape Lives in [The Lever and the Tape](../../../patterns/the-lever-and-the-tape.md).
 
 ```mermaid
@@ -34,7 +35,7 @@ flowchart TD
 Invoke when the user says `bye dove`, asks to stop,
 or Requests a handoff for the next session.
 Do not use it when the current Thread moves to a paired repository
-and continues in the same conversation; use [OneTwoTransfer](../one-two-transfer/SKILL.md).
+and continues in the same conversation; use [Transfer](../bye-bye-bye/references/transfer.md).
 
 ## Evidence
 
@@ -105,7 +106,7 @@ Mark uncertain claims as `Inferred`.
 For related repositories, inspect only work named in the active Thread.
 Record log references and the event needed to resume, not raw logs.
 When closing a transferred Thread, preserve the `Transfer` direction from
-[OneTwoTransfer](../one-two-transfer/SKILL.md) and the pointer to the repository
+[Transfer](../bye-bye-bye/references/transfer.md) and the pointer to the repository
 that owns the active `Next`.
 Never Store secrets, tokens, terminal history or full conversation text.
 

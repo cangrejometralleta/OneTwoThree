@@ -1,9 +1,9 @@
 ---
-name: one-two-refactor
+name: check-yo-self
 description: Apply OneTwoThree code conventions while writing or refactoring code. For new applications or requirements that change an application's shape, also use the linked design workflow. Use in projects following this Canon or when asked for its Rules.
 ---
 
-# OneTwoRefactor
+# CheckYoSelf
 
 A portable summary of [Rules](../../../RULES.md).
 The Canon Lives in [rules/](../../../rules/) — each section its own file.

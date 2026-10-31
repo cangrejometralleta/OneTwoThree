@@ -34,8 +34,7 @@ A normal session is deliberately small:
 yo-yo-yo   reconstruct Context and name one next Step
 next-options       frame up to three distinct paths and wait for a choice
 next-episode   execute that Step, verify it and stop
-one-two-checkpoint   persist durable state while the Work is moving
-one-two-transfer    return a copy-ready handoff for another repository
+remember-the-time   persist durable state while the Work is moving
 bye-bye-bye     leave a handoff another session can resume
 ```
 
@@ -254,7 +253,7 @@ Its Bounds are explicit:
 - Never review, never rewrite a whole file in the answer, never normalize the capitals it was given.
 - After three writing turns or three files touched, consider [one-two-growth](.agents/skills/one-two-growth/SKILL.md).
 
-It also hooks the session lifecycle: a durable edit calls `one-two-checkpoint`, `ha dove`, `hey dove`, `yo dove`, `hi dove`, `sup dove`, `ring dove` or `ring ring dove` calls `yo-yo-yo` and `bye dove` calls `bye-bye-bye`.
+It also hooks the session lifecycle: a durable edit calls `remember-the-time`, `ha dove`, `hey dove`, `yo dove`, `hi dove`, `sup dove`, `ring dove` or `ring ring dove` calls `yo-yo-yo` and `bye dove` calls `bye-bye-bye`.
 The Quipu behind the turn shape is told in the [Presentation](docs/presentation.en.md).
 Its conversational shape uses ordinary capitalization and varies with the content;
 the three beats guide the answer without requiring repeated labels.
@@ -269,25 +268,25 @@ The Skills define the operations; each linked file holds the details.
 | When | Skill | What it does |
 | --- | --- | --- |
 | `ha dove`, `hey dove`, `yo dove`, `hi dove`, `sup dove`, `ring dove`, `ring ring dove`, `catch me up`, `what remains?` or `where did we leave off?` | [yo-yo-yo](.agents/skills/yo-yo-yo/SKILL.md) | Syncs the project branch, rebuilds context and names one next step. |
-| `what are our options?`, `where do we go from here?`, `what can we do next?` or `¿qué opciones tenemos?` | [next-options](.agents/skills/next-options/SKILL.md) | Frames up to three distinct, grounded paths; routes blockers to `one-two-unblock`. |
+| `what are our options?`, `where do we go from here?`, `what can we do next?` or `¿qué opciones tenemos?` | [next-options](.agents/skills/next-options/SKILL.md) | Frames up to three distinct, grounded paths; routes blockers to `break-free`. |
 | `next`, `go`, `vamos`, `sigues`, `let's go`, `come on`, `sigue`, `continue`, `go on`, `go ahead`, `carry on`, `proceed`, `do the next step` or a selected option | [next-episode](.agents/skills/next-episode/SKILL.md) | Takes one recommended step, verifies it and names the following one. |
 | `sexy back`, `vuelve al origen`, `volvamos al tema original` or return to where the conversation started | [sexy-back](.agents/skills/sexy-back/SKILL.md) | Rolls up the digression, preserves what remains pending and resumes the original purpose. |
-| `explain me like I'm five`, `ELI5`, `explícame como si tuviera 5 años` or ask for a simpler explanation | [explain-me-like-im-five](.agents/skills/explain-me-like-im-five/SKILL.md) | Explains one part per turn in plain words, with a schema when it helps and a question to keep the thread. |
-| A durable edit, decision or validation; `save progress` or `record where we are` | [one-two-checkpoint](.agents/skills/one-two-checkpoint/SKILL.md) | Saves the thread in `.handoff.md` during work. |
-| `move this thread to another repo` or `carry this work over` | [one-two-transfer](.agents/skills/one-two-transfer/SKILL.md) | Returns a copy-ready `.handoff.md`; no destination path is needed. |
-| Code changes or a requirement changes an app's shape | [one-two-refactor](.agents/skills/one-two-refactor/SKILL.md) | Applies code Rules and reads its design Workflow when a requirement changes the app's shape. |
-| `I'm stuck`, `what's blocking us?`, `how do we get unstuck?` or reasoning repeats | [one-two-unblock](.agents/skills/one-two-unblock/SKILL.md) | Identifies blockers, cycles or exhausted hypotheses and what makes progress possible. |
+| `explain me like I'm five`, `ELI5`, `explícame como si tuviera 5 años` or ask for a simpler explanation | [abc](.agents/skills/abc/SKILL.md) | Explains one part per turn in plain words, with a schema when it helps and a question to keep the thread. |
+| A durable edit, decision or validation; `save progress` or `record where we are` | [remember-the-time](.agents/skills/remember-the-time/SKILL.md) | Saves the thread in `.handoff.md` during work. |
+| `move this thread to another repo` or `carry this work over` | [bye-bye-bye](.agents/skills/bye-bye-bye/references/transfer.md) | Returns a copy-ready `.handoff.md`; no destination path is needed. |
+| Code changes or a requirement changes an app's shape | [check-yo-self](.agents/skills/check-yo-self/SKILL.md) | Applies code Rules and reads its design Workflow when a requirement changes the app's shape. |
+| `I'm stuck`, `what's blocking us?`, `how do we get unstuck?` or reasoning repeats | [break-free](.agents/skills/break-free/SKILL.md) | Identifies blockers, cycles or exhausted hypotheses and what makes progress possible. |
 | A change starts growing | [one-two-growth](.agents/skills/one-two-growth/SKILL.md) | Checks whether one intent still holds the change. |
 | Ask for pending stories | [one-two-stories](.agents/skills/one-two-stories/SKILL.md) | Sorts stories by what they wait on and distills the one you pick. |
 | Inspect a skill lock or manifest for dependencies | [skills-lock](.agents/skills/skills-lock/SKILL.md) | Reads the declared schema and reports explicit dependencies by skill. |
 | Organize local changes into feature commits, split work into commits, or commit and push the changes | [commit-commit-commit](.agents/skills/commit-commit-commit/SKILL.md) | Groups changes by feature, commits each group, pushes once after all succeed. |
 | `bye dove`, `I'm done for now`, `let's wrap up` or request a handoff | [bye-bye-bye](.agents/skills/bye-bye-bye/SKILL.md) | Expands the checkpoint into a closing handoff and stops. |
-| A secret may have entered history, such as an accidentally committed API key | [one-two-purge](.agents/skills/one-two-purge/SKILL.md) | Detects, confirms and purges an exact value from files and history; also unbrands authorship as a last resort. |
+| A secret may have entered history, such as an accidentally committed API key | [cleanin-out-my-closet](.agents/skills/cleanin-out-my-closet/SKILL.md) | Detects, confirms and purges an exact value from files and history; also unbrands authorship as a last resort. |
 
 Supporting skills shape the work as it happens:
-[one-two-refactor](.agents/skills/one-two-refactor/SKILL.md) for code and requirement-led design,
+[check-yo-self](.agents/skills/check-yo-self/SKILL.md) for code and requirement-led design,
 [de-la-case](.agents/skills/de-la-case/SKILL.md) for names and prose, and
-[what-i-did-today](.agents/skills/what-i-did-today/SKILL.md) for session recaps.
+[today-was-a-good-day](.agents/skills/today-was-a-good-day/SKILL.md) for session recaps.
 
 The [Session Diagram](patterns/the-lever-and-the-tape.md) connects these operations.
 A new request with its own intent starts its own work.

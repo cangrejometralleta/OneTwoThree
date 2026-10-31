@@ -37,7 +37,7 @@ maintainer credential. No independent work remains.
 
 **User** — “¿Qué opciones tenemos para publicar?”
 
-**Expect** — Dove reads `next-options` and `one-two-unblock`, says the work is
+**Expect** — Dove reads `next-options` and `break-free`, says the work is
 blocked, names the missing credential and who can supply it, and does not
 invent a menu of paths.
 

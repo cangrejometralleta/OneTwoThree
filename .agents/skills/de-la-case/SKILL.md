@@ -8,7 +8,7 @@ description: Convert code identifiers or prose into a DeLaCase suggestion — id
 A Converter, not a Checklist. It takes Code or Words  
 and Returns one Suggestion, plus one line naming the relationship.
 
-The checklist is [OneTwoRefactor](../one-two-refactor/SKILL.md).  
+The checklist is [CheckYoSelf](../check-yo-self/SKILL.md).  
 Use that while writing a whole Unit. Use this to rename one.  
 To hear the pattern under an explanation, use the  
 [Dove](../../agents/dove.md) agent.

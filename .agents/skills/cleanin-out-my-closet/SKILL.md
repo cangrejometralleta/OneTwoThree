@@ -1,9 +1,9 @@
 ---
-name: one-two-purge
-description: "Find an exact sensitive value across files, Git history and local shell histories, then remove it through an explicit detect, confirm and purge workflow. Also removes agent authorship and attribution trailers from Git history as a last resort. Use when a secret, token, credential or private value may have entered repository or terminal history, such as ‘I accidentally committed an API key’, or when the user asks to unbrand it."
+name: cleanin-out-my-closet
+description: "Find an exact sensitive value across files, Git history and local shell histories, then remove it through an explicit detect, confirm and purge workflow. Also removes agent authorship and attribution trailers from Git history as a last resort. Use when a secret, token, credential or private value may have entered repository or terminal history, such as ‘I accidentally committed an API key’, or when the user asks to unbrand, debrand or remove Claude, Anthropic, Gemini or another agent from a repository, or to check that the .agents structure keeps its shape."
 ---
 
-# OneTwoPurge
+# CleaninOutMyCloset
 
 A Remover of sensitive history, not a promise that exposure never happened.
 It Detects without echoing, names the affected surfaces,
@@ -11,6 +11,8 @@ confirms the destructive boundary, then purges and Verifies.
 
 The first action after a credential exposure is Revocation or Rotation.
 History Rewriting Reduces Distribution; it does not make a leaked secret safe.
+
+Unbranding a vendor from History or from the tree Lives in [Unbrand](references/unbrand.md).
 
 ## The Value
 
@@ -147,7 +149,7 @@ Before offering it, name what it Costs:
 - signatures, tags and pull request Links Break;
 - the contributors list on the host may take a while to Refresh.
 
-[OneTwoUnbrand](../one-two-unbrand/SKILL.md) Knows each vendor's Marks,
+[Unbrand](../cleanin-out-my-closet/references/unbrand.md) Knows each vendor's Marks,
 counts them, and builds the mailmap and the message Callback.
 It hands the Rewrite back here, under the same Bundle, Confirm
 and Force Push rules as any other history Rewrite.

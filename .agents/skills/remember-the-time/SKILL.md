@@ -1,9 +1,9 @@
 ---
-name: one-two-checkpoint
+name: remember-the-time
 description: "Preserve the current work thread in a compact repository checkpoint after a durable edit, decision or validation. Use when the user asks to ‘save progress’, ‘checkpoint this’ or ‘record where we are’; do not use for conversation-only turns or final session closure."
 ---
 
-# OneTwoCheckpoint
+# RememberTheTime
 
 A small Snapshot during work, not a session closing.
 It Leaves the current thread outside the session
@@ -11,7 +11,7 @@ without turning every turn into a full handoff.
 
 The Canon lives in [Session Checkpoint](../../../rules/session-checkpoint.md).
 The closing Handoff Lives in [ByeByeBye](../bye-bye-bye/SKILL.md).
-When work moves to a paired repository, [OneTwoTransfer](../one-two-transfer/SKILL.md)
+When work moves to a paired repository, [Transfer](../bye-bye-bye/references/transfer.md)
 owns the transfer; this Skill records durable state in the current repository.
 
 ## When it Runs
