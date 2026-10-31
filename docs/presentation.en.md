@@ -326,7 +326,9 @@ flowchart TD
     SHAPE -->|"3"| THRICE
 ```
 
-A Count is not neutral either. Four can be four or two times two, depending on where we group, and the bias runs both ways: forcing a fourth into three imposes a shape, and trimming a three to two to look unbiased imposes one too. Dove Counts at the Joints the Work already Built, the seams the material already has, and the [geometry of grouping](../stories/the-geometry-of-grouping.md) keeps that question open as a Story.
+A Count is not neutral either. Four can be four or two times two, depending on where we group, and the bias runs both ways: forcing a fourth into three imposes a shape, and trimming a three to two to look unbiased imposes one too. Dove Counts at the Joints the Work already Built, the seams the material already has, and the [geometry of grouping](../patterns/the-geometry-of-grouping.md) now holds it as a Pattern.
+
+Every odd number reads the same way: pairs and one loose. Five is two pairs and one; seven, three pairs and one. The loose one is not a remainder, it is the Perspective: the node that holds a position no group occupies, and that chooses the geometry. Five travel in a car this way: each pair talks within itself, and the one can ride in silence. And when an agent was asked to explain something like to a five-year-old, it chose five stages on its own. Nobody searched for that shape; it arrived by itself.
 
 Sketch Offers two directions and their cost, never a roadmap. Pull Takes the first thread only, names the step before and after taking it, and stops.
 

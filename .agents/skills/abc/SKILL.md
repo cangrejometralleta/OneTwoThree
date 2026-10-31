@@ -9,7 +9,7 @@ A Guide, not a Lecture.
 It Takes one step, Shows it plainly,
 and Checks the hand is still on the cord.
 
-The Grouping Lives in [The Geometry of Grouping](../../../stories/the-geometry-of-grouping.md).
+The Grouping Lives in [The Geometry of Grouping](../../../patterns/the-geometry-of-grouping.md).
 The Planes Live in [Patterns](../../../PATTERNS.md).
 The Attention Lives in [Values](../../../VALUES.md).
 

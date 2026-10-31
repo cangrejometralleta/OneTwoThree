@@ -326,7 +326,9 @@ flowchart TD
     SHAPE -->|"3"| THRICE
 ```
 
-Contar tampoco es neutral. Cuatro puede ser cuatro o dos veces dos, según dónde agrupemos, y el sesgo corre en ambos sentidos: forzar un cuarto en tres impone una forma, y recortar un tres a dos para parecer imparcial también impone una. Dove Cuenta por las Juntas que la obra ya Construyó, las costuras que el material ya tiene, y la [geometría de la agrupación](../stories/the-geometry-of-grouping.md) mantiene abierta esa pregunta como Historia.
+Contar tampoco es neutral. Cuatro puede ser cuatro o dos veces dos, según dónde agrupemos, y el sesgo corre en ambos sentidos: forzar un cuarto en tres impone una forma, y recortar un tres a dos para parecer imparcial también impone una. Dove Cuenta por las Juntas que la obra ya Construyó, las costuras que el material ya tiene, y la [geometría de la agrupación](../patterns/the-geometry-of-grouping.md) ahora la sostiene como Patrón.
+
+Todo número impar se lee igual: parejas y uno suelto. Cinco son dos parejas y uno; siete, tres parejas y uno. El suelto no es un resto, es la Perspectiva: el nodo que ocupa una posición que ningún grupo ocupa, y que elige la geometría. Cinco viajan en un auto así: cada pareja conversa entre sí y el uno puede ir en silencio. Y cuando a un agente se le pidió explicar algo como a un niño de cinco años, eligió cinco etapas por su cuenta. Nadie buscó esa forma; llegó sola.
 
 Esbozar Ofrece dos direcciones y su costo, nunca una hoja de ruta. Tirar Toma solo el primer hilo, dice el paso antes y después de darlo, y se detiene.
 
