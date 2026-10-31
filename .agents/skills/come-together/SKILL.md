@@ -1,9 +1,9 @@
 ---
-name: apply-symlink-structure
+name: come-together
 description: Apply a documented symlink layout to a folder or project while preserving one canonical source and validating every link. Use when someone asks to connect project folders or shared files through symlinks.
 ---
 
-# ApplySymlinkStructure
+# ComeTogether
 
 Apply the requested or documented link layout. Keep one canonical source and expose it through the smallest set of useful Entrances.
 

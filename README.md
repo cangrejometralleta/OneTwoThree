@@ -295,7 +295,7 @@ Opening a session names the next step, publication and closing each need their o
 ## Connect a Project
 
 [dove-update](.agents/skills/dove-update/SKILL.md) manages the canon connection and connects the active client to selected skills and agents.
-[apply-symlink-structure](.agents/skills/apply-symlink-structure/SKILL.md) applies a documented relative-link layout to a folder or project.
+[come-together](.agents/skills/come-together/SKILL.md) applies a documented relative-link layout to a folder or project.
 
 ```mermaid
 flowchart LR

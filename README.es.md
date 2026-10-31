@@ -281,7 +281,7 @@ Abrir una sesión nombra el siguiente paso; publicar y cerrar necesitan cada uno
 ## Conectar un Proyecto
 
 [dove-update](.agents/skills/dove-update/SKILL.md) gestiona la conexión con el canon y conecta el cliente activo con las skills y agentes elegidos.
-[apply-symlink-structure](.agents/skills/apply-symlink-structure/SKILL.md) aplica una estructura documentada de enlaces relativos a una carpeta o proyecto.
+[come-together](.agents/skills/come-together/SKILL.md) aplica una estructura documentada de enlaces relativos a una carpeta o proyecto.
 
 ```mermaid
 flowchart LR
