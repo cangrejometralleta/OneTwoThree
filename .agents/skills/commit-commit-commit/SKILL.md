@@ -59,7 +59,8 @@ Do not stage a mixed Hunk merely because its file is already in a group.
 
 ## What it Does
 
-1. Analyze every local Change before staging.
+1. Analyze every local Change before staging,
+   and clear [Plaintext Credentials](#plaintext-credentials) first.
 2. Separate changes by Feature, not by file type.
 3. Explain the proposed Commits before creating them.
 4. Run the narrowest available Validation for each feature.
@@ -79,6 +80,41 @@ Skip the Feature analysis and the growth check; make one Commit.
 
 Before staging, check that a `.gitignore` exists
 and that no Secret or ignored file is included.
+
+## Plaintext Credentials
+
+A Collection Remembers what the request Needed.
+Clear it before it Becomes history.
+
+**Collections** — Bruno, Postman, Insomnia, Hoppscotch,
+Thunder Client, HTTP files and similar request Collections.
+In every changed collection or environment File, find unencrypted values
+for passwords, tokens, API keys, client secrets, cookies
+and `Authorization` headers.
+
+- Clear the Value in place; keep the key and the request.
+- Prefer the tool's own Reference when it exists:
+  `{{variableName}}` for a value moved to a secret or local environment.
+- Leave encrypted values, secret-marked Variables and existing References alone.
+- Report each cleared Path and key, never the Value.
+- The local value is Lost with the edit; say so in the report
+  so the user can move it into an ignored or secret Environment.
+
+**Everything else** — a plaintext Credential in any other changed path
+is a Warning, not an edit. Name the path and line, never the Value,
+and do not stage that Hunk until the user Decides.
+
+Skip obvious Examples: `changeme`, `example`, `dummy`, `test`, `xxx`,
+`<token>`, `replace-with-…`, empty values and documented Placeholders.
+When unsure whether a value is real, treat it as real and Warn.
+
+```text
+⚠️ Cleared plaintext credentials — local values removed
+- collections/auth/login.bru — auth:basic.password
+- postman/env.json — values[apiKey]
+⚠️ Possible credential — not staged
+- config/app.yaml:12 — db.password
+```
 
 ## Branches Keep the Flow
 
