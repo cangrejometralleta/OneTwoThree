@@ -4,7 +4,7 @@
 
 **Una misma frase puede comunicar una idea a una persona y orientar la acción de una máquina.**
 
-Hoy podemos Conversar con un Agente de inteligencia artificial en el mismo Idioma que usamos entre nosotros. Podemos explicar una Intención, pedir un Cambio y precisar lo que quisimos decir mediante otra frase. El Lenguaje cotidiano se vuelve un lugar de Encuentro: una parte del Trabajo ocurre en la Conversación misma.
+Actualmente podemos Hablar con un Agente de inteligencia artificial en el mismo Idioma que usamos entre nosotros. Podemos explicar una Intención, pedir un Cambio y precisar lo que quisimos decir mediante otra frase. El Lenguaje cotidiano se vuelve un lugar de Encuentro: una parte del Trabajo ocurre en la Conversación misma.
 
 Para quien disfruta las palabras, esto abre una Posibilidad creativa. Elegir un Verbo, ordenar una Explicación o dejar una Pausa también puede ayudar a expresar cómo queremos trabajar. «Vamos de a poco» puede ser una Invitación entre personas y una Instrucción para un Agente. La Frase Conserva su Voz humana mientras orienta una acción.
 
@@ -33,7 +33,7 @@ flowchart TD
 
 ## El Minimalismo Nace de un Límite vivido
 
-El Manifiesto Sitúa su Minimalismo en la experiencia del agotamiento autista. Desde ese origen, reducir Complejidad tiene un sentido de Cuidado: hacer que una tarea pida menos esfuerzo para entenderla, retomarla o terminarla. La Calma forma parte del Diseño desde el comienzo.
+El Manifiesto Sitúa su Minimalismo en la experiencia del burn-out autista. Desde ese origen, reducir Complejidad tiene un sentido de Cuidado: hacer que una tarea pida menos esfuerzo para entenderla, retomarla o terminarla. La Calma forma parte del Diseño desde el comienzo.
 
 La Atención es un Recurso que merece Cuidado. Cada Instrucción adicional, cada Énfasis y cada Decisión pendiente Compiten por ella. El Proyecto busca conservar las Palabras y Estructuras que ayudan a comprender, con espacio suficiente para que una idea termine antes de que llegue la siguiente.
 
