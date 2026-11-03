@@ -268,14 +268,14 @@ The Skills define the operations; each linked file holds the details.
 | When | Skill | What it does |
 | --- | --- | --- |
 | `ha dove`, `hey dove`, `yo dove`, `hi dove`, `sup dove`, `ring dove`, `ring ring dove`, `catch me up`, `what remains?` or `where did we leave off?` | [yo-yo-yo](.agents/skills/yo-yo-yo/SKILL.md) | Syncs the project branch, rebuilds context and names one next step. |
-| `what are our options?`, `where do we go from here?`, `what can we do next?` or `¿qué opciones tenemos?` | [next-options](.agents/skills/next-options/SKILL.md) | Frames up to three distinct, grounded paths; routes blockers to `break-free`. |
+| `what are our options?`, `where do we go from here?`, `what can we do next?` or `¿qué opciones tenemos?` | [next-options](.agents/skills/next-options/SKILL.md) | Frames up to three distinct, grounded paths; routes blockers to `dilemma`. |
 | `next`, `go`, `vamos`, `sigues`, `let's go`, `come on`, `sigue`, `continue`, `go on`, `go ahead`, `carry on`, `proceed`, `do the next step` or a selected option | [next-episode](.agents/skills/next-episode/SKILL.md) | Takes one recommended step, verifies it and names the following one. |
 | `sexy back`, `vuelve al origen`, `volvamos al tema original` or return to where the conversation started | [sexy-back](.agents/skills/sexy-back/SKILL.md) | Rolls up the digression, preserves what remains pending and resumes the original purpose. |
 | `explain me like I'm five`, `ELI5`, `explícame como si tuviera 5 años` or ask for a simpler explanation | [abc](.agents/skills/abc/SKILL.md) | Explains one part per turn in plain words, with a schema when it helps and a question to keep the thread. |
 | A durable edit, decision or validation; `save progress` or `record where we are` | [remember-the-time](.agents/skills/remember-the-time/SKILL.md) | Saves the thread in `.handoff.md` during work. |
 | `move this thread to another repo` or `carry this work over` | [bye-bye-bye](.agents/skills/bye-bye-bye/references/transfer.md) | Returns a copy-ready `.handoff.md`; no destination path is needed. |
 | Code changes or a requirement changes an app's shape | [check-yo-self](.agents/skills/check-yo-self/SKILL.md) | Applies code Rules and reads its design Workflow when a requirement changes the app's shape. |
-| `I'm stuck`, `what's blocking us?`, `how do we get unstuck?` or reasoning repeats | [break-free](.agents/skills/break-free/SKILL.md) | Identifies blockers, cycles or exhausted hypotheses and what makes progress possible. |
+| `I'm stuck`, `what's blocking us?`, `how do we get unstuck?` or reasoning repeats | [dilemma](.agents/skills/dilemma/SKILL.md) | Identifies blockers, cycles or exhausted hypotheses and what makes progress possible. |
 | A change starts growing | [one-two-growth](.agents/skills/one-two-growth/SKILL.md) | Checks whether one intent still holds the change. |
 | Ask for pending stories | [one-two-stories](.agents/skills/one-two-stories/SKILL.md) | Sorts stories by what they wait on and distills the one you pick. |
 | Inspect a skill lock or manifest for dependencies | [skills-lock](.agents/skills/skills-lock/SKILL.md) | Reads the declared schema and reports explicit dependencies by skill. |

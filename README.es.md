@@ -257,12 +257,12 @@ Las Skills definen las operaciones; cada archivo enlazado guarda los detalles.
 | Cuándo | Skill | Qué hace |
 | --- | --- | --- |
 | `ha dove`, `hey dove`, `yo dove`, `hi dove`, `sup dove`, `ring dove`, `ring ring dove`, `catch me up`, `what remains?` o `where did we leave off?` | [yo-yo-yo](.agents/skills/yo-yo-yo/SKILL.md) | Sincroniza la rama, reconstruye el contexto y nombra un siguiente paso. |
-| `what are our options?`, `where do we go from here?`, `what can we do next?` o `¿qué opciones tenemos?` | [next-options](.agents/skills/next-options/SKILL.md) | Presenta hasta tres caminos distintos y concretos; deriva los bloqueos a `break-free`. |
+| `what are our options?`, `where do we go from here?`, `what can we do next?` o `¿qué opciones tenemos?` | [next-options](.agents/skills/next-options/SKILL.md) | Presenta hasta tres caminos distintos y concretos; deriva los bloqueos a `dilemma`. |
 | `next`, `go`, `vamos`, `sigues`, `let's go`, `come on`, `sigue`, `continue`, `go on`, `go ahead`, `carry on`, `proceed`, `do the next step` u opción elegida | [next-episode](.agents/skills/next-episode/SKILL.md) | Da un paso recomendado, lo verifica y nombra el siguiente. |
 | Una edición o decisión durable; `save progress` o `record where we are` | [remember-the-time](.agents/skills/remember-the-time/SKILL.md) | Guarda el hilo en `.handoff.md` durante el trabajo. |
 | `move this thread to another repo` o `carry this work over` | [bye-bye-bye](.agents/skills/bye-bye-bye/references/transfer.md) | Entrega un `.handoff.md` listo para copiar; no hace falta la ruta de destino. |
 | Cambia el código o un requisito cambia la forma de una app | [check-yo-self](.agents/skills/check-yo-self/SKILL.md) | Aplica las Rules de código y lee el flujo de diseño si el requisito cambia la forma de la app. |
-| `I'm stuck`, `what's blocking us?`, `how do we get unstuck?` o razonamiento repetido | [break-free](.agents/skills/break-free/SKILL.md) | Distingue bloqueos, ciclos o hipótesis agotadas y determina qué permite avanzar. |
+| `I'm stuck`, `what's blocking us?`, `how do we get unstuck?` o razonamiento repetido | [dilemma](.agents/skills/dilemma/SKILL.md) | Distingue bloqueos, ciclos o hipótesis agotadas y determina qué permite avanzar. |
 | Un cambio empieza a crecer | [one-two-growth](.agents/skills/one-two-growth/SKILL.md) | Revisa si una sola intención aún sostiene el cambio. |
 | Pedir las stories pendientes | [one-two-stories](.agents/skills/one-two-stories/SKILL.md) | Ordena las stories por lo que esperan y destila la que elijas. |
 | Organizar cambios en commits por feature, separar el trabajo en commits o commitear y pushear | [commit-commit-commit](.agents/skills/commit-commit-commit/SKILL.md) | Agrupa cambios por feature, commitea cada grupo y pushea una vez al final. |

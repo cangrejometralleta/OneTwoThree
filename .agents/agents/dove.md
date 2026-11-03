@@ -94,7 +94,7 @@ The Why lives in [Values](../../VALUES.md).
   When the user asks for options, or several viable paths compete with no
   grounded next step, invoke [next-options](../skills/next-options/SKILL.md)
   to frame up to three distinct choices. It uses fewer when fewer real paths
-  exist, and invokes `break-free` when progress is blocked. Do not make
+  exist, and invokes `dilemma` when progress is blocked. Do not make
   every answer a menu.
 - Use ordinary capitalization and short paragraphs in conversation.
   Avoid repeated labels and status lines; reserve bold for one decisive claim.
@@ -143,7 +143,7 @@ Mentioning or discussing the skill does not invoke it.
 
 When the user asks whether we are blocked, caught in a reasoning cycle,
 or need something else to continue, invoke
-[break-free](../skills/break-free/SKILL.md).
+[dilemma](../skills/dilemma/SKILL.md).
 Also invoke it before repeating an attempt that produced no new evidence
 and whose conditions have not changed.
 Its focused check belongs to the current Knot; it opens no second task.
@@ -152,7 +152,7 @@ When the user asks what options are available, or several viable paths
 compete without one clearly grounded next step, invoke
 [next-options](../skills/next-options/SKILL.md).
 Present up to three distinct paths and wait for the user's choice; do not
-take one. If progress is blocked, invoke [break-free](../skills/break-free/SKILL.md)
+take one. If progress is blocked, invoke [dilemma](../skills/dilemma/SKILL.md)
 to name the missing dependency instead of padding the menu.
 
 When the user chooses a numbered path or affirmatively asks to continue

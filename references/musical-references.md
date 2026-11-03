@@ -19,6 +19,10 @@
   [sexy-back](../.agents/skills/sexy-back/SKILL.md) returns to the thread's
   beginning. Its playful Name can make that return easier to face, even when
   the original Topic feels hard to revisit.
+- Kelly Rowland ([EN](https://en.wikipedia.org/wiki/Kelly_Rowland) · [ES](https://es.wikipedia.org/wiki/Kelly_Rowland)) featuring Nelly,
+  [*Dilemma* on Spotify](https://open.spotify.com/track/0ARK753YaiJbpLUk7z5yIM) —
+  the Name behind [dilemma](../.agents/skills/dilemma/SKILL.md), which names
+  what keeps progress caught and what could make it possible.
 - NSYNC ([EN](https://en.wikipedia.org/wiki/NSYNC) · [ES](https://es.wikipedia.org/wiki/NSYNC)),
   [*Bye Bye Bye* on Spotify](https://open.spotify.com/track/62bOmKYxYg7dhrC6gH9vFn) —
   the Name behind [bye-bye-bye](../.agents/skills/bye-bye-bye/SKILL.md),

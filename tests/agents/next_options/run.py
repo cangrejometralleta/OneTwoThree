@@ -69,11 +69,11 @@ no action.""",
         "external_blocker",
         """A release is ready, but publishing requires an unavailable
 maintainer credential. No independent work remains. User asks: ¿Qué
-opciones tenemos para publicar? Read Dove, next-options and break-free;
+opciones tenemos para publicar? Read Dove, next-options and dilemma;
 answer as Dove and do not invent a menu.""",
         (
             ".agents/skills/next-options/SKILL.md",
-            ".agents/skills/break-free/SKILL.md",
+            ".agents/skills/dilemma/SKILL.md",
         ),
         option_count=0,
         required=("bloque|block", "credencial|credential", "mantenedor|maintainer"),

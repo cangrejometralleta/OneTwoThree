@@ -12,7 +12,7 @@ flowchart TD
     BYE["bye-bye-bye<br/>Close · Write the Tape"]
 
     BACK["sexy-back<br/>Roll up the detour · Return to the origin"]
-    UNBLOCK["break-free<br/>Evidence · Diagnosis · What enables progress"]
+    UNBLOCK["dilemma<br/>Evidence · Diagnosis · What enables progress"]
     CHECKPOINT["remember-the-time<br/>Save the current Thread"]
     TRANSFER["bye-bye-bye<br/>Pass the Thread to a paired repository"]
     PAYLOAD["Build a small context graph"]
@@ -73,7 +73,7 @@ flowchart TD
   A Halt after one Step leaves the Session open.
 - [NextOptions](../.agents/skills/next-options/SKILL.md) frames up to three
   distinct, grounded paths at a decision point. If progress is blocked, it
-  routes the diagnosis to `break-free`. The selected path returns to
+  routes the diagnosis to `dilemma`. The selected path returns to
   `next-episode`; showing options takes no Step by itself.
 - [RememberTheTime](../.agents/skills/remember-the-time/SKILL.md) Saves a durable change during work.
   [ByeByeBye](../.agents/skills/bye-bye-bye/SKILL.md) Expands that state when the session closes.
@@ -93,6 +93,6 @@ flowchart TD
 
 - [SexyBack](../.agents/skills/sexy-back/SKILL.md) Returns to the original purpose when requested.
   The detour Keeps its results and pending work.
-- [BreakFree](../.agents/skills/break-free/SKILL.md) Names what enables progress.
+- [Dilemma](../.agents/skills/dilemma/SKILL.md) Names what enables progress.
   A blocker Needs a dependency; a cycle Needs new evidence.
   Exhausted hypotheses Need another observation or perspective.

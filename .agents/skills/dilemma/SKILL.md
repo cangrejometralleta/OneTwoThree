@@ -1,10 +1,11 @@
 ---
-name: break-free
+name: dilemma
 description: "Assess whether progress is possible, externally blocked, caught in repeated reasoning, or out of useful hypotheses. Use when the user says ‘I’m stuck’, asks ‘what’s blocking us?’ or ‘how do we get unstuck?’, asks what is missing to continue, or when attempts repeat without new evidence."
 ---
 
-# BreakFree
+# Dilemma
 
+Named for Kelly Rowland and Nelly's song, *Dilemma*.
 Make the next Movement possible by naming what prevents it.
 A failed attempt is Evidence; repeating its explanation adds none.
 
