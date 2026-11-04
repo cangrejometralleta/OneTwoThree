@@ -13,7 +13,7 @@ flowchart TD
 
     BACK["sexy-back<br/>Roll up the detour · Return to the origin"]
     UNBLOCK["dilemma<br/>Evidence · Diagnosis · What enables progress"]
-    CHECKPOINT["remember-the-time<br/>Save the current Thread"]
+    CHECKPOINT["remember-the-day<br/>Save the current Thread"]
     TRANSFER["bye-bye-bye<br/>Pass the Thread to a paired repository"]
     PAYLOAD["Build a small context graph"]
     H_INTENT["Intent · root"]
@@ -75,7 +75,7 @@ flowchart TD
   distinct, grounded paths at a decision point. If progress is blocked, it
   routes the diagnosis to `dilemma`. The selected path returns to
   `next-episode`; showing options takes no Step by itself.
-- [RememberTheTime](../.agents/skills/remember-the-time/SKILL.md) Saves a durable change during work.
+- [RememberTheDay](../.agents/skills/remember-the-day/SKILL.md) Saves a durable change during work.
   [ByeByeBye](../.agents/skills/bye-bye-bye/SKILL.md) Expands that state when the session closes.
   Both Write `.handoff.md`; the next opening reads it.
 - [Transfer](../.agents/skills/bye-bye-bye/references/transfer.md) passes the active Thread between paired repositories without closing the session.

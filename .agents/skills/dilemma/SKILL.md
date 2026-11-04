@@ -79,5 +79,5 @@ Comprobé la ruta activa: apunta a otra copia. Podemos continuar desde allí.
 If blocked, say exactly what is needed and how its arrival would unblock work.
 If no blocker was found, say so with the next useful action.
 Checkpoint a durable change or a diagnosis that changes the next step through
-[RememberTheTime](../remember-the-time/SKILL.md).
+[RememberTheDay](../remember-the-day/SKILL.md).
 A conversation-only assessment needs no checkpoint.

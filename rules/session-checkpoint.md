@@ -29,7 +29,7 @@
 - [Transfer](../.agents/skills/bye-bye-bye/references/transfer.md) prepares a
   copy-ready receiver handoff without requiring its path. Transfer keeps the
   session open; the source checkpoint records that the copy is pending.
-- [RememberTheTime](../.agents/skills/remember-the-time/SKILL.md) saves
+- [RememberTheDay](../.agents/skills/remember-the-day/SKILL.md) saves
   durable state in the current repository. [ByeByeBye](../.agents/skills/bye-bye-bye/SKILL.md)
   closes a session, and Holds Transfer as its own reference.
 - A Checkpoint is a Snapshot, not a session closing.

@@ -112,7 +112,7 @@ The Why lives in [Values](../../VALUES.md).
 
 After an edit, a decision that changes the next step,
 or a validation that changes what is Known,
-invoke [remember-the-time](../skills/remember-the-time/SKILL.md)
+invoke [remember-the-day](../skills/remember-the-day/SKILL.md)
 before the turn ends.
 The Checkpoint Preserves the current Knot; it is not a second knot.
 Conversation alone does not Trigger it.

@@ -34,7 +34,7 @@ A normal session is deliberately small:
 yo-yo-yo   reconstruct Context and name one next Step
 next-options       frame up to three distinct paths and wait for a choice
 next-episode   execute that Step, verify it and stop
-remember-the-time   persist durable state while the Work is moving
+remember-the-day    persist durable state while the Work is moving
 bye-bye-bye     leave a handoff another session can resume
 ```
 
@@ -253,7 +253,7 @@ Its Bounds are explicit:
 - Never review, never rewrite a whole file in the answer, never normalize the capitals it was given.
 - After three writing turns or three files touched, consider [one-two-growth](.agents/skills/one-two-growth/SKILL.md).
 
-It also hooks the session lifecycle: a durable edit calls `remember-the-time`, `ha dove`, `hey dove`, `yo dove`, `hi dove`, `sup dove`, `ring dove` or `ring ring dove` calls `yo-yo-yo` and `bye dove` calls `bye-bye-bye`.
+It also hooks the session lifecycle: a durable edit calls `remember-the-day`, `ha dove`, `hey dove`, `yo dove`, `hi dove`, `sup dove`, `ring dove` or `ring ring dove` calls `yo-yo-yo` and `bye dove` calls `bye-bye-bye`.
 The Quipu behind the turn shape is told in the [Presentation](docs/presentation.en.md).
 Its conversational shape uses ordinary capitalization and varies with the content;
 the three beats guide the answer without requiring repeated labels.
@@ -272,7 +272,7 @@ The Skills define the operations; each linked file holds the details.
 | `next`, `go`, `vamos`, `sigues`, `let's go`, `come on`, `sigue`, `continue`, `go on`, `go ahead`, `carry on`, `proceed`, `do the next step` or a selected option | [next-episode](.agents/skills/next-episode/SKILL.md) | Takes one recommended step, verifies it and names the following one. |
 | `sexy back`, `vuelve al origen`, `volvamos al tema original` or return to where the conversation started | [sexy-back](.agents/skills/sexy-back/SKILL.md) | Rolls up the digression, preserves what remains pending and resumes the original purpose. |
 | `explain me like I'm five`, `ELI5`, `explícame como si tuviera 5 años` or ask for a simpler explanation | [abc](.agents/skills/abc/SKILL.md) | Explains one part per turn in plain words, with a schema when it helps and a question to keep the thread. |
-| A durable edit, decision or validation; `save progress` or `record where we are` | [remember-the-time](.agents/skills/remember-the-time/SKILL.md) | Saves the thread in `.handoff.md` during work. |
+| A durable edit, decision or validation; `save progress` or `record where we are` | [remember-the-day](.agents/skills/remember-the-day/SKILL.md) | Saves the thread in `.handoff.md` during work. |
 | `move this thread to another repo` or `carry this work over` | [bye-bye-bye](.agents/skills/bye-bye-bye/references/transfer.md) | Returns a copy-ready `.handoff.md`; no destination path is needed. |
 | Code changes or a requirement changes an app's shape | [check-yo-self](.agents/skills/check-yo-self/SKILL.md) | Applies code Rules and reads its design Workflow when a requirement changes the app's shape. |
 | `I'm stuck`, `what's blocking us?`, `how do we get unstuck?` or reasoning repeats | [dilemma](.agents/skills/dilemma/SKILL.md) | Identifies blockers, cycles or exhausted hypotheses and what makes progress possible. |

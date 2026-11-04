@@ -12,7 +12,7 @@ It Leaves the next Session one durable Thread to pick up.
 
 The next Turn Lives in [YoYoYo](../yo-yo-yo/SKILL.md).
 The Canon Lives in [Change Growth](../../../rules/change-growth.md).
-The working Snapshot Lives in [RememberTheTime](../remember-the-time/SKILL.md).
+The working Snapshot Lives in [RememberTheDay](../remember-the-day/SKILL.md).
 Moving a Thread to another Repository Lives in [Transfer](references/transfer.md).
 The Shape Lives in [The Lever and the Tape](../../../patterns/the-lever-and-the-tape.md).
 

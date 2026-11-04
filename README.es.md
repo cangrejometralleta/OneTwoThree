@@ -35,7 +35,7 @@ Una sesión normal es deliberadamente pequeña:
 yo-yo-yo   reconstruye el Contexto y nombra un siguiente Paso
 next-options       presenta hasta tres caminos distintos y espera una elección
 next-episode   ejecuta ese Paso, lo verifica y se detiene
-remember-the-time   persiste el estado durable mientras el Trabajo avanza
+remember-the-day    persiste el estado durable mientras el Trabajo avanza
 bye-bye-bye     deja un handoff que otra sesión pueda retomar
 ```
 
@@ -247,7 +247,7 @@ Sus Límites son explícitos:
 - Nunca revisa, nunca reescribe un archivo completo en la respuesta, nunca normaliza las mayúsculas que recibió.
 - Tras tres turnos de escritura o tres archivos tocados, considera [one-two-growth](.agents/skills/one-two-growth/SKILL.md).
 
-También engancha el ciclo de la sesión: una edición durable llama a `remember-the-time`, `ha dove`, `hey dove`, `yo dove`, `hi dove`, `sup dove`, `ring dove` o `ring ring dove` llaman a `yo-yo-yo` y `bye dove` llama a `bye-bye-bye`.
+También engancha el ciclo de la sesión: una edición durable llama a `remember-the-day`, `ha dove`, `hey dove`, `yo dove`, `hi dove`, `sup dove`, `ring dove` o `ring ring dove` llaman a `yo-yo-yo` y `bye dove` llama a `bye-bye-bye`.
 El Quipu detrás de la forma del turno se cuenta en la [Presentación](docs/presentation.es.md).
 
 ## Las Skills
@@ -259,7 +259,7 @@ Las Skills definen las operaciones; cada archivo enlazado guarda los detalles.
 | `ha dove`, `hey dove`, `yo dove`, `hi dove`, `sup dove`, `ring dove`, `ring ring dove`, `catch me up`, `what remains?` o `where did we leave off?` | [yo-yo-yo](.agents/skills/yo-yo-yo/SKILL.md) | Sincroniza la rama, reconstruye el contexto y nombra un siguiente paso. |
 | `what are our options?`, `where do we go from here?`, `what can we do next?` o `¿qué opciones tenemos?` | [next-options](.agents/skills/next-options/SKILL.md) | Presenta hasta tres caminos distintos y concretos; deriva los bloqueos a `dilemma`. |
 | `next`, `go`, `vamos`, `sigues`, `let's go`, `come on`, `sigue`, `continue`, `go on`, `go ahead`, `carry on`, `proceed`, `do the next step` u opción elegida | [next-episode](.agents/skills/next-episode/SKILL.md) | Da un paso recomendado, lo verifica y nombra el siguiente. |
-| Una edición o decisión durable; `save progress` o `record where we are` | [remember-the-time](.agents/skills/remember-the-time/SKILL.md) | Guarda el hilo en `.handoff.md` durante el trabajo. |
+| Una edición o decisión durable; `save progress` o `record where we are` | [remember-the-day](.agents/skills/remember-the-day/SKILL.md) | Guarda el hilo en `.handoff.md` durante el trabajo. |
 | `move this thread to another repo` o `carry this work over` | [bye-bye-bye](.agents/skills/bye-bye-bye/references/transfer.md) | Entrega un `.handoff.md` listo para copiar; no hace falta la ruta de destino. |
 | Cambia el código o un requisito cambia la forma de una app | [check-yo-self](.agents/skills/check-yo-self/SKILL.md) | Aplica las Rules de código y lee el flujo de diseño si el requisito cambia la forma de la app. |
 | `I'm stuck`, `what's blocking us?`, `how do we get unstuck?` o razonamiento repetido | [dilemma](.agents/skills/dilemma/SKILL.md) | Distingue bloqueos, ciclos o hipótesis agotadas y determina qué permite avanzar. |

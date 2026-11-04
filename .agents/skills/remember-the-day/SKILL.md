@@ -1,13 +1,16 @@
 ---
-name: remember-the-time
+name: remember-the-day
 description: "Preserve the current work thread in a compact repository checkpoint after a durable edit, decision or validation. Use when the user asks to ‘save progress’, ‘checkpoint this’ or ‘record where we are’; do not use for conversation-only turns or final session closure."
 ---
 
-# RememberTheTime
+# RememberTheDay
 
 A small Snapshot during work, not a session closing.
 It Leaves the current thread outside the session
 without turning every turn into a full handoff.
+
+Named for Pink Floyd's “Remember a Day,” on *A Saucerful of Secrets*—
+the band's best album, for the record.
 
 The Canon lives in [Session Checkpoint](../../../rules/session-checkpoint.md).
 The closing Handoff Lives in [ByeByeBye](../bye-bye-bye/SKILL.md).

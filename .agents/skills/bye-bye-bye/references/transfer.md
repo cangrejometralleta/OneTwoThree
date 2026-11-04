@@ -6,7 +6,7 @@ Do not require the destination path or checkout. The receiver owns the active
 
 The Canon lives in [Paired Repositories](../../../../rules/paired-repositories.md)
 and [Session Checkpoint](../../../../rules/session-checkpoint.md).
-The Checkpoint shape lives in [RememberTheTime](../../remember-the-time/SKILL.md).
+The Checkpoint shape lives in [RememberTheDay](../../remember-the-day/SKILL.md).
 
 ## Prepare a Copy-Ready Handoff
 

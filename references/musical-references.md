@@ -23,6 +23,12 @@
   [*Dilemma* on Spotify](https://open.spotify.com/track/0ARK753YaiJbpLUk7z5yIM) —
   the Name behind [dilemma](../.agents/skills/dilemma/SKILL.md), which names
   what keeps progress caught and what could make it possible.
+- Pink Floyd,
+  [*Remember a Day* on Spotify](https://open.spotify.com/track/13OCazXv1Y4IYjr4g1IqHA) —
+  from [*A Saucerful of Secrets*](https://www.pinkfloyd.com/albums/a-saucerful-of-secrets/),
+  the band's best album, as needs saying. It names
+  [remember-the-day](../.agents/skills/remember-the-day/SKILL.md),
+  the working checkpoint.
 - NSYNC ([EN](https://en.wikipedia.org/wiki/NSYNC) · [ES](https://es.wikipedia.org/wiki/NSYNC)),
   [*Bye Bye Bye* on Spotify](https://open.spotify.com/track/62bOmKYxYg7dhrC6gH9vFn) —
   the Name behind [bye-bye-bye](../.agents/skills/bye-bye-bye/SKILL.md),
