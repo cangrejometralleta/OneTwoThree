@@ -281,7 +281,7 @@ The Skills define the operations; each linked file holds the details.
 | Inspect a skill lock or manifest for dependencies | [skills-lock](.agents/skills/skills-lock/SKILL.md) | Reads the declared schema and reports explicit dependencies by skill. |
 | Organize local changes into feature commits, split work into commits, or commit and push the changes | [commit-commit-commit](.agents/skills/commit-commit-commit/SKILL.md) | Groups changes by feature, commits each group, pushes once after all succeed. |
 | `bye dove`, `I'm done for now`, `let's wrap up` or request a handoff | [bye-bye-bye](.agents/skills/bye-bye-bye/SKILL.md) | Expands the checkpoint into a closing handoff and stops. |
-| A secret may have entered history, such as an accidentally committed API key | [cleanin-out-my-closet](.agents/skills/cleanin-out-my-closet/SKILL.md) | Detects, confirms and purges an exact value from files and history; also unbrands authorship as a last resort. |
+| A secret may have entered history, such as an accidentally committed API key, or a vendor needs debranding | [dirrty](.agents/skills/dirrty/SKILL.md) | Detects, confirms and purges an exact value from files and history; also debrands vendor authorship as a last resort. |
 
 Supporting skills shape the work as it happens:
 [check-yo-self](.agents/skills/check-yo-self/SKILL.md) for code and requirement-led design,

@@ -267,7 +267,7 @@ Las Skills definen las operaciones; cada archivo enlazado guarda los detalles.
 | Pedir las stories pendientes | [one-two-stories](.agents/skills/one-two-stories/SKILL.md) | Ordena las stories por lo que esperan y destila la que elijas. |
 | Organizar cambios en commits por feature, separar el trabajo en commits o commitear y pushear | [commit-commit-commit](.agents/skills/commit-commit-commit/SKILL.md) | Agrupa cambios por feature, commitea cada grupo y pushea una vez al final. |
 | `bye dove`, `I'm done for now`, `let's wrap up` o pedir un handoff | [bye-bye-bye](.agents/skills/bye-bye-bye/SKILL.md) | Expande el checkpoint en un handoff de cierre y se detiene. |
-| Un secreto pudo entrar al historial, como una API key commiteada por error | [cleanin-out-my-closet](.agents/skills/cleanin-out-my-closet/SKILL.md) | Detecta, confirma y purga un valor exacto de archivos e historial; también quita la autoría como último recurso. |
+| Un secreto pudo entrar al historial, como una API key commiteada por error, o hay que quitar la marca de un vendor | [dirrty](.agents/skills/dirrty/SKILL.md) | Detecta, confirma y purga un valor exacto de archivos e historial; también quita la autoría de vendors como último recurso. |
 
 Las skills de apoyo dan forma al trabajo mientras ocurre:
 [check-yo-self](.agents/skills/check-yo-self/SKILL.md) para código y diseño guiado por requisitos,

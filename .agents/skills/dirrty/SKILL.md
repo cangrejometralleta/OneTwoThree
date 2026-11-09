@@ -1,9 +1,11 @@
 ---
-name: cleanin-out-my-closet
-description: "Find an exact sensitive value across files, Git history and local shell histories, then remove it through an explicit detect, confirm and purge workflow. Also removes agent authorship and attribution trailers from Git history as a last resort. Use when a secret, token, credential or private value may have entered repository or terminal history, such as ‘I accidentally committed an API key’, or when the user asks to unbrand, debrand or remove Claude, Anthropic, Gemini or another agent from a repository, or to check that the .agents structure keeps its shape."
+name: dirrty
+description: "Find an exact sensitive value across files, Git history and local shell histories, then remove it through an explicit detect, confirm and purge workflow. Also removes agent authorship and attribution trailers from Git history as a last resort. Use when a secret, token, credential or private value may have entered repository or terminal history, such as ‘I accidentally committed an API key’, when the user asks to unbrand or debrand Claude, Anthropic, Gemini or another agent from a repository, or to check that the .agents structure keeps its shape. Before each commit, check commit-bound changes for imposed vendor attribution and remove clear signatures."
 ---
 
-# CleaninOutMyCloset
+# Dirrty
+
+Named for Christina Aguilera's song “Dirrty”; Christina reina.
 
 A Remover of sensitive history, not a promise that exposure never happened.
 It Detects without echoing, names the affected surfaces,
@@ -149,7 +151,7 @@ Before offering it, name what it Costs:
 - signatures, tags and pull request Links Break;
 - the contributors list on the host may take a while to Refresh.
 
-[Unbrand](../cleanin-out-my-closet/references/unbrand.md) Knows each vendor's Marks,
+[Unbrand](references/unbrand.md) Knows each vendor's Marks,
 counts them, and builds the mailmap and the message Callback.
 It hands the Rewrite back here, under the same Bundle, Confirm
 and Force Push rules as any other history Rewrite.

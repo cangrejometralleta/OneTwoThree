@@ -61,13 +61,18 @@ Do not stage a mixed Hunk merely because its file is already in a group.
 
 1. Analyze every local Change before staging,
    and clear [Plaintext Credentials](#plaintext-credentials) first.
-2. Separate changes by Feature, not by file type.
-3. Explain the proposed Commits before creating them.
-4. Run the narrowest available Validation for each feature.
-5. Stage only that Feature, using patch staging for mixed files.
-6. Commit with a message that says what the feature Changes.
-7. Repeat until the intended local Changes are committed.
-8. Push Once, after every commit and validation succeeds.
+2. Before each commit, apply [Dirrty](../dirrty/SKILL.md)'s attribution check
+   to the exact commit-bound Changes. Remove clear vendor signatures and
+   imposed attribution; preserve a vendor Name when it is the subject of the
+   Work. Ask when authorship is ambiguous. Do not start a History Rewrite
+   from this check; that still needs Dirrty's full Brief and confirmation.
+3. Separate changes by Feature, not by file type.
+4. Explain the proposed Commits before creating them.
+5. Run the narrowest available Validation for each feature.
+6. Stage only that Feature, using patch staging for mixed files.
+7. Commit with a message that says what the feature Changes.
+8. Repeat until the intended local Changes are committed.
+9. Push Once, after every commit and validation succeeds.
 
 ## First Commit
 

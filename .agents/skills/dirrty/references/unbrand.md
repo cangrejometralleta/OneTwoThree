@@ -2,7 +2,7 @@
 
 A Finder of the Name an agent left behind, not a Rewriter.
 It knows the Marks, counts them, and fixes what the Rule says is wrong.
-The History Rewrite goes to [CleaninOutMyCloset](../SKILL.md),
+The History Rewrite goes to [Dirrty](../SKILL.md),
 which Holds the Bundle, the Confirmation and the Push.
 
 The Rule Lives in [Unbrand](../../../../rules/unbrand.md),
@@ -11,7 +11,7 @@ History is Appreciated, so a Rewrite is a last Resort, never a Cleanup habit.
 
 ## Call
 
-`/cleanin-out-my-closet unbrand <vendor> [history|shape]`, as in `/cleanin-out-my-closet unbrand claude shape`.
+`/dirrty unbrand <vendor> [history|shape]`, as in `/dirrty unbrand claude shape`.
 
 The vendor Names a file in `unbrand/`:
 
@@ -36,7 +36,7 @@ Say what it would remove, and stop.
 ## History
 
 1. **Count** — run the reference's Detect over every ref, Counts only.
-2. **Brief** and **Confirm** — as [CleaninOutMyCloset](../SKILL.md) asks.
+2. **Brief** and **Confirm** — as [Dirrty](../SKILL.md) asks.
    The Brief Names the identity each Vendor-marked range Becomes,
    Proposed from `git config`, never Assumed.
    Whoever Authored the Work Keeps it; the User Confirms or Corrects each one.
@@ -100,7 +100,7 @@ Reporting a Class changes nothing.
 
 ## Bounds
 
-- Never rewrite History without the Final Confirmation of [CleaninOutMyCloset](../SKILL.md).
+- Never rewrite History without the Final Confirmation of [Dirrty](../SKILL.md).
 - Never push, prune, move or remove what the Brief did not name.
 - Never Delete a commit; the identity is replaced, the Work stays.
 - Never Delete a vendor settings file, and never touch `.claude/settings.json`.
