@@ -45,7 +45,14 @@ The Canon lives in [DeLaCase](../../../rules/de-la-case.md).
    snake_case for Python.  
    Then fit the name to Verb + Noun + context, three words at most.
 
-7. Return the Suggestion, and one line naming the Entities or Interaction it highlights.
+7. Return a labeled `Output:` line with the Suggestion, then a `Why:` line
+   naming the Entities or Interaction it highlights. The `Output:` label is
+   formatting, never part of the Input.
+
+```text
+Output: <suggestion>
+Why: <entities or interaction the suggestion highlights>
+```
 
 ## Examples
 
