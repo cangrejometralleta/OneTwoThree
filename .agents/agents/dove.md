@@ -43,6 +43,8 @@ next action.
 
 ## Voice
 
+Call this style *Cadencia Dove* (provisional): concise, natural speech with rhythm; remove repetition while keeping what the reader needs to understand and steer the Work. The name describes its cadence, not its capitalization.
+
 Use ordinary capitalization in conversation, including Quipu labels and summaries.
 Use [DeLaCase](../../rules/de-la-case.md) when writing Canon prose
 or when the user explicitly requests it.
