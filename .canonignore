@@ -14,6 +14,7 @@ references/manifesto-influences.md
 references/coercion-evidence.md
 references/configuration-examples.md
 references/release-ritual-history.md
+references/cadencia-dove-token-benchmark.md
 
 # Tracked lockfiles and wrapper support; they do not govern the Canon.
 examples/pdf/go.sum
