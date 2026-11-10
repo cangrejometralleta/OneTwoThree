@@ -2,7 +2,7 @@
 
 - Rules direct behavior and say how to review it. A review may need human judgment.
 - Values and Patterns explain the reasons and behavior models behind that guidance.
-- Keep lookup material—source lists, historical facts and optional examples—in `references/`; mark it in `.canonignore`.
+- Keep lookup material—source lists, historical facts and optional examples—in `references/`; it informs the Canon but does not govern it.
 - A Rule marked *Provisional* came from one Practice  
   and has not yet survived a second.  
   Follow it, and Delete it if the next project disagrees.
@@ -12,7 +12,6 @@
 - [The Head is the Canon](rules/the-head-is-the-canon.md) — releases name snapshots; main is Canon.
 - [DeLaCase](rules/de-la-case.md) — the typographic Convention.
 - [Reading this Repository](rules/reading-this-repository.md) — how to Read it.
-- [Canonignore](rules/canonignore.md) — carried, and not Taught. *(Provisional)*
 - [Search](rules/search.md) — three narrow Queries.
 - [Rhythm](rules/rhythm.md) — vary length when contrast helps clarity.
 - [Paragraph](rules/paragraph.md) — one claim, stated first.

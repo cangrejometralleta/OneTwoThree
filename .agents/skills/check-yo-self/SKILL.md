@@ -191,8 +191,7 @@ Came from one practice and has not yet survived a second.
 [Tests](../../../rules/tests.md) *(Provisional)* ·
 [Scripts](../../../rules/scripts.md) *(Provisional)* ·
 [Entrypoints](../../../rules/entrypoints.md) *(Provisional)* ·
-[Vendor Integration](../../../rules/vendor-integration.md) ·
-[Canonignore](../../../rules/canonignore.md) *(Provisional)*
+[Vendor Integration](../../../rules/vendor-integration.md)
 
 A worked Example Lives in [examples/school](../../../examples/school),
 the same service in Go, TypeScript and Java, with

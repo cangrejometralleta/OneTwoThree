@@ -17,27 +17,26 @@ func createFixture(t *testing.T) string {
 	t.Helper()
 	root := t.TempDir()
 	files := map[string]string{
-		"AGENTS.md":                              "[Rules](RULES.md)\n",
-		"RULES.md":                               "[Rule](rules/one.md)\n",
-		"VALUES.md":                              "[Value](values/one.md)\n",
-		"PATTERNS.md":                            "[Pattern](patterns/one.md)\n",
-		"rules/one.md":                           "[Example](../examples/demo.md)\n",
-		"values/one.md":                          "Value\n",
-		"patterns/one.md":                        "Pattern\n",
-		".canonignore":                           "jokes/**\n**/bin/**\n",
-		".gitignore":                             ".agents/settings.local.json\n",
+		"AGENTS.md":                           "[Rules](RULES.md)\n",
+		"RULES.md":                            "[Rule](rules/one.md)\n",
+		"VALUES.md":                           "[Value](values/one.md)\n",
+		"PATTERNS.md":                         "[Pattern](patterns/one.md)\n",
+		"rules/one.md":                        "[Example](../examples/demo.md)\n",
+		"values/one.md":                       "Value\n",
+		"patterns/one.md":                     "Pattern\n",
+		".gitignore":                          ".agents/settings.local.json\n.agents/skills/reader/bin/\n",
 		".agents/skills/dove-update/SKILL.md": "[Source](references/source-distribution.md)\n[Client](references/client-loading.md)\n",
 		".agents/skills/dove-update/references/source-distribution.md": "[Client](client-loading.md)\n",
 		".agents/skills/dove-update/references/client-loading.md":      "[Source](source-distribution.md)\n",
-		".agents/skills/reader/SKILL.md":                                  "[Helper](../helper/SKILL.md)\n[Rule](../../../rules/one.md)\n",
-		".agents/skills/helper/SKILL.md":                                  "[Reader](../reader/SKILL.md)\n[Notes](references/notes.md)\n",
-		".agents/skills/helper/references/notes.md":                       "Supporting notes\n",
-		".agents/skills/unused/SKILL.md":                                  "Not selected\n",
-		".agents/skills/reader/bin/compiled":                              "Do not carry\n",
-		".agents/agents/dove.md":                                          "[Reader](../skills/reader/SKILL.md)\n[Values](../../VALUES.md)\n",
-		".agents/agents/dove.toml":                                        "name = 'dove'\n",
-		"examples/demo.md":                                                "An optional example\n",
-		"jokes/private.md":                                                "Excluded source\n",
+		".agents/skills/reader/SKILL.md":                               "[Helper](../helper/SKILL.md)\n[Rule](../../../rules/one.md)\n",
+		".agents/skills/helper/SKILL.md":                               "[Reader](../reader/SKILL.md)\n[Notes](references/notes.md)\n",
+		".agents/skills/helper/references/notes.md":                    "Supporting notes\n",
+		".agents/skills/unused/SKILL.md":                               "Not selected\n",
+		".agents/skills/reader/bin/compiled":                           "Do not carry\n",
+		".agents/agents/dove.md":                                       "[Reader](../skills/reader/SKILL.md)\n[Values](../../VALUES.md)\n",
+		".agents/agents/dove.toml":                                     "name = 'dove'\n",
+		"examples/demo.md":                                             "An optional example\n",
+		"jokes/private.md":                                             "Excluded source\n",
 	}
 	for name, content := range files {
 		writeFixture(t, root, name, content)
@@ -234,14 +233,5 @@ func TestCodeExamplesSurviveRelocation(t *testing.T) {
 	_, files := extractFixture(t, output)
 	if got := string(files[".agents/canon/rules/one.md"]); got != code+"[Value](../values/one.md)\n" {
 		t.Errorf("code changed: %s", got)
-	}
-}
-
-func TestRequiredExcludedSupportFailsExport(t *testing.T) {
-	source := createFixture(t)
-	writeFixture(t, source, ".canonignore", "jokes/**\n**/bin/**\n.agents/skills/helper/references/notes.md\n")
-	output := filepath.Join(t.TempDir(), "bundle.zip")
-	if err := exportBundle([]string{"--source", source, "--output", output, "--allow-dirty"}, io.Discard); err == nil {
-		t.Fatal("required support silently became a remote link")
 	}
 }

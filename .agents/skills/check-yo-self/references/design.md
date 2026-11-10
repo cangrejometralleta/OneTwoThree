@@ -115,6 +115,5 @@ Keep it to the Shape and its Decisions, never a Review.
 - Never regenerate in two repositories in one thread.
   Name the other repository's Step and hand it over.
 - Never let the Origin Win a Disagreement with real running Code.
-- Never copy a Path that [.canonignore](../../../../.canonignore) lists.
 - Never present a Decision without its Cost.
 - Never commit; [commit-commit-commit](../../commit-commit-commit/SKILL.md) does that.

@@ -11,11 +11,10 @@ import (
 const sourceAddress = "https://github.com/cangrejometralleta/OneTwoThree.git"
 
 type sourceTree struct {
-	root     string
-	commit   string
-	dirty    bool
-	files    map[string]bool
-	excluded map[string]bool
+	root   string
+	commit string
+	dirty  bool
+	files  map[string]bool
 }
 
 func runGit(root string, args ...string) (string, error) {
@@ -66,11 +65,15 @@ func readSourceTree(options exportOptions) (sourceTree, error) {
 	if err != nil {
 		return sourceTree{}, err
 	}
-	excluded, err := runGit(root, "ls-files", "--cached", "--others", "--ignored", "--exclude-from=.canonignore", "-z")
+	paths := splitPaths(files)
+	deleted, err := runGit(root, "ls-files", "--deleted", "-z")
 	if err != nil {
 		return sourceTree{}, err
 	}
-	return sourceTree{root, commit, state != "", splitPaths(files), splitPaths(excluded)}, nil
+	for name := range splitPaths(deleted) {
+		delete(paths, name)
+	}
+	return sourceTree{root, commit, state != "", paths}, nil
 }
 
 func splitPaths(text string) map[string]bool {
@@ -84,7 +87,7 @@ func splitPaths(text string) map[string]bool {
 }
 
 func (source sourceTree) readFile(name string) ([]byte, error) {
-	if !source.files[name] || source.excluded[name] {
+	if !source.files[name] {
 		return nil, fmt.Errorf("unavailable source: %s", name)
 	}
 	path := filepath.Join(source.root, filepath.FromSlash(name))

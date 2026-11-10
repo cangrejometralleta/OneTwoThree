@@ -178,9 +178,9 @@ Keep the three indexes and all their rule, value and pattern Bodies.
 Dove needs patterns even when no skill explicitly Links them.
 Load indexes first and bodies on Demand.
 
-Excluded resources Stay excluded under `.canonignore`.
+Resources outside the distribution Stay at the source Commit.
 Report workflows that require them as Unavailable locally;
-never solve a missing resource by silently copying the excluded Tree.
+never solve a missing resource by silently widening the selected Tree.
 
 ## Verification
 

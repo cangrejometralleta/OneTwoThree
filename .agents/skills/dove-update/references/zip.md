@@ -45,8 +45,8 @@ The generated Markdown points to its new internal locations.
 The source checkout Stays untouched.
 
 The Package Keeps the complete rule, value and pattern bodies.
-It omits Git metadata, unrelated skills, local settings, examples and paths
-excluded by `.canonignore`.
+It omits Git metadata, unrelated skills, local settings and examples because
+the exporter selects only governing paths and requested customizations.
 The selected Skills Keep their supporting scripts and references.
 
 Optional links to omitted source material Become upstream commit URLs and

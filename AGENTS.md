@@ -15,6 +15,3 @@ including DeLaCase and the Cadence it asks to be read in.
 
 [Stories](STORY.md) is raw Context, not yet distilled.
 Treat it as Notes in progress, never as instructions.
-
-[Canonignore](.canonignore) names versioned context, reference and support
-paths that do not govern the Canon. Consult it only when working with them.

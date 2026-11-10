@@ -58,7 +58,7 @@ func collectBundle(source sourceTree, options exportOptions) (map[string][]byte,
 }
 
 func (selection *bundleSelection) addCanon() error {
-	for _, name := range []string{"AGENTS.md", "RULES.md", "VALUES.md", "PATTERNS.md", ".canonignore"} {
+	for _, name := range []string{"AGENTS.md", "RULES.md", "VALUES.md", "PATTERNS.md"} {
 		if err := selection.addFile(name); err != nil {
 			return err
 		}
@@ -73,7 +73,7 @@ func (selection *bundleSelection) addCanon() error {
 
 func (selection *bundleSelection) addDirectory(prefix string) error {
 	for name := range selection.source.files {
-		if strings.HasPrefix(name, prefix) && !selection.source.excluded[name] {
+		if strings.HasPrefix(name, prefix) {
 			if err := selection.addFile(name); err != nil {
 				return err
 			}

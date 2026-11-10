@@ -7,7 +7,7 @@ and leaves every local file the project owns untouched.
 
 The Canon Lives in [The Head is the Canon](../../../../rules/the-head-is-the-canon.md),
 [Vendor Integration](../../../../rules/vendor-integration.md)
-and [Canonignore](../../../../rules/canonignore.md).
+and the source Commit named by the distribution.
 Client discovery and reload are covered by [Client Loading](client-loading.md).
 ZIP export and installation Follow [Export a Snapshot](zip.md).
 
@@ -32,7 +32,7 @@ flowchart TD
     DIVERGE -- Yes --> STOP["Report the Divergence · Change nothing"]
     DIVERGE -- No --> APPLY["Fast-Forward to origin/main"]
     APPLY --> REDUCE["Prune to the governing Paths"]
-    REDUCE --> VERIFY["Verify Links · Read the new Canonignore"]
+    REDUCE --> VERIFY["Verify the selected Paths and Links"]
     VERIFY --> REPORT["Report the Range · Continue to Client Loading if Needed"]
 ```
 
@@ -65,7 +65,7 @@ Do both, and never confuse one Report for the other.
 **Memory** is what Lands on disk. Check out only the governing Paths:
 
 ```text
-AGENTS.md  RULES.md  VALUES.md  PATTERNS.md  .canonignore
+AGENTS.md  RULES.md  VALUES.md  PATTERNS.md
 rules/     values/   patterns/
 .agents/agents/<selected-agent-files>
 .agents/skills/<selected-skill>/
@@ -103,7 +103,7 @@ Read only what Names the connection:
 2. **Link** — an existing submodule, subtree, clone or symbolic link
    that already Points at OneTwoThree.
 3. **State** — whether that link Carries local commits or dirty paths.
-4. **Canonignore** — the incoming `.canonignore`, read after the Fetch.
+4. **Selection** — the governing paths and requested customizations.
 
 `AGENTS.md` or local documentation may Name a different entrance.
 Follow what the project Documents over what this skill assumes.
@@ -164,7 +164,7 @@ Create a shallow, blobless clone without an initial Checkout:
 git clone --depth=1 --filter=blob:none --no-checkout --single-branch --branch main \
   https://github.com/cangrejometralleta/OneTwoThree.git .agents/canon
 git -C .agents/canon sparse-checkout set --no-cone \
-  '/AGENTS.md' '/RULES.md' '/VALUES.md' '/PATTERNS.md' '/.canonignore' \
+  '/AGENTS.md' '/RULES.md' '/VALUES.md' '/PATTERNS.md' \
   '/rules/' '/values/' '/patterns/' \
   '/.agents/skills/dove-update/'
 ```
@@ -206,19 +206,16 @@ and only the user can say which.
 - Never Merge or Rebase the canon into the project's own history.
 - Never edit a File under the vendored canon to resolve a conflict.
 
-## Read the new Canonignore
+## Keep the Selection Positive
 
-The Canon Arrives with its own Boundary; read it after every fetch.
-Paths it lists are carried and not taught — `jokes/`, `stories/`,
-`STORY.md`, `chaos/` among them.
+The distribution Names what Travels: the four indexes, their governing bodies,
+the requested agents and skills, and the support files those customizations
+carry. Everything else remains available at the source Commit without entering
+the installation.
 
-The reduction already keeps them off the disk,
-so a path that appears despite it is a Signal, not a convenience:
-the Boundary Moved upstream, and the sparse set has to move with it.
-
-Read them freely where they Exist. Copy none of them into the Project.
-An update that teaches from an ignored path Made the canon worse,
-not fresher.
+After every fetch, compare the sparse set with the documented selection.
+A new governing path must be added explicitly. Context, examples and repository
+support do not travel merely because Git tracks them.
 
 ## Verification
 
@@ -269,6 +266,6 @@ Nothing Changed. Name whether they are a Fork or an Edit to Send upstream.
 - Never Fast-forward past local Commits, and never discard them.
 - Never preload a Body the index can name for free.
 - Never widen the sparse Set to make one read easier; read it on demand.
-- Never teach from a Path `.canonignore` lists.
+- Never treat an unselected Path as governing context.
 - Never report `Updated` when no ref Moved.
 - Never claim the client sees the new canon; the client-loading workflow verifies discovery.
