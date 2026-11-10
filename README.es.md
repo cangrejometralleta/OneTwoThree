@@ -278,10 +278,54 @@ Sus Límites son explícitos:
 - Nunca revisa, nunca reescribe un archivo completo en la respuesta, nunca normaliza las mayúsculas que recibió.
 - Tras tres turnos de escritura o tres archivos tocados, considera [one-two-growth](.agents/skills/one-two-growth/SKILL.md).
 
-También engancha el ciclo de la sesión: una edición durable llama a `remember-the-day`, `ha dove`, `hey dove`, `yo dove`, `hi dove`, `sup dove`, `ring dove` o `ring ring dove` llaman a `yo-yo-yo` y `bye dove` llama a `bye-bye-bye`.
+También se enlaza al ciclo de vida de la sesión. Una edición duradera llama a
+`remember-the-day`. Los saludos `ha dove`, `hey dove`, `yo dove`, `hi dove`,
+`sup dove`, `ring dove` y `ring ring dove` llaman a `yo-yo-yo`. La despedida
+`bye dove` llama a `bye-bye-bye`.
 El Quipu detrás de la forma del turno se cuenta en la [Presentación](docs/presentation.es.md).
 
-## Las Skills
+## El Primer Benchmark Encuentra Brevedad, Todavía no Superioridad
+
+Un benchmark preliminar pidió a vanilla, Caveman y Dove resumir seis cuentos
+del dominio público en exactamente tres párrafos. El mismo runtime de Codex
+basado en GPT-6 redactó todas las condiciones; el modelo servido exacto y el
+esfuerzo no estaban expuestos. Los cuerpos se contaron con `tiktoken` 0.14.0 y
+`o200k_base`, por lo que las cifras son un proxy consistente, no telemetría de
+tokens facturados.
+
+| Condición | Español | Inglés | Total |
+| --- | ---: | ---: | ---: |
+| Vanilla | 383 | 298 | 681 |
+| Caveman | 314 | 241 | 555 |
+| Dove | 303 | 248 | 551 |
+
+Dove usó 19 % menos tokens que vanilla y 0,7 % menos que Caveman en total.
+Caveman fue más corto en inglés; Dove fue más corto en español. Seis
+borradores condicionados por estilo en una sola sesión no demuestran calidad
+general, pero justifican una evaluación controlada con ejecuciones
+independientes. Los prompts, fuentes, limitaciones y resultados completos están
+en el [registro del benchmark](references/cadencia-dove-token-benchmark.md).
+
+### La Generación de Código Debe Comparar Tamaño con Corrección
+
+El próximo benchmark debe fijar modelo, esfuerzo, prompt y repositorio inicial,
+y luego muestrear vanilla, Caveman y Dove de forma independiente. Tres familias
+de tareas ejercitan distintas formas de contención:
+
+| Escenario | Pequeño | Mediano | Grande |
+| --- | --- | --- | --- |
+| Generar | Una función pura | Un módulo tras una interfaz existente | Una funcionalidad vertical entre capas establecidas |
+| Reparar | Un defecto localizado | Un defecto que cruza dos módulos | Una falla cuya causa cruza un límite de la aplicación |
+| Refactorizar | Renombrar o extraer sin cambiar conducta | Separar dos responsabilidades | Reemplazar un diseño interno preservando su contrato público |
+
+Cada ejecución debe pasar primero las mismas pruebas de aceptación. Solo
+entonces corresponde comparar tokens de salida, líneas agregadas y eliminadas,
+archivos tocados, dependencias introducidas y superficie pública innecesaria.
+Las repeticiones también pueden medir la variación y cuántas veces la brevedad
+elimina un caso requerido. El tamaño es un costo que se compara con corrección
+y mantenibilidad, nunca una puntuación que se minimiza por sí sola.
+
+## Las Skills Nombran el Trabajo Recurrente
 
 Las Skills definen las operaciones; cada archivo enlazado guarda los detalles.
 

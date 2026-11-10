@@ -289,7 +289,47 @@ When a detour leaves the original purpose pending, Dove offers `sexy back` to re
 The Name Recalls *SexyBack* by Justin Timberlake; a Quipu can be Rolled up.
 `bye-bye-bye` recalls *Bye Bye Bye* by NSYNC, making the farewell easier to remember.
 
-## The Skills
+## The First Benchmark Finds Brevity, not yet Superiority
+
+A preliminary benchmark asked vanilla, Caveman and Dove to summarize six
+public-domain stories in exactly three paragraphs. The same GPT-6-based Codex
+runtime drafted every condition; its exact serving model and effort were not
+exposed. Summary bodies were counted with `tiktoken` 0.14.0 and `o200k_base`,
+so these figures are a consistent proxy rather than billed-token telemetry.
+
+| Condition | Spanish | English | Total |
+| --- | ---: | ---: | ---: |
+| Vanilla | 383 | 298 | 681 |
+| Caveman | 314 | 241 | 555 |
+| Dove | 303 | 248 | 551 |
+
+Dove used 19% fewer tokens than vanilla and 0.7% fewer than Caveman overall.
+Caveman was shorter in English; Dove was shorter in Spanish. Six
+style-conditioned drafts from one session cannot establish general quality,
+but they justify a controlled evaluation with independent runs. The complete
+prompts, sources, limitations and outputs live in the
+[benchmark record](references/cadencia-dove-token-benchmark.md).
+
+### Code Generation Must Compare Size with Correctness
+
+The next benchmark should keep model, effort, prompt and starting repository
+fixed, then sample vanilla, Caveman and Dove independently. Three task families
+exercise different kinds of restraint:
+
+| Scenario | Small | Medium | Large |
+| --- | --- | --- | --- |
+| Generate | One pure function | One module behind an existing interface | One vertical feature across established layers |
+| Repair | One localized defect | A defect crossing two modules | A failure whose cause crosses an application boundary |
+| Refactor | Rename or extract without behavior change | Separate two responsibilities | Replace an internal design while preserving its public contract |
+
+Every run must first pass the same acceptance tests. Only then should the
+comparison count output tokens, added and deleted lines, files touched,
+dependencies introduced and unnecessary public surface. Repeated runs can
+also measure variance and how often brevity removes a required case. Size is a
+cost to compare against correctness and maintainability, never a score to
+minimize alone.
+
+## Skills Give Recurring Work a Name
 
 The Skills define the operations; each linked file holds the details.
 
