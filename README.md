@@ -310,25 +310,6 @@ but they justify a controlled evaluation with independent runs. The complete
 prompts, sources, limitations and outputs live in the
 [benchmark record](references/cadencia-dove-token-benchmark.md).
 
-### Code Generation Must Compare Size with Correctness
-
-The next benchmark should keep model, effort, prompt and starting repository
-fixed, then sample vanilla, Caveman and Dove independently. Three task families
-exercise different kinds of restraint:
-
-| Scenario | Small | Medium | Large |
-| --- | --- | --- | --- |
-| Generate | One pure function | One module behind an existing interface | One vertical feature across established layers |
-| Repair | One localized defect | A defect crossing two modules | A failure whose cause crosses an application boundary |
-| Refactor | Rename or extract without behavior change | Separate two responsibilities | Replace an internal design while preserving its public contract |
-
-Every run must first pass the same acceptance tests. Only then should the
-comparison count output tokens, added and deleted lines, files touched,
-dependencies introduced and unnecessary public surface. Repeated runs can
-also measure variance and how often brevity removes a required case. Size is a
-cost to compare against correctness and maintainability, never a score to
-minimize alone.
-
 ## Skills Give Recurring Work a Name
 
 The Skills define the operations; each linked file holds the details.

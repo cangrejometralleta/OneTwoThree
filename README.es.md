@@ -306,25 +306,6 @@ general, pero justifican una evaluación controlada con ejecuciones
 independientes. Los prompts, fuentes, limitaciones y resultados completos están
 en el [registro del benchmark](references/cadencia-dove-token-benchmark.md).
 
-### La Generación de Código Debe Comparar Tamaño con Corrección
-
-El próximo benchmark debe fijar modelo, esfuerzo, prompt y repositorio inicial,
-y luego muestrear vanilla, Caveman y Dove de forma independiente. Tres familias
-de tareas ejercitan distintas formas de contención:
-
-| Escenario | Pequeño | Mediano | Grande |
-| --- | --- | --- | --- |
-| Generar | Una función pura | Un módulo tras una interfaz existente | Una funcionalidad vertical entre capas establecidas |
-| Reparar | Un defecto localizado | Un defecto que cruza dos módulos | Una falla cuya causa cruza un límite de la aplicación |
-| Refactorizar | Renombrar o extraer sin cambiar conducta | Separar dos responsabilidades | Reemplazar un diseño interno preservando su contrato público |
-
-Cada ejecución debe pasar primero las mismas pruebas de aceptación. Solo
-entonces corresponde comparar tokens de salida, líneas agregadas y eliminadas,
-archivos tocados, dependencias introducidas y superficie pública innecesaria.
-Las repeticiones también pueden medir la variación y cuántas veces la brevedad
-elimina un caso requerido. El tamaño es un costo que se compara con corrección
-y mantenibilidad, nunca una puntuación que se minimiza por sí sola.
-
 ## Las Skills Nombran el Trabajo Recurrente
 
 Las Skills definen las operaciones; cada archivo enlazado guarda los detalles.
