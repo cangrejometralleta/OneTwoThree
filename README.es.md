@@ -2,26 +2,44 @@
 
 [English](README.md)
 
-OneTwoThree es un Harness para el Trabajo compartido entre una Persona y un Agente.
-Protege la atención humana manteniendo pequeño el siguiente Paso, el Estado fuera de la mente y la Máquina dentro de su Autoridad.
+OneTwoThree es un Harness para el Trabajo compartido entre una Persona y un
+Agente. Protege la atención humana de tres maneras: mantiene pequeño el
+siguiente Paso, mantiene el Estado fuera de la mente y mantiene la Máquina
+dentro de su Autoridad.
 
 No intenta usar toda Capacidad, cubrir todo Caso ni automatizar toda Decisión.
 **Más es un Costo antes que una Función.**
 
-El Repositorio es a la vez un Manifiesto y una Base de código.
-Sus Reglas dicen cómo un Agente debe leer, escribir y colaborar aquí.
-Sus Valores y Patrones guardan las razones, para que una Persona pueda cuestionarlas.
+Este Repositorio es a la vez un Manifiesto y una Base de código. Las Reglas
+dicen cómo un Agente debe leer, escribir y colaborar aquí. Los Valores y
+Patrones guardan las razones, para que una Persona pueda inspeccionarlas y
+cuestionarlas.
 
-El Harness está hecho para volverse innecesario.
-Lo que queda es el Aprendizaje.
+El Harness está hecho para volverse innecesario. Lo que queda es el Aprendizaje.
 
-Esta Página es la Presentación técnica de OneTwoThree.
-La [Presentación](docs/presentation.es.md), más larga, cuenta por qué existen las ideas; esta Página muestra la Arquitectura, las Operaciones y los chequeos que las vuelven concretas.
-Los documentos enlazados están en inglés, salvo la Presentación.
+Esta Página es la entrada técnica a OneTwoThree. La
+[Presentación](docs/presentation.es.md), más larga, explica por qué existen las
+ideas; esta Página muestra la Arquitectura, las operaciones y los chequeos que
+las vuelven concretas. Los documentos enlazados están en inglés, salvo la
+Presentación.
 
-## Presentación técnica
+## Empieza por el Canon o por el Código
 
-El Harness tiene tres trabajos: preservar el Contexto entre sesiones desechables, acotar lo que un Agente puede hacer a continuación y convertir la experiencia repetida en un Canon inspeccionable.
+- Para entender el Manifiesto, lee [Values](VALUES.md), [Rules](RULES.md) y
+  [Patterns](PATTERNS.md).
+- Para trabajar como Agente, empieza en [AGENTS.md](AGENTS.md) y luego lee
+  [Rules](RULES.md).
+- Para ver las Reglas en ejecución, abre el
+  [servicio School](examples/school/README.md) o el
+  [conversor PDF](examples/pdf/README.md).
+- Para conectar otro proyecto, usa
+  [dove-update](.agents/skills/dove-update/SKILL.md).
+
+## Un Harness Mantiene el Trabajo Retomable
+
+El Harness tiene tres trabajos: preservar el Contexto entre sesiones
+desechables, acotar lo que un Agente puede hacer a continuación y convertir la
+experiencia repetida en un Canon inspeccionable.
 
 ```text
 Persona      aporta Intención, criterio y autoridad
@@ -29,23 +47,37 @@ Harness      guarda Contexto, reglas, operaciones y límites
 Agente       lee el estado actual y da un Paso verificable
 ```
 
-Una sesión normal es deliberadamente pequeña:
+Una sesión normal se mantiene deliberadamente pequeña:
 
 ```text
-yo-yo-yo   reconstruye el Contexto y nombra un siguiente Paso
-next-options       presenta hasta tres caminos distintos y espera una elección
-next-episode   ejecuta ese Paso, lo verifica y se detiene
-remember-the-day    persiste el estado durable mientras el Trabajo avanza
-bye-bye-bye     deja un handoff que otra sesión pueda retomar
+yo-yo-yo          reconstruye el Contexto y nombra un siguiente Paso
+next-options      presenta hasta tres caminos y espera una elección
+next-episode      ejecuta ese Paso, lo verifica y se detiene
+remember-the-day  persiste el Estado mientras el Trabajo avanza
+bye-bye-bye       deja un handoff que otra sesión pueda retomar
 ```
 
-Los proyectos se conectan al Canon y cargan las skills y agentes elegidos con `dove-update`, que guía por separado la distribución del Canon y la carga de personalizaciones en el cliente. Las instalaciones existentes conservan su mecanismo de distribución: clone, submodule, subtree, symlink o ZIP portable. La validación del filesystem prueba la conexión; el descubrimiento del cliente prueba que el Agente realmente la cargó.
+Los proyectos se conectan al Canon mediante `dove-update`, que trata la
+distribución del código fuente y la carga del cliente como operaciones
+separadas. Las instalaciones existentes conservan su mecanismo de distribución:
+clone, submodule, subtree, symlink o ZIP portable. La validación del filesystem
+prueba la conexión; el descubrimiento del cliente prueba que el Agente la cargó.
 
-El mismo límite vale para el conocimiento. La experiencia en bruto se queda en `chaos/`, una observación despersonalizada puede volverse una Story, y solo el Aprendizaje que sobrevive a la revisión se vuelve un Valor, una Regla o un Patrón. El Sistema puede generar y comparar; la Persona decide qué gobierna.
+El mismo límite vale para el conocimiento. La experiencia en bruto se queda en
+`chaos/`; una observación despersonalizada puede volverse una Story; solo el
+Aprendizaje que sobrevive a la revisión se vuelve un Valor, una Regla o un
+Patrón. El Sistema puede generar y comparar. La Persona decide qué gobierna.
 
-Los ejemplos vuelven ejecutables las Reglas de arquitectura. El servicio School se genera desde un Contrato, una Especificación y una Forma que viven aparte de su código; Go las sigue hoy, y Java y TypeScript esperan su regeneración; el conversor PDF mantiene el parseo de Markdown, la estructura del documento y el renderizado detrás de fronteras explícitas. El punto no es la máxima automatización. El punto es un Trabajo que siga siendo comprensible, interrumpible, verificable y retomable.
+Los ejemplos vuelven ejecutables las Reglas de arquitectura. El servicio School
+se genera desde un Contrato, una Especificación y una Forma que viven fuera de
+su código. Sus implementaciones en Go, Java y TypeScript responden las mismas
+solicitudes de la misma manera. El conversor PDF mantiene el parseo de Markdown,
+la estructura del documento y el renderizado detrás de fronteras explícitas.
 
-## El Repositorio, en un Mapa
+La meta es un Trabajo que siga siendo comprensible, interrumpible, verificable
+y retomable.
+
+## El Mapa del Repositorio Separa el Propósito de la Operación
 
 ```text
 VALUES.md   el Porqué      creencias, en values/
@@ -59,11 +91,11 @@ stories/    STORY.md, stories/ y chaos/: contexto, aún no canon
 jokes/      humor escrito a mano; se lee, nunca se agrega
 ```
 
-Tres Documentos sostienen el Manifiesto, y esta Página los indexa:
-[Values](VALUES.md), [Rules](RULES.md) y [Patterns](PATTERNS.md).
-Un Agente parte en [AGENTS.md](AGENTS.md) y lee primero [Rules](RULES.md).
+Tres Documentos sostienen el Manifiesto: [Values](VALUES.md), [Rules](RULES.md)
+y [Patterns](PATTERNS.md). [AGENTS.md](AGENTS.md) dirige al Agente hacia el
+Canon actual y le indica leer primero las Reglas.
 
-## El Head es el Canon
+## Main es el Único Canon
 
 El Canon es el head de `main`, y nada más.
 Los releases estables nombran snapshots útiles para distribuir; `main` sigue siendo la fuente actual.
@@ -71,10 +103,7 @@ Un proyecto que fija un release sigue un Fork. `1.0.0` es el UNTAG histórico;
 `v1.0.0` es el primer release estable.
 [The Head is the Canon](rules/the-head-is-the-canon.md) explica por qué.
 
-[.canonignore](.canonignore) marca paths versionados de contexto, referencia y
-soporte que el Canon no gobierna. Consúltalo solo cuando trabajes con ellos.
-
-## Por qué Tres
+## Tres Mantiene Visible cada Relación
 
 El Tres sale de una cuenta, no de un gusto.
 Con `n` entidades hay `n(n-1)/2` interacciones posibles, y la comprensión vive en las interacciones.
@@ -87,15 +116,16 @@ Con `n` entidades hay `n(n-1)/2` interacciones posibles, y la comprensión vive 
 | 4 | 6 | Más relaciones que cosas |
 | 5 | 10 | Las relaciones dejan de ser contables |
 
-Tres es el último conteo donde ambas columnas coinciden, y el menor que cierra un ciclo.
-El Número es una Fuente de la que derivar, nunca una cuota que alcanzar.
+Tres es el último conteo donde ambas columnas coinciden y el menor que cierra
+un ciclo. El Número es una Fuente de la que derivar, nunca una cuota que
+alcanzar.
 Una situación con cuatro categorías se queda con las cuatro.
 Ver [Three over Four](patterns/three-over-four.md) y [Count me In](patterns/count-me-in.md).
 
 Tres no le pide al Sistema que haga menos porque menos sea virtuoso.
 Pregunta qué debe seguir Visible para que una Persona entienda, interrumpa y continúe el Trabajo.
 
-## Valores, Reglas y Patrones Rotan
+## Valores, Reglas y Patrones Forman un Ciclo
 
 [RoTaTion](patterns/de-la-soul-rotation.md) conecta los tres Documentos mediante tres pares, sin centro fijo.
 Se entra por cualquier Elemento y se siguen las relaciones.
@@ -122,7 +152,7 @@ flowchart TD
     STRUCTURE -->|Concreta| ACTION
 ```
 
-## DeLaCase es un Presupuesto que se puede Contar
+## DeLaCase Vuelve Contable el Énfasis
 
 [DeLaCase](rules/de-la-case.md) es la Convención tipográfica para la prosa.
 Una mayúscula marca una Entidad o una Interacción digna de notarse.
@@ -143,7 +173,7 @@ El texto final en una interfaz de usuario usa capitalización ordinaria.
 La negrita es un segundo nivel y cuesta más: una por sección, o ninguna.
 [Channels](rules/channels.md) cuenta lo que una superficie puede cargar, y [Emoji](rules/emoji.md) marca un estado, uno por línea como máximo.
 
-## Las Reglas para el Código
+## Los Ejemplos Vuelven Ejecutables las Reglas de Código
 
 Cada regla que gobierna código corre en [examples](examples).
 [Show me the Code](patterns/show-me-the-code.md) explica por qué importa.
@@ -164,7 +194,8 @@ Cada regla que gobierna código corre en [examples](examples).
 ### El Servicio School
 
 [School](examples/school/README.md) es una API generada desde un [Contrato](examples/specs/school/openapi.yaml), una [Especificación](examples/specs/school/SPEC.md) y una [Forma](examples/specs/school/SHAPE.md).
-El servicio Go sigue las tres; Java y TypeScript conservan aún la forma anterior y esperan su regeneración.
+Go, Java y TypeScript se generan desde las tres fuentes y responden cincuenta
+solicitudes límite con el mismo status, content type y body.
 [The Before](examples/school/BEFORE.md) muestra el original con cada regla rota nombrada.
 
 ```text
@@ -219,7 +250,7 @@ cd examples/pdf
 ./run.sh testdata/sample.md        # escribe sample.pdf al lado
 ```
 
-## Dove, el Agente
+## Dove Da un Paso Acotado
 
 [Dove](.agents/agents/dove.md) lee una explicación a través del manifiesto, nombra el Patrón y da un paso acotado.
 Es un intérprete, nunca un revisor: no devuelve hallazgos ni ordena nada por severidad.
@@ -235,7 +266,7 @@ El Flujo es un filtro: cada paso quita lo que el siguiente no necesita.
 
 1. **Escuchar** lee solo lo que el pedido nombra, y no pregunta nada que pueda leer.
 2. **Ver** cuenta la Forma que se repite: una vez es un detalle, dos un hábito, tres un Patrón.
-3. **Esbozar** señala exactamente dos lugares por desenredar, cada uno con su costo.
+3. **Esbozar** señala como máximo dos lugares por desenredar, cada uno con su costo.
 4. **Tirar** toma el primer hilo, nombra el paso anterior y el siguiente, y se detiene.
 
 Cada Turno es un cordel con tres nudos: **Tema**, **Perspectiva** y **Remate**.
@@ -278,7 +309,7 @@ El [Diagrama de Sesión](patterns/the-lever-and-the-tape.md) conecta estas opera
 Un pedido nuevo con su propia intención inicia su propio trabajo.
 Abrir una sesión nombra el siguiente paso; publicar y cerrar necesitan cada uno su propio pedido.
 
-## Conectar un Proyecto
+## Los Proyectos Conservan su Mecanismo de Distribución
 
 [dove-update](.agents/skills/dove-update/SKILL.md) gestiona la conexión con el canon y conecta el cliente activo con las skills y agentes elegidos.
 [come-together](.agents/skills/come-together/SKILL.md) aplica una estructura documentada de enlaces relativos a una carpeta o proyecto.
@@ -298,7 +329,7 @@ Un [ZIP portable](.agents/skills/dove-update/references/zip.md) registra su comm
 Es un snapshot; el canon vivo sigue siendo el head de `main`.
 La validación del filesystem prueba los links, y el descubrimiento del cliente prueba la carga.
 
-## Cómo el Contexto se vuelve Canon
+## La Experiencia se Gana un Lugar en el Canon
 
 Tres Etapas llevan un pedazo de vida al canon, y solo la tercera se queda.
 
@@ -319,12 +350,12 @@ flowchart LR
 Un Stories vacío significa que el canon está al día.
 [one-two-stories](.agents/skills/one-two-stories/SKILL.md) las ordena, una por turno.
 
-## Los Agentes Trabajan entre Otros
+## Los Agentes Necesitan Autoridad Explícita
 
 Un Agente necesita una Sociedad: autoridad explícita, señales independientes, el derecho a detenerse y un humano a quien escalar.
 [Coercion](rules/coercion.md) guarda las reglas: nunca inventar permiso, nunca tomar represalias, nunca dejar que la presión haga parecer necesario un daño.
 
-## Verificar
+## Los Chequeos Vuelven Verificables las Afirmaciones
 
 | Chequeo | Comando |
 | --- | --- |
@@ -332,7 +363,7 @@ Un Agente necesita una Sociedad: autoridad explícita, señales independientes, 
 | El Core no importa vendors | `go list -deps ./school` en `examples/school/go` |
 | Los ejemplos compilan y pasan | `./build.sh` en cada directorio de ejemplo |
 
-## El Nombre
+## El Nombre Mantiene una Identidad
 
 OneTwoThree toma su nombre de *The Magic Number*, de De La Soul.
 Un solo Nombre, cualquier escritura: OneTwoThree, one-two-three, One Two Three y one_two_three son el mismo Proyecto.

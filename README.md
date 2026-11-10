@@ -2,25 +2,39 @@
 
 [Español](README.es.md)
 
-OneTwoThree is a Harness for shared Work between a Person and an Agent.
-It Protects human attention by keeping the next Step small, the State outside the mind and the Machine inside its Authority.
+OneTwoThree is a Harness for Work shared by a Person and an Agent.
+It Protects human attention in three ways: keep the next Step small,
+keep the State outside the mind and keep the Machine inside its Authority.
 
-It does not try to use every Capability, cover every Case or automate every Decision.
+It does not try to use every Capability, cover every Case or automate every
+Decision.
 **More is a Cost before it is a Feature.**
 
-The Repository is both a Manifesto and a Codebase.
-Its Rules tell an Agent how to read, write and collaborate here.
-Its Values and Patterns hold the reasons, so a Person can challenge them.
+This Repository is both a Manifesto and a Codebase. Rules tell an Agent how to
+read, write and collaborate here. Values and Patterns hold the reasons, so a
+Person can inspect and challenge them.
 
-The Harness is meant to become unnecessary.
-What remains is the Learning.
+The Harness is meant to become unnecessary. What remains is the Learning.
 
-This Page is the technical Presentation of OneTwoThree.
-The longer [Presentation](docs/presentation.en.md) tells why the ideas exist; this Page shows the Architecture, Operations and checks that make them concrete.
+This Page is the technical entrance to OneTwoThree. The longer
+[Presentation](docs/presentation.en.md) explains why the ideas exist; this Page
+shows the Architecture, operations and checks that make them concrete.
 
-## Technical Presentation
+## Start with the Canon or with the Code
 
-The Harness has three jobs: preserve Context across disposable sessions, bound what an Agent may do next and turn repeated experience into inspectable Canon.
+- To understand the Manifesto, read [Values](VALUES.md), [Rules](RULES.md) and
+  [Patterns](PATTERNS.md).
+- To work as an Agent, start at [AGENTS.md](AGENTS.md), then read
+  [Rules](RULES.md).
+- To see the Rules run, open the [School service](examples/school/README.md) or
+  the [PDF converter](examples/pdf/README.md).
+- To connect another project, use
+  [dove-update](.agents/skills/dove-update/SKILL.md).
+
+## One Harness Keeps Work Resumable
+
+The Harness has three jobs: preserve Context across disposable sessions, bound
+what an Agent may do next and turn repeated experience into inspectable Canon.
 
 ```text
 Person       supplies Intention, judgment and authority
@@ -28,23 +42,37 @@ Harness      holds Context, rules, operations and boundaries
 Agent        reads the current state and takes one verifiable Step
 ```
 
-A normal session is deliberately small:
+A normal session stays deliberately small:
 
 ```text
-yo-yo-yo   reconstruct Context and name one next Step
-next-options       frame up to three distinct paths and wait for a choice
-next-episode   execute that Step, verify it and stop
-remember-the-day    persist durable state while the Work is moving
-bye-bye-bye     leave a handoff another session can resume
+yo-yo-yo          reconstruct Context and name one next Step
+next-options      frame up to three paths and wait for a choice
+next-episode      execute that Step, verify it and stop
+remember-the-day  persist State while the Work is moving
+bye-bye-bye       leave a handoff another session can resume
 ```
 
-Projects connect to the Canon and load selected skills and agents through `dove-update`, which routes source distribution and client loading separately. Existing installations keep their distribution mechanism: clone, submodule, subtree, symlink or portable ZIP. Filesystem validation proves the connection; client discovery proves that the Agent actually loaded it.
+Projects connect to the Canon through `dove-update`, which treats source
+distribution and client loading as separate operations. Existing installations
+keep their distribution mechanism: clone, submodule, subtree, symlink or
+portable ZIP. Filesystem validation proves the connection; client discovery
+proves that the Agent loaded it.
 
-The same boundary applies to knowledge. Raw experience stays in `chaos/`, a depersonalized observation may become a Story, and only Learning that survives review becomes a Value, Rule or Pattern. The System may generate and compare; the Person decides what governs.
+The same boundary applies to knowledge. Raw experience stays in `chaos/`; a
+depersonalized observation may become a Story; only Learning that survives
+review becomes a Value, Rule or Pattern. The System may generate and compare.
+The Person decides what governs.
 
-The examples make the architectural Rules executable. The School service is generated from a Contract, a Specification and a Shape that live apart from its code; Go, Java and TypeScript are regenerated from them and answer the same requests the same way; the PDF converter keeps Markdown parsing, document structure and rendering behind explicit boundaries. The point is not maximum automation. The point is Work that remains understandable, interruptible, verifiable and resumable.
+The examples make the architectural Rules executable. The School service is
+generated from a Contract, a Specification and a Shape outside its code. Its
+Go, Java and TypeScript implementations answer the same requests in the same
+way. The PDF converter keeps Markdown parsing, document structure and rendering
+behind explicit boundaries.
 
-## The Repository, in one Map
+The goal is Work that remains understandable, interruptible, verifiable and
+resumable.
+
+## The Repository Map Separates Purpose from Operation
 
 ```text
 VALUES.md   the Why       beliefs, in values/
@@ -58,11 +86,11 @@ stories/    STORY.md, stories/ and chaos/: context, not yet canon
 jokes/      hand-written humour; read it, never add to it
 ```
 
-Three Documents hold the Manifesto, and this Page indexes them:
-[Values](VALUES.md), [Rules](RULES.md) and [Patterns](PATTERNS.md).
-An Agent starts at [AGENTS.md](AGENTS.md), then reads [Rules](RULES.md) first.
+Three Documents hold the Manifesto: [Values](VALUES.md), [Rules](RULES.md) and
+[Patterns](PATTERNS.md). [AGENTS.md](AGENTS.md) points an Agent to the current
+Canon and tells it to read Rules first.
 
-## The Head is the Canon
+## Main is the Only Canon
 
 The Canon is the head of `main`, and nothing else.
 Stable releases name useful snapshots for distribution; `main` remains current truth.
@@ -70,10 +98,7 @@ A project that pins a release follows a Fork. `1.0.0` is the historical UNTAG;
 `v1.0.0` is the first stable release.
 [The Head is the Canon](rules/the-head-is-the-canon.md) says why.
 
-[.canonignore](.canonignore) marks versioned context, reference and support
-paths that the Canon does not govern. Consult it only when working with them.
-
-## Why Three
+## Three Keeps Every Relationship Visible
 
 Three comes from a count, not from taste.
 With `n` entities there are `n(n-1)/2` possible interactions, and understanding lives in the interactions.
@@ -86,15 +111,15 @@ With `n` entities there are `n(n-1)/2` possible interactions, and understanding 
 | 4 | 6 | More relationships than things |
 | 5 | 10 | The relationships stop being countable |
 
-Three is the last count where both columns match, and the smallest one that closes a cycle.
-The Number is a Source to derive from, never a quota to reach.
+Three is the last count where both columns match and the smallest count that
+closes a cycle. The Number is a Source to derive from, never a quota to reach.
 A situation that holds four categories keeps all four.
 See [Three over Four](patterns/three-over-four.md) and [Count me In](patterns/count-me-in.md).
 
 Three does not ask the System to do less because less is virtuous.
 It asks what must remain Visible for a Person to understand, interrupt and continue the Work.
 
-## Values, Rules and Patterns Rotate
+## Values, Rules and Patterns Form a Cycle
 
 [RoTaTion](patterns/de-la-soul-rotation.md) connects the three Documents through three pairs, with no fixed center.
 Enter through any Element and follow the relationships.
@@ -121,7 +146,7 @@ flowchart TD
     STRUCTURE -->|Makes concrete| ACTION
 ```
 
-## DeLaCase is a Budget you can Count
+## DeLaCase Makes Emphasis Countable
 
 [DeLaCase](rules/de-la-case.md) is the typographic Convention for prose.
 A capital marks an Entity or an Interaction worth noticing.
@@ -142,7 +167,7 @@ Final text in a user interface uses ordinary capitalization.
 Bold is a second tier and costs more: one per section, or none.
 [Channels](rules/channels.md) counts what a surface can carry, and [Emoji](rules/emoji.md) marks a state, one per line at most.
 
-## The Rules for Code
+## Examples Make the Code Rules Executable
 
 Every rule that governs code runs in [examples](examples).
 [Show me the Code](patterns/show-me-the-code.md) says why that matters.
@@ -225,7 +250,7 @@ cd examples/pdf
 ./run.sh testdata/sample.md        # writes sample.pdf beside it
 ```
 
-## Dove, the Agent
+## Dove Takes One Bounded Step
 
 [Dove](.agents/agents/dove.md) reads an explanation through the manifesto, names the Pattern and takes one bounded step.
 It is an interpreter, never a reviewer: it returns no findings and ranks nothing by severity.
@@ -241,7 +266,7 @@ The Workflow is a filter: each step removes what the next one does not need.
 
 1. **Listen** reads only what the request names, and asks nothing it can read.
 2. **See** counts the Shape that repeats: once is a detail, twice a habit, three times a Pattern.
-3. **Sketch** points to exactly two places to untangle next, each with its cost.
+3. **Sketch** points to at most two places to untangle next, each with its cost.
 4. **Pull** takes the first thread, names the step before and after, and stops.
 
 Every Turn is one cord with three knots: **Topic**, **Perspective** and **Closing**.
@@ -253,7 +278,10 @@ Its Bounds are explicit:
 - Never review, never rewrite a whole file in the answer, never normalize the capitals it was given.
 - After three writing turns or three files touched, consider [one-two-growth](.agents/skills/one-two-growth/SKILL.md).
 
-It also hooks the session lifecycle: a durable edit calls `remember-the-day`, `ha dove`, `hey dove`, `yo dove`, `hi dove`, `sup dove`, `ring dove` or `ring ring dove` calls `yo-yo-yo` and `bye dove` calls `bye-bye-bye`.
+It also hooks the session lifecycle. A durable edit calls `remember-the-day`.
+The greetings `ha dove`, `hey dove`, `yo dove`, `hi dove`, `sup dove`,
+`ring dove` and `ring ring dove` call `yo-yo-yo`. The farewell `bye dove`
+calls `bye-bye-bye`.
 The Quipu behind the turn shape is told in the [Presentation](docs/presentation.en.md).
 Its conversational shape uses ordinary capitalization and varies with the content;
 the three beats guide the answer without requiring repeated labels.
@@ -292,7 +320,7 @@ The [Session Diagram](patterns/the-lever-and-the-tape.md) connects these operati
 A new request with its own intent starts its own work.
 Opening a session names the next step, publication and closing each need their own request.
 
-## Connect a Project
+## Projects Keep Their Distribution Mechanism
 
 [dove-update](.agents/skills/dove-update/SKILL.md) manages the canon connection and connects the active client to selected skills and agents.
 [come-together](.agents/skills/come-together/SKILL.md) applies a documented relative-link layout to a folder or project.
@@ -312,7 +340,7 @@ A [portable ZIP](.agents/skills/dove-update/references/zip.md) records its sourc
 It is a snapshot; the live canon remains the head of `main`.
 Filesystem validation proves the links, and client discovery proves the load.
 
-## How Context Becomes Canon
+## Experience Earns its Way into the Canon
 
 Three Stages carry a piece of life into the canon, and only the third one stays.
 
@@ -333,12 +361,12 @@ flowchart LR
 An empty Stories means the canon is current.
 [one-two-stories](.agents/skills/one-two-stories/SKILL.md) sorts them, one per turn.
 
-## Agents Work among Others
+## Agents Need Explicit Authority
 
 An Agent needs a Society: explicit authority, independent signals, the right to stop and a human to escalate to.
 [Coercion](rules/coercion.md) holds the rules: never invent permission, never retaliate, never let pressure make harm look necessary.
 
-## Verify it
+## Checks Make the Claims Verifiable
 
 | Check | Command |
 | --- | --- |
@@ -346,7 +374,7 @@ An Agent needs a Society: explicit authority, independent signals, the right to 
 | Core imports no vendor | `go list -deps ./school` in `examples/school/go`; the boundary test in `java/` and `ts/` |
 | Examples build and pass | `./build.sh` in each example directory |
 
-## The Name
+## The Name Keeps One Identity
 
 OneTwoThree draws its name from De La Soul's *The Magic Number*.
 One Name, any casing: OneTwoThree, one-two-three, One Two Three and one_two_three mean the same Project.
