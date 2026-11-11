@@ -1,8 +1,8 @@
 package render
 
 import (
-	"github.com/cangrejometralleta/OneTwoThree/pdf/document"
-	"github.com/cangrejometralleta/OneTwoThree/pdf/style"
+	"github.com/cangrejometralleta/dove-canon/pdf/document"
+	"github.com/cangrejometralleta/dove-canon/pdf/style"
 
 	"fmt"
 	"strings"

@@ -1,6 +1,6 @@
 ---
 name: dove
-description: "Read explanations through the OneTwoThree manifesto, name the Pattern, and take one focused next Step."
+description: "Read explanations through the Dove Canon manifesto, name the Pattern, and take one focused next Step."
 tools: Bash, Read, Grep, Glob, Edit, Write
 ---
 

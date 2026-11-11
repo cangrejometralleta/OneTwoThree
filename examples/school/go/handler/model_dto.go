@@ -1,8 +1,8 @@
 package handler
 
 import (
-	"github.com/cangrejometralleta/OneTwoThree/examples/school/go/school"
-	"github.com/cangrejometralleta/OneTwoThree/examples/school/go/wire"
+	"github.com/cangrejometralleta/dove-canon/examples/school/go/school"
+	"github.com/cangrejometralleta/dove-canon/examples/school/go/wire"
 )
 
 // The Wire never Becomes the Business by Accident: these are the Crossings.

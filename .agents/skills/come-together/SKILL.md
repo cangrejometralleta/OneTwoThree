@@ -11,9 +11,9 @@ The governing guidance here is [Vendor Integration](../../../rules/vendor-integr
 
 ## Choose the Layout
 
-Read the target project's instructions and documentation for the canonical source, link destinations, supported clients and existing distribution method. In OneTwoThree, follow the two governing documents above. If the user supplies a source and destination map, use it. If the source or relationship is unclear, ask one focused question instead of guessing.
+Read the target project's instructions and documentation for the canonical source, link destinations, supported clients and existing distribution method. In Dove Canon, follow the two governing documents above. If the user supplies a source and destination map, use it. If the source or relationship is unclear, ask one focused question instead of guessing.
 
-Use [DoveUpdate](../dove-update/SKILL.md) when the task is specifically about adopting or syncing the OneTwoThree Canon, or connecting project customizations to a client. It routes to the relevant source-distribution or client-loading workflow.
+Use [DoveUpdate](../dove-update/SKILL.md) when the task is specifically about adopting or syncing the Dove Canon, or connecting project customizations to a client. It routes to the relevant source-distribution or client-loading workflow.
 
 ## Apply the Links
 

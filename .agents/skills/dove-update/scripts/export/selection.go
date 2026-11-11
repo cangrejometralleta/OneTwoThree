@@ -268,6 +268,6 @@ func (selection *bundleSelection) rewriteLinks(name string, content []byte, remo
 			return "", fmt.Errorf("unresolved reference in %s: %s", name, link)
 		}
 		remote[target] = true
-		return "https://github.com/cangrejometralleta/OneTwoThree/blob/" + selection.source.commit + "/" + target + anchor, nil
+		return "https://github.com/cangrejometralleta/dove-canon/blob/" + selection.source.commit + "/" + target + anchor, nil
 	})
 }

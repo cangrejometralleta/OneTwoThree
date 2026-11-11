@@ -8,7 +8,7 @@ import (
 	"strings"
 )
 
-const sourceAddress = "https://github.com/cangrejometralleta/OneTwoThree.git"
+const sourceAddress = "https://github.com/cangrejometralleta/dove-canon.git"
 
 type sourceTree struct {
 	root   string
@@ -46,8 +46,8 @@ func readSourceTree(options exportOptions) (sourceTree, error) {
 	if err != nil {
 		return sourceTree{}, err
 	}
-	if origin != sourceAddress && origin != "git@github.com:cangrejometralleta/OneTwoThree.git" {
-		return sourceTree{}, fmt.Errorf("source origin is not OneTwoThree: %s", origin)
+	if origin != sourceAddress && origin != "git@github.com:cangrejometralleta/dove-canon.git" {
+		return sourceTree{}, fmt.Errorf("source origin is not Dove Canon: %s", origin)
 	}
 	commit, err := runGit(root, "rev-parse", "HEAD")
 	if err != nil {

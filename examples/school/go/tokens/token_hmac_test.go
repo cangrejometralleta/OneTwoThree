@@ -7,7 +7,7 @@ import (
 	"testing"
 	"time"
 
-	"github.com/cangrejometralleta/OneTwoThree/examples/school/go/faults"
+	"github.com/cangrejometralleta/dove-canon/examples/school/go/faults"
 )
 
 // The Spec's two Tokens, Signed with spec-secret: one Lives until 2100, one Died at exp 1.

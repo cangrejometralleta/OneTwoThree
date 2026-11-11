@@ -3,8 +3,8 @@ package handler
 import (
 	"testing"
 
-	"github.com/cangrejometralleta/OneTwoThree/examples/school/go/transport"
-	"github.com/cangrejometralleta/OneTwoThree/examples/school/go/wire"
+	"github.com/cangrejometralleta/dove-canon/examples/school/go/transport"
+	"github.com/cangrejometralleta/dove-canon/examples/school/go/wire"
 )
 
 // Every Fault the Spec Names, Reached the Way a Caller Reaches it.

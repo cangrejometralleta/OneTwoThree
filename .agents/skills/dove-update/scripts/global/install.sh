@@ -6,7 +6,8 @@ set -eu
 
 ROOT=$(cd -- "$(dirname -- "$0")/../../../../.." && pwd -P)
 TARGET=${CLAUDE_HOME:-$HOME/.claude}
-MARK='## OneTwoThree skills'
+MARK='## Dove Canon skills'
+LEGACY_MARK='## OneTwoThree skills'
 
 link_entry() {
     src=$1 dest=$2
@@ -26,7 +27,7 @@ link_all() {
 
 print_instruction() {
     echo "$MARK"
-    echo 'Skills and agents under ~/.claude are symbolic links into the OneTwoThree Canon.'
+    echo 'Skills and agents under ~/.claude are symbolic links into the Dove Canon.'
     echo 'A relative link inside a SKILL.md reads correctly: `..` resolves on the real directory.'
     echo 'Lexical navigation does not follow it; use `cd -P` or `readlink -f` to walk up out of a linked skill.'
     echo 'Commands and edits still target the current project, never the Canon repository.'
@@ -44,6 +45,11 @@ write_instruction() {
         return
     fi
     if grep -qsF "$MARK" "$file"; then echo "= $file"; return; fi
+    if grep -qsF "$LEGACY_MARK" "$file"; then
+        echo "! $file has an old OneTwoThree instruction block; left unchanged"
+        echo "  Review it manually before running this installer again."
+        return
+    fi
     { echo ''; print_instruction; } >>"$file"
     echo "+ $file"
 }

@@ -1,3 +1,3 @@
-module onetwothree/export
+module dove-canon/export
 
 go 1.22

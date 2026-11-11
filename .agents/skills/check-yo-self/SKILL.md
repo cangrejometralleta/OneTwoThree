@@ -1,6 +1,6 @@
 ---
 name: check-yo-self
-description: Apply OneTwoThree code conventions while writing or refactoring code. For new applications or requirements that change an application's shape, also use the linked design workflow. Use in projects following this Canon or when asked for its Rules.
+description: Apply Dove Canon code conventions while writing or refactoring code. For new applications or requirements that change an application's shape, also use the linked design workflow. Use in projects following this Canon or when asked for its Rules.
 ---
 
 # CheckYoSelf

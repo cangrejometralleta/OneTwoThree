@@ -7,7 +7,7 @@ import (
 	"net/url"
 	"strings"
 
-	"github.com/cangrejometralleta/OneTwoThree/examples/school/go/transport"
+	"github.com/cangrejometralleta/dove-canon/examples/school/go/transport"
 )
 
 // maxSwallowBytes Bounds what is Read and Dropped past the Body, so a Client can Read the Answer.

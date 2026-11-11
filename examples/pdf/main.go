@@ -6,8 +6,8 @@ import (
 	"path/filepath"
 	"strings"
 
-	"github.com/cangrejometralleta/OneTwoThree/pdf/markdown"
-	"github.com/cangrejometralleta/OneTwoThree/pdf/render"
+	"github.com/cangrejometralleta/dove-canon/pdf/markdown"
+	"github.com/cangrejometralleta/dove-canon/pdf/render"
 )
 
 // main Casts the Players, then Steps off the Stage.

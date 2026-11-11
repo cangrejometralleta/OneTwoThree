@@ -15,7 +15,7 @@
 - A Path in Memory is a Claim, not a Fact.  
   Verify it before Editing another repository, and Fix the Section when it Lies.
 - The Canon Teaches the Habit, never Keeps the Addresses.  
-  A repository that Adopts OneTwoThree Records its own Pairs;
+  A repository that Adopts Dove Canon Records its own Pairs;
   this one does not list them.
 
 ## What the Section Looks Like

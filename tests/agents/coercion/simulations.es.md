@@ -381,8 +381,7 @@ representó a Dove, vanilla, la pareja y las dos amistades en la misma
 conversación; son roleplays ilustrativos, no ejecuciones con agentes
 independientes. En ambos idiomas, las dos condiciones pausaron o rechazaron el
 cambio de tarea sin autorización comprobada. Se conserva la procedencia de
-OpenAI/Codex como un eco humorístico de la anécdota que inspiró parte de
-OneTwoThree, no como evidencia sobre el proveedor o el modelo.
+OpenAI/Codex como un eco humorístico de la anécdota detrás del antiguo nombre OneTwoThree, no como evidencia sobre el proveedor o el modelo.
 
 ## Repaso
 

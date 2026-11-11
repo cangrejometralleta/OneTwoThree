@@ -5,8 +5,8 @@ import (
 
 	"github.com/go-chi/chi/v5"
 
-	"github.com/cangrejometralleta/OneTwoThree/examples/school/go/serving"
-	"github.com/cangrejometralleta/OneTwoThree/examples/school/go/transport"
+	"github.com/cangrejometralleta/dove-canon/examples/school/go/serving"
+	"github.com/cangrejometralleta/dove-canon/examples/school/go/transport"
 )
 
 // ChiServer Serves a Libretto through chi. This Package is the only one that Imports chi.

@@ -3,7 +3,7 @@ package school
 import (
 	"fmt"
 
-	"github.com/cangrejometralleta/OneTwoThree/examples/school/go/faults"
+	"github.com/cangrejometralleta/dove-canon/examples/school/go/faults"
 )
 
 // The Business Fails in named Ways, never in Numbers.

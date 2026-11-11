@@ -155,6 +155,9 @@ https://github.com/cangrejometralleta/OneTwoThree.git   branch: main
 5f3e6ec7e20723449f4a03e079ba240af2f1af76                2026-09-16
 ```
 
+This is the source address recorded by that legacy snapshot. The Canon's
+current source is `https://github.com/cangrejometralleta/dove-canon.git`.
+
 The ZIP manifest marks `snapshot: true`; name it as a snapshot when Reporting.
 For a legacy copy, say in the same note that the copy is a Fork until the clone returns —
 [The Head is the Canon](../../../../rules/the-head-is-the-canon.md)

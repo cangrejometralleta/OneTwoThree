@@ -1,9 +1,9 @@
 package app
 
 import (
-	"github.com/cangrejometralleta/OneTwoThree/examples/school/go/faults"
-	"github.com/cangrejometralleta/OneTwoThree/examples/school/go/transport"
-	"github.com/cangrejometralleta/OneTwoThree/examples/school/go/wire"
+	"github.com/cangrejometralleta/dove-canon/examples/school/go/faults"
+	"github.com/cangrejometralleta/dove-canon/examples/school/go/transport"
+	"github.com/cangrejometralleta/dove-canon/examples/school/go/wire"
 )
 
 // Telling is a Script: it Answers with a Value or Fails, and builds no Reply.

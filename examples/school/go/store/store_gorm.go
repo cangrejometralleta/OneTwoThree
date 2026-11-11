@@ -8,7 +8,7 @@ import (
 	"gorm.io/gorm"
 	"gorm.io/gorm/logger"
 
-	"github.com/cangrejometralleta/OneTwoThree/examples/school/go/school"
+	"github.com/cangrejometralleta/dove-canon/examples/school/go/school"
 )
 
 // uniqueRutViolation is how SQLite Says the unique Index on the RUT Refused a Row.

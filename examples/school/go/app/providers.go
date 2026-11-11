@@ -1,6 +1,6 @@
 package app
 
-import "github.com/cangrejometralleta/OneTwoThree/examples/school/go/school"
+import "github.com/cangrejometralleta/dove-canon/examples/school/go/school"
 
 // StudentStore Keeps Students wherever Students Live.
 // Absence Answers false; only the Store Proves a RUT Taken.

@@ -7,7 +7,7 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/cangrejometralleta/OneTwoThree/examples/school/go/transport"
+	"github.com/cangrejometralleta/dove-canon/examples/school/go/transport"
 )
 
 // CheckAdapterAnswersTheSameWay Holds every Framework to one Contract: the

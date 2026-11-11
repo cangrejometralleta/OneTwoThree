@@ -1,4 +1,4 @@
-# Presentación de OneTwoThree
+# Presentación de Dove Canon
 
 ## El Lenguaje Abre una forma de Colaborar
 
@@ -8,11 +8,11 @@ Actualmente podemos Hablar con un Agente de inteligencia artificial en el mismo 
 
 Para quien disfruta las palabras, esto abre una Posibilidad creativa. Elegir un Verbo, ordenar una Explicación o dejar una Pausa también puede ayudar a expresar cómo queremos trabajar. «Vamos de a poco» puede ser una Invitación entre personas y una Instrucción para un Agente. La Frase Conserva su Voz humana mientras orienta una acción.
 
-OneTwoThree Explora ese Espacio compartido. Sus Reglas están escritas para que una Persona pueda Leerlas, discutirlas y cambiarlas, y para que un Agente pueda Usarlas como Instrucciones. La Persona aporta la Intención y evalúa el Resultado; la Respuesta del Agente permite continuar la Conversación. Cuidar el Lenguaje es, aquí, una forma de Cuidar la Colaboración.
+Dove Canon Explora ese Espacio compartido. Sus Reglas están escritas para que una Persona pueda Leerlas, discutirlas y cambiarlas, y para que un Agente pueda Usarlas como Instrucciones. La Persona aporta la Intención y evalúa el Resultado; la Respuesta del Agente permite continuar la Conversación. Cuidar el Lenguaje es, aquí, una forma de Cuidar la Colaboración.
 
 ## Una forma de pensar que Cuida la Atención
 
-OneTwoThree es un Manifiesto y una Práctica para expresar ideas, organizar trabajo y construir software con menos carga cognitiva. Propone que la forma de una explicación, una herramienta o una conversación Cuide la Atención de quien la recibe. Su utilidad Empieza en una pregunta cotidiana: ¿qué necesitamos comprender ahora para dar el siguiente paso?
+Dove Canon es un Manifiesto y una Práctica para expresar ideas, organizar trabajo y construir software con menos carga cognitiva. Propone que la forma de una explicación, una herramienta o una conversación Cuide la Atención de quien la recibe. Su utilidad Empieza en una pregunta cotidiana: ¿qué necesitamos comprender ahora para dar el siguiente paso?
 
 El Proyecto Reúne Valores, Patrones y Reglas. Los Valores Expresan lo que importa; los Patrones Reconocen Formas que reaparecen en situaciones distintas. Las Reglas Convierten parte de ese aprendizaje en Acciones que se pueden comprobar. Esta Distinción Permite tener Convicciones y, al mismo tiempo, revisar cómo las llevamos a la práctica.
 
@@ -109,9 +109,9 @@ Las Flechas Muestran una lectura del Ciclo. Cada Elemento Aporta algo que los ot
 
 ## La Música enseña Ritmo y Contraste
 
-El nombre OneTwoThree Nace de la inspiración de [*The Magic Number*](https://en.wikipedia.org/wiki/The_Magic_Number), de [De La Soul](https://es.wikipedia.org/wiki/De_La_Soul), y de su frase «three is the magic number». A esa referencia se Suman [*4 noviosS*](https://www.youtube.com/watch?v=ucrvnu5a8NQ), de [Six Sex](https://es.wikipedia.org/wiki/Six_Sex), producida por King Doudou, y la letra de [*Perfect (Exceeder)*](https://en.wikipedia.org/wiki/Perfect_%28Exceeder%29), de [Mason](https://en.wikipedia.org/wiki/Mason_%28musician%29) vs [Princess Superstar](https://en.wikipedia.org/wiki/Princess_Superstar). Sus Conteos y frases rítmicas Inspiraron la Cadencia para leer y escribir: entrar en una idea, darle énfasis y dejarla respirar.
+El nombre anterior, OneTwoThree, nació de la inspiración de [*The Magic Number*](https://en.wikipedia.org/wiki/The_Magic_Number), de [De La Soul](https://es.wikipedia.org/wiki/De_La_Soul), y de su frase «three is the magic number». A esa referencia se Suman [*4 noviosS*](https://www.youtube.com/watch?v=ucrvnu5a8NQ), de [Six Sex](https://es.wikipedia.org/wiki/Six_Sex), producida por King Doudou, y la letra de [*Perfect (Exceeder)*](https://en.wikipedia.org/wiki/Perfect_%28Exceeder%29), de [Mason](https://en.wikipedia.org/wiki/Mason_%28musician%29) vs [Princess Superstar](https://en.wikipedia.org/wiki/Princess_Superstar). Sus Conteos y frases rítmicas Inspiraron la Cadencia para leer y escribir: entrar en una idea, darle énfasis y dejarla respirar.
 
-OneTwoThree, one-two-three, One Two Three y one_two_three Nombran el mismo Proyecto. Acá Aceptamos cualquier forma de Resaltado: camel case, kebab case, snake case, espacios entre las palabras o ninguno. El Nombre está hecho para Contarse antes que para decirse de un tirón, y un Nombre que se cuenta Sobrevive al resaltado que el texto alrededor ya use.
+Dove Canon, dove-canon, dove_canon y dovecanon Nombran el mismo Proyecto. El repositorio usa `dove-canon`. Dove es el Agente; el Canon es el cuerpo compartido de Valores, Reglas y Patrones que sigue.
 
 El Autor Escucha una Influencia musical directa entre *Perfect (Exceeder)* y *4 noviosS*. Esa Conexión es su Interpretación como oyente. Las tres Referencias Confluyen en la Práctica del proyecto: contar en voz alta ayuda a sentir dónde empieza una frase, dónde cae su acento y cuándo necesita una pausa.
 
@@ -377,7 +377,7 @@ Los dos Turnos Terminan igual: un paso dado, un paso ofrecido y lugar para que l
 
 ## El Harness debe Morir
 
-OneTwoThree es en sí mismo un Harness, en el sentido que reconocería quien escala o quien monta a caballo: un equipo hecho para sostener y guiar, puesto solo mientras la tarea lo necesita. Acá ese equipo es un andamiaje de Lenguaje, Patrones y Reglas para trabajar junto a un Agente, y Dove, su voz en este documento, también es parte de ese andamiaje. El Valor del Harness es lo que Aprendemos mientras lo construimos, y ese Aprendizaje se queda con nosotros después de dejarlo.
+Dove Canon es en sí mismo un Harness, en el sentido que reconocería quien escala o quien monta a caballo: un equipo hecho para sostener y guiar, puesto solo mientras la tarea lo necesita. Acá ese equipo es un andamiaje de Lenguaje, Patrones y Reglas para trabajar junto a un Agente, y Dove, su voz en este documento, también es parte de ese andamiaje. El Valor del Harness es lo que Aprendemos mientras lo construimos, y ese Aprendizaje se queda con nosotros después de dejarlo.
 
 Un Harness también puede prestarle a Modelos chicos o locales parte de las capacidades de interacción que damos por sentadas en los Modelos grandes. Queremos que siga sosteniendo esa Posibilidad. Pero como cualquier andamio, puede volverse una Muleta apenas dejamos de preguntarnos si todavía Ayuda.
 

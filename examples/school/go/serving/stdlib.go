@@ -3,7 +3,7 @@ package serving
 import (
 	"net/http"
 
-	"github.com/cangrejometralleta/OneTwoThree/examples/school/go/transport"
+	"github.com/cangrejometralleta/dove-canon/examples/school/go/transport"
 )
 
 // StdlibServer Serves a Libretto with net/http alone.

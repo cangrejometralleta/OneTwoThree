@@ -5,7 +5,7 @@ import (
 	"sort"
 	"testing"
 
-	"github.com/cangrejometralleta/OneTwoThree/examples/school/go/school"
+	"github.com/cangrejometralleta/dove-canon/examples/school/go/school"
 )
 
 // shelf Stands in for the Store: Course 1 is Open, it Keeps what it is Given,

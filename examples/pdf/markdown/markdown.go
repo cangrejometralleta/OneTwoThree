@@ -1,7 +1,7 @@
 package markdown
 
 import (
-	"github.com/cangrejometralleta/OneTwoThree/pdf/document"
+	"github.com/cangrejometralleta/dove-canon/pdf/document"
 
 	"os"
 	"strings"

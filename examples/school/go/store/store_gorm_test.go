@@ -6,8 +6,8 @@ import (
 	"path/filepath"
 	"testing"
 
-	"github.com/cangrejometralleta/OneTwoThree/examples/school/go/app"
-	"github.com/cangrejometralleta/OneTwoThree/examples/school/go/school"
+	"github.com/cangrejometralleta/dove-canon/examples/school/go/app"
+	"github.com/cangrejometralleta/dove-canon/examples/school/go/school"
 )
 
 // One Store Fills both Ports, and the Compiler Checks it.

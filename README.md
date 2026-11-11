@@ -1,8 +1,8 @@
-# OneTwoThree
+# Dove Canon
 
 [Español](README.es.md)
 
-OneTwoThree is a Harness for Work shared by a Person and an Agent.
+Dove Canon is a Harness for Work shared by a Person and an Agent.
 It Protects human attention in three ways: keep the next Step small,
 keep the State outside the mind and keep the Machine inside its Authority.
 
@@ -16,7 +16,7 @@ Person can inspect and challenge them.
 
 The Harness is meant to become unnecessary. What remains is the Learning.
 
-This Page is the technical entrance to OneTwoThree. The longer
+This Page is the technical entrance to Dove Canon. The longer
 [Presentation](docs/presentation.en.md) explains why the ideas exist; this Page
 shows the Architecture, operations and checks that make them concrete.
 
@@ -395,10 +395,14 @@ An Agent needs a Society: explicit authority, independent signals, the right to 
 | Core imports no vendor | `go list -deps ./school` in `examples/school/go`; the boundary test in `java/` and `ts/` |
 | Examples build and pass | `./build.sh` in each example directory |
 
-## The Name Keeps One Identity
+## The Name Keeps the Parts Together
 
-OneTwoThree draws its name from De La Soul's *The Magic Number*.
-One Name, any casing: OneTwoThree, one-two-three, One Two Three and one_two_three mean the same Project.
+**Dove** is the Agent; the **Canon** is the shared body of Values, Rules and
+Patterns it follows. Together they name this Project. Its repository slug is
+`dove-canon`.
+
+The former name, OneTwoThree, drew on De La Soul's *The Magic Number*. Its
+history remains in the [Provenance Map](stories/provenance-map.md).
 The rest of the story lives in the [Presentation](docs/presentation.en.md).
 
 ## License

@@ -6,7 +6,7 @@ import (
 	"testing"
 )
 
-const module = "github.com/cangrejometralleta/OneTwoThree/examples/school/go/"
+const module = "github.com/cangrejometralleta/dove-canon/examples/school/go/"
 
 // The Compiler Holds the Boundary, and go list Reads it: the Core Names no Vendor,
 // no Socket and no Wire Package.

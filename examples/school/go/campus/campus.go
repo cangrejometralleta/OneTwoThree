@@ -9,7 +9,7 @@ import (
 	"log/slog"
 	"os"
 
-	"github.com/cangrejometralleta/OneTwoThree/examples/school/go/school"
+	"github.com/cangrejometralleta/dove-canon/examples/school/go/school"
 )
 
 // Office Answers the Registry and Announces Enrolments: one Adapter, two Ports.

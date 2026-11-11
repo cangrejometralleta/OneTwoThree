@@ -4,9 +4,9 @@ import (
 	"errors"
 	"testing"
 
-	"github.com/cangrejometralleta/OneTwoThree/examples/school/go/faults"
-	"github.com/cangrejometralleta/OneTwoThree/examples/school/go/transport"
-	"github.com/cangrejometralleta/OneTwoThree/examples/school/go/wire"
+	"github.com/cangrejometralleta/dove-canon/examples/school/go/faults"
+	"github.com/cangrejometralleta/dove-canon/examples/school/go/transport"
+	"github.com/cangrejometralleta/dove-canon/examples/school/go/wire"
 )
 
 type fixedReader struct{}

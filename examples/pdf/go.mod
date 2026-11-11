@@ -1,4 +1,4 @@
-module github.com/cangrejometralleta/OneTwoThree/pdf
+module github.com/cangrejometralleta/dove-canon/pdf
 
 go 1.25.0
 

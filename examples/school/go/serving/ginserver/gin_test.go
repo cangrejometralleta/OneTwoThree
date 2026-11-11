@@ -3,8 +3,8 @@ package ginserver
 import (
 	"testing"
 
-	"github.com/cangrejometralleta/OneTwoThree/examples/school/go/serving/adaptertest"
-	"github.com/cangrejometralleta/OneTwoThree/examples/school/go/transport"
+	"github.com/cangrejometralleta/dove-canon/examples/school/go/serving/adaptertest"
+	"github.com/cangrejometralleta/dove-canon/examples/school/go/transport"
 )
 
 var _ transport.Server = GinServer{}

@@ -1,7 +1,7 @@
 # Source Distribution
 
 A Fetcher of the Canon and an exporter of portable Snapshots.
-It brings `main` from the remote OneTwoThree,
+It brings `main` from the remote Dove Canon,
 Keeps only what Governs, loads only the index,
 and leaves every local file the project owns untouched.
 
@@ -14,14 +14,14 @@ ZIP export and installation Follow [Export a Snapshot](zip.md).
 The Source is one Address:
 
 ```text
-https://github.com/cangrejometralleta/OneTwoThree.git   branch: main
+https://github.com/cangrejometralleta/dove-canon.git   branch: main
 ```
 
 ```mermaid
 flowchart TD
     START["update or export"] --> MODE{"ZIP requested?"}
     MODE -- Yes --> ZIP["Export a snapshot · Verify archive · Stop"]
-    MODE -- No --> HERE{"Inside OneTwoThree?"}
+    MODE -- No --> HERE{"Inside Dove Canon?"}
     HERE -- Yes --> PULL["Fast-Forward main · Stop"]
     HERE -- No --> LINK{"Link Exists?"}
     LINK -- Yes --> FOLLOW["Follow the Mechanism already Chosen"]
@@ -39,7 +39,7 @@ flowchart TD
 ## When it Runs
 
 Invoke when the user Asks to update, sync or pull the manifesto,
-when a project first Adopts OneTwoThree,
+when a project first Adopts Dove Canon,
 when a rule read here disagrees with the rule named upstream,
 or when the user requests a ZIP of selected agents and skills.
 
@@ -88,7 +88,7 @@ without paying to Read it.
 
 ## Inside the Canon Repository
 
-First Ask whether the current repository *is* OneTwoThree.
+First Ask whether the current repository *is* Dove Canon.
 Compare the Origin address, not the directory name.
 
 When it is, there is nothing to Vendor or reduce.
@@ -101,7 +101,7 @@ Read only what Names the connection:
 
 1. **Origin** — the current repository's Remotes.
 2. **Link** — an existing submodule, subtree, clone or symbolic link
-   that already Points at OneTwoThree.
+   that already Points at Dove Canon.
 3. **State** — whether that link Carries local commits or dirty paths.
 4. **Selection** — the governing paths and requested customizations.
 
@@ -115,7 +115,7 @@ Detect which answer it Gave, and use it:
 
 | What you Find | What you Run |
 | --- | --- |
-| A Submodule pointing at OneTwoThree | `git submodule update --remote` |
+| A Submodule pointing at Dove Canon | `git submodule update --remote` |
 | A Subtree | `git subtree pull --prefix <path> <url> main --squash` |
 | A Clone under a Cache or Vendor Path | `git fetch origin main` then Fast-Forward |
 | A symbolic Link to a Clone elsewhere | Update the Clone the Link Resolves to |
@@ -162,7 +162,7 @@ Create a shallow, blobless clone without an initial Checkout:
 
 ```sh
 git clone --depth=1 --filter=blob:none --no-checkout --single-branch --branch main \
-  https://github.com/cangrejometralleta/OneTwoThree.git .agents/canon
+  https://github.com/cangrejometralleta/dove-canon.git .agents/canon
 git -C .agents/canon sparse-checkout set --no-cone \
   '/AGENTS.md' '/RULES.md' '/VALUES.md' '/PATTERNS.md' \
   '/rules/' '/values/' '/patterns/' \
@@ -219,7 +219,7 @@ support do not travel merely because Git tracks them.
 
 ## Verification
 
-1. The fetched ref is `main` from the OneTwoThree address, not a Fork.
+1. The fetched ref is `main` from the Dove Canon address, not a Fork.
 2. The Link Resolves from the project root.
 3. `RULES.md`, `VALUES.md` and `PATTERNS.md` Exist at the linked root.
 4. Every link inside those three indexes Resolves to a checked-out body.
@@ -236,7 +236,7 @@ An index link that resolves to nothing means the sparse Set is too narrow.
 ```text
 ✅ Canon Updated — 63a3010..f3bdfa6 (4 Commits)
 
-**Source** — cangrejometralleta/OneTwoThree, main.
+**Source** — cangrejometralleta/dove-canon, main.
 **Entrance** — .agents/canon; selected agents and skills exposed by relative links.
 **Changed** — 2 Rules, 1 Pattern.
 **Reduced** — 58 KB on Disk, 7 KB Loaded.
@@ -260,7 +260,7 @@ Nothing Changed. Name whether they are a Fork or an Edit to Send upstream.
 ## Bounds
 
 - Never copy a canonical File into the project by hand.
-- Never vendor the Canon into OneTwoThree itself.
+- Never vendor the Canon into Dove Canon itself.
 - Never fetch from a Fork while claiming the canon.
 - Never adopt a new Dependency without user authorization.
 - Never Fast-forward past local Commits, and never discard them.

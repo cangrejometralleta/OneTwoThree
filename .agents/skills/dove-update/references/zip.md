@@ -14,7 +14,7 @@ Run from the source repository, using absolute source and output Paths:
 ```sh
 .agents/skills/dove-update/scripts/export/run.sh \
   --source "$PWD" \
-  --output /tmp/onetwothree.zip \
+  --output /tmp/dove-canon.zip \
   --skills commit-commit-commit
 ```
 
@@ -24,7 +24,7 @@ Agent and skill links Close the selection recursively, including cycles.
 A referenced agent may therefore Return through a selected skill.
 The maintenance skill `dove-update` is always Included.
 
-The source must be a checkout with the official OneTwoThree Origin.
+The source must be a checkout with the official Dove Canon Origin.
 The command does not fetch or claim that local `HEAD` is the latest Canon.
 For a current export, synchronize the source through the normal update workflow First.
 A dirty Source Requires `--allow-dirty`, and the manifest labels that preview.

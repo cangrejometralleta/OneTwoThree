@@ -6,9 +6,9 @@ import (
 	"math"
 	"testing"
 
-	"github.com/cangrejometralleta/OneTwoThree/examples/school/go/school"
-	"github.com/cangrejometralleta/OneTwoThree/examples/school/go/transport"
-	"github.com/cangrejometralleta/OneTwoThree/examples/school/go/wire"
+	"github.com/cangrejometralleta/dove-canon/examples/school/go/school"
+	"github.com/cangrejometralleta/dove-canon/examples/school/go/transport"
+	"github.com/cangrejometralleta/dove-canon/examples/school/go/wire"
 )
 
 const whole = `{"rut":"11111111-1","name":"Ana","age":20,"courseId":1}`

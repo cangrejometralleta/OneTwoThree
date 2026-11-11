@@ -3,7 +3,7 @@ package app
 import (
 	"net/http"
 
-	"github.com/cangrejometralleta/OneTwoThree/examples/school/go/faults"
+	"github.com/cangrejometralleta/dove-canon/examples/school/go/faults"
 )
 
 // faultStatuses Translates each Kind into the Status HTTP Knows it by.

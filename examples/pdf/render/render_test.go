@@ -6,8 +6,8 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/cangrejometralleta/OneTwoThree/pdf/document"
-	"github.com/cangrejometralleta/OneTwoThree/pdf/markdown"
+	"github.com/cangrejometralleta/dove-canon/pdf/document"
+	"github.com/cangrejometralleta/dove-canon/pdf/markdown"
 )
 
 func TestRenderDocumentToPDFWritesAValidFile(t *testing.T) {

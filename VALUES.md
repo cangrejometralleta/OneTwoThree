@@ -56,8 +56,7 @@
   A Hue Groups what it marks,  
   and the Grouping itself Carries Meaning.
 - Name the Movement, not the quantity.  
-  OneTwoThree Walks the count,  
-  Three only Holds it still.
+  A Movement Walks the count; Three only Holds it still.
 - The Service is not the Product.  
   Like the power company,  
   it stays out of what you Build with it.

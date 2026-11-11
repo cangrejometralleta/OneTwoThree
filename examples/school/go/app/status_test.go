@@ -5,7 +5,7 @@ import (
 	"fmt"
 	"testing"
 
-	"github.com/cangrejometralleta/OneTwoThree/examples/school/go/faults"
+	"github.com/cangrejometralleta/dove-canon/examples/school/go/faults"
 )
 
 func TestReadFaultStatusAnswersForEachKind(t *testing.T) {

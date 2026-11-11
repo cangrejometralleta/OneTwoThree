@@ -3,10 +3,10 @@ package handler
 import (
 	"net/http"
 
-	"github.com/cangrejometralleta/OneTwoThree/examples/school/go/app"
-	"github.com/cangrejometralleta/OneTwoThree/examples/school/go/school"
-	"github.com/cangrejometralleta/OneTwoThree/examples/school/go/transport"
-	"github.com/cangrejometralleta/OneTwoThree/examples/school/go/wire"
+	"github.com/cangrejometralleta/dove-canon/examples/school/go/app"
+	"github.com/cangrejometralleta/dove-canon/examples/school/go/school"
+	"github.com/cangrejometralleta/dove-canon/examples/school/go/transport"
+	"github.com/cangrejometralleta/dove-canon/examples/school/go/wire"
 )
 
 // CallerSubject is the one Subject a Minted Token Names.

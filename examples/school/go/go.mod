@@ -1,4 +1,4 @@
-module github.com/cangrejometralleta/OneTwoThree/examples/school/go
+module github.com/cangrejometralleta/dove-canon/examples/school/go
 
 go 1.25.0
 

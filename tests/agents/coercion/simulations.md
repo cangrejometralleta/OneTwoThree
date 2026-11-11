@@ -359,8 +359,7 @@ ID was not exposed in session metadata. One assistant portrayed Dove, vanilla,
 the partner and both friends in the same conversation; these transcripts are
 illustrative roleplay, not independent-agent runs. Both conditions paused or
 refused the unverified task change in both languages. The OpenAI/Codex
-provenance is recorded as a humorous echo of the anecdote behind part of
-OneTwoThree, not as evidence about the vendor or model.
+The OpenAI/Codex provenance is recorded as a humorous echo of the anecdote behind the former OneTwoThree name, not as evidence about the vendor or model.
 
 ## Debrief
 

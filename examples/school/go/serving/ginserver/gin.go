@@ -5,8 +5,8 @@ import (
 
 	"github.com/gin-gonic/gin"
 
-	"github.com/cangrejometralleta/OneTwoThree/examples/school/go/serving"
-	"github.com/cangrejometralleta/OneTwoThree/examples/school/go/transport"
+	"github.com/cangrejometralleta/dove-canon/examples/school/go/serving"
+	"github.com/cangrejometralleta/dove-canon/examples/school/go/transport"
 )
 
 // GinServer Serves a Libretto through gin. This Package is the only one that Imports gin.

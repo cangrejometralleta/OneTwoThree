@@ -37,7 +37,7 @@ func writeBundle(output string, bundle map[string][]byte) error {
 	if err := validateBundle(bundle); err != nil {
 		return err
 	}
-	staged, err := os.CreateTemp(filepath.Dir(output), ".onetwothree-*.zip")
+	staged, err := os.CreateTemp(filepath.Dir(output), ".dove-canon-*.zip")
 	if err != nil {
 		return err
 	}

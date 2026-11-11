@@ -1,4 +1,4 @@
-# Introducing OneTwoThree
+# Introducing Dove Canon
 
 ## Language Opens a way to Collaborate
 
@@ -8,11 +8,11 @@ Today we can Converse with an artificial intelligence Agent in the same Language
 
 For someone who enjoys words, this opens a Creative Possibility. Choosing a Verb, arranging an Explanation or leaving a Pause can also help express how we want to work. “Let's take it slowly” can be an Invitation between people and an Instruction to an Agent. The Sentence Keeps its human Voice while guiding an action.
 
-OneTwoThree Explores that shared Space. Its Rules are written so a Person can Read, discuss and change them, and an Agent can Use them as Instructions. The Person supplies the Intention and evaluates the Result; the Agent's Response allows the Conversation to continue. Caring for Language is, here, a way of Caring for Collaboration.
+Dove Canon Explores that shared Space. Its Rules are written so a Person can Read, discuss and change them, and an Agent can Use them as Instructions. The Person supplies the Intention and evaluates the Result; the Agent's Response allows the Conversation to continue. Caring for Language is, here, a way of Caring for Collaboration.
 
 ## A way of thinking that Protects Attention
 
-OneTwoThree is a Manifesto and a Practice for expressing ideas, organizing work and building software with less cognitive load. It proposes that the shape of an explanation, a tool or a conversation should Respect the Attention of the person receiving it. Its usefulness Begins with an everyday question: what do we need to understand now to take the next step?
+Dove Canon is a Manifesto and a Practice for expressing ideas, organizing work and building software with less cognitive load. It proposes that the shape of an explanation, a tool or a conversation should Respect the Attention of the person receiving it. Its usefulness Begins with an everyday question: what do we need to understand now to take the next step?
 
 The Project Brings together Values, Patterns and Rules. Values Express what matters; Patterns Recognize Forms that recur in different situations. Rules Turn some of that Learning into Actions we can verify. This Distinction Allows us to hold Convictions while revising how we put them into practice.
 
@@ -109,9 +109,9 @@ The Arrows Show one reading of the Cycle. Each Element Contributes something the
 
 ## Music teaches Rhythm and Contrast
 
-The name OneTwoThree Draws its inspiration from [*The Magic Number*](https://en.wikipedia.org/wiki/The_Magic_Number) by [De La Soul](https://en.wikipedia.org/wiki/De_La_Soul), with its phrase “three is the magic number”. Alongside it, [*4 noviosS*](https://www.youtube.com/watch?v=ucrvnu5a8NQ) by [Six Sex](https://es.wikipedia.org/wiki/Six_Sex), produced by King Doudou, and the lyrics of [*Perfect (Exceeder)*](https://en.wikipedia.org/wiki/Perfect_%28Exceeder%29) by [Mason](https://en.wikipedia.org/wiki/Mason_%28musician%29) vs [Princess Superstar](https://en.wikipedia.org/wiki/Princess_Superstar) Inspired the project's reading and writing Cadence. Their counting Phrases Help us feel the Pulse of an idea: entering it, giving it emphasis and letting it breathe.
+The former name OneTwoThree drew inspiration from [*The Magic Number*](https://en.wikipedia.org/wiki/The_Magic_Number) by [De La Soul](https://en.wikipedia.org/wiki/De_La_Soul), with its phrase “three is the magic number”. Alongside it, [*4 noviosS*](https://www.youtube.com/watch?v=ucrvnu5a8NQ) by [Six Sex](https://es.wikipedia.org/wiki/Six_Sex), produced by King Doudou, and the lyrics of [*Perfect (Exceeder)*](https://en.wikipedia.org/wiki/Perfect_%28Exceeder%29) by [Mason](https://en.wikipedia.org/wiki/Mason_%28musician%29) vs [Princess Superstar](https://en.wikipedia.org/wiki/Princess_Superstar) Inspired the project's reading and writing Cadence. Their counting Phrases Help us feel the Pulse of an idea: entering it, giving it emphasis and letting it breathe.
 
-OneTwoThree, one-two-three, One Two Three and one_two_three Name the same Project. Here we Accept any form of Emphasis: camel case, kebab case, snake case, spaces between the words or none at all. The Name is meant to be Counted rather than said in one breath, and a counted Name Survives whatever casing the surrounding text already uses.
+Dove Canon, dove-canon, dove_canon and dovecanon Name the same Project. The repository uses `dove-canon`. Dove is the Agent; the Canon is the shared body of Values, Rules and Patterns it follows.
 
 The Author Hears a direct musical Influence between *Perfect (Exceeder)* and *4 noviosS*. That Connection is his Interpretation as a listener. The three References Meet in the project's Practice: counting aloud helps us feel where a phrase begins, where its stress falls and when it needs a pause.
 
@@ -377,7 +377,7 @@ Both Turns End the same way: one step taken, one step offered, and room for the 
 
 ## The Harness must Die
 
-OneTwoThree is itself a Harness, in the sense a Climber or a Rider would recognize: gear built to support and guide, worn only for as long as the task needs it. Here that gear is a scaffold of Language, Patterns and Rules for working beside an Agent, and Dove, its voice in this document, is part of that scaffold too. The Harness's Value is what we Learn while building it, and that Learning stays with us after we set it down.
+Dove Canon is itself a Harness, in the sense a Climber or a Rider would recognize: gear built to support and guide, worn only for as long as the task needs it. Here that gear is a scaffold of Language, Patterns and Rules for working beside an Agent, and Dove, its voice in this document, is part of that scaffold too. The Harness's Value is what we Learn while building it, and that Learning stays with us after we set it down.
 
 A Harness can also lend smaller or local Models some of the interaction capabilities we take for granted in larger ones. We want it to keep supporting that Possibility. But like any scaffold, it can become a Crutch the moment we stop asking whether it still Helps.
 

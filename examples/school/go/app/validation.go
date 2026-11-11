@@ -13,9 +13,9 @@ import (
 	"strings"
 	"unicode/utf8"
 
-	"github.com/cangrejometralleta/OneTwoThree/examples/school/go/faults"
-	"github.com/cangrejometralleta/OneTwoThree/examples/school/go/school"
-	"github.com/cangrejometralleta/OneTwoThree/examples/school/go/transport"
+	"github.com/cangrejometralleta/dove-canon/examples/school/go/faults"
+	"github.com/cangrejometralleta/dove-canon/examples/school/go/school"
+	"github.com/cangrejometralleta/dove-canon/examples/school/go/transport"
 )
 
 // The Form of a Request, Checked before its Meaning.

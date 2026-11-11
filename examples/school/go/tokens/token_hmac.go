@@ -8,7 +8,7 @@ import (
 	"strings"
 	"time"
 
-	"github.com/cangrejometralleta/OneTwoThree/examples/school/go/faults"
+	"github.com/cangrejometralleta/dove-canon/examples/school/go/faults"
 )
 
 // ErrTokenIsInvalid Answers every Token the Guard cannot Trust; a Caller Learns only that.

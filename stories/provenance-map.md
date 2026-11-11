@@ -3,7 +3,7 @@
 Which project conversation each thing came from (to trace origin):
 
 - **Elegance in code and music** — the project's birth, the three
-  files, OneTwoCase, Dev La Soul, the rename to OneTwoThree,
+  files, OneTwoCase, Dev La Soul, the original name OneTwoThree,
   De La Soul, Gorillaz, Grace Hopper, camelCase, Bug Fables.
 - **The number 3 as a philosophical pattern** — the inventory of 3
   across domains.
@@ -12,6 +12,8 @@ Which project conversation each thing came from (to trace origin):
 - **Cognitive load and minimalism in OneTwoThree** — the link between
   cognitive load and the rule of three; minimalism as instinct, not
   style.
+- **The name Dove Canon** — choosing the Agent and the shared Canon as the
+  project's public identity.
 - **Committing team changes** — a personal local project, git flow.
 - **Rules and resolution strategies** — the Rules/Values criterion,
   beats vs. newlines, Go validating OneTwoCase, the linter idea.

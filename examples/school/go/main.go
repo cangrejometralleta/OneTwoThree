@@ -7,17 +7,17 @@ import (
 	"slices"
 	"strconv"
 
-	"github.com/cangrejometralleta/OneTwoThree/examples/school/go/app"
-	"github.com/cangrejometralleta/OneTwoThree/examples/school/go/campus"
-	"github.com/cangrejometralleta/OneTwoThree/examples/school/go/handler"
-	"github.com/cangrejometralleta/OneTwoThree/examples/school/go/school"
-	"github.com/cangrejometralleta/OneTwoThree/examples/school/go/serving"
-	"github.com/cangrejometralleta/OneTwoThree/examples/school/go/serving/chiserver"
-	"github.com/cangrejometralleta/OneTwoThree/examples/school/go/serving/ginserver"
-	"github.com/cangrejometralleta/OneTwoThree/examples/school/go/settings"
-	"github.com/cangrejometralleta/OneTwoThree/examples/school/go/store"
-	"github.com/cangrejometralleta/OneTwoThree/examples/school/go/tokens"
-	"github.com/cangrejometralleta/OneTwoThree/examples/school/go/transport"
+	"github.com/cangrejometralleta/dove-canon/examples/school/go/app"
+	"github.com/cangrejometralleta/dove-canon/examples/school/go/campus"
+	"github.com/cangrejometralleta/dove-canon/examples/school/go/handler"
+	"github.com/cangrejometralleta/dove-canon/examples/school/go/school"
+	"github.com/cangrejometralleta/dove-canon/examples/school/go/serving"
+	"github.com/cangrejometralleta/dove-canon/examples/school/go/serving/chiserver"
+	"github.com/cangrejometralleta/dove-canon/examples/school/go/serving/ginserver"
+	"github.com/cangrejometralleta/dove-canon/examples/school/go/settings"
+	"github.com/cangrejometralleta/dove-canon/examples/school/go/store"
+	"github.com/cangrejometralleta/dove-canon/examples/school/go/tokens"
+	"github.com/cangrejometralleta/dove-canon/examples/school/go/transport"
 )
 
 // serverAdapters is every Framework this Runtime Implements; the Loader only Receives the Names.

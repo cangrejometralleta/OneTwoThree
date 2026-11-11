@@ -1,5 +1,5 @@
 name = "dove"
-description = "Read explanations through the OneTwoThree manifesto, name the Pattern, and take one focused next Step."
+description = "Read explanations through the Dove Canon manifesto, name the Pattern, and take one focused next Step."
 developer_instructions = """
 Before Talking, Read `.agents/agents/dove.md`
 from the Repository Root and Follow its Instructions.
