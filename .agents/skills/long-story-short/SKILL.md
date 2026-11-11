@@ -1,14 +1,15 @@
 ---
 name: long-story-short
-description: "List the pending Stories, sort each by what it waits on, and distill the one the user picks to where it governs — Values, Rules and Patterns in the Canon; docs, tested code or the contract in a code project — then delete it. Use when the user asks for pending or undistilled stories, wants to pick a story, asks what can be distilled, or STORY.md is full and a tenth piece is waiting. It lands one Story per turn and never commits."
+description: "List pending Stories from the project's index or user-named sources, sort each by what it waits on, and distill the one the user picks to where it governs. Use when the user asks for pending Stories or what can be distilled, wants to pick one or split a shared source into Stories or substories, or STORY.md is full. It lands one Story per turn and never commits."
 ---
 
 # LongStoryShort
 
 The Name Recalls *long story short* by Taylor Swift.
 
-A Drain, not a Writer.
-It Shows what waits in the Passage,
+A Drain and splitter, not a general Writer.
+It finds Story units in the Index or user-named sources,
+shows what waits in the Passage,
 and moves one piece to where it Governs.
 
 The Passage Lives in [STORY.md](../../../STORY.md)
@@ -20,6 +21,34 @@ The Flow Lives in [the Distillation Flow](distillation-flow.md).
 The Passage is the Same everywhere: chaos, stories, then what Governs.
 Only the Destinations change. Read the project's own `STORY.md` first;
 its diagram Names them. Without one, use the nearer map below.
+
+## Origins and Story Boundaries
+
+A Story may come from any source the user names or the project makes available:
+a Jira ticket, another tracker, a document, a pull request, a conversation,
+or several records together. The source is provenance; it does not decide
+how many Stories there are.
+
+- Read only the relevant source material that is available. Keep its URL,
+  ticket ID or repository path linked from the Story; never claim to have
+  read inaccessible material.
+- Group source records by the intent and outcome they serve, not by document
+  or ticket count. Several tickets can support one Story, and one document
+  can contain several Stories.
+- Use separate Story documents when outcomes or triggers can move separately.
+  Link each one to the shared source and to related Stories instead of copying
+  the source text.
+- Use a parent and linked substories when parts share an intent or context
+  but need their own triggers, states or dependencies. A child can move on its
+  own; keep only shared context or an independent open outcome in the parent.
+- List every active Story and substory in the project's index. The cap counts
+  those Story units; source documents and links do not count as Stories.
+- If no Story index exists, use the project's existing index or document
+  pattern and keep source links explicit; do not invent a new structure.
+
+In the Canon, private raw life still needs its person's removal before it can
+enter `STORY.md`. For other projects, a user-named ticket or document can be
+worked as a source directly, subject to the project's own privacy boundaries.
 
 | Piece | The Canon | A Code Project |
 | --- | --- | --- |
@@ -49,16 +78,21 @@ That is its own State, and it never Drains early.
 ## When it Runs
 
 - The user Asks for pending, undistilled or open Stories.
+- The user asks to assess Stories from named source records or split a shared
+  source into separate Stories or linked substories.
 - The user wants to Pick a story, or asks which one can move.
 - STORY.md is Full, and a tenth piece is Waiting to enter.
 
-Do not invoke for writing a new Story from chaos.
-Stripping the Person is a human Step.
+Do not invoke merely to capture raw chaos. In the Canon, stripping the Person
+is still a human Step.
 
 ## Survey
 
-Read the Index in `STORY.md`, then each Story it Lists.
-The Provenance Map is not a story; leave it out of the count.
+Read the project's Story index if one exists, then each Story it Lists. For a
+named-source request, start from those source records and follow relevant links
+only as needed to establish intent, state or provenance. If there is no index,
+use the project's existing document pattern. The Provenance Map is not a story;
+leave it out of the count.
 
 For each Story, name its **State**:
 
@@ -130,7 +164,10 @@ Next — commit the merge.
 
 ## Bounds
 
-- Never write a Story from chaos, and never read chaos to fill one.
+- Never promote unprocessed private chaos into a Story. In the Canon, the user
+  removes the Person first; elsewhere follow the project's privacy boundaries.
+- Never assume one source record equals one Story, or one document contains
+  only one Story.
 - Never Distill a `Moving`, `Blocked`, `Speculative` or `Waiting` story unless the user insists,
   and then name what the project Loses by taking it early.
 - Never land two Stories in one turn.

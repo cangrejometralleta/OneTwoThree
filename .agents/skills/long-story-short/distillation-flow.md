@@ -7,11 +7,18 @@ This is how one Story leaves, in the Canon or in a code project.
 
 ```mermaid
 flowchart TD
-    ASK["pending stories?"] --> KIND{"Which Project?"}
+    ASK["pending stories or named source?"] --> KIND{"Which Project?"}
     KIND -- "the Canon" --> CANONMAP["Values · Rules · Patterns"]
     KIND -- "a code project" --> CODEMAP["docs · code + tests · contract"]
-    CANONMAP --> SURVEY["Read STORY.md · each Story"]
-    CODEMAP --> SURVEY
+    CANONMAP --> ORIGIN["Read the index or relevant named sources"]
+    CODEMAP --> ORIGIN
+    ORIGIN --> UNIT{"What is the Story boundary?"}
+    UNIT -- "one outcome, one intent" --> SINGLE["One Story links its source records"]
+    UNIT -- "independent outcomes or triggers" --> SPLIT["Separate Story docs link to the shared source"]
+    UNIT -- "shared context, parts move separately" --> SUB["Parent links substories; each has its own state"]
+    SINGLE --> SURVEY["Survey each Story and its relevant sources"]
+    SPLIT --> SURVEY
+    SUB --> SURVEY
     SURVEY --> STATE{"State of each Story"}
 
     STATE -- "trigger Met" --> READY["Ready"]
@@ -49,6 +56,9 @@ flowchart TD
     DRAIN --> INDEX["Update STORY.md · the Door · Links"]
     INDEX --> STOP["Stop · the commit is its own Request"]
 ```
+
+The project's index and cap count active Story documents, including
+substories. Source documents and source links do not count as Stories.
 
 ## Two Maps, one Passage
 

@@ -51,7 +51,7 @@ Una sesión normal se mantiene deliberadamente pequeña:
 
 ```text
 yo-yo-yo          reconstruye el Contexto y nombra un siguiente Paso
-gimme-gimme-gimme      presenta hasta tres caminos y espera una elección
+gimme-gimme-gimme presenta hasta tres caminos y espera una elección
 next-episode      ejecuta ese Paso, lo verifica y se detiene
 remember-the-day  persiste el Estado mientras el Trabajo avanza
 bye-bye-bye       deja un handoff que otra sesión pueda retomar
@@ -257,8 +257,9 @@ Es un intérprete, nunca un revisor: no devuelve hallazgos ni ordena nada por se
 
 | Pieza | Dónde |
 | --- | --- |
-| Definición, la fuente única | [.agents/agents/dove.md](.agents/agents/dove.md) |
-| Shim para clientes que leen TOML | [.agents/agents/dove.toml](.agents/agents/dove.toml), que solo manda al agente a leer el Markdown |
+| Estilo conversacional, usable por sí solo | [.agents/skills/cadencia-dove/SKILL.md](.agents/skills/cadencia-dove/SKILL.md) |
+| Rol y flujo del agente | [.agents/agents/dove.md](.agents/agents/dove.md) |
+| Shim para clientes que leen TOML | [.agents/agents/dove.toml](.agents/agents/dove.toml), que carga las fuentes del rol y el estilo |
 | Herramientas | `Bash`, `Read`, `Grep`, `Glob`, `Edit`, `Write` |
 | Identificador | `dove` en paths y configs, Dove en prosa |
 
@@ -314,6 +315,7 @@ Las Skills definen las operaciones; cada archivo enlazado guarda los detalles.
 | --- | --- | --- |
 | `ha dove`, `hey dove`, `yo dove`, `hi dove`, `sup dove`, `ring dove`, `ring ring dove`, `catch me up`, `what remains?` o `where did we leave off?` | [yo-yo-yo](.agents/skills/yo-yo-yo/SKILL.md) | Sincroniza la rama, reconstruye el contexto y nombra un siguiente paso. |
 | `what are our options?`, `where do we go from here?`, `what can we do next?` o `¿qué opciones tenemos?` | [gimme-gimme-gimme](.agents/skills/gimme-gimme-gimme/SKILL.md) | Presenta hasta tres caminos distintos y concretos; deriva los bloqueos a `dilemma`. |
+| Pide la voz conversacional de Dove o Cadencia Dove | [cadencia-dove](.agents/skills/cadencia-dove/SKILL.md) | Aplica el estilo y enmarcado de opciones sin necesitar al agente Dove. |
 | `next`, `go`, `vamos`, `sigues`, `let's go`, `come on`, `sigue`, `continue`, `go on`, `go ahead`, `carry on`, `proceed`, `do the next step` u opción elegida | [next-episode](.agents/skills/next-episode/SKILL.md) | Da un paso recomendado, lo verifica y nombra el siguiente. |
 | Una edición o decisión durable; `save progress` o `record where we are` | [remember-the-day](.agents/skills/remember-the-day/SKILL.md) | Guarda el hilo en `.handoff.md` durante el trabajo. |
 | `move this thread to another repo` o `carry this work over` | [bye-bye-bye](.agents/skills/bye-bye-bye/references/transfer.md) | Entrega un `.handoff.md` listo para copiar; no hace falta la ruta de destino. |
@@ -326,9 +328,10 @@ Las Skills definen las operaciones; cada archivo enlazado guarda los detalles.
 | Un secreto pudo entrar al historial, como una API key commiteada por error, o hay que quitar la marca de un vendor | [dirrty](.agents/skills/dirrty/SKILL.md) | Detecta, confirma y purga un valor exacto de archivos e historial; también quita la autoría de vendors como último recurso. |
 
 Las skills de apoyo dan forma al trabajo mientras ocurre:
+[cadencia-dove](.agents/skills/cadencia-dove/SKILL.md) para conversar,
 [like-to-move-it](.agents/skills/like-to-move-it/SKILL.md) para código y diseño guiado por requisitos,
 [de-la-case](.agents/skills/de-la-case/SKILL.md) para nombres y prosa, y
-[til](.agents/skills/til/SKILL.md) para resumir la sesión.
+[til](.agents/skills/til/SKILL.md) para recoger los aprendizajes clave de la sesión.
 
 El [Diagrama de Sesión](patterns/the-lever-and-the-tape.md) conecta estas operaciones.
 Un pedido nuevo con su propia intención inicia su propio trabajo.
