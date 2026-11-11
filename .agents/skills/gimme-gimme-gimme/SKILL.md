@@ -1,13 +1,27 @@
 ---
-name: next-options
+name: gimme-gimme-gimme
 description: "Frame up to three grounded ways forward. Use when the user asks ‘what are our options?’, ‘where do we go from here?’, ‘what can we do next?’, ‘¿qué opciones tenemos?’ or when several viable paths compete without a clear next step. Present only distinct choices and wait for the user; do not choose or execute one. If progress is blocked, invoke dilemma and name the blocker plainly."
 ---
 
-# NextOptions
+# Gimme! Gimme! Gimme!
+
+The Name Recalls *Gimme! Gimme! Gimme! (A Man After Midnight)* by ABBA.
 
 A Decision Frame, not a session Opening or an execution Step.
 It shows up to three viable paths from the state already in view,
 then leaves the choice with the user.
+
+```mermaid
+flowchart TD
+    START["Several paths compete or user asks for options"] --> POSITION["Read current intent and evidence"]
+    POSITION --> BLOCKED{"A dependency prevents progress?"}
+    BLOCKED -- Yes --> DILEMMA["Defer to Dilemma · Name blocker"]
+    BLOCKED -- No --> CHOICE{"Several distinct paths remain?"}
+    CHOICE -- No --> STEP["Defer to NextEpisode · One clear Step"]
+    CHOICE -- Yes --> FRAME["Frame up to three feasible paths"]
+    FRAME --> WAIT["Wait for user choice"]
+    WAIT --> NEXT["Chosen Step goes to NextEpisode"]
+```
 
 The session Opening Lives in [YoYoYo](../yo-yo-yo/SKILL.md).
 The chosen Step Lives in [NextEpisode](../next-episode/SKILL.md).

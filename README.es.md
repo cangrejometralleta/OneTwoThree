@@ -51,7 +51,7 @@ Una sesión normal se mantiene deliberadamente pequeña:
 
 ```text
 yo-yo-yo          reconstruye el Contexto y nombra un siguiente Paso
-next-options      presenta hasta tres caminos y espera una elección
+gimme-gimme-gimme      presenta hasta tres caminos y espera una elección
 next-episode      ejecuta ese Paso, lo verifica y se detiene
 remember-the-day  persiste el Estado mientras el Trabajo avanza
 bye-bye-bye       deja un handoff que otra sesión pueda retomar
@@ -276,7 +276,7 @@ Sus Límites son explícitos:
 
 - Edita solo lo que el turno nombró, un paso por turno.
 - Nunca revisa, nunca reescribe un archivo completo en la respuesta, nunca normaliza las mayúsculas que recibió.
-- Tras tres turnos de escritura o tres archivos tocados, considera [one-two-growth](.agents/skills/one-two-growth/SKILL.md).
+- Tras tres turnos de escritura o tres archivos tocados, considera [changes](.agents/skills/changes/SKILL.md).
 
 También se enlaza al ciclo de vida de la sesión. Una edición duradera llama a
 `remember-the-day`. Los saludos `ha dove`, `hey dove`, `yo dove`, `hi dove`,
@@ -313,22 +313,22 @@ Las Skills definen las operaciones; cada archivo enlazado guarda los detalles.
 | Cuándo | Skill | Qué hace |
 | --- | --- | --- |
 | `ha dove`, `hey dove`, `yo dove`, `hi dove`, `sup dove`, `ring dove`, `ring ring dove`, `catch me up`, `what remains?` o `where did we leave off?` | [yo-yo-yo](.agents/skills/yo-yo-yo/SKILL.md) | Sincroniza la rama, reconstruye el contexto y nombra un siguiente paso. |
-| `what are our options?`, `where do we go from here?`, `what can we do next?` o `¿qué opciones tenemos?` | [next-options](.agents/skills/next-options/SKILL.md) | Presenta hasta tres caminos distintos y concretos; deriva los bloqueos a `dilemma`. |
+| `what are our options?`, `where do we go from here?`, `what can we do next?` o `¿qué opciones tenemos?` | [gimme-gimme-gimme](.agents/skills/gimme-gimme-gimme/SKILL.md) | Presenta hasta tres caminos distintos y concretos; deriva los bloqueos a `dilemma`. |
 | `next`, `go`, `vamos`, `sigues`, `let's go`, `come on`, `sigue`, `continue`, `go on`, `go ahead`, `carry on`, `proceed`, `do the next step` u opción elegida | [next-episode](.agents/skills/next-episode/SKILL.md) | Da un paso recomendado, lo verifica y nombra el siguiente. |
 | Una edición o decisión durable; `save progress` o `record where we are` | [remember-the-day](.agents/skills/remember-the-day/SKILL.md) | Guarda el hilo en `.handoff.md` durante el trabajo. |
 | `move this thread to another repo` o `carry this work over` | [bye-bye-bye](.agents/skills/bye-bye-bye/references/transfer.md) | Entrega un `.handoff.md` listo para copiar; no hace falta la ruta de destino. |
-| Cambia el código o un requisito cambia la forma de una app | [check-yo-self](.agents/skills/check-yo-self/SKILL.md) | Aplica las Rules de código y lee el flujo de diseño si el requisito cambia la forma de la app. |
+| Cambia el código o un requisito cambia la forma de una app | [like-to-move-it](.agents/skills/like-to-move-it/SKILL.md) | Aplica las Rules de código y lee el flujo de diseño si el requisito cambia la forma de la app. |
 | `I'm stuck`, `what's blocking us?`, `how do we get unstuck?` o razonamiento repetido | [dilemma](.agents/skills/dilemma/SKILL.md) | Distingue bloqueos, ciclos o hipótesis agotadas y determina qué permite avanzar. |
-| Un cambio empieza a crecer | [one-two-growth](.agents/skills/one-two-growth/SKILL.md) | Revisa si una sola intención aún sostiene el cambio. |
-| Pedir las stories pendientes | [one-two-stories](.agents/skills/one-two-stories/SKILL.md) | Ordena las stories por lo que esperan y destila la que elijas. |
+| Un cambio empieza a crecer | [changes](.agents/skills/changes/SKILL.md) | Revisa si una sola intención aún sostiene el cambio. |
+| Pedir las stories pendientes | [long-story-short](.agents/skills/long-story-short/SKILL.md) | Ordena las stories por lo que esperan y destila la que elijas. |
 | Organizar cambios en commits por feature, separar el trabajo en commits o commitear y pushear | [commit-commit-commit](.agents/skills/commit-commit-commit/SKILL.md) | Agrupa cambios por feature, commitea cada grupo y pushea una vez al final. |
 | `bye dove`, `I'm done for now`, `let's wrap up` o pedir un handoff | [bye-bye-bye](.agents/skills/bye-bye-bye/SKILL.md) | Expande el checkpoint en un handoff de cierre y se detiene. |
 | Un secreto pudo entrar al historial, como una API key commiteada por error, o hay que quitar la marca de un vendor | [dirrty](.agents/skills/dirrty/SKILL.md) | Detecta, confirma y purga un valor exacto de archivos e historial; también quita la autoría de vendors como último recurso. |
 
 Las skills de apoyo dan forma al trabajo mientras ocurre:
-[check-yo-self](.agents/skills/check-yo-self/SKILL.md) para código y diseño guiado por requisitos,
+[like-to-move-it](.agents/skills/like-to-move-it/SKILL.md) para código y diseño guiado por requisitos,
 [de-la-case](.agents/skills/de-la-case/SKILL.md) para nombres y prosa, y
-[today-was-a-good-day](.agents/skills/today-was-a-good-day/SKILL.md) para resumir la sesión.
+[til](.agents/skills/til/SKILL.md) para resumir la sesión.
 
 El [Diagrama de Sesión](patterns/the-lever-and-the-tape.md) conecta estas operaciones.
 Un pedido nuevo con su propia intención inicia su propio trabajo.
@@ -337,7 +337,7 @@ Abrir una sesión nombra el siguiente paso; publicar y cerrar necesitan cada uno
 ## Los Proyectos Conservan su Mecanismo de Distribución
 
 [dove-update](.agents/skills/dove-update/SKILL.md) gestiona la conexión con el canon y conecta el cliente activo con las skills y agentes elegidos.
-[come-together](.agents/skills/come-together/SKILL.md) aplica una estructura documentada de enlaces relativos a una carpeta o proyecto.
+[joining-you](.agents/skills/joining-you/SKILL.md) aplica una estructura documentada de enlaces relativos a una carpeta o proyecto.
 
 ```mermaid
 flowchart LR
@@ -373,7 +373,7 @@ flowchart LR
 - En un proyecto de código, una decisión aterriza en `docs/`, una regla en código sostenido por un test, una promesa en el contrato de la API.
 
 Un Stories vacío significa que el canon está al día.
-[one-two-stories](.agents/skills/one-two-stories/SKILL.md) las ordena, una por turno.
+[long-story-short](.agents/skills/long-story-short/SKILL.md) las ordena, una por turno.
 
 ## Los Agentes Necesitan Autoridad Explícita
 

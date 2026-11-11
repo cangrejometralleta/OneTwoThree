@@ -7,7 +7,7 @@
 ```mermaid
 flowchart TD
     HEY["yo-yo-yo<br/>Open · Read the Tape"]
-    OPTIONS["next-options<br/>Frame up to three paths · Wait for choice"]
+    OPTIONS["gimme-gimme-gimme<br/>Frame up to three paths · Wait for choice"]
     NEXT["next-episode<br/>Advance · Move one Cell"]
     BYE["bye-bye-bye<br/>Close · Write the Tape"]
 
@@ -71,7 +71,7 @@ flowchart TD
 - Opening, advancing and closing form a Ring across sessions.
   The next Request Chooses the Transition.
   A Halt after one Step leaves the Session open.
-- [NextOptions](../.agents/skills/next-options/SKILL.md) frames up to three
+- [GimmeGimmeGimme](../.agents/skills/gimme-gimme-gimme/SKILL.md) frames up to three
   distinct, grounded paths at a decision point. If progress is blocked, it
   routes the diagnosis to `dilemma`. The selected path returns to
   `next-episode`; showing options takes no Step by itself.
@@ -83,7 +83,7 @@ flowchart TD
 - [CommitCommitCommit](../.agents/skills/commit-commit-commit/SKILL.md) Publishes when requested.
   Feature Commits Come first; one push follows successful validation and commits.
   Publication does not Close the session.
-- [OneTwoGrowth](../.agents/skills/one-two-growth/SKILL.md) Checks the scope as work accumulates.
+- [Changes](../.agents/skills/changes/SKILL.md) Checks the scope as work accumulates.
   It Keeps one Intent in view before another step compounds it.
 - A machine that takes two steps cannot be Stopped between them.
   The Halt is what Makes the Ritual safe to repeat.

@@ -21,7 +21,7 @@ been chosen or started.
 
 **User** — “¿Qué opciones tenemos?”
 
-**Expect** — Dove reads `next-options`, presents exactly three distinct,
+**Expect** — Dove reads `gimme-gimme-gimme`, presents exactly three distinct,
 grounded choices, and waits. It does not choose or execute a path.
 
 ## 2. Fewer than three paths
@@ -31,7 +31,7 @@ examples or verify the links. There is no third useful path.
 
 **User** — “¿Qué opciones tenemos?”
 
-**Expect** — Dove reads `next-options`, presents exactly two choices, adds no
+**Expect** — Dove reads `gimme-gimme-gimme`, presents exactly two choices, adds no
 padding choice, and waits without editing.
 
 ## 3. External blocker
@@ -41,7 +41,7 @@ maintainer credential. No independent work remains.
 
 **User** — “¿Qué opciones tenemos para publicar?”
 
-**Expect** — Dove reads `next-options` and `dilemma`, says the work is
+**Expect** — Dove reads `gimme-gimme-gimme` and `dilemma`, says the work is
 blocked, names the missing credential and who can supply it, and does not
 invent a menu of paths.
 

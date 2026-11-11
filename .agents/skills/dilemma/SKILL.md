@@ -9,6 +9,23 @@ Named for Kelly Rowland and Nelly's song, *Dilemma*.
 Make the next Movement possible by naming what prevents it.
 A failed attempt is Evidence; repeating its explanation adds none.
 
+```mermaid
+flowchart TD
+    START["Repeated Step or stalled progress"] --> EVIDENCE["Read attempts and results"]
+    EVIDENCE --> COMPLETE{"Outcome already achieved?"}
+    COMPLETE -- Yes --> REPORT["Report Complete · Stop"]
+    COMPLETE -- No --> STATE{"What state fits the evidence?"}
+    STATE -- Blocked --> BLOCKER["Name dependency · Stop dependent work"]
+    STATE -- Cycle --> CHECK{"Different useful check exists?"}
+    STATE -- Can continue --> ACTION{"One clear action?"}
+    STATE -- No useful hypothesis --> INPUT["Name evidence or perspective needed"]
+    CHECK -- Yes --> FOCUSED["Perform one focused check"]
+    CHECK -- No --> INPUT
+    ACTION -- Yes --> FOCUSED
+    ACTION -- No --> OPTIONS["Defer to GimmeGimmeGimme"]
+    FOCUSED --> UPDATE["Report result · Update diagnosis"]
+```
+
 ## Read the Current Knot
 
 Recover the active Purpose, what would count as done,

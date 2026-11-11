@@ -23,8 +23,10 @@ flowchart TD
     FIND -- No --> OPEN["Defer to YoYoYo · Stop"]
     FIND -- Yes --> HOLDS{"Still Holds?"}
     HOLDS -- No --> RENAME["Name what Changed · Restate one Step"]
-    HOLDS -- Yes --> SIZE{"One Step?"}
-    RENAME --> SIZE
+    HOLDS -- Yes --> REPEAT{"Same outcome-level Step<br/>in 3 consecutive invocations?"}
+    REPEAT -- Yes --> DILEMMA["Defer to Dilemma · Stop"]
+    REPEAT -- No --> SIZE{"One Step?"}
+    RENAME --> REPEAT
     SIZE -- No --> SPLIT["Take the first independent Part"]
     SIZE -- Yes --> DO["Take the Step"]
     SPLIT --> DO
@@ -40,6 +42,13 @@ or `come on` as an affirmative continuation prompt. Also accept `sigue`,
 or a request to proceed and do the next step.
 
 These phrases select the standing recommendation; they do not create one.
+
+Before taking a Step, compare it with the Steps named in the latest three
+consecutive NextEpisode invocations available in this Thread. Compare the
+outcome, not the wording. On the third consecutive invocation that names the
+same Step, defer to [Dilemma](../dilemma/SKILL.md) before taking it again.
+Dilemma checks whether the repeated attempts produced new Evidence or whether
+a different observation is needed.
 
 Do not invoke to open a Session; YoYoYo reconstructs state.
 Do not invoke to close one; ByeByeBye writes the Handoff.

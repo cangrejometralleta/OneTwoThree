@@ -1,9 +1,11 @@
 ---
-name: one-two-stories
+name: long-story-short
 description: "List the pending Stories, sort each by what it waits on, and distill the one the user picks to where it governs — Values, Rules and Patterns in the Canon; docs, tested code or the contract in a code project — then delete it. Use when the user asks for pending or undistilled stories, wants to pick a story, asks what can be distilled, or STORY.md is full and a tenth piece is waiting. It lands one Story per turn and never commits."
 ---
 
-# OneTwoStories
+# LongStoryShort
+
+The Name Recalls *long story short* by Taylor Swift.
 
 A Drain, not a Writer.
 It Shows what waits in the Passage,

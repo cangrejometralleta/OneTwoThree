@@ -1,9 +1,11 @@
 ---
-name: check-yo-self
+name: like-to-move-it
 description: Apply Dove Canon code conventions while writing or refactoring code. For new applications or requirements that change an application's shape, also use the linked design workflow. Use in projects following this Canon or when asked for its Rules.
 ---
 
-# CheckYoSelf
+# Like to Move It
+
+The Name Recalls *I Like to Move It* by Reel 2 Real.
 
 A portable summary of [Rules](../../../RULES.md).
 The Canon Lives in [rules/](../../../rules/) — each section its own file.

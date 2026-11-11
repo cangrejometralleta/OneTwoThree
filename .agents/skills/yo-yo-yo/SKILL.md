@@ -156,7 +156,7 @@ When the state is `Together`, name one next Step.
 When it is `Unclear`, name one focused Check that can decide.
 
 When the user must choose, invoke
-[NextOptions](../next-options/SKILL.md) to present up to three numbered
+[GimmeGimmeGimme](../gimme-gimme-gimme/SKILL.md) to present up to three numbered
 Options. Do not name a `Next` until the user Answers.
 The chosen Number becomes the selected Step for
 [NextEpisode](../next-episode/SKILL.md).

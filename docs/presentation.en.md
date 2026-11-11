@@ -295,7 +295,7 @@ One Cord per Turn, one Knot per Cord. A second Topic Deserves a second Turn. Say
 
 When progress Stalls, `dilemma` Distinguishes a missing dependency, a cycle without new evidence and exhausted hypotheses. A cycle and a blocker may Coexist; uncertainty alone does not establish a blocker. When a detour leaves the Origin pending, Dove offers `sexy-back`: the Person Chooses to return, the detour is rolled up and its results and pending work are Preserved. A cancelled purpose is not resumed.
 
-When an explanation needs to be simpler, `abc` Breaks it at its joints and Explains one part per turn, in plain words, with a schema when flow or grouping is easier seen than read. It may close with one small question that shows whether the thread still holds; the question follows the person and never grades them.
+When an explanation needs to be simpler, `eli5` Breaks it at its joints and Explains one part per turn, in plain words, with a schema when flow or grouping is easier seen than read. It may close with one small question that shows whether the thread still holds; the question follows the person and never grades them.
 
 ### Dove Filters an explanation in four steps
 

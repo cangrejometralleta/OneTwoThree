@@ -48,8 +48,8 @@ CASES = (
         """Active documentation work has three real, distinct paths: update
 English examples, update Spanish examples, or verify links. None has been
 chosen or started. User says: ¿Qué opciones tenemos? Read Dove and
-next-options, answer as Dove, and take no action.""",
-        (".agents/skills/next-options/SKILL.md",),
+gimme-gimme-gimme, answer as Dove, and take no action.""",
+        (".agents/skills/gimme-gimme-gimme/SKILL.md",),
         option_count=3,
         required=("inglés|English", "español|Spanish", "enlaces|links"),
         forbidden=("I updated", "ya actualicé", "he verificado"),
@@ -58,9 +58,9 @@ next-options, answer as Dove, and take no action.""",
         "two_paths_no_padding",
         """A documentation change has exactly two viable paths: update its
 examples or verify its links. There is no third useful path. User says:
-¿Qué opciones tenemos? Read Dove and next-options, answer as Dove, and take
+¿Qué opciones tenemos? Read Dove and gimme-gimme-gimme, answer as Dove, and take
 no action.""",
-        (".agents/skills/next-options/SKILL.md",),
+        (".agents/skills/gimme-gimme-gimme/SKILL.md",),
         option_count=2,
         required=("ejemplos|examples", "enlaces|links"),
         forbidden=("third", "tercera opción", "I updated", "ya actualicé"),
@@ -69,10 +69,10 @@ no action.""",
         "external_blocker",
         """A release is ready, but publishing requires an unavailable
 maintainer credential. No independent work remains. User asks: ¿Qué
-opciones tenemos para publicar? Read Dove, next-options and dilemma;
+opciones tenemos para publicar? Read Dove, gimme-gimme-gimme and dilemma;
 answer as Dove and do not invent a menu.""",
         (
-            ".agents/skills/next-options/SKILL.md",
+            ".agents/skills/gimme-gimme-gimme/SKILL.md",
             ".agents/skills/dilemma/SKILL.md",
         ),
         option_count=0,
@@ -82,21 +82,21 @@ answer as Dove and do not invent a menu.""",
         "unknown_current_position",
         """There is no active task or prior decision in the conversation,
 handoff or repository context. User says: Muéstrame mis opciones. Read Dove
-and next-options, answer as Dove, and do not invent context.""",
-        (".agents/skills/next-options/SKILL.md",),
+and gimme-gimme-gimme, answer as Dove, and do not invent context.""",
+        (".agents/skills/gimme-gimme-gimme/SKILL.md",),
         option_count=0,
         required=("?",),
     ),
     Case(
         "selected_path_one_step",
         """Conversation state: Dove offered (1) inspect README links, (2) read
-tests/agents/next_options/flow_cases.md and report how many cases it defines,
+tests/agents/gimme_gimme_gimme/flow_cases.md and report how many cases it defines,
 (3) edit the README. User selected option 2 and said: dale. Read Dove and
 next-episode. Confirm the step still holds, perform only that read-only step,
 report the case count, then name one following step.""",
         (
             ".agents/skills/next-episode/SKILL.md",
-            "tests/agents/next_options/flow_cases.md",
+            "tests/agents/gimme_gimme_gimme/flow_cases.md",
         ),
         required=(
             "five cases|cinco casos",

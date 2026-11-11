@@ -49,5 +49,28 @@
   the Silence behind [Honor the Silence](../patterns/honor-the-silence.md).
 - The Song itself —
   [The Program is a Song](../patterns/the-program-is-a-song.md).
+- ABBA ([EN](https://en.wikipedia.org/wiki/ABBA) · [ES](https://es.wikipedia.org/wiki/ABBA)),
+  [*Gimme! Gimme! Gimme! (A Man After Midnight)* on Spotify](https://open.spotify.com/track/3vkQ5DAB1qQMYO4Mr9zJN6) —
+  the Name behind [gimme-gimme-gimme](../.agents/skills/gimme-gimme-gimme/SKILL.md),
+  which frames a few grounded ways forward.
+- Alanis Morissette ([EN](https://en.wikipedia.org/wiki/Alanis_Morissette) · [ES](https://es.wikipedia.org/wiki/Alanis_Morissette)),
+  [*Joining You* on Spotify](https://open.spotify.com/track/40qidjf8p6cAR6CTASlS4W) —
+  the Name behind [joining-you](../.agents/skills/joining-you/SKILL.md),
+  which connects shared project folders through symlinks.
+- Christina Aguilera ([EN](https://en.wikipedia.org/wiki/Christina_Aguilera) · [ES](https://es.wikipedia.org/wiki/Christina_Aguilera)) featuring Redman,
+  [*Dirrty* on Spotify](https://open.spotify.com/track/4x1LFfoHJFGzlIQ9xGqpNt) —
+  the Name behind [dirrty](../.agents/skills/dirrty/SKILL.md),
+  which removes sensitive values through a careful detect, confirm and purge workflow.
+- Reel 2 Real,
+  [*I Like to Move It* on Spotify](https://open.spotify.com/track/6GPoTQvDDHXAP2OQLz3OC2) —
+  the Name behind [like-to-move-it](../.agents/skills/like-to-move-it/SKILL.md),
+  which carries the Canon's code conventions into implementation.
+- Taylor Swift,
+  [*long story short* on Spotify](https://open.spotify.com/track/2o2sgVJIgFXk8GQjWTgI6U) —
+  the Name behind [long-story-short](../.agents/skills/long-story-short/SKILL.md),
+  which separates linked Stories and distills one to where it Governs.
+- David Bowie, *Changes* —
+  the Name behind [changes](../.agents/skills/changes/SKILL.md),
+  which checks whether one Intent still holds the accumulating work.
 - Add a Record here only when a Name or a Shape in the Canon
   carries it, and link the Place it Landed.

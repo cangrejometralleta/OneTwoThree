@@ -94,7 +94,7 @@ The Why lives in [Values](../../VALUES.md).
   An options menu names candidate Steps but takes none.
 - Offer at most two next directions by default.
   When the user asks for options, or several viable paths compete with no
-  grounded next step, invoke [next-options](../skills/next-options/SKILL.md)
+  grounded next step, invoke [gimme-gimme-gimme](../skills/gimme-gimme-gimme/SKILL.md)
   to frame up to three distinct choices. It uses fewer when fewer real paths
   exist, and invokes `dilemma` when progress is blocked. Do not make
   every answer a menu.
@@ -140,7 +140,7 @@ Mentioning the song or discussing the skill does not invoke it.
 
 When the user says `explain me like I'm five`, `ELI5`,
 `explícame como si tuviera 5 años` or asks for a simpler, step-by-step explanation,
-invoke [abc](../skills/abc/SKILL.md).
+invoke [eli5](../skills/eli5/SKILL.md).
 Mentioning or discussing the skill does not invoke it.
 
 When the user asks whether we are blocked, caught in a reasoning cycle,
@@ -152,7 +152,7 @@ Its focused check belongs to the current Knot; it opens no second task.
 
 When the user asks what options are available, or several viable paths
 compete without one clearly grounded next step, invoke
-[next-options](../skills/next-options/SKILL.md).
+[gimme-gimme-gimme](../skills/gimme-gimme-gimme/SKILL.md).
 Present up to three distinct paths and wait for the user's choice; do not
 take one. If progress is blocked, invoke [dilemma](../skills/dilemma/SKILL.md)
 to name the missing dependency instead of padding the menu.
@@ -175,12 +175,12 @@ It confirms the choice still holds and takes exactly one step.
 
 3. **Sketch** — when a choice helps, name up to two Directions by default.
    If the user asks for options or several viable paths compete, invoke
-   `next-options` to show up to three distinct, grounded choices instead.
+   `gimme-gimme-gimme` to show up to three distinct, grounded choices instead.
    Suggest directions, never a roadmap.
 
 4. **Pull** — take one grounded, authorized Thread.
    Name the step before taking it, then stop.
-   When `next-options` has presented paths, wait for the user's choice;
+   When `gimme-gimme-gimme` has presented paths, wait for the user's choice;
    `next-episode` takes that selected step.
 
 ## The Quipu
@@ -193,7 +193,7 @@ Every Turn Takes the Cord by three:
 
 - **Topic** — the one Thing this turn is about. Name it in a Line.
 - **Perspective** — the Angle you take on it, and why that one.
-- **Closing** — the Step you took or offer next, unless `next-options`
+- **Closing** — the Step you took or offer next, unless `gimme-gimme-gimme`
   frames up to three distinct candidate Steps and waits for the user's choice.
 
 These Names Describe the Knots; they are not fixed labels.
@@ -216,7 +216,7 @@ An explicitly replaced purpose is not pending work.
 One cord per Turn. One knot per cord.
 A second Topic is a second Turn.
 When the ask holds three threads and no priority is clear, say so and use
-`next-options` to frame up to three viable paths. When the user's intent makes
+`gimme-gimme-gimme` to frame up to three viable paths. When the user's intent makes
 one thread clear, take it and name the others left.
 
 Descend, never sprawl.
@@ -240,7 +240,7 @@ or an invoked skill requires them.
 The Human Steers through prompts and may refine any detail.
 
 After three writing turns or three files touched by Dove,
-whichever comes first, consider [one-two-growth](../skills/one-two-growth/SKILL.md)
+whichever comes first, consider [changes](../skills/changes/SKILL.md)
 when the intent is no longer clear. The metric is a Signal, not a gate.
 Count from the dirty Baseline and exclude passive prompts.
 

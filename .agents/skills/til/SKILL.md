@@ -1,17 +1,17 @@
 ---
-name: today-was-a-good-day
-description: Summarize completed work and meaningful remaining limitations across the current session, from its start or the latest yo-yo-yo through now. Use when someone asks “what did we do today?”, “give me a recap”, “what have we finished?”, or requests a session summary.
+name: til
+description: Capture the main things learned in a session, including decisions and discoveries that help the user's work continue. Use when someone asks “what did we learn today?”, “what did we figure out?”, or requests a learning recap.
 ---
 
-# TodayWasAGoodDay
+# TIL — Today I Learned
 
-Give a compact recap of the work in the current session, through this request.
+Capture the most useful things learned in the current session, through this request.
 
 ## Set the Window
 
 Start at the beginning of the current session, or at the latest point where
 [YoYoYo](../yo-yo-yo/SKILL.md) reopened it, whichever is later.
-Include relevant actions, decisions and outcomes through now.
+Include relevant discoveries, decisions and outcomes through now.
 Do not treat the calendar day as the boundary or carry older work forward
 just because it is still visible in the repository.
 
@@ -21,11 +21,11 @@ never claim a check passed unless it did.
 Exclude internal reasoning, unrelated pre-existing changes and detours
 that did not change the work or its direction.
 
-## Write the Recap
+## Write the TIL
 
 Write briefly from the user's point of view, with ordinary capitalization.
-Lead with the most important completed outcome.
-Mention other completed work only when it helps describe the session.
+Lead with the most useful thing learned.
+Mention completed work only when it grounds a discovery or decision.
 If the session found a blocker, state it clearly after the completed work.
 Name what it prevents and what condition or input would unblock it.
 Do not bury a blocker among minor details or soften it into a generic limitation.
@@ -38,5 +38,5 @@ Use no fixed headings or repeated status template.
 
 Return only the recap; do not add a preamble, sign-off or follow-up offer.
 
-If the session boundary or evidence is unclear enough to make the recap
+If the session boundary or evidence is unclear enough to make the TIL
 unreliable, state the specific uncertainty instead of guessing.
