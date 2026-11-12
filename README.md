@@ -2,25 +2,26 @@
 
 [Español](README.es.md)
 
-Dove Canon is a Harness for Work shared by a Person and an Agent.
-It Protects human attention in three ways: keep the next Step small,
-keep the State outside the mind and keep the Machine inside its Authority.
+Dove Canon is a Harness for work shared by a Person and an Agent.
+It exists to protect your attention, and it does that in three ways:
+keep the next Step small, keep the State outside your head,
+and keep the Machine inside its Authority.
 
-It does not try to use every Capability, cover every Case or automate every
-Decision.
+It will not use every capability you give it, and that is the point.
+Every extra feature is one more thing to hold in mind before it helps you.
 **More is a Cost before it is a Feature.**
 
-This Repository is both a Manifesto and a Codebase. Rules tell an Agent how to
-read, write and collaborate here. Values and Patterns hold the reasons, so a
-Person can inspect and challenge them.
+This repository is a Manifesto and a Codebase at once. The Rules tell an
+Agent how to read, write and collaborate here. The Values and Patterns say
+why, so you can inspect the reasons and argue with them.
 
-The Harness is meant to become unnecessary. What remains is the Learning.
+The Harness is meant to become unnecessary. What should remain is the Learning.
 
-This Page is the technical entrance to Dove Canon. The longer
-[Presentation](docs/presentation.en.md) explains why the ideas exist; this Page
-shows the Architecture, operations and checks that make them concrete.
+You are at the technical entrance. If you want to know why these ideas exist,
+the [Presentation](docs/presentation.en.md) tells that story. This page shows
+the architecture, the operations and the checks that make them concrete.
 
-## Start with the Canon or with the Code
+## Where to Start
 
 - To understand the Manifesto, read [Values](VALUES.md), [Rules](RULES.md) and
   [Patterns](PATTERNS.md).
@@ -31,18 +32,19 @@ shows the Architecture, operations and checks that make them concrete.
 - To connect another project, use
   [dove-update](.agents/skills/dove-update/SKILL.md).
 
-## One Harness Keeps Work Resumable
+## What the Harness Does
 
-The Harness has three jobs: preserve Context across disposable sessions, bound
-what an Agent may do next and turn repeated experience into inspectable Canon.
+Sessions are disposable. The Harness is what survives them: it holds the
+Context, bounds what an Agent may do next, and turns repeated experience into
+Canon you can inspect.
 
 ```text
-Person       supplies Intention, judgment and authority
-Harness      holds Context, rules, operations and boundaries
-Agent        reads the current state and takes one verifiable Step
+Person       supplies intention, judgment and authority
+Harness      holds context, rules, operations and boundaries
+Agent        reads the current state and takes one verifiable step
 ```
 
-A normal session stays deliberately small:
+A normal session is short on purpose:
 
 ```text
 yo-yo-yo          reconstruct Context and name one next Step
@@ -52,27 +54,27 @@ remember-the-day  persist State while the Work is moving
 bye-bye-bye       leave a handoff another session can resume
 ```
 
-Projects connect to the Canon through `dove-update`, which treats source
-distribution and client loading as separate operations. Existing installations
-keep their distribution mechanism: clone, submodule, subtree, symlink or
-portable ZIP. Filesystem validation proves the connection; client discovery
-proves that the Agent loaded it.
+Other projects connect through `dove-update`. Getting the files there and
+getting the client to load them are two different jobs, so the skill keeps
+them apart. However you already install things, clone, submodule, subtree,
+symlink or a portable ZIP, you keep doing it that way. Checking the filesystem
+proves the connection. Asking the client proves the Agent actually loaded it.
 
-The same boundary applies to knowledge. Raw experience stays in `chaos/`; a
-depersonalized observation may become a Story; only Learning that survives
-review becomes a Value, Rule or Pattern. The System may generate and compare.
-The Person decides what governs.
+Knowledge crosses the same kind of boundary. Raw experience stays in `chaos/`.
+Once the person is removed, what is left may become a Story. Only the learning
+that survives review becomes a Value, a Rule or a Pattern. The System may
+generate and compare; the Person decides what governs.
 
-The examples make the architectural Rules executable. The School service is
-generated from a Contract, a Specification and a Shape outside its code. Its
-Go, Java and TypeScript implementations answer the same requests in the same
-way. The PDF converter keeps Markdown parsing, document structure and rendering
-behind explicit boundaries.
+The examples are where the architectural Rules run. The School service is
+generated from a Contract, a Specification and a Shape that live outside its
+code, and its Go, Java and TypeScript versions answer the same requests the
+same way. The PDF converter keeps parsing, document structure and rendering
+behind boundaries you can point at.
 
-The goal is Work that remains understandable, interruptible, verifiable and
-resumable.
+What we are after is Work you can understand, verify and pick up again after
+an interruption.
 
-## The Repository Map Separates Purpose from Operation
+## The Repository Map
 
 ```text
 VALUES.md   the Why       beliefs, in values/

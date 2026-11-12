@@ -2,28 +2,29 @@
 
 [English](README.md)
 
-Dove Canon es un Harness para el Trabajo compartido entre una Persona y un
-Agente. Protege la atención humana de tres maneras: mantiene pequeño el
-siguiente Paso, mantiene el Estado fuera de la mente y mantiene la Máquina
-dentro de su Autoridad.
+Dove Canon es un Harness para el trabajo compartido entre una Persona y un
+Agente. Existe para proteger tu atención, y lo hace de tres maneras: mantiene
+pequeño el siguiente Paso, mantiene el Estado fuera de tu cabeza y mantiene la
+Máquina dentro de su Autoridad.
 
-No intenta usar toda Capacidad, cubrir todo Caso ni automatizar toda Decisión.
+No va a usar toda capacidad que le des, y ese es justamente el punto. Cada
+función extra es una cosa más que cargar en la mente antes de que te ayude.
 **Más es un Costo antes que una Función.**
 
-Este Repositorio es a la vez un Manifiesto y una Base de código. Las Reglas
+Este repositorio es un Manifiesto y una Base de código a la vez. Las Reglas
 dicen cómo un Agente debe leer, escribir y colaborar aquí. Los Valores y
-Patrones guardan las razones, para que una Persona pueda inspeccionarlas y
-cuestionarlas.
+Patrones dicen por qué, para que puedas inspeccionar las razones y
+discutirlas.
 
-El Harness está hecho para volverse innecesario. Lo que queda es el Aprendizaje.
+El Harness está hecho para volverse innecesario. Lo que debería quedar es el
+Aprendizaje.
 
-Esta Página es la entrada técnica a Dove Canon. La
-[Presentación](docs/presentation.es.md), más larga, explica por qué existen las
-ideas; esta Página muestra la Arquitectura, las operaciones y los chequeos que
-las vuelven concretas. Los documentos enlazados están en inglés, salvo la
-Presentación.
+Estás en la entrada técnica. Si quieres saber por qué existen estas ideas, la
+[Presentación](docs/presentation.es.md) cuenta esa historia. Esta página
+muestra la arquitectura, las operaciones y los chequeos que las vuelven
+concretas. Los documentos enlazados están en inglés, salvo la Presentación.
 
-## Empieza por el Canon o por el Código
+## Por dónde Empezar
 
 - Para entender el Manifiesto, lee [Values](VALUES.md), [Rules](RULES.md) y
   [Patterns](PATTERNS.md).
@@ -35,19 +36,19 @@ Presentación.
 - Para conectar otro proyecto, usa
   [dove-update](.agents/skills/dove-update/SKILL.md).
 
-## Un Harness Mantiene el Trabajo Retomable
+## Qué hace el Harness
 
-El Harness tiene tres trabajos: preservar el Contexto entre sesiones
-desechables, acotar lo que un Agente puede hacer a continuación y convertir la
-experiencia repetida en un Canon inspeccionable.
+Las sesiones son desechables. El Harness es lo que les sobrevive: guarda el
+Contexto, acota lo que un Agente puede hacer a continuación y convierte la
+experiencia repetida en un Canon que puedes inspeccionar.
 
 ```text
-Persona      aporta Intención, criterio y autoridad
-Harness      guarda Contexto, reglas, operaciones y límites
-Agente       lee el estado actual y da un Paso verificable
+Persona      aporta intención, criterio y autoridad
+Harness      guarda contexto, reglas, operaciones y límites
+Agente       lee el estado actual y da un paso verificable
 ```
 
-Una sesión normal se mantiene deliberadamente pequeña:
+Una sesión normal es corta a propósito:
 
 ```text
 yo-yo-yo          reconstruye el Contexto y nombra un siguiente Paso
@@ -57,27 +58,30 @@ remember-the-day  persiste el Estado mientras el Trabajo avanza
 bye-bye-bye       deja un handoff que otra sesión pueda retomar
 ```
 
-Los proyectos se conectan al Canon mediante `dove-update`, que trata la
-distribución del código fuente y la carga del cliente como operaciones
-separadas. Las instalaciones existentes conservan su mecanismo de distribución:
-clone, submodule, subtree, symlink o ZIP portable. La validación del filesystem
-prueba la conexión; el descubrimiento del cliente prueba que el Agente la cargó.
+Los demás proyectos se conectan mediante `dove-update`. Llevar los archivos
+hasta allá y lograr que el cliente los cargue son dos trabajos distintos, así
+que la skill los mantiene separados. Como sea que ya instales las cosas, clone,
+submodule, subtree, symlink o un ZIP portable, lo sigues haciendo igual.
+Revisar el filesystem prueba la conexión. Preguntarle al cliente prueba que el
+Agente de verdad la cargó.
 
-El mismo límite vale para el conocimiento. La experiencia en bruto se queda en
-`chaos/`; una observación despersonalizada puede volverse una Story; solo el
-Aprendizaje que sobrevive a la revisión se vuelve un Valor, una Regla o un
-Patrón. El Sistema puede generar y comparar. La Persona decide qué gobierna.
+El conocimiento cruza el mismo tipo de frontera. La experiencia en bruto se
+queda en `chaos/`. Una vez quitada la persona, lo que queda puede volverse una
+Story. Solo el aprendizaje que sobrevive a la revisión se vuelve un Valor, una
+Regla o un Patrón. El Sistema puede generar y comparar; la Persona decide qué
+gobierna.
 
-Los ejemplos vuelven ejecutables las Reglas de arquitectura. El servicio School
-se genera desde un Contrato, una Especificación y una Forma que viven fuera de
-su código. Sus implementaciones en Go, Java y TypeScript responden las mismas
-solicitudes de la misma manera. El conversor PDF mantiene el parseo de Markdown,
-la estructura del documento y el renderizado detrás de fronteras explícitas.
+Los ejemplos son donde corren las Reglas de arquitectura. El servicio School se
+genera desde un Contrato, una Especificación y una Forma que viven fuera de su
+código, y sus versiones en Go, Java y TypeScript responden las mismas
+solicitudes de la misma manera. El conversor PDF mantiene el parseo, la
+estructura del documento y el renderizado detrás de fronteras que puedes
+señalar con el dedo.
 
-La meta es un Trabajo que siga siendo comprensible, interrumpible, verificable
-y retomable.
+Lo que buscamos es un Trabajo que puedas entender, verificar y retomar después
+de una interrupción.
 
-## El Mapa del Repositorio Separa el Propósito de la Operación
+## El Mapa del Repositorio
 
 ```text
 VALUES.md   el Porqué      creencias, en values/
