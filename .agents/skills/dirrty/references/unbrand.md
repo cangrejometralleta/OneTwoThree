@@ -7,7 +7,7 @@ which Holds the Bundle, the Confirmation and the Push.
 
 The Rule Lives in [Unbrand](../../../../rules/unbrand.md),
 and the Shape of the tree in [Vendor Integration](../../../../rules/vendor-integration.md).
-History is Appreciated, so a Rewrite is a last Resort, never a Cleanup habit.
+History is Appreciated, so a Rewrite stays a last Resort.
 
 ## Call
 

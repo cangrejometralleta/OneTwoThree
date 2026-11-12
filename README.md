@@ -85,25 +85,31 @@ AGENTS.md   the Pointer   what an agent loads on its own
 examples/   school/ in Go, Java and TypeScript, pdf/ in Go; specs/ holds what generates them
 docs/       the Presentation, in English and Spanish
 stories/    STORY.md, stories/ and chaos/: context, not yet canon
-jokes/      hand-written humour; read it, never add to it
+jokes/      hand-written humour; read it, and leave it as it is
 ```
 
-Three Documents hold the Manifesto: [Values](VALUES.md), [Rules](RULES.md) and
+The rest of this page follows that map. First the Manifesto, then the code
+that runs it, then the operations an Agent performs here.
+
+## The Manifesto
+
+Three documents hold it: [Values](VALUES.md), [Rules](RULES.md) and
 [Patterns](PATTERNS.md). [AGENTS.md](AGENTS.md) points an Agent to the current
 Canon and tells it to read Rules first.
 
-## Main is the Only Canon
+### Main is the only Canon
 
-The Canon is the head of `main`, and nothing else.
-Stable releases name useful snapshots for distribution; `main` remains current truth.
-A project that pins a release follows a Fork. `1.0.0` is the historical UNTAG;
-`v1.0.0` is the first stable release.
-[The Head is the Canon](rules/the-head-is-the-canon.md) says why.
+The Canon is the head of `main`, and nothing else. Stable releases name
+useful snapshots for distribution, while `main` remains the current truth. If
+your project pins a release, you are following a Fork, and that is fine as
+long as you know it. `1.0.0` is the historical UNTAG and `v1.0.0` is the
+first stable release. [The Head is the Canon](rules/the-head-is-the-canon.md)
+says why.
 
-## Three Keeps Every Relationship Visible
+### Why everything comes in threes
 
-Three comes from a count, not from taste.
-With `n` entities there are `n(n-1)/2` possible interactions, and understanding lives in the interactions.
+Three comes from a count. With `n` entities there are `n(n-1)/2` possible
+interactions, and understanding lives in the interactions.
 
 | Entities | Interactions | Reading |
 | --- | --- | --- |
@@ -113,18 +119,20 @@ With `n` entities there are `n(n-1)/2` possible interactions, and understanding 
 | 4 | 6 | More relationships than things |
 | 5 | 10 | The relationships stop being countable |
 
-Three is the last count where both columns match and the smallest count that
-closes a cycle. The Number is a Source to derive from, never a quota to reach.
-A situation that holds four categories keeps all four.
-See [Three over Four](patterns/three-over-four.md) and [Count me In](patterns/count-me-in.md).
+Three is the last count where both columns match and the smallest that closes
+a cycle. Treat the Number as a Source to derive from. When a situation holds
+four categories, keep all four and say so. See
+[Three over Four](patterns/three-over-four.md) and
+[Count me In](patterns/count-me-in.md).
 
-Three does not ask the System to do less because less is virtuous.
-It asks what must remain Visible for a Person to understand, interrupt and continue the Work.
+Three does not ask the System to do less because less is virtuous. It asks
+what must stay Visible for you to understand, interrupt and continue the Work.
 
-## Values, Rules and Patterns Form a Cycle
+### Values, Rules and Patterns form a cycle
 
-[RoTaTion](patterns/de-la-soul-rotation.md) connects the three Documents through three pairs, with no fixed center.
-Enter through any Element and follow the relationships.
+[RoTaTion](patterns/de-la-soul-rotation.md) connects the three documents
+through three pairs, with no fixed center. Enter through any of them and
+follow the relationships.
 
 ```mermaid
 flowchart LR
@@ -133,11 +141,11 @@ flowchart LR
     PATTERNS -- "the Root Grounds the Why" --> VALUES
 ```
 
-A Rule must be executable by an Agent, or it is a Value.
-Rules are verifiable and Values are interpretable.
-A Rule marked *Provisional* came from one practice and is deleted if the next project disagrees.
+A Rule must be executable by an Agent, or it is a Value. Rules are verifiable
+and Values are interpretable. A Rule marked *Provisional* came from one
+practice, and the next project that disagrees deletes it.
 
-A second reading runs from Purpose to Action in three Layers:
+A second reading runs from purpose to action in three Layers:
 
 ```mermaid
 flowchart TD
@@ -148,10 +156,11 @@ flowchart TD
     STRUCTURE -->|Makes concrete| ACTION
 ```
 
-## DeLaCase Makes Emphasis Countable
+### DeLaCase, the typographic convention
 
-[DeLaCase](rules/de-la-case.md) is the typographic Convention for prose.
-A capital marks an Entity or an Interaction worth noticing.
+[DeLaCase](rules/de-la-case.md) governs the prose here. A capital marks an
+Entity or an Interaction worth noticing, and you will see it on every page of
+the Canon.
 
 1. Split the text into passages at punctuation; a bullet or a hard line break also ends one.
 2. Spend at most three emphasis capitals per passage.
@@ -159,20 +168,23 @@ A capital marks an Entity or an Interaction worth noticing.
 
 > The Person Guides the Machine, the Machine Supports the Person.
 
-Two passages, each with its own budget, each spending three.
-Three is a ceiling, never a quota.
+Two passages, each with its own budget, each spending three. Three is a
+ceiling, and most passages need fewer.
 
-Code keeps its own rule: case in an identifier belongs to the language, and the language decides.
-In Go, a capital crosses the package boundary and the compiler enforces it.
-Final text in a user interface uses ordinary capitalization.
+Code keeps its own rule: case in an identifier belongs to the language, and
+the language decides. In Go, a capital crosses the package boundary and the
+compiler enforces it. Final text in a user interface uses ordinary
+capitalization, and so does Dove in conversation.
 
 Bold is a second tier and costs more: one per section, or none.
-[Channels](rules/channels.md) counts what a surface can carry, and [Emoji](rules/emoji.md) marks a state, one per line at most.
+[Channels](rules/channels.md) counts what a surface can carry, and
+[Emoji](rules/emoji.md) marks a state, one per line at most.
 
-## Examples Make the Code Rules Executable
+## The Code
 
 Every rule that governs code runs in [examples](examples).
-[Show me the Code](patterns/show-me-the-code.md) says why that matters.
+[Show me the Code](patterns/show-me-the-code.md) says why that matters: a
+rule you cannot compile is a Value wearing a Rule's name.
 
 | Rule | Claim you can check |
 | --- | --- |
@@ -187,18 +199,24 @@ Every rule that governs code runs in [examples](examples).
 | [Naming](rules/naming.md) | Verb + Noun + context, three words at most. |
 | [Structure](rules/structure.md) | Three beats per function, not three newlines. |
 
-### The School Service
+### The School service
 
-[School](examples/school/README.md) is one API, generated from a [Contract](examples/specs/school/openapi.yaml), a [Specification](examples/specs/school/SPEC.md) and a [Shape](examples/specs/school/SHAPE.md).
-Go, Java and TypeScript are each generated from all three, and answer fifty edge requests with the same status, content type and body.
-Each keeps three shapes for one record, so the wire, the business and the storage validate apart.
+[School](examples/school/README.md) is one API, generated from a
+[Contract](examples/specs/school/openapi.yaml), a
+[Specification](examples/specs/school/SPEC.md) and a
+[Shape](examples/specs/school/SHAPE.md). Go, Java and TypeScript are each
+generated from all three, and answer fifty edge requests with the same status,
+content type and body. Each keeps three shapes for one record, so the wire,
+the business and the storage validate apart.
 
 | | Go | Java | TypeScript |
 | --- | --- | --- | --- |
 | Store | GORM over SQLite | JDBC over H2 | Drizzle over SQLite |
 | Adapters | stdlib, chi, gin | stdlib, spring | stdlib, express |
 | Boundary check | `go list -deps` | `BoundariesTest` | `boundaries.test.ts` |
-[The Before](examples/school/BEFORE.md) shows the original with each broken rule named.
+
+If you want to see what the rules fix, [The Before](examples/school/BEFORE.md)
+shows the original with each broken rule named.
 
 ```text
 main       casts the players and picks an adapter
@@ -220,7 +238,8 @@ go list -deps ./school             # lists no vendor and no net/http
 TOKEN_SECRET=s ./run.sh gin        # stdlib, chi or gin
 ```
 
-A handler answers with a value or fails, and never builds a reply:
+A handler answers with a value or fails. Building the reply is somebody
+else's job:
 
 ```go
 func (a Handler) ShowStudentRecord(req transport.Request) (any, error) {
@@ -240,11 +259,12 @@ func (a Handler) ShowStudentRecord(req transport.Request) (any, error) {
 
 Eleven lines, three beats: receive, transform and return.
 
-### The PDF Converter
+### The PDF converter
 
-[PDF](examples/pdf/README.md) renders the manifesto from Markdown to PDF in pure Go.
-`markdown/` is the only package that imports goldmark, `render/` the only one that imports gopdf.
-`document/` and `style/` import no vendor, and five small functions turn plain Markdown into a booklet.
+[PDF](examples/pdf/README.md) renders the manifesto from Markdown to PDF in
+pure Go. `markdown/` is the only package that imports goldmark, `render/` the
+only one that imports gopdf. `document/` and `style/` import no vendor, and
+five small functions turn plain Markdown into a booklet.
 
 ```sh
 cd examples/pdf
@@ -252,10 +272,24 @@ cd examples/pdf
 ./run.sh testdata/sample.md        # writes sample.pdf beside it
 ```
 
-## Dove Takes One Bounded Step
+### Checks you can run
 
-[Dove](.agents/agents/dove.md) reads an explanation through the manifesto, names the Pattern and takes one bounded step.
-It is an interpreter, never a reviewer: it returns no findings and ranks nothing by severity.
+| Check | Command |
+| --- | --- |
+| Translation pairs intact | the loop in [Translations](rules/translations.md) prints nothing |
+| Core imports no vendor | `go list -deps ./school` in `examples/school/go`; the boundary test in `java/` and `ts/` |
+| Examples build and pass | `./build.sh` in each example directory |
+
+## The Operations
+
+Everything under `.agents/` is something an Agent does here: one agent, Dove,
+and the skills that give recurring work a name.
+
+### Dove takes one bounded step
+
+[Dove](.agents/agents/dove.md) reads an explanation through the manifesto,
+names the Pattern and takes one bounded step. It interprets rather than
+reviews: it returns no findings and ranks nothing by severity.
 
 | Piece | Where |
 | --- | --- |
@@ -265,34 +299,37 @@ It is an interpreter, never a reviewer: it returns no findings and ranks nothing
 | Tools | `Bash`, `Read`, `Grep`, `Glob`, `Edit`, `Write` |
 | Identifier | `dove` in paths and configs, Dove in prose |
 
-The Workflow is a filter: each step removes what the next one does not need.
+The workflow is a filter: each step removes what the next one does not need.
 
 1. **Listen** reads only what the request names, and asks nothing it can read.
 2. **See** counts the Shape that repeats: once is a detail, twice a habit, three times a Pattern.
 3. **Sketch** points to at most two places to untangle next, each with its cost.
 4. **Pull** takes the first thread, names the step before and after, and stops.
 
-Every Turn is one cord with three knots: **Topic**, **Perspective** and **Closing**.
-A request with three threads gets one pulled and two named, never three taken.
+Every turn is one cord with three knots: **Topic**, **Perspective** and
+**Closing**. When you hand it three threads, it pulls one and names the other
+two.
 
-Its Bounds are explicit:
+Its bounds are explicit:
 
 - Edit only what the turn named, one step per turn.
-- Never review, never rewrite a whole file in the answer, never normalize the capitals it was given.
+- No review, no whole-file rewrite in the answer, and no normalizing of the capitals it was given.
 - After three writing turns or three files touched, consider [changes](.agents/skills/changes/SKILL.md).
 
 It also hooks the session lifecycle. A durable edit calls `remember-the-day`.
 The greetings `ha dove`, `hey dove`, `yo dove`, `hi dove`, `sup dove`,
 `ring dove` and `ring ring dove` call `yo-yo-yo`. The farewell `bye dove`
-calls `bye-bye-bye`.
-The Quipu behind the turn shape is told in the [Presentation](docs/presentation.en.md).
-Its conversational shape uses ordinary capitalization and varies with the content;
-the three beats guide the answer without requiring repeated labels.
-When a detour leaves the original purpose pending, Dove offers `sexy back` to return.
-The Name Recalls *SexyBack* by Justin Timberlake; a Quipu can be Rolled up.
-`bye-bye-bye` recalls *Bye Bye Bye* by NSYNC, making the farewell easier to remember.
+calls `bye-bye-bye`. When a detour leaves the original purpose pending, Dove
+offers `sexy back` to return. In conversation it uses ordinary capitalization
+and lets the three beats guide the answer without repeating their labels. The
+Quipu behind that turn shape is told in the
+[Presentation](docs/presentation.en.md).
 
-## The First Benchmark Finds Brevity, not yet Superiority
+The names are songs on purpose. `sexy back` recalls *SexyBack* by Justin
+Timberlake, because a Quipu can be rolled up, and `bye-bye-bye` recalls
+*Bye Bye Bye* by NSYNC, because a farewell should be easy to remember.
+
+### The first benchmark finds brevity, not yet superiority
 
 A preliminary benchmark asked vanilla, Caveman and Dove to summarize six
 public-domain stories in exactly three paragraphs. The same GPT-6-based Codex
@@ -313,9 +350,9 @@ but they justify a controlled evaluation with independent runs. The complete
 prompts, sources, limitations and outputs live in the
 [benchmark record](references/cadencia-dove-token-benchmark.md).
 
-## Skills Give Recurring Work a Name
+### Skills give recurring work a name
 
-The Skills define the operations; each linked file holds the details.
+Each skill is one operation, and its linked file holds the details.
 
 | When | Skill | What it does |
 | --- | --- | --- |
@@ -342,14 +379,17 @@ Supporting skills shape the work as it happens:
 [de-la-case](.agents/skills/de-la-case/SKILL.md) for names and prose, and
 [til](.agents/skills/til/SKILL.md) for a session's key learnings.
 
-The [Session Diagram](patterns/the-lever-and-the-tape.md) connects these operations.
-A new request with its own intent starts its own work.
-Opening a session names the next step, publication and closing each need their own request.
+The [Session Diagram](patterns/the-lever-and-the-tape.md) connects these
+operations. A new request with its own intent starts its own work. Opening a
+session names the next step; publication and closing each need their own
+request.
 
-## Projects Keep Their Distribution Mechanism
+### Projects keep their distribution mechanism
 
-[dove-update](.agents/skills/dove-update/SKILL.md) manages the canon connection and connects the active client to selected skills and agents.
-[joining-you](.agents/skills/joining-you/SKILL.md) applies a documented relative-link layout to a folder or project.
+[dove-update](.agents/skills/dove-update/SKILL.md) manages the canon
+connection and connects the active client to selected skills and agents.
+[joining-you](.agents/skills/joining-you/SKILL.md) applies a documented
+relative-link layout to a folder or project.
 
 ```mermaid
 flowchart LR
@@ -361,14 +401,16 @@ flowchart LR
     RELOAD --> VERIFY["Refresh the active client<br/>Verify discovery"]
 ```
 
-Existing installations keep their mechanism and local customizations.
-A [portable ZIP](.agents/skills/dove-update/references/zip.md) records its source commit and file inventory.
-It is a snapshot; the live canon remains the head of `main`.
-Filesystem validation proves the links, and client discovery proves the load.
+Existing installations keep their mechanism and local customizations. A
+[portable ZIP](.agents/skills/dove-update/references/zip.md) records its
+source commit and file inventory. It is a snapshot, and the live canon remains
+the head of `main`. Filesystem validation proves the links, and client
+discovery proves the load.
 
-## Experience Earns its Way into the Canon
+### Experience earns its way into the Canon
 
-Three Stages carry a piece of life into the canon, and only the third one stays.
+Three stages carry a piece of life into the canon, and only the third one
+stays.
 
 ```mermaid
 flowchart LR
@@ -385,30 +427,25 @@ flowchart LR
 - In a code project a decision lands in `docs/`, a rule in code held by a test, a promise in the API contract.
 
 An empty Stories means the canon is current.
-[long-story-short](.agents/skills/long-story-short/SKILL.md) sorts them, one per turn.
+[long-story-short](.agents/skills/long-story-short/SKILL.md) sorts them, one
+per turn.
 
-## Agents Need Explicit Authority
+### Agents need explicit authority
 
-An Agent needs a Society: explicit authority, independent signals, the right to stop and a human to escalate to.
-[Coercion](rules/coercion.md) holds the rules: never invent permission, never retaliate, never let pressure make harm look necessary.
+An Agent needs a Society: explicit authority, independent signals, the right
+to stop and a human to escalate to. [Coercion](rules/coercion.md) holds the
+rules. Nobody invents permission, nobody retaliates, and pressure is not
+allowed to make harm look necessary.
 
-## Checks Make the Claims Verifiable
-
-| Check | Command |
-| --- | --- |
-| Translation pairs intact | the loop in [Translations](rules/translations.md) prints nothing |
-| Core imports no vendor | `go list -deps ./school` in `examples/school/go`; the boundary test in `java/` and `ts/` |
-| Examples build and pass | `./build.sh` in each example directory |
-
-## The Name Keeps the Parts Together
+## The Name
 
 **Dove** is the Agent; the **Canon** is the shared body of Values, Rules and
-Patterns it follows. Together they name this Project. Its repository slug is
+Patterns it follows. Together they name this project. Its repository slug is
 `dove-canon`.
 
 The former name, OneTwoThree, drew on De La Soul's *The Magic Number*. Its
-history remains in the [Provenance Map](stories/provenance-map.md).
-The rest of the story lives in the [Presentation](docs/presentation.en.md).
+history remains in the [Provenance Map](stories/provenance-map.md), and the
+rest of the story lives in the [Presentation](docs/presentation.en.md).
 
 ## License
 

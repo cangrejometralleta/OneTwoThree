@@ -1,14 +1,14 @@
 # The Path that Travels
 
-- An absolute Path Names a Machine.
-  A relative one Names a Relationship.
-  Only the second Survives a Clone.
-- `/home/someone/src/project` Works for one Person, once.
-  `../project` Works for anyone who Keeps the two Checkouts side by side.
-- The Layout between two things Outlives the Place they Sit in.
-  Write down the Layout, never the Place.
-- A symbolic Link is the same Idea Written into the Filesystem.
-  It Points by Relationship, so it Travels with the tree it Lives in.
+- An absolute Path names a Machine.
+  A relative one names a Relationship.
+  Only the second survives a Clone.
+- `/home/someone/src/project` works for one Person, once.
+  `../project` works for anyone who keeps the two Checkouts side by side.
+- The Layout between two things outlives the Place they sit in.
+  Write down the Layout, and let the place change.
+- A symbolic Link is the same idea written into the Filesystem.
+  It points by Relationship, so it travels with the tree it lives in.
 
 ```text
 CLAUDE.md      -> AGENTS.md
@@ -16,25 +16,25 @@ CLAUDE.md      -> AGENTS.md
 .claude/skills -> ../.agents/skills
 ```
 
-- Every Target above Starts from the Link, never from a Root.
-  Move the whole Repository and nothing Breaks.
-  Move one Half alone and the Link Says so, loudly.
-- A relative Link Breaks only when the Pair Moves apart.
-  An absolute one Breaks when anything Moves at all.
-- The same Instinct Writes a Pair of Repositories into a Memory.
-  `../../owner/other-repo` Holds on any Machine that Keeps the Layout.
-  [Paired Repositories](../rules/paired-repositories.md) Makes it a Rule.
-- One Source, many Entrances is this Pattern in a Tree.
-  The Link Shares the Instructions; it never Copies them.
-  [Vendor Integration](../rules/vendor-integration.md) Holds the Boundary.
-- A Link Shares Files, it does not Convert them.
-  Where a Tool cannot Follow one, Generate the File from the Source
-  and Mark it Generated, never Maintain a second Copy by hand.
-- A Path that Travels is Verified, not Trusted.
-  Check the Target Exists before the Work Depends on it.
-- Portable does not mean Universal.
-  A Link Needs a Filesystem that Keeps it, and a Checkout that Honours it.
+- Every Target above starts from the Link, never from a root.
+  Move the whole Repository and nothing breaks.
+  Move one half alone and the Link says so, loudly.
+- A relative Link breaks only when the Pair moves apart.
+  An absolute one breaks when anything moves at all.
+- The same instinct writes a Pair of Repositories into a Memory.
+  `../../owner/other-repo` holds on any machine that keeps the Layout.
+  [Paired Repositories](../rules/paired-repositories.md) makes it a Rule.
+- One Source, many Entrances is this Pattern in a tree.
+  The Link shares the Instructions; it never copies them.
+  [Vendor Integration](../rules/vendor-integration.md) holds the Boundary.
+- A Link shares Files, it does not convert them.
+  Where a tool cannot follow one, generate the File from the Source
+  and mark it generated. A second copy maintained by hand will drift.
+- A Path that travels is verified, not trusted.
+  Check the Target exists before the Work depends on it.
+- Portable does not mean universal.
+  A Link needs a Filesystem that keeps it, and a Checkout that honours it.
 - Convention over Configuration, and Simplicity over Coverage.
-  A Layout every Checkout Keeps Beats a setting that Bends to each one.
-  Declining a Case is allowed: say it is not Supported, and Stop.
-  A Promise to cover every Machine is the Configuration this Pattern Avoids.
+  A Layout every checkout keeps beats a Setting that bends to each one.
+  Declining a case is allowed: say it is not supported, and stop.
+  A promise to cover every Machine is the Configuration this Pattern avoids.

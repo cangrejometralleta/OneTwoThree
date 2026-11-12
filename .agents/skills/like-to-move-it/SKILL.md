@@ -5,12 +5,12 @@ description: Apply Dove Canon code conventions while writing or refactoring code
 
 # Like to Move It
 
-The Name Recalls *I Like to Move It* by Reel 2 Real.
+The name recalls *I Like to Move It* by Reel 2 Real.
 
 A portable summary of [Rules](../../../RULES.md).
 The Canon Lives in [rules/](../../../rules/) — each section its own file.
-If a Rules file exists in the current repo, it is Canonical — this
-skill is the checklist, not a replacement.
+If a Rules file exists in the current repo, it is Canonical, and this
+skill is only the checklist you carry while writing.
 
 This Skill Rides along while you write.
 For a new application or a requirement that changes its shape,
@@ -33,8 +33,8 @@ Three Groups. The Line, the Boundary, the Project.
 2. **Naming** — `Verb + Noun + context`, three words at most. A name
    past three words means the responsibility is Unclear. A variable
    living inside three lines can Drop to one word — the scope says the
-   rest. A Construct Names the Responsibility, never the vendor:
-   `store`, not `storegorm`. A Filename may Name the Guest.
+   rest. A construct names the Responsibility: `store`, not
+   `storegorm`. A filename may name the Guest.
 
 3. **Seams** — Break long lines at a real grammatical Joint: `&&`,
    `||`, a comma in a list, a dot in a chain. Never break inside a
@@ -42,11 +42,11 @@ Three Groups. The Line, the Boundary, the Project.
    its Parts as local variables instead of splitting mid-expression.
 
 4. **Comments** — Stop at the Claim. A second clause must Add a
-   constraint, never repeat the first in other words. Test by
+   constraint instead of repeating the first in other words. Test by
    Deletion: cut the tail and read the head alone. At most one Emoji,
    only in output or comments, never in an identifier.
 
-5. **Values** — A Number with a meaning Carries a Name. Read the
+5. **Values** — A number with a meaning carries a Name. Read the
    Literal alone, out of its line; if it cannot say what it means, it
    wants a name. Look for an existing Constant first — the standard
    library, then the framework, then your own. A constant in the core
@@ -59,7 +59,7 @@ Three Groups. The Line, the Boundary, the Project.
    `StudentStore`, not `GormRepository`. A port must never Leak a
    vendor type, error, or import outside its own file.
 
-7. **Layers** — The Core names no Vendor and no Socket. Let the
+7. **Layers** — The Core names no vendor and no Socket. Let the
    compiler hold the Boundary: a package the core cannot import beats
    a rule the core agrees to follow. The shapes the layers speak in
    Import nothing. Two places Hold every vendor: the store and the
@@ -68,7 +68,7 @@ Three Groups. The Line, the Boundary, the Project.
 8. **Shapes** — The Entity is never the DTO. Three shapes Carry one
    record: the wire (untrusted, weak types), the business (trusted,
    named types), the storage. Bind the wire Shape, never the entity.
-   The Identity comes from the Path or the Store, never from the body.
+   The Identity comes from the Path or the Store, and the body has no say.
 
 9. **Failures** — A failure the program expected Carries its own
    answer. Declare the Answer beside the reason, once, and name the
@@ -142,7 +142,7 @@ Three names, three beats, one return — `SumItemPrices` and
 `ApplyMemberRate` are Providers of a calculation, `ReportOrderState`
 is the script's own narration.
 
-The boundary checks Read the same way. A Handler Answers or Fails,
+The boundary checks read the same way. A Handler answers or fails,
 and the route says what a success costs:
 
 ```go

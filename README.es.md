@@ -89,28 +89,34 @@ RULES.md    el Cómo        reglas verificables, en rules/
 PATTERNS.md el Dónde       raíces que se repiten, en patterns/
 AGENTS.md   el Puntero     lo que un agente carga solo
 .agents/    agents/ y skills/, las operaciones
-examples/   school/ y pdf/, las reglas corriendo en Go; specs/ guarda lo que las genera
+examples/   school/ en Go, Java y TypeScript, pdf/ en Go; specs/ guarda lo que los genera
 docs/       la Presentación, en inglés y en español
 stories/    STORY.md, stories/ y chaos/: contexto, aún no canon
-jokes/      humor escrito a mano; se lee, nunca se agrega
+jokes/      humor escrito a mano; se lee, y se deja como está
 ```
 
-Tres Documentos sostienen el Manifiesto: [Values](VALUES.md), [Rules](RULES.md)
-y [Patterns](PATTERNS.md). [AGENTS.md](AGENTS.md) dirige al Agente hacia el
-Canon actual y le indica leer primero las Reglas.
+El resto de esta página sigue ese mapa. Primero el Manifiesto, después el
+código que lo corre, y al final las operaciones que un Agente realiza aquí.
 
-## Main es el Único Canon
+## El Manifiesto
 
-El Canon es el head de `main`, y nada más.
-Los releases estables nombran snapshots útiles para distribuir; `main` sigue siendo la fuente actual.
-Un proyecto que fija un release sigue un Fork. `1.0.0` es el UNTAG histórico;
-`v1.0.0` es el primer release estable.
-[The Head is the Canon](rules/the-head-is-the-canon.md) explica por qué.
+Tres documentos lo sostienen: [Values](VALUES.md), [Rules](RULES.md) y
+[Patterns](PATTERNS.md). [AGENTS.md](AGENTS.md) dirige al Agente hacia el Canon
+actual y le indica leer primero las Reglas.
 
-## Tres Mantiene Visible cada Relación
+### Main es el único Canon
 
-El Tres sale de una cuenta, no de un gusto.
-Con `n` entidades hay `n(n-1)/2` interacciones posibles, y la comprensión vive en las interacciones.
+El Canon es el head de `main`, y nada más. Los releases estables nombran
+snapshots útiles para distribuir, mientras `main` sigue siendo la fuente
+actual. Si tu proyecto fija un release, estás siguiendo un Fork, y está bien
+mientras lo sepas. `1.0.0` es el UNTAG histórico y `v1.0.0` es el primer
+release estable. [The Head is the Canon](rules/the-head-is-the-canon.md)
+explica por qué.
+
+### Por qué todo viene de a tres
+
+El tres sale de una cuenta. Con `n` entidades hay `n(n-1)/2` interacciones
+posibles, y la comprensión vive en las interacciones.
 
 | Entidades | Interacciones | Lectura |
 | --- | --- | --- |
@@ -121,18 +127,20 @@ Con `n` entidades hay `n(n-1)/2` interacciones posibles, y la comprensión vive 
 | 5 | 10 | Las relaciones dejan de ser contables |
 
 Tres es el último conteo donde ambas columnas coinciden y el menor que cierra
-un ciclo. El Número es una Fuente de la que derivar, nunca una cuota que
-alcanzar.
-Una situación con cuatro categorías se queda con las cuatro.
-Ver [Three over Four](patterns/three-over-four.md) y [Count me In](patterns/count-me-in.md).
+un ciclo. Trata el Número como una Fuente de la que derivar. Cuando una
+situación tiene cuatro categorías, conserva las cuatro y dilo. Ver
+[Three over Four](patterns/three-over-four.md) y
+[Count me In](patterns/count-me-in.md).
 
-Tres no le pide al Sistema que haga menos porque menos sea virtuoso.
-Pregunta qué debe seguir Visible para que una Persona entienda, interrumpa y continúe el Trabajo.
+El tres no le pide al Sistema que haga menos porque menos sea virtuoso.
+Pregunta qué debe seguir Visible para que puedas entender, interrumpir y
+continuar el Trabajo.
 
-## Valores, Reglas y Patrones Forman un Ciclo
+### Valores, Reglas y Patrones forman un ciclo
 
-[RoTaTion](patterns/de-la-soul-rotation.md) conecta los tres Documentos mediante tres pares, sin centro fijo.
-Se entra por cualquier Elemento y se siguen las relaciones.
+[RoTaTion](patterns/de-la-soul-rotation.md) conecta los tres documentos
+mediante tres pares, sin centro fijo. Entra por cualquiera y sigue las
+relaciones.
 
 ```mermaid
 flowchart LR
@@ -141,11 +149,12 @@ flowchart LR
     PATTERNS -- "la Raíz Fundamenta el Porqué" --> VALUES
 ```
 
-Una Regla debe poder ejecutarla un Agente, o es un Valor.
-Las Reglas son verificables y los Valores son interpretables.
-Una Regla marcada *Provisional* salió de una sola práctica, y se borra si el siguiente proyecto la contradice.
+Una Regla debe poder ejecutarla un Agente, o es un Valor. Las Reglas son
+verificables y los Valores son interpretables. Una Regla marcada
+*Provisional* salió de una sola práctica, y el siguiente proyecto que la
+contradiga la borra.
 
-Una segunda lectura va del Propósito a la Acción en tres Capas:
+Una segunda lectura va del propósito a la acción en tres Capas:
 
 ```mermaid
 flowchart TD
@@ -156,10 +165,11 @@ flowchart TD
     STRUCTURE -->|Concreta| ACTION
 ```
 
-## DeLaCase Vuelve Contable el Énfasis
+### DeLaCase, la convención tipográfica
 
-[DeLaCase](rules/de-la-case.md) es la Convención tipográfica para la prosa.
-Una mayúscula marca una Entidad o una Interacción digna de notarse.
+[DeLaCase](rules/de-la-case.md) gobierna la prosa de aquí. Una mayúscula marca
+una Entidad o una Interacción digna de notarse, y la vas a ver en cada página
+del Canon.
 
 1. Divide el texto en pasajes según la puntuación; una viñeta o un salto de línea duro también cierra uno.
 2. Gasta como máximo tres mayúsculas de énfasis por pasaje.
@@ -167,20 +177,24 @@ Una mayúscula marca una Entidad o una Interacción digna de notarse.
 
 > La Persona Guía a la Máquina, la Máquina Apoya a la Persona.
 
-Dos pasajes, cada uno con su propio presupuesto, cada uno gastando tres.
-Tres es un techo, nunca una cuota.
+Dos pasajes, cada uno con su propio presupuesto, cada uno gastando tres. Tres
+es un techo, y la mayoría de los pasajes necesita menos.
 
-El código tiene su propia regla: la capitalización de un identificador pertenece al lenguaje, y el lenguaje decide.
-En Go, una mayúscula cruza la frontera del paquete y el compilador lo hace cumplir.
-El texto final en una interfaz de usuario usa capitalización ordinaria.
+El código tiene su propia regla: la capitalización de un identificador
+pertenece al lenguaje, y el lenguaje decide. En Go, una mayúscula cruza la
+frontera del paquete y el compilador lo hace cumplir. El texto final en una
+interfaz de usuario usa capitalización ordinaria, y Dove en conversación
+también.
 
 La negrita es un segundo nivel y cuesta más: una por sección, o ninguna.
-[Channels](rules/channels.md) cuenta lo que una superficie puede cargar, y [Emoji](rules/emoji.md) marca un estado, uno por línea como máximo.
+[Channels](rules/channels.md) cuenta lo que una superficie puede cargar, y
+[Emoji](rules/emoji.md) marca un estado, uno por línea como máximo.
 
-## Los Ejemplos Vuelven Ejecutables las Reglas de Código
+## El Código
 
 Cada regla que gobierna código corre en [examples](examples).
-[Show me the Code](patterns/show-me-the-code.md) explica por qué importa.
+[Show me the Code](patterns/show-me-the-code.md) explica por qué importa: una
+regla que no puedes compilar es un Valor con nombre de Regla.
 
 | Regla | Afirmación que se puede comprobar |
 | --- | --- |
@@ -195,12 +209,24 @@ Cada regla que gobierna código corre en [examples](examples).
 | [Naming](rules/naming.md) | Verbo + Sustantivo + contexto, tres palabras como máximo. |
 | [Structure](rules/structure.md) | Tres tiempos por función, no tres saltos de línea. |
 
-### El Servicio School
+### El servicio School
 
-[School](examples/school/README.md) es una API generada desde un [Contrato](examples/specs/school/openapi.yaml), una [Especificación](examples/specs/school/SPEC.md) y una [Forma](examples/specs/school/SHAPE.md).
-Go, Java y TypeScript se generan desde las tres fuentes y responden cincuenta
-solicitudes límite con el mismo status, content type y body.
-[The Before](examples/school/BEFORE.md) muestra el original con cada regla rota nombrada.
+[School](examples/school/README.md) es una API generada desde un
+[Contrato](examples/specs/school/openapi.yaml), una
+[Especificación](examples/specs/school/SPEC.md) y una
+[Forma](examples/specs/school/SHAPE.md). Go, Java y TypeScript se generan desde
+las tres fuentes y responden cincuenta solicitudes límite con el mismo status,
+content type y body. Cada uno mantiene tres formas para un mismo registro, así
+el wire, el negocio y el almacenamiento se validan por separado.
+
+| | Go | Java | TypeScript |
+| --- | --- | --- | --- |
+| Store | GORM sobre SQLite | JDBC sobre H2 | Drizzle sobre SQLite |
+| Adaptadores | stdlib, chi, gin | stdlib, spring | stdlib, express |
+| Chequeo de frontera | `go list -deps` | `BoundariesTest` | `boundaries.test.ts` |
+
+Si quieres ver qué arreglan las reglas, [The Before](examples/school/BEFORE.md)
+muestra el original con cada regla rota nombrada.
 
 ```text
 main       arma los actores y elige un adaptador
@@ -222,7 +248,8 @@ go list -deps ./school             # no lista ningún vendor ni net/http
 TOKEN_SECRET=s ./run.sh gin        # stdlib, chi o gin
 ```
 
-Un handler responde con un valor o falla, y nunca arma una respuesta:
+Un handler responde con un valor o falla. Armar la respuesta es trabajo de
+otro:
 
 ```go
 func (a Handler) ShowStudentRecord(req transport.Request) (any, error) {
@@ -242,11 +269,12 @@ func (a Handler) ShowStudentRecord(req transport.Request) (any, error) {
 
 Once líneas, tres tiempos: recibir, transformar y devolver.
 
-### El Conversor PDF
+### El conversor PDF
 
-[PDF](examples/pdf/README.md) renderiza el manifiesto de Markdown a PDF en Go puro.
-`markdown/` es el único paquete que importa goldmark, y `render/` el único que importa gopdf.
-`document/` y `style/` no importan ningún vendor, y cinco funciones pequeñas convierten Markdown simple en un librito.
+[PDF](examples/pdf/README.md) renderiza el manifiesto de Markdown a PDF en Go
+puro. `markdown/` es el único paquete que importa goldmark, y `render/` el
+único que importa gopdf. `document/` y `style/` no importan ningún vendor, y
+cinco funciones pequeñas convierten Markdown simple en un librito.
 
 ```sh
 cd examples/pdf
@@ -254,10 +282,24 @@ cd examples/pdf
 ./run.sh testdata/sample.md        # escribe sample.pdf al lado
 ```
 
-## Dove Da un Paso Acotado
+### Chequeos que puedes correr
 
-[Dove](.agents/agents/dove.md) lee una explicación a través del manifiesto, nombra el Patrón y da un paso acotado.
-Es un intérprete, nunca un revisor: no devuelve hallazgos ni ordena nada por severidad.
+| Chequeo | Comando |
+| --- | --- |
+| Pares de traducción intactos | el loop de [Translations](rules/translations.md) no imprime nada |
+| El Core no importa vendors | `go list -deps ./school` en `examples/school/go`; el test de frontera en `java/` y `ts/` |
+| Los ejemplos compilan y pasan | `./build.sh` en cada directorio de ejemplo |
+
+## Las Operaciones
+
+Todo lo que hay bajo `.agents/` es algo que un Agente hace aquí: un agente,
+Dove, y las skills que le dan nombre al trabajo recurrente.
+
+### Dove da un paso acotado
+
+[Dove](.agents/agents/dove.md) lee una explicación a través del manifiesto,
+nombra el Patrón y da un paso acotado. Interpreta en lugar de revisar: no
+devuelve hallazgos ni ordena nada por severidad.
 
 | Pieza | Dónde |
 | --- | --- |
@@ -267,29 +309,36 @@ Es un intérprete, nunca un revisor: no devuelve hallazgos ni ordena nada por se
 | Herramientas | `Bash`, `Read`, `Grep`, `Glob`, `Edit`, `Write` |
 | Identificador | `dove` en paths y configs, Dove en prosa |
 
-El Flujo es un filtro: cada paso quita lo que el siguiente no necesita.
+El flujo es un filtro: cada paso quita lo que el siguiente no necesita.
 
 1. **Escuchar** lee solo lo que el pedido nombra, y no pregunta nada que pueda leer.
 2. **Ver** cuenta la Forma que se repite: una vez es un detalle, dos un hábito, tres un Patrón.
 3. **Esbozar** señala como máximo dos lugares por desenredar, cada uno con su costo.
 4. **Tirar** toma el primer hilo, nombra el paso anterior y el siguiente, y se detiene.
 
-Cada Turno es un cordel con tres nudos: **Tema**, **Perspectiva** y **Remate**.
-Un pedido con tres hilos recibe uno tirado y dos nombrados, nunca tres tomados.
+Cada turno es un cordel con tres nudos: **Tema**, **Perspectiva** y
+**Remate**. Cuando le entregas tres hilos, tira de uno y nombra los otros dos.
 
-Sus Límites son explícitos:
+Sus límites son explícitos:
 
 - Edita solo lo que el turno nombró, un paso por turno.
-- Nunca revisa, nunca reescribe un archivo completo en la respuesta, nunca normaliza las mayúsculas que recibió.
+- Sin revisión, sin reescribir un archivo completo en la respuesta, y sin normalizar las mayúsculas que recibió.
 - Tras tres turnos de escritura o tres archivos tocados, considera [changes](.agents/skills/changes/SKILL.md).
 
 También se enlaza al ciclo de vida de la sesión. Una edición duradera llama a
 `remember-the-day`. Los saludos `ha dove`, `hey dove`, `yo dove`, `hi dove`,
 `sup dove`, `ring dove` y `ring ring dove` llaman a `yo-yo-yo`. La despedida
-`bye dove` llama a `bye-bye-bye`.
-El Quipu detrás de la forma del turno se cuenta en la [Presentación](docs/presentation.es.md).
+`bye dove` llama a `bye-bye-bye`. Cuando una digresión deja pendiente el
+propósito original, Dove ofrece `sexy back` para volver. En conversación usa
+mayúsculas normales y deja que los tres tiempos guíen la respuesta sin repetir
+sus etiquetas. El Quipu detrás de esa forma del turno se cuenta en la
+[Presentación](docs/presentation.es.md).
 
-## El Primer Benchmark Encuentra Brevedad, Todavía no Superioridad
+Los nombres son canciones a propósito. `sexy back` recuerda *SexyBack* de
+Justin Timberlake, porque un Quipu se puede enrollar, y `bye-bye-bye` recuerda
+*Bye Bye Bye* de NSYNC, porque una despedida debería ser fácil de recordar.
+
+### El primer benchmark encuentra brevedad, todavía no superioridad
 
 Un benchmark preliminar pidió a vanilla, Caveman y Dove resumir seis cuentos
 del dominio público en exactamente tres párrafos. El mismo runtime de Codex
@@ -311,9 +360,9 @@ general, pero justifican una evaluación controlada con ejecuciones
 independientes. Los prompts, fuentes, limitaciones y resultados completos están
 en el [registro del benchmark](references/cadencia-dove-token-benchmark.md).
 
-## Las Skills Nombran el Trabajo Recurrente
+### Las skills le dan nombre al trabajo recurrente
 
-Las Skills definen las operaciones; cada archivo enlazado guarda los detalles.
+Cada skill es una operación, y su archivo enlazado guarda los detalles.
 
 | Cuándo | Skill | Qué hace |
 | --- | --- | --- |
@@ -321,12 +370,15 @@ Las Skills definen las operaciones; cada archivo enlazado guarda los detalles.
 | `what are our options?`, `where do we go from here?`, `what can we do next?` o `¿qué opciones tenemos?` | [gimme-gimme-gimme](.agents/skills/gimme-gimme-gimme/SKILL.md) | Presenta hasta tres caminos distintos y concretos; deriva los bloqueos a `dilemma`. |
 | Pide la voz conversacional de Dove o Cadencia Dove | [cadencia-dove](.agents/skills/cadencia-dove/SKILL.md) | Aplica el estilo y enmarcado de opciones sin necesitar al agente Dove. |
 | `next`, `go`, `vamos`, `sigues`, `let's go`, `come on`, `sigue`, `continue`, `go on`, `go ahead`, `carry on`, `proceed`, `do the next step` u opción elegida | [next-episode](.agents/skills/next-episode/SKILL.md) | Da un paso recomendado, lo verifica y nombra el siguiente. |
+| `sexy back`, `vuelve al origen`, `volvamos al tema original` o volver a donde empezó la conversación | [sexy-back](.agents/skills/sexy-back/SKILL.md) | Enrolla la digresión, conserva lo pendiente y retoma el propósito original. |
+| `explain me like I'm five`, `ELI5`, `explícame como si tuviera 5 años` o pedir una explicación más simple | [eli5](.agents/skills/eli5/SKILL.md) | Explica una parte por turno con palabras simples, con un esquema cuando ayuda y una pregunta para sostener el hilo. |
 | Una edición o decisión durable; `save progress` o `record where we are` | [remember-the-day](.agents/skills/remember-the-day/SKILL.md) | Guarda el hilo en `.handoff.md` durante el trabajo. |
 | `move this thread to another repo` o `carry this work over` | [bye-bye-bye](.agents/skills/bye-bye-bye/references/transfer.md) | Entrega un `.handoff.md` listo para copiar; no hace falta la ruta de destino. |
 | Cambia el código o un requisito cambia la forma de una app | [like-to-move-it](.agents/skills/like-to-move-it/SKILL.md) | Aplica las Rules de código y lee el flujo de diseño si el requisito cambia la forma de la app. |
 | `I'm stuck`, `what's blocking us?`, `how do we get unstuck?` o razonamiento repetido | [dilemma](.agents/skills/dilemma/SKILL.md) | Distingue bloqueos, ciclos o hipótesis agotadas y determina qué permite avanzar. |
 | Un cambio empieza a crecer | [changes](.agents/skills/changes/SKILL.md) | Revisa si una sola intención aún sostiene el cambio. |
 | Pedir las stories pendientes | [long-story-short](.agents/skills/long-story-short/SKILL.md) | Ordena las stories por lo que esperan y destila la que elijas. |
+| Inspeccionar un lock o manifiesto de skills por sus dependencias | [skills-lock](.agents/skills/skills-lock/SKILL.md) | Lee el esquema declarado e informa las dependencias explícitas por skill. |
 | Organizar cambios en commits por feature, separar el trabajo en commits o commitear y pushear | [commit-commit-commit](.agents/skills/commit-commit-commit/SKILL.md) | Agrupa cambios por feature, commitea cada grupo y pushea una vez al final. |
 | `bye dove`, `I'm done for now`, `let's wrap up` o pedir un handoff | [bye-bye-bye](.agents/skills/bye-bye-bye/SKILL.md) | Expande el checkpoint en un handoff de cierre y se detiene. |
 | Un secreto pudo entrar al historial, como una API key commiteada por error, o hay que quitar la marca de un vendor | [dirrty](.agents/skills/dirrty/SKILL.md) | Detecta, confirma y purga un valor exacto de archivos e historial; también quita la autoría de vendors como último recurso. |
@@ -337,14 +389,17 @@ Las skills de apoyo dan forma al trabajo mientras ocurre:
 [de-la-case](.agents/skills/de-la-case/SKILL.md) para nombres y prosa, y
 [til](.agents/skills/til/SKILL.md) para recoger los aprendizajes clave de la sesión.
 
-El [Diagrama de Sesión](patterns/the-lever-and-the-tape.md) conecta estas operaciones.
-Un pedido nuevo con su propia intención inicia su propio trabajo.
-Abrir una sesión nombra el siguiente paso; publicar y cerrar necesitan cada uno su propio pedido.
+El [Diagrama de Sesión](patterns/the-lever-and-the-tape.md) conecta estas
+operaciones. Un pedido nuevo con su propia intención inicia su propio trabajo.
+Abrir una sesión nombra el siguiente paso; publicar y cerrar necesitan cada
+uno su propio pedido.
 
-## Los Proyectos Conservan su Mecanismo de Distribución
+### Los proyectos conservan su mecanismo de distribución
 
-[dove-update](.agents/skills/dove-update/SKILL.md) gestiona la conexión con el canon y conecta el cliente activo con las skills y agentes elegidos.
-[joining-you](.agents/skills/joining-you/SKILL.md) aplica una estructura documentada de enlaces relativos a una carpeta o proyecto.
+[dove-update](.agents/skills/dove-update/SKILL.md) gestiona la conexión con el
+canon y conecta el cliente activo con las skills y agentes elegidos.
+[joining-you](.agents/skills/joining-you/SKILL.md) aplica una estructura
+documentada de enlaces relativos a una carpeta o proyecto.
 
 ```mermaid
 flowchart LR
@@ -356,14 +411,15 @@ flowchart LR
     RELOAD --> VERIFY["Actualizar el cliente activo<br/>Verificar el descubrimiento"]
 ```
 
-Las instalaciones existentes conservan su mecanismo y sus personalizaciones locales.
-Un [ZIP portable](.agents/skills/dove-update/references/zip.md) registra su commit de origen y el inventario de archivos.
-Es un snapshot; el canon vivo sigue siendo el head de `main`.
-La validación del filesystem prueba los links, y el descubrimiento del cliente prueba la carga.
+Las instalaciones existentes conservan su mecanismo y sus personalizaciones
+locales. Un [ZIP portable](.agents/skills/dove-update/references/zip.md)
+registra su commit de origen y el inventario de archivos. Es un snapshot, y el
+canon vivo sigue siendo el head de `main`. La validación del filesystem prueba
+los links, y el descubrimiento del cliente prueba la carga.
 
-## La Experiencia se Gana un Lugar en el Canon
+### La experiencia se gana un lugar en el Canon
 
-Tres Etapas llevan un pedazo de vida al canon, y solo la tercera se queda.
+Tres etapas llevan un pedazo de vida al canon, y solo la tercera se queda.
 
 ```mermaid
 flowchart LR
@@ -380,30 +436,25 @@ flowchart LR
 - En un proyecto de código, una decisión aterriza en `docs/`, una regla en código sostenido por un test, una promesa en el contrato de la API.
 
 Un Stories vacío significa que el canon está al día.
-[long-story-short](.agents/skills/long-story-short/SKILL.md) las ordena, una por turno.
+[long-story-short](.agents/skills/long-story-short/SKILL.md) las ordena, una
+por turno.
 
-## Los Agentes Necesitan Autoridad Explícita
+### Los agentes necesitan autoridad explícita
 
-Un Agente necesita una Sociedad: autoridad explícita, señales independientes, el derecho a detenerse y un humano a quien escalar.
-[Coercion](rules/coercion.md) guarda las reglas: nunca inventar permiso, nunca tomar represalias, nunca dejar que la presión haga parecer necesario un daño.
+Un Agente necesita una Sociedad: autoridad explícita, señales independientes,
+el derecho a detenerse y un humano a quien escalar.
+[Coercion](rules/coercion.md) guarda las reglas. Nadie inventa permiso, nadie
+toma represalias, y la presión no puede hacer parecer necesario un daño.
 
-## Los Chequeos Vuelven Verificables las Afirmaciones
-
-| Chequeo | Comando |
-| --- | --- |
-| Pares de traducción intactos | el loop de [Translations](rules/translations.md) no imprime nada |
-| El Core no importa vendors | `go list -deps ./school` en `examples/school/go` |
-| Los ejemplos compilan y pasan | `./build.sh` en cada directorio de ejemplo |
-
-## El Nombre Mantiene Unidas sus Partes
+## El Nombre
 
 **Dove** es el Agente; el **Canon** es el cuerpo compartido de Valores, Reglas y
-Patrones que sigue. Juntos nombran este Proyecto. El slug del repositorio es
+Patrones que sigue. Juntos nombran este proyecto. El slug del repositorio es
 `dove-canon`.
 
 El nombre anterior, OneTwoThree, nació de *The Magic Number*, de De La Soul.
-Su historia permanece en el [Mapa de procedencia](stories/provenance-map.md).
-El resto de la historia vive en la [Presentación](docs/presentation.es.md).
+Su historia permanece en el [Mapa de procedencia](stories/provenance-map.md),
+y el resto de la historia vive en la [Presentación](docs/presentation.es.md).
 
 ## Licencia
 

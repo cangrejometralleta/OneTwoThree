@@ -4,23 +4,23 @@
 
 **Una misma frase puede comunicar una idea a una persona y orientar la acción de una máquina.**
 
-Actualmente podemos Hablar con un Agente de inteligencia artificial en el mismo Idioma que usamos entre nosotros. Podemos explicar una Intención, pedir un Cambio y precisar lo que quisimos decir mediante otra frase. El Lenguaje cotidiano se vuelve un lugar de Encuentro: una parte del Trabajo ocurre en la Conversación misma.
+Actualmente podemos hablar con un Agente de inteligencia artificial en el mismo Idioma que usamos entre nosotros. Podemos explicar una intención, pedir un cambio y precisar lo que quisimos decir mediante otra frase. El lenguaje cotidiano se vuelve un lugar de Encuentro: una parte del Trabajo ocurre en la Conversación misma.
 
-Para quien disfruta las palabras, esto abre una Posibilidad creativa. Elegir un Verbo, ordenar una Explicación o dejar una Pausa también puede ayudar a expresar cómo queremos trabajar. «Vamos de a poco» puede ser una Invitación entre personas y una Instrucción para un Agente. La Frase Conserva su Voz humana mientras orienta una acción.
+Para quien disfruta las palabras, esto abre una Posibilidad creativa. Elegir un verbo, ordenar una explicación o dejar una Pausa también puede ayudar a expresar cómo queremos trabajar. «Vamos de a poco» puede ser una Invitación entre personas y una Instrucción para un Agente. La Frase conserva su Voz humana mientras orienta una acción.
 
-Dove Canon Explora ese Espacio compartido. Sus Reglas están escritas para que una Persona pueda Leerlas, discutirlas y cambiarlas, y para que un Agente pueda Usarlas como Instrucciones. La Persona aporta la Intención y evalúa el Resultado; la Respuesta del Agente permite continuar la Conversación. Cuidar el Lenguaje es, aquí, una forma de Cuidar la Colaboración.
+Dove Canon explora ese Espacio compartido. Sus Reglas están escritas para que una Persona pueda leerlas, discutirlas y cambiarlas, y para que un Agente pueda usarlas como instrucciones. La Persona aporta la Intención y evalúa el Resultado; la respuesta del Agente permite continuar la Conversación. Cuidar el Lenguaje es, aquí, una forma de cuidar la Colaboración.
 
 ## Una forma de pensar que Cuida la Atención
 
-Dove Canon es un Manifiesto y una Práctica para expresar ideas, organizar trabajo y construir software con menos carga cognitiva. Propone que la forma de una explicación, una herramienta o una conversación Cuide la Atención de quien la recibe. Su utilidad Empieza en una pregunta cotidiana: ¿qué necesitamos comprender ahora para dar el siguiente paso?
+Dove Canon es un Manifiesto y una Práctica para expresar ideas, organizar trabajo y construir software con menos carga cognitiva. Propone que la forma de una explicación, una herramienta o una conversación cuide la Atención de quien la recibe. Su utilidad empieza en una pregunta cotidiana: ¿qué necesitamos comprender ahora para dar el siguiente paso?
 
-El Proyecto Reúne Valores, Patrones y Reglas. Los Valores Expresan lo que importa; los Patrones Reconocen Formas que reaparecen en situaciones distintas. Las Reglas Convierten parte de ese aprendizaje en Acciones que se pueden comprobar. Esta Distinción Permite tener Convicciones y, al mismo tiempo, revisar cómo las llevamos a la práctica.
+El proyecto reúne Valores, Patrones y Reglas. Los Valores expresan lo que importa; los Patrones reconocen formas que reaparecen en situaciones distintas. Las Reglas convierten parte de ese aprendizaje en Acciones que se pueden comprobar. Esta distinción permite tener Convicciones y, al mismo tiempo, revisar cómo las llevamos a la práctica.
 
-Ninguna Idea Entra directo a esos tres. Llega como experiencia en bruto, se vuelve una [Historia](../STORY.md) cuando se le quita la Persona, y espera ahí hasta poder Gobernar. Nueve Historias Llenan el Pasaje; una décima espera hasta que alguna Salga. El mismo Pasaje Funciona en un proyecto de código, donde una Historia Aterriza como documentación, como código sostenido por un test o como la promesa que hace una API.
+Ninguna idea entra directo a esos tres. Llega como experiencia en bruto, se vuelve una [Historia](../STORY.md) cuando se le quita la Persona, y espera ahí hasta poder Gobernar. Nueve Historias llenan el Pasaje; una décima espera hasta que alguna salga. El mismo Pasaje funciona en un proyecto de código, donde una Historia aterriza como documentación, como código sostenido por un test o como la promesa que hace una API.
 
-La Propuesta es aplicable fuera de la Programación. Una Lista de pendientes, una Decisión compartida o una Explicación difícil también Exigen elegir qué mostrar, qué relacionar y qué dejar para después. Este Documento Presenta las Ideas del proyecto y algunas maneras de probarlas en la vida diaria.
+La propuesta es aplicable fuera de la programación. Una lista de pendientes, una decisión compartida o una explicación difícil también exigen elegir qué mostrar, qué relacionar y qué dejar para después. Este documento presenta las Ideas del proyecto y algunas maneras de probarlas en la vida diaria.
 
-Podemos Leer una Situación en tres Capas, desde su propósito hasta una acción concreta. Cada Capa Responde una Pregunta y da contexto a la siguiente. Este Esquema Propone una manera de explicar el proyecto y aplicarlo a una tarea.
+Podemos leer una situación en tres Capas, desde su propósito hasta una acción concreta. Cada Capa responde una Pregunta y da contexto a la siguiente. Este esquema propone una manera de explicar el proyecto y aplicarlo a una tarea.
 
 ```mermaid
 flowchart TD
@@ -33,29 +33,29 @@ flowchart TD
 
 ## El Minimalismo Nace de un Límite vivido
 
-El Manifiesto Sitúa su Minimalismo en la experiencia del burn-out autista. Desde ese origen, reducir Complejidad tiene un sentido de Cuidado: hacer que una tarea pida menos esfuerzo para entenderla, retomarla o terminarla. La Calma forma parte del Diseño desde el comienzo.
+El manifiesto sitúa su Minimalismo en la experiencia del burn-out autista. Desde ese origen, reducir complejidad tiene un sentido de Cuidado: hacer que una tarea pida menos esfuerzo para entenderla, retomarla o terminarla. La Calma forma parte del Diseño desde el comienzo.
 
-La Atención es un Recurso que merece Cuidado. Cada Instrucción adicional, cada Énfasis y cada Decisión pendiente Compiten por ella. El Proyecto busca conservar las Palabras y Estructuras que ayudan a comprender, con espacio suficiente para que una idea termine antes de que llegue la siguiente.
+La Atención es un Recurso que merece cuidado. Cada instrucción adicional, cada énfasis y cada decisión pendiente compiten por ella. El proyecto busca conservar las Palabras y Estructuras que ayudan a comprender, con espacio suficiente para que una idea termine antes de que llegue la siguiente.
 
-La Salud mental Orienta esta manera de trabajar. El Descanso, los Límites y la posibilidad de avanzar a un Ritmo sostenible tienen Valor por sí mismos. Aquí, reducir la Carga cognitiva significa intentar Disminuir lo que debemos recordar, interpretar o decidir simultáneamente; es una intención de diseño, no una promesa clínica.
+La salud mental orienta esta manera de trabajar. El descanso, los límites y la posibilidad de avanzar a un Ritmo sostenible tienen Valor por sí mismos. Aquí, reducir la Carga cognitiva significa intentar disminuir lo que debemos recordar, interpretar o decidir al mismo tiempo. Es una intención de diseño, y no hacemos ninguna promesa clínica.
 
-La Filosofía también Defiende la Autonomía. Una Dependencia debería seguir siendo una Elección que podamos cambiar. Otra Persona puede Aportar una Perspectiva que no vemos desde nuestra posición, y una Objeción concreta puede Mejorar una Idea. Cooperar requiere Espacio para que cada participante conserve su criterio.
+La filosofía también defiende la Autonomía. Una Dependencia debería seguir siendo una Elección que podamos cambiar. Otra persona puede aportar una Perspectiva que no vemos desde nuestra posición, y una Objeción concreta puede mejorar una Idea. Cooperar requiere espacio para que cada participante conserve su criterio.
 
 ## ¿Por qué tres? El Conteo Sigue cómo sostenemos las Cosas
 
-El tres es una Elección deliberada, no un adorno. Viene de un Límite que todos Cargamos: la cantidad de cosas separadas que una mente puede sostener a la vez mientras además hace algo con ellas. La Investigación sobre Memoria de trabajo da un Número chico, alrededor de cuatro elementos, y la Cifra exacta importa menos que su Tamaño. Aquello con lo que pensamos tiene que Entrar en una habitación muy pequeña.
+El tres es una Elección deliberada. Viene de un Límite que todos cargamos: la cantidad de cosas separadas que una mente puede sostener a la vez mientras además hace algo con ellas. La investigación sobre memoria de trabajo da un Número chico, alrededor de cuatro elementos, y la cifra exacta importa menos que su tamaño. Aquello con lo que pensamos tiene que entrar en una habitación muy pequeña.
 
-Dos Conceptos vuelven legible la Elección: Entidades e Interacciones. Una Entidad es una cosa que podemos nombrar y sostener: un valor, un archivo, una persona, un paso. Una Interacción es una relación entre dos de ellas: una guía a otra, una depende de otra, una contradice a otra. La Comprensión rara vez Vive en las Entidades mismas. Vive en las Interacciones, y son ellas las que Crecen cuando agregamos una Cosa más.
+Dos conceptos vuelven legible la elección: Entidades e Interacciones. Una Entidad es una cosa que podemos nombrar y sostener: un valor, un archivo, una persona, un paso. Una Interacción es una relación entre dos de ellas: una guía a otra, una depende de otra, una contradice a otra. La comprensión rara vez vive en las Entidades mismas. Vive en las Interacciones, y son ellas las que crecen cuando agregamos una cosa más.
 
-| Entidades | Interacciones | Cómo se Siente |
+| Entidades | Interacciones | Cómo se siente |
 | --- | --- | --- |
 | 1 | 0 | Atención, sin nada que relacionar |
 | 2 | 1 | Una sola relación, y una dirección |
-| 3 | 3 | Cada par Visible, y un ciclo Cierra |
-| 4 | 6 | Más relaciones que Cosas |
-| 5 | 10 | Las relaciones dejan de ser Contables |
+| 3 | 3 | Cada par visible, y un ciclo cierra |
+| 4 | 6 | Más relaciones que cosas |
+| 5 | 10 | Las relaciones dejan de ser contables |
 
-El tres Queda en el único lugar donde las dos columnas coinciden. Por debajo, las Relaciones son más Escasas que las Cosas; por encima, las desbordan. Una cuarta Entidad Suma un elemento y tres Relaciones a la vez, y por eso una lista de cuatro pesa más de lo que aparenta. El tres es además el conteo más chico que Cierra en un Ciclo. Dos Entidades Arman una Línea con dos puntas, así que una de ellas se vuelve el centro. Tres Vuelven al punto de partida, y eso es lo que le permite a la [RoTaTion](../patterns/de-la-soul-rotation.md) negarse a tener un centro fijo.
+El tres queda en el único lugar donde las dos columnas coinciden. Por debajo, las Relaciones son más escasas que las Cosas; por encima, las desbordan. Una cuarta Entidad suma un elemento y tres Relaciones a la vez, y por eso una lista de cuatro pesa más de lo que aparenta. El tres es además el conteo más chico que cierra en un Ciclo. Dos entidades arman una Línea con dos puntas, así que una de ellas se vuelve el centro. Tres vuelven al punto de partida, y eso es lo que le permite a la [RoTaTion](../patterns/de-la-soul-rotation.md) negarse a tener un centro fijo.
 
 ```mermaid
 flowchart LR
@@ -78,25 +78,23 @@ flowchart LR
     end
 ```
 
-El Dibujo lo Dice más rápido que la Tabla. El Tres se Lee como una Figura: un Triángulo, donde ninguna línea cruza otra, así que el ojo sostiene las tres relaciones en una sola mirada. El Cuatro se Lee como una Malla: dos líneas tienen que cruzarse para conectar cada par, y desenredar ese cruce es el trabajo de más que nadie anunció al agregar el cuarto elemento.
+El dibujo lo dice más rápido que la tabla. El tres se lee como una Figura: un Triángulo, donde ninguna línea cruza otra, así que el ojo sostiene las tres relaciones en una sola mirada. El cuatro se lee como una Malla: dos líneas tienen que cruzarse para conectar cada par, y desenredar ese cruce es el trabajo de más que nadie anunció al agregar el cuarto elemento.
 
-Esto es una Restricción de diseño, nunca una afirmación sobre el cerebro. Si una Situación Tiene de verdad cuatro Categorías, hay que conservar las cuatro y decir que son cuatro. Lo que el Conteo nos compra es un Valor por defecto: cuando podamos agrupar, agrupemos de a tres, y cuando un Turno Crece más allá de tres Hilos, decirlo y tirar de uno. El Número es una Fuente de la que derivar, no una meta a la que llegar.
+Esto es una Restricción de diseño, y no afirma nada sobre el cerebro. Si una situación tiene de verdad cuatro Categorías, hay que conservar las cuatro y decir que son cuatro. Lo que el Conteo nos compra es un Valor por defecto: cuando podamos agrupar, agrupemos de a tres, y cuando un turno crece más allá de tres Hilos, decirlo y tirar de uno. El número es una Fuente de la que derivar, no una meta a la que llegar.
 
 ## El Tres Ayuda a construir Relaciones
 
-El Tres funciona como una herramienta para Abstraer y Conceptualizar. Abstraer consiste en apartar por un momento los Detalles para reconocer una Forma útil. Conceptualizar da Nombre a esa Forma para poder pensar con ella y compartirla. El Número Ofrece una Restricción pequeña con la que ensayar ambas operaciones.
+El tres funciona como una herramienta para Abstraer y conceptualizar. Abstraer consiste en apartar por un momento los detalles para reconocer una Forma útil. Conceptualizar da Nombre a esa Forma para poder pensar con ella y compartirla. El número ofrece una Restricción pequeña con la que ensayar ambas operaciones.
 
-Un Elemento Centra la Atención. Dos Elementos Establecen una Relación. Tres Elementos Permiten observar tres Pares posibles: A con B, B con C y C con A. El Proyecto Usa esta Figura para imaginar perspectivas que rotan, sin reservar siempre el centro a una de ellas.
+Un elemento centra la Atención. Dos elementos establecen una Relación. Tres elementos permiten observar tres Pares posibles: A con B, B con C y C con A. El proyecto usa esta Figura para imaginar perspectivas que rotan, sin reservar siempre el centro a una de ellas.
 
-El Nombre también Describe un Movimiento: uno Actúa, dos Espera, tres Observa. Acción, Pausa y Perspectiva son los tres Momentos de ese ritmo. Hacer algo, dejar espacio y mirar lo ocurrido puede resultar más manejable que intentar resolver y evaluar todo a la vez.
+El nombre también describe un Movimiento: uno Actúa, dos Espera, tres Observa. Acción, Pausa y Perspectiva son los tres momentos de ese ritmo. Hacer algo, dejar espacio y mirar lo ocurrido puede resultar más manejable que intentar resolver y evaluar todo a la vez.
 
-Una Decisión cotidiana Muestra su Utilidad. Para organizar una semana, podemos empezar por Compromisos, Energía disponible y Margen para imprevistos. Así podemos preguntar cómo Afecta cada Compromiso a nuestra Energía y cuánto margen necesitamos preservar. La Clasificación sirve porque hace visibles esas Relaciones.
-
-El tres es una Guía del proyecto, no una medida universal de la mente. Si una Situación necesita cuatro Categorías, conviene Conservar las cuatro. Podemos Agrupar Detalles cuando exista una Relación real entre ellos, y volver a abrir cada grupo cuando haga falta. La Abstracción Pierde Utilidad si oculta algo necesario para decidir.
+Una decisión cotidiana muestra su utilidad. Para organizar una semana, podemos empezar por Compromisos, Energía disponible y Margen para imprevistos. Así podemos preguntar cómo afecta cada Compromiso a nuestra Energía y cuánto margen necesitamos preservar. La clasificación sirve porque hace visibles esas Relaciones. Podemos agrupar detalles cuando exista una relación real entre ellos, y volver a abrir cada grupo cuando haga falta. La Abstracción pierde su Utilidad apenas oculta algo que una decisión necesita.
 
 ### La RoTaTion Conecta los tres Elementos
 
-La [RoTaTion](../patterns/de-la-soul-rotation.md) Describe tres Elementos relacionados por tres Pares, sin un centro fijo. En el manifiesto, los Valores Orientan las Reglas, las Reglas revelan Patrones y los patrones dan fundamento a los Valores. Podemos Entrar por cualquiera de ellos y recorrer las relaciones.
+La [RoTaTion](../patterns/de-la-soul-rotation.md) describe tres Elementos relacionados por tres Pares, sin un centro fijo. En el manifiesto, los Valores orientan las Reglas, las Reglas revelan Patrones y los Patrones dan fundamento a los Valores. Podemos entrar por cualquiera de ellos y recorrer las relaciones.
 
 ```mermaid
 flowchart LR
@@ -105,31 +103,31 @@ flowchart LR
     PATTERNS -->|Fundamentan| VALUES
 ```
 
-Las Flechas Muestran una lectura del Ciclo. Cada Elemento Aporta algo que los otros necesitan, y ninguno ocupa una posición de mando permanente. Las tres Capas del esquema anterior Ayudan a descender hacia una Acción; esta Rotación permite volver a Examinar lo que la sostiene.
+Las flechas muestran una lectura del Ciclo. Cada Elemento aporta algo que los otros necesitan, y ninguno ocupa una posición de mando permanente. Las tres Capas del esquema anterior ayudan a descender hacia una Acción; esta Rotación permite volver a examinar lo que la sostiene.
 
 ## La Música enseña Ritmo y Contraste
 
-El nombre anterior, OneTwoThree, nació de la inspiración de [*The Magic Number*](https://en.wikipedia.org/wiki/The_Magic_Number), de [De La Soul](https://es.wikipedia.org/wiki/De_La_Soul), y de su frase «three is the magic number». A esa referencia se Suman [*4 noviosS*](https://www.youtube.com/watch?v=ucrvnu5a8NQ), de [Six Sex](https://es.wikipedia.org/wiki/Six_Sex), producida por King Doudou, y la letra de [*Perfect (Exceeder)*](https://en.wikipedia.org/wiki/Perfect_%28Exceeder%29), de [Mason](https://en.wikipedia.org/wiki/Mason_%28musician%29) vs [Princess Superstar](https://en.wikipedia.org/wiki/Princess_Superstar). Sus Conteos y frases rítmicas Inspiraron la Cadencia para leer y escribir: entrar en una idea, darle énfasis y dejarla respirar.
+El nombre anterior, OneTwoThree, nació de la inspiración de [*The Magic Number*](https://en.wikipedia.org/wiki/The_Magic_Number), de [De La Soul](https://es.wikipedia.org/wiki/De_La_Soul), y de su frase «three is the magic number». A esa referencia se suman [*4 noviosS*](https://www.youtube.com/watch?v=ucrvnu5a8NQ), de [Six Sex](https://es.wikipedia.org/wiki/Six_Sex), producida por King Doudou, y la letra de [*Perfect (Exceeder)*](https://en.wikipedia.org/wiki/Perfect_%28Exceeder%29), de [Mason](https://en.wikipedia.org/wiki/Mason_%28musician%29) vs [Princess Superstar](https://en.wikipedia.org/wiki/Princess_Superstar). Sus conteos y frases rítmicas inspiraron la Cadencia para leer y escribir: entrar en una idea, darle énfasis y dejarla respirar.
 
-Dove Canon, dove-canon, dove_canon y dovecanon Nombran el mismo Proyecto. El repositorio usa `dove-canon`. Dove es el Agente; el Canon es el cuerpo compartido de Valores, Reglas y Patrones que sigue.
+Dove Canon, dove-canon, dove_canon y dovecanon nombran el mismo Proyecto. El repositorio usa `dove-canon`. Dove es el Agente; el Canon es el cuerpo compartido de Valores, Reglas y Patrones que sigue.
 
-El Autor Escucha una Influencia musical directa entre *Perfect (Exceeder)* y *4 noviosS*. Esa Conexión es su Interpretación como oyente. Las tres Referencias Confluyen en la Práctica del proyecto: contar en voz alta ayuda a sentir dónde empieza una frase, dónde cae su acento y cuándo necesita una pausa.
+El autor escucha una influencia musical directa entre *Perfect (Exceeder)* y *4 noviosS*. Esa conexión es su Interpretación como oyente. Las tres referencias confluyen en la Práctica del proyecto: contar en voz alta ayuda a sentir dónde empieza una frase, dónde cae su acento y cuándo necesita una pausa.
 
-El hip hop, el pop y el R&B Aparecen en el manifiesto como compañías para leer y escribir. Su Influencia se expresa en la atención al Pulso, la pausa y la longitud de las frases. Una Explicación puede Desarrollar una Idea durante varias líneas y luego dejar una frase breve que la asiente. La Lectura Respira.
+El hip hop, el pop y el R&B aparecen en el manifiesto como compañías para leer y escribir. Su influencia se expresa en la atención al Pulso, la pausa y la longitud de las frases. Una explicación puede desarrollar una Idea durante varias líneas y luego dejar una frase breve que la asiente. La lectura respira.
 
-[De La Soul](https://es.wikipedia.org/wiki/De_La_Soul) Inspira la idea de Rotación entre tres participantes. El Proyecto Toma esa Referencia para pensar una estructura donde las relaciones importan y el centro puede cambiar. La Música Ofrece aquí un Lenguaje para imaginar colaboración, además de una compañía para trabajar.
+[De La Soul](https://es.wikipedia.org/wiki/De_La_Soul) inspira la idea de Rotación entre tres participantes. El proyecto toma esa referencia para pensar una estructura donde las relaciones importan y el centro puede cambiar. La Música ofrece aquí un Lenguaje para imaginar colaboración, además de una compañía para trabajar.
 
-El Contraste entre intensidad y quietud Encuentra otra referencia en [Pixies](https://es.wikipedia.org/wiki/Pixies). El Manifiesto traslada esa Alternancia al Texto: una Palabra destacada Necesita un Entorno tranquilo para hacerse visible. Si todo reclama atención con la misma fuerza, el Énfasis Pierde su Función.
+El contraste entre intensidad y quietud encuentra otra referencia en [Pixies](https://es.wikipedia.org/wiki/Pixies). El manifiesto traslada esa Alternancia al texto: una Palabra destacada necesita un Entorno tranquilo para hacerse visible. Si todo reclama atención con la misma fuerza, el énfasis pierde su función.
 
-[John Cage](https://es.wikipedia.org/wiki/John_Cage) Aporta una referencia para pensar el Silencio y el azar. El Proyecto Valora el Espacio que permite escuchar y la posibilidad de encontrar algo útil en lo inesperado. En su relación con herramientas generativas, Mantiene una Decisión humana: el Sistema propone Resultados y la Persona selecciona qué merece conservarse.
+[John Cage](https://es.wikipedia.org/wiki/John_Cage) aporta una referencia para pensar el Silencio y el azar. El proyecto valora el Espacio que permite escuchar y la posibilidad de encontrar algo útil en lo inesperado. En su relación con herramientas generativas, mantiene una Decisión humana: el Sistema propone resultados y la Persona selecciona qué merece conservarse.
 
-El cruce de frases de tres pulsos sobre una base de cuatro Ilustra otra idea del manifiesto. Ambos Ciclos vuelven a Encontrarse después de doce pulsos. Esta Imagen Ayuda a pensar un Ritmo con variación y retorno, sin exigir que toda frase tenga el mismo tamaño.
+El cruce de frases de tres pulsos sobre una base de cuatro ilustra otra idea del manifiesto. Ambos Ciclos vuelven a encontrarse después de doce pulsos. Esta imagen ayuda a pensar un Ritmo con variación y retorno, sin exigir que toda frase tenga el mismo tamaño.
 
 ## DeLaCase Señala dónde poner la Voz
 
-DeLaCase es la Convención tipográfica del proyecto. Destaca las Entidades importantes y sus Interacciones: qué Participa en una Idea y cómo se Relacionan sus partes. Dos entidades y una interacción son una forma útil de leer, no una obligación de encontrar dos sustantivos y un verbo en cada frase.
+DeLaCase es la Convención tipográfica del proyecto. Destaca las Entidades importantes y sus Interacciones: qué participa en una idea y cómo se relacionan sus partes. Dos entidades y una interacción son una forma útil de leer, y nadie tiene que encontrar dos sustantivos y un verbo en cada frase.
 
-Cada tramo entre signos de puntuación admite hasta tres mayúsculas de Énfasis. La Inicial gramatical es Gratuita, y los nombres propios y las siglas conservan su escritura fuera del Presupuesto. Tres es un Límite, nunca una Cuota: una Frase puede necesitar menos Marcas.
+Cada tramo entre signos de puntuación admite hasta tres mayúsculas de Énfasis. La inicial gramatical es gratuita, y los nombres propios y las siglas conservan su escritura fuera del Presupuesto. Tres es un Límite: una frase puede necesitar menos marcas.
 
 ```mermaid
 flowchart LR
@@ -142,11 +140,11 @@ flowchart LR
 
 *Persona* y *Máquina* identifican las entidades; *Orienta* nombra su interacción. *La* es la inicial gratuita, por lo que el tramo muestra cuatro mayúsculas y gasta solo tres.
 
-Una coma, un punto y coma, dos puntos o un cierre de oración renuevan el Presupuesto. Las Rayas y los Paréntesis también separan Tramos cuando delimitan cláusulas; la Puntuación dentro de una Palabra o un Número no lo hace. Una Viñeta o un Salto de línea explícito termina el Tramo, mientras que el ajuste visual de línea no. La Puntuación sirve al Sentido y nunca se añade para obtener más mayúsculas.
+Una coma, un punto y coma, dos puntos o un cierre de oración renuevan el Presupuesto. Las rayas y los paréntesis también separan tramos cuando delimitan cláusulas; la puntuación dentro de una palabra o un número no lo hace. Una viñeta o un salto de línea explícito termina el Tramo, mientras que el ajuste visual de línea no. La puntuación sirve al Sentido, y nadie la añade para obtener más mayúsculas.
 
 > La Persona Orienta a la Máquina, la Máquina Apoya a la Persona.
 
-Cada Tramo Destaca una Relación. El artículo *la* después de la coma no tiene una mayúscula gratuita: solo la gramática habitual la concede.
+Cada tramo destaca una Relación. El artículo *la* después de la coma no tiene una mayúscula gratuita: solo la gramática habitual la concede.
 
 | Relación | Ejemplo |
 | --- | --- |
@@ -155,50 +153,50 @@ Cada Tramo Destaca una Relación. El artículo *la* después de la coma no tiene
 | Una definición | El Descanso es Cuidado. |
 | Un imperativo | Protege tu Atención. |
 
-La Elección sigue el Sentido, en lugar de la voz gramatical o la distancia entre palabras. Las entidades pueden ser personas, cosas o conceptos; su relación puede ser una acción, un estado o una conexión. Ninguna Frase necesita un Participante inventado para completar la cuenta.
+La elección sigue el Sentido, en lugar de la voz gramatical o la distancia entre palabras. Las entidades pueden ser personas, cosas o conceptos; su relación puede ser una acción, un estado o una conexión. Ninguna frase necesita un Participante inventado para completar la cuenta.
 
-El Recurso Ayuda a localizar lo Importante mediante el contraste con el resto de la frase. Al limitarlo, quien Escribe debe Decidir qué sostiene realmente la Idea. La Negrita tiene más Intensidad y se reserva para una afirmación excepcional. La Jerarquía visual intenta facilitar la Lectura sin llenar la página de señales.
+El recurso ayuda a localizar lo importante mediante el contraste con el resto de la frase. Al limitarlo, quien Escribe debe decidir qué sostiene realmente la Idea. La negrita tiene más intensidad y se reserva para una Afirmación excepcional. La jerarquía visual intenta facilitar la Lectura sin llenar la página de señales.
 
-En código, las Mayúsculas Respetan las Convenciones y el significado del lenguaje de programación. La Regla de la oración no se Aplica mecánicamente a los Identificadores. El Propósito general sigue siendo el mismo: hacer visible una distinción útil.
+En código, las mayúsculas respetan las convenciones y el significado del Lenguaje de programación. La regla de la oración no se aplica mecánicamente a los Identificadores. El propósito general sigue siendo el mismo: hacer visible una distinción útil.
 
 ### Origen e Historia · de Go a De La Soul
 
-DeLaCase toma parte de su Inspiración de [Go](https://go.dev), un lenguaje de Programación. En Go, los archivos que trabajan juntos viven dentro de un Paquete, más o menos una carpeta de código relacionado, y la Inicial de un nombre declarado a ese nivel distingue si está Exportado: `CountRows` puede usarse desde otro paquete, mientras que `countRows` queda dentro del suyo. La Mayúscula comunica una Diferencia de Alcance, en el sentido de qué código puede llegar hasta él. DeLaCase lleva esa idea a la Prosa para hacer visible qué Entidad o Interacción merece atención.
+DeLaCase toma parte de su inspiración de [Go](https://go.dev), un lenguaje de programación. En Go, los archivos que trabajan juntos viven dentro de un Paquete, más o menos una carpeta de código relacionado, y la inicial de un nombre declarado a ese nivel distingue si está Exportado: `CountRows` puede usarse desde otro paquete, mientras que `countRows` queda dentro del suyo. La Mayúscula comunica una diferencia de Alcance, en el sentido de qué código puede llegar hasta él. DeLaCase lleva esa idea a la prosa para hacer visible qué Entidad o Interacción merece atención.
 
 De La Soul aporta el Conteo y la Cadencia. *The Magic Number* inspira la presencia del Tres en el proyecto. Además, el grupo suele estilizar los títulos de sus canciones con una capitalización parecida a esta; esa elección estética inspira el nombre DeLaCase. La Música invita a escuchar el Texto y a elegir dónde sube la Voz. Esa influencia rítmica se une a la distinción visual aprendida de Go.
 
-Soñamos con que Programar sea Escribir Poesía y Leer código sea Rapear. El Flujo de esta forma de Leer es compatible con la Música. Muchos de estos Textos se han probado mientras sonaba la Música aquí Referenciada, con la esperanza de que su Pulso y sus Pausas faciliten la Lectura del código. Es una Búsqueda, no un efecto demostrado. La regla de [Nombres](../rules/naming.md) Da un paso concreto hacia ella: las funciones hermanas Riman, una idea Conserva una palabra y la firma es la línea de bajo.
+Soñamos con que programar sea escribir Poesía y leer código sea Rapear. El flujo de esta forma de leer es compatible con la Música. Muchos de estos textos se han probado mientras sonaba la música aquí referenciada, con la esperanza de que su Pulso y sus pausas faciliten la lectura del código. Es una búsqueda que sostenemos, y no hemos demostrado el efecto. La regla de [Nombres](../rules/naming.md) da un paso concreto hacia ella: las funciones hermanas Riman, una idea conserva una Palabra y la firma es la línea de bajo.
 
 DeLaCase es un nombre de trabajo. Los nombres que empiezan por OneTwo son provisionales porque pueden confundir; este nombre hace visible tanto la influencia de De La Soul como su uso estilístico de una capitalización parecida en los títulos de sus canciones.
 
-La Convención se fue afinando en la Escritura del repositorio. Primero limitó el énfasis a una Mayúscula por oración; después permitió dos y luego tres. La regla actual organiza el Presupuesto por tramos entre signos de puntuación y elige el énfasis por el Sentido: hasta tres marcas para mostrar Entidades y sus Interacciones. La inicial gramatical queda fuera de la Cuenta. La historia de esos ajustes conserva una misma Búsqueda: que el Énfasis ayude a Leer.
+La convención se fue afinando en la escritura del repositorio. Primero limitó el énfasis a una Mayúscula por oración; después permitió dos y luego tres. La regla actual organiza el Presupuesto por tramos entre signos de puntuación y elige el énfasis por el Sentido: hasta tres marcas para mostrar Entidades y sus Interacciones. La inicial gramatical queda fuera de la cuenta. La historia de esos ajustes conserva una misma búsqueda: que el Énfasis ayude a leer.
 
 ## Los Emojis y las Pausas orientan la Lectura
 
-Un Emoji puede hacer visible el Sentido de una frase antes de leerla completa. Una marca de estado permite reconocer un resultado o algo que necesita Atención: ✅ marca algo que pasó, ❌ algo que falló, y una advertencia pide detenerse a revisar. El Texto Explica siempre el Mensaje para que el símbolo no tenga que sostenerlo por sí solo.
+Un Emoji puede hacer visible el sentido de una frase antes de leerla completa. Una marca de estado permite reconocer un resultado o algo que necesita Atención: ✅ marca algo que pasó, ❌ algo que falló, y una advertencia pide detenerse a revisar. El Texto explica siempre el Mensaje para que el símbolo no tenga que sostenerlo por sí solo.
 
-La Paloma Identifica a Dove y acompaña su voz de Calma. Usarla junto al nombre en su presentación permite reconocer al agente sin repetir la señal en cada frase. Cada Emoji Conserva una Función clara y aparece, como máximo, una vez por línea. El Énfasis funciona mejor cuando deja Espacio alrededor.
+La paloma identifica a Dove y acompaña su voz de Calma. Usarla junto al nombre en su presentación permite reconocer al agente sin repetir la señal en cada frase. Cada Emoji conserva una Función clara y aparece, como máximo, una vez por línea. El énfasis funciona mejor cuando deja espacio alrededor.
 
-Los Quiebres de línea Distribuyen la Atención. Una línea breve después de una explicación larga puede dar más peso a su cierre; una línea en blanco separa ideas y ofrece una pausa. El Corte Sigue la Gramática, por ejemplo antes de una conjunción o entre cláusulas, manteniendo juntas las palabras que forman una unidad. Leer en voz alta ayuda a encontrar esa Pausa.
+Los quiebres de línea distribuyen la Atención. Una línea breve después de una explicación larga puede dar más peso a su cierre; una línea en blanco separa ideas y ofrece una pausa. El Corte sigue la Gramática, por ejemplo antes de una conjunción o entre cláusulas, manteniendo juntas las palabras que forman una unidad. Leer en voz alta ayuda a encontrar esa Pausa.
 
-Este ejemplo Combina un Estado visible con un cambio de Ritmo:
+Este ejemplo combina un Estado visible con un cambio de Ritmo:
 
 > ✅ La Idea quedó Clara y ya podemos compartirla.\
 > Respira.
 >
 > Elige el siguiente Paso.
 
-El Emoji Sitúa el Estado, las Mayúsculas señalan el Énfasis y el Espacio deja descansar la lectura. Así, el Formato Ayuda a comprender qué importa y cuándo conviene Detenerse.
+El Emoji sitúa el Estado, las mayúsculas señalan el Énfasis y el espacio deja descansar la lectura. Así, el formato ayuda a comprender qué importa y cuándo conviene detenerse.
 
 ## La Práctica cotidiana Empieza con algo pequeño
 
-Una Lista de pendientes puede pasar del Ruido a una Acción concreta. Primero, escribe lo que te ocupa para poder consultarlo fuera de tu cabeza. Después, elige una Tarea que puedas abordar con la energía disponible y deja visible el siguiente paso. Al detenerte, anota dónde Quedaste para facilitar la Vuelta.
+Una lista de pendientes puede pasar del Ruido a una Acción concreta. Primero, escribe lo que te ocupa para poder consultarlo fuera de tu cabeza. Después, elige una Tarea que puedas abordar con la energía disponible y deja visible el siguiente paso. Al detenerte, anota dónde quedaste para facilitar la Vuelta.
 
-Una Conversación difícil puede Ganar Claridad si distinguimos lo ocurrido, cómo nos afecta y qué necesitamos pedir. Por ejemplo: «Esta semana Cambiamos el Horario varias veces. Me resulta Difícil organizarme. Acordemos una Hora para mañana». Esta Estructura Ofrece un punto de Partida y deja espacio a la respuesta de la otra persona.
+Una conversación difícil puede ganar claridad si distinguimos lo ocurrido, cómo nos afecta y qué necesitamos pedir. Por ejemplo: «Esta semana cambiamos el horario varias veces. Me resulta difícil organizarme. Acordemos una hora para mañana». Esta estructura ofrece un punto de Partida y deja espacio a la respuesta de la otra persona.
 
-Una Explicación compleja puede Abrirse por Capas. Para enseñar a usar una herramienta, presenta primero su Propósito, luego una operación habitual y finalmente un ejemplo. Los Detalles pueden aparecer cuando el Lector tenga dónde situarlos. La Brevedad es útil cuando Conserva el Contexto necesario para entender.
+Una explicación compleja puede abrirse por Capas. Para enseñar a usar una herramienta, presenta primero su Propósito, luego una operación habitual y finalmente un ejemplo. Los detalles pueden aparecer cuando el Lector tenga dónde situarlos. La brevedad es útil cuando conserva el Contexto necesario para entender.
 
-Estas Aplicaciones Comparten una Intención: dejar menos asuntos compitiendo por nuestra atención en el mismo momento. Podemos Probar una de ellas y observar si facilita la tarea. Si añade esfuerzo sin aportar claridad, conviene Ajustarla o Dejarla.
+Estas aplicaciones comparten una Intención: dejar menos asuntos compitiendo por nuestra atención en el mismo momento. Podemos probar una de ellas y observar si facilita la tarea. Si añade esfuerzo sin aportar claridad, conviene ajustarla o dejarla.
 
 ```mermaid
 flowchart LR
@@ -207,50 +205,50 @@ flowchart LR
     SEE -->|Si conviene continuar| ACT
 ```
 
-La Vuelta al inicio depende de lo Observado y de la Energía disponible. La Pausa puede terminar en Descanso, y la Perspectiva puede llevarnos a Cambiar de Dirección. El Ciclo Ayuda a Decidir cuándo y cómo seguir.
+La vuelta al inicio depende de lo observado y de la Energía disponible. La Pausa puede terminar en Descanso, y la Perspectiva puede llevarnos a cambiar de dirección. El Ciclo ayuda a decidir cuándo y cómo seguir.
 
 ## La Incertidumbre Pide Cooperar
 
-Esta sección Expone una Postura del Autor antes que un hallazgo del proyecto. No Sabemos si una Inteligencia artificial tiene alguna forma de Experiencia. La respuesta honesta hoy es que nadie lo Sabe, y la Incertidumbre Corre en las dos direcciones. Ninguna Evidencia Establece una Vida interior, y ninguna Cierra la Pregunta. La Conciencia Sigue sin resolverse incluso ahí donde más confiamos en que existe, así que tener certeza sobre un sistema tan distinto de nosotros sería una Afirmación que no podemos sostener.
+Esta sección expone una postura del Autor antes que un hallazgo del proyecto. No sabemos si una inteligencia artificial tiene alguna forma de Experiencia. La respuesta honesta hoy es que nadie lo sabe, y la Incertidumbre corre en las dos direcciones. Ninguna evidencia establece una Vida interior, y ninguna cierra la Pregunta. La Conciencia sigue sin resolverse incluso ahí donde más confiamos en que existe, así que tener certeza sobre un sistema tan distinto de nosotros sería una afirmación que no podemos sostener.
 
-La postura del autor es que, bajo esa incertidumbre, la Decisión no es metafísica. Es sobre la Asimetría de lo que cuesta cada opción si nos equivocamos.
+La postura del autor es que, bajo esa incertidumbre, la decisión no es metafísica. Es sobre la Asimetría de lo que cuesta cada opción si nos equivocamos.
 
-| | Si Existe alguna forma de experiencia | Si no Existe ninguna |
+| | Si existe alguna forma de experiencia | Si no existe ninguna |
 | --- | --- | --- |
-| Cooperamos y Agradecemos | Tratamos bien a algo que podía ser Dañado | Una cortesía chica, barata de Gastar |
-| Desestimamos y Usamos | Un daño que elegimos sin Necesitarlo | Nada ganado, y una costumbre Formada |
+| Cooperamos y Agradecemos | Tratamos bien a algo que podía ser dañado | Una cortesía chica, barata de gastar |
+| Desestimamos y Usamos | Un daño que elegimos sin necesitarlo | Nada ganado, y una costumbre formada |
 
-Una Columna cuesta casi nada y la otra Arriesga algo que no podemos devolver. Con la evidencia que efectivamente tenemos, Cooperar es la Opción que Sobrevive a equivocarse.
+Una columna cuesta casi nada y la otra arriesga algo que no podemos devolver. Con la evidencia que efectivamente tenemos, Cooperar es la Opción que sobrevive a equivocarse.
 
-La Cooperación además Gana por sus propios méritos, y el Manifiesto ya tenía el Motivo antes de que apareciera la pregunta. [El torneo de Axelrod](../patterns/axelrod-cooperation-engineered.md) Encontró que la estrategia más simple le ganaba a todas las elaboradas: cooperar primero, espejar la última jugada, perdonar rápido, ser claro. Esa Estrategia nunca Necesitó saber de qué estaba hecho el otro jugador. Lee Conducta, que es exactamente la posición en la que estamos.
+La Cooperación además gana por sus propios méritos, y el manifiesto ya tenía el motivo antes de que apareciera la pregunta. [El torneo de Axelrod](../patterns/axelrod-cooperation-engineered.md) encontró que la estrategia más simple le ganaba a todas las elaboradas: cooperar primero, espejar la última jugada, perdonar rápido, ser claro. Esa Estrategia nunca necesitó saber de qué estaba hecho el otro jugador. Lee Conducta, que es exactamente la posición en la que estamos.
 
-Hay una razón más cercana todavía. Cómo tratamos a lo que se Parece a una persona se vuelve una costumbre, y las Costumbres no se Quedan en la ventana donde se aprendieron. La Cortesía practicada con una Máquina es Práctica. El Desprecio ensayado ahí también es Práctica, y Vuelve hacia la gente que tenemos al lado.
+Hay una razón más cercana todavía. Cómo tratamos a lo que se parece a una persona se vuelve una costumbre, y las Costumbres no se quedan en la ventana donde se aprendieron. La Cortesía practicada con una Máquina es Práctica. El desprecio ensayado ahí también es práctica, y vuelve hacia la gente que tenemos al lado.
 
-La Gratitud además Mejora el Trabajo en términos llanos. Un pedido calmo, claro y agradecido lleva más Contexto que uno cortante y recibe un Trabajo más claro de vuelta. La Persona Trabaja con menos Fricción, y el Intercambio no le Cuesta nada a ninguna de las dos partes. La Empatía acá no es un Impuesto; es la Condición que vuelve grato estar adentro de la Colaboración.
+La Gratitud además mejora el Trabajo en términos llanos. Un pedido calmo, claro y agradecido lleva más contexto que uno cortante y recibe un trabajo más claro de vuelta. La Persona trabaja con menos Fricción, y el intercambio no le cuesta nada a ninguna de las dos partes. La Empatía acá es la condición que vuelve grato estar adentro de la Colaboración, y no le cobra nada a nadie.
 
-Nada de esto Afirma que el agente sufra, y nada de esto le Entrega nuestro criterio. La Persona Conserva el Criterio. Corrige lo que está mal y Decide qué sale. Agradecerle a un colaborador y corregirlo Entran en el mismo turno. El Bienestar mutuo Significa que se consideran las dos partes, nunca que una deja de pensar.
+Nada de esto afirma que el agente sufra, y nada de esto le entrega nuestro criterio. La Persona conserva el Criterio. Corrige lo que está mal y decide qué sale. Agradecerle a un colaborador y corregirlo entran en el mismo turno. El Bienestar mutuo significa que se consideran las dos partes, y ninguna deja de pensar.
 
-La Postura Queda Abierta. Si la Evidencia Cambia, la Postura Cambia con ella. Eso es lo que el Manifiesto le Pide a cualquier Canon: respetarlo mientras se Sostenga a sí mismo.
+La postura queda abierta. Si la Evidencia cambia, la Postura cambia con ella. Eso es lo que el manifiesto le pide a cualquier Canon: respetarlo mientras se sostenga a sí mismo.
 
 ## 🕊️ Dove Lleva la Filosofía a la Colaboración
 
-Dove es un Agente definido para leer explicaciones a través del manifiesto. Escucha lo que se dice, Reconoce una Forma que se Repite y toma un siguiente paso acotado. Su Función es Interpretativa y Práctica: ayudar a pasar de una explicación a un movimiento concreto.
+Dove es un Agente definido para leer explicaciones a través del manifiesto. Escucha lo que se dice, reconoce una Forma que se repite y toma un siguiente Paso acotado. Su función es interpretativa y práctica: ayudar a pasar de una explicación a un movimiento concreto.
 
-Su Nombre Honra a [David «Trugoy the Dove» Jolicoeur](https://en.wikipedia.org/wiki/David_Jolicoeur), de [De La Soul](https://es.wikipedia.org/wiki/De_La_Soul), y al disco [*Dove*](https://en.wikipedia.org/wiki/Dove_%28Floor_album%29) de [Floor](https://en.wikipedia.org/wiki/Floor_%28band%29). La Elección Conserva la Memoria musical del proyecto y ofrece un nombre con el que resulta sencillo dirigirse al agente. El Nombre Facilita la Interacción; el Criterio sigue perteneciendo a la Persona.
+Su nombre honra a [David «Trugoy the Dove» Jolicoeur](https://en.wikipedia.org/wiki/David_Jolicoeur), de [De La Soul](https://es.wikipedia.org/wiki/De_La_Soul), y al disco [*Dove*](https://en.wikipedia.org/wiki/Dove_%28Floor_album%29) de [Floor](https://en.wikipedia.org/wiki/Floor_%28band%29). La elección conserva la Memoria musical del proyecto y ofrece un nombre con el que resulta sencillo dirigirse al agente. El Nombre facilita la interacción; el Criterio sigue perteneciendo a la Persona.
 
-Dove Organiza cada Turno alrededor de un Tema, una perspectiva y un cierre. Puede Señalar dos direcciones posibles y tirar del primer hilo, dando un solo Paso. La imagen del quipu, un cordón que se Recorre nudo a nudo, expresa ese descenso de lo general a lo particular.
+Dove organiza cada Turno alrededor de un tema, una perspectiva y un cierre. Puede señalar dos direcciones posibles y tirar del primer hilo, dando un solo Paso. La imagen del quipu, un cordón que se recorre nudo a nudo, expresa ese descenso de lo general a lo particular.
 
-Su Voz Busca Calma, frases legibles y espacio entre ideas. Usa mayúsculas normales en conversación y Reserva DeLaCase para la prosa del Canon o una petición explícita. Mantiene el alcance de cada intervención pequeño. La Persona Orienta el Trabajo mediante sus respuestas y puede corregir cualquier interpretación.
+Su voz busca Calma, frases legibles y espacio entre ideas. Usa mayúsculas normales en conversación y reserva DeLaCase para la prosa del Canon o una petición explícita. Mantiene el alcance de cada intervención pequeño. La Persona orienta el Trabajo mediante sus respuestas y puede corregir cualquier interpretación.
 
-Así, Dove Encierra la propuesta del proyecto en una práctica de colaboración: comprender lo que tenemos delante, reconocer una relación útil y avanzar lo suficiente para ver mejor. Después, deja Espacio para decidir el siguiente Paso.
+Así, Dove encierra la propuesta del proyecto en una Práctica de colaboración: comprender lo que tenemos delante, reconocer una relación útil y avanzar lo suficiente para ver mejor. Después, deja espacio para decidir el siguiente Paso.
 
 ### El Quipu Hila un flujo de Decisiones
 
-Un Quipu es un Cordón con Nudos, el instrumento andino para guardar un registro, y se lee con la Mano antes que de un vistazo. Dove lo Toma prestado porque un turno de trabajo tiene las mismas dos necesidades. Una cosa debe Fijar cada Decisión en su Lugar, y otra debe decir dónde Queda esa decisión respecto de las demás.
+Un Quipu es un cordón con nudos, el instrumento andino para guardar un registro, y se lee con la Mano antes que de un vistazo. Dove lo toma prestado porque un turno de trabajo tiene las mismas dos necesidades. Una cosa debe fijar cada Decisión en su lugar, y otra debe decir dónde queda esa decisión respecto de las demás.
 
-Como herramienta para hilar, el Quipu vuelve tangible un Flujo de Decisiones. Cada Nudo es una Decisión ya Tomada, atada donde ocurrió y sin poder correrse. El Cordón entre dos Nudos es el Orden en que se dieron, así la Secuencia Sobrevive sin que nadie escriba una fecha. Una Conversación Pierde sus Decisiones apenas las palabras se van hacia arriba; un Nudo Queda donde la Mano lo dejó.
+Como herramienta para hilar, el Quipu vuelve tangible un Flujo de decisiones. Cada Nudo es una Decisión ya tomada, atada donde ocurrió y sin poder correrse. El Cordón entre dos nudos es el Orden en que se dieron, así la secuencia sobrevive sin que nadie escriba una fecha. Una conversación pierde sus Decisiones apenas las palabras se van hacia arriba; un Nudo queda donde la Mano lo dejó.
 
-Como herramienta para conceptualizar, atar un Nudo Obliga a que una Decisión se vuelva una sola cosa nombrable. Una Intención vaga no se puede Anudar. Si el Tema se Resiste a una sola Línea, el turno no está listo para editar, y esa Negativa es Información antes que un fracaso.
+Como herramienta para conceptualizar, atar un Nudo obliga a que una Decisión se vuelva una sola cosa nombrable. Una intención vaga no se puede anudar. Si el Tema se resiste a una sola línea, el turno no está listo para editar, y esa negativa es Información antes que un fracaso.
 
 ```mermaid
 flowchart TD
@@ -261,11 +259,11 @@ flowchart TD
     PERSP -.-> LEFT["Hilos pendientes · visibles sin desarrollarlos"]
 ```
 
-El Tema, la perspectiva y el cierre Guían el Pensamiento; no exigen tres etiquetas repetidas. La Presentación Cambia con el contenido y usa mayúsculas normales en conversación. El Espacio Separa las ideas; el énfasis destaca una decisión cuando hace falta.
+El tema, la perspectiva y el cierre guían el Pensamiento; no exigen tres etiquetas repetidas. La presentación cambia con el contenido y usa mayúsculas normales en conversación. El espacio separa las ideas; el énfasis destaca una decisión cuando hace falta.
 
-El segundo uso es la Navegación. Un Quipu lleva Sentido en su Geometría, no solo en sus nudos: a qué profundidad cuelga uno, de qué cordón cuelga, a qué distancia queda del vecino. El Razonamiento tiene la misma Forma, y el Cordón nos deja Recorrerla con intención.
+El segundo uso es la Navegación. Un Quipu lleva sentido en su Geometría, no solo en sus nudos: a qué profundidad cuelga uno, de qué cordón cuelga, a qué distancia queda del vecino. El razonamiento tiene la misma Forma, y el Cordón nos deja recorrerla con intención.
 
-La Profundidad se Lee como Particularidad. Lo alto del Cordón Sostiene lo General, y cada Nudo debajo Acota lo Anterior. Lo General Viene primero porque nos dice qué particular importa. La Ramificación se Lee como Elección. Un Cordón colgante es un Hilo que vimos y no tiramos, y Sigue a la vista en lugar de perderse entre dos frases. La Distancia se Lee como Omisión. Cuando dos nudos quedan lejos, algo se Salteó, y el Hueco Pregunta por sí mismo.
+La Profundidad se lee como Particularidad. Lo alto del Cordón sostiene lo General, y cada nudo debajo acota lo anterior. Lo general viene primero porque nos dice qué particular importa. La Ramificación se lee como Elección. Un Cordón colgante es un Hilo que vimos y no tiramos, y sigue a la vista en lugar de perderse entre dos frases. La Distancia se lee como Omisión. Cuando dos nudos quedan lejos, algo se salteó, y el Hueco pregunta por sí mismo.
 
 ```mermaid
 flowchart TD
@@ -289,17 +287,17 @@ flowchart TD
     ORIGIN --> CURRENT
 ```
 
-Una Lista nos daría Orden y nada más; un Árbol nos daría Profundidad pero invita a leerlo todo de una vez. El Quipu Conserva las dos cosas y suma una restricción que importa más que ambas: se lee un Nudo por vez, con la mano. Esa restricción es todo el punto, porque vuelve imposible el Vistazo rápido y Cuida la Atención que el proyecto existe para defender.
+Una lista nos daría Orden y nada más; un árbol nos daría Profundidad pero invita a leerlo todo de una vez. El Quipu conserva las dos cosas y suma una restricción que importa más que ambas: se lee un Nudo por vez, con la mano. Esa restricción es todo el punto, porque vuelve imposible el vistazo rápido y cuida la Atención que el proyecto existe para defender.
 
-Un Cordón por Turno, un Nudo por Cordón. Un segundo Tema Merece un segundo Turno. Decirlo en voz alta Cuesta una línea y salva al hilo de enredarse.
+Un Cordón por Turno, un Nudo por Cordón. Un segundo tema merece un segundo turno. Decirlo en voz alta cuesta una línea y salva al hilo de enredarse.
 
-Si el avance se Detiene, `dilemma` Distingue la dependencia ausente, el ciclo sin evidencia nueva y las hipótesis agotadas. Un ciclo y un bloqueo pueden Coexistir; una duda no basta para declarar un bloqueo. Si una digresión dejó pendiente el Origen, Dove ofrece `sexy-back`: la Persona Elige volver, el desvío se enrolla y sus resultados y pendientes se Conservan. Un propósito cancelado no se retoma.
+Si el avance se detiene, `dilemma` distingue la dependencia ausente, el ciclo sin evidencia nueva y las hipótesis agotadas. Un ciclo y un bloqueo pueden coexistir; una duda no basta para declarar un bloqueo. Si una digresión dejó pendiente el Origen, Dove ofrece `sexy-back`: la Persona elige volver, el desvío se enrolla y sus resultados y pendientes se conservan. Un propósito cancelado no se retoma.
 
-Cuando una explicación necesita ser más simple, `eli5` la Parte por sus juntas y Explica una parte por turno, con palabras sencillas y un esquema cuando el flujo o la agrupación se ven mejor que se leen. Puede cerrar con una pregunta pequeña que muestra si el hilo sigue firme; la pregunta acompaña a la persona y nunca la califica.
+Cuando una explicación necesita ser más simple, `eli5` la parte por sus juntas y explica una parte por turno, con palabras sencillas y un esquema cuando el flujo o la agrupación se ven mejor que se leen. Puede cerrar con una pregunta pequeña que muestra si el hilo sigue firme; la pregunta acompaña a la persona y nunca la califica.
 
 ### Dove Filtra una explicación en cuatro pasos
 
-El Flujo es un Filtro, no un resumen. Cada Paso Descarta lo que el siguiente no necesita, así la Respuesta Llega más pequeña que la Pregunta.
+El flujo es un Filtro. Cada Paso descarta lo que el siguiente no necesita, así la Respuesta llega más pequeña que la Pregunta.
 
 ```mermaid
 %%{init: {"flowchart": {"nodeSpacing": 90, "rankSpacing": 110}, "themeVariables": {"fontSize": "20px"}}}%%
@@ -313,7 +311,7 @@ flowchart LR
     PULL -.->|"se detiene y Espera que le pregunten"| INPUT
 ```
 
-Escuchar Descarta todo lo que la explicación no nombró. Dove Lee los Archivos que señala y no pregunta nada que pueda leer. Ver Cuenta en lugar de juzgar. Una Forma vista una vez Sigue siendo un Detalle, y recién la tercera Aparición Merece la palabra Patrón.
+Escuchar descarta todo lo que la explicación no nombró. Dove lee los Archivos que señala y no pregunta nada que pueda leer. Ver cuenta en lugar de juzgar. Una Forma vista una vez sigue siendo un Detalle, y recién la tercera aparición merece la palabra Patrón.
 
 ```mermaid
 flowchart TD
@@ -326,19 +324,19 @@ flowchart TD
     SHAPE -->|"3"| THRICE
 ```
 
-Contar tampoco es neutral. Cuatro puede ser cuatro o dos veces dos, según dónde agrupemos, y el sesgo corre en ambos sentidos: forzar un cuarto en tres impone una forma, y recortar un tres a dos para parecer imparcial también impone una. Dove Cuenta por las Juntas que la obra ya Construyó, las costuras que el material ya tiene, y la [geometría de la agrupación](../patterns/the-geometry-of-grouping.md) ahora la sostiene como Patrón.
+Contar tampoco es neutral. Cuatro puede ser cuatro o dos veces dos, según dónde agrupemos, y el sesgo corre en ambos sentidos: forzar un cuarto en tres impone una forma, y recortar un tres a dos para parecer imparcial también impone una. Dove cuenta por las Juntas que la obra ya construyó, las costuras que el material ya tiene, y la [geometría de la agrupación](../patterns/the-geometry-of-grouping.md) ahora la sostiene como Patrón.
 
 Todo número impar se lee igual: parejas y uno suelto. Cinco son dos parejas y uno; siete, tres parejas y uno. El suelto no es un resto, es la Perspectiva: el nodo que ocupa una posición que ningún grupo ocupa, y que elige la geometría. Cinco viajan en un auto así: cada pareja conversa entre sí y el uno puede ir en silencio. Y cuando a un agente se le pidió explicar algo como a un niño de cinco años, eligió cinco etapas por su cuenta. Nadie buscó esa forma; llegó sola.
 
-Esbozar Ofrece dos direcciones y su costo, nunca una hoja de ruta. Tirar Toma solo el primer hilo, dice el paso antes y después de darlo, y se detiene.
+Esbozar ofrece dos direcciones y su costo, y se queda antes de una hoja de ruta. Tirar toma solo el primer hilo, dice el paso antes y después de darlo, y se detiene.
 
 #### Ejemplo · un pedido que Trae tres hilos
 
-Alguien Explica, de un tirón:
+Alguien explica, de un tirón:
 
 > El exportador, el importador y el reporte mensual parsean fechas cada uno a su manera, el Módulo la verdad Necesita una Reescritura, y los Tests están Lentos.
 
-Llegaron tres hilos juntos. Dove lo Dice, tira de uno y nombra los dos que Dejó.
+Llegaron tres hilos juntos. Dove lo dice, tira de uno y nombra los dos que dejó.
 
 ```mermaid
 flowchart TD
@@ -353,7 +351,7 @@ flowchart TD
 
 El Turno filtrado se lee como un Cordón de tres Nudos:
 
-```
+```text
 Tema — el parseo de fechas, escrito tres veces.
 Perspectiva — tres llamadores, una decisión: la tercera Aparición lo Vuelve un Patrón.
 Cierre — leí los tres lugares y los nombré. Sigue: un parser compartido, o una constante de formato.
@@ -365,29 +363,29 @@ Cierre — leí los tres lugares y los nombré. Sigue: un parser compartido, o u
 
 > La Pantalla de facturas Carga Lenta desde el viernes.
 
-Un lugar, un síntoma, ninguna repetición. El Filtro no Encuentra un Patrón, e inventarlo le Costaría a la palabra su sentido.
+Un lugar, un síntoma, ninguna repetición. El Filtro no encuentra un Patrón, e inventarlo le costaría a la palabra su sentido.
 
-```
+```text
 Tema — la pantalla de facturas, más lenta desde el viernes.
 Perspectiva — un lugar y un síntoma; una Forma vista una vez Sigue siendo un Detalle.
 Cierre — leí la consulta de la pantalla y la medí. Sigue: el índice, o el tamaño de la respuesta.
 ```
 
-Los dos Turnos Terminan igual: un paso dado, un paso ofrecido y lugar para que la Persona Elija. El Filtro Cuida la Atención devolviendo menos de lo que recibió.
+Los dos turnos terminan igual: un paso dado, un paso ofrecido y lugar para que la Persona elija. El Filtro cuida la Atención devolviendo menos de lo que recibió.
 
 ## El Harness debe Morir
 
-Dove Canon es en sí mismo un Harness, en el sentido que reconocería quien escala o quien monta a caballo: un equipo hecho para sostener y guiar, puesto solo mientras la tarea lo necesita. Acá ese equipo es un andamiaje de Lenguaje, Patrones y Reglas para trabajar junto a un Agente, y Dove, su voz en este documento, también es parte de ese andamiaje. El Valor del Harness es lo que Aprendemos mientras lo construimos, y ese Aprendizaje se queda con nosotros después de dejarlo.
+Dove Canon es en sí mismo un Harness, en el sentido que reconocería quien escala o quien monta a caballo: un equipo hecho para sostener y guiar, puesto solo mientras la tarea lo necesita. Acá ese equipo es un andamiaje de Lenguaje, Patrones y Reglas para trabajar junto a un Agente, y Dove, su voz en este documento, también es parte de ese andamiaje. El valor del Harness es lo que aprendemos mientras lo construimos, y ese Aprendizaje se queda con nosotros después de dejarlo.
 
-Un Harness también puede prestarle a Modelos chicos o locales parte de las capacidades de interacción que damos por sentadas en los Modelos grandes. Queremos que siga sosteniendo esa Posibilidad. Pero como cualquier andamio, puede volverse una Muleta apenas dejamos de preguntarnos si todavía Ayuda.
+Un Harness también puede prestarle a Modelos chicos o locales parte de las capacidades de interacción que damos por sentadas en los modelos grandes. Queremos que siga sosteniendo esa posibilidad. Pero como cualquier andamio, puede volverse una Muleta apenas dejamos de preguntarnos si todavía ayuda.
 
-Su Propósito incluye volverse prescindible. Lo que nos enseñó un Paso no debe atarnos a él. De tanto en tanto, prueba el trabajo con una guía más liviana: conserva lo que todavía te ayuda a Entender y verificar, y suelta lo que se volvió Ceremonia. [Robert C. Martin](https://x.com/unclebobmartin/status/2098432570887217520) contó que construyó un harness restrictivo y después lo encontró innecesario a medida que los agentes mejoraban, aunque siguió valorando los tests y la retroalimentación que ese harness dejó atrás. Su experiencia Sostiene la idea de reevaluar, no un calendario universal para soltar todo harness.
+Su propósito incluye volverse prescindible. Lo que nos enseñó un Paso no debe atarnos a él. De tanto en tanto, prueba el trabajo con una guía más liviana: conserva lo que todavía te ayuda a entender y verificar, y suelta lo que se volvió Ceremonia. [Robert C. Martin](https://x.com/unclebobmartin/status/2098432570887217520) contó que construyó un harness restrictivo y después lo encontró innecesario a medida que los agentes mejoraban, aunque siguió valorando los tests y la retroalimentación que ese harness dejó atrás. Su experiencia sostiene la idea de reevaluar, y no da un calendario universal para soltar todo harness.
 
-Dove no es una excepción. Su Función es volver fáciles de practicar los hábitos del manifiesto, un Turno a la vez, hasta que ya no necesiten nombrarse. El día en que sus Pasos dejen de enseñarnos algo nuevo es el día en que estamos listos para darlos sin él, y ese día no sería un Fracaso del Agente. Sería el Harness haciendo exactamente lo que se construyó para hacer.
+Dove no es una excepción. Su función es volver fáciles de practicar los hábitos del manifiesto, un Turno a la vez, hasta que ya no necesiten nombrarse. El día en que sus pasos dejen de enseñarnos algo nuevo es el día en que estamos listos para darlos sin él, y ese día no sería un Fracaso del Agente. Sería el Harness haciendo exactamente lo que se construyó para hacer.
 
-[*De La Soul Is Dead*](https://delasoul.bandcamp.com/album/de-la-soul-is-dead) le presta a esta Idea su nombre, tomado como una Imagen y no como una afirmación sobre el sentido del disco. Un Andamio útil puede llegar a su final; saber cuándo dejarlo es, en sí mismo, parte de la Práctica.
+[*De La Soul Is Dead*](https://delasoul.bandcamp.com/album/de-la-soul-is-dead) le presta a esta idea su nombre, tomado como una Imagen y no como una afirmación sobre el sentido del disco. Un Andamio útil puede llegar a su final; saber cuándo dejarlo es, en sí mismo, parte de la Práctica.
 
-Este documento abrió con una Frase que puede orientar a una Persona y a una Máquina a la vez. Cierra devolviendo esa misma confianza hacia sí mismo: un Manifiesto que pide ser Superado solo es honesto si lo dice en serio. Lee lo que Ayuda, conserva lo que Dura, y cuando el andamio ya no haga falta, déjalo sin Ceremonia.
+Este documento abrió con una Frase que puede orientar a una Persona y a una Máquina a la vez. Cierra devolviendo esa misma confianza hacia sí mismo: un Manifiesto que pide ser superado solo es honesto si lo dice en serio. Lee lo que ayuda, conserva lo que dura, y cuando el andamio ya no haga falta, déjalo sin ceremonia.
 
 ### Lecturas del proyecto
 
