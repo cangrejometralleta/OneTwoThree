@@ -39,6 +39,8 @@ Only ordinary grammar does.
 
 Proper names and acronyms keep their established Spelling.  
 Their required capitals stay outside the emphasis Budget.
+A title of a work or a Pattern cited in prose is a proper name too.
+A concept of two words, such as *Happy Path*, spends one Capital.
 The project Name is one name in every Form:  
 `Dove Canon`, `dove-canon`, `dove_canon` and `dovecanon`.
 A list of names is exempt.  
