@@ -33,7 +33,7 @@ flowchart LR
 
 - The same Geometry Works in reverse.  
   A complex System, read by its Joints, Breaks into simpler Entities;  
-  the Shape you Found becomes the Structure you Build.
+  the Shape you found becomes the Structure you Build.
 
 ```mermaid
 flowchart LR

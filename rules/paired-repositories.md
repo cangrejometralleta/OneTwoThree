@@ -37,7 +37,7 @@ are present.
 ## Why a Memory and not a Question
 
 The Boundary between two repositories is where a change Breaks.  
-An Agent that does not Know where the other Side lives will Edit one half
+An Agent that does not know where the other Side lives will Edit one half
 and Guess the other.
 
 Asking Costs the person the same Answer, every session.  
