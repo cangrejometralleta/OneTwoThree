@@ -414,7 +414,7 @@ conecta las tres.
   [joining-you](.agents/skills/joining-you/SKILL.md) aplica una estructura
   documentada de ellos.
 - **`npx skills add cangrejometralleta/dove-canon`.** Instala las skills y
-  nada más, y `#v2.0.1` fija un release. Cada skill se copia sola, así que en
+  nada más, y `#v2.0.3` fija un release. Cada skill se copia sola, así que en
   una instalación limpia 65 de 106 links relativos se rompieron, y `dove.md` no
   se instaló. Las skills cargan igual; lo que citan no resuelve.
 
