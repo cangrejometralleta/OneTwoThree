@@ -29,8 +29,8 @@ the architecture, the operations and the checks that make them concrete.
   [Rules](RULES.md).
 - To see the Rules run, open the [School service](examples/school/README.md) or
   the [PDF converter](examples/pdf/README.md).
-- To connect another project, use
-  [dove-update](.agents/skills/dove-update/SKILL.md).
+- To connect another project, read
+  [Connect another project](#connect-another-project).
 
 ## What the Harness Does
 
@@ -54,11 +54,8 @@ remember-the-day  persist State while the Work is moving
 bye-bye-bye       leave a handoff another session can resume
 ```
 
-Other projects connect through `dove-update`. Getting the files there and
-getting the client to load them are two different jobs, so the skill keeps
-them apart. However you already install things, clone, submodule, subtree,
-symlink or a portable ZIP, you keep doing it that way. Checking the filesystem
-proves the connection. Asking the client proves the Agent actually loaded it.
+Other projects connect by taking the skills, the agent and the Canon together,
+as [Connect another project](#connect-another-project) explains.
 
 Knowledge crosses the same kind of boundary. Raw experience stays in `chaos/`.
 Once the person is removed, what is left may become a Story. Only the learning
@@ -383,28 +380,24 @@ operations. A new request with its own intent starts its own work. Opening a
 session names the next step; publication and closing each need their own
 request.
 
-### Projects keep their distribution mechanism
+### Connect another project
 
-[dove-update](.agents/skills/dove-update/SKILL.md) manages the canon
-connection and connects the active client to selected skills and agents.
-[joining-you](.agents/skills/joining-you/SKILL.md) applies a documented
-relative-link layout to a folder or project.
+The skills and the Dove agent work as one set, and both lean on the Canon.
+Skills cite [Rules](RULES.md), [Values](VALUES.md) and [Patterns](PATTERNS.md)
+by relative link, and the agent routes the work to the skills. Taking one
+without the others leaves it working worse, so connect all three.
 
-```mermaid
-flowchart LR
-    UPDATE["dove-update"] --> FORMAT{"Distribution"}
-    FORMAT -- "Clone" --> CLONE[".agents/canon<br/>Selected relative links"]
-    FORMAT -- "ZIP" --> ZIP["Generated snapshot<br/>.agents/distribution.json"]
-    CLONE --> RELOAD["client loading"]
-    ZIP --> RELOAD
-    RELOAD --> VERIFY["Refresh the active client<br/>Verify discovery"]
-```
+- **Clone or submodule.** Link `.agents/skills` and `.agents/agents` into your
+  client's folders, as `.claude/skills` and `.claude/agents` do here. The
+  relative links keep resolving, and [joining-you](.agents/skills/joining-you/SKILL.md)
+  applies a documented layout of them.
+- **`npx skills add cangrejometralleta/dove-canon`.** It installs the skills
+  and nothing else, and `#v2.0.0` pins a release. Each skill is copied alone,
+  so in a clean install 69 of 121 relative links broke, and `dove.md` was not
+  installed. The skills still load; what they cite does not resolve.
 
-Existing installations keep their mechanism and local customizations. A
-[portable ZIP](.agents/skills/dove-update/references/zip.md) records its
-source commit and file inventory. It is a snapshot, and the live canon remains
-the head of `main`. Filesystem validation proves the links, and client
-discovery proves the load.
+Whichever way you connect, check the folder and then ask the client. The
+folder proves the links, and the client proves the Agent loaded them.
 
 ### Experience earns its way into the Canon
 

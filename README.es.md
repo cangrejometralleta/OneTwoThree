@@ -33,8 +33,8 @@ concretas. Los documentos enlazados están en inglés, salvo la Presentación.
 - Para ver las Reglas en ejecución, abre el
   [servicio School](examples/school/README.md) o el
   [conversor PDF](examples/pdf/README.md).
-- Para conectar otro proyecto, usa
-  [dove-update](.agents/skills/dove-update/SKILL.md).
+- Para conectar otro proyecto, lee
+  [Conectar otro proyecto](#conectar-otro-proyecto).
 
 ## Qué hace el Harness
 
@@ -58,12 +58,8 @@ remember-the-day  persiste el Estado mientras el Trabajo avanza
 bye-bye-bye       deja un handoff que otra sesión pueda retomar
 ```
 
-Los demás proyectos se conectan mediante `dove-update`. Llevar los archivos
-hasta allá y lograr que el cliente los cargue son dos trabajos distintos, así
-que la skill los mantiene separados. Como sea que ya instales las cosas, clone,
-submodule, subtree, symlink o un ZIP portable, lo sigues haciendo igual.
-Revisar el filesystem prueba la conexión. Preguntarle al cliente prueba que el
-Agente de verdad la cargó.
+Los demás proyectos se conectan llevando juntos las skills, el agente y el
+canon, como explica [Conectar otro proyecto](#conectar-otro-proyecto).
 
 El conocimiento cruza el mismo tipo de frontera. La experiencia en bruto se
 queda en `chaos/`. Una vez quitada la persona, lo que queda puede volverse una
@@ -393,28 +389,26 @@ operaciones. Un pedido nuevo con su propia intención inicia su propio trabajo.
 Abrir una sesión nombra el siguiente paso; publicar y cerrar necesitan cada
 uno su propio pedido.
 
-### Los proyectos conservan su mecanismo de distribución
+### Conectar otro proyecto
 
-[dove-update](.agents/skills/dove-update/SKILL.md) gestiona la conexión con el
-canon y conecta el cliente activo con las skills y agentes elegidos.
-[joining-you](.agents/skills/joining-you/SKILL.md) aplica una estructura
-documentada de enlaces relativos a una carpeta o proyecto.
+Las skills y el agente Dove funcionan como un conjunto, y los dos se apoyan en
+el canon. Las skills citan [Reglas](RULES.md), [Valores](VALUES.md) y
+[Patrones](PATTERNS.md) con links relativos, y el agente encamina el trabajo a
+las skills. Llevarse una sin las otras la deja funcionando peor, así que
+conecta las tres.
 
-```mermaid
-flowchart LR
-    UPDATE["dove-update"] --> FORMAT{"Distribución"}
-    FORMAT -- "Clone" --> CLONE[".agents/canon<br/>Links relativos seleccionados"]
-    FORMAT -- "ZIP" --> ZIP["Snapshot generado<br/>.agents/distribution.json"]
-    CLONE --> RELOAD["carga en el cliente"]
-    ZIP --> RELOAD
-    RELOAD --> VERIFY["Actualizar el cliente activo<br/>Verificar el descubrimiento"]
-```
+- **Clone o submodule.** Enlaza `.agents/skills` y `.agents/agents` en las
+  carpetas de tu cliente, como hacen aquí `.claude/skills` y `.claude/agents`.
+  Los links relativos siguen resolviendo, y
+  [joining-you](.agents/skills/joining-you/SKILL.md) aplica una estructura
+  documentada de ellos.
+- **`npx skills add cangrejometralleta/dove-canon`.** Instala las skills y
+  nada más, y `#v2.0.0` fija un release. Cada skill se copia sola, así que en
+  una instalación limpia 69 de 121 links relativos se rompieron, y `dove.md` no
+  se instaló. Las skills cargan igual; lo que citan no resuelve.
 
-Las instalaciones existentes conservan su mecanismo y sus personalizaciones
-locales. Un [ZIP portable](.agents/skills/dove-update/references/zip.md)
-registra su commit de origen y el inventario de archivos. Es un snapshot, y el
-canon vivo sigue siendo el head de `main`. La validación del filesystem prueba
-los links, y el descubrimiento del cliente prueba la carga.
+Conectes como conectes, revisa la carpeta y después pregúntale al cliente. La
+carpeta prueba los links, y el cliente prueba que el Agente los cargó.
 
 ### La experiencia se gana un lugar en el Canon
 
