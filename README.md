@@ -368,7 +368,6 @@ Each skill is one operation, and its linked file holds the details.
 | `I'm stuck`, `what's blocking us?`, `how do we get unstuck?`, `I disagree`, `give me another perspective` or reasoning repeats | [say-no-go](.agents/skills/say-no-go/SKILL.md) | Stops blocked work or a disputed answer, names what is missing and offers another approach, perspective or return to another topic. |
 | A change starts growing | [2-become-1](.agents/skills/2-become-1/SKILL.md) | Checks whether one intent still holds the change. |
 | Ask for pending stories | [long-story-short](.agents/skills/long-story-short/SKILL.md) | Sorts stories by what they wait on and distills the one you pick. |
-| Inspect a skill lock or manifest for dependencies | [skills-lock](.agents/skills/skills-lock/SKILL.md) | Reads the declared schema and reports explicit dependencies by skill. |
 | Organize local changes into feature commits, split work into commits, or commit and push the changes | [commit-commit-commit](.agents/skills/commit-commit-commit/SKILL.md) | Groups changes by feature, commits each group, pushes once after all succeed. |
 | `bye dove`, `I'm done for now`, `let's wrap up` or request a handoff | [bye-bye-bye](.agents/skills/bye-bye-bye/SKILL.md) | Expands the checkpoint into a closing handoff and stops. |
 | A secret may have entered history, such as an accidentally committed API key, or a vendor needs debranding | [dirrty](.agents/skills/dirrty/SKILL.md) | Detects, confirms and purges an exact value from files and history; also debrands vendor authorship as a last resort. |
