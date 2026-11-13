@@ -275,6 +275,10 @@ A separate DeLaCase check ran the same eight questions, two samples each, with t
 - **DeLaCase on by default is the costly part:** with it, the Mini's total output on summaries rose from a median of 678 to 1122 tokens. The effort setting matters here; lower effort may change this.
 - **Quality moved little:** every summary kept events, causes and endings. Faithfulness ranged from 1.42 to 1.75 over 12 summaries per condition, and the judge flagged slips such as a chain "months" long where the story says weeks, or a bird killed where it is only wounded. Those flags appear in all five conditions.
 
+### Decision
+
+After this run the Mini ships with DeLaCase off by default, from \`v2.0.3\`. The convention stays built in and turns on when the user asks for it. \`v2.0.2\` shipped it on by default, the condition measured here as Mini on.
+
 ### Limits
 
 - Twelve summaries and eight answers per condition, one session, one model and one effort setting. A gap of a few tenths of a point is inside the noise.
