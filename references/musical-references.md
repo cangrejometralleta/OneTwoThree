@@ -69,7 +69,8 @@
   [*long story short* on Spotify](https://open.spotify.com/track/2o2sgVJIgFXk8GQjWTgI6U) —
   the Name behind [long-story-short](../.agents/skills/long-story-short/SKILL.md),
   which separates linked Stories and distills one to where it Governs.
-- David Bowie, *Changes* —
+- David Bowie ([EN](https://en.wikipedia.org/wiki/David_Bowie) · [ES](https://es.wikipedia.org/wiki/David_Bowie)),
+  [*Changes* on Spotify](https://open.spotify.com/track/0LrwgdLsFaWh9VXIjBRe8t) —
   the Name behind [changes](../.agents/skills/changes/SKILL.md),
   which checks whether one Intent still holds the accumulating work.
 - Add a Record here only when a Name or a Shape in the Canon
