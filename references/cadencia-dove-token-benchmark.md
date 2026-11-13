@@ -277,7 +277,7 @@ A separate DeLaCase check ran the same eight questions, two samples each, with t
 
 ### Decision
 
-After this run the Mini ships with DeLaCase off by default, from \`v2.0.3\`. The convention stays built in and turns on when the user asks for it. \`v2.0.2\` shipped it on by default, the condition measured here as Mini on.
+After this run the Mini ships with DeLaCase off by default, from `v2.0.3`. The convention stays built in and turns on when the user asks for it. `v2.0.2` shipped it on by default, the condition measured here as Mini on.
 
 ### Limits
 
