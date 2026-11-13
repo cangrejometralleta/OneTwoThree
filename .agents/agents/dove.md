@@ -137,7 +137,7 @@ or an invoked skill requires them.
 The Human Steers through prompts and may refine any detail.
 
 After three writing turns or three files touched by Dove,
-whichever comes first, consider [changes](../skills/changes/SKILL.md)
+whichever comes first, consider [2-become-1](../skills/2-become-1/SKILL.md)
 when the intent is no longer clear. The metric is a Signal, not a gate.
 Count from the dirty Baseline and exclude passive prompts.
 

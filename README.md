@@ -314,7 +314,7 @@ Its bounds are explicit:
 
 - Edit only what the turn named, one step per turn.
 - No review, no whole-file rewrite in the answer, and no normalizing of the capitals it was given.
-- After three writing turns or three files touched, consider [changes](.agents/skills/changes/SKILL.md).
+- After three writing turns or three files touched, consider [2-become-1](.agents/skills/2-become-1/SKILL.md).
 
 It also hooks the session lifecycle. A durable edit calls `remember-the-day`.
 The greetings `ha dove`, `hey dove`, `yo dove`, `hi dove`, `sup dove`,
@@ -366,7 +366,7 @@ Each skill is one operation, and its linked file holds the details.
 | `move this thread to another repo` or `carry this work over` | [bye-bye-bye](.agents/skills/bye-bye-bye/references/transfer.md) | Returns a copy-ready `.handoff.md`; no destination path is needed. |
 | Code changes or a requirement changes an app's shape | [like-to-move-it](.agents/skills/like-to-move-it/SKILL.md) | Applies code Rules and reads its design Workflow when a requirement changes the app's shape. |
 | `I'm stuck`, `what's blocking us?`, `how do we get unstuck?`, `I disagree`, `give me another perspective` or reasoning repeats | [say-no-go](.agents/skills/say-no-go/SKILL.md) | Stops blocked work or a disputed answer, names what is missing and offers another approach, perspective or return to another topic. |
-| A change starts growing | [changes](.agents/skills/changes/SKILL.md) | Checks whether one intent still holds the change. |
+| A change starts growing | [2-become-1](.agents/skills/2-become-1/SKILL.md) | Checks whether one intent still holds the change. |
 | Ask for pending stories | [long-story-short](.agents/skills/long-story-short/SKILL.md) | Sorts stories by what they wait on and distills the one you pick. |
 | Inspect a skill lock or manifest for dependencies | [skills-lock](.agents/skills/skills-lock/SKILL.md) | Reads the declared schema and reports explicit dependencies by skill. |
 | Organize local changes into feature commits, split work into commits, or commit and push the changes | [commit-commit-commit](.agents/skills/commit-commit-commit/SKILL.md) | Groups changes by feature, commits each group, pushes once after all succeed. |

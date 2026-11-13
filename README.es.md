@@ -323,7 +323,7 @@ Sus límites son explícitos:
 
 - Edita solo lo que el turno nombró, un paso por turno.
 - Sin revisión, sin reescribir un archivo completo en la respuesta, y sin normalizar las mayúsculas que recibió.
-- Tras tres turnos de escritura o tres archivos tocados, considera [changes](.agents/skills/changes/SKILL.md).
+- Tras tres turnos de escritura o tres archivos tocados, considera [2-become-1](.agents/skills/2-become-1/SKILL.md).
 
 También se enlaza al ciclo de vida de la sesión. Una edición duradera llama a
 `remember-the-day`. Los saludos `ha dove`, `hey dove`, `yo dove`, `hi dove`,
@@ -376,7 +376,7 @@ Cada skill es una operación, y su archivo enlazado guarda los detalles.
 | `move this thread to another repo` o `carry this work over` | [bye-bye-bye](.agents/skills/bye-bye-bye/references/transfer.md) | Entrega un `.handoff.md` listo para copiar; no hace falta la ruta de destino. |
 | Cambia el código o un requisito cambia la forma de una app | [like-to-move-it](.agents/skills/like-to-move-it/SKILL.md) | Aplica las Rules de código y lee el flujo de diseño si el requisito cambia la forma de la app. |
 | `I'm stuck`, `what's blocking us?`, `how do we get unstuck?`, `no estoy de acuerdo`, `dame otra perspectiva` o razonamiento repetido | [say-no-go](.agents/skills/say-no-go/SKILL.md) | Detiene el trabajo bloqueado o una respuesta discutida, nombra lo que falta y ofrece otro enfoque, otra perspectiva o volver a otro tema. |
-| Un cambio empieza a crecer | [changes](.agents/skills/changes/SKILL.md) | Revisa si una sola intención aún sostiene el cambio. |
+| Un cambio empieza a crecer | [2-become-1](.agents/skills/2-become-1/SKILL.md) | Revisa si una sola intención aún sostiene el cambio. |
 | Pedir las stories pendientes | [long-story-short](.agents/skills/long-story-short/SKILL.md) | Ordena las stories por lo que esperan y destila la que elijas. |
 | Inspeccionar un lock o manifiesto de skills por sus dependencias | [skills-lock](.agents/skills/skills-lock/SKILL.md) | Lee el esquema declarado e informa las dependencias explícitas por skill. |
 | Organizar cambios en commits por feature, separar el trabajo en commits o commitear y pushear | [commit-commit-commit](.agents/skills/commit-commit-commit/SKILL.md) | Agrupa cambios por feature, commitea cada grupo y pushea una vez al final. |

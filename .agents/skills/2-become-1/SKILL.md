@@ -1,11 +1,12 @@
 ---
-name: changes
+name: 2-become-1
 description: "Assess whether an accumulating change still serves one intent or has grown into multiple changes. Use after three attributable writing turns or three files touched, before more work compounds the scope, and before a deletion or radical change to Brief its impact by intent. This is a change-growth check, not a code review."
 ---
 
-# Changes
+# 2Become1
 
-The Name Recalls *Changes* by David Bowie.
+The Name Recalls *2 Become 1* by the Spice Girls.
+It asks the song backwards: when two Intents have Become one change, say so.
 
 A Reader of Scope, not a reviewer of Code.
 It asks whether one change is still one Change,

@@ -85,7 +85,7 @@ flowchart TD
 - [CommitCommitCommit](../.agents/skills/commit-commit-commit/SKILL.md) Publishes when requested.
   Feature Commits Come first; one push follows successful validation and commits.
   Publication does not Close the session.
-- [Changes](../.agents/skills/changes/SKILL.md) Checks the scope as work accumulates.
+- [2Become1](../.agents/skills/2-become-1/SKILL.md) Checks the scope as work accumulates.
   It Keeps one Intent in view before another step compounds it.
 - A machine that takes two steps cannot be Stopped between them.
   The Halt is what Makes the Ritual safe to repeat.

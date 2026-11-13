@@ -69,9 +69,9 @@
   [*long story short* on Spotify](https://open.spotify.com/track/2o2sgVJIgFXk8GQjWTgI6U) —
   the Name behind [long-story-short](../.agents/skills/long-story-short/SKILL.md),
   which separates linked Stories and distills one to where it Governs.
-- David Bowie ([EN](https://en.wikipedia.org/wiki/David_Bowie) · [ES](https://es.wikipedia.org/wiki/David_Bowie)),
-  [*Changes* on Spotify](https://open.spotify.com/track/0LrwgdLsFaWh9VXIjBRe8t) —
-  the Name behind [changes](../.agents/skills/changes/SKILL.md),
+- Spice Girls ([EN](https://en.wikipedia.org/wiki/Spice_Girls) · [ES](https://es.wikipedia.org/wiki/Spice_Girls)),
+  [*2 Become 1* ([EN](https://en.wikipedia.org/wiki/Two_Become_One)) on Spotify](https://open.spotify.com/track/36AWdhZIGLUTkWpJDhe7va) —
+  the Name behind [2-become-1](../.agents/skills/2-become-1/SKILL.md),
   which checks whether one Intent still holds the accumulating work.
 - Add a Record here only when a Name or a Shape in the Canon
   carries it, and link the Place it Landed.
