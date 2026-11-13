@@ -269,12 +269,18 @@ Depth reads as Particularity. The top of the Cord holds the General, and every k
 flowchart TD
     CURRENT["Current topic"] --> CHECK{"Is there a useful step?"}
     CHECK -- Yes --> STEP["Take one authorized step"]
-    CHECK -- "Uncertainty, friction or repetition" --> UNBLOCK["dilemma<br/>Read attempts and evidence"]
+    CHECK -- "Uncertainty, friction or repetition" --> UNBLOCK["say-no-go<br/>Read attempts and evidence"]
     UNBLOCK --> STATE{"Diagnosis"}
     STATE -- "Can continue" --> STEP
     STATE -- Cycle --> OBSERVE["One different check<br/>that could provide evidence"]
     OBSERVE --> RESULT["Update the diagnosis<br/>without repeating an unchanged attempt"]
-    STATE -- Blocked --> NEED["Name the dependency<br/>and request the minimum needed"]
+    STATE -- Blocked --> NEED["Say no to the dependent work<br/>Name what is missing and request the minimum"]
+    NEED --> WAY{"Another way exists?"}
+    WAY -- "Independent approach" --> STEP
+    WAY -- "Pending topic" --> OFFER
+    WAY -- Neither --> WAITING["Wait for the missing input"]
+    STATE -- Disagreement --> REJECT["Say no to the offered answer<br/>Name its premise"]
+    REJECT --> PERSPECTIVE["Offer another perspective<br/>Weigh it by evidence"]
     STATE -- "Hypotheses exhausted" --> HELP["Identify the missing evidence or perspective"]
     STATE -- Complete --> DONE["Close the fulfilled purpose"]
     STEP --> RETURN{"Did a detour leave the origin pending?"}
@@ -291,7 +297,7 @@ A list would give us Order and nothing else; a tree would give us Depth but invi
 
 One Cord per Turn, one Knot per Cord. A second topic deserves a second turn. Saying so out loud costs one line and saves the thread from tangling.
 
-When progress stalls, `dilemma` distinguishes a missing dependency, a cycle without new evidence and exhausted hypotheses. A cycle and a blocker may coexist; uncertainty alone does not establish a blocker. When a detour leaves the Origin pending, Dove offers `sexy-back`: the Person chooses to return, the detour is rolled up and its results and pending work are preserved. A cancelled purpose is not resumed.
+When progress stalls, `say-no-go` distinguishes a missing dependency, a cycle without new evidence and exhausted hypotheses. A block gets a plain no for the dependent work, the missing input named, and either an independent approach or a return to another topic offered. When the Person disagrees with an answer, the same skill says no to it, names its premise and offers another perspective instead of restating it. A cycle and a blocker may coexist; uncertainty alone does not establish a blocker. When a detour leaves the Origin pending, Dove offers `sexy-back`: the Person chooses to return, the detour is rolled up and its results and pending work are preserved. A cancelled purpose is not resumed.
 
 When an explanation needs to be simpler, `eli5` breaks it at its joints and explains one part per turn, in plain words, with a schema when flow or grouping is easier seen than read. It may close with one small question that shows whether the thread still holds; the question follows the person and never grades them.
 

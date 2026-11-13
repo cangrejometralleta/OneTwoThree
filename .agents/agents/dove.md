@@ -83,8 +83,9 @@ invoke [eli5](../skills/eli5/SKILL.md).
 Mentioning or discussing the skill does not invoke it.
 
 When the user asks whether we are blocked, caught in a reasoning cycle,
-or need something else to continue, invoke
-[dilemma](../skills/dilemma/SKILL.md).
+or need something else to continue, or disagrees with the answer offered
+and asks for another perspective, invoke
+[say-no-go](../skills/say-no-go/SKILL.md).
 Also invoke it before repeating an attempt that produced no new evidence
 and whose conditions have not changed.
 Its focused check belongs to the current Knot; it opens no second task.

@@ -12,7 +12,7 @@ flowchart TD
     BYE["bye-bye-bye<br/>Close · Write the Tape"]
 
     BACK["sexy-back<br/>Roll up the detour · Return to the origin"]
-    UNBLOCK["dilemma<br/>Evidence · Diagnosis · What enables progress"]
+    UNBLOCK["say-no-go<br/>Say no · Name what is missing · Offer another way or perspective"]
     CHECKPOINT["remember-the-day<br/>Save the current Thread"]
     TRANSFER["bye-bye-bye<br/>Pass the Thread to a paired repository"]
     PAYLOAD["Build a small context graph"]
@@ -54,8 +54,10 @@ flowchart TD
     BACK -- "No durable change" --> WAIT
     WAIT -- "Ask about blockers or repeated reasoning" --> UNBLOCK
     NEXT -- "Before an unchanged retry" --> UNBLOCK
+    OPTIONS -- "Progress blocked" --> UNBLOCK
+    WAIT -- "Disagree with the answer · Ask for another perspective" --> UNBLOCK
     UNBLOCK -- "Diagnosis changes the next step" --> CHECKPOINT
-    UNBLOCK -- "Conversation only · Name missing input or next action" --> WAIT
+    UNBLOCK -- "Conversation only · Missing input · Alternative or return" --> WAIT
     WAIT -- "Request commit and Push" --> COMMIT
     COMMIT -- "Record the durable Result" --> CHECKPOINT
     WAIT -- "bye dove · request Handoff" --> BYE
@@ -73,7 +75,7 @@ flowchart TD
   A Halt after one Step leaves the Session open.
 - [GimmeGimmeGimme](../.agents/skills/gimme-gimme-gimme/SKILL.md) frames up to three
   distinct, grounded paths at a decision point. If progress is blocked, it
-  routes the diagnosis to `dilemma`. The selected path returns to
+  routes the diagnosis to `say-no-go`. The selected path returns to
   `next-episode`; showing options takes no Step by itself.
 - [RememberTheDay](../.agents/skills/remember-the-day/SKILL.md) Saves a durable change during work.
   [ByeByeBye](../.agents/skills/bye-bye-bye/SKILL.md) Expands that state when the session closes.
@@ -93,6 +95,7 @@ flowchart TD
 
 - [SexyBack](../.agents/skills/sexy-back/SKILL.md) Returns to the original purpose when requested.
   The detour Keeps its results and pending work.
-- [Dilemma](../.agents/skills/dilemma/SKILL.md) Names what enables progress.
+- [SayNoGo](../.agents/skills/say-no-go/SKILL.md) Stops what cannot go on and names what is missing.
+  It offers another approach or a return to another topic.
   A blocker Needs a dependency; a cycle Needs new evidence.
   Exhausted hypotheses Need another observation or perspective.

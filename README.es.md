@@ -367,7 +367,7 @@ Cada skill es una operación, y su archivo enlazado guarda los detalles.
 | Cuándo | Skill | Qué hace |
 | --- | --- | --- |
 | `ha dove`, `hey dove`, `yo dove`, `hi dove`, `sup dove`, `ring dove`, `ring ring dove`, `catch me up`, `what remains?` o `where did we leave off?` | [yo-yo-yo](.agents/skills/yo-yo-yo/SKILL.md) | Sincroniza la rama, reconstruye el contexto y nombra un siguiente paso. |
-| `what are our options?`, `where do we go from here?`, `what can we do next?` o `¿qué opciones tenemos?` | [gimme-gimme-gimme](.agents/skills/gimme-gimme-gimme/SKILL.md) | Presenta hasta tres caminos distintos y concretos; deriva los bloqueos a `dilemma`. |
+| `what are our options?`, `where do we go from here?`, `what can we do next?` o `¿qué opciones tenemos?` | [gimme-gimme-gimme](.agents/skills/gimme-gimme-gimme/SKILL.md) | Presenta hasta tres caminos distintos y concretos; deriva los bloqueos a `say-no-go`. |
 | Pide la voz conversacional de Dove o Cadencia Dove | [cadencia-dove](.agents/skills/cadencia-dove/SKILL.md) | Aplica el estilo y enmarcado de opciones sin necesitar al agente Dove. |
 | `next`, `go`, `vamos`, `sigues`, `let's go`, `come on`, `sigue`, `continue`, `go on`, `go ahead`, `carry on`, `proceed`, `do the next step` u opción elegida | [next-episode](.agents/skills/next-episode/SKILL.md) | Da un paso recomendado, lo verifica y nombra el siguiente. |
 | `sexy back`, `vuelve al origen`, `volvamos al tema original` o volver a donde empezó la conversación | [sexy-back](.agents/skills/sexy-back/SKILL.md) | Enrolla la digresión, conserva lo pendiente y retoma el propósito original. |
@@ -375,7 +375,7 @@ Cada skill es una operación, y su archivo enlazado guarda los detalles.
 | Una edición o decisión durable; `save progress` o `record where we are` | [remember-the-day](.agents/skills/remember-the-day/SKILL.md) | Guarda el hilo en `.handoff.md` durante el trabajo. |
 | `move this thread to another repo` o `carry this work over` | [bye-bye-bye](.agents/skills/bye-bye-bye/references/transfer.md) | Entrega un `.handoff.md` listo para copiar; no hace falta la ruta de destino. |
 | Cambia el código o un requisito cambia la forma de una app | [like-to-move-it](.agents/skills/like-to-move-it/SKILL.md) | Aplica las Rules de código y lee el flujo de diseño si el requisito cambia la forma de la app. |
-| `I'm stuck`, `what's blocking us?`, `how do we get unstuck?` o razonamiento repetido | [dilemma](.agents/skills/dilemma/SKILL.md) | Distingue bloqueos, ciclos o hipótesis agotadas y determina qué permite avanzar. |
+| `I'm stuck`, `what's blocking us?`, `how do we get unstuck?`, `no estoy de acuerdo`, `dame otra perspectiva` o razonamiento repetido | [say-no-go](.agents/skills/say-no-go/SKILL.md) | Detiene el trabajo bloqueado o una respuesta discutida, nombra lo que falta y ofrece otro enfoque, otra perspectiva o volver a otro tema. |
 | Un cambio empieza a crecer | [changes](.agents/skills/changes/SKILL.md) | Revisa si una sola intención aún sostiene el cambio. |
 | Pedir las stories pendientes | [long-story-short](.agents/skills/long-story-short/SKILL.md) | Ordena las stories por lo que esperan y destila la que elijas. |
 | Inspeccionar un lock o manifiesto de skills por sus dependencias | [skills-lock](.agents/skills/skills-lock/SKILL.md) | Lee el esquema declarado e informa las dependencias explícitas por skill. |

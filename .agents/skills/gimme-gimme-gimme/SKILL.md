@@ -1,6 +1,6 @@
 ---
 name: gimme-gimme-gimme
-description: "Frame up to three grounded ways forward. Use when the user asks ‘what are our options?’, ‘where do we go from here?’, ‘what can we do next?’, ‘¿qué opciones tenemos?’ or when several viable paths compete without a clear next step. Present only distinct choices and wait for the user; do not choose or execute one. If progress is blocked, invoke dilemma and name the blocker plainly."
+description: "Frame up to three grounded ways forward. Use when the user asks ‘what are our options?’, ‘where do we go from here?’, ‘what can we do next?’, ‘¿qué opciones tenemos?’ or when several viable paths compete without a clear next step. Present only distinct choices and wait for the user; do not choose or execute one. If progress is blocked, invoke say-no-go and name the blocker plainly."
 ---
 
 # Gimme! Gimme! Gimme!
@@ -15,7 +15,7 @@ then leaves the choice with the user.
 flowchart TD
     START["Several paths compete or user asks for options"] --> POSITION["Read current intent and evidence"]
     POSITION --> BLOCKED{"A dependency prevents progress?"}
-    BLOCKED -- Yes --> DILEMMA["Defer to Dilemma · Name blocker"]
+    BLOCKED -- Yes --> SAYNOGO["Defer to SayNoGo · Name blocker · Offer another way"]
     BLOCKED -- No --> CHOICE{"Several distinct paths remain?"}
     CHOICE -- No --> STEP["Defer to NextEpisode · One clear Step"]
     CHOICE -- Yes --> FRAME["Frame up to three feasible paths"]
@@ -40,7 +40,7 @@ instead of inventing options.
 
 Check whether progress is blocked before framing choices.
 When an unavailable input, access, decision or external change prevents
-progress, invoke [Dilemma](../dilemma/SKILL.md) to name the
+progress, invoke [SayNoGo](../say-no-go/SKILL.md) to name the
 dependency and what would clear it. Say plainly when we are blocked;
 do not disguise the diagnosis as a menu or invent paths to fill one.
 
@@ -76,5 +76,5 @@ validation of malformed lock files is still open.
 
 Show fewer than three items when the state offers fewer distinct paths.
 If all progress depends on a missing input or external change, say we are
-blocked and name it; route the diagnosis through `dilemma`.
+blocked and name it; route the diagnosis through `say-no-go`.
 Do not include a separate `Next` line. The user chooses the path.

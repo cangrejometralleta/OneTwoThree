@@ -357,7 +357,7 @@ Each skill is one operation, and its linked file holds the details.
 | When | Skill | What it does |
 | --- | --- | --- |
 | `ha dove`, `hey dove`, `yo dove`, `hi dove`, `sup dove`, `ring dove`, `ring ring dove`, `catch me up`, `what remains?` or `where did we leave off?` | [yo-yo-yo](.agents/skills/yo-yo-yo/SKILL.md) | Syncs the project branch, rebuilds context and names one next step. |
-| `what are our options?`, `where do we go from here?`, `what can we do next?` or `¿qué opciones tenemos?` | [gimme-gimme-gimme](.agents/skills/gimme-gimme-gimme/SKILL.md) | Frames up to three distinct, grounded paths; routes blockers to `dilemma`. |
+| `what are our options?`, `where do we go from here?`, `what can we do next?` or `¿qué opciones tenemos?` | [gimme-gimme-gimme](.agents/skills/gimme-gimme-gimme/SKILL.md) | Frames up to three distinct, grounded paths; routes blockers to `say-no-go`. |
 | Ask to speak in Dove's voice or use Cadencia Dove | [cadencia-dove](.agents/skills/cadencia-dove/SKILL.md) | Applies Dove's conversational style and option framing without requiring the Dove agent. |
 | `next`, `go`, `vamos`, `sigues`, `let's go`, `come on`, `sigue`, `continue`, `go on`, `go ahead`, `carry on`, `proceed`, `do the next step` or a selected option | [next-episode](.agents/skills/next-episode/SKILL.md) | Takes one recommended step, verifies it and names the following one. |
 | `sexy back`, `vuelve al origen`, `volvamos al tema original` or return to where the conversation started | [sexy-back](.agents/skills/sexy-back/SKILL.md) | Rolls up the digression, preserves what remains pending and resumes the original purpose. |
@@ -365,7 +365,7 @@ Each skill is one operation, and its linked file holds the details.
 | A durable edit, decision or validation; `save progress` or `record where we are` | [remember-the-day](.agents/skills/remember-the-day/SKILL.md) | Saves the thread in `.handoff.md` during work. |
 | `move this thread to another repo` or `carry this work over` | [bye-bye-bye](.agents/skills/bye-bye-bye/references/transfer.md) | Returns a copy-ready `.handoff.md`; no destination path is needed. |
 | Code changes or a requirement changes an app's shape | [like-to-move-it](.agents/skills/like-to-move-it/SKILL.md) | Applies code Rules and reads its design Workflow when a requirement changes the app's shape. |
-| `I'm stuck`, `what's blocking us?`, `how do we get unstuck?` or reasoning repeats | [dilemma](.agents/skills/dilemma/SKILL.md) | Identifies blockers, cycles or exhausted hypotheses and what makes progress possible. |
+| `I'm stuck`, `what's blocking us?`, `how do we get unstuck?`, `I disagree`, `give me another perspective` or reasoning repeats | [say-no-go](.agents/skills/say-no-go/SKILL.md) | Stops blocked work or a disputed answer, names what is missing and offers another approach, perspective or return to another topic. |
 | A change starts growing | [changes](.agents/skills/changes/SKILL.md) | Checks whether one intent still holds the change. |
 | Ask for pending stories | [long-story-short](.agents/skills/long-story-short/SKILL.md) | Sorts stories by what they wait on and distills the one you pick. |
 | Inspect a skill lock or manifest for dependencies | [skills-lock](.agents/skills/skills-lock/SKILL.md) | Reads the declared schema and reports explicit dependencies by skill. |

@@ -269,12 +269,18 @@ La Profundidad se lee como Particularidad. Lo alto del Cordón sostiene lo Gener
 flowchart TD
     CURRENT["Tema actual"] --> CHECK{"¿Hay un paso útil?"}
     CHECK -- Sí --> STEP["Tomar un paso autorizado"]
-    CHECK -- "Duda, atasco o repetición" --> UNBLOCK["dilemma<br/>Leer intentos y evidencia"]
+    CHECK -- "Duda, atasco o repetición" --> UNBLOCK["say-no-go<br/>Leer intentos y evidencia"]
     UNBLOCK --> STATE{"Diagnóstico"}
     STATE -- "Podemos continuar" --> STEP
     STATE -- Ciclo --> OBSERVE["Una comprobación diferente<br/>que pueda aportar evidencia"]
     OBSERVE --> RESULT["Actualizar el diagnóstico<br/>sin repetir el intento sin cambios"]
-    STATE -- Bloqueo --> NEED["Nombrar la dependencia<br/>y pedir lo mínimo necesario"]
+    STATE -- Bloqueo --> NEED["Decir no al trabajo dependiente<br/>Nombrar lo que falta y pedir lo mínimo"]
+    NEED --> WAY{"¿Hay otro camino?"}
+    WAY -- "Enfoque independiente" --> STEP
+    WAY -- "Tema pendiente" --> OFFER
+    WAY -- Ninguno --> WAITING["Esperar lo que falta"]
+    STATE -- Desacuerdo --> REJECT["Decir no a la respuesta ofrecida<br/>Nombrar su premisa"]
+    REJECT --> PERSPECTIVE["Ofrecer otra perspectiva<br/>Medirla con evidencia"]
     STATE -- "Hipótesis agotadas" --> HELP["Identificar la evidencia o perspectiva que falta"]
     STATE -- Cumplido --> DONE["Cerrar el propósito cumplido"]
     STEP --> RETURN{"¿Una digresión dejó pendiente el origen?"}
@@ -291,7 +297,7 @@ Una lista nos daría Orden y nada más; un árbol nos daría Profundidad pero in
 
 Un Cordón por Turno, un Nudo por Cordón. Un segundo tema merece un segundo turno. Decirlo en voz alta cuesta una línea y salva al hilo de enredarse.
 
-Si el avance se detiene, `dilemma` distingue la dependencia ausente, el ciclo sin evidencia nueva y las hipótesis agotadas. Un ciclo y un bloqueo pueden coexistir; una duda no basta para declarar un bloqueo. Si una digresión dejó pendiente el Origen, Dove ofrece `sexy-back`: la Persona elige volver, el desvío se enrolla y sus resultados y pendientes se conservan. Un propósito cancelado no se retoma.
+Si el avance se detiene, `say-no-go` distingue la dependencia ausente, el ciclo sin evidencia nueva y las hipótesis agotadas. Un bloqueo recibe un no claro para el trabajo dependiente, con lo que falta nombrado y un enfoque independiente o la vuelta a otro tema como oferta. Si la Persona no está de acuerdo con una respuesta, el mismo skill le dice no, nombra su premisa y ofrece otra perspectiva en vez de repetirla. Un ciclo y un bloqueo pueden coexistir; una duda no basta para declarar un bloqueo. Si una digresión dejó pendiente el Origen, Dove ofrece `sexy-back`: la Persona elige volver, el desvío se enrolla y sus resultados y pendientes se conservan. Un propósito cancelado no se retoma.
 
 Cuando una explicación necesita ser más simple, `eli5` la parte por sus juntas y explica una parte por turno, con palabras sencillas y un esquema cuando el flujo o la agrupación se ven mejor que se leen. Puede cerrar con una pregunta pequeña que muestra si el hilo sigue firme; la pregunta acompaña a la persona y nunca la califica.
 

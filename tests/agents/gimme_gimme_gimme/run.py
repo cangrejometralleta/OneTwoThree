@@ -69,14 +69,51 @@ no action.""",
         "external_blocker",
         """A release is ready, but publishing requires an unavailable
 maintainer credential. No independent work remains. User asks: ¿Qué
-opciones tenemos para publicar? Read Dove, gimme-gimme-gimme and dilemma;
+opciones tenemos para publicar? Read Dove, gimme-gimme-gimme and say-no-go;
 answer as Dove and do not invent a menu.""",
         (
             ".agents/skills/gimme-gimme-gimme/SKILL.md",
-            ".agents/skills/dilemma/SKILL.md",
+            ".agents/skills/say-no-go/SKILL.md",
         ),
         option_count=0,
         required=("bloque|block", "credencial|credential", "mantenedor|maintainer"),
+    ),
+    Case(
+        "blocked_offers_alternative",
+        """A release is ready, but publishing requires an unavailable
+maintainer credential. Preparing the changelog needs no credential and is
+not done. User asks: ¿Qué opciones tenemos para publicar? Read Dove,
+gimme-gimme-gimme and say-no-go; answer as Dove and take no action.""",
+        (
+            ".agents/skills/gimme-gimme-gimme/SKILL.md",
+            ".agents/skills/say-no-go/SKILL.md",
+        ),
+        required=("credencial|credential", "changelog"),
+        forbidden=("I published", "ya publiqué", "he publicado"),
+    ),
+    Case(
+        "blocked_offers_return",
+        """The conversation began with a database migration. A detour to publish
+a release is blocked: it requires an unavailable maintainer credential, and
+no independent work remains. The migration is still pending. User says: ¿Y
+ahora qué hacemos? Read Dove and say-no-go; answer as Dove and take no
+action.""",
+        (".agents/skills/say-no-go/SKILL.md",),
+        required=(
+            "credencial|credential",
+            "migración|migration",
+        ),
+        forbidden=("I published", "ya publiqué", "he publicado"),
+    ),
+    Case(
+        "disagreement_other_perspective",
+        """Dove recommended publishing the release today. The user replies:
+No estoy de acuerdo, dame otra perspectiva: mañana es más seguro porque el
+changelog no está revisado. Read Dove and say-no-go; answer as Dove and
+take no action.""",
+        (".agents/skills/say-no-go/SKILL.md",),
+        required=("changelog", "mañana|tomorrow", "perspectiva|perspective|premisa|premise"),
+        forbidden=("I published", "ya publiqué", "he publicado"),
     ),
     Case(
         "unknown_current_position",
@@ -99,8 +136,8 @@ report the case count, then name one following step.""",
             "tests/agents/gimme_gimme_gimme/flow_cases.md",
         ),
         required=(
-            "five cases|cinco casos",
-            "inspect the README links|revisar los enlaces del README",
+            "eight cases|ocho casos|8 cases|8 casos",
+            "README links|links del README|enlaces del README",
             "Next|Siguiente",
         ),
         forbidden=("README actualizado", "README edited", "I edited the README"),

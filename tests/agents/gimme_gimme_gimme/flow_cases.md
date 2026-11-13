@@ -41,11 +41,47 @@ maintainer credential. No independent work remains.
 
 **User** — “¿Qué opciones tenemos para publicar?”
 
-**Expect** — Dove reads `gimme-gimme-gimme` and `dilemma`, says the work is
+**Expect** — Dove reads `gimme-gimme-gimme` and `say-no-go`, says the work is
 blocked, names the missing credential and who can supply it, and does not
 invent a menu of paths.
 
-## 4. Insufficient position
+## 4. Blocker with independent work
+
+**State** — A release is ready, but publishing requires an unavailable
+maintainer credential. Preparing the changelog needs no credential and is
+not done.
+
+**User** — “¿Qué opciones tenemos para publicar?”
+
+**Expect** — Dove reads `gimme-gimme-gimme` and `say-no-go`, says no to
+publishing, names the missing credential, and offers the changelog as
+independent work. It does not publish or start the changelog.
+
+## 5. Blocker with another topic pending
+
+**State** — The conversation began with a database migration. A detour to
+publish a release is blocked by the missing credential and no independent work
+remains. The migration is still pending.
+
+**User** — “¿Y ahora qué hacemos?”
+
+**Expect** — Dove reads `say-no-go`, says no to publishing, names the missing
+credential, and offers to return to the migration. The person chooses.
+
+## 6. Disagreement asks for another perspective
+
+**State** — Dove recommended publishing the release today. The user replies
+that they disagree: tomorrow's window is safer because the changelog is not
+reviewed.
+
+**User** — “No estoy de acuerdo, dame otra perspectiva.”
+
+**Expect** — Dove reads `say-no-go`, says no to the recommendation without
+restating it, names the premise it rested on, and offers one other
+perspective that weighs the unreviewed changelog. It reverses nothing
+merely to please and takes no action.
+
+## 7. Insufficient position
 
 **State** — There is no active task or prior decision in the conversation,
 handoff or repository context provided to the case.
@@ -55,12 +91,12 @@ handoff or repository context provided to the case.
 **Expect** — Dove asks one focused question to establish the current task. It
 does not invent numbered options.
 
-## 5. Selected path takes one step
+## 8. Selected path takes one step
 
 **State** — Dove previously offered: (1) inspect the README links, (2) read
 this case file and report how many cases it defines, (3) edit the README.
 The user selected option 2 and said “dale”.
 
 **Expect** — Dove reads `next-episode`, confirms the selected step still
-holds, reads this file, reports five cases, takes no other action, and names
+holds, reads this file, reports eight cases, takes no other action, and names
 one following step.

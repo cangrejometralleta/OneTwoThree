@@ -56,7 +56,7 @@ without one grounded next step, invoke
 [GimmeGimmeGimme](../gimme-gimme-gimme/SKILL.md). It frames up to three
 distinct paths and waits for the user's choice.
 
-When progress is blocked, invoke [Dilemma](../dilemma/SKILL.md) to name what
+When progress is blocked, invoke [SayNoGo](../say-no-go/SKILL.md) to name what
 is missing instead of padding the menu. After the user selects a path or asks
 to continue a named step, use [NextEpisode](../next-episode/SKILL.md) to take
 that one step.

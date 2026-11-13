@@ -19,10 +19,10 @@
   [sexy-back](../.agents/skills/sexy-back/SKILL.md) returns to the thread's
   beginning. Its playful Name can make that return easier to face, even when
   the original Topic feels hard to revisit.
-- Kelly Rowland ([EN](https://en.wikipedia.org/wiki/Kelly_Rowland) · [ES](https://es.wikipedia.org/wiki/Kelly_Rowland)) featuring Nelly,
-  [*Dilemma* on Spotify](https://open.spotify.com/track/0ARK753YaiJbpLUk7z5yIM) —
-  the Name behind [dilemma](../.agents/skills/dilemma/SKILL.md), which names
-  what keeps progress caught and what could make it possible.
+- De La Soul ([EN](https://en.wikipedia.org/wiki/De_La_Soul) · [ES](https://es.wikipedia.org/wiki/De_La_Soul)),
+  [*Say No Go* ([EN](https://en.wikipedia.org/wiki/Say_No_Go)) on Spotify](https://open.spotify.com/track/1VlIjGDl74uwzy1nzeQ3Qr) —
+  the Name behind [say-no-go](../.agents/skills/say-no-go/SKILL.md), which stops
+  work that cannot go on, names what is missing and offers another way.
 - Pink Floyd,
   [*Remember a Day* on Spotify](https://open.spotify.com/track/13OCazXv1Y4IYjr4g1IqHA) —
   from [*A Saucerful of Secrets*](https://www.pinkfloyd.com/albums/a-saucerful-of-secrets/),
