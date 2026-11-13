@@ -393,7 +393,7 @@ without the others leaves it working worse, so connect all three.
   applies a documented layout of them.
 - **`npx skills add cangrejometralleta/dove-canon`.** It installs the skills
   and nothing else, and `#v2.0.0` pins a release. Each skill is copied alone,
-  so in a clean install 69 of 121 relative links broke, and `dove.md` was not
+  so in a clean install 65 of 106 relative links broke, and `dove.md` was not
   installed. The skills still load; what they cite does not resolve.
 
 Whichever way you connect, check the folder and then ask the client. The

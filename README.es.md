@@ -404,7 +404,7 @@ conecta las tres.
   documentada de ellos.
 - **`npx skills add cangrejometralleta/dove-canon`.** Instala las skills y
   nada más, y `#v2.0.0` fija un release. Cada skill se copia sola, así que en
-  una instalación limpia 69 de 121 links relativos se rompieron, y `dove.md` no
+  una instalación limpia 65 de 106 links relativos se rompieron, y `dove.md` no
   se instaló. Las skills cargan igual; lo que citan no resuelve.
 
 Conectes como conectes, revisa la carpeta y después pregúntale al cliente. La
