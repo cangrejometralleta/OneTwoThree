@@ -230,3 +230,55 @@ Johnny torments them, attacks Bill, and keeps them awake. The desperate men dema
 
 Dorset offers to take Johnny back for $250. They pay and return him; Johnny clings to Bill, so his Father promises to hold him ten minutes.
 ```
+
+## Second run: Sonnet at high effort, five conditions, with a quality check
+
+The first run found brevity without a quality check and ran in one Codex session. This run uses independent calls, real token counts from the runtime, and a judge for the summaries. Raw outputs and scores are in [results.json](cadencia-dove-benchmark-sonnet-high/results.json) and [judge.json](cadencia-dove-benchmark-sonnet-high/judge.json).
+
+### Run record
+
+- **Date and runtime:** 2026-11-13; Claude Code 2.1.282 with `--print --tools "" --model sonnet --effort high`. Every call was its own session. The usage report names the serving model `claude-sonnet-5`.
+- **Conditions:** vanilla (task only); **Caveman**, the public [`skills/caveman/SKILL.md`](https://github.com/JuliusBrussee/caveman/blob/2178ed6495c3c0ecd7d037e60acf3b1d0c554b97/skills/caveman/SKILL.md) as of commit `2178ed6`, 744 words; **Cadencia full**, `cadencia-dove` at commit `2253fd4`, 938 words; **Mini on**, `cadencia-dove-mini` with DeLaCase on by default, about 320 words; **Mini off**, the same text with "No DeLaCase." (or "Sin DeLaCase.") added to the request. Each style text was passed as an instruction ahead of the task, as in the first run, not installed as a skill.
+- **Summaries:** the six stories of the first run, in full from Wikisource, with the same three-paragraph prompt, two samples per story and condition (12 per condition).
+- **Explanations:** eight short questions, four English and four Spanish, "answer in two short paragraphs", one sample each.
+- **Counting:** `output_tokens` from the runtime usage report. **Thinking** is `thinking_tokens` from the same report, billed as output but not shown. **Visible** is output minus thinking. Words are of the visible text.
+- **Judge:** Sonnet at high effort, one summary per call, in shuffled order, shown only the story and the summary. It scored four criteria from 0 to 2: main events, causal relations, ending, and faithfulness (no wrong or invented fact), and listed each error.
+
+### Summaries (12 per condition, tokens are means)
+
+| Condition | Visible | Thinking | Total output | Judge score (of 8) | Faithfulness (of 2) | Perfect 8/8 | Exactly three paragraphs |
+|---|---:|---:|---:|---:|---:|---:|---:|
+| Vanilla | 764 | 4 | 768 | 7.58 | 1.58 | 7/12 | 11/12 |
+| Caveman | 416 | 578 | 994 | 7.42 | 1.42 | 5/12 | 11/12 |
+| Cadencia full | 577 | 100 | 678 | 7.67 | 1.67 | 8/12 | 12/12 |
+| Mini on | 524 | 1112 | 1636 | 7.42 | 1.42 | 5/12 | 12/12 |
+| Mini off | 570 | 74 | 644 | 7.75 | 1.75 | 9/12 | 12/12 |
+
+Median total output was 786 (vanilla), 812 (Caveman), 710 (Cadencia full), 1122 (Mini on) and 678 (Mini off) tokens. Events, causality and ending scored 2.00 in every condition, so the differences above come only from faithfulness.
+
+### Explanations (8 per condition, tokens are means)
+
+| Condition | Visible | Thinking | Total output | Words |
+|---|---:|---:|---:|---:|
+| Vanilla | 315 | 0 | 315 | 149 |
+| Caveman | 156 | 67 | 223 | 63 |
+| Cadencia full | 183 | 0 | 183 | 88 |
+| Mini on | 208 | 671 | 879 | 91 |
+| Mini off | 211 | 20 | 231 | 103 |
+
+A separate DeLaCase check ran the same eight questions, two samples each, with the Mini on and off ([delacase-check.json](cadencia-dove-benchmark-sonnet-high/delacase-check.json)). With DeLaCase off, none of 16 answers carried a capital of emphasis. With it on, 15 of 16 did and, counting a two-word name once, 2 of 16 went over the three-per-passage ceiling. The counter is a heuristic, not a judgment.
+
+### What the run shows
+
+- **Caveman writes the shortest visible text:** 46% fewer tokens than vanilla on summaries and 50% on explanations, against 24% to 42% for Cadencia full and 25% to 34% for the Mini. The first run's near tie did not repeat.
+- **Visible length is not the bill:** Caveman and Mini on triggered long hidden reasoning at high effort, so their total output exceeded vanilla on summaries. Cadencia full and Mini off stayed at or below vanilla in total.
+- **DeLaCase on by default is the costly part:** with it, the Mini's total output on summaries rose from a median of 678 to 1122 tokens. The effort setting matters here; lower effort may change this.
+- **Quality moved little:** every summary kept events, causes and endings. Faithfulness ranged from 1.42 to 1.75 over 12 summaries per condition, and the judge flagged slips such as a chain "months" long where the story says weeks, or a bird killed where it is only wounded. Those flags appear in all five conditions.
+
+### Limits
+
+- Twelve summaries and eight answers per condition, one session, one model and one effort setting. A gap of a few tenths of a point is inside the noise.
+- The judge is one model of the same family as the writer, and it can see a condition's style, so it is not blind to it. It also flagged small inferences as errors. A second judge or a human read would test it.
+- Hidden reasoning varies a lot between runs, so the totals carry wide spread; medians are given beside the means.
+- Caveman was passed as an instruction, not loaded as an installed skill, and Cadencia full was measured after it was made standalone.
+- No cost saving is claimed: per-call cost was dominated by the story and the fixed context, and no style was cheaper than vanilla.

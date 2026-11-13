@@ -356,6 +356,16 @@ general, pero justifican una evaluación controlada con ejecuciones
 independientes. Los prompts, fuentes, limitaciones y resultados completos están
 en el [registro del benchmark](references/cadencia-dove-token-benchmark.md).
 
+Una segunda corrida usó Sonnet con esfuerzo alto, conteo real de tokens y un
+juez. Caveman escribió el texto visible más corto, 46 % menos que vanilla en
+resúmenes, contra 24 % de la Cadencia completa y 31 % de la mini. La calidad casi
+no se movió: todos los resúmenes conservaron eventos, causas y final, y la
+fidelidad quedó entre 1,42 y 1,75 de 2. DeLaCase activado por defecto hizo que
+la mini razonara mucho más, así que su salida total superó a vanilla; con
+DeLaCase apagado quedó por debajo. La
+[segunda corrida](references/cadencia-dove-token-benchmark.md#second-run-sonnet-at-high-effort-five-conditions-with-a-quality-check)
+detalla sus límites, entre ellos doce resúmenes por condición y un solo juez.
+
 ### Las skills le dan nombre al trabajo recurrente
 
 Cada skill es una operación, y su archivo enlazado guarda los detalles.

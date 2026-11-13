@@ -347,6 +347,15 @@ but they justify a controlled evaluation with independent runs. The complete
 prompts, sources, limitations and outputs live in the
 [benchmark record](references/cadencia-dove-token-benchmark.md).
 
+A second run used Sonnet at high effort, real token counts and a judge. Caveman
+wrote the shortest visible text, 46% under vanilla on summaries against 24% for
+the full Cadencia and 31% for the mini. Quality barely moved: every summary kept
+its events, causes and ending, and faithfulness stayed within 1.42 to 1.75 of
+2. DeLaCase on by default made the mini think far longer, so its total output
+rose above vanilla; with DeLaCase off it stayed below. The
+[second run](references/cadencia-dove-token-benchmark.md#second-run-sonnet-at-high-effort-five-conditions-with-a-quality-check)
+lists its limits, among them twelve summaries per condition and a single judge.
+
 ### Skills give recurring work a name
 
 Each skill is one operation, and its linked file holds the details.
