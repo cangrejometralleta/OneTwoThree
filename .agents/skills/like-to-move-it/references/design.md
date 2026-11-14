@@ -32,7 +32,6 @@ Copy the Structure of the Example of its Kind, not its Business.
 | Kind | Origin Example | Real Example |
 | --- | --- | --- |
 | API | [examples/school](../../../../examples/school) | muchi-api, beside this repository |
-| Converter | [examples/pdf](../../../../examples/pdf) | none yet |
 
 A Kind with no row is a new Kind: build the smallest working Shape first,
 and let the Next project decide what is Generic.

@@ -27,8 +27,7 @@ the architecture, the operations and the checks that make them concrete.
   [Patterns](PATTERNS.md).
 - To work as an Agent, start at [AGENTS.md](AGENTS.md), then read
   [Rules](RULES.md).
-- To see the Rules run, open the [School service](examples/school/README.md) or
-  the [PDF converter](examples/pdf/README.md).
+- To see the Rules run, open the [School service](examples/school/README.md).
 - To connect another project, read
   [Connect another project](#connect-another-project).
 
@@ -65,8 +64,7 @@ generate and compare; the Person decides what governs.
 The examples are where the architectural Rules run. The School service is
 generated from a Contract, a Specification and a Shape that live outside its
 code, and its Go, Java and TypeScript versions answer the same requests the
-same way. The PDF converter keeps parsing, document structure and rendering
-behind boundaries you can point at.
+same way.
 
 What we are after is Work you can understand, verify and pick up again after
 an interruption.
@@ -79,7 +77,7 @@ RULES.md    the How       verifiable rules, in rules/
 PATTERNS.md the Where     recurring roots, in patterns/
 AGENTS.md   the Pointer   what an agent loads on its own
 .agents/    agents/ and skills/, the operations
-examples/   school/ in Go, Java and TypeScript, pdf/ in Go; specs/ holds what generates them
+examples/   school/ in Go, Java and TypeScript; specs/ holds what generates them
 docs/       the Presentation, in English and Spanish
 stories/    STORY.md, stories/ and chaos/: context, not yet canon
 jokes/      hand-written humour; read it, and leave it as it is
@@ -255,19 +253,6 @@ func (a Handler) ShowStudentRecord(req transport.Request) (any, error) {
 ```
 
 Eleven lines, three beats: receive, transform and return.
-
-### The PDF converter
-
-[PDF](examples/pdf/README.md) renders the manifesto from Markdown to PDF in
-pure Go. `markdown/` is the only package that imports goldmark, `render/` the
-only one that imports gopdf. `document/` and `style/` import no vendor, and
-five small functions turn plain Markdown into a booklet.
-
-```sh
-cd examples/pdf
-./build.sh
-./run.sh testdata/sample.md        # writes sample.pdf beside it
-```
 
 ### Checks you can run
 

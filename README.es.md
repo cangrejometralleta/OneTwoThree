@@ -31,8 +31,7 @@ concretas. Los documentos enlazados están en inglés, salvo la Presentación.
 - Para trabajar como Agente, empieza en [AGENTS.md](AGENTS.md) y luego lee
   [Rules](RULES.md).
 - Para ver las Reglas en ejecución, abre el
-  [servicio School](examples/school/README.md) o el
-  [conversor PDF](examples/pdf/README.md).
+  [servicio School](examples/school/README.md).
 - Para conectar otro proyecto, lee
   [Conectar otro proyecto](#conectar-otro-proyecto).
 
@@ -70,9 +69,7 @@ gobierna.
 Los ejemplos son donde corren las Reglas de arquitectura. El servicio School se
 genera desde un Contrato, una Especificación y una Forma que viven fuera de su
 código, y sus versiones en Go, Java y TypeScript responden las mismas
-solicitudes de la misma manera. El conversor PDF mantiene el parseo, la
-estructura del documento y el renderizado detrás de fronteras que puedes
-señalar con el dedo.
+solicitudes de la misma manera.
 
 Lo que buscamos es un Trabajo que puedas entender, verificar y retomar después
 de una interrupción.
@@ -85,7 +82,7 @@ RULES.md    el Cómo        reglas verificables, en rules/
 PATTERNS.md el Dónde       raíces que se repiten, en patterns/
 AGENTS.md   el Puntero     lo que un agente carga solo
 .agents/    agents/ y skills/, las operaciones
-examples/   school/ en Go, Java y TypeScript, pdf/ en Go; specs/ guarda lo que los genera
+examples/   school/ en Go, Java y TypeScript; specs/ guarda lo que los genera
 docs/       la Presentación, en inglés y en español
 stories/    STORY.md, stories/ y chaos/: contexto, aún no canon
 jokes/      humor escrito a mano; se lee, y se deja como está
@@ -264,19 +261,6 @@ func (a Handler) ShowStudentRecord(req transport.Request) (any, error) {
 ```
 
 Once líneas, tres tiempos: recibir, transformar y devolver.
-
-### El conversor PDF
-
-[PDF](examples/pdf/README.md) renderiza el manifiesto de Markdown a PDF en Go
-puro. `markdown/` es el único paquete que importa goldmark, y `render/` el
-único que importa gopdf. `document/` y `style/` no importan ningún vendor, y
-cinco funciones pequeñas convierten Markdown simple en un librito.
-
-```sh
-cd examples/pdf
-./build.sh
-./run.sh testdata/sample.md        # escribe sample.pdf al lado
-```
 
 ### Chequeos que puedes correr
 
