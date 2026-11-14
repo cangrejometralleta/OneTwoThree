@@ -37,9 +37,8 @@ The shared Markdown Defines the agent's Voice and behavior.
 The small TOML Adapter Identifies the Codex agent
 and instructs it to read that markdown before it talks.
 
-Skills use the shorter `one-two-` Prefix.
 The repeated three-part names Mark fundamental workflow operations —
-open, advance, commit and close — so they stand out from the rest.
+open, commit and close — so they stand out from the rest.
 [yo-yo-yo](../.agents/skills/yo-yo-yo/SKILL.md) Opens the session.
 [next-episode](../.agents/skills/next-episode/SKILL.md) Advances one step.
 [commit-commit-commit](../.agents/skills/commit-commit-commit/SKILL.md) Handles commits and the final push.
