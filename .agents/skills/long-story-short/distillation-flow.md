@@ -112,6 +112,6 @@ Every Story Answers three, in this order:
 ## Open
 
 - Is `stories/roadmap.md` a Story, or a Stage of its own  
-  beside the Passage, the way Jokes are?
+  beside the Passage?
 - Should this Flow reach the README, under "How Context Becomes Canon",  
   once a second session has used it?

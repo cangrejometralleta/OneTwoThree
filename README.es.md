@@ -85,7 +85,6 @@ AGENTS.md   el Puntero     lo que un agente carga solo
 examples/   school/ en Go, Java y TypeScript; specs/ guarda lo que los genera
 docs/       la Presentación, en inglés y en español
 stories/    STORY.md, stories/ y chaos/: contexto, aún no canon
-jokes/      humor escrito a mano; se lee, y se deja como está
 ```
 
 El resto de esta página sigue ese mapa. Primero el Manifiesto, después el

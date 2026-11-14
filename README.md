@@ -80,7 +80,6 @@ AGENTS.md   the Pointer   what an agent loads on its own
 examples/   school/ in Go, Java and TypeScript; specs/ holds what generates them
 docs/       the Presentation, in English and Spanish
 stories/    STORY.md, stories/ and chaos/: context, not yet canon
-jokes/      hand-written humour; read it, and leave it as it is
 ```
 
 The rest of this page follows that map. First the Manifesto, then the code
