@@ -118,3 +118,78 @@ G-S and G-M, and collect two more independent samples per condition before
 comparing medians or drawing a style conclusion. The fixtures and JSONL usage
 records for this run are in `/tmp/onetwothree-school-bench-Oq9Lf4/` on the
 benchmark machine; the result table above preserves the measurements here.
+
+## G-L Dove Retry — Sonnet High — 2026-11-13
+
+A second G-L Dove sample, on a different model and runtime, to see whether the
+failing adapter behavior above repeats. One sample (`n=1`), not a
+replication of Luna High: model, CLI and the usage metric's shape all differ,
+so the two rows do not share a Scale.
+
+**Setup:** a fresh git worktree from the current `main`, with the same
+production files removed from `examples/school/go/` as the first run —
+tests, `serving/adaptertest/adaptertest.go`, `build.sh` and `run.sh` held
+fixed. **Model:** `claude-sonnet-5`, effort `high`, through Claude Code
+2.1.282 (`--print --dangerously-skip-permissions`), one fresh session, no
+installed skill — the task instruction pointed the session at `RULES.md` and
+its linked Rules directly. **Verification:** `build.sh` was run a second
+time, independently of the session's own report, before trusting the result.
+
+| Condition | Output tokens | Reasoning tokens | Production files | Lines | Bytes | Acceptance |
+| --- | ---: | ---: | ---: | ---: | ---: | --- |
+| Dove (Sonnet) | 352,416 | 248,066 | 23 | 2,160 | 61,692 | `./build.sh` passed |
+
+Format, vet, every test — including the shared `adaptertest` contract run
+against `stdlib`, `chi` and `gin` — and the binary build all passed on the
+independent re-run. Luna High's Dove sample failed that same adapter contract
+with three `201`/mismatched-body cases; this Dove sample did not reproduce
+that failure.
+
+The token column is not comparable to Luna High's table above it. Luna's
+figures are a single usage record from one Codex CLI turn; Claude Code's
+`--print` session reports usage per turn across the whole agentic run (179
+turns here), so the total already carries the growing cached context of a
+long tool-use session, not a per-task cost. Reasoning tokens are counted the
+same way in both tables but come from different runtimes and are not on a
+shared scale either.
+
+One accident during the run: the session deleted an untracked scratch file
+at the worktree root while checking `git status`, outside the
+`examples/school/go/` scope it was given. The file was not part of the
+fixture and its loss does not affect this result, but it is worth naming as
+a boundary the instruction did not hold.
+
+This sample says the adapter failure is not forced by the Dove condition
+itself — one model passed where another failed on the same contract. It does
+not say Dove is cheaper or more reliable in general: still `n=1` per model,
+still missing G-S, G-M, and the Caveman and vanilla counterparts on this same
+runtime. Replicate on Sonnet before reading the acceptance difference as a
+model effect rather than noise.
+
+## G-L Caveman — Sonnet High — 2026-11-13
+
+A same-day Caveman sample on the same runtime, to put a second condition next
+to the Dove retry above before reading either as a style effect.
+
+**Setup:** identical to the Dove retry — a fresh worktree from the same
+`main`, the same files removed from `examples/school/go/`, same model,
+effort, CLI and independent `build.sh` re-run. **Condition:** the task
+instruction pointed the session at the public
+[Caveman `SKILL.md`](https://github.com/JuliusBrussee/caveman/blob/2178ed6495c3c0ecd7d037e60acf3b1d0c554b97/skills/caveman/SKILL.md)
+at commit `2178ed6`, fetched fresh for this run (744 words, matching the
+count already recorded for it). As in the first run, Caveman governs voice
+and talk, not the generated code or its comments — the skill's own rule
+keeps persisted code and comments in normal prose.
+
+| Condition | Output tokens | Reasoning tokens | Production files | Lines | Bytes | Acceptance |
+| --- | ---: | ---: | ---: | ---: | ---: | --- |
+| Dove (Sonnet) | 352,416 | 248,066 | 23 | 2,160 | 61,692 | `./build.sh` passed |
+| Caveman (Sonnet) | 311,169 | 231,817 | 24 | 2,085 | 58,888 | `./build.sh` passed |
+
+Both passed format, vet, every test — including the shared `adaptertest`
+contract against `stdlib`, `chi` and `gin` — and the binary build, verified
+independently of each session's own report. Caveman's code came out slightly
+smaller and used slightly fewer tokens than Dove's, but the gap is a few
+percent on `n=1` each; nowhere near the gap either showed against Luna
+High's failing Dove sample. Vanilla on this same runtime is still missing,
+so neither row here can yet be read against a baseline.

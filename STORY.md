@@ -61,7 +61,7 @@ AGENTS.md stays free for the short pointer to canon.
 - [A Channel for Design](stories/a-channel-for-design.md) — the Value landed; the example Catalog waits, and the skill name is now `like-to-move-it`
 - [The Skill Travels; the Agent Has a Home](stories/agent-and-skill.md) — across Agent hosts
 - [Common Language Aligns](stories/common-language-aligns.md) — psychology and common language as small, calibrated contributions to alignment
-- [Code Generation Needs a Size and Correctness Trial](stories/code-generation-benchmark.md) (MOVING: first Luna High G-L sample logged; Dove adapter checks fail; smaller cases and replications remain) — compare vanilla, Caveman and Dove against School at three scales
+- [Code Generation Needs a Size and Correctness Trial](stories/code-generation-benchmark.md) (MOVING: Luna High G-L Dove failed the adapter contract; a Sonnet High G-L Dove retry passed it; smaller cases, replications and the other conditions on Sonnet remain) — compare vanilla, Caveman and Dove against School at three scales
 
 ## Provenance Map
 
